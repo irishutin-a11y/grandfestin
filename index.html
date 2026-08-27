@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Festin — Insertion, formation et gastronomie inclusive</title>
+<link rel="stylesheet" href="styles/styles.css" />
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="data/data.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" src="components/Nav.jsx"></script>
+<script type="text/babel" src="components/Hero.jsx"></script>
+<script type="text/babel" src="components/Sections.jsx"></script>
+<script type="text/babel" src="components/Selector.jsx"></script>
+<script type="text/babel" src="components/Formations.jsx"></script>
+<script type="text/babel" src="components/Pages.jsx"></script>
+<script type="text/babel">
+// ─── Hash router ─────────────────────────────────────────────────
+function parseRoute(hash) {
+  const h = (hash || '').replace(/^#\/?/, '').replace(/\/$/, '');
+  if (!h) return { name: 'home' };
+  const parts = h.split('/');
+  if (parts[0] === 'formations' && parts[1]) return { name: 'formation', id: parts[1] };
+  if (parts[0] === 'formations') return { name: 'formations' };
+  if (parts[0] === 'projets' && parts[1]) return { name: 'projet', id: parts[1] };
+  if (parts[0] === 'restaurants' && parts[1] === 'sadi-carnot') return { name: 'sadi-carnot' };
+  if (parts[0] === 'accompagnement' && parts[1] === 'insertion') return { name: 'accomp-insertion' };
+  if (parts[0] === 'accompagnement' && parts[1] === 'professionnels') return { name: 'accomp-pros' };
+  if (parts[0] === 'academie') return { name: 'academie' };
+  if (parts[0] === 'actualites') return { name: 'actualites' };
+  if (parts[0] === 'impact') return { name: 'impact' };
+  if (parts[0] === 'about') return { name: 'about' };
+  if (parts[0] === 'contact') return { name: 'contact' };
+  return { name: '404' };
+}
+
+function App() {
+  const hash = useRoute();
+  const route = parseRoute(hash);
+  React.useEffect(() => {
+    if (window.lucide) window.lucide.createIcons();
+  }, [hash]);
+
+  let page;
+  switch (route.name) {
+    case 'home':              page = <HomePage />; break;
+    case 'formations':        page = <FormationsListPage />; break;
+    case 'formation':         page = <FormationDetailPage id={route.id} />; break;
+    case 'projet':            page = <ProjetPage id={route.id} />; break;
+    case 'sadi-carnot':       page = <SadiCarnotPage />; break;
+    case 'accomp-insertion':  page = <AccompagnementInsertionPage />; break;
+    case 'accomp-pros':       page = <AccompagnementProsPage />; break;
+    case 'academie':          page = <AcademiePage />; break;
+    case 'actualites':         page = <ActualitesPage />; break;
+    case 'impact':            page = <ImpactPage />; break;
+    case 'about':             page = <AboutPage />; break;
+    case 'contact':           page = <ContactPage />; break;
+    default:                  page = <NotFoundPage />;
+  }
+
+  return (
+    <div data-screen-label={`Site — ${route.name}`}>
+      <Nav />
+      {page}
+      <Footer />
+      <FloatingCTA />
+    </div>
+  );
+}
+
+if (!window.location.hash) window.location.hash = '#/';
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+</script>
+</body>
+</html>

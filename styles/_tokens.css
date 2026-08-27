@@ -1,0 +1,226 @@
+/* ============================================================
+   Festin — Design Tokens
+   Colors, type, semantic styles
+   ============================================================ */
+
+/* ---------- FONTS ---------- */
+@font-face {
+  font-family: 'KoHo';
+  src: url('../typos/KoHo-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'KoHo';
+  src: url('../typos/KoHo-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'KoHo';
+  src: url('../typos/festin-display.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'KoHo';
+  src: url('../typos/KoHo-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+/* Italic falls back to Google CDN (KoHo italic not in uploads) */
+@import url('https://fonts.googleapis.com/css2?family=KoHo:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap');
+
+:root {
+  /* ---------- BRAND COLORS ---------- */
+
+  /* Teal — primary brand (the "festin" logotype color) */
+  --teal:        #1D6B78;   /* primary, body links, CTAs, eyebrow on cream */
+  --teal-dark:   #0F3C44;   /* page-headers, footer, hero deep BG */
+  --teal-deep:   #0A2D33;   /* hero deepest BG, dark testimonial cards */
+  --teal-tint:   #E8F1F2;   /* hover backgrounds, dropdown highlights */
+  --teal-tint-2: #C9DDE0;   /* card borders, dividers on cream */
+
+  /* Gold — warm accent. Used SPARINGLY: stat numbers, eyebrow pills,
+     CTAs, italic emphasis in headlines. Never a body color. */
+  --gold:        #E8A825;   /* primary gold, CTA buttons */
+  --gold-light:  #F5C84A;   /* highlights, pill bg-tint */
+  --gold-pale:   #FBF1D9;   /* tariff blocks, accessibility notes */
+
+  /* Backgrounds — warm, paper-like, never pure white */
+  --cream:       #F7F3EC;   /* section bg (ticker, publics, témoignages, contact) */
+  --off-white:   #FEFCF8;   /* surface, card bg on cream */
+  --white:       #FFFFFF;   /* pure white for dense surfaces (forms, modals) */
+
+  /* Text — warm teal-blacks, never #000 */
+  --ink:         #0D2B30;   /* body, h1-h3 */
+  --ink-mid:     #3D5E63;   /* secondary text, labels */
+  --ink-soft:    #6B8489;   /* tertiary, captions, meta */
+  --ink-on-dark: rgba(255,255,255,0.92);
+  --ink-on-dark-mid: rgba(255,255,255,0.72);
+
+  /* Borders & dividers */
+  --line:        rgba(13, 43, 48, 0.08);
+  --line-strong: rgba(13, 43, 48, 0.16);
+
+  /* ---------- TYPE — base scale ---------- */
+  --font-sans:    'KoHo', system-ui, sans-serif;
+  --font-display: 'KoHo', system-ui, sans-serif;     /* same family, used at heavier weights */
+
+  /* Sizes — desktop-first, web */
+  --fs-eyebrow:   12px;     /* uppercase tag */
+  --fs-caption:   13px;
+  --fs-body-sm:   14px;
+  --fs-body:      16px;     /* default */
+  --fs-body-lg:   18px;     /* lede paragraphs */
+  --fs-h6:        16px;
+  --fs-h5:        18px;
+  --fs-h4:        22px;
+  --fs-h3:        28px;
+  --fs-h2:        40px;
+  --fs-h1:        56px;
+  --fs-display:   72px;     /* hero headline */
+
+  /* Weights */
+  --fw-light:    300;
+  --fw-regular:  400;
+  --fw-semi:     600;
+  --fw-bold:     700;
+
+  /* Line heights */
+  --lh-tight:    1.12;      /* h1, hero */
+  --lh-snug:     1.25;      /* h2, h3 */
+  --lh-normal:   1.55;      /* body */
+  --lh-relaxed:  1.7;       /* lede, modal body */
+
+  /* Letter-spacing */
+  --tracking-eyebrow: 0.14em;
+  --tracking-tight:   -0.01em;
+
+  /* ---------- SPACING ---------- */
+  --s-1:  4px;
+  --s-2:  8px;
+  --s-3:  12px;
+  --s-4:  16px;
+  --s-5:  24px;
+  --s-6:  32px;
+  --s-7:  48px;
+  --s-8:  64px;
+  --s-9:  96px;
+  --s-10: 128px;
+
+  /* Section padding */
+  --section-py: 96px;
+  --container:  1200px;
+
+  /* ---------- RADII ---------- */
+  --r-1: 4px;
+  --r-2: 6px;     /* buttons */
+  --r-3: 8px;     /* small cards, inputs, pills (when not full-pill) */
+  --r-4: 10px;
+  --r-5: 12px;    /* card default */
+  --r-6: 14px;    /* large card */
+  --r-7: 20px;    /* hero stat cards */
+  --r-pill: 999px;
+
+  /* ---------- SHADOWS ---------- */
+  --sh-xs: 0 1px 2px rgba(13, 43, 48, 0.04);
+  --sh-sm: 0 2px 8px rgba(13, 43, 48, 0.06);
+  --sh-md: 0 6px 20px rgba(13, 43, 48, 0.08);
+  --sh-lg: 0 16px 40px rgba(13, 43, 48, 0.12);
+  --sh-xl: 0 24px 64px rgba(13, 43, 48, 0.18);    /* modal */
+  --sh-card-hover: 0 12px 32px rgba(29, 107, 120, 0.16);
+
+  /* Image overlay gradients */
+  --grad-teal-overlay:
+    linear-gradient(180deg, rgba(10,45,51,0.10) 0%, rgba(10,45,51,0.78) 100%);
+  --grad-teal-side:
+    linear-gradient(135deg, rgba(15,60,68,0.55) 0%, rgba(15,60,68,0.10) 60%);
+  --grad-hero:
+    linear-gradient(135deg, rgba(10,45,51,0.92) 0%, rgba(15,60,68,0.78) 100%);
+
+  /* ---------- MOTION ---------- */
+  --ease-out:  cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --t-fast:    150ms;
+  --t-base:    250ms;
+  --t-slow:    400ms;
+}
+
+/* ============================================================
+   SEMANTIC TYPE STYLES — apply via class or via element
+   ============================================================ */
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-normal);
+  color: var(--ink);
+  background: var(--off-white);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, .h1 {
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--ink);
+}
+h2, .h2 {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tracking-tight);
+  color: var(--ink);
+}
+h3, .h3 {
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-snug);
+  color: var(--ink);
+}
+h4, .h4 {
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-semi);
+  line-height: var(--lh-snug);
+  color: var(--ink);
+}
+h5, .h5 { font-size: var(--fs-h5); font-weight: var(--fw-semi); }
+h6, .h6 { font-size: var(--fs-h6); font-weight: var(--fw-semi); }
+
+.display {
+  font-size: var(--fs-display);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+p, .body { font-size: var(--fs-body); line-height: var(--lh-normal); color: var(--ink-mid); }
+.lede { font-size: var(--fs-body-lg); line-height: var(--lh-relaxed); color: var(--ink-mid); }
+.caption { font-size: var(--fs-caption); color: var(--ink-soft); }
+
+/* Eyebrow — uppercase pill or inline label, often gold */
+.eyebrow {
+  display: inline-block;
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--teal);
+}
+.eyebrow--gold { color: var(--gold); }
+
+/* Italic gold accent — used inside h1/h2 for emphasis (signature pattern) */
+.accent {
+  font-style: italic;
+  color: var(--gold);
+  font-weight: inherit;
+}
