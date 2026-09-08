@@ -19,6 +19,7 @@ window.FESTIN_DATA = {
     siret: "924 202 831 00013",
     legalForm: "Association loi 1901",
     rna: "W133012740",
+    legalMention: "Ce site est édité par l’association Festin, association loi 1901 à but non lucratif et d’intérêt général, N° RNA : W133012740.",
   },
   // Stats used by Hero — chiffres réels 2025 source: Plaquette Offre restaurateurs Festin
   stats: [
@@ -148,26 +149,33 @@ window.FESTIN_DATA = {
         { tab: "Être accompagnée", title: "Lever les freins",
           text: "Un accompagnement social tout au long du parcours : mobilité, garde d’enfants, logement, soutien linguistique.",
           stat: "100 %", statL: "des parcours avec accompagnement social",
-          img: "images/photo-tabliers-violets.jpg" },
+          img: "images/images-def/chaudbouillon-045.jpg" },
         { tab: "Travailler", title: "Jusqu’à l’emploi",
           text: "Coaching emploi, préparation aux entretiens, accès au réseau des restaurants partenaires, et suivi après la formation.",
           stat: "91 %", statL: "de réussite aux diplômes en 2025",
-          img: "images/photo-groupe-portrait.jpg" }
+          img: "images/images-def/HOTELERIE-097.jpg" }
       ],
+      // Vidéo de présentation du dispositif — bande pleine largeur (poster + lecture au clic)
+      video: {
+        eyebrow: "En vidéo",
+        title: "Le dispositif en mouvement",
+        poster: "images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg",
+      },
       candidater: {
         eligibility: "Femmes majeures, éloignées de l’emploi, avec un niveau de français B1 minimum (B2 pour le CAP).",
         cost: "Formation entièrement gratuite, financée par les pouvoirs publics et les mécènes. Une indemnisation est possible selon la situation.",
         antennes: "La liste ville par ville et les dates d’information collective sont sur desetoilesetdesfemmes.org.",
         sessions: "Recrutement chaque année en mai. La réunion d’information collective est obligatoire pour candidater.",
         applyLabel: "Déposer une candidature",
-        applyHref: "https://www.desetoilesetdesfemmes.org"
+        applyHref: "https://www.desetoilesetdesfemmes.org",
+        img: "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-40.jpg",
       },
       accueil: {
         title: "Accueillir une stagiaire",
         text: "Accueillir une stagiaire Des Étoiles et des Femmes, c’est confier à un membre de votre brigade un binôme et un tutorat, le temps d’un stage. C’est aussi rencontrer de futurs profils formés, et s’engager concrètement pour une restauration plus inclusive.",
         stat: "155 à 490 h", statL: "de stage par promotion",
         ctaLabel: "Devenir restaurant partenaire", ctaHref: "#/accompagnement/professionnels",
-        img: "images/photo-cuisine-action.jpg"
+        img: "images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00032.jpg"
       },
       grandFestin: {
         eyebrow: "Temps fort",

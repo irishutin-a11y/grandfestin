@@ -266,7 +266,7 @@ function Footer() {
           </div>
           <div className="footer__bottom">
             <span>© 2026 Festin — Le goût d'avancer ensemble · <a href={data.brand.site} target="_blank" rel="noopener">associationfestin.com</a></span>
-            <span>Association Festin — {data.contact.legalForm} — N° RNA&nbsp;: {data.contact.rna}</span>
+            <span>{data.contact.legalMention}</span>
             <span>NDA {data.contact.nda} · Siret {data.contact.siret} · Organisme certifié Qualiopi</span>
           </div>
         </div>
