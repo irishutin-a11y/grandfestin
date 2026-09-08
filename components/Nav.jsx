@@ -1,8 +1,9 @@
-// Nav.jsx — fixed top navigation; hash-based multi-page routing
-const { useState, useEffect } = React;
+// Nav.jsx — navigation partagée : pastille compacte centrée + MEGA MENU plein écran
+// (portée depuis maquettes/home-b.html). Un seul composant, importé sur toutes les pages.
+const { useState, useEffect, useRef, useCallback } = React;
 
 function NavIcon({ name, size = 16 }) {
-  return <i data-lucide={name} style={{ width: size, height: size }} />;
+  return <i data-lucide={name} style={{ width: size, height: size }} aria-hidden="true" />;
 }
 
 function useRoute() {
@@ -15,122 +16,138 @@ function useRoute() {
   return hash;
 }
 
-function isActive(hash, target) {
-  if (target === '#/') return hash === '#/' || hash === '' || hash === '#';
-  return hash === target || hash.startsWith(target + '/');
-}
-
 function Nav() {
-  const [open, setOpen] = useState(null);
-  const [scrolled, setScrolled] = useState(false);
   const data = window.FESTIN_DATA;
+  const mega = data.meganav;
   const hash = useRoute();
+  const [solid, setSolid] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [view, setView] = useState(mega.views[0].key);
+  const megaRef = useRef(null);
+  const closeRef = useRef(null);
+  const lastFocus = useRef(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 4);
-    window.addEventListener('scroll', onScroll);
+    const onScroll = () => setSolid(window.scrollY > 40);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  useEffect(() => {
-    setOpen(null);
-    window.scrollTo({ top: 0, behavior: 'auto' });
-  }, [hash]);
+  // fermer le mega à chaque changement de route
+  useEffect(() => { setOpen(false); }, [hash]);
 
   useEffect(() => { if (window.lucide) window.lucide.createIcons(); });
 
-  const projets = data.projets;
+  const openMega = useCallback(() => {
+    lastFocus.current = document.activeElement;
+    setOpen(true);
+  }, []);
 
-  const close = () => setOpen(null);
+  const closeMega = useCallback(() => {
+    setOpen(false);
+    if (lastFocus.current && lastFocus.current.focus) lastFocus.current.focus();
+  }, []);
+
+  useEffect(() => {
+    if (open) {
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+      if (window.__lenis) window.__lenis.stop();
+      const t = setTimeout(() => { if (closeRef.current) closeRef.current.focus(); }, 30);
+      const onKey = (e) => {
+        if (e.key === 'Escape') { closeMega(); return; }
+        if (e.key === 'Tab' && megaRef.current) {
+          const f = megaRef.current.querySelectorAll('a[href],button:not([disabled]),[tabindex="0"]');
+          if (!f.length) return;
+          const first = f[0], last = f[f.length - 1];
+          if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+          else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
+      };
+      document.addEventListener('keydown', onKey);
+      return () => { clearTimeout(t); document.removeEventListener('keydown', onKey); };
+    } else {
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+      if (window.__lenis) window.__lenis.start();
+    }
+  }, [open, closeMega]);
+
+  const cur = mega.views.find(v => v.key === view) || mega.views[0];
 
   return (
-    <nav className={"nav" + (scrolled ? " scrolled" : "")}>
-      <div className="nav__inner">
-        <a href="#/" className="nav__logo">
-          <img src={data.brand.logo} alt="Festin — Le goût d'avancer ensemble" />
-        </a>
-        <div className="nav__menu">
-
-          {/* CE QUE NOUS FAISONS → accueil */}
-          <a className={"nav__link" + (isActive(hash, '#/') ? ' active' : '')} href="#/">
-            Ce que nous faisons
+    <React.Fragment>
+      <nav className={"mnav" + (solid ? " solid" : "")}>
+        <div className="navpill">
+          {/* TODO — remplacer par le logo Festin SVG blanc inline dès réception */}
+          <a href="#/" className="navpill__brand" aria-label="Festin — accueil">
+            <img src={data.brand.logo} alt="Festin" />
           </a>
+          <span className="navpill__sep" aria-hidden="true"></span>
+          <a className="navpill__don" href={data.donation} target="_blank" rel="noopener noreferrer">
+            <i data-lucide="heart" aria-hidden="true" /> Don
+          </a>
+          <button type="button" className="navpill__menu" aria-haspopup="dialog"
+                  aria-expanded={open} aria-controls="mega" onClick={openMega}>
+            Menu
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
+              <line x1="4" y1="8" x2="20" y2="8" /><line x1="4" y1="16" x2="20" y2="16" />
+            </svg>
+          </button>
+        </div>
+      </nav>
 
-          {/* NOS PROJETS — dropdown */}
-          <div className={"nav__item" + (open === 'projets' ? ' open' : '')}
-               onMouseEnter={() => setOpen('projets')}
-               onMouseLeave={close}>
-            <a className={"nav__link" + (hash.startsWith('#/projets') ? ' active' : '')}
-               href="#/projets/des-etoiles-et-des-femmes">
-              Nos projets <NavIcon name="chevron-down" />
-            </a>
-            <div className="nav__dropdown">
-              <div className="nav__dd-cat">L'écosystème Festin</div>
-              {projets.map(p => (
-                <a key={p.id} className="nav__dd-item" href={`#/projets/${p.id}`}>
-                  <div className="nav__dd-icon"><NavIcon name={p.icon} size={20}/></div>
-                  <div className="nav__dd-text"><h4>{p.shortTitle}</h4><p>{p.tagline}</p></div>
-                </a>
+      <div className={"mega" + (open ? " open" : "")} id="mega" ref={megaRef}
+           role="dialog" aria-modal="true" aria-label={mega.title} aria-hidden={!open}>
+        <div className="mega__bar">
+          <span className="navpill__brand"><img src={data.brand.logo} alt="Festin" style={{ height: 26 }} /></span>
+          <button type="button" className="mega__close" ref={closeRef} onClick={closeMega} aria-label="Fermer le menu">
+            <span>Fermer</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <line x1="5" y1="5" x2="19" y2="19" /><line x1="19" y1="5" x2="5" y2="19" />
+            </svg>
+          </button>
+        </div>
+        <div className="mega__inner">
+          <h2 className="mega__title">{mega.title}</h2>
+          <div className="mega__tabs" role="tablist" aria-label="Filtrer">
+            {mega.views.map(v => (
+              <button key={v.key} type="button" role="tab" aria-selected={view === v.key}
+                      className={view === v.key ? 'on' : ''} onClick={() => setView(v.key)}>
+                <NavIcon name={v.icon} /> {v.label}
+              </button>
+            ))}
+          </div>
+          <div className="mega__grid" key={view}>
+            {cur.cards.map((c, i) => (
+              <a key={c.t} className="mcard" href={c.href || '#/'} style={{ animationDelay: (i * 60) + 'ms' }}
+                 onClick={closeMega}>
+                <span className="mcard__ic" style={{ background: c.c + '1F', color: c.c }}>
+                  <NavIcon name={c.ic} size={24} />
+                </span>
+                <h3>{c.t}{c.pill && <span className="mcard__pill">{c.pill}</span>}</h3>
+                <p className="mcard__d">{c.d}</p>
+                <div className="mcard__tags">{c.tags.map(x => <span key={x}>{x}</span>)}</div>
+                <span className="mcard__more">Explorer <NavIcon name="arrow-right" size={15} /></span>
+              </a>
+            ))}
+          </div>
+          <a className="mega__don" href={data.donation} target="_blank" rel="noopener noreferrer" onClick={closeMega}>
+            <i data-lucide="heart" aria-hidden="true" />
+            Faire un don à Festin
+            <NavIcon name="arrow-up-right" size={16} />
+          </a>
+          {mega.links && (
+            <nav className="mega__links" aria-label="Liens">
+              {mega.links.map(l => (
+                <a key={l.href} href={l.href} onClick={closeMega}>{l.label}</a>
               ))}
-              <a className="nav__dd-item nav__dd-item--disabled"
-                 aria-disabled="true"
-                 onClick={(e) => e.preventDefault()}
-                 href="#/restaurants/sadi-carnot">
-                <div className="nav__dd-icon"><NavIcon name="hard-hat" size={20}/></div>
-                <div className="nav__dd-text">
-                  <h4>Sadi Carnot <span className="nav__dd-pill">Bientôt</span></h4>
-                  <p>Nouveau restaurant d'insertion — en cours</p>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          {/* FORMATIONS */}
-          <a className={"nav__link" + (isActive(hash, '#/formations') ? ' active' : '')}
-             href="#/formations">Formations</a>
-
-          {/* QUI SOMMES-NOUS — dropdown */}
-          <div className={"nav__item" + (open === 'quisommesnous' ? ' open' : '')}
-               onMouseEnter={() => setOpen('quisommesnous')}
-               onMouseLeave={close}>
-            <a className={"nav__link" + (
-                 isActive(hash,'#/about') || isActive(hash,'#/impact') || isActive(hash,'#/actualites')
-                 ? ' active' : '')}
-               href="#/about">
-              Qui sommes-nous <NavIcon name="chevron-down" />
-            </a>
-            <div className="nav__dropdown">
-              <a className={"nav__dd-item" + (isActive(hash,'#/about') ? ' active' : '')}
-                 href="#/about">
-                <div className="nav__dd-icon"><NavIcon name="users" size={20}/></div>
-                <div className="nav__dd-text">
-                  <h4>L'association</h4>
-                  <p>Notre histoire, nos valeurs, notre équipe</p>
-                </div>
-              </a>
-              <a className={"nav__dd-item" + (isActive(hash,'#/impact') ? ' active' : '')}
-                 href="#/impact">
-                <div className="nav__dd-icon"><NavIcon name="bar-chart-2" size={20}/></div>
-                <div className="nav__dd-text">
-                  <h4>Impact</h4>
-                  <p>Chiffres clés et rapports d'activité</p>
-                </div>
-              </a>
-              <a className={"nav__dd-item" + (isActive(hash,'#/actualites') ? ' active' : '')}
-                 href="#/actualites">
-                <div className="nav__dd-icon"><NavIcon name="newspaper" size={20}/></div>
-                <div className="nav__dd-text">
-                  <h4>Actualités</h4>
-                  <p>Retombées presse et médias</p>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <a className="nav__cta" href="#/contact">Contact</a>
+            </nav>
+          )}
         </div>
       </div>
-    </nav>
+    </React.Fragment>
   );
 }
 

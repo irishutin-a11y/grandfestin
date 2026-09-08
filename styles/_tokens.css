@@ -224,3 +224,13 @@ p, .body { font-size: var(--fs-body); line-height: var(--lh-normal); color: var(
   color: var(--gold);
   font-weight: inherit;
 }
+
+/* ---------- Ajouts pour la home portée (maquettes/home-b.html) ---------- */
+:root{
+  --teal-deepest: #06211F;
+  --teal-line:    #C9DDE0;   /* alias de --teal-tint-2 */
+  --pad:   clamp(20px, 5vw, 96px);
+  --title: clamp(48px, 9.5vw, 150px);
+  --h2:    clamp(36px, 5.6vw, 88px);
+  --h3:    clamp(19px, 1.9vw, 26px);
+}

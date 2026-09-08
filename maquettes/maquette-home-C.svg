@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="4880" viewBox="0 0 1440 4880" font-family="KoHo, 'Trebuchet MS', 'Segoe UI', sans-serif" role="img" aria-label="Maquette home Festin — Direction C : storytelling scrollé, le parcours en six étapes vécues">
+  <title>Festin — Direction C</title>
+  <desc>Comp home page en fil narratif vertical : rail de progression à gauche, six étapes d'un parcours (avant, la formation, les stages, le diplôme, l'emploi, transmettre) avec photo, phrase courte, action de Festin et chiffre révélé au fil ; clôture avec appels à l'action segmentés.</desc>
+  <defs>
+    <pattern id="pc" width="26" height="26" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="26" height="26" fill="none"/><line x1="0" y1="0" x2="0" y2="26" stroke="#0A2D33" stroke-opacity="0.07" stroke-width="12"/>
+    </pattern>
+    <pattern id="pcL" width="26" height="26" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="26" height="26" fill="none"/><line x1="0" y1="0" x2="0" y2="26" stroke="#ffffff" stroke-opacity="0.06" stroke-width="12"/>
+    </pattern>
+  </defs>
+  <rect width="1440" height="4880" fill="#FEFCF8"/>
+
+  <!-- nav -->
+  <text x="64" y="52" fill="#0D2B30" font-size="24" font-style="italic" font-weight="700">festin</text>
+  <g fill="#3D5E63" font-size="15">
+    <text x="812" y="50">Association</text><text x="930" y="50">Formations</text><text x="1048" y="50">Projets</text><text x="1132" y="50">Impact</text><text x="1210" y="50">Contact</text>
+  </g>
+  <rect x="1288" y="28" width="88" height="34" rx="17" fill="#1D6B78"/><text x="1332" y="50" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">Agir</text>
+
+  <!-- intro -->
+  <text x="120" y="196" fill="#1D6B78" font-size="14" letter-spacing="3" font-weight="700">UN PARCOURS, PAS UNE LISTE DE SERVICES</text>
+  <text x="118" y="270" fill="#0D2B30" font-size="60" font-weight="700" letter-spacing="-1.5">La restauration comme levier</text>
+  <text x="118" y="336" fill="#0D2B30" font-size="60" font-weight="700" letter-spacing="-1.5">d’<tspan fill="#E8A825" font-style="italic">insertion</tspan>, de <tspan fill="#E8A825" font-style="italic">formation</tspan></text>
+  <text x="118" y="402" fill="#0D2B30" font-size="60" font-weight="700" letter-spacing="-1.5">et de <tspan fill="#E8A825" font-style="italic">transformation</tspan>.</text>
+  <text x="120" y="452" fill="#3D5E63" font-size="19">Suivez le chemin d’un parcours Festin, étape après étape. Le goût d’avancer ensemble.</text>
+
+  <!-- progress rail -->
+  <line x1="120" y1="520" x2="120" y2="4180" stroke="#C9DDE0" stroke-width="2"/>
+
+  <!-- ===== ÉTAPE 01 — AVANT ===== -->
+  <rect x="0" y="540" width="1440" height="640" fill="#F7F3EC"/>
+  <line x1="120" y1="520" x2="120" y2="4180" stroke="#C9DDE0" stroke-width="2"/>
+  <circle cx="120" cy="640" r="22" fill="#1D6B78"/><text x="120" y="648" text-anchor="middle" fill="#ffffff" font-size="17" font-weight="700">01</text>
+  <text x="180" y="632" fill="#6B8489" font-size="13" letter-spacing="3" font-weight="700">ÉTAPE 01</text>
+  <text x="178" y="690" fill="#0D2B30" font-size="44" font-weight="700" letter-spacing="-1">Avant</text>
+  <text x="180" y="742" fill="#3D5E63" font-size="19">Des personnes éloignées de l’emploi : femmes isolées,</text>
+  <text x="180" y="770" fill="#3D5E63" font-size="19">personnes réfugiées ou primo-arrivantes.</text>
+  <rect x="180" y="806" width="60" height="3" fill="#E8A825"/>
+  <text x="180" y="846" fill="#0F3C44" font-size="15" font-weight="700">Festin à cette étape — Des Étoiles et des Femmes · Tournesol :</text>
+  <text x="180" y="872" fill="#3D5E63" font-size="15">on construit le projet avec la personne, on lève les freins (logement, langue, mobilité).</text>
+  <rect x="180" y="920" width="1080" height="220" fill="#C9DDE0"/><rect x="180" y="920" width="1080" height="220" fill="url(#pc)"/>
+  <text x="720" y="1035" text-anchor="middle" fill="#3D5E63" font-size="14" letter-spacing="1">PHOTO — plan large, de dos ou mains ; non identifiant</text>
+
+  <!-- ===== ÉTAPE 02 — LA FORMATION ===== -->
+  <rect x="0" y="1180" width="1440" height="640" fill="#FEFCF8"/>
+  <line x1="120" y1="1180" x2="120" y2="1820" stroke="#C9DDE0" stroke-width="2"/>
+  <circle cx="120" cy="1280" r="22" fill="#1D6B78"/><text x="120" y="1288" text-anchor="middle" fill="#ffffff" font-size="17" font-weight="700">02</text>
+  <text x="180" y="1272" fill="#6B8489" font-size="13" letter-spacing="3" font-weight="700">ÉTAPE 02</text>
+  <text x="178" y="1330" fill="#0D2B30" font-size="44" font-weight="700" letter-spacing="-1">La formation</text>
+  <text x="180" y="1382" fill="#3D5E63" font-size="19">Une formation diplômante et gratuite : CAP Cuisine ou</text>
+  <text x="180" y="1410" fill="#3D5E63" font-size="19">Titre Professionnel Cuisinier.</text>
+  <rect x="180" y="1446" width="60" height="3" fill="#E8A825"/>
+  <text x="180" y="1486" fill="#0F3C44" font-size="15" font-weight="700">Festin à cette étape :</text>
+  <text x="180" y="1512" fill="#3D5E63" font-size="15">accompagnement social global tout au long du parcours, remise à niveau, coaching emploi.</text>
+  <rect x="180" y="1560" width="640" height="220" fill="#C9DDE0"/><rect x="180" y="1560" width="640" height="220" fill="url(#pc)"/>
+  <text x="500" y="1675" text-anchor="middle" fill="#3D5E63" font-size="14" letter-spacing="1">PHOTO — mains au travail, atelier cuisine</text>
+  <rect x="860" y="1560" width="400" height="220" fill="#E8F1F2"/>
+  <text x="1060" y="1650" text-anchor="middle" fill="#1D6B78" font-size="60" font-weight="700">14</text>
+  <text x="1060" y="1686" text-anchor="middle" fill="#0F3C44" font-size="15">territoires d’intervention</text>
+  <text x="1060" y="1712" text-anchor="middle" fill="#3D5E63" font-size="13">Marseille, Lille, Lyon, Arles, Pays basque…</text>
+
+  <!-- ===== ÉTAPE 03 — LES STAGES ===== -->
+  <rect x="0" y="1820" width="1440" height="640" fill="#F7F3EC"/>
+  <line x1="120" y1="1820" x2="120" y2="2460" stroke="#C9DDE0" stroke-width="2"/>
+  <circle cx="120" cy="1920" r="22" fill="#1D6B78"/><text x="120" y="1928" text-anchor="middle" fill="#ffffff" font-size="17" font-weight="700">03</text>
+  <text x="180" y="1912" fill="#6B8489" font-size="13" letter-spacing="3" font-weight="700">ÉTAPE 03</text>
+  <text x="178" y="1970" fill="#0D2B30" font-size="44" font-weight="700" letter-spacing="-1">Les stages</text>
+  <text x="180" y="2022" fill="#3D5E63" font-size="19">Des stages de qualité dans des restaurants engagés.</text>
+  <rect x="180" y="2058" width="60" height="3" fill="#E8A825"/>
+  <text x="180" y="2098" fill="#0F3C44" font-size="15" font-weight="700">Festin à cette étape :</text>
+  <text x="180" y="2124" fill="#3D5E63" font-size="15">un réseau de restaurants partenaires — Les Grandes Tables, Sofitel, Les Bords de Mer, Small Group…</text>
+  <rect x="180" y="2172" width="1080" height="220" fill="#C9DDE0"/><rect x="180" y="2172" width="1080" height="220" fill="url(#pc)"/>
+  <text x="720" y="2287" text-anchor="middle" fill="#3D5E63" font-size="14" letter-spacing="1">PHOTO — service en salle / cuisine professionnelle</text>
+
+  <!-- ===== ÉTAPE 04 — LE DIPLÔME ===== -->
+  <rect x="0" y="2460" width="1440" height="660" fill="#0A2D33"/>
+  <line x1="120" y1="2460" x2="120" y2="3120" stroke="#1D6B78" stroke-width="2"/>
+  <circle cx="120" cy="2560" r="22" fill="#E8A825"/><text x="120" y="2568" text-anchor="middle" fill="#0D2B30" font-size="17" font-weight="700">04</text>
+  <text x="180" y="2552" fill="#9FE1CB" font-size="13" letter-spacing="3" font-weight="700">ÉTAPE 04</text>
+  <text x="178" y="2610" fill="#ffffff" font-size="44" font-weight="700" letter-spacing="-1">Le diplôme</text>
+  <text x="180" y="2686" fill="#F5C84A" font-size="60" font-weight="700">“</text>
+  <text x="180" y="2712" fill="#ffffff" font-size="24">Je suis fière, indépendante, heureuse d’avoir su</text>
+  <text x="180" y="2748" fill="#ffffff" font-size="24">franchir toutes ces étapes.</text>
+  <text x="180" y="2792" fill="#9FE1CB" font-size="14" font-weight="700">PROMOTION DES ÉTOILES ET DES FEMMES, LILLE</text>
+  <rect x="180" y="2840" width="500" height="200" fill="#0F3C44"/>
+  <text x="430" y="2930" text-anchor="middle" fill="#F5C84A" font-size="60" font-weight="700">91 %</text>
+  <text x="430" y="2966" text-anchor="middle" fill="#ffffff" font-size="15">de réussite aux diplômes en 2025</text>
+  <rect x="720" y="2840" width="540" height="200" fill="#0F3C44"/><rect x="720" y="2840" width="540" height="200" fill="url(#pcL)"/>
+  <text x="990" y="2945" text-anchor="middle" fill="#9FE1CB" font-size="14" letter-spacing="1">PHOTO — applaudissements / remise de diplôme</text>
+
+  <!-- ===== ÉTAPE 05 — L'EMPLOI ===== -->
+  <rect x="0" y="3120" width="1440" height="660" fill="#FEFCF8"/>
+  <line x1="120" y1="3120" x2="120" y2="3780" stroke="#C9DDE0" stroke-width="2"/>
+  <circle cx="120" cy="3220" r="22" fill="#1D6B78"/><text x="120" y="3228" text-anchor="middle" fill="#ffffff" font-size="17" font-weight="700">05</text>
+  <text x="180" y="3212" fill="#6B8489" font-size="13" letter-spacing="3" font-weight="700">ÉTAPE 05</text>
+  <text x="178" y="3270" fill="#0D2B30" font-size="44" font-weight="700" letter-spacing="-1">L’emploi</text>
+  <text x="180" y="3344" fill="#E8A825" font-size="60" font-weight="700">“</text>
+  <text x="180" y="3370" fill="#0D2B30" font-size="24">Je n’avais jamais travaillé avant. Aujourd’hui, j’ai ma</text>
+  <text x="180" y="3406" fill="#0D2B30" font-size="24">première fiche de paie. Ça me donne de la fierté.</text>
+  <text x="180" y="3450" fill="#1D6B78" font-size="14" font-weight="700">CUISINIER — LES BEAUX METS, 2025</text>
+  <rect x="180" y="3498" width="500" height="200" fill="#FBF1D9"/>
+  <text x="430" y="3588" text-anchor="middle" fill="#0D2B30" font-size="60" font-weight="700">72 %</text>
+  <text x="430" y="3624" text-anchor="middle" fill="#5F4A16" font-size="15">de sorties en emploi ou formation</text>
+  <rect x="720" y="3498" width="540" height="200" fill="#C9DDE0"/><rect x="720" y="3498" width="540" height="200" fill="url(#pc)"/>
+  <text x="990" y="3603" text-anchor="middle" fill="#3D5E63" font-size="14" letter-spacing="1">PHOTO — première assiette dressée / en brigade</text>
+
+  <!-- ===== ÉTAPE 06 — TRANSMETTRE ===== -->
+  <rect x="0" y="3780" width="1440" height="640" fill="#F7F3EC"/>
+  <line x1="120" y1="3780" x2="120" y2="4180" stroke="#C9DDE0" stroke-width="2"/>
+  <circle cx="120" cy="3880" r="22" fill="#9A5BA8"/><text x="120" y="3888" text-anchor="middle" fill="#ffffff" font-size="17" font-weight="700">06</text>
+  <text x="180" y="3872" fill="#6B8489" font-size="13" letter-spacing="3" font-weight="700">ÉTAPE 06</text>
+  <text x="178" y="3930" fill="#0D2B30" font-size="44" font-weight="700" letter-spacing="-1">Transmettre, et changer le secteur</text>
+  <text x="180" y="3982" fill="#3D5E63" font-size="19">Prévenir les violences en cuisine, promouvoir un management</text>
+  <text x="180" y="4010" fill="#3D5E63" font-size="19">juste — avec le mouvement Restaure.</text>
+  <text x="180" y="4064" fill="#9A5BA8" font-size="44" font-weight="700">“</text>
+  <text x="180" y="4090" fill="#0D2B30" font-size="19">Pour réussir à vraiment changer les choses, il faut avancer collectivement.</text>
+  <text x="180" y="4124" fill="#7A3E88" font-size="13" font-weight="700">ELOI SPINNLER — CHEF ENGAGÉ, MOUVEMENT RESTAURE</text>
+  <text x="180" y="4168" fill="#0D2B30" font-size="15" font-weight="700">35 structures engagées · 700 signataires du manifeste · 2 M+ de vues</text>
+
+  <!-- ===== CLÔTURE — CTA SEGMENTÉS ===== -->
+  <rect x="0" y="4420" width="1440" height="300" fill="#1D6B78"/>
+  <text x="120" y="4498" fill="#F5C84A" font-size="15" letter-spacing="3" font-weight="700">10 ANS · 453 PERSONNES ACCOMPAGNÉES EN 2025</text>
+  <text x="118" y="4552" fill="#ffffff" font-size="40" font-weight="700" letter-spacing="-1">À votre tour d’avancer avec nous</text>
+  <g>
+    <rect x="120" y="4590" width="380" height="90" fill="#0F3C44"/>
+    <text x="144" y="4628" fill="#9FE1CB" font-size="12" letter-spacing="1.5" font-weight="700">GRAND PUBLIC</text>
+    <text x="144" y="4658" fill="#ffffff" font-size="17" font-weight="700">Se former / candidater →</text>
+
+    <rect x="530" y="4590" width="380" height="90" fill="#0F3C44"/>
+    <text x="554" y="4628" fill="#9FE1CB" font-size="12" letter-spacing="1.5" font-weight="700">RESTAURATEURS · PARTENAIRES</text>
+    <text x="554" y="4658" fill="#ffffff" font-size="17" font-weight="700">Devenir restaurant partenaire →</text>
+
+    <rect x="940" y="4590" width="380" height="90" fill="#E8A825"/>
+    <text x="964" y="4628" fill="#5F4A16" font-size="12" letter-spacing="1.5" font-weight="700">FINANCEURS · MÉCÈNES</text>
+    <text x="964" y="4658" fill="#0D2B30" font-size="17" font-weight="700">Soutenir l’écosystème →</text>
+  </g>
+
+  <!-- footer -->
+  <rect x="0" y="4720" width="1440" height="160" fill="#0A2D33"/>
+  <text x="64" y="4780" fill="#ffffff" font-size="22" font-style="italic" font-weight="700">festin</text>
+  <g fill="#9FE1CB" font-size="13">
+    <text x="64" y="4816">Le goût d’avancer ensemble — Marseille, 14 territoires</text>
+    <text x="520" y="4816">Nous contacter</text><text x="700" y="4816">S’engager</text><text x="850" y="4816">Nos projets</text><text x="1020" y="4816">L’association</text>
+  </g>
+  <g fill="#6E9AA0" font-size="12">
+    <text x="64" y="4850">© 2026 Festin — associationfestin.com</text>
+    <text x="700" y="4850">NDA 93132168513 · Siret 924 202 831 00013</text>
+    <text x="1180" y="4850">Certifié Qualiopi</text>
+  </g>
+</svg>

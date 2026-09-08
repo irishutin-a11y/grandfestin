@@ -29,14 +29,7 @@ function PageHeader({ eyebrow, title, accent, subtitle, breadcrumb }) {
 function HomePage() {
   return (
     <div data-screen-label="01 Accueil">
-      <Hero />
-      <span id="after-hero" />
-      <Selector />
-      <Academie />
-      <Publics />
-      <Engagement />
-      <Temoignages />
-      <Journal />
+      <HomeB />
     </div>
   );
 }
@@ -1002,7 +995,7 @@ function ProjetTemoignages({ temoignages }) {
           </div>
         )}
         <div style={{display:'flex', gap:12, justifyContent:'center', marginTop:36, flexWrap:'wrap'}}>
-          <a href="https://www.helloasso.com/associations/festin" target="_blank" rel="noopener" className="btn btn--gold">
+          <a href={window.FESTIN_DATA.donation} target="_blank" rel="noopener noreferrer" className="btn btn--gold">
             Faire un don <i data-lucide="heart" style={{width:16,height:16}}/>
           </a>
           <a href="#/contact" className="btn btn--ghost-w">Nous contacter</a>

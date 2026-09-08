@@ -5,7 +5,12 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Festin — Insertion, formation et gastronomie inclusive</title>
 <link rel="stylesheet" href="styles/styles.css" />
+<link rel="stylesheet" href="styles/home-b.css" />
+<link rel="stylesheet" href="styles/projet-def.css" />
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
@@ -18,6 +23,8 @@
 <script type="text/babel" src="components/Sections.jsx"></script>
 <script type="text/babel" src="components/Selector.jsx"></script>
 <script type="text/babel" src="components/Formations.jsx"></script>
+<script type="text/babel" src="components/HomeB.jsx"></script>
+<script type="text/babel" src="components/ProjetDef.jsx"></script>
 <script type="text/babel" src="components/Pages.jsx"></script>
 <script type="text/babel">
 // ─── Hash router ─────────────────────────────────────────────────
@@ -46,12 +53,35 @@ function App() {
     if (window.lucide) window.lucide.createIcons();
   }, [hash]);
 
+  // Lenis smooth scroll — site entier
+  React.useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion:reduce)').matches || !window.Lenis) return;
+    const lenis = new window.Lenis({ duration: 1.15, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+    window.__lenis = lenis;
+    let raf;
+    const loop = (t) => { lenis.raf(t); raf = requestAnimationFrame(loop); };
+    raf = requestAnimationFrame(loop);
+    if (window.ScrollTrigger) {
+      lenis.on('scroll', window.ScrollTrigger.update);
+      if (window.gsap) window.gsap.ticker.lagSmoothing(0);
+    }
+    return () => { cancelAnimationFrame(raf); lenis.destroy(); window.__lenis = null; };
+  }, []);
+
+  // à chaque changement de route : scroll top + refresh ScrollTrigger après rendu
+  React.useEffect(() => {
+    if (window.__lenis) window.__lenis.scrollTo(0, { immediate: true });
+    else window.scrollTo(0, 0);
+    const t = setTimeout(() => { if (window.ScrollTrigger) window.ScrollTrigger.refresh(); }, 80);
+    return () => clearTimeout(t);
+  }, [hash]);
+
   let page;
   switch (route.name) {
     case 'home':              page = <HomePage />; break;
     case 'formations':        page = <FormationsListPage />; break;
     case 'formation':         page = <FormationDetailPage id={route.id} />; break;
-    case 'projet':            page = <ProjetPage id={route.id} />; break;
+    case 'projet':            page = route.id === 'des-etoiles-et-des-femmes' ? <ProjetDefPage /> : <ProjetPage id={route.id} />; break;
     case 'sadi-carnot':       page = <SadiCarnotPage />; break;
     case 'accomp-insertion':  page = <AccompagnementInsertionPage />; break;
     case 'accomp-pros':       page = <AccompagnementProsPage />; break;

@@ -1,0 +1,197 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="4360" viewBox="0 0 1440 4360" font-family="KoHo, 'Trebuchet MS', 'Segoe UI', sans-serif" role="img" aria-label="Maquette home Festin — Direction B : blocs de couleurs pleines alternées">
+  <title>Festin — Direction B</title>
+  <desc>Comp home page rythmée par aplats de couleur pleine largeur : bloc teal d'accroche, bloc or de l'impact chiffré, bloc crème des trois piliers, bloc violet des cinq projets, bloc clair des deux publics, bloc vert des témoignages, bloc teal foncé partenaires et financeurs, footer.</desc>
+  <defs>
+    <pattern id="pb" width="26" height="26" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="26" height="26" fill="none"/><line x1="0" y1="0" x2="0" y2="26" stroke="#0A2D33" stroke-opacity="0.07" stroke-width="12"/>
+    </pattern>
+    <pattern id="pbL" width="26" height="26" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="26" height="26" fill="none"/><line x1="0" y1="0" x2="0" y2="26" stroke="#ffffff" stroke-opacity="0.06" stroke-width="12"/>
+    </pattern>
+  </defs>
+  <rect width="1440" height="4360" fill="#FEFCF8"/>
+
+  <!-- ===== BLOC 1 — TEAL : accroche ===== -->
+  <rect x="0" y="0" width="1440" height="760" fill="#1D6B78"/>
+  <text x="64" y="52" fill="#ffffff" font-size="24" font-style="italic" font-weight="700">festin</text>
+  <g fill="#ffffff" fill-opacity="0.85" font-size="15">
+    <text x="812" y="50">Association</text><text x="930" y="50">Formations</text><text x="1048" y="50">Projets</text><text x="1132" y="50">Impact</text><text x="1210" y="50">Contact</text>
+  </g>
+  <rect x="1288" y="28" width="88" height="34" rx="17" fill="#E8A825"/><text x="1332" y="50" text-anchor="middle" fill="#0D2B30" font-size="13" font-weight="700">Agir</text>
+
+  <text x="64" y="222" fill="#F5C84A" font-size="15" letter-spacing="3" font-weight="700">ASSOCIATION FESTIN — DEPUIS 2015</text>
+  <text x="60" y="322" fill="#ffffff" font-size="88" font-weight="700" letter-spacing="-2">La restauration comme</text>
+  <text x="60" y="410" fill="#ffffff" font-size="88" font-weight="700" letter-spacing="-2">levier d’<tspan fill="#F5C84A" font-style="italic">insertion</tspan>, de</text>
+  <text x="60" y="498" fill="#ffffff" font-size="88" font-weight="700" letter-spacing="-2"><tspan fill="#F5C84A" font-style="italic">formation</tspan> et de</text>
+  <text x="60" y="586" fill="#ffffff" font-size="88" font-weight="700" letter-spacing="-2"><tspan fill="#F5C84A" font-style="italic">transformation</tspan>.</text>
+  <text x="64" y="648" fill="#ffffff" fill-opacity="0.9" font-size="20">Le goût d’avancer ensemble.</text>
+  <rect x="900" y="470" width="476" height="250" fill="#0F3C44"/><rect x="900" y="470" width="476" height="250" fill="url(#pbL)"/>
+  <text x="1138" y="590" text-anchor="middle" fill="#9FE1CB" font-size="14" letter-spacing="1">PHOTO ENCADRÉE — visage + mains</text>
+  <text x="1138" y="612" text-anchor="middle" fill="#7FB9AE" font-size="13">plan serré, lumière naturelle</text>
+
+  <!-- ===== BLOC 2 — OR PÂLE : impact chiffré ===== -->
+  <rect x="0" y="760" width="1440" height="520" fill="#FBF1D9"/>
+  <text x="64" y="852" fill="#9A6A12" font-size="14" letter-spacing="3" font-weight="700">L’IMPACT 2025</text>
+  <g font-weight="700" fill="#0D2B30">
+    <text x="64" y="1010" font-size="150" letter-spacing="-4">453</text>
+    <text x="470" y="1010" font-size="150" letter-spacing="-4">72<tspan font-size="80">%</tspan></text>
+    <text x="820" y="1010" font-size="150" letter-spacing="-4">14</text>
+    <text x="1030" y="1010" font-size="150" letter-spacing="-4">10<tspan font-size="80">ans</tspan></text>
+  </g>
+  <g fill="#5F4A16" font-size="16">
+    <text x="66" y="1052">personnes accompagnées</text>
+    <text x="472" y="1052">de sorties en emploi</text>
+    <text x="472" y="1074">ou formation</text>
+    <text x="822" y="1052">territoires</text>
+    <text x="822" y="1074">d’intervention</text>
+    <text x="1032" y="1052">d’existence</text>
+  </g>
+  <text x="64" y="1200" fill="#5F4A16" font-size="18">Organisme certifié Qualiopi — Marseille, 14 territoires d’intervention.</text>
+
+  <!-- ===== BLOC 3 — CRÈME : les 3 piliers ===== -->
+  <rect x="0" y="1280" width="1440" height="560" fill="#F7F3EC"/>
+  <text x="64" y="1372" fill="#1D6B78" font-size="14" letter-spacing="3" font-weight="700">L’ASSOCIATION FESTIN</text>
+  <text x="62" y="1440" fill="#0D2B30" font-size="52" font-weight="700" letter-spacing="-1.5">Former, inclure, <tspan fill="#E8A825" font-style="italic">transformer.</tspan></text>
+  <text x="64" y="1486" fill="#3D5E63" font-size="18">Née à Marseille en 2015, Festin fait de la cuisine un puissant levier d’émancipation.</text>
+  <g>
+    <rect x="64" y="1540" width="416" height="250" fill="#FEFCF8" stroke="#C9DDE0"/>
+    <text x="96" y="1592" fill="#1D6B78" font-size="26" font-weight="700">Insertion</text>
+    <text x="96" y="1632" fill="#3D5E63" font-size="15">Accompagner des personnes</text>
+    <text x="96" y="1654" fill="#3D5E63" font-size="15">éloignées de l’emploi vers des</text>
+    <text x="96" y="1676" fill="#3D5E63" font-size="15">métiers porteurs, avec exigence</text>
+    <text x="96" y="1698" fill="#3D5E63" font-size="15">et bienveillance.</text>
+
+    <rect x="512" y="1540" width="416" height="250" fill="#FEFCF8" stroke="#C9DDE0"/>
+    <text x="544" y="1592" fill="#1D6B78" font-size="26" font-weight="700">Formation</text>
+    <text x="544" y="1632" fill="#3D5E63" font-size="15">Certifier et professionnaliser,</text>
+    <text x="544" y="1654" fill="#3D5E63" font-size="15">pour les publics en insertion</text>
+    <text x="544" y="1676" fill="#3D5E63" font-size="15">comme pour les professionnels</text>
+    <text x="544" y="1698" fill="#3D5E63" font-size="15">déjà en poste.</text>
+
+    <rect x="960" y="1540" width="416" height="250" fill="#FEFCF8" stroke="#C9DDE0"/>
+    <text x="992" y="1592" fill="#1D6B78" font-size="26" font-weight="700">Transformation</text>
+    <text x="992" y="1632" fill="#3D5E63" font-size="15">Plaider pour une restauration</text>
+    <text x="992" y="1654" fill="#3D5E63" font-size="15">plus juste, plus inclusive, sans</text>
+    <text x="992" y="1676" fill="#3D5E63" font-size="15">violence — à travers le</text>
+    <text x="992" y="1698" fill="#3D5E63" font-size="15">mouvement Restaure.</text>
+  </g>
+
+  <!-- ===== BLOC 4 — VIOLET : les 5 projets à égalité ===== -->
+  <rect x="0" y="1840" width="1440" height="720" fill="#9A5BA8"/>
+  <text x="64" y="1932" fill="#F0D9F3" font-size="14" letter-spacing="3" font-weight="700">L’ÉCOSYSTÈME FESTIN</text>
+  <text x="62" y="1996" fill="#ffffff" font-size="46" font-weight="700" letter-spacing="-1">Cinq projets présentés à égalité</text>
+  <g>
+    <rect x="64" y="2050" width="416" height="210" fill="#8A4A98"/>
+    <text x="96" y="2098" fill="#F0D9F3" font-size="12" letter-spacing="2" font-weight="700">DEPUIS 2015</text>
+    <text x="96" y="2134" fill="#ffffff" font-size="22" font-weight="700">Des Étoiles et des Femmes</text>
+    <text x="96" y="2166" fill="#EAD3EE" font-size="14">Insertion des femmes par la cuisine.</text>
+    <text x="96" y="2216" fill="#ffffff" font-size="14" font-weight="700">91 % de réussite aux diplômes</text>
+
+    <rect x="512" y="2050" width="416" height="210" fill="#8A4A98"/>
+    <text x="544" y="2098" fill="#F0D9F3" font-size="12" letter-spacing="2" font-weight="700">DEPUIS 2022</text>
+    <text x="544" y="2134" fill="#ffffff" font-size="22" font-weight="700">Les Beaux Mets</text>
+    <text x="544" y="2166" fill="#EAD3EE" font-size="14">Le premier restaurant en prison</text>
+    <text x="544" y="2186" fill="#EAD3EE" font-size="14">ouvert au public en France.</text>
+    <text x="544" y="2226" fill="#ffffff" font-size="14" font-weight="700">86 % de sorties dynamiques</text>
+
+    <rect x="960" y="2050" width="416" height="210" fill="#8A4A98"/>
+    <text x="992" y="2098" fill="#F0D9F3" font-size="12" letter-spacing="2" font-weight="700">DEPUIS 1993</text>
+    <text x="992" y="2134" fill="#ffffff" font-size="22" font-weight="700">La Table de Cana</text>
+    <text x="992" y="2166" fill="#EAD3EE" font-size="14">Traiteur et restauration collective</text>
+    <text x="992" y="2186" fill="#EAD3EE" font-size="14">en insertion.</text>
+    <text x="992" y="2226" fill="#ffffff" font-size="14" font-weight="700">400 000+ convives régalés</text>
+
+    <rect x="64" y="2290" width="640" height="200" fill="#8A4A98"/>
+    <text x="96" y="2338" fill="#F0D9F3" font-size="12" letter-spacing="2" font-weight="700">DEPUIS 2024</text>
+    <text x="96" y="2374" fill="#ffffff" font-size="22" font-weight="700">Le mouvement Restaure</text>
+    <text x="96" y="2406" fill="#EAD3EE" font-size="14">Faire évoluer les pratiques de tout un secteur :</text>
+    <text x="96" y="2426" fill="#EAD3EE" font-size="14">prévenir les violences, promouvoir un management juste.</text>
+    <text x="96" y="2466" fill="#ffffff" font-size="14" font-weight="700">35 structures · 700 signataires · 2 M+ de vues</text>
+
+    <rect x="736" y="2290" width="640" height="200" fill="#8A4A98"/>
+    <text x="768" y="2338" fill="#F0D9F3" font-size="12" letter-spacing="2" font-weight="700">AVEC REFUGEE FOOD</text>
+    <text x="768" y="2374" fill="#ffffff" font-size="22" font-weight="700">Tournesol</text>
+    <text x="768" y="2406" fill="#EAD3EE" font-size="14">Formation diplômante pour personnes réfugiées</text>
+    <text x="768" y="2426" fill="#EAD3EE" font-size="14">et primo-arrivantes.</text>
+    <text x="768" y="2466" fill="#ffffff" font-size="14" font-weight="700">6 mois · TP Commis de cuisine · gratuite et rémunérée</text>
+  </g>
+
+  <!-- ===== BLOC 5 — CLAIR : deux publics ===== -->
+  <rect x="0" y="2560" width="1440" height="560" fill="#FEFCF8"/>
+  <text x="64" y="2652" fill="#1D6B78" font-size="14" letter-spacing="3" font-weight="700">DEUX PORTES D’ENTRÉE</text>
+  <text x="62" y="2716" fill="#0D2B30" font-size="46" font-weight="700" letter-spacing="-1">Un acteur dual au service du secteur</text>
+
+  <rect x="64" y="2770" width="656" height="300" fill="#F7F3EC"/>
+  <rect x="64" y="2770" width="656" height="150" fill="#C9DDE0"/><rect x="64" y="2770" width="656" height="150" fill="url(#pb)"/>
+  <text x="392" y="2850" text-anchor="middle" fill="#3D5E63" font-size="13" letter-spacing="1">PHOTO ENCADRÉE — tabliers violets, atelier</text>
+  <rect x="96" y="2946" width="230" height="26" rx="13" fill="#FBF1D9"/>
+  <text x="211" y="2964" text-anchor="middle" fill="#9A6A12" font-size="11" letter-spacing="1.5" font-weight="700">PERSONNES EN INSERTION</text>
+  <text x="96" y="3010" fill="#0D2B30" font-size="22" font-weight="700">Publics éloignés de l’emploi</text>
+  <text x="96" y="3042" fill="#3D5E63" font-size="14">Parcours diplômants, accompagnement social global, horizon professionnel.</text>
+  <text x="96" y="3070" fill="#1D6B78" font-size="14" font-weight="700">Voir les parcours d’insertion →</text>
+
+  <rect x="740" y="2770" width="636" height="300" fill="#F7F3EC"/>
+  <rect x="740" y="2770" width="636" height="150" fill="#C9DDE0"/><rect x="740" y="2770" width="636" height="150" fill="url(#pb)"/>
+  <text x="1058" y="2850" text-anchor="middle" fill="#3D5E63" font-size="13" letter-spacing="1">PHOTO ENCADRÉE — cuisine pro, chef en toque</text>
+  <rect x="772" y="2946" width="300" height="26" rx="13" fill="#E8F1F2"/>
+  <text x="922" y="2964" text-anchor="middle" fill="#0F3C44" font-size="11" letter-spacing="1.5" font-weight="700">PROFESSIONNELS DE LA RESTAURATION</text>
+  <text x="772" y="3010" fill="#0D2B30" font-size="22" font-weight="700">Restaurateurs, managers et équipes</text>
+  <text x="772" y="3042" fill="#3D5E63" font-size="14">Prévention des VSS, management juste, accueil de la diversité.</text>
+  <text x="772" y="3070" fill="#1D6B78" font-size="14" font-weight="700">Voir les formations continues →</text>
+
+  <!-- ===== BLOC 6 — VERT : témoignages ===== -->
+  <rect x="0" y="3120" width="1440" height="520" fill="#2E8B57"/>
+  <text x="64" y="3212" fill="#CDE8D9" font-size="14" letter-spacing="3" font-weight="700">TÉMOIGNAGES</text>
+  <text x="62" y="3276" fill="#ffffff" font-size="46" font-weight="700" letter-spacing="-1">Ce que change un parcours</text>
+  <g>
+    <text x="64" y="3372" fill="#A8D6BD" font-size="52" font-weight="700">“</text>
+    <text x="64" y="3392" fill="#ffffff" font-size="19">Je suis fière, indépendante, heureuse d’avoir su franchir</text>
+    <text x="64" y="3420" fill="#ffffff" font-size="19">toutes ces étapes.</text>
+    <text x="64" y="3458" fill="#CDE8D9" font-size="13" font-weight="700">PROMOTION DES ÉTOILES ET DES FEMMES, LILLE</text>
+
+    <text x="740" y="3372" fill="#A8D6BD" font-size="52" font-weight="700">“</text>
+    <text x="740" y="3392" fill="#ffffff" font-size="19">Ça m’a aidé à avoir confiance en mes compétences.</text>
+    <text x="740" y="3420" fill="#ffffff" font-size="19">Aujourd’hui, j’ai un CDI. Je suis fier du chemin parcouru.</text>
+    <text x="740" y="3458" fill="#CDE8D9" font-size="13" font-weight="700">ANCIEN SALARIÉ EN INSERTION — LA TABLE DE CANA</text>
+
+    <text x="64" y="3540" fill="#A8D6BD" font-size="52" font-weight="700">“</text>
+    <text x="64" y="3560" fill="#ffffff" font-size="19">Pour réussir à vraiment changer les choses, il faut avancer collectivement.</text>
+    <text x="64" y="3598" fill="#CDE8D9" font-size="13" font-weight="700">ELOI SPINNLER — CHEF ENGAGÉ, MOUVEMENT RESTAURE</text>
+  </g>
+
+  <!-- ===== BLOC 7 — TEAL FONCÉ : partenaires / financeurs + s'engager ===== -->
+  <rect x="0" y="3640" width="1440" height="520" fill="#0A2D33"/>
+  <text x="64" y="3730" fill="#F5C84A" font-size="14" letter-spacing="3" font-weight="700">S’ENGAGER À NOS CÔTÉS</text>
+  <text x="62" y="3794" fill="#ffffff" font-size="46" font-weight="700" letter-spacing="-1">Trois façons d’avancer ensemble</text>
+  <g>
+    <rect x="64" y="3840" width="416" height="180" fill="#0F3C44"/>
+    <text x="96" y="3884" fill="#9FE1CB" font-size="12" letter-spacing="1.5" font-weight="700">RESTAURATEUR</text>
+    <text x="96" y="3922" fill="#ffffff" font-size="20" font-weight="700">Faire évoluer vos pratiques</text>
+    <text x="96" y="3990" fill="#F5C84A" font-size="14" font-weight="700">Découvrir les formations →</text>
+
+    <rect x="512" y="3840" width="416" height="180" fill="#0F3C44"/>
+    <text x="544" y="3884" fill="#9FE1CB" font-size="12" letter-spacing="1.5" font-weight="700">PARTENAIRE OU FINANCEUR</text>
+    <text x="544" y="3922" fill="#ffffff" font-size="20" font-weight="700">Soutenir l’écosystème Festin</text>
+    <text x="544" y="3990" fill="#F5C84A" font-size="14" font-weight="700">Nous contacter →</text>
+
+    <rect x="960" y="3840" width="416" height="180" fill="#0F3C44"/>
+    <text x="992" y="3884" fill="#9FE1CB" font-size="12" letter-spacing="1.5" font-weight="700">EN PARCOURS D’INSERTION</text>
+    <text x="992" y="3922" fill="#ffffff" font-size="20" font-weight="700">Rejoindre une promotion</text>
+    <text x="992" y="3990" fill="#F5C84A" font-size="14" font-weight="700">Découvrir les parcours →</text>
+  </g>
+  <text x="64" y="4070" fill="#6E9AA0" font-size="13" letter-spacing="2" font-weight="700">PARTENAIRES ET FINANCEURS</text>
+  <g fill="#123A41"><rect x="64" y="4090" width="130" height="44"/><rect x="210" y="4090" width="130" height="44"/><rect x="356" y="4090" width="130" height="44"/><rect x="502" y="4090" width="130" height="44"/><rect x="648" y="4090" width="130" height="44"/></g>
+
+  <!-- ===== FOOTER ===== -->
+  <rect x="0" y="4160" width="1440" height="200" fill="#06211F"/>
+  <text x="64" y="4224" fill="#ffffff" font-size="22" font-style="italic" font-weight="700">festin</text>
+  <g fill="#9FE1CB" font-size="13">
+    <text x="64" y="4262">Le goût d’avancer ensemble — Marseille, 14 territoires</text>
+    <text x="520" y="4262">Nous contacter</text><text x="700" y="4262">S’engager</text><text x="850" y="4262">Nos projets</text><text x="1020" y="4262">L’association</text>
+  </g>
+  <g fill="#5C878D" font-size="12">
+    <text x="64" y="4310">© 2026 Festin — associationfestin.com</text>
+    <text x="700" y="4310">NDA 93132168513 · Siret 924 202 831 00013</text>
+    <text x="1180" y="4310">Certifié Qualiopi</text>
+  </g>
+</svg>

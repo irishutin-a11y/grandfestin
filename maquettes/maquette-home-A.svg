@@ -1,0 +1,212 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="4720" viewBox="0 0 1440 4720" font-family="KoHo, 'Trebuchet MS', 'Segoe UI', sans-serif" role="img" aria-label="Maquette home Festin — Direction A : photo pleine largeur et très grande typographie">
+  <title>Festin — Direction A</title>
+  <desc>Comp home page : hero photo plein cadre avec titre display géant, bande d'impact chiffrée, écosystème des 5 projets en bandes photo alternées, deux publics, témoignages, engagement, partenaires et financeurs.</desc>
+  <defs>
+    <pattern id="ph" width="26" height="26" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="26" height="26" fill="none"/><line x1="0" y1="0" x2="0" y2="26" stroke="#0A2D33" stroke-opacity="0.06" stroke-width="12"/>
+    </pattern>
+    <pattern id="phL" width="26" height="26" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="26" height="26" fill="none"/><line x1="0" y1="0" x2="0" y2="26" stroke="#ffffff" stroke-opacity="0.05" stroke-width="12"/>
+    </pattern>
+  </defs>
+
+  <rect width="1440" height="4720" fill="#FEFCF8"/>
+
+  <!-- ================= HERO ================= -->
+  <rect x="0" y="0" width="1440" height="860" fill="#0A2D33"/>
+  <rect x="0" y="0" width="1440" height="860" fill="url(#phL)"/>
+  <rect x="720" y="70" width="720" height="720" fill="#0F3C44"/>
+  <rect x="720" y="70" width="720" height="720" fill="url(#phL)"/>
+  <text x="1080" y="420" text-anchor="middle" fill="#9FE1CB" font-size="15" letter-spacing="1">PHOTO PLEIN CADRE</text>
+  <text x="1080" y="448" text-anchor="middle" fill="#7FB9AE" font-size="14">gros plan visage + mains en cuisine</text>
+  <text x="1080" y="470" text-anchor="middle" fill="#7FB9AE" font-size="14">lumière naturelle, cadrage serré</text>
+
+  <!-- nav -->
+  <text x="64" y="52" fill="#ffffff" font-size="24" font-style="italic" font-weight="700" letter-spacing="-0.5">festin</text>
+  <text x="812" y="50" fill="#ffffff" fill-opacity="0.85" font-size="15">Association</text>
+  <text x="930" y="50" fill="#ffffff" fill-opacity="0.85" font-size="15">Formations</text>
+  <text x="1048" y="50" fill="#ffffff" fill-opacity="0.85" font-size="15">Projets</text>
+  <text x="1132" y="50" fill="#ffffff" fill-opacity="0.85" font-size="15">Impact</text>
+  <text x="1210" y="50" fill="#ffffff" fill-opacity="0.85" font-size="15">Contact</text>
+  <rect x="1288" y="28" width="88" height="34" rx="17" fill="#E8A825"/>
+  <text x="1332" y="50" text-anchor="middle" fill="#0D2B30" font-size="13" font-weight="700">Agir</text>
+
+  <text x="64" y="250" fill="#F5C84A" font-size="15" letter-spacing="3" font-weight="700">ASSOCIATION FESTIN — DEPUIS 2015</text>
+  <text x="60" y="378" fill="#ffffff" font-size="132" font-weight="700" letter-spacing="-3">Le goût</text>
+  <text x="60" y="506" fill="#ffffff" font-size="132" font-weight="700" letter-spacing="-3">d’avancer</text>
+  <text x="60" y="634" fill="#F5C84A" font-size="132" font-weight="700" font-style="italic" letter-spacing="-3">ensemble</text>
+  <text x="64" y="694" fill="#ffffff" fill-opacity="0.9" font-size="24">La restauration comme levier d’insertion, de formation</text>
+  <text x="64" y="726" fill="#ffffff" fill-opacity="0.9" font-size="24">et de transformation.</text>
+  <rect x="64" y="762" width="290" height="52" rx="6" fill="#E8A825"/>
+  <text x="209" y="794" text-anchor="middle" fill="#0D2B30" font-size="16" font-weight="700">Découvrir nos formations</text>
+  <rect x="372" y="762" width="272" height="52" rx="6" fill="none" stroke="#ffffff" stroke-opacity="0.6"/>
+  <text x="508" y="794" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="700">Nos parcours d’insertion</text>
+
+  <!-- ================= IMPACT BAR ================= -->
+  <rect x="0" y="860" width="1440" height="220" fill="#1D6B78"/>
+  <g font-weight="700">
+    <text x="180" y="972" text-anchor="middle" fill="#F5C84A" font-size="66">453</text>
+    <text x="540" y="972" text-anchor="middle" fill="#F5C84A" font-size="66">72 %</text>
+    <text x="900" y="972" text-anchor="middle" fill="#F5C84A" font-size="66">14</text>
+    <text x="1260" y="972" text-anchor="middle" fill="#F5C84A" font-size="66">10 ans</text>
+  </g>
+  <g fill="#ffffff" font-size="15">
+    <text x="180" y="1004" text-anchor="middle">personnes accompagnées en 2025</text>
+    <text x="540" y="1004" text-anchor="middle">de sorties en emploi ou formation</text>
+    <text x="900" y="1004" text-anchor="middle">territoires d’intervention</text>
+    <text x="1260" y="1004" text-anchor="middle">d’existence</text>
+  </g>
+  <g stroke="#ffffff" stroke-opacity="0.22"><line x1="360" y1="905" x2="360" y2="1035"/><line x1="720" y1="905" x2="720" y2="1035"/><line x1="1080" y1="905" x2="1080" y2="1035"/></g>
+
+  <!-- ================= INTRO + PILIERS ================= -->
+  <rect x="0" y="1080" width="1440" height="480" fill="#F7F3EC"/>
+  <text x="64" y="1168" fill="#1D6B78" font-size="14" letter-spacing="3" font-weight="700">L’ASSOCIATION FESTIN</text>
+  <text x="62" y="1232" fill="#0D2B30" font-size="46" font-weight="700" letter-spacing="-1">Former, inclure,</text>
+  <text x="62" y="1288" fill="#E8A825" font-size="46" font-weight="700" font-style="italic" letter-spacing="-1">transformer.</text>
+  <text x="64" y="1348" fill="#3D5E63" font-size="18">Née à Marseille en 2015, Festin a construit un</text>
+  <text x="64" y="1376" fill="#3D5E63" font-size="18">écosystème unique : des dispositifs de formation,</text>
+  <text x="64" y="1404" fill="#3D5E63" font-size="18">d’insertion et de plaidoyer qui font de la cuisine</text>
+  <text x="64" y="1432" fill="#3D5E63" font-size="18">un puissant levier d’émancipation.</text>
+
+  <g>
+    <rect x="700" y="1150" width="40" height="3" fill="#1D6B78"/>
+    <text x="700" y="1188" fill="#0D2B30" font-size="21" font-weight="700">Insertion</text>
+    <text x="700" y="1216" fill="#3D5E63" font-size="15">Accompagner des personnes éloignées de l’emploi vers des</text>
+    <text x="700" y="1238" fill="#3D5E63" font-size="15">métiers porteurs, avec exigence et bienveillance.</text>
+
+    <rect x="700" y="1276" width="40" height="3" fill="#1D6B78"/>
+    <text x="700" y="1314" fill="#0D2B30" font-size="21" font-weight="700">Formation</text>
+    <text x="700" y="1342" fill="#3D5E63" font-size="15">Certifier et professionnaliser, pour les publics en insertion</text>
+    <text x="700" y="1364" fill="#3D5E63" font-size="15">comme pour les professionnels déjà en poste.</text>
+
+    <rect x="700" y="1402" width="40" height="3" fill="#1D6B78"/>
+    <text x="700" y="1440" fill="#0D2B30" font-size="21" font-weight="700">Transformation</text>
+    <text x="700" y="1468" fill="#3D5E63" font-size="15">Plaider pour une restauration plus juste, plus inclusive,</text>
+    <text x="700" y="1490" fill="#3D5E63" font-size="15">sans violence — à travers le mouvement Restaure.</text>
+  </g>
+
+  <!-- ================= ÉCOSYSTÈME ================= -->
+  <text x="64" y="1650" fill="#1D6B78" font-size="14" letter-spacing="3" font-weight="700">L’ÉCOSYSTÈME FESTIN</text>
+  <text x="62" y="1706" fill="#0D2B30" font-size="42" font-weight="700" letter-spacing="-1">Cinq projets, une même conviction</text>
+
+  <!-- band 1 -->
+  <rect x="64" y="1760" width="620" height="300" fill="#C9DDE0"/><rect x="64" y="1760" width="620" height="300" fill="url(#ph)"/>
+  <text x="374" y="1905" text-anchor="middle" fill="#3D5E63" font-size="14" letter-spacing="1">PHOTO — brigade / atelier pâtisserie, visages</text>
+  <text x="740" y="1806" fill="#E8A825" font-size="13" letter-spacing="2.5" font-weight="700">DEPUIS 2015</text>
+  <text x="740" y="1848" fill="#0D2B30" font-size="30" font-weight="700">Des Étoiles et des Femmes</text>
+  <text x="740" y="1884" fill="#3D5E63" font-size="17">Programme national d’insertion des femmes par la cuisine.</text>
+  <text x="740" y="1928" fill="#0D2B30" font-size="15" font-weight="700">13 antennes · 358 femmes en 2025 · 91 % de réussite aux diplômes</text>
+  <text x="740" y="1972" fill="#1D6B78" font-size="15" font-weight="700">Découvrir →</text>
+
+  <!-- band 2 -->
+  <rect x="756" y="2100" width="620" height="300" fill="#C9DDE0"/><rect x="756" y="2100" width="620" height="300" fill="url(#ph)"/>
+  <text x="1066" y="2245" text-anchor="middle" fill="#3D5E63" font-size="14" letter-spacing="1">PHOTO — salle du restaurant, service</text>
+  <text x="64" y="2146" fill="#E8A825" font-size="13" letter-spacing="2.5" font-weight="700">DEPUIS 2022</text>
+  <text x="64" y="2188" fill="#0D2B30" font-size="30" font-weight="700">Les Beaux Mets</text>
+  <text x="64" y="2224" fill="#3D5E63" font-size="17">Le premier restaurant en prison ouvert au public en France.</text>
+  <text x="64" y="2268" fill="#0D2B30" font-size="15" font-weight="700">48 personnes en 2025 · 86 % de sorties dynamiques · 12 000+ convives</text>
+  <text x="64" y="2312" fill="#1D6B78" font-size="15" font-weight="700">Découvrir →</text>
+
+  <!-- band 3 -->
+  <rect x="64" y="2440" width="620" height="300" fill="#C9DDE0"/><rect x="64" y="2440" width="620" height="300" fill="url(#ph)"/>
+  <text x="374" y="2585" text-anchor="middle" fill="#3D5E63" font-size="14" letter-spacing="1">PHOTO — cuisine du traiteur, mains au travail</text>
+  <text x="740" y="2486" fill="#E8A825" font-size="13" letter-spacing="2.5" font-weight="700">DEPUIS 1993</text>
+  <text x="740" y="2528" fill="#0D2B30" font-size="30" font-weight="700">La Table de Cana</text>
+  <text x="740" y="2564" fill="#3D5E63" font-size="17">Traiteur et restauration collective en insertion, à Marseille.</text>
+  <text x="740" y="2608" fill="#0D2B30" font-size="15" font-weight="700">45 salariés en insertion · 89 % de sorties dynamiques · 400 000+ convives</text>
+  <text x="740" y="2652" fill="#1D6B78" font-size="15" font-weight="700">Découvrir →</text>
+
+  <!-- compact row -->
+  <rect x="64" y="2790" width="656" height="150" fill="#FFFFFF" stroke="#C9DDE0"/>
+  <text x="96" y="2836" fill="#9A5BA8" font-size="13" letter-spacing="2.5" font-weight="700">DEPUIS 2024</text>
+  <text x="96" y="2872" fill="#0D2B30" font-size="24" font-weight="700">Le mouvement Restaure</text>
+  <text x="96" y="2906" fill="#3D5E63" font-size="15">35 structures · 700 signataires du manifeste · 2 M+ de vues</text>
+  <rect x="740" y="2790" width="636" height="150" fill="#FFFFFF" stroke="#C9DDE0"/>
+  <text x="772" y="2836" fill="#2E8B57" font-size="13" letter-spacing="2.5" font-weight="700">AVEC REFUGEE FOOD</text>
+  <text x="772" y="2872" fill="#0D2B30" font-size="24" font-weight="700">Tournesol</text>
+  <text x="772" y="2906" fill="#3D5E63" font-size="15">6 mois · TP Commis de cuisine · formation gratuite et rémunérée</text>
+
+  <!-- ================= DEUX PUBLICS ================= -->
+  <rect x="0" y="3000" width="1440" height="500" fill="#F7F3EC"/>
+  <text x="64" y="3086" fill="#1D6B78" font-size="14" letter-spacing="3" font-weight="700">DEUX PORTES D’ENTRÉE</text>
+  <text x="62" y="3142" fill="#0D2B30" font-size="42" font-weight="700" letter-spacing="-1">Un acteur dual au service du secteur</text>
+
+  <rect x="64" y="3190" width="656" height="250" fill="#FEFCF8" stroke="#C9DDE0"/>
+  <rect x="96" y="3222" width="230" height="26" rx="13" fill="#FBF1D9"/>
+  <text x="211" y="3240" text-anchor="middle" fill="#9A6A12" font-size="11" letter-spacing="1.5" font-weight="700">PERSONNES EN INSERTION</text>
+  <text x="96" y="3288" fill="#0D2B30" font-size="24" font-weight="700">Publics éloignés de l’emploi</text>
+  <text x="96" y="3324" fill="#3D5E63" font-size="15">Parcours métiers diplômants pour les femmes éloignées de l’emploi</text>
+  <text x="96" y="3346" fill="#3D5E63" font-size="15">(Des Étoiles et des Femmes) et les personnes réfugiées ou</text>
+  <text x="96" y="3368" fill="#3D5E63" font-size="15">primo-arrivantes (Tournesol).</text>
+  <text x="96" y="3410" fill="#1D6B78" font-size="15" font-weight="700">Voir les parcours d’insertion →</text>
+
+  <rect x="740" y="3190" width="636" height="250" fill="#FEFCF8" stroke="#C9DDE0"/>
+  <rect x="772" y="3222" width="300" height="26" rx="13" fill="#E8F1F2"/>
+  <text x="922" y="3240" text-anchor="middle" fill="#0F3C44" font-size="11" letter-spacing="1.5" font-weight="700">PROFESSIONNELS DE LA RESTAURATION</text>
+  <text x="772" y="3288" fill="#0D2B30" font-size="24" font-weight="700">Restaurateurs, managers et équipes</text>
+  <text x="772" y="3324" fill="#3D5E63" font-size="15">Formations continues courtes : prévention des VSS, management</text>
+  <text x="772" y="3346" fill="#3D5E63" font-size="15">juste, accueil de la diversité.</text>
+  <text x="772" y="3410" fill="#1D6B78" font-size="15" font-weight="700">Voir les formations continues →</text>
+
+  <!-- ================= TÉMOIGNAGES ================= -->
+  <rect x="0" y="3500" width="1440" height="420" fill="#0A2D33"/>
+  <text x="64" y="3588" fill="#F5C84A" font-size="14" letter-spacing="3" font-weight="700">TÉMOIGNAGES</text>
+  <text x="62" y="3644" fill="#ffffff" font-size="42" font-weight="700" letter-spacing="-1">Ce que change un parcours</text>
+  <rect x="64" y="3690" width="656" height="180" fill="#0F3C44"/>
+  <text x="96" y="3742" fill="#F5C84A" font-size="40" font-weight="700">“</text>
+  <text x="96" y="3766" fill="#ffffff" font-size="17">Je suis fière, indépendante, heureuse d’avoir su</text>
+  <text x="96" y="3792" fill="#ffffff" font-size="17">franchir toutes ces étapes.</text>
+  <text x="96" y="3838" fill="#9FE1CB" font-size="13" font-weight="700">Promotion Des Étoiles et des Femmes, Lille</text>
+  <rect x="740" y="3690" width="636" height="180" fill="#0F3C44"/>
+  <text x="772" y="3742" fill="#F5C84A" font-size="40" font-weight="700">“</text>
+  <text x="772" y="3766" fill="#ffffff" font-size="17">Je n’avais jamais travaillé avant. Aujourd’hui, j’ai</text>
+  <text x="772" y="3792" fill="#ffffff" font-size="17">ma première fiche de paie. Ça me donne de la fierté.</text>
+  <text x="772" y="3838" fill="#9FE1CB" font-size="13" font-weight="700">Cuisinier — Les Beaux Mets, 2025</text>
+
+  <!-- ================= S'ENGAGER ================= -->
+  <text x="64" y="4010" fill="#1D6B78" font-size="14" letter-spacing="3" font-weight="700">S’ENGAGER À NOS CÔTÉS</text>
+  <text x="62" y="4066" fill="#0D2B30" font-size="42" font-weight="700" letter-spacing="-1">Trois façons d’avancer ensemble</text>
+  <g>
+    <rect x="64" y="4110" width="416" height="210" fill="#FEFCF8" stroke="#C9DDE0"/>
+    <text x="96" y="4158" fill="#6B8489" font-size="12" letter-spacing="1.5" font-weight="700">VOUS ÊTES RESTAURATEUR</text>
+    <text x="96" y="4198" fill="#0D2B30" font-size="22" font-weight="700">Faire évoluer vos pratiques</text>
+    <text x="96" y="4232" fill="#3D5E63" font-size="14">Formations courtes pour les équipes,</text>
+    <text x="96" y="4252" fill="#3D5E63" font-size="14">accueil de stagiaires en insertion.</text>
+    <text x="96" y="4298" fill="#1D6B78" font-size="14" font-weight="700">Découvrir les formations →</text>
+
+    <rect x="512" y="4110" width="416" height="210" fill="#FEFCF8" stroke="#C9DDE0"/>
+    <text x="544" y="4158" fill="#6B8489" font-size="12" letter-spacing="1.5" font-weight="700">VOUS ÊTES PARTENAIRE OU FINANCEUR</text>
+    <text x="544" y="4198" fill="#0D2B30" font-size="22" font-weight="700">Soutenir l’écosystème Festin</text>
+    <text x="544" y="4232" fill="#3D5E63" font-size="14">Mécénat, partenariat opérationnel,</text>
+    <text x="544" y="4252" fill="#3D5E63" font-size="14">financement de promotions.</text>
+    <text x="544" y="4298" fill="#1D6B78" font-size="14" font-weight="700">Nous contacter →</text>
+
+    <rect x="960" y="4110" width="416" height="210" fill="#FEFCF8" stroke="#C9DDE0"/>
+    <text x="992" y="4158" fill="#6B8489" font-size="12" letter-spacing="1.5" font-weight="700">VOUS ÊTES EN PARCOURS D’INSERTION</text>
+    <text x="992" y="4198" fill="#0D2B30" font-size="22" font-weight="700">Rejoindre une promotion</text>
+    <text x="992" y="4232" fill="#3D5E63" font-size="14">Parcours diplômants gratuits, avec un</text>
+    <text x="992" y="4252" fill="#3D5E63" font-size="14">accompagnement complet.</text>
+    <text x="992" y="4298" fill="#1D6B78" font-size="14" font-weight="700">Découvrir les parcours →</text>
+  </g>
+
+  <!-- ================= PARTENAIRES / FINANCEURS ================= -->
+  <rect x="0" y="4380" width="1440" height="180" fill="#FBF1D9"/>
+  <text x="64" y="4448" fill="#9A6A12" font-size="14" letter-spacing="3" font-weight="700">PARTENAIRES ET FINANCEURS</text>
+  <text x="64" y="4486" fill="#0D2B30" font-size="24" font-weight="700">Ils soutiennent l’écosystème Festin</text>
+  <g fill="#E4D3A6"><rect x="700" y="4438" width="120" height="44"/><rect x="836" y="4438" width="120" height="44"/><rect x="972" y="4438" width="120" height="44"/><rect x="1108" y="4438" width="120" height="44"/></g>
+  <rect x="1244" y="4432" width="132" height="56" rx="6" fill="#1D6B78"/>
+  <text x="1310" y="4466" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="700">Devenir mécène</text>
+
+  <!-- ================= FOOTER ================= -->
+  <rect x="0" y="4560" width="1440" height="160" fill="#0A2D33"/>
+  <text x="64" y="4620" fill="#ffffff" font-size="22" font-style="italic" font-weight="700">festin</text>
+  <g fill="#9FE1CB" font-size="13">
+    <text x="64" y="4656">Le goût d’avancer ensemble — Marseille, 14 territoires</text>
+    <text x="520" y="4656">Nous contacter</text><text x="700" y="4656">S’engager</text><text x="850" y="4656">Nos projets</text><text x="1020" y="4656">L’association</text>
+  </g>
+  <g fill="#6E9AA0" font-size="12">
+    <text x="64" y="4690">© 2026 Festin — associationfestin.com</text>
+    <text x="700" y="4690">NDA 93132168513 · Siret 924 202 831 00013</text>
+    <text x="1180" y="4690">Certifié Qualiopi</text>
+  </g>
+</svg>

@@ -17,6 +17,8 @@ window.FESTIN_DATA = {
     address: "21 rue Grignan, 13006 Marseille",
     nda: "93132168513",
     siret: "924 202 831 00013",
+    legalForm: "Association loi 1901",
+    rna: "W133012740",
   },
   // Stats used by Hero — chiffres réels 2025 source: Plaquette Offre restaurateurs Festin
   stats: [
@@ -127,9 +129,67 @@ window.FESTIN_DATA = {
       implicationCtaHref: "#/contact",
       temoignages: [
         { prenom: "Hafida", role: "Alumna — promotion Lille", citation: "Je suis fière, indépendante, heureuse. Aujourd’hui je travaille dans le restaurant L’Annexe à Lille où j’ai effectué mes stages grâce au programme.", placeholder: false },
-        { prenom: "[Prénom]", role: "Cheffe ou responsable restaurant partenaire", citation: "", placeholder: true },
+        { prenom: "Fatima", role: "Alumna — promotion 2020, Marseille", citation: "Cette cuisine, c’est comme ma famille. Je m’y sens bien…", placeholder: false },
+        { prenom: "Appa M.", role: "Alumna — promotion 2023, Île-de-France", citation: "", placeholder: true },
+        { prenom: "Joëlle", role: "Alumna — promotion 2023-2024, Toulouse", citation: "", placeholder: true },
       ],
       presseFilter: ["Des Étoiles et des Femmes", "DEF", "Etoiles et des Femmes"],
+      // --- Champs page projet dédiée (extraits de description / formations, sinon [XX]) ---
+      godmother: { name: "Julia Sedefdjian", role: "Marraine nationale — depuis 2025" },
+      parcours: [
+        { tab: "Se former", title: "Un diplôme reconnu",
+          text: "CAP Cuisine sur 11 mois, ou Titre Professionnel Cuisinier sur 4 mois : techniques, remise à niveau, préparation à l’examen.",
+          stat: "600 h à 1 476 h", statL: "de formation selon le parcours",
+          img: "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg" },
+        { tab: "Pratiquer", title: "En restaurant, sur le terrain",
+          text: "Des stages dans des restaurants engagés — Les Grandes Tables, Sofitel, Les Bords de Mer… — pour apprendre le métier en brigade.",
+          stat: "155 à 490 h", statL: "de stage en restaurant",
+          img: "images/images-def/HOTELERIE-035.jpg" },
+        { tab: "Être accompagnée", title: "Lever les freins",
+          text: "Un accompagnement social tout au long du parcours : mobilité, garde d’enfants, logement, soutien linguistique.",
+          stat: "100 %", statL: "des parcours avec accompagnement social",
+          img: "images/photo-tabliers-violets.jpg" },
+        { tab: "Travailler", title: "Jusqu’à l’emploi",
+          text: "Coaching emploi, préparation aux entretiens, accès au réseau des restaurants partenaires, et suivi après la formation.",
+          stat: "91 %", statL: "de réussite aux diplômes en 2025",
+          img: "images/photo-groupe-portrait.jpg" }
+      ],
+      candidater: {
+        eligibility: "Femmes majeures, éloignées de l’emploi, avec un niveau de français B1 minimum (B2 pour le CAP).",
+        cost: "Formation entièrement gratuite, financée par les pouvoirs publics et les mécènes. Une indemnisation est possible selon la situation.",
+        antennes: "La liste ville par ville et les dates d’information collective sont sur desetoilesetdesfemmes.org.",
+        sessions: "Recrutement chaque année en mai. La réunion d’information collective est obligatoire pour candidater.",
+        applyLabel: "Déposer une candidature",
+        applyHref: "https://www.desetoilesetdesfemmes.org"
+      },
+      accueil: {
+        title: "Accueillir une stagiaire",
+        text: "Accueillir une stagiaire Des Étoiles et des Femmes, c’est confier à un membre de votre brigade un binôme et un tutorat, le temps d’un stage. C’est aussi rencontrer de futurs profils formés, et s’engager concrètement pour une restauration plus inclusive.",
+        stat: "155 à 490 h", statL: "de stage par promotion",
+        ctaLabel: "Devenir restaurant partenaire", ctaHref: "#/accompagnement/professionnels",
+        img: "images/photo-cuisine-action.jpg"
+      },
+      grandFestin: {
+        eyebrow: "Temps fort",
+        title: "Le Grand Festin",
+        text: "Pour les dix ans du programme, 14 brigades, plus de 550 convives et 100 bénévoles se sont réunis sur le Vieux-Port de Marseille.",
+        stats: [
+          { value: "14",   label: "brigades réunies" },
+          { value: "550", unit: "+", label: "convives" },
+          { value: "100",  label: "bénévoles" }
+        ],
+        images: [
+          "images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg",
+          "images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00022.jpg"
+        ]
+      },
+      soutenir: {
+        title: "Soutenir une promotion",
+        text: "Le parcours est gratuit pour les femmes qui le suivent. Chaque promotion est financée par les pouvoirs publics et par des mécènes. Votre don finance de la formation, des stages, un accompagnement — et des retours durables à l’emploi.",
+        donLabel: "Faire un don",
+        contactLabel: "Parler mécénat",
+        contactHref: "#/contact"
+      },
     },
     {
       id: "les-beaux-mets",
@@ -539,6 +599,174 @@ window.FESTIN_DATA = {
     { dispositif:"Restaure", source:"Neo Restauration", title:"Restaure, pour une restauration plus juste, inclusive et durable", type:"Article", date:"2024-09-26", href:"https://www.neorestauration.com/article/restaure-pour-une-restauration-plus-juste-inclusive-et-durable,72483" },
     { dispositif:"Restaure", source:"Carenews", title:"« La restauration est un milieu malade » : avec le mouvement Restaure, Éloi Spinnler s'attaque aux violences en cuisine", type:"Article", date:"2025-11-20", href:"https://www.carenews.com/engagement-et-citoyennete/news/la-restauration-est-un-milieu-malade-avec-le-mouvement-restaure" },
   ],
+};
+
+// ============================================================
+//  MEGA MENU — contenu (repris de Selector.jsx / maquette home-b)
+//  Couleurs : charte uniquement (teal / or / corail / violet)
+// ============================================================
+// Don en ligne — formulaire HelloAsso de l'association
+window.FESTIN_DATA.donation = "https://www.helloasso.com/associations/association-festin/formulaires/3";
+
+window.FESTIN_DATA.meganav = {
+  title: "Explorez Festin",
+  links: [
+    { label: "L'association", href: "#/about" },
+    { label: "Notre impact", href: "#/impact" },
+    { label: "Actualités", href: "#/actualites" },
+    { label: "Formations", href: "#/formations" },
+    { label: "Nous contacter", href: "#/contact" }
+  ],
+  views: [
+    {
+      key: "theme", label: "Par thématique", icon: "sparkles",
+      cards: [
+        { t:"Régaler",     ic:"utensils",       c:"#1D6B78", d:"Nos restaurants, notre traiteur et nos espaces : la gastronomie inclusive qui se déguste.", tags:["Les Beaux Mets","La Table de Cana","Traiteur"], href:"#/projets/les-beaux-mets" },
+        { t:"Former",      ic:"graduation-cap", c:"#E8A825", d:"L'Académie Festin : des parcours diplômants et des formations pour les pros.", tags:["Des Étoiles et des Femmes","Tournesol","Formations pros"], href:"#/formations" },
+        { t:"Employer",    ic:"briefcase",      c:"#E4572E", d:"L'insertion par la cuisine et le suivi vers un emploi durable.", tags:["Parcours insertion","Club des Talents"], href:"#/accompagnement/insertion" },
+        { t:"Transformer", ic:"megaphone",      c:"#9A5BA8", d:"Le mouvement Restaure : faire évoluer les pratiques de tout un secteur.", tags:["Manifeste","Plaidoyer"], href:"#/projets/restaure" }
+      ]
+    },
+    {
+      key: "lieu", label: "Par lieu", icon: "map-pin",
+      cards: [
+        { t:"Les Beaux Mets",    ic:"utensils",       c:"#1D6B78", d:"Le restaurant des Baumettes à Marseille, ouvert au public.", tags:["Marseille","Restaurant"], href:"#/projets/les-beaux-mets" },
+        { t:"La Table de Cana",  ic:"chef-hat",       c:"#E8A825", d:"Traiteur événementiel et restauration collective — Mourepiane.", tags:["Mourepiane","Traiteur"], href:"#/projets/la-table-de-cana" },
+        { t:"Le Bouillon Bleu",  ic:"hard-hat",       c:"#9A5BA8", d:"Restaurant populaire en cours de développement.", tags:["Sadi Carnot"], pill:"Bientôt", href:"#/restaurants/sadi-carnot" },
+        { t:"L'Académie Festin", ic:"graduation-cap", c:"#E4572E", d:"Le centre de formation certifié Qualiopi de l'association.", tags:["Marseille","Qualiopi"], href:"#/academie" }
+      ]
+    },
+    {
+      key: "projet", label: "Par projet", icon: "layout-grid",
+      cards: [
+        { t:"Des Étoiles et des Femmes", ic:"star",     c:"#E8A825", d:"L'insertion des femmes par la haute gastronomie — 13 antennes.", tags:["10 ans","13 antennes"], href:"#/projets/des-etoiles-et-des-femmes" },
+        { t:"Tournesol",                 ic:"sun",      c:"#E4572E", d:"Le parcours diplômant pour personnes réfugiées et primo-arrivantes.", tags:["Refugee Food","6 mois"], href:"#/projets/tournesol" },
+        { t:"Club des Talents",          ic:"users",    c:"#1D6B78", d:"Le réseau d'anciens salariés en insertion, façon alumni.", tags:["Réseau","Alumni"], href:"#/accompagnement/insertion" },
+        { t:"Le mouvement Restaure",     ic:"megaphone",c:"#9A5BA8", d:"35 structures fédérées pour transformer la restauration.", tags:["700 signataires","Manifeste"], href:"#/projets/restaure" }
+      ]
+    }
+  ]
+};
+
+// ============================================================
+//  HOME — copy éditoriale (portée depuis maquettes/home-b.html)
+// ============================================================
+window.FESTIN_DATA.home = {
+  hero: {
+    eyebrow: "Association Festin — depuis 2015",
+    titleLines: ["Le goût", "d'avancer", "ensemble"],   // dernière ligne = accent
+    sub: "La restauration comme levier d'insertion, de formation et de transformation.",
+    ctas: [
+      { label: "Découvrir nos projets", scroll: "eco", variant: "gold" },
+      { label: "S'engager", scroll: "engage", variant: "ghost" }
+    ],
+    img: "images/photo-chapeau-cuisine.jpg"
+  },
+  marquee: [
+    "CAP Cuisine", "Titre Professionnel Cuisinier", "Titre Professionnel Commis de cuisine",
+    "Prévention des violences en cuisine", "Management juste", "Accueil de la diversité",
+    "Insertion par la cuisine — depuis 2015"
+  ],
+  approche: {
+    eyebrow: "L'association Festin · depuis 2015",
+    titleLines: ["De la cuisine", "à l'emploi"],
+    intro: "Festin forme aux métiers de la cuisine des personnes qui en sont éloignées. Et accompagne les restaurants qui veulent recruter et manager autrement. À Marseille et sur 14 territoires.",
+    steps: [
+      { tab: "On accompagne", kicker: "01 · Insertion", title: "On accompagne",
+        text: "Des personnes loin de l'emploi — femmes isolées, personnes réfugiées ou primo-arrivantes — vers un métier de cuisine, avec exigence et bienveillance.",
+        img: "images/photo-groupe-portrait.jpg", variant: "a" },
+      { tab: "On forme", kicker: "02 · Formation", title: "On forme",
+        text: "Un diplôme reconnu — CAP ou Titre Professionnel Cuisinier — pour les personnes en insertion comme pour les équipes déjà en poste.",
+        img: "images/photo-patisserie.jpg", variant: "b" },
+      { tab: "On fait bouger", kicker: "03 · Transformation", title: "On fait bouger",
+        text: "Prévenir les violences en cuisine, défendre un management juste — avec le mouvement Restaure.",
+        img: "images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00022.jpg", variant: "c" }
+    ]
+  },
+  logoband: { eyebrow: "Cinq projets qui font bouger la restauration" },
+  dual: {
+    titleLines: ["Se former,", "ou former ses équipes"],   // 2e = accent
+    lede: "Deux besoins, deux réponses concrètes. Trouvez la vôtre.",
+    cards: [
+      { tag: "Vous cherchez un métier", kicker: "Personnes en parcours d'insertion",
+        title: "Apprendre un métier de cuisine, gratuitement",
+        pts: [
+          "Un diplôme reconnu : CAP ou Titre Professionnel Cuisinier",
+          "Accompagnement social, stages en restaurant, coaching vers l'emploi",
+          "Pour les femmes loin de l'emploi et les personnes réfugiées ou primo-arrivantes"
+        ],
+        cta: "Voir les parcours", href: "#/accompagnement/insertion",
+        img: "images/photo-tabliers-violets.jpg" },
+      { tag: "Vous dirigez un établissement", kicker: "Professionnels de la restauration",
+        title: "Recruter, former et garder vos équipes",
+        pts: [
+          "Formations courtes : prévention des violences, management juste, accueil de la diversité",
+          "Accueil de stagiaires en parcours d'insertion",
+          "Une réponse concrète aux tensions RH du secteur"
+        ],
+        cta: "Voir l'accompagnement pros", href: "#/accompagnement/professionnels",
+        img: "images/photo-cuisine-action.jpg" }
+    ]
+  },
+  eco: {
+    titlePre: "Découvrez nos ", titleAccent: "cinq projets",
+    lede: "Des restaurants, un traiteur, des formations, un mouvement national. Cinq manières d'agir sur un même secteur : la restauration.",
+    // par projet.id : accroche + chiffre + image de carte (le reste vient de FESTIN_DATA.projets)
+    cards: [
+      { id:"des-etoiles-et-des-femmes", blurb:"Programme national d'insertion des femmes par la cuisine.", stat:"91 % de réussite aux diplômes en 2025", img:"images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg" },
+      { id:"les-beaux-mets",           blurb:"Le premier restaurant en prison ouvert au public en France.", stat:"86 % de sorties dynamiques", img:"images/beauxmets-images/LBM_cdutrey_071122-7264.jpg" },
+      { id:"la-table-de-cana",         blurb:"Traiteur et restauration collective en insertion, à Marseille.", stat:"400 000+ convives régalés", img:"images/latable de cana/tabledecana_cdutrey_160124-4393.jpg" },
+      { id:"restaure",                 blurb:"Un mouvement national pour transformer le secteur de la restauration.", stat:"700 signataires du manifeste", img:"images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00032.jpg" },
+      { id:"tournesol",                blurb:"Formation diplômante pour personnes réfugiées et primo-arrivantes.", stat:"6 mois · TP Commis de cuisine · gratuite et rémunérée", img:"images/photo-rouleaux.jpg" }
+    ],
+    explore: { title:"Explorer tout l'écosystème", text:"Restaurants, traiteur, formations, plaidoyer — 14 territoires, 5 projets complémentaires.", cta:"Voir les projets", href:"#/projets/des-etoiles-et-des-femmes" }
+  },
+  impact: {
+    eyebrow: "L'impact 2025",
+    photos: [
+      "images/photo-groupe-portrait.jpg",
+      "images/images-def/HOTELERIE-035.jpg",
+      "images/photo-tabliers-violets.jpg",
+      "images/photo-applaudissements.jpg"
+    ]
+  },
+  quotes: {
+    eyebrow: "Témoignages",
+    title: "Ce qu'ils en disent",
+    lede: "Des personnes formées, des chefs qui recrutent, des partenaires qui s'engagent.",
+    band: "images/photo-applaudissements.jpg",
+    cards: [
+      { av:"P", kind:"p", chip:"Personne accompagnée", name:"Promotion Des Étoiles et des Femmes", role:"Lille",
+        q:"Je suis fière, indépendante, heureuse d'avoir su franchir toutes ces étapes.", logo:"images/logo projets/logo-def.png" },
+      { av:"R", kind:"r", chip:"Restaurateur", name:"Chef", role:"Intercontinental Marseille",
+        q:"Sami s'est très vite intégré à l'équipe. Il a été très bien formé aux Beaux Mets et avait l'attitude qui correspondait à une cuisine.", logo:"images/logo projets/logo-beauxmets.png" },
+      { av:"P", kind:"p", chip:"Personne accompagnée", name:"Cuisinier", role:"Les Beaux Mets, 2025",
+        q:"Je n'avais jamais travaillé avant. Aujourd'hui, j'ai ma première fiche de paie. Ça me donne de la fierté.", logo:"images/logo projets/logo-beauxmets.png" },
+      { av:"E", kind:"r", chip:"Entreprise partenaire", name:"[Entreprise partenaire]", role:"[Fonction]",
+        q:"[Témoignage à recueillir — entreprise mécène ou partenaire RH]", panelText:"L'écosystème Festin" },
+      { av:"P", kind:"p", chip:"Personne accompagnée", name:"Ancien salarié en insertion", role:"La Table de Cana",
+        q:"Ça m'a vraiment aidé à avoir confiance en mes compétences. Aujourd'hui, j'ai un CDI. Je suis fier du chemin parcouru.", logo:"images/logo projets/logo-latbaledecana.png" },
+      { av:"C", kind:"f", chip:"Secteur engagé", name:"Eloi Spinnler", role:"Chef engagé — Mouvement Restaure",
+        q:"Pour réussir à vraiment changer les choses, je suis persuadé qu'il faut avancer collectivement.", logo:"images/logo projets/logo- restaure.png" },
+      { av:"F", kind:"f", chip:"Financeur / mécène", name:"[Financeur ou mécène]", role:"[Fonction]",
+        q:"[Témoignage à recueillir]", panelText:"Soutenir Festin" }
+    ]
+  },
+  engage: {
+    title: "Se former, recruter, soutenir",
+    cards: [
+      { p:"Vous cherchez un métier", title:"Candidater à une formation",
+        text:"Parcours diplômants gratuits en cuisine, avec accompagnement complet. Prochaines promotions à Marseille et sur 14 territoires.",
+        cta:"Voir les prochaines sessions", href:"#/formations" },
+      { p:"Vous dirigez un restaurant", title:"Accueillir un stagiaire, former une équipe",
+        text:"Un vivier de profils formés, et des formations courtes pour vos équipes en salle et en cuisine.",
+        cta:"Devenir restaurant partenaire", href:"#/accompagnement/professionnels" },
+      { p:"Vous êtes entreprise, partenaire ou financeur", title:"Financer une promotion, devenir mécène",
+        text:"Mécénat, financement de parcours, mise à disposition de compétences. On construit l'engagement avec vous.",
+        cta:"Nous contacter", href:"#/contact" }
+    ]
+  },
+  footcurtain: ["Le goût", "d'avancer", "ensemble"]   // 3e = accent
 };
 
 // Backward-compat alias so anything still referencing the old name keeps working

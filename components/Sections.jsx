@@ -206,84 +206,72 @@ function Contact() {
   );
 }
 
+// Footer partagé — grand titre révélé derrière + panneau qui glisse par-dessus (maquette home-b)
 function Footer() {
   const data = window.FESTIN_DATA;
-  return (
-    <footer className="footer">
-      {/* CTA band — priorité aux portes d'entrée Nous contacter & S'engager */}
-      <div className="footer__cta-band">
-        <div className="container">
-          <div className="footer__cta-grid">
-            <a className="footer__cta-card" href="#/contact">
-              <div className="footer__cta-icon"><i data-lucide="mail" style={{width:22,height:22}}/></div>
-              <h3>Nous contacter</h3>
-              <p>Une question, un projet à monter, un partenariat à imaginer ? Notre équipe vous répond sous 48 h ouvrées.</p>
-              <span className="footer__cta-card__lnk">Écrire à Festin <i data-lucide="arrow-right" style={{width:16,height:16}}/></span>
-            </a>
-            <a className="footer__cta-card" href="#/contact">
-              <div className="footer__cta-icon"><i data-lucide="handshake" style={{width:22,height:22}}/></div>
-              <h3>S'engager à nos côtés</h3>
-              <p>Restaurateur, partenaire, financeur, ou en parcours d'insertion : trois portes d'entrée, une même envie d'avancer ensemble.</p>
-              <span className="footer__cta-card__lnk">Découvrir comment <i data-lucide="arrow-right" style={{width:16,height:16}}/></span>
-            </a>
-          </div>
-        </div>
-      </div>
+  const [a, b, c] = data.home.footcurtain;
+  const curtainRef = React.useRef(null);
 
-      <div className="container" style={{paddingTop:64}}>
-        <div className="footer__grid" style={{gridTemplateColumns:'1.4fr 1fr 1fr 1fr 1fr'}}>
-          <div className="footer__brand">
-            <img src={data.brand.logo} alt="Festin" className="footer__brand-logo"/>
-            <p>Festin est une association qui agit depuis 2015 pour rendre la gastronomie plus inclusive : insertion, formation, plaidoyer. Basée à Marseille, présente sur 14 territoires.</p>
-            <div className="footer__qualiopi">
-              <img src={data.brand.qualiopi} alt="Logo Qualiopi" onError={(e)=>{e.currentTarget.style.display='none';}}/>
-              <span>Organisme certifié Qualiopi<br/><small>Au titre des actions de formation</small></span>
+  React.useEffect(() => {
+    const reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+    if (reduce || !window.gsap || !window.ScrollTrigger || !curtainRef.current) return;
+    const st = window.gsap.fromTo(curtainRef.current, { yPercent: 18 }, {
+      yPercent: -12, ease: 'none',
+      scrollTrigger: { trigger: curtainRef.current.parentNode, start: 'top bottom', end: 'bottom top', scrub: 0.6 }
+    });
+    return () => { if (st.scrollTrigger) st.scrollTrigger.kill(); st.kill(); };
+  }, []);
+
+  return (
+    <React.Fragment>
+      <div className="footcurtain" aria-hidden="true">
+        <p className="footcurtain__t" ref={curtainRef}>{a}<br/>{b}<br/><em>{c}</em></p>
+      </div>
+      <footer className="footer">
+        <div className="wrap">
+          <div className="footer__grid">
+            <div className="footer__brand">
+              <span className="footer__logo">festin</span>
+              <p>Festin est une association qui agit depuis 2015 pour rendre la gastronomie plus inclusive&nbsp;: insertion, formation, plaidoyer. Basée à Marseille, présente sur 14 territoires.</p>
+              <a className="footer__don" href={data.donation} target="_blank" rel="noopener noreferrer">
+                <i data-lucide="heart" style={{ width: 16, height: 16 }} aria-hidden="true" />
+                Faire un don
+              </a>
+            </div>
+            <div>
+              <h5>Nous contacter</h5>
+              <ul>
+                <li><a href="#/contact">Écrire à Festin</a></li>
+                <li><a href={`mailto:${data.contact.email}`}>{data.contact.email}</a></li>
+                <li><span>{data.contact.address}</span></li>
+              </ul>
+            </div>
+            <div>
+              <h5>S'engager</h5>
+              <ul>
+                <li><a href="#/accompagnement/professionnels">Restaurateurs</a></li>
+                <li><a href="#/contact">Partenaires &amp; financeurs</a></li>
+                <li><a href="#/accompagnement/insertion">Parcours d'insertion</a></li>
+                <li><a href="#/contact">Mécénat</a></li>
+              </ul>
+            </div>
+            <div>
+              <h5>Nos projets</h5>
+              <ul>
+                {data.projets.map(p => (
+                  <li key={p.id}><a href={`#/projets/${p.id}`}>{p.shortTitle}</a></li>
+                ))}
+              </ul>
             </div>
           </div>
-          <div>
-            <h5>Nous contacter</h5>
-            <ul>
-              <li><a href="#/contact">Écrire à Festin</a></li>
-              <li><a href={`mailto:${data.contact.email}`}>{data.contact.email}</a></li>
-              <li><span>{data.contact.address}</span></li>
-            </ul>
-          </div>
-          <div>
-            <h5>S'engager</h5>
-            <ul>
-              <li><a href="#/contact">Restaurateurs</a></li>
-              <li><a href="#/contact">Partenaires & financeurs</a></li>
-              <li><a href="#/projets/des-etoiles-et-des-femmes">Parcours d'insertion</a></li>
-              <li><a href="#/contact">Mécénat</a></li>
-            </ul>
-          </div>
-          <div>
-            <h5>Nos projets</h5>
-            <ul>
-              <li><a href="#/projets/des-etoiles-et-des-femmes">Des Étoiles et des Femmes</a></li>
-              <li><a href="#/projets/les-beaux-mets">Les Beaux Mets</a></li>
-              <li><a href="#/projets/la-table-de-cana">La Table de Cana</a></li>
-              <li><a href="#/projets/restaure">Le mouvement Restaure</a></li>
-              <li><a href="#/projets/tournesol">Tournesol</a></li>
-            </ul>
-          </div>
-          <div>
-            <h5>L'association</h5>
-            <ul>
-              <li><a href="#/about">Qui sommes-nous</a></li>
-              <li><a href="#/formations">Formations</a></li>
-              <li><a href={data.brand.site} target="_blank" rel="noopener">associationfestin.com</a></li>
-              <li><a>Mentions légales</a></li>
-              <li><a>CGV</a></li>
-            </ul>
+          <div className="footer__bottom">
+            <span>© 2026 Festin — Le goût d'avancer ensemble · <a href={data.brand.site} target="_blank" rel="noopener">associationfestin.com</a></span>
+            <span>Association Festin — {data.contact.legalForm} — N° RNA&nbsp;: {data.contact.rna}</span>
+            <span>NDA {data.contact.nda} · Siret {data.contact.siret} · Organisme certifié Qualiopi</span>
           </div>
         </div>
-        <div className="footer__bottom">
-          <span>© 2026 Festin — Le goût d'avancer ensemble · <a href={data.brand.site} target="_blank" rel="noopener">associationfestin.com</a></span>
-          <span>NDA {data.contact.nda} · Siret {data.contact.siret}</span>
-        </div>
-      </div>
-    </footer>
+      </footer>
+    </React.Fragment>
   );
 }
 
@@ -294,9 +282,10 @@ function FloatingCTA() {
   const data = window.FESTIN_DATA;
   const lesBeauxMets = data.projets.find(p => p.id === 'les-beaux-mets');
   const actions = [
+    { t: "Faire un don", d: "Soutenir Festin — HelloAsso", ic: "heart", c: "#E4572E", href: data.donation, external: true },
     { t: "Réserver une table", d: "Les Beaux Mets — Baumettes", ic: "calendar-check", c: "#1D6B78", href: lesBeauxMets.ctaUrl, external: true },
     { t: "Se former / candidater", d: "Rejoindre une promotion", ic: "graduation-cap", c: "#E8A825", href: "#/formations" },
-    { t: "Recruter via Festin", d: "Solution RH pour restaurateurs", ic: "briefcase", c: "#2E8B57", href: "#/accompagnement/professionnels" },
+    { t: "Recruter via Festin", d: "Solution RH pour restaurateurs", ic: "briefcase", c: "#1D6B78", href: "#/accompagnement/professionnels" },
     { t: "Devenir partenaire", d: "Mécénat & soutien", ic: "handshake", c: "#9A5BA8", href: "#/contact" },
   ];
   useEffect(() => {
