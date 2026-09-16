@@ -1,117 +1,122 @@
 # Rapport d'audit — site grandfestin.com
 
 Branche de travail : `audit/refonte-autonome-2026-09-16`.
-Commits associés : `Page Restaure, corrections chiffres et ajustements home` (6d60396), `Audit — Partie 1 : les 7 règles non négociables` (43ba555), `Rapport d'audit` (e72ec58), `Audit — Partie 2 (début)` (628bc1e), `Audit — Partie 3 : fondu bande défilante` (9897320).
+Commits, dans l'ordre : `Page Restaure, corrections chiffres et ajustements home` (6d60396) · `Audit — Partie 1` (43ba555) · `Rapport d'audit` (e72ec58) · `Audit — Partie 2 (début)` (628bc1e) · `Audit — Partie 3` (9897320) · `Rapport d'audit — mise à jour` (17401df) · `Audit — Partie 4` (de4ebd0) · `Audit — Partie 5 (début)` (651c31f) · `Audit — Partie 6` (70f6750) · `Audit — Partie 7` (337ae7e).
 
-**État d'avancement honnête, à lire avant tout le reste** : ce méga-prompt couvre 7 parties (règles non négociables, storytelling, typographie, espacements, composants, animations, accessibilité) sur l'intégralité d'un site de plus de 15 pages. **Partie 1 traitée en totalité. Partie 2 traitée sur les points concrets détectés par grep (vocabulaire commercial, titres génériques, chiffres périmés) — pas encore une relecture ligne à ligne de chaque page pour les triades décoratives et le jargon. Partie 3 traitée sur les 5 défauts déjà signalés dans le prompt (hiérarchie H1/H2, débordement de titre, collision header, veuve typographique, bande défilante tronquée) — pas encore un audit typographique complet de chaque page.** Les **Parties 4 à 7 (espacements/grille, composants/UI, animations, accessibilité/responsive) ne sont pas encore traitées.** Les tenter superficiellement aurait produit du travail bâclé plutôt qu'un vrai audit. Je détaille en section 5 comment je propose de la suite.
+**Les 7 parties du méga-prompt ont reçu une passe réelle**, mais à des degrés de complétude différents selon ce qui était mesurable/corrigeable sans risque dans le temps disponible. Ce rapport dit précisément où chaque partie s'arrête. Ce n'est **pas** une relecture ligne à ligne de chaque mot sur chacune des ~15 pages — c'est un audit ciblé, sourcé par grep et vérification navigateur, qui a trouvé et corrigé des bugs réels (voir section 1), et qui liste honnêtement ce qui resterait à faire pour un passage exhaustif.
 
 ---
 
-## 1. Ce que j'ai changé
+## 1. Ce que j'ai changé, chantier par chantier
 
-### Chantier "Page Restaure + corrections chiffres" (commit 6d60396, avant le méga-prompt)
-- Nouvelle page dédiée `components/ProjetRestaure.jsx` + `styles/projet-restaure.css`, sur le modèle DEF/LBM.
-- Corrections chiffrées à partir du Rapport d'activité Festin 2025 et du Codev DEF (Été 2026) : personnes accompagnées (453→441 sur la home, 72%→83% de sorties, 358→336 femmes DEF 2025, 1100+→1200+ cumulé DEF, 14→13 brigades du Grand Festin).
-- Home : centrage des titres de section, suppression des CTA du hero (dupliqués plus bas), vrai logo Festin dans le footer.
+### Page Restaure + chiffres (6d60396, avant le méga-prompt)
+Nouvelle page `ProjetRestaure.jsx`/`projet-restaure.css`. Corrections chiffrées initiales à partir du Rapport d'activité 2025 et du Codev DEF. Centrage des titres home, suppression des CTA du hero, logo footer.
 
-### Chantier "Partie 1 — les 7 règles" (commit 43ba555)
-Détaillé section 2 ci-dessous, fichier par fichier.
+### Partie 1 — les 7 règles non négociables (43ba555)
+Détaillée section 2.
 
-### Chantier "Partie 2 (début)" (commit 628bc1e)
-- Découverte d'un vrai bug de fond en creusant le storytelling : les chiffres "453 personnes / 72 % de sorties" que je pensais avoir corrigés partout en Partie 1 étaient en réalité **dupliqués en dur dans 6 endroits distincts** (`data.js` + 4 autres blocs dans `Pages.jsx` : `FestinPresentation`, une section de la home, `ImpactPage` ×2) au lieu d'être lus depuis une seule source. Idem pour "1 100 femmes accompagnées" (DEF) resté à l'ancienne valeur dans le composant `Academie` de la home. Les 7 occurrences au total sont maintenant à 441 / 83 % / 1 200.
-- `ImpactPage` : titre générique "Notre impact" / "10 ans de Festin, 10 ans de transformation" (à la fois un titre creux et une erreur de date) remplacé par "Chiffres & rapports" / "Depuis 1992, ce que nous avons transformé".
-- Vérifié que `p.grandFestin` (les stats du Grand Festin) n'est actuellement affiché nulle part sur le site — pas de risque de surdimensionnement de cet événement dans la narration (le point que la Partie 2 demandait de vérifier).
-- Non fait dans cette passe : relecture complète de chaque page à la recherche de triades décoratives, titres de section génériques restants (au-delà d'Impact), jargon, phrases sans sujet. Le seul jargon détecté par grep ("levier d'insertion/de transformation") revient dans au moins 7 blocs de texte différents à l'identique — une reformulation ciblée serait à faire mais n'a pas encore été traitée page par page.
+### Partie 2 — storytelling (628bc1e)
+- **Bug de fond découvert** : les chiffres "453/72%" que je pensais corrigés en Partie 1 étaient dupliqués en dur dans **6 endroits distincts** (`data.js` + `FestinPresentation`, une section home, `ImpactPage` ×2 dans `Pages.jsx`). Corrigés partout → 441/83%. Idem "1 100 femmes DEF" → 1 200 dans le composant `Academie` de la home, raté en Partie 1.
+- `ImpactPage` : titre générique + date fausse ("Notre impact" / "10 ans de Festin") → "Chiffres & rapports" / "Depuis 1992, ce que nous avons transformé".
+- Vérifié : `p.grandFestin` n'est affiché nulle part → pas de risque de surdimensionnement du Grand Festin.
+- Non fait : relecture de chaque page pour triades décoratives et jargon restant (ex. "levier d'insertion/de transformation", répété à l'identique dans 7+ blocs de texte différents — symptôme de copie template, jamais retravaillé au-delà du constat).
 
-### Chantier "Partie 3" (commit 9897320)
-Traite les 5 défauts typographiques déjà listés dans le méga-prompt pour la home (voir section 2 du méga-prompt) :
-1. Hiérarchie H1/H2 : vérifiée correcte mathématiquement (`--title: clamp(48px,9.5vw,150px)` > `--h2: clamp(36px,5.6vw,88px)` à tout viewport) et visuellement après le centrage de Partie 1.
-2. Débordement de "DE LA CUISINE À L'EMPLOI" : résolu par le centrage déjà fait en Partie 1 (le titre passe de 1 ligne qui débordait à 2 lignes centrées dans les marges).
-3. Collision header/eyebrow du hero : vérifiée absente sur les captures prises à plusieurs positions de défilement.
-4. Veuve "transformation." isolée : non reproduite sur les largeurs testées dans cette session.
-5. Bande défilante (`.vmarquee`) qui tronquait les mots aux bords : `mask-image` ajouté sur `.vmarquee__track` — voir la réserve de vérification visuelle notée dans le commit.
-Non fait : le même audit (mesure réelle des tailles rendues à 360/768/1024/1440/1920px, échelle typographique, longueur de ligne, graisses) sur les 14 autres pages du site.
+### Partie 3 — typographie, défauts déjà signalés (9897320)
+Les 5 défauts listés dans le méga-prompt : hiérarchie H1/H2 (vérifiée correcte mathématiquement et visuellement), débordement de "DE LA CUISINE À L'EMPLOI" (résolu par le centrage de Partie 1), collision header/eyebrow (absente sur les captures prises), veuve "transformation." (non reproduite), bande défilante tronquée aux bords (mask-image ajouté — voir réserve de vérification visuelle dans le commit). Non fait : audit typographique des 14 autres pages (tailles rendues à chaque point de rupture, longueur de ligne, graisses).
+
+### Partie 4 — espacements (de4ebd0)
+`_tokens.css` définissait déjà une échelle d'espacement base 8 (`--s-1` à `--s-10`) **jamais utilisée** : `Pages.jsx` faisait varier le padding vertical des sections entre 6 valeurs arbitraires (48/60/72/80/96px). Consolidé sur 2 paliers de cette échelle : `var(--s-9)` (96px, standard) et `var(--s-8)` (64px, compact) — 33 occurrences remplacées. Non touché : les 5 courbes `clamp()` différentes de `home-b.css` (risque de retouche fine de chaque section, pas un remplacement mécanique).
+
+### Partie 5 — composants (651c31f)
+Aucun des deux systèmes de boutons du site (`.btn`, `.btnb` — ~72 usages) n'avait d'état `:focus-visible` ; `.btnb` n'avait pas non plus de `:active`. Ajoutés aux deux, plus un état `[disabled]` réutilisable. Formulaire de contact : astérisques manquants sur 3 champs obligatoires, une formule commerciale reformulée. Zones de clic mesurées ≥44px (déjà conformes). `loading="lazy"` ajouté aux images hors premier écran qui ne l'avaient pas. Non fait : fusion des deux systèmes de boutons (risque site-wide), messages d'erreur de formulaire personnalisés, inventaire complet des composants au-delà boutons/formulaire, audit des parcours par audience.
+
+### Partie 6 — animations (70f6750)
+Les apparitions au défilement dépassaient largement 300-400ms : 800ms sur la home, 700ms sur les 3 pages projet dédiées. Ramenées à 350ms partout (valeur unique). 7 transitions de `styles.css` utilisaient le `ease` par défaut du navigateur → remplacées par `var(--ease-out)`. `styles.css` n'avait aucune règle `prefers-reduced-motion` malgré des animations en boucle infinie (logos défilants, icône qui rebondit) → ajoutée.
+
+### Partie 7 — accessibilité/responsive (337ae7e)
+Aucune page n'utilisait le landmark `<main>` → ajouté une fois dans `index.html`, couvre tout le site. **Débordement horizontal réel et mesuré à 375px sur toutes les pages** (21px, `scrollWidth` 396 vs `clientWidth` 375) : la nav fixe elle-même en héritait et débordait de l'écran. Cause : rien ne bornait `html`/`body`. Corrigé par `overflow-x:hidden` — vérifié : `scrollWidth` redescend exactement à 375px. Un `<div onClick>` (`.formation-card`) converti en `<button>` accessible au clavier — mais en vérifiant, ce composant n'est en réalité rendu nulle part sur le site actuel (voir section "constat transversal" ci-dessous).
 
 ---
 
 ## 2. Les 7 règles — état avant/après
 
-**1. Non-lucrativité et intérêt général dès l'accueil**
-- *Avant* : non conforme. La mention n'existait que dans `legalMention` (pied de page).
-- *Corrigé* : eyebrow du hero home (`data.js`, `home.hero.eyebrow`) → "Association à but non lucratif — depuis 1992". Visible au premier écran, avant même le H1.
+**1. Non-lucrativité dès l'accueil** — *Avant* : seulement en mention légale de pied de page. *Corrigé* : eyebrow du hero home → "Association à but non lucratif — depuis 1992", premier écran.
 
-**2. Statut ESUS à chaque évocation d'une filiale**
-- *Avant/après* : **non traité, volontairement**. Zéro occurrence du terme "ESUS" trouvée dans tout le dépôt (grep sur `esus`, insensible à la casse, 0 résultat). Je n'ai trouvé aucune source dans le dépôt attestant que Festin ou l'une de ses filiales détient effectivement l'agrément ESUS. Ajouter cette mention partout sans preuve serait fabriquer une information juridique — voir section 6.
+**2. Statut ESUS à chaque évocation d'une filiale** — **Non traité, volontairement**. Zéro occurrence du terme "ESUS" dans tout le dépôt, aucune source attestant qui est réellement agréé. Voir section 6.
 
-**3. Page restaurateurs : ton de partenariat**
-- *Avant* : `AccompagnementProsPage` utilisait "Solution RH pour les restaurateurs", "L'offre Festin pour les restaurateurs", "Demander un devis" (×2), "une proposition adaptée à votre établissement", "votre projet RH".
-- *Corrigé* : reformulé en vocabulaire d'engagement partagé ("Travailler autrement, avec les restaurateurs", "Ce que Festin construit avec les restaurateurs", "Échanger avec notre équipe"). Même traitement sur la section "Publics" de la home (`Sections.jsx`) et le rôle du contact référent (`data.js: contact.referentRole`, `Sections.jsx: ref-card__lbl`).
-- **Distinction faite** : les mentions "devis"/"tarifs" du catalogue de formations (Académie) et du traiteur La Table de Cana sont **laissées telles quelles** — ce sont des activités commerciales réelles et légitimes (vente de prestations traiteur, formations facturées/financées OPCO), pas la relation de partenariat avec les restaurateurs visée par la règle.
+**3. Page restaurateurs : ton de partenariat** — *Avant* : "Solution RH pour les restaurateurs", "L'offre Festin", "Demander un devis" (×2), "proposition adaptée à votre établissement", "votre projet RH". *Corrigé* : reformulé en engagement partagé, sur `AccompagnementProsPage`, la section Publics de la home, le rôle du contact référent, et l'intro du formulaire de contact (trouvé en Partie 5). Distinction faite : les "devis"/"tarifs" du catalogue de formations et du traiteur La Table de Cana restent — activités commerciales légitimes, hors périmètre.
 
-**4. Date de fondation : 1992, formulation "depuis 1992"**
-- *Avant* : au moins 7 occurrences de "Festin ... depuis/en 2015" confondant la date de Festin avec celle de Des Étoiles et des Femmes (`Hero.jsx`, `Sections.jsx` ×2, `Pages.jsx` ×4 — About, Accompagnement Insertion, Académie), plus "depuis 10 ans" (formulation en nombre d'années, interdite par la règle).
-- *Corrigé* : toutes remplacées par "depuis 1992" (ou "née en 1992 avec La Table de Cana"). **Vérifié qu'aucune n'a été confondue avec les dates propres à chaque filiale** : les mentions "Des Étoiles et des Femmes ... depuis 2015" (dans `ProjetDef.jsx` et les champs `data.js` propres au projet DEF) sont correctes et n'ont pas été touchées.
-- Stat home "10 ans de Des Étoiles et des Femmes" → remplacée par "35 ans d'innovation sociale par la cuisine" (demande explicite en cours de session, formulée en langage repris de votre propre frise "ADN Festin"). Note : cette formulation utilise un nombre d'années, ce qui contredit la règle 4 elle-même — voir section 6.
+**4. Date de fondation 1992** — *Avant* : au moins 7 occurrences de "Festin ... depuis/en 2015" confondant Festin et DEF, plus "depuis 10 ans" (formulation interdite). *Corrigé* : toutes remplacées par "depuis 1992" / "née en 1992 avec La Table de Cana". Vérifié : les dates "Des Étoiles et des Femmes ... depuis 2015" (correctes, propres à ce projet) n'ont pas été touchées. Voir section 6 pour la tension avec "35 ans".
 
-**5. Chaque projet rattaché à Festin, visible sur la page**
-- *Avant* : non conforme. Aucune des pages projet (DEF, LBM, Restaure, ni le gabarit générique utilisé par La Table de Cana/Tournesol) ne mentionnait "Festin" en texte visible.
-- *Corrigé* : ajout de "un projet de l'association Festin" / "mouvement porté par l'association Festin" dans l'eyebrow du hero de `ProjetDef.jsx`, `ProjetLBM.jsx`, `ProjetRestaure.jsx`, et du `ProjetHero` générique (`Pages.jsx`) utilisé par tous les autres projets.
+**5. Chaque projet rattaché à Festin, visible sur la page** — *Avant* : aucune des pages projet ne mentionnait "Festin" en texte visible. *Corrigé* : ajouté dans le hero de `ProjetDef.jsx`, `ProjetLBM.jsx`, `ProjetRestaure.jsx`, et du `ProjetHero` générique (couvre La Table de Cana, Tournesol, etc.).
 
-**6. Aucun montage capitalistique**
-- *Avant/après* : conforme, rien trouvé. Grep sur "investisseur", "levée de fonds", "actionnariat", "capital-risque", "retour sur investissement", "ROI" : 0 occurrence dans `data.js` et tous les composants.
+**6. Aucun montage capitalistique** — Conforme, rien trouvé (grep exhaustif).
 
-**7. "Des Étoiles et des Femmes" en toutes lettres, jamais "DEF"**
-- *Avant* : aucune occurrence visible de "DEF" en texte, `alt` ou `title` (vérifié par grep ciblé) — cette partie était déjà conforme.
-- *Restant non conforme, volontairement non traité* : le sigle "DEF" apparaît dans des **noms de fichiers/dossiers internes** (`images/images-def/`, `logo-def.png`, fichiers `DEF_*.jpg`) et dans **tous les noms de classes CSS de `styles/projet-def.css`** (préfixe `pdef-`, ~150 sélecteurs). Ni l'un ni l'autre n'est visible à l'écran par un utilisateur. Renommer l'ensemble (fichiers + références dans `data.js` + classes CSS + JSX) est un chantier mécanique de grande ampleur avec un vrai risque de casser un chemin d'image oublié — je ne l'ai pas fait dans cette passe pour ne pas introduire de régression visuelle sur la page la plus aboutie du site. Voir [À COMPLÉTER] et section 6.
-- Règle transverse "Écosystème Festin" vs "Groupe Festin" : conforme, 0 occurrence de "Groupe Festin" trouvée.
+**7. "Des Étoiles et des Femmes" en toutes lettres** — Conforme en texte/alt/title visible. Non conforme dans des identifiants techniques invisibles à l'écran (noms de fichiers `images-def/`, classes CSS `pdef-*`) — non corrigé, voir sections 4 et 6.
+
+Règle transverse "Écosystème Festin" — conforme, 0 occurrence de "Groupe Festin".
 
 **Vérification finale (greps insensibles à la casse) :**
 ```
-DEF (texte visible, alt, title)     → 0 occurrence restante
-DEF (fichiers/dossiers/classes CSS) → présent, non traité (voir ci-dessus)
-Groupe Festin                       → 0 occurrence
-depuis 2015 / née en 2015 (Festin)  → 0 occurrence restante (7 corrigées)
+DEF (texte visible, alt, title)         → 0 occurrence
+DEF (fichiers/dossiers/classes CSS)     → présent, non traité
+Groupe Festin                           → 0 occurrence
+depuis 2015 / née en 2015 (Festin)      → 0 occurrence (7 corrigées)
 depuis 2015 (Des Étoiles et des Femmes) → présent, correct, non touché
-ESUS                                → 0 occurrence (jamais ajouté, faute de source)
-investisseur / levée / actionnariat → 0 occurrence
+ESUS                                    → 0 occurrence
+investisseur / levée / actionnariat     → 0 occurrence
 ```
 
 ---
 
-## 3. [À COMPLÉTER] — classé par urgence
+## 3. Constat transversal : code mort
 
-**Urgent (bloque la mise en ligne du 1er octobre si la règle 2 est non négociable) :**
-- Statut ESUS réel de Festin et de chaque filiale (Des Étoiles et des Femmes, Académie Festin, La Table de Cana, Les Beaux Mets, Restaure) : `[À COMPLÉTER]` — confirmez lesquelles sont effectivement agréées ESUS avant que j'ajoute la mention, et où (page de chaque filiale ? mentions légales ? les deux ?).
+En travaillant les Parties 5 à 7, j'ai trouvé plusieurs composants et blocs CSS **jamais montés dans l'application réelle**, restes d'itérations antérieures :
+- `components/Hero.jsx` (`function Hero()`) — remplacé par `HomeB.jsx`, jamais importé dans le routeur.
+- `components/Selector.jsx` (`function Selector()`) — jamais monté ; c'est `data.meganav` + `Nav.jsx` qui alimente réellement le menu.
+- `components/Formations.jsx` : `Formations()` / `FormationCard` / `FormationModal` — jamais montés ; c'est `FormationCardLink` (dans `Pages.jsx`) qui est réellement utilisé partout.
+- `styles.css` : un bloc entier `.nav`/`.nav__link`/`.nav__dropdown`/`.hero` (~25 règles) qui ne correspond à aucun composant actuel.
+
+Le dernier point est le plus préoccupant : ce `.hero` mort et le vrai `.hero` de `HomeB.jsx` **partagent le même nom de classe**. La cascade fait que `home-b.css` (chargé après) gagne sur les propriétés qu'il redéclare, mais je n'ai pas vérifié qu'aucune propriété du `.hero` mort ne "fuit" par une propriété que `home-b.css` ne redéclare pas. Je recommande un chantier dédié : identifier ce qui est mort, décider de le supprimer ou de le réactiver, avant qu'un futur renommage (ex. celui de "DEF") ne le confonde avec du code vivant.
+
+---
+
+## 4. [À COMPLÉTER] — classé par urgence
+
+**Urgent :**
+- Statut ESUS réel de Festin et de chaque filiale — confirmez lesquelles le sont avant que j'ajoute la mention, et où.
 
 **Important :**
-- Numéros RNA / SIRET des filiales si elles sont des structures juridiques distinctes de Festin (actuellement seul le RNA de Festin est dans `data.js: contact`) : `[À COMPLÉTER]`.
-- Confirmation de la date exacte de création légale de l'association Festin (1992 est la date d'activité de La Table de Cana d'après votre propre frise "ADN Festin" montrée en session — mais la date de dépôt des statuts de l'association elle-même peut différer) : `[À COMPLÉTER]`.
-- Logos réels des 3 structures fondatrices de Restaure hors Festin (Yes We Camp, Les Petites Cantines, La Communauté Ecotable) — actuellement en placeholder sur `ProjetRestaure.jsx`.
+- Numéros RNA/SIRET des filiales si structures juridiques distinctes.
+- Confirmation de la date légale de création de l'association (1992 = date d'activité de La Table de Cana d'après votre frise "ADN Festin" ; la date de dépôt des statuts peut différer).
+- Logos réels des 3 structures fondatrices de Restaure hors Festin (actuellement en placeholder).
 
 **Secondaire :**
-- Le contenu du fichier "Genèse du projet.docx" (fourni en session) contient une version interne de l'historique Festin/DEF explicitement marquée "pas celle à raconter" — je ne l'ai pas utilisée. Si la version officielle de la genèse doit remonter plus loin que 1992, `[À COMPLÉTER]`.
+- Le fichier "Genèse du projet.docx" fourni en session contient une version interne explicitement marquée "pas celle à raconter" — non utilisée. Si l'histoire officielle remonte plus loin que 1992, `[À COMPLÉTER]`.
 
 ---
 
-## 4. Ce que je n'ai pas pu corriger — et pourquoi
+## 5. Ce que je n'ai pas pu corriger — et pourquoi
 
-- **Renommage complet de "DEF" dans les fichiers/dossiers/classes CSS** (rule 7) : chantier mécanique de grande ampleur (un dossier d'images, ~10 noms de fichiers, ~150 classes CSS + leurs usages en JSX) qui, tenté rapidement, risquait de casser des chemins d'image sur la page projet la plus travaillée du site sans bénéfice utilisateur visible (aucun de ces identifiants n'apparaît à l'écran). Décision éditoriale : à faire dans un chantier dédié, avec vérification visuelle systématique après chaque renommage.
-- **Parties 2 (storytelling complet) à 7 (typographie, espacements, composants, animations, accessibilité)** : non traitées par manque de temps dans cette passe — voir section 5.
-- **Mention ESUS** : non ajoutée, faute de source vérifiable (voir section 6).
-
----
-
-## 5. Les trois problèmes les plus graves restants
-
-1. **Statut ESUS complètement absent du site alors que la règle l'exige "sans exception".** Ce qui doit être tranché : quelles structures sont réellement agréées ESUS, et je les ajoute immédiatement — sans cette info je ne peux pas exécuter cette règle sans inventer.
-2. **Les chiffres clés du site sont dupliqués en dur dans au moins 6 endroits au lieu d'une seule source.** C'est ce qui a fait qu'une correction "faite" en Partie 1 ne l'était en fait qu'à moitié (découvert et corrigé en Partie 2, voir section 1). Ce qui doit être tranché : voulez-vous, dans un chantier séparé, que je centralise ces stats (une seule lecture depuis `data.js` partout) pour éliminer le risque de récidive à la prochaine mise à jour chiffrée ? Ce n'est pas demandé par le méga-prompt mais c'en est une conséquence directe.
-3. **Parties 4 à 7 du méga-prompt non traitées** (espacements/grille, inventaire des composants et de leurs états, grammaire d'animation, accessibilité/responsive sur les 5 points de rupture demandés). C'est le chantier le plus long qui reste. Je continue partie par partie sur cette même branche (un commit par partie, comme fait jusqu'ici) sauf indication contraire.
-4. **Renommage "DEF"** (fichiers, dossiers, classes CSS) : reste non conforme à la lettre de la règle 7, même si aucune occurrence n'est visible à l'écran. Ce qui doit être tranché : est-ce vraiment prioritaire avant le 1er octobre, sachant que c'est invisible pour tout visiteur, journaliste ou financeur qui ne lit pas le code source ?
+- **Renommage "DEF"** (fichiers, dossiers, classes CSS `pdef-*`) : chantier mécanique de grande ampleur (~10 fichiers, ~150 classes), risque de casser un chemin d'image oublié, aucun bénéfice visible pour un vrai visiteur. Décision éditoriale reportée.
+- **Contraste de `--ink-soft`** (voir section 6) : correction prête mais non appliquée, conflit avec la consigne permanente de ne pas toucher les design tokens globaux.
+- **Fusion `.btn`/`.btnb`**, **messages d'erreur de formulaire personnalisés**, **suppression du code mort** (section 3) : chantiers identifiés, non faits, risque de régression trop large pour cette passe.
+- **Relecture exhaustive mot à mot** de chaque page pour triades décoratives/jargon résiduel, et **audit typographique complet** (tailles réellement rendues à 360/768/1024/1440/1920px) au-delà des 5 défauts déjà signalés : non fait faute de temps sur ~15 pages.
 
 ---
 
-## 6. Ce sur quoi je ne suis pas d'accord
+## 6. Les problèmes les plus graves restants
 
-- **Rule 2 (ESUS) telle qu'écrite entre en contradiction directe avec la règle 4 (zéro information inventée).** "Sans exception" et "je ne le devine pas, je le marque [À COMPLÉTER]" ne peuvent pas être satisfaites en même temps si je n'ai aucune source sur qui est réellement agréé ESUS. J'ai choisi de respecter la règle 4 (ne rien inventer) plutôt que la règle 2, parce qu'afficher un statut juridique/fiscal faux est plus dommageable pour l'association qu'une mention manquante.
-- **La consigne "35 ans d'innovation sociale par la cuisine" que j'ai appliquée sur votre demande explicite en session contredit la règle 4 de ce même méga-prompt** ("n'écris jamais un nombre d'années figé... remplace par depuis 1992"). Je l'ai appliquée quand même parce qu'elle vient d'une instruction directe et plus récente que le méga-prompt, mais je le signale : dans six mois, "35 ans" sera faux et personne n'aura de raison de repenser à le corriger — exactement le problème que la règle 4 anticipe. Si vous voulez rester cohérents avec votre propre règle, la home devrait dire "depuis 1992" et non "35 ans".
-- **Le renommage forcé de tout identifiant technique contenant "DEF" (classes CSS, noms de fichiers)** me semble une dépense d'effort disproportionnée par rapport au risque réel : aucun visiteur, journaliste ou financeur ne voit un nom de classe CSS ou un chemin d'image dans la barre d'adresse. Je recommande de prioriser ce chantier après les Parties 2-7 (storytelling, accessibilité), qui ont un impact direct sur ce qu'un vrai visiteur perçoit.
+1. **Statut ESUS complètement absent alors que la règle l'exige "sans exception".** À trancher : quelles structures sont réellement agréées, je les ajoute immédiatement ensuite.
+2. **`--ink-soft` échoue le contraste AA sur au moins 17 textes secondaires du site** (rôles de témoignages, descriptions du mega-menu, labels de contact — tous en 11-13.5px, donc soumis au seuil 4.5:1, mesuré à 3.59-3.88:1 selon le fond). Correction prête (`#566A6E`, testée à 5.16-5.57:1) mais non appliquée — c'est un token de `_tokens.css`, fichier protégé par votre consigne permanente. À trancher : autorisez-vous explicitement à toucher ce token précis, ou dois-je passer par 17 surcharges locales à la place ?
+3. **Code mort créant un risque de collision** (section 3), en particulier le `.hero` dupliqué entre du code mort et le vrai hero de la home.
+4. **Renommage "DEF"** dans les identifiants techniques : non conforme à la lettre de la règle 7, invisible à l'écran. Priorité réelle à trancher.
+
+---
+
+## 7. Ce sur quoi je ne suis pas d'accord
+
+- **La règle ESUS contredit directement la règle "zéro information inventée".** Je respecte la seconde : afficher un statut juridique/fiscal faux est plus dommageable qu'une mention manquante.
+- **"35 ans d'innovation sociale par la cuisine"** (appliqué sur votre demande explicite en session) contredit la règle 4 de ce même méga-prompt ("n'écris jamais un nombre d'années figé"). Appliqué quand même car instruction directe et plus récente, mais signalé : dans six mois ce sera faux et rien ne rappellera de le corriger — exactement le problème que la règle anticipe. Cohérent avec vos propres règles, la home devrait dire "depuis 1992".
+- **Le renommage forcé de tout identifiant technique "DEF"** (classes CSS, fichiers) me semble disproportionné par rapport au risque réel : invisible pour tout visiteur, journaliste ou financeur. Je le placerais après un nettoyage du code mort (section 3) et après les corrections de contraste (section 6), qui ont un impact direct sur ce qu'un vrai visiteur perçoit ou peut lire.
+- **Je n'ai pas touché `_tokens.css`** malgré la demande explicite de corriger les contrastes, parce que la consigne permanente du projet ("ne pas toucher les design tokens globaux") est plus ancienne, plus générale, et n'a pas été explicitement levée pour cette tâche. Si vous voulez que je corrige `--ink-soft` maintenant, dites-le clairement et je le fais dans la minute.
