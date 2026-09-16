@@ -218,7 +218,7 @@ function PartenairesMarquee() {
     </>
   );
   return (
-    <section style={{background:'var(--cream)',padding:'48px 0',borderTop:'1px solid rgba(13,43,48,0.04)',borderBottom:'1px solid rgba(13,43,48,0.04)'}}>
+    <section style={{background:'var(--cream)',padding:'var(--s-8) 0',borderTop:'1px solid rgba(13,43,48,0.04)',borderBottom:'1px solid rgba(13,43,48,0.04)'}}>
       <style>{`
         @keyframes festin-marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
         .festin-marquee-track { display: flex; align-items: center; width: max-content; animation: festin-marquee 30s linear infinite; }
@@ -281,7 +281,7 @@ function FormationCardLink({ f, wide }) {
 
 function ContactCTA() {
   return (
-    <section style={{background:'var(--teal-deep)',color:'#fff',padding:'80px 0',textAlign:'center'}}>
+    <section style={{background:'var(--teal-deep)',color:'#fff',padding:'var(--s-9) 0',textAlign:'center'}}>
       <div className="container">
         <span className="eyebrow eyebrow--gold">Une question ?</span>
         <h2 className="h2" style={{color:'#fff',maxWidth:640,margin:'14px auto 18px'}}>Parlons de votre <em className="accent">projet de formation</em></h2>
@@ -340,7 +340,7 @@ function FormationDetailPage({ id }) {
           {label:f.title}
         ]}
       />
-      <section style={{padding:'72px 0',background:'var(--off-white)'}}>
+      <section style={{padding:'var(--s-8) 0',background:'var(--off-white)'}}>
         <div className="container">
           <div className="detail-grid">
             <div className="detail-main">
@@ -448,7 +448,7 @@ function FestinPresentation() {
   }, []);
 
   return (
-    <section style={{background:'var(--off-white)',padding:'96px 0'}}>
+    <section style={{background:'var(--off-white)',padding:'var(--s-9) 0'}}>
       <div className="container" style={{display:'grid',gridTemplateColumns: narrow ? '1fr' : '1.1fr 1fr',gap:64,alignItems:'center'}}>
         {narrow && (
           <div style={{position:'relative',width:'100%',aspectRatio:'1 / 1',borderRadius:'20%',overflow:'hidden'}}>
@@ -528,7 +528,7 @@ function EquipeMarquee() {
     </div>
   );
   return (
-    <section style={{padding:'80px 0', background:'var(--cream)', borderTop:'1px solid var(--line)', borderBottom:'1px solid var(--line)', overflow:'hidden'}}>
+    <section style={{padding:'var(--s-9) 0', background:'var(--cream)', borderTop:'1px solid var(--line)', borderBottom:'1px solid var(--line)', overflow:'hidden'}}>
       <style>{`
         @keyframes equipe-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
         .equipe-track { display: flex; align-items: center; width: max-content; animation: equipe-scroll 80s linear infinite; }
@@ -558,7 +558,7 @@ function HistoriqueSection() {
     { year: '2025', title: 'Promotion Tournesol',                 desc: 'Lancement du parcours pour personnes réfugiées et primo-arrivantes, avec Refugee Food.' },
   ];
   return (
-    <section style={{padding:'96px 0', background:'var(--off-white)'}}>
+    <section style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
       <div className="container">
         <div style={{maxWidth:760, marginBottom:48}}>
           <span className="eyebrow">Historique</span>
@@ -598,7 +598,7 @@ function ValeursSection() {
     { icon:'sprout', title:'Transformation', desc:'Notre objectif n\'est pas seulement d\'accompagner des individus — c\'est de faire bouger les pratiques de tout un secteur.' },
   ];
   return (
-    <section style={{padding:'96px 0', background:'var(--cream)'}}>
+    <section style={{padding:'var(--s-9) 0', background:'var(--cream)'}}>
       <div className="container">
         <div style={{maxWidth:760, marginBottom:48}}>
           <span className="eyebrow">Valeurs fondamentales</span>
@@ -623,7 +623,7 @@ function ValeursSection() {
 // ---------- IMPACT CUMULÉ (sur About) — bandeau résumé ----------
 function ImpactCumuleBande() {
   return (
-    <section style={{padding:'80px 0', background:'var(--teal-deep)', color:'#fff'}}>
+    <section style={{padding:'var(--s-9) 0', background:'var(--teal-deep)', color:'#fff'}}>
       <div className="container">
         <div style={{display:'flex', justifyContent:'space-between', alignItems:'flex-end', gap:24, flexWrap:'wrap', marginBottom:36}}>
           <div>
@@ -712,7 +712,7 @@ function ProjetAssociatif() {
     },
   ];
   return (
-    <section style={{padding:'96px 0', background:'var(--off-white)'}}>
+    <section style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
       <div className="container">
         <div style={{maxWidth:760, marginBottom:64}}>
           <span className="eyebrow">Notre projet associatif</span>
@@ -789,7 +789,7 @@ function NotFoundPage() {
         subtitle="Cette page n'existe pas ou a été déplacée."
         breadcrumb={[{label:'Accueil',href:'#/'}]}
       />
-      <section style={{padding:'72px 0',textAlign:'center'}}>
+      <section style={{padding:'var(--s-8) 0',textAlign:'center'}}>
         <a href="#/" className="btn btn--teal">Retour à l'accueil</a>
       </section>
     </div>
@@ -821,7 +821,7 @@ function ProjetThumb({ icon }) {
 function EcosystemeSection() {
   const projets = window.FESTIN_DATA.projets;
   return (
-    <section style={{background:'var(--cream)',padding:'96px 0'}}>
+    <section style={{background:'var(--cream)',padding:'var(--s-9) 0'}}>
       <div className="container">
         <div className="formations__head" style={{marginBottom:48,maxWidth:760}}>
           <span className="eyebrow">Nos 5 projets</span>
@@ -952,7 +952,7 @@ function ProjetTemoignages({ temoignages }) {
   const initiale = t && t.prenom ? t.prenom[0].toUpperCase() : '?';
 
   return (
-    <section style={{background:'var(--teal-deep)', color:'#fff', padding:'80px 0'}}>
+    <section style={{background:'var(--teal-deep)', color:'#fff', padding:'var(--s-9) 0'}}>
       <div className="container" style={{maxWidth:800, margin:'0 auto', textAlign:'center'}}>
         <span className="eyebrow eyebrow--gold">Témoignages</span>
         <div style={{marginTop:40, position:'relative', minHeight:200}}>
@@ -1022,7 +1022,7 @@ function ProjetPresse({ p }) {
   const cards = [...filtered];
   while (cards.length < 3) cards.push({ placeholder: true });
   return (
-    <section style={{padding:'80px 0', background:'var(--off-white)'}}>
+    <section style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
       <div className="container">
         <div style={{maxWidth:760, marginBottom:48}}>
           <span className="eyebrow">Presse & médias</span>
@@ -1165,7 +1165,7 @@ function ProjetPage({ id }) {
       </section>
 
       {/* C. Présentation 2 colonnes */}
-      <section style={{padding:'80px 0', background:'var(--off-white)'}}>
+      <section style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
         <div className="container" style={{display:'grid', gridTemplateColumns:'1.5fr 1fr', gap:64, alignItems:'flex-start'}}>
           {/* Gauche : description + média */}
           <div>
@@ -1247,7 +1247,7 @@ function SadiCarnotPage() {
           {label:'Sadi Carnot'}
         ]}
       />
-      <section style={{padding:'96px 0',background:'var(--off-white)'}}>
+      <section style={{padding:'var(--s-9) 0',background:'var(--off-white)'}}>
         <div className="container">
           <div style={{background:'var(--cream)',borderRadius:18,padding:'72px 48px',textAlign:'center',maxWidth:720,margin:'0 auto'}}>
             <div style={{width:80,height:80,borderRadius:'50%',background:'rgba(232,168,37,0.14)',display:'grid',placeItems:'center',color:'var(--gold)',margin:'0 auto 24px'}}>
@@ -1285,7 +1285,7 @@ function AccompagnementInsertionPage() {
       />
 
       {/* Chiffres clés */}
-      <section style={{background:'var(--cream)', padding:'72px 0'}}>
+      <section style={{background:'var(--cream)', padding:'var(--s-8) 0'}}>
         <div className="container">
           <div style={{display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:16}}>
             {[
@@ -1304,7 +1304,7 @@ function AccompagnementInsertionPage() {
       </section>
 
       {/* Texte d'introduction */}
-      <section style={{padding:'80px 0', background:'var(--off-white)'}}>
+      <section style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
         <div className="container" style={{maxWidth:880, margin:'0 auto'}}>
           <span className="eyebrow">Notre approche</span>
           <h2 className="h2" style={{marginTop:8, marginBottom:18}}>Ne pas former un métier, accompagner <em className="accent">une personne</em></h2>
@@ -1318,7 +1318,7 @@ function AccompagnementInsertionPage() {
       </section>
 
       {/* Projets d'insertion */}
-      <section style={{background:'var(--cream)', padding:'96px 0'}}>
+      <section style={{background:'var(--cream)', padding:'var(--s-9) 0'}}>
         <div className="container">
           <div className="formations__head" style={{marginBottom:48, maxWidth:760}}>
             <span className="eyebrow">Nos parcours d'insertion</span>
@@ -1346,7 +1346,7 @@ function AccompagnementInsertionPage() {
       </section>
 
       {/* CTA contact */}
-      <section style={{background:'var(--teal-deep)', color:'#fff', padding:'80px 0', textAlign:'center'}}>
+      <section style={{background:'var(--teal-deep)', color:'#fff', padding:'var(--s-9) 0', textAlign:'center'}}>
         <div className="container">
           <span className="eyebrow eyebrow--gold">Candidater à une promotion</span>
           <h2 className="h2" style={{color:'#fff', maxWidth:680, margin:'14px auto 18px'}}>Prêt à construire votre <em className="accent">projet professionnel</em>&nbsp;?</h2>
@@ -1377,7 +1377,7 @@ function AccompagnementProsPage() {
       />
 
       {/* 3 piliers de l'offre RH */}
-      <section style={{padding:'80px 0', background:'var(--off-white)'}}>
+      <section style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
         <div className="container">
           <div style={{maxWidth:760, marginBottom:48}}>
             <span className="eyebrow">Ce que Festin construit avec les restaurateurs</span>
@@ -1414,7 +1414,7 @@ function AccompagnementProsPage() {
       </section>
 
       {/* Catalogue de formations */}
-      <section style={{background:'var(--cream)', padding:'96px 0'}}>
+      <section style={{background:'var(--cream)', padding:'var(--s-9) 0'}}>
         <div className="container">
           <div className="formations__head" style={{marginBottom:48, maxWidth:760}}>
             <span className="eyebrow">Catalogue de formations</span>
@@ -1433,7 +1433,7 @@ function AccompagnementProsPage() {
       </section>
 
       {/* Restaure */}
-      <section style={{padding:'80px 0', background:'var(--off-white)'}}>
+      <section style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
         <div className="container" style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:48, alignItems:'center'}}>
           <div>
             <span className="eyebrow eyebrow--gold">Au-delà des formations</span>
@@ -1450,7 +1450,7 @@ function AccompagnementProsPage() {
       </section>
 
       {/* CTA contact */}
-      <section style={{background:'var(--teal-deep)', color:'#fff', padding:'80px 0', textAlign:'center'}}>
+      <section style={{background:'var(--teal-deep)', color:'#fff', padding:'var(--s-9) 0', textAlign:'center'}}>
         <div className="container">
           <span className="eyebrow eyebrow--gold">Nous contacter</span>
           <h2 className="h2" style={{color:'#fff', maxWidth:680, margin:'14px auto 18px'}}>Parlons de votre <em className="accent">établissement</em></h2>
@@ -1527,7 +1527,7 @@ function ImpactPage() {
       />
 
       {/* Chiffres clés vérifiés — source : Plaquette Offre restaurateurs Festin */}
-      <section style={{background:'var(--cream)', padding:'72px 0'}}>
+      <section style={{background:'var(--cream)', padding:'var(--s-8) 0'}}>
         <div className="container">
           <div style={{display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:16}}>
             {[
@@ -1546,7 +1546,7 @@ function ImpactPage() {
       </section>
 
       {/* Synthèse financière — vraie donnée Rapport d'activité 2025 */}
-      <section style={{padding:'96px 0', background:'var(--off-white)'}}>
+      <section style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
         <div className="container">
           <div style={{maxWidth:760, marginBottom:48}}>
             <span className="eyebrow">Synthèse financière 2025</span>
@@ -1596,7 +1596,7 @@ function ImpactPage() {
       </section>
 
       {/* Rapports d'activité — téléchargement */}
-      <section style={{padding:'96px 0', background:'var(--cream)'}}>
+      <section style={{padding:'var(--s-9) 0', background:'var(--cream)'}}>
         <div className="container">
           <div style={{maxWidth:760, marginBottom:48}}>
             <span className="eyebrow">Documents publics</span>
@@ -1626,7 +1626,7 @@ function ImpactPage() {
       </section>
 
       {/* Prix & reconnaissance */}
-      <section style={{padding:'96px 0', background:'var(--off-white)'}}>
+      <section style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
         <div className="container">
           <div style={{maxWidth:760, marginBottom:48}}>
             <span className="eyebrow">Reconnaissance</span>
@@ -1648,7 +1648,7 @@ function ImpactPage() {
       </section>
 
       {/* Retombées presse */}
-      <section style={{padding:'72px 0', background:'var(--cream)', borderTop:'1px solid var(--line)'}}>
+      <section style={{padding:'var(--s-8) 0', background:'var(--cream)', borderTop:'1px solid var(--line)'}}>
         <div className="container">
           <div className="presse__head">
             <span className="eyebrow">Retombées médias</span>
@@ -1682,7 +1682,7 @@ function AcademiePage() {
       />
 
       {/* Section 1 — Présentation */}
-      <section style={{padding:'80px 0', background:'var(--off-white)'}}>
+      <section style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
         <div className="container" style={{display:'grid', gridTemplateColumns:'1.3fr 1fr', gap:80, alignItems:'flex-start'}}>
           {/* Gauche */}
           <div>
@@ -1722,7 +1722,7 @@ function AcademiePage() {
       </section>
 
       {/* Section 2 — Double entrée public */}
-      <section style={{padding:'80px 0', background:'var(--cream)'}}>
+      <section style={{padding:'var(--s-9) 0', background:'var(--cream)'}}>
         <div className="container">
           <div style={{maxWidth:760, marginBottom:48}}>
             <span className="eyebrow">Pour qui ?</span>
@@ -1759,7 +1759,7 @@ function AcademiePage() {
       <FormationsTeaser />
 
       {/* Section 4 — Partenaire Estello */}
-      <section style={{background:'var(--teal-dark, var(--teal-deep))', color:'#fff', padding:'72px 0', textAlign:'center'}}>
+      <section style={{background:'var(--teal-dark, var(--teal-deep))', color:'#fff', padding:'var(--s-8) 0', textAlign:'center'}}>
         <div className="container" style={{maxWidth:680}}>
           <span className="eyebrow eyebrow--gold">En partenariat avec</span>
           <h2 className="h2" style={{color:'#fff', marginTop:10, marginBottom:16}}>Estello Formation</h2>
@@ -1798,7 +1798,7 @@ function ActualitesPage() {
         breadcrumb={[{label:'Accueil',href:'#/'},{label:'Qui sommes-nous',href:'#/about'},{label:'Actualités'}]}
       />
 
-      <section style={{padding:'64px 0 80px', background:'var(--off-white)'}}>
+      <section style={{padding:'var(--s-8) 0 var(--s-9)', background:'var(--off-white)'}}>
         <div className="container">
 
           {/* Filtres */}
@@ -1852,7 +1852,7 @@ function ActualitesPage() {
           </div>
 
           {filtered.length === 0 && (
-            <p style={{color:'var(--ink-soft)', textAlign:'center', padding:'60px 0'}}>
+            <p style={{color:'var(--ink-soft)', textAlign:'center', padding:'var(--s-8) 0'}}>
               Aucun article pour ce filtre.
             </p>
           )}
