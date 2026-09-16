@@ -23,17 +23,17 @@ window.FESTIN_DATA = {
   },
   // Stats used by Hero — chiffres réels 2025 source: Plaquette Offre restaurateurs Festin
   stats: [
-    { value: "453", unit: "",   label: "personnes accompagnées en 2025" },
-    { value: "72",  unit: "%",  label: "de sorties en emploi ou formation" },
+    { value: "441", unit: "",   label: "personnes accompagnées en 2025" },
+    { value: "83",  unit: "%",  label: "de sorties en emploi ou formation" },
     { value: "14",  unit: "",   label: "territoires d'intervention" },
-    { value: "10",  unit: " ans", label: "d'existence" },
+    { value: "35",  unit: " ans", label: "d'innovation sociale par la cuisine" },
   ],
   // Ticker — defile bandeau sur la home
   ticker: [
-    "453 personnes accompagnées en 2025",
-    "72 % de sorties en emploi ou formation",
+    "441 personnes accompagnées en 2025",
+    "83 % de sorties en emploi ou formation",
     "14 territoires d'intervention",
-    "10 ans de Des Étoiles et des Femmes",
+    "35 ans d'innovation sociale par la cuisine",
     "Certifié Qualiopi",
     "Le goût d'avancer ensemble",
   ],
@@ -92,11 +92,11 @@ window.FESTIN_DATA = {
       short: "Depuis 2015, Des Étoiles et des Femmes permet à des femmes éloignées de l’emploi d’accéder aux métiers de la restauration via une formation diplômante, un accompagnement global et des stages de qualité. 13 antennes en France, 91 % de réussite aux diplômes.",
       stats: [
         { value: "13",    label: "antennes partout en France" },
-        { value: "358",   label: "femmes accompagnées en 2025" },
+        { value: "336",   label: "femmes accompagnées en 2025" },
         { value: "91 %",  label: "de réussite aux diplômes en 2025" },
-        { value: "1 100", unit: "+", label: "femmes accompagnées en 10 ans" },
+        { value: "1 200", unit: "+", label: "femmes accompagnées en 10 ans" },
       ],
-      description: "Des Étoiles et des Femmes est né en 2015 à Marseille d’une intuition forte : la haute gastronomie peut être un puissant levier d’insertion pour des femmes éloignées de l’emploi. Dix ans plus tard, le programme est déployé dans 13 antennes en France et a accompagné plus de 1 100 femmes vers une qualification en cuisine, une stabilité retrouvée et un retour durable sur le marché du travail. Chaque promotion suit un parcours complet : formation diplômante (CAP cuisine ou Titre Professionnel), accompagnement social global et stages de qualité dans des restaurants engagés. En 2025, Julia Sedefdjian a rejoint le réseau comme marraine nationale, et le Grand Festin a réuni 14 brigades, plus de 550 convives et 100 bénévoles sur le Vieux-Port de Marseille pour célébrer les dix ans du programme.",
+      description: "Des Étoiles et des Femmes est né en 2015 à Marseille d’une intuition forte : la haute gastronomie peut être un puissant levier d’insertion pour des femmes éloignées de l’emploi. Dix ans plus tard, le programme est déployé dans 13 antennes en France et a accompagné plus de 1 200 femmes vers une qualification en cuisine, une stabilité retrouvée et un retour durable sur le marché du travail. Chaque promotion suit un parcours complet : formation diplômante (CAP cuisine ou Titre Professionnel), accompagnement social global et stages de qualité dans des restaurants engagés. En 2025, Julia Sedefdjian a rejoint le réseau comme marraine nationale, et le Grand Festin a réuni 13 brigades, 550 convives et 100 bénévoles sur le Vieux-Port de Marseille pour célébrer les dix ans du programme.",
       ctaLabel: "Visiter desetoilesetdesfemmes.org",
       ctaUrl: "https://www.desetoilesetdesfemmes.org",
       quote: {
@@ -235,10 +235,10 @@ window.FESTIN_DATA = {
       grandFestin: {
         eyebrow: "Temps fort",
         title: "Le Grand Festin",
-        text: "Pour les dix ans du programme, 14 brigades, plus de 550 convives et 100 bénévoles se sont réunis sur le Vieux-Port de Marseille.",
+        text: "Pour les dix ans du programme, 13 brigades, 550 convives et 100 bénévoles se sont réunis sur le Vieux-Port de Marseille.",
         stats: [
-          { value: "14",   label: "brigades réunies" },
-          { value: "550", unit: "+", label: "convives" },
+          { value: "13",   label: "brigades réunies" },
+          { value: "550", unit: "", label: "convives" },
           { value: "100",  label: "bénévoles" }
         ],
         images: [
@@ -429,6 +429,37 @@ window.FESTIN_DATA = {
         { prenom: "Eloi Spinnler", role: "Chef engagé — membre Restaure", citation: "Pour réussir à vraiment changer les choses, je suis persuadé qu’il faut avancer collectivement.", placeholder: false },
       ],
       presseFilter: ["Restaure", "Mouvement Restaure"],
+      // --- Repositionnement stratégique Restaure (2026) : mission + 3 axes de transformation ---
+      mission: "Restaure aura réussi s’il a transformé durablement les pratiques du secteur de la restauration, en améliorant à la fois les conditions humaines et l’impact écologique, par la sensibilisation et la formation des professionnels.",
+      transformation: [
+        { title: "Renforcer l’équité et l’inclusion",
+          text: "Créer un secteur plus inclusif et équitable en intégrant des pratiques favorisant la diversité, l’horizontalité et une meilleure représentativité à tous les niveaux.",
+          indicateurs: [
+            "Accès aux opportunités pour les femmes, les réfugié·es et les personnes en insertion",
+            "Onboarding inclusif",
+            "Pratiques RH confortables pour toutes et tous",
+          ] },
+        { title: "Améliorer les conditions de travail et l’attractivité du secteur",
+          text: "Faire de la restauration un environnement de travail sûr, valorisant et attractif, où les talents peuvent s’épanouir et contribuer à la pérennité économique.",
+          indicateurs: [
+            "70 % de satisfaction des équipes visés dans les restaurants signataires du manifeste",
+            "Turnover réduit de moitié, fin de la pénurie RH visée",
+            "Management formé, prévention des violences et VSS effective",
+          ] },
+        { title: "Accélérer la transition écologique",
+          subtitle: "Avec la Communauté Ecotable",
+          text: "Positionner les restaurants comme acteurs moteurs de la durabilité, en favorisant un sourcing responsable et en sensibilisant le secteur à l’urgence climatique.",
+          indicateurs: [
+            "70 % des aliments sourcés localement et durablement, l’objectif pour les restaurants signataires",
+            "Réduction des déchets et de la consommation d’énergie",
+            "Trajectoire de progression auditée",
+          ] },
+      ],
+      perspectives: [
+        "Ancrer l’expertise du mouvement dans le réel grâce à l’ouverture du lieu Sadi Carnot",
+        "Intégrer un volet de sensibilisation du grand public : programmation Alimentation durable",
+        "Explorer la complémentarité avec le label Peace & Work",
+      ],
     },
     {
       id: "tournesol",
@@ -731,7 +762,7 @@ window.FESTIN_DATA.meganav = {
 // ============================================================
 window.FESTIN_DATA.home = {
   hero: {
-    eyebrow: "Association Festin — depuis 2015",
+    eyebrow: "Association Festin — depuis 1992",
     titleLines: ["Le goût", "d'avancer", "ensemble"],   // dernière ligne = accent
     sub: "La restauration comme levier d'insertion, de formation et de transformation.",
     ctas: [
@@ -743,10 +774,10 @@ window.FESTIN_DATA.home = {
   marquee: [
     "CAP Cuisine", "Titre Professionnel Cuisinier", "Titre Professionnel Commis de cuisine",
     "Prévention des violences en cuisine", "Management juste", "Accueil de la diversité",
-    "Insertion par la cuisine — depuis 2015"
+    "Insertion par la cuisine — depuis 1992"
   ],
   approche: {
-    eyebrow: "L'association Festin · depuis 2015",
+    eyebrow: "L'association Festin · depuis 1992",
     titleLines: ["De la cuisine", "à l'emploi"],
     intro: "Festin forme aux métiers de la cuisine des personnes qui en sont éloignées. Et accompagne les restaurants qui veulent recruter et manager autrement. À Marseille et sur 14 territoires.",
     steps: [

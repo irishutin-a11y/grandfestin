@@ -127,15 +127,6 @@ function HomeB() {
             ))}
           </h1>
           <p className="lede hero__sub">{H.hero.sub}</p>
-          <div className="hero__cta">
-            {H.hero.ctas.map((c, i) => (
-              <a key={i} className={"btnb " + (c.variant === 'gold' ? 'btnb--gold' : 'btnb--ghost')}
-                 href={'#' + c.scroll}
-                 onClick={(e) => { e.preventDefault(); const t = document.getElementById(c.scroll); if (t) { window.__lenis ? window.__lenis.scrollTo(t, { offset: -70 }) : t.scrollIntoView({ behavior: 'smooth' }); } }}>
-                {c.label}{c.variant === 'gold' && <span className="arrow"> →</span>}
-              </a>
-            ))}
-          </div>
         </div>
       </header>
 
