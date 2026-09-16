@@ -22,6 +22,8 @@ em.accent, .accent { font-style: italic; color: var(--gold); font-weight: inheri
 /* ===== BUTTONS ===== */
 .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 26px; border-radius: 6px; font-size: 15px; font-weight: 700; border: 2px solid transparent; transition: all 250ms cubic-bezier(.22,1,.36,1); cursor: pointer; white-space: nowrap; }
 .btn:active { transform: scale(0.98); }
+.btn:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.btn[disabled], .btn[aria-disabled="true"] { opacity: .5; cursor: not-allowed; pointer-events: none; }
 .btn--gold { background: var(--gold); color: var(--ink); }
 .btn--gold:hover { background: #D29719; }
 .btn--teal { background: var(--teal); color: #fff; }

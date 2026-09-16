@@ -165,16 +165,16 @@ function Contact() {
           </div>
           <div className="contact__form">
             <h3 className="h3">Écrivez-nous</h3>
-            <p className="body">Nous revenons vers vous rapidement avec une proposition adaptée à votre besoin.</p>
+            <p className="body">Nous revenons vers vous rapidement, en fonction de votre demande.</p>
             {sent ? (
               <div className="form-success"><b>Merci, votre message a été envoyé.</b><br/>Nous vous répondrons sous 48h à l'adresse indiquée.</div>
             ) : (
               <form onSubmit={(e)=>{e.preventDefault();setSent(true);}}>
                 <div className="field-row">
-                  <div className="field"><label>Prénom</label><input required defaultValue=""/></div>
-                  <div className="field"><label>Nom</label><input required/></div>
+                  <div className="field"><label>Prénom <span style={{color:'var(--gold)'}}>*</span></label><input required defaultValue=""/></div>
+                  <div className="field"><label>Nom <span style={{color:'var(--gold)'}}>*</span></label><input required/></div>
                 </div>
-                <div className="field"><label>Email</label><input type="email" required placeholder="vous@exemple.fr"/></div>
+                <div className="field"><label>Email <span style={{color:'var(--gold)'}}>*</span></label><input type="email" required placeholder="vous@exemple.fr"/></div>
                 <div className="field"><label>Organisation</label><input placeholder="Restaurant, OPCO, collectivité…"/></div>
                 <div className="field">
                   <label>Motif de votre demande <span style={{color:'var(--gold)'}}>*</span></label>

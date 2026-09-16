@@ -18,6 +18,9 @@ section{position:relative}
 .lede{font-size:clamp(16px,1.5vw,20px);line-height:1.6}
 .btnb{display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:6px;font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.06em;transition:transform .25s,background .25s,color .25s}
 .btnb:hover{transform:translateY(-2px)}
+.btnb:active{transform:scale(0.98)}
+.btnb:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+.btnb[disabled],.btnb[aria-disabled="true"]{opacity:.5;cursor:not-allowed;pointer-events:none;transform:none}
 .btnb--gold{background:var(--gold);color:var(--ink)}
 .btnb--gold:hover{background:var(--gold-light)}
 .btnb--teal{background:var(--teal);color:#fff}

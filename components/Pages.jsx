@@ -213,7 +213,7 @@ function PartenairesMarquee() {
   const row = (
     <>
       {logos.map((l,i) => (
-        <img key={i} src={l.src} alt={l.alt} style={{height:44,width:'auto',opacity:0.7,margin:'0 56px',flexShrink:0}}/>
+        <img key={i} src={l.src} alt={l.alt} loading="lazy" style={{height:44,width:'auto',opacity:0.7,margin:'0 56px',flexShrink:0}}/>
       ))}
     </>
   );
@@ -260,7 +260,7 @@ function FormationsTeaser() {
 function FormationCardLink({ f, wide }) {
   return (
     <a className={"formation-card" + (wide ? " wide" : "")} href={`#/formations/${f.id}`}>
-      <div className="formation-card__img"><img src={f.img} alt={f.title}/></div>
+      <div className="formation-card__img"><img src={f.img} alt={f.title} loading="lazy"/></div>
       <div className="formation-card__body">
         <span className="eyebrow">{f.cat}</span>
         <h3>{f.title}</h3>
@@ -408,7 +408,7 @@ function FormationDetailPage({ id }) {
                 )}
               </div>
               <div className="qualiopi-side">
-                <img src={window.FESTIN_DATA.brand.qualiopi} alt="Logo Qualiopi" className="qualiopi-side__logo" onError={(e)=>{e.currentTarget.style.display='none';}}/>
+                <img src={window.FESTIN_DATA.brand.qualiopi} alt="Logo Qualiopi" className="qualiopi-side__logo" loading="lazy" onError={(e)=>{e.currentTarget.style.display='none';}}/>
                 <div>
                   <div className="qualiopi-side__t">Certifié Qualiopi</div>
                   <div className="qualiopi-side__d">Au titre des actions de formation</div>
@@ -862,7 +862,7 @@ function CarouselMedia({ images }) {
   return (
     <div style={{marginTop:32, position:'relative', borderRadius:14, overflow:'hidden', aspectRatio:'16/9'}}>
       {images.map((src, i) => (
-        <img key={i} src={src} alt="" style={{
+        <img key={i} src={src} alt="" loading="lazy" style={{
           position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover',
           opacity: i === idx ? 1 : 0,
           transition:'opacity 800ms ease',
@@ -1692,7 +1692,7 @@ function AcademiePage() {
               Depuis 1992, Festin forme sur le terrain. En 2025, l'association structure cette expertise en un organisme de formation certifié Qualiopi, co-porté avec Estello Formation. L'Académie Festin conçoit des parcours qui allient exigence pédagogique, impact social et expertise sectorielle.
             </p>
             <div style={{display:'flex', alignItems:'center', gap:14, marginTop:28, padding:'16px 20px', background:'var(--cream)', borderRadius:12, border:'1px solid var(--line)'}}>
-              <img src={window.FESTIN_DATA.brand.qualiopi} alt="Logo Qualiopi"
+              <img src={window.FESTIN_DATA.brand.qualiopi} alt="Logo Qualiopi" loading="lazy"
                 style={{height:48, width:'auto', objectFit:'contain'}}
                 onError={(e) => { e.currentTarget.style.display='none'; }}/>
               <span style={{fontSize:13, color:'var(--ink-mid)', lineHeight:1.4}}>
