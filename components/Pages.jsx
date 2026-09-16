@@ -213,12 +213,12 @@ function PartenairesMarquee() {
   const row = (
     <>
       {logos.map((l,i) => (
-        <img key={i} src={l.src} alt={l.alt} style={{height:44,width:'auto',opacity:0.7,margin:'0 56px',flexShrink:0}}/>
+        <img key={i} src={l.src} alt={l.alt} loading="lazy" style={{height:44,width:'auto',opacity:0.7,margin:'0 56px',flexShrink:0}}/>
       ))}
     </>
   );
   return (
-    <section style={{background:'var(--cream)',padding:'48px 0',borderTop:'1px solid rgba(13,43,48,0.04)',borderBottom:'1px solid rgba(13,43,48,0.04)'}}>
+    <section style={{background:'var(--cream)',padding:'var(--s-8) 0',borderTop:'1px solid rgba(13,43,48,0.04)',borderBottom:'1px solid rgba(13,43,48,0.04)'}}>
       <style>{`
         @keyframes festin-marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
         .festin-marquee-track { display: flex; align-items: center; width: max-content; animation: festin-marquee 30s linear infinite; }
@@ -260,7 +260,7 @@ function FormationsTeaser() {
 function FormationCardLink({ f, wide }) {
   return (
     <a className={"formation-card" + (wide ? " wide" : "")} href={`#/formations/${f.id}`}>
-      <div className="formation-card__img"><img src={f.img} alt={f.title}/></div>
+      <div className="formation-card__img"><img src={f.img} alt={f.title} loading="lazy"/></div>
       <div className="formation-card__body">
         <span className="eyebrow">{f.cat}</span>
         <h3>{f.title}</h3>
@@ -281,7 +281,7 @@ function FormationCardLink({ f, wide }) {
 
 function ContactCTA() {
   return (
-    <section style={{background:'var(--teal-deep)',color:'#fff',padding:'80px 0',textAlign:'center'}}>
+    <section style={{background:'var(--teal-deep)',color:'#fff',padding:'var(--s-9) 0',textAlign:'center'}}>
       <div className="container">
         <span className="eyebrow eyebrow--gold">Une question ?</span>
         <h2 className="h2" style={{color:'#fff',maxWidth:640,margin:'14px auto 18px'}}>Parlons de votre <em className="accent">projet de formation</em></h2>
@@ -340,7 +340,7 @@ function FormationDetailPage({ id }) {
           {label:f.title}
         ]}
       />
-      <section style={{padding:'72px 0',background:'var(--off-white)'}}>
+      <section style={{padding:'var(--s-8) 0',background:'var(--off-white)'}}>
         <div className="container">
           <div className="detail-grid">
             <div className="detail-main">
@@ -408,7 +408,7 @@ function FormationDetailPage({ id }) {
                 )}
               </div>
               <div className="qualiopi-side">
-                <img src={window.FESTIN_DATA.brand.qualiopi} alt="Logo Qualiopi" className="qualiopi-side__logo" onError={(e)=>{e.currentTarget.style.display='none';}}/>
+                <img src={window.FESTIN_DATA.brand.qualiopi} alt="Logo Qualiopi" className="qualiopi-side__logo" loading="lazy" onError={(e)=>{e.currentTarget.style.display='none';}}/>
                 <div>
                   <div className="qualiopi-side__t">Certifié Qualiopi</div>
                   <div className="qualiopi-side__d">Au titre des actions de formation</div>
@@ -425,8 +425,8 @@ function FormationDetailPage({ id }) {
 // ---------- L'ASSOCIATION FESTIN — bloc présentation ----------
 function FestinPresentation() {
   const stats = [
-    { value: "453", label: "personnes accompagnées en 2025" },
-    { value: "72 %", label: "de sorties en emploi ou formation" },
+    { value: "441", label: "personnes accompagnées en 2025" },
+    { value: "83 %", label: "de sorties en emploi ou formation" },
     { value: "14",  label: "territoires d'intervention" },
   ];
   const images = [
@@ -448,7 +448,7 @@ function FestinPresentation() {
   }, []);
 
   return (
-    <section style={{background:'var(--off-white)',padding:'96px 0'}}>
+    <section style={{background:'var(--off-white)',padding:'var(--s-9) 0'}}>
       <div className="container" style={{display:'grid',gridTemplateColumns: narrow ? '1fr' : '1.1fr 1fr',gap:64,alignItems:'center'}}>
         {narrow && (
           <div style={{position:'relative',width:'100%',aspectRatio:'1 / 1',borderRadius:'20%',overflow:'hidden'}}>
@@ -461,7 +461,7 @@ function FestinPresentation() {
           <span className="eyebrow eyebrow--gold">L'association Festin</span>
           <h2 className="h2" style={{marginTop:8}}>Le goût d'avancer <em className="accent">ensemble.</em></h2>
           <p className="lede" style={{marginTop:18,color:'var(--ink-mid)'}}>
-            Créée en 2015, l'association Festin mobilise la cuisine et le secteur de la restauration comme vecteurs de transformation et d'insertion sociale. Basée à Marseille, elle porte aujourd'hui des dispositifs complémentaires en faveur de l'alimentation durable, de l'inclusion et de l'évolution du secteur de la restauration.
+            Née en 1992 à Marseille avec La Table de Cana, l'association Festin mobilise la cuisine et le secteur de la restauration comme vecteurs de transformation et d'insertion sociale. Elle porte aujourd'hui des dispositifs complémentaires en faveur de l'alimentation durable, de l'inclusion et de l'évolution du secteur de la restauration.
           </p>
           <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:16,marginTop:36}}>
             {stats.map((s,i) => (
@@ -528,7 +528,7 @@ function EquipeMarquee() {
     </div>
   );
   return (
-    <section style={{padding:'80px 0', background:'var(--cream)', borderTop:'1px solid var(--line)', borderBottom:'1px solid var(--line)', overflow:'hidden'}}>
+    <section style={{padding:'var(--s-9) 0', background:'var(--cream)', borderTop:'1px solid var(--line)', borderBottom:'1px solid var(--line)', overflow:'hidden'}}>
       <style>{`
         @keyframes equipe-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
         .equipe-track { display: flex; align-items: center; width: max-content; animation: equipe-scroll 80s linear infinite; }
@@ -554,11 +554,11 @@ function HistoriqueSection() {
     { year: '2015', title: 'Naissance de Des Étoiles et des Femmes', desc: 'Lancement à Marseille du programme d\'insertion des femmes par la haute gastronomie.' },
     { year: '2018', title: 'Premières antennes nationales',       desc: 'Le programme essaime à Lille, Bordeaux, Strasbourg, Lyon, Nantes.' },
     { year: '2022', title: 'Ouverture des Beaux Mets',            desc: 'Le premier restaurant en prison ouvert au public en France — Marseille, Baumettes.' },
-    { year: '2024', title: 'Le mouvement Restaure',               desc: '4 structures co-fondatrices, 35 structures engagées, 700 signataires du manifeste.' },
+    { year: '2024', title: 'Le programme Restaure',               desc: '4 structures co-fondatrices, 35 structures engagées, 700 signataires du manifeste.' },
     { year: '2025', title: 'Promotion Tournesol',                 desc: 'Lancement du parcours pour personnes réfugiées et primo-arrivantes, avec Refugee Food.' },
   ];
   return (
-    <section style={{padding:'96px 0', background:'var(--off-white)'}}>
+    <section style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
       <div className="container">
         <div style={{maxWidth:760, marginBottom:48}}>
           <span className="eyebrow">Historique</span>
@@ -598,7 +598,7 @@ function ValeursSection() {
     { icon:'sprout', title:'Transformation', desc:'Notre objectif n\'est pas seulement d\'accompagner des individus — c\'est de faire bouger les pratiques de tout un secteur.' },
   ];
   return (
-    <section style={{padding:'96px 0', background:'var(--cream)'}}>
+    <section style={{padding:'var(--s-9) 0', background:'var(--cream)'}}>
       <div className="container">
         <div style={{maxWidth:760, marginBottom:48}}>
           <span className="eyebrow">Valeurs fondamentales</span>
@@ -623,7 +623,7 @@ function ValeursSection() {
 // ---------- IMPACT CUMULÉ (sur About) — bandeau résumé ----------
 function ImpactCumuleBande() {
   return (
-    <section style={{padding:'80px 0', background:'var(--teal-deep)', color:'#fff'}}>
+    <section style={{padding:'var(--s-9) 0', background:'var(--teal-deep)', color:'#fff'}}>
       <div className="container">
         <div style={{display:'flex', justifyContent:'space-between', alignItems:'flex-end', gap:24, flexWrap:'wrap', marginBottom:36}}>
           <div>
@@ -634,8 +634,8 @@ function ImpactCumuleBande() {
         </div>
         <div style={{display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:12}}>
           {[
-            {value:'453',   label:'personnes accompagnées en 2025'},
-            {value:'72 %',  label:'de sorties en emploi ou formation'},
+            {value:'441',   label:'personnes accompagnées en 2025'},
+            {value:'83 %',  label:'de sorties en emploi ou formation'},
             {value:'14',    label:'territoires d\'intervention'},
             {value:'5',     label:'projets complémentaires'},
           ].map((s,i) => (
@@ -708,11 +708,11 @@ function ProjetAssociatif() {
     {
       n: "03",
       title: "Transformer le secteur, pas seulement les individus",
-      body: "Festin est aussi un acteur de plaidoyer. Avec le mouvement Restaure, l'association fédère un collectif national de restaurateurs, formateurs et structures de l'ESS pour faire évoluer les conditions de travail, prévenir les violences en cuisine et construire un modèle durable et respectueux.",
+      body: "Festin est aussi un acteur de plaidoyer. Avec le programme Restaure, l'association fédère un collectif national de restaurateurs, formateurs et structures de l'ESS pour faire évoluer les conditions de travail, prévenir les violences en cuisine et construire un modèle durable et respectueux.",
     },
   ];
   return (
-    <section style={{padding:'96px 0', background:'var(--off-white)'}}>
+    <section style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
       <div className="container">
         <div style={{maxWidth:760, marginBottom:64}}>
           <span className="eyebrow">Notre projet associatif</span>
@@ -748,7 +748,7 @@ function AboutPage() {
         eyebrow="L'association Festin"
         title="Former, inclure,"
         accent="transformer."
-        subtitle="Née à Marseille en 2015, Festin construit depuis 10 ans un écosystème unique au service d'une restauration plus inclusive."
+        subtitle="Née à Marseille en 1992 avec La Table de Cana, Festin construit depuis lors un écosystème de dispositifs complémentaires au service d'une restauration plus inclusive."
         breadcrumb={[{label:'Accueil',href:'#/'},{label:'Qui sommes-nous'}]}
       />
       <FestinPresentation />
@@ -789,7 +789,7 @@ function NotFoundPage() {
         subtitle="Cette page n'existe pas ou a été déplacée."
         breadcrumb={[{label:'Accueil',href:'#/'}]}
       />
-      <section style={{padding:'72px 0',textAlign:'center'}}>
+      <section style={{padding:'var(--s-8) 0',textAlign:'center'}}>
         <a href="#/" className="btn btn--teal">Retour à l'accueil</a>
       </section>
     </div>
@@ -821,7 +821,7 @@ function ProjetThumb({ icon }) {
 function EcosystemeSection() {
   const projets = window.FESTIN_DATA.projets;
   return (
-    <section style={{background:'var(--cream)',padding:'96px 0'}}>
+    <section style={{background:'var(--cream)',padding:'var(--s-9) 0'}}>
       <div className="container">
         <div className="formations__head" style={{marginBottom:48,maxWidth:760}}>
           <span className="eyebrow">Nos 5 projets</span>
@@ -862,7 +862,7 @@ function CarouselMedia({ images }) {
   return (
     <div style={{marginTop:32, position:'relative', borderRadius:14, overflow:'hidden', aspectRatio:'16/9'}}>
       {images.map((src, i) => (
-        <img key={i} src={src} alt="" style={{
+        <img key={i} src={src} alt="" loading="lazy" style={{
           position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover',
           opacity: i === idx ? 1 : 0,
           transition:'opacity 800ms ease',
@@ -952,7 +952,7 @@ function ProjetTemoignages({ temoignages }) {
   const initiale = t && t.prenom ? t.prenom[0].toUpperCase() : '?';
 
   return (
-    <section style={{background:'var(--teal-deep)', color:'#fff', padding:'80px 0'}}>
+    <section style={{background:'var(--teal-deep)', color:'#fff', padding:'var(--s-9) 0'}}>
       <div className="container" style={{maxWidth:800, margin:'0 auto', textAlign:'center'}}>
         <span className="eyebrow eyebrow--gold">Témoignages</span>
         <div style={{marginTop:40, position:'relative', minHeight:200}}>
@@ -1022,7 +1022,7 @@ function ProjetPresse({ p }) {
   const cards = [...filtered];
   while (cards.length < 3) cards.push({ placeholder: true });
   return (
-    <section style={{padding:'80px 0', background:'var(--off-white)'}}>
+    <section style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
       <div className="container">
         <div style={{maxWidth:760, marginBottom:48}}>
           <span className="eyebrow">Presse & médias</span>
@@ -1096,7 +1096,7 @@ function ProjetHero({ p }) {
           <span className="breadcrumb__sep">/</span>
           <span>{p.shortTitle}</span>
         </nav>
-        <span className="eyebrow eyebrow--gold">{p.eyebrow}</span>
+        <span className="eyebrow eyebrow--gold">{p.eyebrow} · un projet de l'association Festin</span>
         <h1 className="h1" style={{maxWidth:880, marginTop:8, textShadow:'0 2px 18px rgba(10,45,51,0.65), 0 1px 2px rgba(10,45,51,0.5)'}}>
           <span style={{color:'rgb(255,255,255)'}}>{p.title}</span>{' '}
           {p.accent && <em className="accent">{p.accent}</em>}
@@ -1165,7 +1165,7 @@ function ProjetPage({ id }) {
       </section>
 
       {/* C. Présentation 2 colonnes */}
-      <section style={{padding:'80px 0', background:'var(--off-white)'}}>
+      <section style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
         <div className="container" style={{display:'grid', gridTemplateColumns:'1.5fr 1fr', gap:64, alignItems:'flex-start'}}>
           {/* Gauche : description + média */}
           <div>
@@ -1247,7 +1247,7 @@ function SadiCarnotPage() {
           {label:'Sadi Carnot'}
         ]}
       />
-      <section style={{padding:'96px 0',background:'var(--off-white)'}}>
+      <section style={{padding:'var(--s-9) 0',background:'var(--off-white)'}}>
         <div className="container">
           <div style={{background:'var(--cream)',borderRadius:18,padding:'72px 48px',textAlign:'center',maxWidth:720,margin:'0 auto'}}>
             <div style={{width:80,height:80,borderRadius:'50%',background:'rgba(232,168,37,0.14)',display:'grid',placeItems:'center',color:'var(--gold)',margin:'0 auto 24px'}}>
@@ -1285,12 +1285,12 @@ function AccompagnementInsertionPage() {
       />
 
       {/* Chiffres clés */}
-      <section style={{background:'var(--cream)', padding:'72px 0'}}>
+      <section style={{background:'var(--cream)', padding:'var(--s-8) 0'}}>
         <div className="container">
           <div style={{display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:16}}>
             {[
-              {value:'453', label:'personnes accompagnées en 2025'},
-              {value:'72 %', label:'de sorties en emploi ou formation'},
+              {value:'441', label:'personnes accompagnées en 2025'},
+              {value:'83 %', label:'de sorties en emploi ou formation'},
               {value:'14', label:'territoires d\'intervention'},
               {value:'5', label:'projets complémentaires'},
             ].map((s, i) => (
@@ -1304,12 +1304,12 @@ function AccompagnementInsertionPage() {
       </section>
 
       {/* Texte d'introduction */}
-      <section style={{padding:'80px 0', background:'var(--off-white)'}}>
+      <section style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
         <div className="container" style={{maxWidth:880, margin:'0 auto'}}>
           <span className="eyebrow">Notre approche</span>
           <h2 className="h2" style={{marginTop:8, marginBottom:18}}>Ne pas former un métier, accompagner <em className="accent">une personne</em></h2>
           <p className="lede" style={{color:'var(--ink-mid)'}}>
-            L'insertion par la cuisine, c'est notre spécialité depuis 2015. Femmes éloignées de l'emploi, personnes réfugiées ou primo-arrivantes, personnes détenues ou récemment libérées : nos parcours combinent diplôme reconnu, expérience terrain en restaurant, et accompagnement social complet (mobilité, garde d'enfants, logement, soutien linguistique).
+            L'insertion par la cuisine, c'est notre spécialité depuis 1992. Femmes éloignées de l'emploi, personnes réfugiées ou primo-arrivantes, personnes détenues ou récemment libérées : nos parcours combinent diplôme reconnu, expérience terrain en restaurant, et accompagnement social complet (mobilité, garde d'enfants, logement, soutien linguistique).
           </p>
           <p className="body" style={{marginTop:16}}>
             Tous nos parcours sont entièrement gratuits, financés par les pouvoirs publics et nos mécènes. Une indemnisation est possible selon votre situation.
@@ -1318,7 +1318,7 @@ function AccompagnementInsertionPage() {
       </section>
 
       {/* Projets d'insertion */}
-      <section style={{background:'var(--cream)', padding:'96px 0'}}>
+      <section style={{background:'var(--cream)', padding:'var(--s-9) 0'}}>
         <div className="container">
           <div className="formations__head" style={{marginBottom:48, maxWidth:760}}>
             <span className="eyebrow">Nos parcours d'insertion</span>
@@ -1346,7 +1346,7 @@ function AccompagnementInsertionPage() {
       </section>
 
       {/* CTA contact */}
-      <section style={{background:'var(--teal-deep)', color:'#fff', padding:'80px 0', textAlign:'center'}}>
+      <section style={{background:'var(--teal-deep)', color:'#fff', padding:'var(--s-9) 0', textAlign:'center'}}>
         <div className="container">
           <span className="eyebrow eyebrow--gold">Candidater à une promotion</span>
           <h2 className="h2" style={{color:'#fff', maxWidth:680, margin:'14px auto 18px'}}>Prêt à construire votre <em className="accent">projet professionnel</em>&nbsp;?</h2>
@@ -1366,9 +1366,9 @@ function AccompagnementProsPage() {
     <div data-screen-label="Accompagnement — Professionnels">
       <PageHeader
         eyebrow="Vous êtes restaurateur"
-        title="Solution RH pour"
-        accent="les restaurateurs"
-        subtitle="Recrutement inclusif, fidélisation des équipes, prévention des violences, management juste. Une réponse opérationnelle aux tensions RH du secteur — conçue par et pour des professionnels."
+        title="Travailler autrement,"
+        accent="avec les restaurateurs"
+        subtitle="Recrutement inclusif, fidélisation des équipes, prévention des violences, management juste : un engagement construit avec des professionnels du secteur."
         breadcrumb={[
           {label:'Accueil', href:'#/'},
           {label:'Accompagnement'},
@@ -1377,11 +1377,11 @@ function AccompagnementProsPage() {
       />
 
       {/* 3 piliers de l'offre RH */}
-      <section style={{padding:'80px 0', background:'var(--off-white)'}}>
+      <section style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
         <div className="container">
           <div style={{maxWidth:760, marginBottom:48}}>
-            <span className="eyebrow">L'offre Festin pour les restaurateurs</span>
-            <h2 className="h2">Trois leviers pour <em className="accent">transformer votre établissement</em></h2>
+            <span className="eyebrow">Ce que Festin construit avec les restaurateurs</span>
+            <h2 className="h2">Trois leviers pour <em className="accent">transformer les pratiques</em></h2>
           </div>
           <div style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:20}}>
             {[
@@ -1414,7 +1414,7 @@ function AccompagnementProsPage() {
       </section>
 
       {/* Catalogue de formations */}
-      <section style={{background:'var(--cream)', padding:'96px 0'}}>
+      <section style={{background:'var(--cream)', padding:'var(--s-9) 0'}}>
         <div className="container">
           <div className="formations__head" style={{marginBottom:48, maxWidth:760}}>
             <span className="eyebrow">Catalogue de formations</span>
@@ -1433,11 +1433,11 @@ function AccompagnementProsPage() {
       </section>
 
       {/* Restaure */}
-      <section style={{padding:'80px 0', background:'var(--off-white)'}}>
+      <section style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
         <div className="container" style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:48, alignItems:'center'}}>
           <div>
             <span className="eyebrow eyebrow--gold">Au-delà des formations</span>
-            <h2 className="h2" style={{marginTop:8, marginBottom:18}}>Rejoindre <em className="accent">le mouvement Restaure</em></h2>
+            <h2 className="h2" style={{marginTop:8, marginBottom:18}}>Rejoindre <em className="accent">le programme Restaure</em></h2>
             <p className="lede" style={{color:'var(--ink-mid)'}}>
               Restaure fédère 35 structures et 700 signataires engagés pour transformer durablement le secteur de la restauration. Signer le manifeste, intégrer un groupe de travail, participer aux tables rondes : Festin accompagne votre engagement collectif.
             </p>
@@ -1450,12 +1450,12 @@ function AccompagnementProsPage() {
       </section>
 
       {/* CTA contact */}
-      <section style={{background:'var(--teal-deep)', color:'#fff', padding:'80px 0', textAlign:'center'}}>
+      <section style={{background:'var(--teal-deep)', color:'#fff', padding:'var(--s-9) 0', textAlign:'center'}}>
         <div className="container">
-          <span className="eyebrow eyebrow--gold">Demander un devis</span>
-          <h2 className="h2" style={{color:'#fff', maxWidth:680, margin:'14px auto 18px'}}>Parlons de votre <em className="accent">projet RH</em></h2>
-          <p className="lede" style={{color:'rgba(255,255,255,0.78)', maxWidth:560, margin:'0 auto 32px'}}>Notre équipe vous répond sous 48&nbsp;h ouvrées avec une proposition adaptée à votre établissement.</p>
-          <a href="#/contact" className="btn btn--gold">Demander un devis <i data-lucide="arrow-right" style={{width:16, height:16}}/></a>
+          <span className="eyebrow eyebrow--gold">Nous contacter</span>
+          <h2 className="h2" style={{color:'#fff', maxWidth:680, margin:'14px auto 18px'}}>Parlons de votre <em className="accent">établissement</em></h2>
+          <p className="lede" style={{color:'rgba(255,255,255,0.78)', maxWidth:560, margin:'0 auto 32px'}}>Notre équipe vous répond sous 48&nbsp;h ouvrées pour construire ensemble le format qui vous convient.</p>
+          <a href="#/contact" className="btn btn--gold">Échanger avec notre équipe <i data-lucide="arrow-right" style={{width:16, height:16}}/></a>
         </div>
       </section>
     </div>
@@ -1473,7 +1473,7 @@ function ImpactPage() {
       year: '2025',
       url: "https://drive.google.com/file/d/1dymsU5cV00adUDLBz7zLEQYWa_t_-70z/view?usp=sharing",
       title: "Rapport d'activité 2025",
-      desc: "453 personnes accompagnées tous dispositifs confondus, 72 % de sorties dynamiques. 10 ans de Des Étoiles et des Femmes, lancement de la promotion Tournesol, consolidation du mouvement Restaure.",
+      desc: "441 personnes accompagnées tous dispositifs confondus, 83 % de sorties en emploi ou formation. 10 ans de Des Étoiles et des Femmes, lancement de la promotion Tournesol, consolidation du programme Restaure.",
       size: "PDF",
     },
     {
@@ -1516,10 +1516,10 @@ function ImpactPage() {
   return (
     <div data-screen-label="Notre impact">
       <PageHeader
-        eyebrow="Notre impact"
-        title="10 ans de Festin,"
-        accent="10 ans de transformation"
-        subtitle="Une mesure honnête de ce que nous avons construit, avec les chiffres, les rapports, et la reconnaissance qui en témoignent."
+        eyebrow="Chiffres & rapports"
+        title="Depuis 1992,"
+        accent="ce que nous avons transformé"
+        subtitle="Les rapports d'activité, les chiffres qui en sont tirés, et les reconnaissances obtenues au fil des années."
         breadcrumb={[
           {label:'Accueil', href:'#/'},
           {label:'Notre impact'},
@@ -1527,12 +1527,12 @@ function ImpactPage() {
       />
 
       {/* Chiffres clés vérifiés — source : Plaquette Offre restaurateurs Festin */}
-      <section style={{background:'var(--cream)', padding:'72px 0'}}>
+      <section style={{background:'var(--cream)', padding:'var(--s-8) 0'}}>
         <div className="container">
           <div style={{display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:16}}>
             {[
-              {value:'453',   label:'personnes accompagnées en 2025'},
-              {value:'72 %',  label:'de sorties en emploi ou formation'},
+              {value:'441',   label:'personnes accompagnées en 2025'},
+              {value:'83 %',  label:'de sorties en emploi ou formation'},
               {value:'14',    label:'territoires d\'intervention'},
               {value:'5',     label:'projets complémentaires'},
             ].map((s, i) => (
@@ -1546,7 +1546,7 @@ function ImpactPage() {
       </section>
 
       {/* Synthèse financière — vraie donnée Rapport d'activité 2025 */}
-      <section style={{padding:'96px 0', background:'var(--off-white)'}}>
+      <section style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
         <div className="container">
           <div style={{maxWidth:760, marginBottom:48}}>
             <span className="eyebrow">Synthèse financière 2025</span>
@@ -1596,7 +1596,7 @@ function ImpactPage() {
       </section>
 
       {/* Rapports d'activité — téléchargement */}
-      <section style={{padding:'96px 0', background:'var(--cream)'}}>
+      <section style={{padding:'var(--s-9) 0', background:'var(--cream)'}}>
         <div className="container">
           <div style={{maxWidth:760, marginBottom:48}}>
             <span className="eyebrow">Documents publics</span>
@@ -1626,7 +1626,7 @@ function ImpactPage() {
       </section>
 
       {/* Prix & reconnaissance */}
-      <section style={{padding:'96px 0', background:'var(--off-white)'}}>
+      <section style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
         <div className="container">
           <div style={{maxWidth:760, marginBottom:48}}>
             <span className="eyebrow">Reconnaissance</span>
@@ -1648,7 +1648,7 @@ function ImpactPage() {
       </section>
 
       {/* Retombées presse */}
-      <section style={{padding:'72px 0', background:'var(--cream)', borderTop:'1px solid var(--line)'}}>
+      <section style={{padding:'var(--s-8) 0', background:'var(--cream)', borderTop:'1px solid var(--line)'}}>
         <div className="container">
           <div className="presse__head">
             <span className="eyebrow">Retombées médias</span>
@@ -1682,17 +1682,17 @@ function AcademiePage() {
       />
 
       {/* Section 1 — Présentation */}
-      <section style={{padding:'80px 0', background:'var(--off-white)'}}>
+      <section style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
         <div className="container" style={{display:'grid', gridTemplateColumns:'1.3fr 1fr', gap:80, alignItems:'flex-start'}}>
           {/* Gauche */}
           <div>
             <span className="eyebrow">Notre positionnement</span>
             <h2 className="h2" style={{marginTop:8, marginBottom:20}}>Former autrement, <em className="accent">certifier vraiment.</em></h2>
             <p className="lede" style={{color:'var(--ink-mid)', lineHeight:1.7}}>
-              Depuis 2015, Festin forme sur le terrain. En 2025, l'association structure cette expertise en un organisme de formation certifié Qualiopi, co-porté avec Estello Formation. L'Académie Festin conçoit des parcours qui allient exigence pédagogique, impact social et expertise sectorielle.
+              Depuis 1992, Festin forme sur le terrain. En 2025, l'association structure cette expertise en un organisme de formation certifié Qualiopi, co-porté avec Estello Formation. L'Académie Festin conçoit des parcours qui allient exigence pédagogique, impact social et expertise sectorielle.
             </p>
             <div style={{display:'flex', alignItems:'center', gap:14, marginTop:28, padding:'16px 20px', background:'var(--cream)', borderRadius:12, border:'1px solid var(--line)'}}>
-              <img src={window.FESTIN_DATA.brand.qualiopi} alt="Logo Qualiopi"
+              <img src={window.FESTIN_DATA.brand.qualiopi} alt="Logo Qualiopi" loading="lazy"
                 style={{height:48, width:'auto', objectFit:'contain'}}
                 onError={(e) => { e.currentTarget.style.display='none'; }}/>
               <span style={{fontSize:13, color:'var(--ink-mid)', lineHeight:1.4}}>
@@ -1722,7 +1722,7 @@ function AcademiePage() {
       </section>
 
       {/* Section 2 — Double entrée public */}
-      <section style={{padding:'80px 0', background:'var(--cream)'}}>
+      <section style={{padding:'var(--s-9) 0', background:'var(--cream)'}}>
         <div className="container">
           <div style={{maxWidth:760, marginBottom:48}}>
             <span className="eyebrow">Pour qui ?</span>
@@ -1759,7 +1759,7 @@ function AcademiePage() {
       <FormationsTeaser />
 
       {/* Section 4 — Partenaire Estello */}
-      <section style={{background:'var(--teal-dark, var(--teal-deep))', color:'#fff', padding:'72px 0', textAlign:'center'}}>
+      <section style={{background:'var(--teal-dark, var(--teal-deep))', color:'#fff', padding:'var(--s-8) 0', textAlign:'center'}}>
         <div className="container" style={{maxWidth:680}}>
           <span className="eyebrow eyebrow--gold">En partenariat avec</span>
           <h2 className="h2" style={{color:'#fff', marginTop:10, marginBottom:16}}>Estello Formation</h2>
@@ -1798,7 +1798,7 @@ function ActualitesPage() {
         breadcrumb={[{label:'Accueil',href:'#/'},{label:'Qui sommes-nous',href:'#/about'},{label:'Actualités'}]}
       />
 
-      <section style={{padding:'64px 0 80px', background:'var(--off-white)'}}>
+      <section style={{padding:'var(--s-8) 0 var(--s-9)', background:'var(--off-white)'}}>
         <div className="container">
 
           {/* Filtres */}
@@ -1852,7 +1852,7 @@ function ActualitesPage() {
           </div>
 
           {filtered.length === 0 && (
-            <p style={{color:'var(--ink-soft)', textAlign:'center', padding:'60px 0'}}>
+            <p style={{color:'var(--ink-soft)', textAlign:'center', padding:'var(--s-8) 0'}}>
               Aucun article pour ce filtre.
             </p>
           )}

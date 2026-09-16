@@ -13,7 +13,7 @@ window.FESTIN_DATA = {
     email: "contact@associationfestin.com",
     altEmail: "armand.hurault@associationfestin.com",
     referent: "Armand Hurault",
-    referentRole: "Solution RH & engagement — restaurateurs",
+    referentRole: "Relations restaurateurs & engagement",
     address: "21 rue Grignan, 13006 Marseille",
     nda: "93132168513",
     siret: "924 202 831 00013",
@@ -23,17 +23,17 @@ window.FESTIN_DATA = {
   },
   // Stats used by Hero — chiffres réels 2025 source: Plaquette Offre restaurateurs Festin
   stats: [
-    { value: "453", unit: "",   label: "personnes accompagnées en 2025" },
-    { value: "72",  unit: "%",  label: "de sorties en emploi ou formation" },
+    { value: "441", unit: "",   label: "personnes accompagnées en 2025" },
+    { value: "83",  unit: "%",  label: "de sorties en emploi ou formation" },
     { value: "14",  unit: "",   label: "territoires d'intervention" },
-    { value: "10",  unit: " ans", label: "d'existence" },
+    { value: "35",  unit: " ans", label: "d'innovation sociale par la cuisine" },
   ],
   // Ticker — defile bandeau sur la home
   ticker: [
-    "453 personnes accompagnées en 2025",
-    "72 % de sorties en emploi ou formation",
+    "441 personnes accompagnées en 2025",
+    "83 % de sorties en emploi ou formation",
     "14 territoires d'intervention",
-    "10 ans de Des Étoiles et des Femmes",
+    "35 ans d'innovation sociale par la cuisine",
     "Certifié Qualiopi",
     "Le goût d'avancer ensemble",
   ],
@@ -52,7 +52,7 @@ window.FESTIN_DATA = {
     {
       icon: "megaphone",
       title: "Transformation",
-      desc: "Plaider pour une restauration plus juste, plus inclusive, sans violence — à travers le mouvement Restaure.",
+      desc: "Plaider pour une restauration plus juste, plus inclusive, sans violence — à travers le programme Restaure.",
     },
   ],
   // Two clearly distinct audiences (preserved)
@@ -92,11 +92,11 @@ window.FESTIN_DATA = {
       short: "Depuis 2015, Des Étoiles et des Femmes permet à des femmes éloignées de l’emploi d’accéder aux métiers de la restauration via une formation diplômante, un accompagnement global et des stages de qualité. 13 antennes en France, 91 % de réussite aux diplômes.",
       stats: [
         { value: "13",    label: "antennes partout en France" },
-        { value: "358",   label: "femmes accompagnées en 2025" },
+        { value: "336",   label: "femmes accompagnées en 2025" },
         { value: "91 %",  label: "de réussite aux diplômes en 2025" },
-        { value: "1 100", unit: "+", label: "femmes accompagnées en 10 ans" },
+        { value: "1 200", unit: "+", label: "femmes accompagnées en 10 ans" },
       ],
-      description: "Des Étoiles et des Femmes est né en 2015 à Marseille d’une intuition forte : la haute gastronomie peut être un puissant levier d’insertion pour des femmes éloignées de l’emploi. Dix ans plus tard, le programme est déployé dans 13 antennes en France et a accompagné plus de 1 100 femmes vers une qualification en cuisine, une stabilité retrouvée et un retour durable sur le marché du travail. Chaque promotion suit un parcours complet : formation diplômante (CAP cuisine ou Titre Professionnel), accompagnement social global et stages de qualité dans des restaurants engagés. En 2025, Julia Sedefdjian a rejoint le réseau comme marraine nationale, et le Grand Festin a réuni 14 brigades, plus de 550 convives et 100 bénévoles sur le Vieux-Port de Marseille pour célébrer les dix ans du programme.",
+      description: "Des Étoiles et des Femmes est né en 2015 à Marseille d’une intuition forte : la haute gastronomie peut être un puissant levier d’insertion pour des femmes éloignées de l’emploi. Dix ans plus tard, le programme est déployé dans 13 antennes en France et a accompagné plus de 1 200 femmes vers une qualification en cuisine, une stabilité retrouvée et un retour durable sur le marché du travail. Chaque promotion suit un parcours complet : formation diplômante (CAP cuisine ou Titre Professionnel), accompagnement social global et stages de qualité dans des restaurants engagés. En 2025, Julia Sedefdjian a rejoint le réseau comme marraine nationale, et le Grand Festin a réuni 13 brigades, 550 convives et 100 bénévoles sur le Vieux-Port de Marseille pour célébrer les dix ans du programme.",
       ctaLabel: "Visiter desetoilesetdesfemmes.org",
       ctaUrl: "https://www.desetoilesetdesfemmes.org",
       quote: {
@@ -189,7 +189,7 @@ window.FESTIN_DATA = {
         },
       ],
       temoignagesCredit: "Portraits : Des Étoiles et des Femmes",
-      presseFilter: ["Des Étoiles et des Femmes", "DEF", "Etoiles et des Femmes"],
+      presseFilter: ["Des Étoiles et des Femmes", "Etoiles et des Femmes"],
       // --- Champs page projet dédiée (extraits de description / formations, sinon [XX]) ---
       godmother: { name: "Julia Sedefdjian", role: "Marraine nationale — depuis 2025" },
       parcours: [
@@ -235,10 +235,10 @@ window.FESTIN_DATA = {
       grandFestin: {
         eyebrow: "Temps fort",
         title: "Le Grand Festin",
-        text: "Pour les dix ans du programme, 14 brigades, plus de 550 convives et 100 bénévoles se sont réunis sur le Vieux-Port de Marseille.",
+        text: "Pour les dix ans du programme, 13 brigades, 550 convives et 100 bénévoles se sont réunis sur le Vieux-Port de Marseille.",
         stats: [
-          { value: "14",   label: "brigades réunies" },
-          { value: "550", unit: "+", label: "convives" },
+          { value: "13",   label: "brigades réunies" },
+          { value: "550", unit: "", label: "convives" },
           { value: "100",  label: "bénévoles" }
         ],
         images: [
@@ -381,11 +381,11 @@ window.FESTIN_DATA = {
       id: "restaure",
       icon: "megaphone",
       eyebrow: "Depuis 2024",
-      title: "Le mouvement",
+      title: "Le programme",
       accent: "Restaure",
-      shortTitle: "Le mouvement Restaure",
-      tagline: "Un mouvement national pour transformer le secteur",
-      subtitle: "Un mouvement national pour transformer le secteur de la restauration",
+      shortTitle: "Le programme Restaure",
+      tagline: "Un programme national pour transformer le secteur",
+      subtitle: "Un programme national pour transformer le secteur de la restauration",
       short: "Restaure fédère 35 structures engagées pour faire évoluer les pratiques de la restauration : prévenir les violences, promouvoir un management juste, imaginer une restauration durable. 700 signataires du manifeste, +2 millions de vues.",
       stats: [
         { value: "35",  label: "structures engagées" },
@@ -393,7 +393,7 @@ window.FESTIN_DATA = {
         { value: "2 M", unit: "+", label: "de vues" },
         { value: "5",   label: "groupes de travail" },
       ],
-      description: "Restaure est un mouvement national qui fédère des acteurs de la restauration engagés pour faire évoluer les pratiques du secteur, prévenir les violences en cuisine et promouvoir un management plus juste. Piloté par quatre structures fondatrices — Yes We Camp, Les Petites Cantines, La Communauté Ecotable et Festin — le mouvement a franchi en 2025 plusieurs étapes structurantes : consolidation de la gouvernance, lancement de 5 groupes de travail, organisation de 5 tables rondes à Marseille, Toulouse et Lille, et déploiement d’une formation « Management juste ». Les vidéos de prévention contre les violences en cuisine ont dépassé les 2 millions de vues cumulées.",
+      description: "Restaure est un programme national qui fédère des acteurs de la restauration engagés pour faire évoluer les pratiques du secteur, prévenir les violences en cuisine et promouvoir un management plus juste. Piloté par quatre structures fondatrices — Yes We Camp, Les Petites Cantines, La Communauté Ecotable et Festin — le programme a franchi en 2025 plusieurs étapes structurantes : consolidation de la gouvernance, lancement de 5 groupes de travail, organisation de 5 tables rondes à Marseille, Toulouse et Lille, et déploiement d’une formation « Management juste ». Les vidéos de prévention contre les violences en cuisine ont dépassé les 2 millions de vues cumulées.",
       ctaLabel: "Visiter mouvement-restaure.com",
       ctaUrl: "https://www.mouvement-restaure.com",
       quote: {
@@ -410,7 +410,7 @@ window.FESTIN_DATA = {
         "images/restaure%20%3A%20formation%20pro/WhatsApp%20Image%202025-12-09%20at%2008.53.58.jpg",
         "images/restaure%20%3A%20formation%20pro/TASTING_RFF_CLOSING-FEED-34%20(1).JPG",
       ],
-      presentationTitle: "Un mouvement national pour transformer le secteur",
+      presentationTitle: "Un programme national pour transformer le secteur",
       mediaType: "instagram",
       mediaUrl: "https://www.instagram.com/reel/DJ9kq6iIb5j/",
       projetPhrase: "Restaure fédère 35 structures engagées pour faire évoluer les pratiques de la restauration, prévenir les violences et promouvoir un management juste.",
@@ -421,7 +421,7 @@ window.FESTIN_DATA = {
       ],
       projetCtaLabel: "Signer le manifeste",
       projetCtaHref: "https://www.mouvement-restaure.com",
-      implicationTitle: "Rejoindre le mouvement",
+      implicationTitle: "Rejoindre Restaure",
       implicationText: "Restaurateurs, chefs, responsables RH : si vous croyez qu’une restauration plus juste est possible, rejoignez les 35 structures déjà engagées.",
       implicationCtaLabel: "Nous rejoindre",
       implicationCtaHref: "#/contact",
@@ -429,6 +429,37 @@ window.FESTIN_DATA = {
         { prenom: "Eloi Spinnler", role: "Chef engagé — membre Restaure", citation: "Pour réussir à vraiment changer les choses, je suis persuadé qu’il faut avancer collectivement.", placeholder: false },
       ],
       presseFilter: ["Restaure", "Mouvement Restaure"],
+      // --- Repositionnement stratégique Restaure (2026) : mission + 3 axes de transformation ---
+      mission: "Restaure aura réussi s’il a transformé durablement les pratiques du secteur de la restauration, en améliorant à la fois les conditions humaines et l’impact écologique, par la sensibilisation et la formation des professionnels.",
+      transformation: [
+        { title: "Renforcer l’équité et l’inclusion",
+          text: "Créer un secteur plus inclusif et équitable en intégrant des pratiques favorisant la diversité, l’horizontalité et une meilleure représentativité à tous les niveaux.",
+          indicateurs: [
+            "Accès aux opportunités pour les femmes, les réfugié·es et les personnes en insertion",
+            "Onboarding inclusif",
+            "Pratiques RH confortables pour toutes et tous",
+          ] },
+        { title: "Améliorer les conditions de travail et l’attractivité du secteur",
+          text: "Faire de la restauration un environnement de travail sûr, valorisant et attractif, où les talents peuvent s’épanouir et contribuer à la pérennité économique.",
+          indicateurs: [
+            "70 % de satisfaction des équipes visés dans les restaurants signataires du manifeste",
+            "Turnover réduit de moitié, fin de la pénurie RH visée",
+            "Management formé, prévention des violences et VSS effective",
+          ] },
+        { title: "Accélérer la transition écologique",
+          subtitle: "Avec la Communauté Ecotable",
+          text: "Positionner les restaurants comme acteurs moteurs de la durabilité, en favorisant un sourcing responsable et en sensibilisant le secteur à l’urgence climatique.",
+          indicateurs: [
+            "70 % des aliments sourcés localement et durablement, l’objectif pour les restaurants signataires",
+            "Réduction des déchets et de la consommation d’énergie",
+            "Trajectoire de progression auditée",
+          ] },
+      ],
+      perspectives: [
+        "Ancrer l’expertise du programme dans le réel grâce à l’ouverture du lieu Sadi Carnot",
+        "Intégrer un volet de sensibilisation du grand public : programmation Alimentation durable",
+        "Explorer la complémentarité avec le label Peace & Work",
+      ],
     },
     {
       id: "tournesol",
@@ -634,7 +665,7 @@ window.FESTIN_DATA = {
     {
       quote: "Pour réussir à vraiment changer les choses, je suis persuadé qu'il faut avancer collectivement.",
       author: "Eloi Spinnler",
-      role: "Chef engagé — Mouvement Restaure",
+      role: "Chef engagé — Restaure",
       tone: "dark",
     },
   ],
@@ -702,7 +733,7 @@ window.FESTIN_DATA.meganav = {
         { t:"Régaler",     ic:"utensils",       c:"#1D6B78", d:"Nos restaurants, notre traiteur et nos espaces : la gastronomie inclusive qui se déguste.", tags:["Les Beaux Mets","La Table de Cana","Traiteur"], href:"#/projets/les-beaux-mets" },
         { t:"Former",      ic:"graduation-cap", c:"#E8A825", d:"L'Académie Festin : des parcours diplômants et des formations pour les pros.", tags:["Des Étoiles et des Femmes","Tournesol","Formations pros"], href:"#/formations" },
         { t:"Employer",    ic:"briefcase",      c:"#E4572E", d:"L'insertion par la cuisine et le suivi vers un emploi durable.", tags:["Parcours insertion","Club des Talents"], href:"#/accompagnement/insertion" },
-        { t:"Transformer", ic:"megaphone",      c:"#9A5BA8", d:"Le mouvement Restaure : faire évoluer les pratiques de tout un secteur.", tags:["Manifeste","Plaidoyer"], href:"#/projets/restaure" }
+        { t:"Transformer", ic:"megaphone",      c:"#9A5BA8", d:"Le programme Restaure : faire évoluer les pratiques de tout un secteur.", tags:["Manifeste","Plaidoyer"], href:"#/projets/restaure" }
       ]
     },
     {
@@ -720,7 +751,7 @@ window.FESTIN_DATA.meganav = {
         { t:"Des Étoiles et des Femmes", ic:"star",     c:"#E8A825", d:"L'insertion des femmes par la haute gastronomie — 13 antennes.", tags:["10 ans","13 antennes"], href:"#/projets/des-etoiles-et-des-femmes" },
         { t:"Tournesol",                 ic:"sun",      c:"#E4572E", d:"Le parcours diplômant pour personnes réfugiées et primo-arrivantes.", tags:["Refugee Food","6 mois"], href:"#/projets/tournesol" },
         { t:"Club des Talents",          ic:"users",    c:"#1D6B78", d:"Le réseau d'anciens salariés en insertion, façon alumni.", tags:["Réseau","Alumni"], href:"#/accompagnement/insertion" },
-        { t:"Le mouvement Restaure",     ic:"megaphone",c:"#9A5BA8", d:"35 structures fédérées pour transformer la restauration.", tags:["700 signataires","Manifeste"], href:"#/projets/restaure" }
+        { t:"Le programme Restaure",     ic:"megaphone",c:"#9A5BA8", d:"35 structures fédérées pour transformer la restauration.", tags:["700 signataires","Manifeste"], href:"#/projets/restaure" }
       ]
     }
   ]
@@ -731,7 +762,7 @@ window.FESTIN_DATA.meganav = {
 // ============================================================
 window.FESTIN_DATA.home = {
   hero: {
-    eyebrow: "Association Festin — depuis 2015",
+    eyebrow: "Association à but non lucratif — depuis 1992",
     titleLines: ["Le goût", "d'avancer", "ensemble"],   // dernière ligne = accent
     sub: "La restauration comme levier d'insertion, de formation et de transformation.",
     ctas: [
@@ -743,10 +774,10 @@ window.FESTIN_DATA.home = {
   marquee: [
     "CAP Cuisine", "Titre Professionnel Cuisinier", "Titre Professionnel Commis de cuisine",
     "Prévention des violences en cuisine", "Management juste", "Accueil de la diversité",
-    "Insertion par la cuisine — depuis 2015"
+    "Insertion par la cuisine — depuis 1992"
   ],
   approche: {
-    eyebrow: "L'association Festin · depuis 2015",
+    eyebrow: "L'association Festin · depuis 1992",
     titleLines: ["De la cuisine", "à l'emploi"],
     intro: "Festin forme aux métiers de la cuisine des personnes qui en sont éloignées. Et accompagne les restaurants qui veulent recruter et manager autrement. À Marseille et sur 14 territoires.",
     steps: [
@@ -757,7 +788,7 @@ window.FESTIN_DATA.home = {
         text: "Un diplôme reconnu — CAP ou Titre Professionnel Cuisinier — pour les personnes en insertion comme pour les équipes déjà en poste.",
         img: "images/photo-patisserie.jpg", variant: "b" },
       { tab: "On fait bouger", kicker: "03 · Transformation", title: "On fait bouger",
-        text: "Prévenir les violences en cuisine, défendre un management juste — avec le mouvement Restaure.",
+        text: "Prévenir les violences en cuisine, défendre un management juste — avec le programme Restaure.",
         img: "images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00022.jpg", variant: "c" }
     ]
   },
@@ -788,13 +819,13 @@ window.FESTIN_DATA.home = {
   },
   eco: {
     titlePre: "Découvrez nos ", titleAccent: "cinq projets",
-    lede: "Des restaurants, un traiteur, des formations, un mouvement national. Cinq manières d'agir sur un même secteur : la restauration.",
+    lede: "Des restaurants, un traiteur, des formations, un programme national. Cinq manières d'agir sur un même secteur : la restauration.",
     // par projet.id : accroche + chiffre + image de carte (le reste vient de FESTIN_DATA.projets)
     cards: [
       { id:"des-etoiles-et-des-femmes", blurb:"Programme national d'insertion des femmes par la cuisine.", stat:"91 % de réussite aux diplômes en 2025", img:"images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg" },
       { id:"les-beaux-mets",           blurb:"Le premier restaurant en prison ouvert au public en France.", stat:"86 % de sorties dynamiques", img:"images/beauxmets-images/LBM_cdutrey_071122-7264.jpg" },
       { id:"la-table-de-cana",         blurb:"Traiteur et restauration collective en insertion, à Marseille.", stat:"400 000+ convives régalés", img:"images/latable de cana/tabledecana_cdutrey_160124-4393.jpg" },
-      { id:"restaure",                 blurb:"Un mouvement national pour transformer le secteur de la restauration.", stat:"700 signataires du manifeste", img:"images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00032.jpg" },
+      { id:"restaure",                 blurb:"Un programme national pour transformer le secteur de la restauration.", stat:"700 signataires du manifeste", img:"images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00032.jpg" },
       { id:"tournesol",                blurb:"Formation diplômante pour personnes réfugiées et primo-arrivantes.", stat:"6 mois · TP Commis de cuisine · gratuite et rémunérée", img:"images/photo-rouleaux.jpg" }
     ],
     explore: { title:"Explorer tout l'écosystème", text:"Restaurants, traiteur, formations, plaidoyer — 14 territoires, 5 projets complémentaires.", cta:"Voir les projets", href:"#/projets/des-etoiles-et-des-femmes" }
@@ -824,7 +855,7 @@ window.FESTIN_DATA.home = {
         q:"[Témoignage à recueillir — entreprise mécène ou partenaire RH]", panelText:"L'écosystème Festin" },
       { av:"P", kind:"p", chip:"Personne accompagnée", name:"Ancien salarié en insertion", role:"La Table de Cana",
         q:"Ça m'a vraiment aidé à avoir confiance en mes compétences. Aujourd'hui, j'ai un CDI. Je suis fier du chemin parcouru.", logo:"images/logo projets/logo-latbaledecana.png" },
-      { av:"C", kind:"f", chip:"Secteur engagé", name:"Eloi Spinnler", role:"Chef engagé — Mouvement Restaure",
+      { av:"C", kind:"f", chip:"Secteur engagé", name:"Eloi Spinnler", role:"Chef engagé — Restaure",
         q:"Pour réussir à vraiment changer les choses, je suis persuadé qu'il faut avancer collectivement.", logo:"images/logo projets/logo- restaure.png" },
       { av:"F", kind:"f", chip:"Financeur / mécène", name:"[Financeur ou mécène]", role:"[Fonction]",
         q:"[Témoignage à recueillir]", panelText:"Soutenir Festin" }

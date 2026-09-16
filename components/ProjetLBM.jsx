@@ -140,7 +140,7 @@ function ProjetLBMPage() {
           </div>
           <div className="plbm-hero__scrim" aria-hidden="true"></div>
           <div className="wrap plbm-hero__inner">
-            <span className="plbm-hero__eb">{p.eyebrow} · Marseille</span>
+            <span className="plbm-hero__eb">{p.eyebrow} · Marseille · un projet de l’association Festin</span>
             <h1 className="plbm-hero__t">{p.title} <em>{p.accent}</em></h1>
             <p className="plbm-hero__sub">{p.projetPhrase}</p>
             <div className="plbm-hero__cta">

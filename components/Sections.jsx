@@ -25,12 +25,12 @@ function Academie() {
         <div className="academie__grid">
           <div className="academie__photo">
             <img src="images/photo-groupe-portrait.jpg" alt="Promotion Des Étoiles et des Femmes" />
-            <div className="academie__caption">Promotion 2024 — Des Étoiles et des Femmes. 13 antennes, plus de 1 100 femmes accompagnées en 10 ans.</div>
+            <div className="academie__caption">Promotion 2024 — Des Étoiles et des Femmes. 13 antennes, plus de 1 200 femmes accompagnées en 10 ans.</div>
           </div>
           <div className="academie__text">
             <span className="eyebrow">L'association Festin</span>
             <h2 className="h2">Former, inclure, <em className="accent">transformer.</em></h2>
-            <p className="lede">Née à Marseille en 2015, l'association Festin a construit un écosystème unique : des dispositifs de formation, d'insertion et de plaidoyer qui font de la cuisine un puissant levier d'émancipation.</p>
+            <p className="lede">Née à Marseille en 1992 avec La Table de Cana, l'association Festin a construit un écosystème de dispositifs de formation, d'insertion et de plaidoyer qui font de la cuisine un levier d'émancipation.</p>
             <p className="body">Aujourd'hui présente sur 14 territoires, Festin porte 5 projets complémentaires, tous animés par la même conviction : viser l'excellence ne s'oppose pas à l'inclusion. C'est même souvent sa condition.</p>
             <div className="pillars">
               {pillars.map((p, i) => (
@@ -63,8 +63,8 @@ function Publics() {
       key: "pros",
       audience: "Vous êtes restaurateur",
       tag: "Professionnels de la restauration",
-      title: "Solution RH pour les restaurateurs",
-      desc: "Festin accompagne les établissements dans la transformation de leurs pratiques : recrutement inclusif, fidélisation des équipes, prévention des violences, management juste. Une réponse opérationnelle aux tensions RH du secteur.",
+      title: "Travailler autrement avec les restaurateurs",
+      desc: "Festin accompagne les établissements dans la transformation de leurs pratiques : recrutement inclusif, fidélisation des équipes, prévention des violences, management juste.",
       cta: "Accompagnement professionnels",
       href: "#/accompagnement/professionnels",
       img: "images/photo-chapeau-cuisine.jpg",
@@ -76,7 +76,7 @@ function Publics() {
         <div className="publics__head">
           <span className="eyebrow">Festin, deux publics</span>
           <h2 className="h2">Un acteur dual <em className="accent">au service du secteur</em></h2>
-          <p className="lede" style={{marginTop:14}}>D'un côté l'accompagnement vers la qualification et l'emploi pour les personnes éloignées du marché du travail. De l'autre une solution RH complète pour les professionnels de la restauration. Deux portes d'entrée, une même conviction&nbsp;: la cuisine peut transformer.</p>
+          <p className="lede" style={{marginTop:14}}>D'un côté l'accompagnement vers la qualification et l'emploi pour les personnes éloignées du marché du travail. De l'autre un accompagnement des professionnels de la restauration vers des pratiques plus justes. Deux portes d'entrée, une même conviction&nbsp;: la cuisine peut transformer.</p>
         </div>
         <div className="publics__split">
           {pubs.map((p) => (
@@ -160,21 +160,21 @@ function Contact() {
             </div>
             <div className="refs">
               <div className="ref-card"><div className="ref-card__lbl">Responsable handicap et pédagogique</div><div className="ref-card__name">Lucie Gueydon</div><div className="ref-card__role">Accessibilité, aménagements &amp; coordination des formations</div></div>
-              <div className="ref-card"><div className="ref-card__lbl">Solution RH &amp; engagement</div><div className="ref-card__name">Armand Hurault</div><div className="ref-card__role">Directeur — interlocuteur restaurateurs &amp; partenaires</div></div>
+              <div className="ref-card"><div className="ref-card__lbl">Relations restaurateurs &amp; engagement</div><div className="ref-card__name">Armand Hurault</div><div className="ref-card__role">Directeur — interlocuteur restaurateurs &amp; partenaires</div></div>
             </div>
           </div>
           <div className="contact__form">
             <h3 className="h3">Écrivez-nous</h3>
-            <p className="body">Nous revenons vers vous rapidement avec une proposition adaptée à votre besoin.</p>
+            <p className="body">Nous revenons vers vous rapidement, en fonction de votre demande.</p>
             {sent ? (
               <div className="form-success"><b>Merci, votre message a été envoyé.</b><br/>Nous vous répondrons sous 48h à l'adresse indiquée.</div>
             ) : (
               <form onSubmit={(e)=>{e.preventDefault();setSent(true);}}>
                 <div className="field-row">
-                  <div className="field"><label>Prénom</label><input required defaultValue=""/></div>
-                  <div className="field"><label>Nom</label><input required/></div>
+                  <div className="field"><label>Prénom <span style={{color:'var(--gold)'}}>*</span></label><input required defaultValue=""/></div>
+                  <div className="field"><label>Nom <span style={{color:'var(--gold)'}}>*</span></label><input required/></div>
                 </div>
-                <div className="field"><label>Email</label><input type="email" required placeholder="vous@exemple.fr"/></div>
+                <div className="field"><label>Email <span style={{color:'var(--gold)'}}>*</span></label><input type="email" required placeholder="vous@exemple.fr"/></div>
                 <div className="field"><label>Organisation</label><input placeholder="Restaurant, OPCO, collectivité…"/></div>
                 <div className="field">
                   <label>Motif de votre demande <span style={{color:'var(--gold)'}}>*</span></label>
@@ -231,8 +231,8 @@ function Footer() {
         <div className="wrap">
           <div className="footer__grid">
             <div className="footer__brand">
-              <span className="footer__logo">festin</span>
-              <p>Festin est une association qui agit depuis 2015 pour rendre la gastronomie plus inclusive&nbsp;: insertion, formation, plaidoyer. Basée à Marseille, présente sur 14 territoires.</p>
+              <img className="footer__logo" src={data.brand.logoWhite} alt="Festin" loading="lazy" />
+              <p>Festin est une association qui agit depuis 1992 pour rendre la gastronomie plus inclusive&nbsp;: insertion, formation, plaidoyer. Basée à Marseille, présente sur 14 territoires.</p>
               <a className="footer__don" href={data.donation} target="_blank" rel="noopener noreferrer">
                 <i data-lucide="heart" style={{ width: 16, height: 16 }} aria-hidden="true" />
                 Faire un don
@@ -285,7 +285,7 @@ function FloatingCTA() {
     { t: "Faire un don", d: "Soutenir Festin — HelloAsso", ic: "heart", c: "#E4572E", href: data.donation, external: true },
     { t: "Réserver une table", d: "Les Beaux Mets — Baumettes", ic: "calendar-check", c: "#1D6B78", href: lesBeauxMets.ctaUrl, external: true },
     { t: "Se former / candidater", d: "Rejoindre une promotion", ic: "graduation-cap", c: "#E8A825", href: "#/formations" },
-    { t: "Recruter via Festin", d: "Solution RH pour restaurateurs", ic: "briefcase", c: "#1D6B78", href: "#/accompagnement/professionnels" },
+    { t: "Recruter via Festin", d: "Travailler autrement avec les restaurateurs", ic: "briefcase", c: "#1D6B78", href: "#/accompagnement/professionnels" },
     { t: "Devenir partenaire", d: "Mécénat & soutien", ic: "handshake", c: "#9A5BA8", href: "#/contact" },
   ];
   useEffect(() => {

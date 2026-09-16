@@ -30,7 +30,7 @@
 
 .pageProjetLBM .reveal{opacity:0;transform:translateY(30px)}
 .pageProjetLBM .reveal.is-in{opacity:1;transform:none;
-  transition:opacity .7s var(--ease-out),transform .7s var(--ease-out)}
+  transition:opacity .35s var(--ease-out),transform .35s var(--ease-out)}
 
 .pageProjetLBM a:focus-visible,
 .pageProjetLBM button:focus-visible{outline:2px solid var(--gold-light);outline-offset:3px;border-radius:3px}

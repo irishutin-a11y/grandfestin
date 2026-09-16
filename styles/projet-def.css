@@ -27,7 +27,7 @@
 
 .pageProjetDef .reveal{opacity:0;transform:translateY(30px)}
 .pageProjetDef .reveal.is-in{opacity:1;transform:none;
-  transition:opacity .7s var(--ease-out),transform .7s var(--ease-out)}
+  transition:opacity .35s var(--ease-out),transform .35s var(--ease-out)}
 
 .pageProjetDef a:focus-visible,
 .pageProjetDef button:focus-visible{outline:2px solid var(--gold-light);outline-offset:3px;border-radius:3px}

@@ -18,6 +18,9 @@ section{position:relative}
 .lede{font-size:clamp(16px,1.5vw,20px);line-height:1.6}
 .btnb{display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:6px;font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.06em;transition:transform .25s,background .25s,color .25s}
 .btnb:hover{transform:translateY(-2px)}
+.btnb:active{transform:scale(0.98)}
+.btnb:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+.btnb[disabled],.btnb[aria-disabled="true"]{opacity:.5;cursor:not-allowed;pointer-events:none;transform:none}
 .btnb--gold{background:var(--gold);color:var(--ink)}
 .btnb--gold:hover{background:var(--gold-light)}
 .btnb--teal{background:var(--teal);color:#fff}
@@ -65,16 +68,18 @@ section{position:relative}
 .hero__cta{margin-top:clamp(22px,3.4vh,38px);display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
 
 /* ============ VELOCITY MARQUEE ============ */
-.vmarquee{background:var(--gold);color:var(--ink);padding:20px 0;overflow:hidden;border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)}
-.vmarquee__track{display:flex;gap:0;white-space:nowrap;will-change:transform}
+.vmarquee{position:relative;background:var(--gold);color:var(--ink);padding:20px 0;overflow:hidden;border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)}
+.vmarquee__track{display:flex;gap:0;white-space:nowrap;will-change:transform;
+  mask-image:linear-gradient(to right,transparent 0,#000 clamp(40px,8vw,110px),#000 calc(100% - clamp(40px,8vw,110px)),transparent 100%);
+  -webkit-mask-image:linear-gradient(to right,transparent 0,#000 clamp(40px,8vw,110px),#000 calc(100% - clamp(40px,8vw,110px)),transparent 100%)}
 .vmarquee__track span{font-weight:700;font-size:clamp(18px,2.4vw,30px);text-transform:uppercase;letter-spacing:.02em;padding:0 30px;display:inline-flex;align-items:center;gap:30px}
 .vmarquee__track span::after{content:"";width:9px;height:9px;background:var(--ink);border-radius:50%;display:inline-block}
 
 /* ============ BLOC JAUNE — L'ASSOCIATION + LES 3 LEVIERS (fusion) ============ */
 .b-mission{background:var(--gold);color:var(--teal-dark);padding:clamp(56px,9vw,120px) 0 clamp(28px,4vw,56px)}
 .b-mission .h2b{color:var(--teal-dark)}
-.b-mission__head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px 40px;flex-wrap:wrap;margin-bottom:clamp(24px,3.5vw,52px)}
-.b-mission__intro{margin-top:16px;max-width:50ch;font-size:clamp(16px,1.4vw,19px);color:var(--teal-dark)}
+.b-mission__head{display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px;margin-bottom:clamp(24px,3.5vw,52px)}
+.b-mission__intro{margin:16px auto 0;max-width:50ch;font-size:clamp(16px,1.4vw,19px);color:var(--teal-dark)}
 
 /* ============ LOGO BAND ============ */
 .logoband{background:var(--off-white);padding:clamp(40px,6vw,72px) 0}
@@ -85,12 +90,12 @@ section{position:relative}
 
 /* ============ BLOC TEAL — ACTEUR DUAL ============ */
 .b-dual{background:var(--teal);color:#fff;padding:clamp(80px,12vw,168px) 0}
-.b-dual__head{max-width:none}
+.b-dual__head{max-width:none;text-align:center;display:flex;flex-direction:column;align-items:center}
 .b-dual__h2{text-wrap:nowrap}
 .b-dual__h2 span{display:block;white-space:nowrap}
 @media(max-width:560px){ .b-dual__h2 span{white-space:normal} }
 .b-dual .h2b{color:#fff}
-.b-dual__lede{color:rgba(255,255,255,.85);margin:clamp(16px,2.2vw,26px) 0 clamp(6px,1.4vw,14px);max-width:52ch;line-height:1.6}
+.b-dual__lede{color:rgba(255,255,255,.85);margin:clamp(16px,2.2vw,26px) auto clamp(6px,1.4vw,14px);max-width:52ch;line-height:1.6;text-align:center}
 .dualcards{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,36px);margin-top:clamp(36px,5vw,64px)}
 .dcard{background:var(--off-white);color:var(--ink);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .35s,box-shadow .35s}
 .dcard:hover{transform:translateY(-6px);box-shadow:0 26px 60px rgba(6,33,31,.4)}
@@ -141,8 +146,8 @@ section{position:relative}
 
 /* ============ BLOC VIOLET — ÉCOSYSTÈME ============ */
 .b-eco{background:var(--teal-dark);color:#fff;padding:clamp(80px,12vw,168px) 0}
-.b-eco .h2b{color:#fff}
-.b-eco__lede{color:rgba(255,255,255,.86);margin-top:18px;max-width:50ch}
+.b-eco .h2b{color:#fff;text-align:center}
+.b-eco__lede{color:rgba(255,255,255,.86);margin:18px auto 0;max-width:50ch;text-align:center}
 .ecogrid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,26px);margin-top:clamp(36px,5vw,60px)}
 .ecocard{background:var(--teal-deep);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .35s}
 .ecocard:hover{transform:translateY(-6px)}
@@ -186,8 +191,9 @@ section{position:relative}
 
 /* ============ BLOC TÉMOIGNAGES ============ */
 .b-quotes{background:var(--gold-pale);color:var(--ink);padding:clamp(80px,12vw,168px) 0}
-.b-quotes .eyb{color:var(--teal)}
-.b-quotes__lede{margin-top:16px;max-width:46ch;font-size:clamp(15px,1.4vw,18px);color:var(--ink-mid)}
+.b-quotes .eyb{color:var(--teal);display:block;text-align:center}
+.b-quotes .h2b{text-align:center}
+.b-quotes__lede{margin:16px auto 0;max-width:46ch;font-size:clamp(15px,1.4vw,18px);color:var(--ink-mid);text-align:center}
 .qband{margin-top:clamp(26px,4vw,44px);height:clamp(170px,24vw,280px);border-radius:14px;overflow:hidden}
 .qband img{width:100%;height:100%;object-fit:cover;object-position:center 35%}
 /* --- testimonials marquee (inspiré du composant testimonials-13) --- */
@@ -226,7 +232,7 @@ section{position:relative}
 
 /* ============ BLOC S'ENGAGER ============ */
 .b-engage{background:var(--teal-deepest);color:#fff;padding:clamp(80px,12vw,168px) 0}
-.b-engage .h2b{color:#fff}
+.b-engage .h2b{color:#fff;text-align:center}
 .engagegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,26px);margin-top:clamp(36px,5vw,60px)}
 .ecard{background:var(--teal-dark);border-radius:14px;padding:clamp(24px,2.6vw,36px);display:flex;flex-direction:column;gap:12px;transition:transform .3s,background .3s}
 .ecard:hover{transform:translateY(-6px);background:var(--teal)}
@@ -243,7 +249,7 @@ section{position:relative}
 .footcurtain__t em{font-style:italic;color:var(--gold);opacity:.6}
 .footer{position:relative;z-index:2;background:#06211F;color:rgba(255,255,255,.66);padding:clamp(50px,7vw,90px) 0 30px;border-radius:28px 28px 0 0;margin-top:clamp(-90px,-9vh,-48px)}
 .footer__grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:36px}
-.footer__logo{font:italic 700 22px/1 'KoHo',sans-serif;color:#fff;display:inline-block;margin-bottom:14px}
+.footer__logo{height:34px;width:auto;display:inline-block;margin-bottom:14px}
 .footer__brand p{font-size:13.5px;max-width:38ch}
 .footer h5{color:#fff;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
 .footer ul{list-style:none;display:flex;flex-direction:column;gap:9px;font-size:14px}
@@ -253,7 +259,7 @@ section{position:relative}
 
 /* ============ REVEAL ============ */
 .reveal{opacity:0;transform:translateY(40px)}
-.is-in .reveal,.reveal.is-in{opacity:1;transform:none;transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
+.is-in .reveal,.reveal.is-in{opacity:1;transform:none;transition:opacity .35s cubic-bezier(.22,1,.36,1),transform .35s cubic-bezier(.22,1,.36,1)}
 
 /* ============ FIL FESTIN — fil conducteur dessiné au scroll ============ */
 .fil{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;pointer-events:none;overflow:hidden}
