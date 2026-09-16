@@ -13,7 +13,7 @@ window.FESTIN_DATA = {
     email: "contact@associationfestin.com",
     altEmail: "armand.hurault@associationfestin.com",
     referent: "Armand Hurault",
-    referentRole: "Solution RH & engagement — restaurateurs",
+    referentRole: "Relations restaurateurs & engagement",
     address: "21 rue Grignan, 13006 Marseille",
     nda: "93132168513",
     siret: "924 202 831 00013",
@@ -189,7 +189,7 @@ window.FESTIN_DATA = {
         },
       ],
       temoignagesCredit: "Portraits : Des Étoiles et des Femmes",
-      presseFilter: ["Des Étoiles et des Femmes", "DEF", "Etoiles et des Femmes"],
+      presseFilter: ["Des Étoiles et des Femmes", "Etoiles et des Femmes"],
       // --- Champs page projet dédiée (extraits de description / formations, sinon [XX]) ---
       godmother: { name: "Julia Sedefdjian", role: "Marraine nationale — depuis 2025" },
       parcours: [
@@ -762,7 +762,7 @@ window.FESTIN_DATA.meganav = {
 // ============================================================
 window.FESTIN_DATA.home = {
   hero: {
-    eyebrow: "Association Festin — depuis 1992",
+    eyebrow: "Association à but non lucratif — depuis 1992",
     titleLines: ["Le goût", "d'avancer", "ensemble"],   // dernière ligne = accent
     sub: "La restauration comme levier d'insertion, de formation et de transformation.",
     ctas: [

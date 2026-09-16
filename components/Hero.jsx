@@ -15,7 +15,7 @@ function Hero() {
             La restauration comme levier d'<em className="accent accent--gold">insertion, de formation et de transformation</em>
           </h1>
           <p className="lede" style={{color:'#fff',opacity:0.9}}>
-            Festin est une association qui agit depuis 2015 pour rendre la gastronomie plus inclusive : en formant des professionnels, en accompagnant des personnes éloignées de l'emploi, et en transformant les pratiques du secteur.
+            Festin est une association qui agit depuis 1992 pour rendre la gastronomie plus inclusive : en formant des professionnels, en accompagnant des personnes éloignées de l'emploi, et en transformant les pratiques du secteur.
           </p>
         </div>
       </div>

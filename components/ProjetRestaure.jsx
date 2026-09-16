@@ -143,7 +143,7 @@ function ProjetRestaurePage() {
           </div>
           <div className="prst-hero__scrim" aria-hidden="true"></div>
           <div className="wrap prst-hero__inner">
-            <span className="prst-hero__eb">{p.eyebrow}</span>
+            <span className="prst-hero__eb">{p.eyebrow} · mouvement porté par l’association Festin</span>
             <h1 className="prst-hero__t">{p.title} <em>{p.accent}</em></h1>
             <p className="prst-hero__sub">{p.projetPhrase}</p>
             <div className="prst-hero__cta">

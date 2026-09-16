@@ -461,7 +461,7 @@ function FestinPresentation() {
           <span className="eyebrow eyebrow--gold">L'association Festin</span>
           <h2 className="h2" style={{marginTop:8}}>Le goût d'avancer <em className="accent">ensemble.</em></h2>
           <p className="lede" style={{marginTop:18,color:'var(--ink-mid)'}}>
-            Créée en 2015, l'association Festin mobilise la cuisine et le secteur de la restauration comme vecteurs de transformation et d'insertion sociale. Basée à Marseille, elle porte aujourd'hui des dispositifs complémentaires en faveur de l'alimentation durable, de l'inclusion et de l'évolution du secteur de la restauration.
+            Née en 1992 à Marseille avec La Table de Cana, l'association Festin mobilise la cuisine et le secteur de la restauration comme vecteurs de transformation et d'insertion sociale. Elle porte aujourd'hui des dispositifs complémentaires en faveur de l'alimentation durable, de l'inclusion et de l'évolution du secteur de la restauration.
           </p>
           <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:16,marginTop:36}}>
             {stats.map((s,i) => (
@@ -748,7 +748,7 @@ function AboutPage() {
         eyebrow="L'association Festin"
         title="Former, inclure,"
         accent="transformer."
-        subtitle="Née à Marseille en 2015, Festin construit depuis 10 ans un écosystème unique au service d'une restauration plus inclusive."
+        subtitle="Née à Marseille en 1992 avec La Table de Cana, Festin construit depuis lors un écosystème de dispositifs complémentaires au service d'une restauration plus inclusive."
         breadcrumb={[{label:'Accueil',href:'#/'},{label:'Qui sommes-nous'}]}
       />
       <FestinPresentation />
@@ -1096,7 +1096,7 @@ function ProjetHero({ p }) {
           <span className="breadcrumb__sep">/</span>
           <span>{p.shortTitle}</span>
         </nav>
-        <span className="eyebrow eyebrow--gold">{p.eyebrow}</span>
+        <span className="eyebrow eyebrow--gold">{p.eyebrow} · un projet de l'association Festin</span>
         <h1 className="h1" style={{maxWidth:880, marginTop:8, textShadow:'0 2px 18px rgba(10,45,51,0.65), 0 1px 2px rgba(10,45,51,0.5)'}}>
           <span style={{color:'rgb(255,255,255)'}}>{p.title}</span>{' '}
           {p.accent && <em className="accent">{p.accent}</em>}
@@ -1309,7 +1309,7 @@ function AccompagnementInsertionPage() {
           <span className="eyebrow">Notre approche</span>
           <h2 className="h2" style={{marginTop:8, marginBottom:18}}>Ne pas former un métier, accompagner <em className="accent">une personne</em></h2>
           <p className="lede" style={{color:'var(--ink-mid)'}}>
-            L'insertion par la cuisine, c'est notre spécialité depuis 2015. Femmes éloignées de l'emploi, personnes réfugiées ou primo-arrivantes, personnes détenues ou récemment libérées : nos parcours combinent diplôme reconnu, expérience terrain en restaurant, et accompagnement social complet (mobilité, garde d'enfants, logement, soutien linguistique).
+            L'insertion par la cuisine, c'est notre spécialité depuis 1992. Femmes éloignées de l'emploi, personnes réfugiées ou primo-arrivantes, personnes détenues ou récemment libérées : nos parcours combinent diplôme reconnu, expérience terrain en restaurant, et accompagnement social complet (mobilité, garde d'enfants, logement, soutien linguistique).
           </p>
           <p className="body" style={{marginTop:16}}>
             Tous nos parcours sont entièrement gratuits, financés par les pouvoirs publics et nos mécènes. Une indemnisation est possible selon votre situation.
@@ -1366,9 +1366,9 @@ function AccompagnementProsPage() {
     <div data-screen-label="Accompagnement — Professionnels">
       <PageHeader
         eyebrow="Vous êtes restaurateur"
-        title="Solution RH pour"
-        accent="les restaurateurs"
-        subtitle="Recrutement inclusif, fidélisation des équipes, prévention des violences, management juste. Une réponse opérationnelle aux tensions RH du secteur — conçue par et pour des professionnels."
+        title="Travailler autrement,"
+        accent="avec les restaurateurs"
+        subtitle="Recrutement inclusif, fidélisation des équipes, prévention des violences, management juste : un engagement construit avec des professionnels du secteur."
         breadcrumb={[
           {label:'Accueil', href:'#/'},
           {label:'Accompagnement'},
@@ -1380,8 +1380,8 @@ function AccompagnementProsPage() {
       <section style={{padding:'80px 0', background:'var(--off-white)'}}>
         <div className="container">
           <div style={{maxWidth:760, marginBottom:48}}>
-            <span className="eyebrow">L'offre Festin pour les restaurateurs</span>
-            <h2 className="h2">Trois leviers pour <em className="accent">transformer votre établissement</em></h2>
+            <span className="eyebrow">Ce que Festin construit avec les restaurateurs</span>
+            <h2 className="h2">Trois leviers pour <em className="accent">transformer les pratiques</em></h2>
           </div>
           <div style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:20}}>
             {[
@@ -1452,10 +1452,10 @@ function AccompagnementProsPage() {
       {/* CTA contact */}
       <section style={{background:'var(--teal-deep)', color:'#fff', padding:'80px 0', textAlign:'center'}}>
         <div className="container">
-          <span className="eyebrow eyebrow--gold">Demander un devis</span>
-          <h2 className="h2" style={{color:'#fff', maxWidth:680, margin:'14px auto 18px'}}>Parlons de votre <em className="accent">projet RH</em></h2>
-          <p className="lede" style={{color:'rgba(255,255,255,0.78)', maxWidth:560, margin:'0 auto 32px'}}>Notre équipe vous répond sous 48&nbsp;h ouvrées avec une proposition adaptée à votre établissement.</p>
-          <a href="#/contact" className="btn btn--gold">Demander un devis <i data-lucide="arrow-right" style={{width:16, height:16}}/></a>
+          <span className="eyebrow eyebrow--gold">Nous contacter</span>
+          <h2 className="h2" style={{color:'#fff', maxWidth:680, margin:'14px auto 18px'}}>Parlons de votre <em className="accent">établissement</em></h2>
+          <p className="lede" style={{color:'rgba(255,255,255,0.78)', maxWidth:560, margin:'0 auto 32px'}}>Notre équipe vous répond sous 48&nbsp;h ouvrées pour construire ensemble le format qui vous convient.</p>
+          <a href="#/contact" className="btn btn--gold">Échanger avec notre équipe <i data-lucide="arrow-right" style={{width:16, height:16}}/></a>
         </div>
       </section>
     </div>
@@ -1689,7 +1689,7 @@ function AcademiePage() {
             <span className="eyebrow">Notre positionnement</span>
             <h2 className="h2" style={{marginTop:8, marginBottom:20}}>Former autrement, <em className="accent">certifier vraiment.</em></h2>
             <p className="lede" style={{color:'var(--ink-mid)', lineHeight:1.7}}>
-              Depuis 2015, Festin forme sur le terrain. En 2025, l'association structure cette expertise en un organisme de formation certifié Qualiopi, co-porté avec Estello Formation. L'Académie Festin conçoit des parcours qui allient exigence pédagogique, impact social et expertise sectorielle.
+              Depuis 1992, Festin forme sur le terrain. En 2025, l'association structure cette expertise en un organisme de formation certifié Qualiopi, co-porté avec Estello Formation. L'Académie Festin conçoit des parcours qui allient exigence pédagogique, impact social et expertise sectorielle.
             </p>
             <div style={{display:'flex', alignItems:'center', gap:14, marginTop:28, padding:'16px 20px', background:'var(--cream)', borderRadius:12, border:'1px solid var(--line)'}}>
               <img src={window.FESTIN_DATA.brand.qualiopi} alt="Logo Qualiopi"

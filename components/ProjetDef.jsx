@@ -181,7 +181,7 @@ function ProjetDefPage() {
           </div>
           <div className="pdef-hero__scrim" aria-hidden="true"></div>
           <div className="wrap pdef-hero__inner">
-            <span className="pdef-hero__eb">Programme national · depuis 2015</span>
+            <span className="pdef-hero__eb">Programme national · depuis 2015 · un projet de l’association Festin</span>
             <h1 className="pdef-hero__t">{p.title} <em>{p.accent}</em></h1>
             <p className="pdef-hero__sub">{p.projetPhrase}</p>
             <div className="pdef-hero__cta">
