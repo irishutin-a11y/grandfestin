@@ -426,7 +426,7 @@ a.formation-card:hover .lnk { color: var(--gold); }
   cursor: pointer;
   z-index: 4;
   animation: festin-bob 2.4s ease-in-out infinite;
-  transition: background 200ms ease, transform 200ms ease;
+  transition: background 200ms var(--ease-out), transform 200ms var(--ease-out);
 }
 .hero__scroll:hover { background: rgba(255,255,255,0.18); }
 @keyframes festin-bob {
@@ -503,7 +503,7 @@ a.formation-card:hover .lnk { color: var(--gold); }
   display: grid;
   place-items: center;
   color: var(--teal);
-  transition: background 200ms ease, color 200ms ease;
+  transition: background 200ms var(--ease-out), color 200ms var(--ease-out);
 }
 .engager-card:hover .engager-card__icon { background: rgba(232,168,37,0.16); color: var(--gold); }
 .engager-card__profile {
@@ -523,7 +523,7 @@ a.formation-card:hover .lnk { color: var(--gold); }
   font-size: 14px;
   font-weight: 700;
   margin-top: 4px;
-  transition: gap 200ms ease, color 200ms ease;
+  transition: gap 200ms var(--ease-out), color 200ms var(--ease-out);
 }
 .engager-card:hover .engager-card__cta { gap: 12px; color: var(--teal-dark); }
 
@@ -580,7 +580,7 @@ a.formation-card:hover .lnk { color: var(--gold); }
 .journal-card__cat { color: var(--teal); }
 .journal-card h3 { font-size: 18px; line-height: 1.35; font-weight: 700; margin: 2px 0 0; }
 .journal-card__excerpt { font-size: 14px; line-height: 1.55; color: var(--ink-mid); }
-.journal-card__lnk { color: var(--gold); font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; margin-top: 6px; transition: gap 200ms ease; }
+.journal-card__lnk { color: var(--gold); font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; margin-top: 6px; transition: gap 200ms var(--ease-out); }
 .journal-card:hover .journal-card__lnk { gap: 10px; }
 
 @media (max-width: 900px) {
@@ -612,7 +612,7 @@ a.formation-card:hover .lnk { color: var(--gold); }
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.02em;
-  transition: border-color 200ms ease, color 200ms ease;
+  transition: border-color 200ms var(--ease-out), color 200ms var(--ease-out);
 }
 .presse__item:hover { border-color: var(--teal); color: var(--teal); }
 .presse__item svg { color: var(--gold); }
@@ -640,7 +640,7 @@ a.formation-card:hover .lnk { color: var(--gold); }
   gap: 14px;
   color: #fff;
   text-decoration: none;
-  transition: background 250ms ease, border-color 250ms ease, transform 250ms ease;
+  transition: background 250ms var(--ease-out), border-color 250ms var(--ease-out), transform 250ms var(--ease-out);
 }
 .footer__cta-card:hover {
   background: rgba(255,255,255,0.10);
@@ -707,7 +707,7 @@ a.formation-card:hover .lnk { color: var(--gold); }
   text-align: center;
   line-height: 1.2;
 }
-.motif-pill__inner svg { color: var(--ink-soft); transition: color 200ms ease; }
+.motif-pill__inner svg { color: var(--ink-soft); transition: color 200ms var(--ease-out); }
 .motif-pill:hover .motif-pill__inner {
   border-color: var(--teal-tint-2);
   color: var(--ink);
@@ -777,4 +777,9 @@ a.formation-card:hover .lnk { color: var(--gold); }
   width: auto;
   margin-bottom: 18px;
   filter: brightness(0) invert(1);
+}
+
+/* Mouvement réduit — respecté par toutes les animations/transitions de ce fichier */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition-duration: .001s !important; }
 }
