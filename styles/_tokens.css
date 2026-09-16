@@ -59,7 +59,7 @@
   /* Text — warm teal-blacks, never #000 */
   --ink:         #0D2B30;   /* body, h1-h3 */
   --ink-mid:     #3D5E63;   /* secondary text, labels */
-  --ink-soft:    #6B8489;   /* tertiary, captions, meta */
+  --ink-soft:    #566A6E;   /* tertiary, captions, meta — assombri pour AA (4,5:1) sur cream/off-white */
   --ink-on-dark: rgba(255,255,255,0.92);
   --ink-on-dark-mid: rgba(255,255,255,0.72);
 

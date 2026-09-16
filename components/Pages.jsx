@@ -554,7 +554,7 @@ function HistoriqueSection() {
     { year: '2015', title: 'Naissance de Des Étoiles et des Femmes', desc: 'Lancement à Marseille du programme d\'insertion des femmes par la haute gastronomie.' },
     { year: '2018', title: 'Premières antennes nationales',       desc: 'Le programme essaime à Lille, Bordeaux, Strasbourg, Lyon, Nantes.' },
     { year: '2022', title: 'Ouverture des Beaux Mets',            desc: 'Le premier restaurant en prison ouvert au public en France — Marseille, Baumettes.' },
-    { year: '2024', title: 'Le mouvement Restaure',               desc: '4 structures co-fondatrices, 35 structures engagées, 700 signataires du manifeste.' },
+    { year: '2024', title: 'Le programme Restaure',               desc: '4 structures co-fondatrices, 35 structures engagées, 700 signataires du manifeste.' },
     { year: '2025', title: 'Promotion Tournesol',                 desc: 'Lancement du parcours pour personnes réfugiées et primo-arrivantes, avec Refugee Food.' },
   ];
   return (
@@ -708,7 +708,7 @@ function ProjetAssociatif() {
     {
       n: "03",
       title: "Transformer le secteur, pas seulement les individus",
-      body: "Festin est aussi un acteur de plaidoyer. Avec le mouvement Restaure, l'association fédère un collectif national de restaurateurs, formateurs et structures de l'ESS pour faire évoluer les conditions de travail, prévenir les violences en cuisine et construire un modèle durable et respectueux.",
+      body: "Festin est aussi un acteur de plaidoyer. Avec le programme Restaure, l'association fédère un collectif national de restaurateurs, formateurs et structures de l'ESS pour faire évoluer les conditions de travail, prévenir les violences en cuisine et construire un modèle durable et respectueux.",
     },
   ];
   return (
@@ -1437,7 +1437,7 @@ function AccompagnementProsPage() {
         <div className="container" style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:48, alignItems:'center'}}>
           <div>
             <span className="eyebrow eyebrow--gold">Au-delà des formations</span>
-            <h2 className="h2" style={{marginTop:8, marginBottom:18}}>Rejoindre <em className="accent">le mouvement Restaure</em></h2>
+            <h2 className="h2" style={{marginTop:8, marginBottom:18}}>Rejoindre <em className="accent">le programme Restaure</em></h2>
             <p className="lede" style={{color:'var(--ink-mid)'}}>
               Restaure fédère 35 structures et 700 signataires engagés pour transformer durablement le secteur de la restauration. Signer le manifeste, intégrer un groupe de travail, participer aux tables rondes : Festin accompagne votre engagement collectif.
             </p>
@@ -1473,7 +1473,7 @@ function ImpactPage() {
       year: '2025',
       url: "https://drive.google.com/file/d/1dymsU5cV00adUDLBz7zLEQYWa_t_-70z/view?usp=sharing",
       title: "Rapport d'activité 2025",
-      desc: "441 personnes accompagnées tous dispositifs confondus, 83 % de sorties en emploi ou formation. 10 ans de Des Étoiles et des Femmes, lancement de la promotion Tournesol, consolidation du mouvement Restaure.",
+      desc: "441 personnes accompagnées tous dispositifs confondus, 83 % de sorties en emploi ou formation. 10 ans de Des Étoiles et des Femmes, lancement de la promotion Tournesol, consolidation du programme Restaure.",
       size: "PDF",
     },
     {

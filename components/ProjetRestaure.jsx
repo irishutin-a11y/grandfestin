@@ -1,4 +1,4 @@
-// ProjetRestaure.jsx — page projet dédiée « Le mouvement Restaure »
+// ProjetRestaure.jsx — page projet dédiée « Le programme Restaure »
 // Gabarit repris de ProjetDef.jsx / ProjetLBM.jsx pour valider une structure de
 // page projet réutilisable : fil d'ariane fixe · hero + logo à cheval · chiffres
 // avec compteur · le projet (mission + accordéon 3 axes) · vidéo · témoignage ·
@@ -139,11 +139,11 @@ function ProjetRestaurePage() {
       <div className="prst-heroband">
         <header className="prst-hero">
           <div className="prst-hero__media">
-            <img src={PIMG(p.heroImages[0])} alt="Lancement du mouvement Restaure à Marseille" />
+            <img src={PIMG(p.heroImages[0])} alt="Lancement du programme Restaure à Marseille" />
           </div>
           <div className="prst-hero__scrim" aria-hidden="true"></div>
           <div className="wrap prst-hero__inner">
-            <span className="prst-hero__eb">{p.eyebrow} · mouvement porté par l’association Festin</span>
+            <span className="prst-hero__eb">{p.eyebrow} · programme porté par l’association Festin</span>
             <h1 className="prst-hero__t">{p.title} <em>{p.accent}</em></h1>
             <p className="prst-hero__sub">{p.projetPhrase}</p>
             <div className="prst-hero__cta">
@@ -216,7 +216,7 @@ function ProjetRestaurePage() {
                         <ul className="prst-acc__ind">
                           {(it.indicateurs || []).map((ind, k) => <li key={k}>{ind}</li>)}
                         </ul>
-                        <span className="prst-acc__indnote">Indicateurs suivis par le mouvement</span>
+                        <span className="prst-acc__indnote">Indicateurs suivis par le programme</span>
                       </div>
                     </div>
                   </div>
@@ -246,7 +246,7 @@ function ProjetRestaurePage() {
                 </button>
               )}
             </div>
-            <p className="prst-projet__credit">Vidéo — mouvement Restaure sur Instagram</p>
+            <p className="prst-projet__credit">Vidéo — programme Restaure sur Instagram</p>
           </div>
         </div>
       </section>
@@ -256,7 +256,7 @@ function ProjetRestaurePage() {
         <section className="prst-testi" aria-labelledby="prst-testi-t">
           <div className="wrap">
             <span className="prst-sec" id="prst-testi-t">Ils s’engagent</span>
-            <h2 className="prst-h2 reveal">Une voix du mouvement</h2>
+            <h2 className="prst-h2 reveal">Une voix du programme</h2>
             <blockquote className="prst-tquote reveal">
               <span className="prst-tquote__mark" aria-hidden="true">“</span>
               <p className="prst-tquote__text">{t.citation}</p>
