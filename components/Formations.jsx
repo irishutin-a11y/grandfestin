@@ -22,7 +22,7 @@ function Formations() {
 
 function FormationCard({ f, wide }) {
   return (
-    <div className={"formation-card" + (wide ? " wide" : "")} onClick={() => window.openFormationModal(f.id)}>
+    <button type="button" className={"formation-card" + (wide ? " wide" : "")} onClick={() => window.openFormationModal(f.id)} aria-haspopup="dialog">
       <div className="formation-card__img"><img src={f.img} alt={f.title}/></div>
       <div className="formation-card__body">
         <span className="eyebrow">{f.cat}</span>
@@ -38,7 +38,7 @@ function FormationCard({ f, wide }) {
           <span className="formation-card__public">{f.publicLabel}</span>
         </div>
       </div>
-    </div>
+    </button>
   );
 }
 
