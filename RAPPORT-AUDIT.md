@@ -1,9 +1,9 @@
 # Rapport d'audit — site grandfestin.com
 
 Branche de travail : `audit/refonte-autonome-2026-09-16`.
-Commits associés : `Page Restaure, corrections chiffres et ajustements home` (6d60396), `Audit — Partie 1 : les 7 règles non négociables` (43ba555).
+Commits associés : `Page Restaure, corrections chiffres et ajustements home` (6d60396), `Audit — Partie 1 : les 7 règles non négociables` (43ba555), `Rapport d'audit` (e72ec58), `Audit — Partie 2 (début)` (628bc1e), `Audit — Partie 3 : fondu bande défilante` (9897320).
 
-**État d'avancement honnête, à lire avant tout le reste** : ce méga-prompt couvre 7 parties (règles non négociables, storytelling, typographie, espacements, composants, animations, accessibilité) sur l'intégralité d'un site de plus de 15 pages. La **Partie 1 est traitée dans cette passe**, avec un audit ciblé de la Partie 2 (vocabulaire commercial). Les **Parties 2 à 7 ne sont pas encore traitées** — les tenter superficiellement en une seule passe aurait produit du travail bâclé plutôt qu'un vrai audit. Je détaille en section 5 comment je propose de la suite.
+**État d'avancement honnête, à lire avant tout le reste** : ce méga-prompt couvre 7 parties (règles non négociables, storytelling, typographie, espacements, composants, animations, accessibilité) sur l'intégralité d'un site de plus de 15 pages. **Partie 1 traitée en totalité. Partie 2 traitée sur les points concrets détectés par grep (vocabulaire commercial, titres génériques, chiffres périmés) — pas encore une relecture ligne à ligne de chaque page pour les triades décoratives et le jargon. Partie 3 traitée sur les 5 défauts déjà signalés dans le prompt (hiérarchie H1/H2, débordement de titre, collision header, veuve typographique, bande défilante tronquée) — pas encore un audit typographique complet de chaque page.** Les **Parties 4 à 7 (espacements/grille, composants/UI, animations, accessibilité/responsive) ne sont pas encore traitées.** Les tenter superficiellement aurait produit du travail bâclé plutôt qu'un vrai audit. Je détaille en section 5 comment je propose de la suite.
 
 ---
 
@@ -16,6 +16,21 @@ Commits associés : `Page Restaure, corrections chiffres et ajustements home` (6
 
 ### Chantier "Partie 1 — les 7 règles" (commit 43ba555)
 Détaillé section 2 ci-dessous, fichier par fichier.
+
+### Chantier "Partie 2 (début)" (commit 628bc1e)
+- Découverte d'un vrai bug de fond en creusant le storytelling : les chiffres "453 personnes / 72 % de sorties" que je pensais avoir corrigés partout en Partie 1 étaient en réalité **dupliqués en dur dans 6 endroits distincts** (`data.js` + 4 autres blocs dans `Pages.jsx` : `FestinPresentation`, une section de la home, `ImpactPage` ×2) au lieu d'être lus depuis une seule source. Idem pour "1 100 femmes accompagnées" (DEF) resté à l'ancienne valeur dans le composant `Academie` de la home. Les 7 occurrences au total sont maintenant à 441 / 83 % / 1 200.
+- `ImpactPage` : titre générique "Notre impact" / "10 ans de Festin, 10 ans de transformation" (à la fois un titre creux et une erreur de date) remplacé par "Chiffres & rapports" / "Depuis 1992, ce que nous avons transformé".
+- Vérifié que `p.grandFestin` (les stats du Grand Festin) n'est actuellement affiché nulle part sur le site — pas de risque de surdimensionnement de cet événement dans la narration (le point que la Partie 2 demandait de vérifier).
+- Non fait dans cette passe : relecture complète de chaque page à la recherche de triades décoratives, titres de section génériques restants (au-delà d'Impact), jargon, phrases sans sujet. Le seul jargon détecté par grep ("levier d'insertion/de transformation") revient dans au moins 7 blocs de texte différents à l'identique — une reformulation ciblée serait à faire mais n'a pas encore été traitée page par page.
+
+### Chantier "Partie 3" (commit 9897320)
+Traite les 5 défauts typographiques déjà listés dans le méga-prompt pour la home (voir section 2 du méga-prompt) :
+1. Hiérarchie H1/H2 : vérifiée correcte mathématiquement (`--title: clamp(48px,9.5vw,150px)` > `--h2: clamp(36px,5.6vw,88px)` à tout viewport) et visuellement après le centrage de Partie 1.
+2. Débordement de "DE LA CUISINE À L'EMPLOI" : résolu par le centrage déjà fait en Partie 1 (le titre passe de 1 ligne qui débordait à 2 lignes centrées dans les marges).
+3. Collision header/eyebrow du hero : vérifiée absente sur les captures prises à plusieurs positions de défilement.
+4. Veuve "transformation." isolée : non reproduite sur les largeurs testées dans cette session.
+5. Bande défilante (`.vmarquee`) qui tronquait les mots aux bords : `mask-image` ajouté sur `.vmarquee__track` — voir la réserve de vérification visuelle notée dans le commit.
+Non fait : le même audit (mesure réelle des tailles rendues à 360/768/1024/1440/1920px, échelle typographique, longueur de ligne, graisses) sur les 14 autres pages du site.
 
 ---
 
@@ -89,8 +104,9 @@ investisseur / levée / actionnariat → 0 occurrence
 ## 5. Les trois problèmes les plus graves restants
 
 1. **Statut ESUS complètement absent du site alors que la règle l'exige "sans exception".** Ce qui doit être tranché : quelles structures sont réellement agréées ESUS, et je les ajoute immédiatement — sans cette info je ne peux pas exécuter cette règle sans inventer.
-2. **Parties 2 à 7 du méga-prompt non traitées** : le site n'a pas encore reçu la passe storytelling (triades décoratives, titres génériques, jargon), ni l'audit typographique/accessibilité complet demandé. Ce qui doit être tranché : voulez-vous que je poursuive maintenant, partie par partie, sur cette même branche (chaque partie = un commit, comme pour la Partie 1) ? C'est le chantier le plus long du méga-prompt.
-3. **Renommage "DEF"** (fichiers, dossiers, classes CSS) : reste non conforme à la lettre de la règle 7, même si aucune occurrence n'est visible à l'écran. Ce qui doit être tranché : est-ce vraiment prioritaire avant le 1er octobre, sachant que c'est invisible pour tout visiteur, journaliste ou financeur qui ne lit pas le code source ?
+2. **Les chiffres clés du site sont dupliqués en dur dans au moins 6 endroits au lieu d'une seule source.** C'est ce qui a fait qu'une correction "faite" en Partie 1 ne l'était en fait qu'à moitié (découvert et corrigé en Partie 2, voir section 1). Ce qui doit être tranché : voulez-vous, dans un chantier séparé, que je centralise ces stats (une seule lecture depuis `data.js` partout) pour éliminer le risque de récidive à la prochaine mise à jour chiffrée ? Ce n'est pas demandé par le méga-prompt mais c'en est une conséquence directe.
+3. **Parties 4 à 7 du méga-prompt non traitées** (espacements/grille, inventaire des composants et de leurs états, grammaire d'animation, accessibilité/responsive sur les 5 points de rupture demandés). C'est le chantier le plus long qui reste. Je continue partie par partie sur cette même branche (un commit par partie, comme fait jusqu'ici) sauf indication contraire.
+4. **Renommage "DEF"** (fichiers, dossiers, classes CSS) : reste non conforme à la lettre de la règle 7, même si aucune occurrence n'est visible à l'écran. Ce qui doit être tranché : est-ce vraiment prioritaire avant le 1er octobre, sachant que c'est invisible pour tout visiteur, journaliste ou financeur qui ne lit pas le code source ?
 
 ---
 
