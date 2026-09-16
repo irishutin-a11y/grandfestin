@@ -25,7 +25,7 @@ function Academie() {
         <div className="academie__grid">
           <div className="academie__photo">
             <img src="images/photo-groupe-portrait.jpg" alt="Promotion Des Étoiles et des Femmes" />
-            <div className="academie__caption">Promotion 2024 — Des Étoiles et des Femmes. 13 antennes, plus de 1 100 femmes accompagnées en 10 ans.</div>
+            <div className="academie__caption">Promotion 2024 — Des Étoiles et des Femmes. 13 antennes, plus de 1 200 femmes accompagnées en 10 ans.</div>
           </div>
           <div className="academie__text">
             <span className="eyebrow">L'association Festin</span>

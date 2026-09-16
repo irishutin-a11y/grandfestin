@@ -425,8 +425,8 @@ function FormationDetailPage({ id }) {
 // ---------- L'ASSOCIATION FESTIN — bloc présentation ----------
 function FestinPresentation() {
   const stats = [
-    { value: "453", label: "personnes accompagnées en 2025" },
-    { value: "72 %", label: "de sorties en emploi ou formation" },
+    { value: "441", label: "personnes accompagnées en 2025" },
+    { value: "83 %", label: "de sorties en emploi ou formation" },
     { value: "14",  label: "territoires d'intervention" },
   ];
   const images = [
@@ -634,8 +634,8 @@ function ImpactCumuleBande() {
         </div>
         <div style={{display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:12}}>
           {[
-            {value:'453',   label:'personnes accompagnées en 2025'},
-            {value:'72 %',  label:'de sorties en emploi ou formation'},
+            {value:'441',   label:'personnes accompagnées en 2025'},
+            {value:'83 %',  label:'de sorties en emploi ou formation'},
             {value:'14',    label:'territoires d\'intervention'},
             {value:'5',     label:'projets complémentaires'},
           ].map((s,i) => (
@@ -1289,8 +1289,8 @@ function AccompagnementInsertionPage() {
         <div className="container">
           <div style={{display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:16}}>
             {[
-              {value:'453', label:'personnes accompagnées en 2025'},
-              {value:'72 %', label:'de sorties en emploi ou formation'},
+              {value:'441', label:'personnes accompagnées en 2025'},
+              {value:'83 %', label:'de sorties en emploi ou formation'},
               {value:'14', label:'territoires d\'intervention'},
               {value:'5', label:'projets complémentaires'},
             ].map((s, i) => (
@@ -1473,7 +1473,7 @@ function ImpactPage() {
       year: '2025',
       url: "https://drive.google.com/file/d/1dymsU5cV00adUDLBz7zLEQYWa_t_-70z/view?usp=sharing",
       title: "Rapport d'activité 2025",
-      desc: "453 personnes accompagnées tous dispositifs confondus, 72 % de sorties dynamiques. 10 ans de Des Étoiles et des Femmes, lancement de la promotion Tournesol, consolidation du mouvement Restaure.",
+      desc: "441 personnes accompagnées tous dispositifs confondus, 83 % de sorties en emploi ou formation. 10 ans de Des Étoiles et des Femmes, lancement de la promotion Tournesol, consolidation du mouvement Restaure.",
       size: "PDF",
     },
     {
@@ -1516,10 +1516,10 @@ function ImpactPage() {
   return (
     <div data-screen-label="Notre impact">
       <PageHeader
-        eyebrow="Notre impact"
-        title="10 ans de Festin,"
-        accent="10 ans de transformation"
-        subtitle="Une mesure honnête de ce que nous avons construit, avec les chiffres, les rapports, et la reconnaissance qui en témoignent."
+        eyebrow="Chiffres & rapports"
+        title="Depuis 1992,"
+        accent="ce que nous avons transformé"
+        subtitle="Les rapports d'activité, les chiffres qui en sont tirés, et les reconnaissances obtenues au fil des années."
         breadcrumb={[
           {label:'Accueil', href:'#/'},
           {label:'Notre impact'},
@@ -1531,8 +1531,8 @@ function ImpactPage() {
         <div className="container">
           <div style={{display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:16}}>
             {[
-              {value:'453',   label:'personnes accompagnées en 2025'},
-              {value:'72 %',  label:'de sorties en emploi ou formation'},
+              {value:'441',   label:'personnes accompagnées en 2025'},
+              {value:'83 %',  label:'de sorties en emploi ou formation'},
               {value:'14',    label:'territoires d\'intervention'},
               {value:'5',     label:'projets complémentaires'},
             ].map((s, i) => (
