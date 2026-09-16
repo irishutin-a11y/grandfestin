@@ -307,6 +307,21 @@ window.FESTIN_DATA = {
         { prenom: "Chef Davin", role: "Chef — Intercontinental Marseille", citation: "Sami s’est très vite intégré à l’équipe. Il a été très bien formé aux Beaux Mets et avait également l’attitude qui correspondait à une cuisine.", placeholder: false },
       ],
       presseFilter: ["Les Beaux Mets", "Beaux Mets", "Baumettes"],
+      // --- Champs page projet dédiée (sourcés du dossier de présentation LBM, janv. 2026) ---
+      parcours: [
+        { tab: "La brigade", title: "Une brigade en cuisine, une vraie",
+          text: "16 personnes détenues composent 2 brigades, encadrées par le Chef Valentin Majan et son Second Boris Ruel en cuisine, le Maître d’hôtel Marc Balthazard en salle. Elles apprennent le métier sur un vrai service, carte incluse.",
+          stat: "16", statL: "commis en poste, répartis en 2 brigades" },
+        { tab: "L’accompagnement", title: "Un accompagnement sur mesure",
+          text: "Du recrutement à la sortie, puis 6 mois après, chaque commis est suivi individuellement : entretiens, stages, ateliers collectifs, construction d’un projet professionnel avec la conseillère en insertion professionnelle Nissa Boudhabhay.",
+          stat: "6 mois", statL: "de suivi après la détention" },
+        { tab: "La sortie", title: "Une passerelle vers l’emploi",
+          text: "L’objectif : accompagner 40 personnes par an vers une sortie durable, dans un secteur de la restauration qui peine à recruter — 200 000 postes restent à pourvoir en France.",
+          stat: "40", statL: "personnes accompagnées par an, c’est l’objectif" },
+      ],
+      video: {
+        poster: "images/beauxmets-images/lbm-masterclass-brigade-plating.jpg",
+      },
     },
     {
       id: "la-table-de-cana",
