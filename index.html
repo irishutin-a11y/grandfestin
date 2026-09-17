@@ -22,6 +22,18 @@
 </head>
 <body>
 <div id="root"></div>
+<!-- Bloc légal statique : présent dans le HTML servi, indépendant du rendu React
+     (voir #root ci-dessus, jamais touché par ReactDOM.createRoot plus bas).
+     Ne pas déplacer dans un composant React ni masquer en CSS : sert à la
+     vérification Google for Nonprofits, qui lit le HTML brut sans exécuter JS. -->
+<div id="legal-static" role="contentinfo" aria-label="Informations légales" style="font-family:'KoHo',system-ui,sans-serif;font-size:13px;line-height:1.6;color:#3D5E63;background:#F7F3EC;padding:24px clamp(20px,5vw,96px);border-top:1px solid rgba(13,43,48,.08)">
+  <p style="margin:0 0 4px">Site édité par l'Association Festin, association loi 1901.</p>
+  <p style="margin:0 0 4px">Siège social : 21 rue Grignan, 13006 Marseille</p>
+  <p style="margin:0 0 4px">RNA : W133012740</p>
+  <p style="margin:0 0 4px">SIRET : 924 202 831 00013 · NDA : 93132168513 · Organisme certifié Qualiopi</p>
+  <p style="margin:0 0 4px">Le site grandfestin.com est le site officiel de l'Association Festin.</p>
+  <p style="margin:0"><a href="/mentions-legales" style="color:#1D6B78">Mentions légales</a></p>
+</div>
 <script type="text/babel" src="components/Nav.jsx?v=3"></script>
 <script type="text/babel" src="components/Sections.jsx?v=7"></script>
 <script type="text/babel" src="components/HomeB.jsx?v=5"></script>

@@ -4,5 +4,8 @@
       "source": "/(.*)\\.jsx",
       "headers": [{ "key": "Content-Type", "value": "text/javascript; charset=utf-8" }]
     }
+  ],
+  "rewrites": [
+    { "source": "/mentions-legales", "destination": "/mentions-legales.html" }
   ]
 }
