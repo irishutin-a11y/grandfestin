@@ -5,6 +5,7 @@ window.FESTIN_DATA = {
     tagline: "Le goût d'avancer ensemble",
     logo: "images/logo-festin.png",
     logoWhite: "images/logo-academie-festin-blanc.png",
+    logoGold: "images/logo-festin-jaune.png",
     qualiopi: "images/logo-qualiopi.png",
     site: "https://www.associationfestin.com",
   },
@@ -762,7 +763,7 @@ window.FESTIN_DATA.meganav = {
 // ============================================================
 window.FESTIN_DATA.home = {
   hero: {
-    eyebrow: "Association à but non lucratif — depuis 1992",
+    eyebrow: "35 ans d'innovation sociale par la cuisine",
     titleLines: ["Le goût", "d'avancer", "ensemble"],   // dernière ligne = accent
     sub: "La restauration comme levier d'insertion, de formation et de transformation.",
     ctas: [
