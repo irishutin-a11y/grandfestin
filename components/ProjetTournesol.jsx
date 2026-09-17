@@ -1,0 +1,365 @@
+// ProjetTournesol.jsx — page projet dédiée « Tournesol »
+// Gabarit repris de ProjetTableDeCana.jsx / ProjetLBM.jsx : fil d'ariane fixe ·
+// hero + logo à cheval · chiffres avec compteur · le projet (accordéon) ·
+// soutenir · presse · galerie. Écarts assumés (données non équivalentes) :
+// - accordéon "Le projet" sourcé de refugee-food.org/formation-tournesol-a-marseille
+// - pas de vidéo (mediaType: carousel) → diaporama photo à la place du bloc vidéo,
+//   pas de bouton "lire la vidéo"
+// - témoignages : les deux entrées existantes sont des placeholders explicites
+//   (aucune citation réelle disponible à ce stade) → section masquée, voir
+//   RAPPORT-AUDIT.md / demande faite à l'utilisateur
+// - galerie : seulement 4 photos réelles disponibles → grille statique, pas de
+//   bandeau défilant en boucle (pas assez de volume pour boucler proprement)
+// - logos partenaires réels non disponibles → cartes nommées (texte), pas de logo image
+const { useEffect, useRef, useState } = React;
+const PIMG = (p) => (/%[0-9A-Fa-f]{2}/.test(p) ? p : encodeURI(p));
+
+function ptsMonth(iso) {
+  if (!iso) return '';
+  const d = new Date(iso + 'T12:00:00');
+  return isNaN(d) ? iso : d.toLocaleDateString('fr-FR', { month: 'short', year: 'numeric' });
+}
+
+function ptsParseStat(s) {
+  const isPercent = /%/.test(s.value);
+  const target = parseInt(String(s.value).replace(/[^\d]/g, ''), 10) || 0;
+  const suffix = isPercent ? ' %' : (s.unit || '');
+  return { target, suffix };
+}
+function ptsFormatNumber(n) {
+  return n.toLocaleString('fr-FR');
+}
+
+function ProjetTournesolPage() {
+  const D = window.FESTIN_DATA;
+  const p = D.projets.find(x => x.id === 'tournesol');
+  const rootRef = useRef(null);
+  const statsGridRef = useRef(null);
+  const [projStep, setProjStep] = useState(0);
+  const [slideIdx, setSlideIdx] = useState(0);
+
+  useEffect(() => {
+    document.body.classList.add('pts-has-crumb');
+    return () => document.body.classList.remove('pts-has-crumb');
+  }, []);
+
+  useEffect(() => {
+    const slides = (p && p.carouselImages) || [];
+    if (slides.length < 2) return;
+    const reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+    if (reduce) return;
+    const t = setInterval(() => setSlideIdx(i => (i + 1) % slides.length), 4500);
+    return () => clearInterval(t);
+  }, [p]);
+
+  useEffect(() => {
+    const grid = statsGridRef.current;
+    if (!grid) return;
+    const nodes = [...grid.querySelectorAll('[data-count-target]')];
+    if (!nodes.length) return;
+    const reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+    if (reduce) {
+      nodes.forEach(el => {
+        el.textContent = ptsFormatNumber(Number(el.dataset.countTarget)) + (el.dataset.countSuffix || '');
+      });
+      return;
+    }
+    let done = false;
+    let raf;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting || done) return;
+        done = true;
+        const duration = 1000;
+        const start = performance.now();
+        const tick = (now) => {
+          const t = Math.min(1, (now - start) / duration);
+          const eased = 1 - Math.pow(1 - t, 3);
+          nodes.forEach((el) => {
+            const target = Number(el.dataset.countTarget);
+            const suffix = el.dataset.countSuffix || '';
+            el.textContent = ptsFormatNumber(Math.round(target * eased)) + suffix;
+          });
+          if (t < 1) raf = requestAnimationFrame(tick);
+        };
+        raf = requestAnimationFrame(tick);
+        io.disconnect();
+      });
+    }, { threshold: 0.4 });
+    io.observe(grid);
+    return () => { io.disconnect(); if (raf) cancelAnimationFrame(raf); };
+  }, []);
+
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
+    if (window.lucide) window.lucide.createIcons();
+    const reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+    if (reduce || !window.gsap || !window.ScrollTrigger) {
+      root.querySelectorAll('.reveal').forEach(el => el.classList.add('is-in'));
+      return;
+    }
+    const ST = window.ScrollTrigger;
+    window.gsap.registerPlugin(ST);
+    const triggers = [];
+    root.querySelectorAll('.reveal').forEach(el => {
+      triggers.push(ST.create({ trigger: el, start: 'top 88%', once: true, onEnter: () => el.classList.add('is-in') }));
+    });
+    ST.refresh();
+    return () => triggers.forEach(t => t.kill());
+  }, []);
+
+  if (!p) return null;
+
+  const presse = (D.presse || [])
+    .filter(a => (p.presseFilter || []).some(f => a.dispositif && a.dispositif.indexOf(f) === 0))
+    .slice()
+    .sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')));
+  const featured3 = presse.slice(0, 3);
+  const presseAlso = presse.slice(3);
+
+  const realTemoignages = (p.temoignages || []).filter(t => !t.placeholder && t.citation);
+  const galleryImages = p.heroImages || [];
+  const slides = p.carouselImages && p.carouselImages.length ? p.carouselImages : galleryImages;
+
+  return (
+    <div className="pageProjetTS" ref={rootRef} data-screen-label={"Projet — " + p.shortTitle}>
+
+      {/* FIL D'ARIANE — fixe, au-dessus de la nav */}
+      <nav className="pts-crumb2" aria-label="Fil d’ariane">
+        <div className="wrap pts-crumb2__inner">
+          <a href="#/">Accueil</a>
+          <span className="pts-crumb2__rest">
+            <span aria-hidden="true"> / </span>
+            <a href="#/projets/tournesol">Nos projets</a>
+            <span aria-hidden="true"> / </span>
+            <span aria-current="page">Tournesol</span>
+          </span>
+          <span className="pts-crumb2__ellipsis" aria-hidden="true"> / …</span>
+        </div>
+      </nav>
+
+      {/* HERO */}
+      <div className="pts-heroband">
+        <header className="pts-hero">
+          <div className="pts-hero__media">
+            <img src={PIMG(p.heroImages[0])} alt="Promotion Tournesol en formation" />
+          </div>
+          <div className="pts-hero__scrim" aria-hidden="true"></div>
+          <div className="wrap pts-hero__inner">
+            <span className="pts-hero__eb">{p.eyebrow} · Marseille · un projet de l’association Festin</span>
+            <h1 className="pts-hero__t">{p.title} <em>{p.accent}</em></h1>
+            <p className="pts-hero__sub">{p.projetPhrase}</p>
+            <div className="pts-hero__cta">
+              <a className="btnb btnb--ghost" href={p.siteUrl} target="_blank" rel="noopener noreferrer">{p.siteName}</a>
+            </div>
+          </div>
+        </header>
+
+        <div className="pts-hero__logo">
+          <img src={PIMG(p.logo)} alt={"Logo " + p.shortTitle} />
+        </div>
+      </div>
+
+      {/* CHIFFRES */}
+      <section className="pts-stats" aria-labelledby="pts-stats-t">
+        <div className="wrap pts-stats2">
+          <div className="pts-stats2__intro reveal">
+            <span className="pts-sec" id="pts-stats-t">Les chiffres</span>
+            <h2 className="pts-h2">{p.tagline}</h2>
+            <p>{p.short}</p>
+            <a className="btnb btnb--outline-ink" href={p.siteUrl} target="_blank" rel="noopener noreferrer">
+              En savoir plus <span className="arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+          <div className="pts-stats2__grid reveal" ref={statsGridRef}>
+            {p.stats.map((s, i) => {
+              const { target, suffix } = ptsParseStat(s);
+              const isNumeric = target > 0;
+              return (
+                <div key={i} className={"pts-stat2 pts-stat2--" + ['teal', 'gold', 'ocre', 'deep'][i % 4]}>
+                  {isNumeric ? (
+                    <span className="pts-stat2__n" data-count-target={target} data-count-suffix={suffix}>
+                      {'0' + suffix}
+                    </span>
+                  ) : (
+                    <span className="pts-stat2__n">{s.value}</span>
+                  )}
+                  <span className="pts-stat2__l">{s.label}</span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* LE PROJET — texte + accordéon à gauche, diaporama à droite */}
+      <section className="pts-projet" aria-labelledby="pts-projet-t">
+        <div className="wrap pts-projet__split">
+          <div className="pts-projet__body">
+            <span className="pts-sec" id="pts-projet-t">Le projet</span>
+            <h2 className="pts-h2 reveal">Un parcours diplômant,<br />pas à pas</h2>
+            <p className="pts-projet__lede reveal">{p.description}</p>
+            <div className="pts-acc reveal">
+              {(p.parcours || []).map((s, i) => {
+                const isOpen = projStep === i;
+                return (
+                  <div className={"pts-acc__item" + (isOpen ? " is-open" : "")} key={i}>
+                    <h3 className="pts-acc__h">
+                      <button
+                        type="button" className="pts-acc__btn"
+                        id={"ptsacc-h-" + i} aria-expanded={isOpen} aria-controls={"ptsacc-p-" + i}
+                        onClick={() => setProjStep(isOpen ? -1 : i)}
+                      >
+                        <span className="pts-acc__label">{s.tab}</span>
+                        <span className="pts-acc__chev" aria-hidden="true" />
+                      </button>
+                    </h3>
+                    <div
+                      className="pts-acc__panel" id={"ptsacc-p-" + i}
+                      role="region" aria-labelledby={"ptsacc-h-" + i}
+                    >
+                      <div className="pts-acc__body">
+                        <span className="pts-acc__k">{s.title}</span>
+                        <p>{s.text}</p>
+                        {s.stat && (
+                          <div className="pts-acc__stat"><strong>{s.stat}</strong><span>{s.statL}</span></div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          <div className="pts-projet__media reveal">
+            <div className="pts-projet__frame">
+              {slides.map((src, i) => (
+                <img
+                  key={i} src={PIMG(src)} alt=""
+                  className="pts-projet__slide"
+                  style={{ opacity: i === slideIdx ? 1 : 0 }}
+                />
+              ))}
+              {slides.length > 1 && (
+                <div className="pts-projet__dots">
+                  {slides.map((_, i) => (
+                    <button key={i} type="button"
+                      className={"pts-projet__dot" + (i === slideIdx ? " is-on" : "")}
+                      aria-label={"Aller à l'image " + (i + 1)}
+                      onClick={() => setSlideIdx(i)} />
+                  ))}
+                </div>
+              )}
+            </div>
+            <a className="pts-projet__cta" href={p.projetCtaHref} target="_blank" rel="noopener noreferrer">
+              <span className="pts-projet__cta-txt">
+                <span className="pts-projet__cta-name">{p.projetCtaLabel}</span>
+                <span className="pts-projet__cta-meta">{p.siteName}</span>
+              </span>
+              <span className="pts-projet__cta-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* TÉMOIGNAGES — masqué tant qu'aucune citation réelle n'est disponible */}
+      {realTemoignages.length > 0 && (
+        <section className="pts-testi" aria-labelledby="pts-testi-t">
+          <div className="wrap">
+            <span className="pts-sec" id="pts-testi-t">Ils l’ont vécu</span>
+            <h2 className="pts-h2 reveal">Des parcours, des voix</h2>
+            <div className="pts-tgrid reveal">
+              {realTemoignages.map((t, i) => (
+                <article className={"pts-tcard pts-tcard--" + (i % 2 === 0 ? 'teal' : 'ocre')} key={i}>
+                  <div className="pts-tcard__head">
+                    <span className="pts-tcard__photo--ph" aria-hidden="true" />
+                    <div>
+                      <h3 className="pts-tcard__name">{t.prenom}</h3>
+                      <span className="pts-tcard__role">{t.role}</span>
+                    </div>
+                  </div>
+                  <p className="pts-tcard__quote">« {t.citation} »</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* PARTENAIRES */}
+      <section className="pts-support" aria-labelledby="pts-support-t">
+        <div className="wrap pts-support__inner reveal">
+          <div className="pts-support__body">
+            <span className="pts-sec" id="pts-support-t">Nos partenaires</span>
+            <h2 className="pts-h2">{p.implicationTitle}</h2>
+            <p>{p.implicationText}</p>
+            <div className="pts-support__cta">
+              <a className="btnb btnb--gold pts-support__cta-main" href={p.implicationCtaHref}>
+                {p.implicationCtaLabel}
+              </a>
+              <a className="btnb btnb--ghost pts-support__cta-sub" href={p.projetCtaHref} target="_blank" rel="noopener noreferrer">
+                {p.projetCtaLabel}
+              </a>
+            </div>
+          </div>
+          <div className="pts-support__logos" role="group" aria-label="Partenaires (logos à venir)">
+            <div className="pts-logogrid">
+              {(p.partenaires || []).map((nom, i) => (
+                <span className="pts-logocard pts-logocard--ph" key={i}><span>{nom}</span></span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PRESSE */}
+      {presse.length > 0 && (
+        <section className="pts-presse" aria-labelledby="pts-presse-t">
+          <div className="wrap">
+            <span className="pts-sec" id="pts-presse-t">La presse</span>
+            <h2 className="pts-h2 reveal">Dans la presse</h2>
+            <div className="pts-news">
+              {featured3.map((a, i) => (
+                <a key={i} className="pts-news__card reveal" href={a.href} target="_blank" rel="noopener noreferrer">
+                  <span className="pts-news__top">
+                    {a.logo
+                      ? <img className="pts-news__logo" src={PIMG(a.logo)} alt={a.source} loading="lazy" />
+                      : <span className="pts-news__src">{a.source}</span>}
+                    {a.type && <span className="pts-news__tag">{a.type}</span>}
+                  </span>
+                  <span className="pts-news__title">{a.title}</span>
+                  <span className="pts-news__date">{ptsMonth(a.date)}</span>
+                </a>
+              ))}
+            </div>
+            {presseAlso.length > 0 && (
+              <p className="pts-news__also reveal">
+                <b>Également paru dans</b>&nbsp;— {presseAlso
+                  .map(a => a.source)
+                  .filter((v, k, arr) => arr.findIndex(x => x.toLowerCase() === v.toLowerCase()) === k)
+                  .join(' · ')}.
+              </p>
+            )}
+          </div>
+        </section>
+      )}
+
+      {/* GALERIE — grille statique (peu de photos disponibles à ce stade) */}
+      {galleryImages.length > 0 && (
+        <section className="pts-gallery" aria-label="Galerie photo Tournesol">
+          <div className="wrap pts-gallery__grid">
+            {galleryImages.map((src, i) => (
+              <div className="pts-gallery__item" key={i}>
+                <img src={PIMG(src)} alt="" loading="lazy" />
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+    </div>
+  );
+}
+
+window.ProjetTournesolPage = ProjetTournesolPage;
