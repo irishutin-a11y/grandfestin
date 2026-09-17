@@ -862,11 +862,13 @@ window.FESTIN_DATA.home = {
   },
   impact: {
     eyebrow: "L'impact 2025",
+    // 5 photos réelles : Des Étoiles et des Femmes ×3, Les Beaux Mets ×1, La Table de Cana ×1
     photos: [
-      "images/photo-groupe-portrait.jpg",
+      "images/images-def/hero-promo-cuisine.jpg",
+      "images/beauxmets-images/LBM_cdutrey_071122-7264.jpg",
       "images/images-def/HOTELERIE-035.jpg",
-      "images/photo-tabliers-violets.jpg",
-      "images/photo-applaudissements.jpg"
+      "images/latable de cana/tabledecana_cdutrey_160124-4393.jpg",
+      "images/images-def/chaudbouillon-045.jpg"
     ]
   },
   quotes: {
@@ -889,20 +891,6 @@ window.FESTIN_DATA.home = {
         q:"Pour réussir à vraiment changer les choses, je suis persuadé qu'il faut avancer collectivement.", logo:"images/logo projets/logo- restaure.png" },
       { av:"F", kind:"f", chip:"Financeur / mécène", name:"[Financeur ou mécène]", role:"[Fonction]",
         q:"[Témoignage à recueillir]", panelText:"Soutenir Festin" }
-    ]
-  },
-  engage: {
-    title: "Se former, recruter, soutenir",
-    cards: [
-      { p:"Vous cherchez un métier", title:"Candidater à une formation",
-        text:"Parcours diplômants gratuits en cuisine, avec accompagnement complet. Prochaines promotions à Marseille et sur 14 territoires.",
-        cta:"Voir les prochaines sessions", href:"#/formations" },
-      { p:"Vous dirigez un restaurant", title:"Accueillir un stagiaire, former une équipe",
-        text:"Un vivier de profils formés, et des formations courtes pour vos équipes en salle et en cuisine.",
-        cta:"Devenir restaurant partenaire", href:"#/accompagnement/professionnels" },
-      { p:"Vous êtes entreprise, partenaire ou financeur", title:"Financer une promotion, devenir mécène",
-        text:"Mécénat, financement de parcours, mise à disposition de compétences. On construit l'engagement avec vous.",
-        cta:"Nous contacter", href:"#/contact" }
     ]
   }
 };
