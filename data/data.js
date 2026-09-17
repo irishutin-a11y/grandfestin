@@ -890,20 +890,6 @@ window.FESTIN_DATA.home = {
       { av:"F", kind:"f", chip:"Financeur / mécène", name:"[Financeur ou mécène]", role:"[Fonction]",
         q:"[Témoignage à recueillir]", panelText:"Soutenir Festin" }
     ]
-  },
-  engage: {
-    title: "Se former, recruter, soutenir",
-    cards: [
-      { p:"Vous cherchez un métier", title:"Candidater à une formation",
-        text:"Parcours diplômants gratuits en cuisine, avec accompagnement complet. Prochaines promotions à Marseille et sur 14 territoires.",
-        cta:"Voir les prochaines sessions", href:"#/formations" },
-      { p:"Vous dirigez un restaurant", title:"Accueillir un stagiaire, former une équipe",
-        text:"Un vivier de profils formés, et des formations courtes pour vos équipes en salle et en cuisine.",
-        cta:"Devenir restaurant partenaire", href:"#/accompagnement/professionnels" },
-      { p:"Vous êtes entreprise, partenaire ou financeur", title:"Financer une promotion, devenir mécène",
-        text:"Mécénat, financement de parcours, mise à disposition de compétences. On construit l'engagement avec vous.",
-        cta:"Nous contacter", href:"#/contact" }
-    ]
   }
 };
 

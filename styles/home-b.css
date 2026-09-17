@@ -230,18 +230,6 @@ section{position:relative}
 .tpanel span{position:relative;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);font-size:12px}
 @media(max-width:820px){.b-quotes .grid{grid-template-columns:1fr}}
 
-/* ============ BLOC S'ENGAGER ============ */
-.b-engage{background:var(--teal-deepest);color:#fff;padding:clamp(80px,12vw,168px) 0}
-.b-engage .h2b{color:#fff;text-align:center}
-.engagegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,26px);margin-top:clamp(36px,5vw,60px)}
-.ecard{background:var(--teal-dark);border-radius:14px;padding:clamp(24px,2.6vw,36px);display:flex;flex-direction:column;gap:12px;transition:transform .3s,background .3s}
-.ecard:hover{transform:translateY(-6px);background:var(--teal)}
-.ecard__p{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-light)}
-.ecard h3{font-size:var(--h3);font-weight:700;text-transform:uppercase;letter-spacing:-.01em;line-height:1.1}
-.ecard p{font-size:14px;color:rgba(255,255,255,.8);flex:1}
-.ecard .lnk{color:#fff}
-@media(max-width:900px){.engagegrid{grid-template-columns:1fr}}
-
 /* FOOTER — refondu, voir styles.css (.footer-outer/.footer : carte encadrée inspirée Found).
    L'ancien bloc superposition/footcurtain (négatif margin-top, coins arrondis en haut
    seulement) a été retiré : c'était la cause de l'effet de superposition raté signalé. */
@@ -336,6 +324,6 @@ section{position:relative}
 /* --- lisibilité : dans la home, les titres héritent de la couleur de leur bloc
    (sinon _tokens.css force h1..h6 en --ink -> invisible sur les blocs sombres) --- */
 .pageHomeB h1,.pageHomeB h2,.pageHomeB h3,.pageHomeB h4,.pageHomeB h5,.pageHomeB h6{color:inherit}
-.b-eco .ecocard h3,.b-engage .ecard h3{color:#fff}
+.b-eco .ecocard h3{color:#fff}
 .appr__card--a h3,.appr__card--a .num{color:#fff}
 .appr__card--a .num{color:var(--gold-light)}

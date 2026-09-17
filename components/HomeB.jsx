@@ -301,23 +301,6 @@ function HomeB() {
         </div>
       </section>
 
-      {/* #engage — SE FORMER, RECRUTER, SOUTENIR */}
-      <section className="b-engage" id="engage">
-        <div className="wrap">
-          <h2 className="h2b reveal">{H.engage.title}</h2>
-          <div className="engagegrid">
-            {H.engage.cards.map((c, i) => (
-              <a key={i} href={c.href} className="ecard reveal">
-                <span className="ecard__p">{c.p}</span>
-                <h3>{c.title}</h3>
-                <p>{c.text}</p>
-                <span className="lnk">{c.cta} <span className="arrow">→</span></span>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
     </div>
   );
 }
