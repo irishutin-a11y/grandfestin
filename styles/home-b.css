@@ -242,20 +242,9 @@ section{position:relative}
 .ecard .lnk{color:#fff}
 @media(max-width:900px){.engagegrid{grid-template-columns:1fr}}
 
-/* ============ FOOTER — superposition, grand titre révélé derrière (réf Fixa) ============ */
-.footcurtain{position:relative;background:var(--cream);overflow:hidden;min-height:clamp(300px,52vh,560px);display:grid;place-items:center;padding:clamp(40px,8vw,90px) var(--pad)}
-.footcurtain__t{font-family:'KoHo',sans-serif;font-weight:700;text-transform:uppercase;text-align:center;line-height:.86;letter-spacing:-.035em;
-  font-size:clamp(44px,12vw,168px);color:var(--teal);opacity:.16;will-change:transform}
-.footcurtain__t em{font-style:italic;color:var(--gold);opacity:.6}
-.footer{position:relative;z-index:2;background:#06211F;color:rgba(255,255,255,.66);padding:clamp(50px,7vw,90px) 0 30px;border-radius:28px 28px 0 0;margin-top:clamp(-90px,-9vh,-48px)}
-.footer__grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:36px}
-.footer__logo{height:34px;width:auto;display:inline-block;margin-bottom:14px}
-.footer__brand p{font-size:13.5px;max-width:38ch}
-.footer h5{color:#fff;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
-.footer ul{list-style:none;display:flex;flex-direction:column;gap:9px;font-size:14px}
-.footer a:hover{color:var(--gold-light)}
-.footer__bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:44px;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);font-size:12px;color:rgba(255,255,255,.5)}
-@media(max-width:860px){.footer__grid{grid-template-columns:1fr 1fr}}
+/* FOOTER — refondu, voir styles.css (.footer-outer/.footer : carte encadrée inspirée Found).
+   L'ancien bloc superposition/footcurtain (négatif margin-top, coins arrondis en haut
+   seulement) a été retiré : c'était la cause de l'effet de superposition raté signalé. */
 
 /* ============ REVEAL ============ */
 .reveal{opacity:0;transform:translateY(40px)}
