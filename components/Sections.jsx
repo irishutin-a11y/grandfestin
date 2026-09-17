@@ -209,30 +209,20 @@ function Contact() {
 // Footer partagé — grand titre révélé derrière + panneau qui glisse par-dessus (maquette home-b)
 function Footer() {
   const data = window.FESTIN_DATA;
-  const [a, b, c] = data.home.footcurtain;
-  const curtainRef = React.useRef(null);
-
-  React.useEffect(() => {
-    const reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-    if (reduce || !window.gsap || !window.ScrollTrigger || !curtainRef.current) return;
-    const st = window.gsap.fromTo(curtainRef.current, { yPercent: 18 }, {
-      yPercent: -12, ease: 'none',
-      scrollTrigger: { trigger: curtainRef.current.parentNode, start: 'top bottom', end: 'bottom top', scrub: 0.6 }
-    });
-    return () => { if (st.scrollTrigger) st.scrollTrigger.kill(); st.kill(); };
-  }, []);
 
   return (
-    <React.Fragment>
-      <div className="footcurtain" aria-hidden="true">
-        <p className="footcurtain__t" ref={curtainRef}>{a}<br/>{b}<br/><em>{c}</em></p>
-      </div>
+    <div className="footer-outer">
       <footer className="footer">
+        <div className="footer__bg">
+          <img src="images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg" alt="" loading="lazy" />
+        </div>
+        <div className="footer__scrim" aria-hidden="true"></div>
         <div className="wrap">
           <div className="footer__grid">
             <div className="footer__brand">
               <img className="footer__logo" src={data.brand.logoGold} alt="Festin" loading="lazy" />
-              <p>Festin est une association qui agit depuis 1992 pour rendre la gastronomie plus inclusive&nbsp;: insertion, formation, plaidoyer. Basée à Marseille, présente sur 14 territoires.</p>
+              <p className="footer__tagline">{data.brand.tagline}</p>
+              <p>Festin est une association loi 1901, non lucrative et d'intérêt général. Insertion, formation et transformation du secteur de la restauration — depuis 1992.</p>
               <a className="footer__don" href={data.donation} target="_blank" rel="noopener noreferrer">
                 <i data-lucide="heart" style={{ width: 16, height: 16 }} aria-hidden="true" />
                 Faire un don
@@ -261,17 +251,27 @@ function Footer() {
                 {data.projets.map(p => (
                   <li key={p.id}><a href={`#/projets/${p.id}`}>{p.shortTitle}</a></li>
                 ))}
+                <li><a href="#/academie">Académie Festin</a></li>
               </ul>
             </div>
           </div>
           <div className="footer__bottom">
-            <span>© 2026 Festin — Le goût d'avancer ensemble · <a href={data.brand.site} target="_blank" rel="noopener">associationfestin.com</a></span>
+            <span>© 2026 Festin — {data.brand.tagline} · <a href={data.brand.site} target="_blank" rel="noopener">grandfestin.com</a></span>
+            <div className="footer__social">
+              <a href="https://www.instagram.com/association_festin/" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+              </a>
+              {/* URL LinkedIn réelle à fournir — pointe vers le formulaire de contact en attendant */}
+              <a href="#/contact" aria-label="LinkedIn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              </a>
+            </div>
             <span>{data.contact.legalMention}</span>
             <span>NDA {data.contact.nda} · Siret {data.contact.siret} · Organisme certifié Qualiopi</span>
           </div>
         </div>
       </footer>
-    </React.Fragment>
+    </div>
   );
 }
 

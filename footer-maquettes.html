@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Maquettes footer — Festin</title>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<style>
+  @font-face{font-family:'KoHo';src:url('typos/KoHo-Regular.otf') format('opentype');font-weight:400;font-display:swap}
+  @font-face{font-family:'KoHo';src:url('typos/KoHo-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
+
+  :root{
+    --teal:#1D6B78; --teal-dark:#0F3C44; --teal-deep:#0A2D33;
+    --teal-tint-2:#C9DDE0;
+    --gold:#E8A825; --gold-light:#F5C84A;
+    --cream:#F7F3EC; --off-white:#FEFCF8; --white:#FFFFFF;
+    --ink:#0D2B30; --ink-mid:#3D5E63; --ink-soft:#566A6E;
+    --ink-on-dark:rgba(255,255,255,.92); --ink-on-dark-mid:rgba(255,255,255,.72);
+    --line:rgba(13,43,48,.08); --line-strong:rgba(13,43,48,.16);
+    --r-5:12px; --r-6:14px; --r-pill:999px;
+    --sh-md:0 6px 20px rgba(13,43,48,.08); --sh-lg:0 16px 40px rgba(13,43,48,.12);
+    --pad:clamp(20px,5vw,96px);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'KoHo',system-ui,sans-serif;background:#e9e4da;color:var(--ink)}
+  .note{max-width:900px;margin:0 auto;padding:28px var(--pad) 0;font-size:14px;line-height:1.6;color:var(--ink-mid)}
+  .label{position:sticky;top:0;z-index:50;background:var(--ink);color:#fff;text-align:center;
+    font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:13px;padding:10px 16px}
+  .wrap{max-width:1280px;margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+  h5{font-family:'KoHo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.06em;
+    font-size:12.5px;margin:0 0 16px}
+  ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+  a{color:inherit;text-decoration:none}
+  a:hover{text-decoration:underline}
+  .btn-don{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--teal-deep);
+    font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.03em;
+    padding:12px 20px;border-radius:var(--r-pill);margin-top:20px}
+  .btn-don:hover{text-decoration:none;filter:brightness(1.06)}
+  .social{display:flex;gap:10px}
+  .social a{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
+    border:1px solid currentColor;opacity:.85}
+  .social a:hover{opacity:1}
+  .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;padding:64px 0 48px}
+  .brand p{font-size:13.5px;line-height:1.6;margin:14px 0 0;max-width:34ch}
+  .foot-bottom{border-top:1px solid var(--line-strong);padding:22px 0;
+    display:flex;flex-wrap:wrap;gap:10px 28px;align-items:center;justify-content:space-between;
+    font-size:11.5px;line-height:1.6}
+  @media(max-width:900px){.foot-grid{grid-template-columns:1fr 1fr;row-gap:36px}}
+  @media(max-width:560px){.foot-grid{grid-template-columns:1fr}}
+
+  /* ---------- OPTION A — inspirée Found : footer "encadré", inset dans la page ---------- */
+  .optA-outer{background:#e9e4da;padding:clamp(16px,3.2vw,40px)}
+  .optA{position:relative;color:#fff;overflow:hidden;border-radius:clamp(18px,2.4vw,32px);
+    box-shadow:0 24px 60px rgba(10,45,51,.28)}
+  .optA__bg{position:absolute;inset:0}
+  .optA__bg img{width:100%;height:100%;object-fit:cover}
+  .optA__scrim{position:absolute;inset:0;background:rgba(10,45,51,.86);backdrop-filter:blur(2px)}
+  .optA .wrap{position:relative;z-index:1}
+  .optA .logo{height:40px;width:auto;display:block}
+  .optA .tagline{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-light);
+    margin:16px 0 0;font-weight:700}
+  .optA h5{color:var(--gold-light)}
+  .optA a{color:rgba(255,255,255,.86)}
+  .optA .foot-bottom{border-top-color:rgba(255,255,255,.18);color:rgba(255,255,255,.6)}
+  .optA .social a{color:#fff}
+
+  /* ---------- OPTION B — sombre minimaliste, watermark discret ---------- */
+  .optB{background:var(--teal-dark);color:#fff}
+  .optB__watermark{padding:clamp(40px,9vw,90px) 0 0;text-align:center;overflow:hidden}
+  .optB__watermark span{display:block;font-family:'KoHo',sans-serif;font-weight:800;text-transform:uppercase;
+    line-height:.86;letter-spacing:-.03em;font-size:clamp(40px,9vw,132px);color:#fff;opacity:.08;
+    white-space:nowrap}
+  .optB .logo{height:34px;width:auto;display:block}
+  .optB .tagline{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.6);
+    margin:14px 0 0}
+  .optB h5{color:var(--gold-light)}
+  .optB a{color:rgba(255,255,255,.78)}
+  .optB .foot-grid{border-top:1px solid rgba(232,168,37,.25)}
+  .optB .foot-bottom{border-top-color:rgba(255,255,255,.14);color:rgba(255,255,255,.55)}
+  .optB .social a{color:#fff}
+
+  /* ---------- OPTION C — crème + bande teal ---------- */
+  .optC{background:var(--cream);color:var(--ink)}
+  .optC__band{background:var(--teal-deep);color:#fff;text-align:center;padding:34px var(--pad)}
+  .optC__band p{margin:0;font-size:clamp(16px,2vw,22px);font-weight:700;letter-spacing:-.01em}
+  .optC__band .btn-don{margin-top:16px}
+  .optC .logo{height:34px;width:auto;display:block}
+  .optC .tagline{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);
+    margin:14px 0 0}
+  .optC h5{color:var(--teal)}
+  .optC a{color:var(--ink-mid)}
+  .optC .foot-bottom{background:var(--teal-deep);color:rgba(255,255,255,.7);border-top:0;margin-top:0;
+    padding:22px var(--pad);border-radius:0}
+  .optC .foot-bottom-wrap{max-width:1280px;margin:0 auto}
+  .optC .social a{color:#fff}
+</style>
+</head>
+<body>
+
+<div class="note">
+  <strong>3 maquettes de footer — à valider avant intégration.</strong>
+  Aucun fichier du site n'a été modifié : ceci est un fichier autonome, ouvert seulement pour comparaison visuelle.
+  Points signalés en bas de page (à trancher avant intégration).
+</div>
+
+<!-- ============ OPTION A ============ -->
+<div class="label">Option A — inspirée Found (footer encadré, inset dans la page)</div>
+<div class="optA-outer">
+<footer class="optA">
+  <div class="optA__bg"><img src="images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg" alt="" /></div>
+  <div class="optA__scrim"></div>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="brand">
+        <img class="logo" src="images/logo-festin-jaune.png" alt="Festin" />
+        <p class="tagline">Le goût d'avancer ensemble</p>
+        <p>Festin est une association loi 1901, non lucrative et d'intérêt général. Insertion, formation et transformation du secteur de la restauration — depuis 1992.</p>
+        <a class="btn-don" href="#/contact"><i data-lucide="heart" style="width:14px;height:14px"></i> Faire un don</a>
+      </div>
+      <div>
+        <h5>Nous contacter</h5>
+        <ul>
+          <li><a href="#/contact">Écrire à Festin</a></li>
+          <li><a href="mailto:contact@grandfestin.com">contact@grandfestin.com</a></li>
+          <li><span>21 rue Grignan, 13006 Marseille</span></li>
+        </ul>
+      </div>
+      <div>
+        <h5>S'engager</h5>
+        <ul>
+          <li><a href="#/contact">Restaurateurs</a></li>
+          <li><a href="#/contact">Partenaires &amp; financeurs</a></li>
+          <li><a href="#/projets/des-etoiles-et-des-femmes">Parcours d'insertion</a></li>
+          <li><a href="#/contact">Mécénat</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Nos projets</h5>
+        <ul>
+          <li><a href="#/projets/des-etoiles-et-des-femmes">Des Étoiles et des Femmes</a></li>
+          <li><a href="#/projets/les-beaux-mets">Les Beaux Mets</a></li>
+          <li><a href="#/projets/la-table-de-cana">La Table de Cana</a></li>
+          <li><a href="#/projets/restaure">Restaure</a></li>
+          <li><a href="#/projets/tournesol">Tournesol</a></li>
+          <li><a href="#/academie">Académie Festin</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Festin — Le goût d'avancer ensemble · grandfestin.com</span>
+      <div class="social">
+        <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+      </div>
+      <span style="flex-basis:100%">Ce site est édité par l'association Festin, loi 1901, non lucrative et d'intérêt général. N° RNA : W133012740. NDA 93132168513 · Siret 924 202 831 00013 · Organisme certifié Qualiopi</span>
+    </div>
+  </div>
+</footer>
+</div>
+
+<!-- ============ OPTION B ============ -->
+<div class="label">Option B — sombre minimaliste (watermark)</div>
+<footer class="optB">
+  <div class="optB__watermark" aria-hidden="true"><span>Le goût d'avancer</span></div>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="brand">
+        <img class="logo" src="images/logo-festin-jaune.png" alt="Festin" />
+        <p class="tagline">Le goût d'avancer ensemble</p>
+        <p>Festin est une association loi 1901, non lucrative et d'intérêt général. Insertion, formation et transformation du secteur de la restauration — depuis 1992.</p>
+        <a class="btn-don" href="#/contact"><i data-lucide="heart" style="width:14px;height:14px"></i> Faire un don</a>
+      </div>
+      <div>
+        <h5>Nous contacter</h5>
+        <ul>
+          <li><a href="#/contact">Écrire à Festin</a></li>
+          <li><a href="mailto:contact@grandfestin.com">contact@grandfestin.com</a></li>
+          <li><span>21 rue Grignan, 13006 Marseille</span></li>
+        </ul>
+      </div>
+      <div>
+        <h5>S'engager</h5>
+        <ul>
+          <li><a href="#/contact">Restaurateurs</a></li>
+          <li><a href="#/contact">Partenaires &amp; financeurs</a></li>
+          <li><a href="#/projets/des-etoiles-et-des-femmes">Parcours d'insertion</a></li>
+          <li><a href="#/contact">Mécénat</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Nos projets</h5>
+        <ul>
+          <li><a href="#/projets/des-etoiles-et-des-femmes">Des Étoiles et des Femmes</a></li>
+          <li><a href="#/projets/les-beaux-mets">Les Beaux Mets</a></li>
+          <li><a href="#/projets/la-table-de-cana">La Table de Cana</a></li>
+          <li><a href="#/projets/restaure">Restaure</a></li>
+          <li><a href="#/projets/tournesol">Tournesol</a></li>
+          <li><a href="#/academie">Académie Festin</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Festin — Le goût d'avancer ensemble · grandfestin.com</span>
+      <div class="social">
+        <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+      </div>
+      <span style="flex-basis:100%">Ce site est édité par l'association Festin, loi 1901, non lucrative et d'intérêt général. N° RNA : W133012740. NDA 93132168513 · Siret 924 202 831 00013 · Organisme certifié Qualiopi</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ OPTION C ============ -->
+<div class="label">Option C — crème + bande teal</div>
+<footer class="optC">
+  <div class="optC__band">
+    <p>Le goût d'avancer ensemble</p>
+    <a class="btn-don" href="#/contact"><i data-lucide="heart" style="width:14px;height:14px"></i> Faire un don</a>
+  </div>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="brand">
+        <img class="logo" src="images/logo-festin.png" alt="Festin" />
+        <p>Festin est une association loi 1901, non lucrative et d'intérêt général. Insertion, formation et transformation du secteur de la restauration — depuis 1992.</p>
+      </div>
+      <div>
+        <h5>Nous contacter</h5>
+        <ul>
+          <li><a href="#/contact">Écrire à Festin</a></li>
+          <li><a href="mailto:contact@grandfestin.com">contact@grandfestin.com</a></li>
+          <li><span>21 rue Grignan, 13006 Marseille</span></li>
+        </ul>
+      </div>
+      <div>
+        <h5>S'engager</h5>
+        <ul>
+          <li><a href="#/contact">Restaurateurs</a></li>
+          <li><a href="#/contact">Partenaires &amp; financeurs</a></li>
+          <li><a href="#/projets/des-etoiles-et-des-femmes">Parcours d'insertion</a></li>
+          <li><a href="#/contact">Mécénat</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Nos projets</h5>
+        <ul>
+          <li><a href="#/projets/des-etoiles-et-des-femmes">Des Étoiles et des Femmes</a></li>
+          <li><a href="#/projets/les-beaux-mets">Les Beaux Mets</a></li>
+          <li><a href="#/projets/la-table-de-cana">La Table de Cana</a></li>
+          <li><a href="#/projets/restaure">Restaure</a></li>
+          <li><a href="#/projets/tournesol">Tournesol</a></li>
+          <li><a href="#/academie">Académie Festin</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div class="foot-bottom-wrap" style="display:flex;flex-wrap:wrap;gap:10px 28px;align-items:center;justify-content:space-between">
+      <span>© 2026 Festin — Le goût d'avancer ensemble · grandfestin.com</span>
+      <div class="social">
+        <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+      </div>
+      <span style="flex-basis:100%">Ce site est édité par l'association Festin, loi 1901, non lucrative et d'intérêt général. N° RNA : W133012740. NDA 93132168513 · Siret 924 202 831 00013 · Organisme certifié Qualiopi</span>
+    </div>
+  </div>
+</footer>
+
+<div class="note" style="padding-bottom:60px">
+  <strong>Points à trancher avant intégration :</strong>
+  <ul style="list-style:disc;padding-left:20px;display:block;margin-top:8px">
+    <li style="display:list-item">Ton brief dit « Le mouvement Restaure » dans la colonne Projets — j'ai mis juste « Restaure », sans « mouvement » : c'est le terme qu'on a retiré partout dans l'audit (Restaure est en restructuration, ce mot ne doit plus être utilisé). Dis-moi si tu veux vraiment le remettre ici.</li>
+    <li style="display:list-item"><code>contact@grandfestin.com</code> et <code>grandfestin.com</code> : le fichier de données actuel (<code>data.js</code>) a encore <code>associationfestin.com</code> partout (site, email). Je ne l'ai pas touché (hors périmètre de cette maquette) mais il faudra le corriger en même temps que le footer si on confirme que grandfestin.com est le bon domaine.</li>
+    <li style="display:list-item">Aucun fichier logo blanc de Festin (sans tagline, sans Académie) n'existe dans <code>images/</code> — j'ai utilisé le logo doré partout, y compris sur fond crème (Option C). Si tu as un fichier logo blanc/teal dédié, dis-le-moi.</li>
+    <li style="display:list-item">Sadi Carnot n'a pas de lien dans « Nos projets » ci-dessus : ce n'est pas un projet dans <code>data.projets</code>, juste une page « en développement » (<code>#/sadi-carnot</code>). Je peux l'ajouter si tu veux qu'il apparaisse quand même.</li>
+  </ul>
+</div>
+
+<script>window.addEventListener('load', () => window.lucide && window.lucide.createIcons());</script>
+</body>
+</html>

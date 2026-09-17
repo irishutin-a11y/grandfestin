@@ -7,11 +7,11 @@ window.FESTIN_DATA = {
     logoWhite: "images/logo-academie-festin-blanc.png",
     logoGold: "images/logo-festin-jaune.png",
     qualiopi: "images/logo-qualiopi.png",
-    site: "https://www.associationfestin.com",
+    site: "https://www.grandfestin.com",
   },
   catalogPdf: "https://drive.google.com/file/d/1c8ueQMkTpjb1KmjJPV3nQ9djTLOmN8yC/view?usp=sharing",
   contact: {
-    email: "contact@associationfestin.com",
+    email: "contact@grandfestin.com",
     altEmail: "armand.hurault@associationfestin.com",
     referent: "Armand Hurault",
     referentRole: "Relations restaurateurs & engagement",
@@ -904,8 +904,7 @@ window.FESTIN_DATA.home = {
         text:"Mécénat, financement de parcours, mise à disposition de compétences. On construit l'engagement avec vous.",
         cta:"Nous contacter", href:"#/contact" }
     ]
-  },
-  footcurtain: ["Le goût", "d'avancer", "ensemble"]   // 3e = accent
+  }
 };
 
 // Backward-compat alias so anything still referencing the old name keeps working
