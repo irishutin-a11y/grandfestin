@@ -422,147 +422,142 @@ function FormationDetailPage({ id }) {
   );
 }
 
-// ---------- L'ASSOCIATION FESTIN — bloc présentation ----------
-function FestinPresentation() {
-  const stats = [
-    { value: "441", label: "personnes accompagnées en 2025" },
-    { value: "83 %", label: "de sorties en emploi ou formation" },
-    { value: "14",  label: "territoires d'intervention" },
-  ];
-  const images = [
-    "images/totem-festin-1.png",
-    "images/totem-festin-2.png",
-    "images/totem-festin-3.png",
-    "images/totem-festin-4.png",
-  ];
-  const [idx, setIdx] = React.useState(0);
-  React.useEffect(() => {
-    const t = setInterval(() => setIdx(i => (i + 1) % images.length), 3000);
-    return () => clearInterval(t);
-  }, []);
-  const [narrow, setNarrow] = React.useState(typeof window !== 'undefined' && window.innerWidth < 900);
-  React.useEffect(() => {
-    const onR = () => setNarrow(window.innerWidth < 900);
-    window.addEventListener('resize', onR);
-    return () => window.removeEventListener('resize', onR);
-  }, []);
+// ---------- ABOUT — charte typographique unifiée ----------
+// Référence à valider ici puis à étendre progressivement aux autres pages
+// de Pages.jsx (ContactPage, FormationsListPage, etc. utilisent encore
+// l'ancien .h2/.eyebrow à tailles fixes — non touché dans cette passe).
+// --text-primary/--text-secondary demandés n'existent pas comme tokens dans
+// ce projet : équivalents réels utilisés ici, --ink et --ink-mid.
+const aboutTypo = {
+  eyebrow: { display:'block', fontSize:11, fontWeight:700, letterSpacing:'0.1em', textTransform:'uppercase', color:'var(--teal)', marginBottom:12 },
+  h2: { fontSize:'clamp(28px,3vw,32px)', fontWeight:600, color:'var(--ink)', lineHeight:1.25, margin:'0 0 16px' },
+  body: { fontSize:15, lineHeight:1.7, color:'var(--ink-mid)', margin:0 },
+};
 
+// ---------- 2. CE QU'ON EST — 2 colonnes texte + photo humanisante ----------
+function CeQuOnEstSection() {
   return (
-    <section style={{background:'var(--off-white)',padding:'var(--s-9) 0'}}>
-      <div className="container" style={{display:'grid',gridTemplateColumns: narrow ? '1fr' : '1.1fr 1fr',gap:64,alignItems:'center'}}>
-        {narrow && (
-          <div style={{position:'relative',width:'100%',aspectRatio:'1 / 1',borderRadius:'20%',overflow:'hidden'}}>
-            {images.map((src,i) => (
-              <img key={i} src={src} alt="" style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'cover',opacity: i===idx ? 1 : 0,transition:'opacity 700ms ease'}}/>
-            ))}
-          </div>
-        )}
+    <section style={{background:'var(--off-white)', padding:'var(--s-9) 0'}}>
+      <div className="container" style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(min(240px, 100%), 1fr))', gap:64, alignItems:'center'}}>
         <div>
-          <span className="eyebrow eyebrow--gold">L'association Festin</span>
-          <h2 className="h2" style={{marginTop:8}}>Le goût d'avancer <em className="accent">ensemble.</em></h2>
-          <p className="lede" style={{marginTop:18,color:'var(--ink-mid)'}}>
-            Née en 1992 à Marseille avec La Table de Cana, l'association Festin mobilise la cuisine et le secteur de la restauration comme vecteurs de transformation et d'insertion sociale. Elle porte aujourd'hui des dispositifs complémentaires en faveur de l'alimentation durable, de l'inclusion et de l'évolution du secteur de la restauration.
+          <span style={aboutTypo.eyebrow}>Ce qu'on est</span>
+          <h2 style={aboutTypo.h2}>Le goût d'avancer ensemble</h2>
+          <p style={aboutTypo.body}>
+            Née en 1992 à Marseille avec La Table de Cana, l'association Festin mobilise la cuisine et le secteur de la restauration comme vecteurs de transformation et d'insertion sociale. Elle porte aujourd'hui cinq dispositifs complémentaires en faveur de l'inclusion et de l'évolution du secteur.
           </p>
-          <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:16,marginTop:36}}>
-            {stats.map((s,i) => (
-              <div key={i} style={{background:'#fff',border:'1px solid var(--line)',borderRadius:14,padding:22}}>
-                <div style={{fontSize:36,fontWeight:700,color:'var(--teal)',lineHeight:1,letterSpacing:'-0.02em'}}>{s.value}</div>
-                <div style={{fontSize:12,color:'var(--ink-mid)',marginTop:8,lineHeight:1.4}}>{s.label}</div>
-              </div>
-            ))}
-          </div>
         </div>
-        {!narrow && (
-          <div style={{position:'relative',width:'100%',aspectRatio:'1 / 1',borderRadius:'20%',overflow:'hidden'}}>
-            {images.map((src,i) => (
-              <img key={i} src={src} alt="" style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'cover',opacity: i===idx ? 1 : 0,transition:'opacity 700ms ease'}}/>
-            ))}
-          </div>
-        )}
+        <div style={{position:'relative', width:'100%', aspectRatio:'4/3', borderRadius:16, overflow:'hidden'}}>
+          <img src="images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg" alt="Le Grand Festin, rassemblement annuel de l'association" loading="lazy"
+               style={{position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover'}}/>
+        </div>
       </div>
     </section>
   );
 }
 
-// ---------- ÉQUIPE — bannière marquee infinie ----------
-function EquipeMarquee() {
-  // Équipe Festin 2025 — source : Rapport d'activité 2025, section Gouvernance
-  const team = [
-    // Direction
-    { name: "Armand Hurault",       role: "Directeur",                                            initials: "AH" },
-    { name: "Marine Vever",         role: "Directrice adjointe",                                  initials: "MV" },
-    // Fonctions transverses
-    { name: "Marie Plé",            role: "Assistante de gestion",                                initials: "MP" },
-    { name: "Iris Liberty",         role: "Animation de communauté — Restaure",                   initials: "IL" },
-    { name: "Iris Hutin",           role: "Communication (alternance)",                           initials: "IH" },
-    { name: "Mattieu Donsimoni",    role: "Communication (alternance)",                           initials: "MD" },
-    // Pôle Formation
-    { name: "Florence Armitano",    role: "Responsable Pôle Formation",                           initials: "FA" },
-    { name: "Mélanie Gambert",      role: "Coordinatrice réseau Des Étoiles et des Femmes",       initials: "MG" },
-    { name: "Karima Hellou",        role: "Responsable Emploi & Inclusion — Étoiles et Femmes",   initials: "KH" },
-    // Partenaire Estello Formation
-    { name: "Lucie Gueydon",        role: "Chargée de projet formation (Estello Formation)",      initials: "LG" },
-    // Les Beaux Mets
-    { name: "Valentin Majan",       role: "Chef de cuisine — Les Beaux Mets",                     initials: "VM" },
-    { name: "Camille Lafon",        role: "Second de cuisine — Les Beaux Mets",                   initials: "CL" },
-    { name: "Boris Ruel",           role: "Second de cuisine — Les Beaux Mets",                  initials: "BR" },
+// ---------- 3. CHIFFRES CLÉS — grille 4 stats, fond teal-dark ----------
+function ChiffresClesSection() {
+  const stats = [
+    { value: "441",  label: "personnes accompagnées en 2025" },
+    { value: "83 %", label: "de sorties en emploi ou formation" },
+    { value: "14",   label: "territoires d'intervention" },
+    { value: "1992", label: "année de naissance, avec La Table de Cana" },
   ];
-  const card = (m, i) => (
-    <div key={i} style={{
-      display:'flex', flexDirection:'column', alignItems:'center', gap:14,
-      flexShrink:0, padding:'8px 28px', minWidth:220,
-    }}>
-      <div style={{
-        width:96, height:96, borderRadius:'50%',
-        background:'linear-gradient(135deg, var(--teal) 0%, var(--teal-deep) 100%)',
-        color:'var(--gold-light)',
-        display:'grid', placeItems:'center',
-        fontSize:30, fontWeight:700, letterSpacing:'-0.02em',
-        border:'3px solid #fff',
-        boxShadow:'0 4px 16px rgba(13,43,48,0.10)',
-      }}>{m.initials}</div>
-      <div style={{textAlign:'center'}}>
-        <div style={{fontSize:14, fontWeight:700, color:'var(--ink)'}}>{m.name}</div>
-        <div style={{fontSize:12, color:'var(--ink-soft)', marginTop:2, maxWidth:220, lineHeight:1.4}}>{m.role}</div>
-      </div>
-    </div>
-  );
   return (
-    <section style={{padding:'var(--s-9) 0', background:'var(--cream)', borderTop:'1px solid var(--line)', borderBottom:'1px solid var(--line)', overflow:'hidden'}}>
-      <style>{`
-        @keyframes equipe-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        .equipe-track { display: flex; align-items: center; width: max-content; animation: equipe-scroll 80s linear infinite; }
-      `}</style>
-      <div className="container" style={{textAlign:'center', marginBottom:36}}>
-        <span className="eyebrow">L'équipe Festin</span>
-        <h2 className="h2" style={{marginTop:8}}>Les visages <em className="accent">derrière l'écosystème</em></h2>
-      </div>
-      <div style={{overflow:'hidden', width:'100%'}}>
-        <div className="equipe-track">
-          {team.map(card)}
-          {team.map((m, i) => card(m, 'b'+i))}
-        </div>
+    <section style={{background:'var(--teal-dark)', padding:'var(--s-9) 0'}}>
+      <div className="container" style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(min(180px, 100%), 1fr))', gap:20}}>
+        {stats.map((s, i) => (
+          <div key={i} style={{textAlign:'center'}}>
+            <div style={{fontSize:'clamp(32px,4vw,44px)', fontWeight:700, color:'var(--gold)', lineHeight:1, letterSpacing:'-0.02em'}}>{s.value}</div>
+            <div style={{fontSize:13, color:'#fff', marginTop:10, lineHeight:1.4}}>{s.label}</div>
+          </div>
+        ))}
       </div>
     </section>
   );
 }
 
-// ---------- HISTORIQUE — frise verticale ----------
-function HistoriqueSection() {
-  const jalons = [
-    { year: '1992', title: 'La Table de Cana',                   desc: 'Création du premier traiteur en insertion à Marseille — la pierre fondatrice.' },
-    { year: '2015', title: 'Naissance de Des Étoiles et des Femmes', desc: 'Lancement à Marseille du programme d\'insertion des femmes par la haute gastronomie.' },
-    { year: '2018', title: 'Premières antennes nationales',       desc: 'Le programme essaime à Lille, Bordeaux, Strasbourg, Lyon, Nantes.' },
-    { year: '2022', title: 'Ouverture des Beaux Mets',            desc: 'Le premier restaurant en prison ouvert au public en France — Marseille, Baumettes.' },
-    { year: '2024', title: 'Le programme Restaure',               desc: '4 structures co-fondatrices, 35 structures engagées, 700 signataires du manifeste.' },
-    { year: '2025', title: 'Promotion Tournesol',                 desc: 'Lancement du parcours pour personnes réfugiées et primo-arrivantes, avec Refugee Food.' },
-  ];
+// ---------- 5. L'ÉQUIPE — grille photos N&B → couleur au survol ----------
+// Équipe Festin 2025 — source : Rapport d'activité 2025, section Gouvernance.
+// Reprise telle quelle (pas de duplication) : ce tableau était déjà la seule
+// source de la composition de l'équipe dans le dépôt (data.js n'a pas de
+// champ "equipe" à ce jour). `photo` est vide en attente des vrais portraits
+// (fournis plus tard) : tant qu'il n'y en a pas, avatar-initiales affiché
+// directement en couleur, sans le traitement N&B (qui n'a de sens que sur
+// une vraie photo).
+const equipeFestin = [
+  { name: "Armand Hurault",       role: "Directeur",                                            initials: "AH", photo: null },
+  { name: "Marine Vever",         role: "Directrice adjointe",                                  initials: "MV", photo: null },
+  { name: "Marie Plé",            role: "Assistante de gestion",                                initials: "MP", photo: null },
+  { name: "Iris Liberty",         role: "Animation de communauté — Restaure",                   initials: "IL", photo: null },
+  { name: "Iris Hutin",           role: "Communication (alternance)",                           initials: "IH", photo: null },
+  { name: "Mattieu Donsimoni",    role: "Communication (alternance)",                           initials: "MD", photo: null },
+  { name: "Florence Armitano",    role: "Responsable Pôle Formation",                           initials: "FA", photo: null },
+  { name: "Mélanie Gambert",      role: "Coordinatrice réseau Des Étoiles et des Femmes",       initials: "MG", photo: null },
+  { name: "Karima Hellou",        role: "Responsable Emploi & Inclusion — Étoiles et Femmes",   initials: "KH", photo: null },
+  { name: "Lucie Gueydon",        role: "Chargée de projet formation (Estello Formation)",      initials: "LG", photo: null },
+  { name: "Valentin Majan",       role: "Chef de cuisine — Les Beaux Mets",                     initials: "VM", photo: null },
+  { name: "Camille Lafon",        role: "Second de cuisine — Les Beaux Mets",                   initials: "CL", photo: null },
+  { name: "Boris Ruel",           role: "Second de cuisine — Les Beaux Mets",                   initials: "BR", photo: null },
+];
+
+function EquipeSection() {
   return (
     <section style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
+      <style>{`
+        .about-team-card__photo{filter:grayscale(1);transition:filter .3s ease}
+        .about-team-card:hover .about-team-card__photo{filter:grayscale(0)}
+      `}</style>
       <div className="container">
         <div style={{maxWidth:760, marginBottom:48}}>
-          <span className="eyebrow">Historique</span>
-          <h2 className="h2">33 ans à transformer <em className="accent">le secteur par la cuisine</em></h2>
+          <span style={aboutTypo.eyebrow}>L'équipe</span>
+          <h2 style={aboutTypo.h2}>Les visages derrière l'écosystème</h2>
+        </div>
+        <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(min(180px, 100%), 1fr))', gap:28}}>
+          {equipeFestin.map((m, i) => (
+            <div key={i} className="about-team-card" style={{textAlign:'center'}}>
+              {m.photo ? (
+                <div style={{width:'100%', aspectRatio:'1/1', borderRadius:'50%', overflow:'hidden', margin:'0 auto 16px'}}>
+                  <img className="about-team-card__photo" src={m.photo} alt={m.name} loading="lazy"
+                       style={{width:'100%', height:'100%', objectFit:'cover'}}/>
+                </div>
+              ) : (
+                <div style={{
+                  width:'100%', maxWidth:110, aspectRatio:'1/1', borderRadius:'50%', margin:'0 auto 16px',
+                  background:'linear-gradient(135deg, var(--teal) 0%, var(--teal-deep) 100%)',
+                  color:'var(--gold-light)', display:'grid', placeItems:'center',
+                  fontSize:26, fontWeight:700, letterSpacing:'-0.02em',
+                }}>{m.initials}</div>
+              )}
+              <div style={{fontSize:14, fontWeight:700, color:'var(--ink)'}}>{m.name}</div>
+              <div style={{fontSize:12, color:'var(--ink-soft)', marginTop:2, lineHeight:1.4}}>{m.role}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ---------- 4. NOTRE HISTOIRE — frise verticale, fond cream ----------
+// Jalons repris tels quels de l'ancienne section historique (mêmes textes
+// déjà vérifiés) : seuls les 4 demandés sont gardés (1992/2015/2022/2024) ;
+// 2018 et 2025 existaient aussi dans le dépôt mais ne sont pas dans la
+// liste explicitement demandée, donc retirés d'ici (le fait reste vrai et
+// n'est pas perdu : juste plus affiché sur cette page).
+function NotreHistoireSection() {
+  const jalons = [
+    { year: '1992', title: 'La Table de Cana',                      desc: 'Création du premier traiteur en insertion à Marseille — la pierre fondatrice.' },
+    { year: '2015', title: 'Naissance de Des Étoiles et des Femmes', desc: 'Lancement à Marseille du programme d\'insertion des femmes par la haute gastronomie.' },
+    { year: '2022', title: 'Ouverture des Beaux Mets',               desc: 'Le premier restaurant en prison ouvert au public en France — Marseille, Baumettes.' },
+    { year: '2024', title: 'Le programme Restaure',                  desc: '4 structures co-fondatrices, 35 structures engagées, 700 signataires du manifeste.' },
+  ];
+  return (
+    <section style={{padding:'var(--s-9) 0', background:'var(--cream)'}}>
+      <div className="container">
+        <div style={{maxWidth:760, marginBottom:48}}>
+          <span style={aboutTypo.eyebrow}>Notre histoire</span>
+          <h2 style={aboutTypo.h2}>33 ans à transformer le secteur par la cuisine</h2>
         </div>
         <div style={{position:'relative', maxWidth:880, margin:'0 auto'}}>
           <div style={{position:'absolute', left:24, top:8, bottom:8, width:2, background:'var(--teal-tint-2)'}}/>
@@ -577,8 +572,8 @@ function HistoriqueSection() {
                   position:'relative', zIndex:2,
                 }}>{j.year}</div>
                 <div style={{flex:1, paddingTop:4}}>
-                  <h3 style={{fontSize:20, fontWeight:700, lineHeight:1.3, margin:'0 0 6px'}}>{j.title}</h3>
-                  <p style={{fontSize:15, color:'var(--ink-mid)', lineHeight:1.6, margin:0}}>{j.desc}</p>
+                  <h3 style={{fontSize:20, fontWeight:700, lineHeight:1.3, margin:'0 0 6px', color:'var(--ink)'}}>{j.title}</h3>
+                  <p style={aboutTypo.body}>{j.desc}</p>
                 </div>
               </li>
             ))}
@@ -589,32 +584,44 @@ function HistoriqueSection() {
   );
 }
 
-// ---------- VALEURS ----------
-function ValeursSection() {
+// ---------- 6. NOS VALEURS — 3 piliers, fond cream ----------
+function NosValeursSection() {
   const valeurs = [
-    { icon:'heart', title:'Dignité',   desc:'Chaque personne accompagnée est un sujet, pas un dossier. Nous concevons des parcours qui respectent les rythmes, les histoires, les choix.' },
-    { icon:'mountain', title:'Exigence',  desc:'Viser l\'excellence n\'est pas un luxe. C\'est ce qui rend l\'insertion durable et l\'engagement crédible auprès du secteur.' },
+    { icon:'landmark', title:'Non-lucrativité', desc:'Festin est une association loi 1901 à but non lucratif et d\'intérêt général. Chaque euro sert le projet associatif, jamais un actionnaire.' },
+    { icon:'mountain', title:'Excellence', desc:'Viser l\'excellence n\'est pas un luxe. C\'est ce qui rend l\'insertion durable et l\'engagement crédible auprès du secteur.' },
     { icon:'users-round', title:'Collectif', desc:'Aucun projet Festin ne se fait seul. Nous avançons avec des chefs, des restaurants, des financeurs, des pairs.' },
-    { icon:'sprout', title:'Transformation', desc:'Notre objectif n\'est pas seulement d\'accompagner des individus — c\'est de faire bouger les pratiques de tout un secteur.' },
   ];
   return (
     <section style={{padding:'var(--s-9) 0', background:'var(--cream)'}}>
       <div className="container">
         <div style={{maxWidth:760, marginBottom:48}}>
-          <span className="eyebrow">Valeurs fondamentales</span>
-          <h2 className="h2">Quatre convictions qui <em className="accent">guident nos choix</em></h2>
+          <span style={aboutTypo.eyebrow}>Nos valeurs</span>
+          <h2 style={aboutTypo.h2}>Trois convictions qui guident nos choix</h2>
         </div>
-        <div style={{display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:20}}>
+        <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(min(220px, 100%), 1fr))', gap:20}}>
           {valeurs.map((v, i) => (
             <div key={i} style={{background:'#fff', border:'1px solid var(--line)', borderRadius:16, padding:28}}>
               <div style={{width:48, height:48, borderRadius:12, background:'rgba(232,168,37,0.16)', display:'grid', placeItems:'center', color:'var(--gold)', marginBottom:18}}>
                 <i data-lucide={v.icon} style={{width:24, height:24}}/>
               </div>
-              <h3 style={{fontSize:18, fontWeight:700, lineHeight:1.3, margin:'0 0 8px'}}>{v.title}</h3>
-              <p style={{fontSize:14, color:'var(--ink-mid)', lineHeight:1.55, margin:0}}>{v.desc}</p>
+              <h3 style={{fontSize:18, fontWeight:700, lineHeight:1.3, margin:'0 0 8px', color:'var(--ink)'}}>{v.title}</h3>
+              <p style={aboutTypo.body}>{v.desc}</p>
             </div>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+// ---------- 8. CTA FINAL ----------
+function AboutCTA() {
+  return (
+    <section style={{background:'var(--teal-deep)', color:'#fff', padding:'var(--s-9) 0', textAlign:'center'}}>
+      <div className="container">
+        <span style={{...aboutTypo.eyebrow, color:'var(--gold-light)'}}>S'engager</span>
+        <h2 style={{...aboutTypo.h2, color:'#fff', maxWidth:640, margin:'0 auto 18px'}}>S'engager à nos côtés</h2>
+        <a href="#/contact" className="btn btn--gold">Nous contacter <i data-lucide="arrow-right" style={{width:16,height:16}}/></a>
       </div>
     </section>
   );
@@ -740,7 +747,8 @@ function ProjetAssociatif() {
     </section>
   );
 }
-// ---------- QUI SOMMES-NOUS PAGE — densifiée ----------
+// ---------- QUI SOMMES-NOUS PAGE — refonte (aération, photo humanisante,
+// charte typographique unifiée — voir aboutTypo) ----------
 function AboutPage() {
   return (
     <div data-screen-label="04 Qui sommes-nous">
@@ -751,13 +759,13 @@ function AboutPage() {
         subtitle="Née à Marseille en 1992 avec La Table de Cana, Festin construit depuis lors un écosystème de dispositifs complémentaires au service d'une restauration plus inclusive."
         breadcrumb={[{label:'Accueil',href:'#/'},{label:'Qui sommes-nous'}]}
       />
-      <FestinPresentation />
-      <ProjetAssociatif />
-      <EquipeMarquee />
-      <HistoriqueSection />
-      <ValeursSection />
-      <ImpactCumuleBande />
-      <Temoignages />
+      <CeQuOnEstSection />
+      <ChiffresClesSection />
+      <NotreHistoireSection />
+      <EquipeSection />
+      <NosValeursSection />
+      <PartenairesMarquee />
+      <AboutCTA />
     </div>
   );
 }
