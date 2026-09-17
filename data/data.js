@@ -373,9 +373,26 @@ window.FESTIN_DATA = {
       implicationCtaHref: "#/contact",
       temoignages: [
         { prenom: "Oumar", role: "Ancien salarié en insertion", citation: "J’ai passé deux ans à La Table de Cana. Ça m’a vraiment aidé à savoir m’organiser et à avoir confiance en mes compétences. Aujourd’hui, j’ai un CDI chez Compass à la Tour CMA-CGM.", placeholder: false },
+        { prenom: "Jean Claude", role: "Ancien commis de cuisine — La Table de Cana", citation: "J’ai pu prendre confiance en moi grâce aux différentes tâches.", placeholder: false },
         { prenom: "Pierre", role: "RRH insertion — La Table de Cana", citation: "Chaque sortie positive, c’est une victoire pour la personne et pour toute l’équipe. Ça montre que notre accompagnement fonctionne !", placeholder: false },
       ],
       presseFilter: ["La Table de Cana", "Table de Cana"],
+      // --- Champs page projet dédiée (source : latabledecana-marseille.com/insertion-professionnelle) ---
+      parcours: [
+        { tab: "Révélateur de talents", title: "Former et accompagner",
+          text: "La Table de Cana forme et accompagne chaque année des personnes éloignées de l'emploi, pour transformer le « vouloir » en « pouvoir » et retrouver une stabilité sociale et professionnelle.",
+          stat: "40+", statL: "personnes formées chaque année" },
+        { tab: "Pourvoyeur de talents", title: "Vers l'emploi durable",
+          text: "Une fois formés, les candidats qualifiés sont orientés vers des entreprises partenaires — Compass, Sodexo, Accor, Newrest, le restaurant Le Grand Pin, l'École de la 2e Chance. Lassana, diplômé du CAP cuisine en 2021, est aujourd'hui en CDI au Sofitel Marseille ; Zaky, titulaire du CQP cuisinier, travaille chez Newrest.",
+          stat: "89 %", statL: "de sorties dynamiques en 2025" },
+        { tab: "Le Club des Talents", title: "Une communauté d'anciens et actuels salariés",
+          text: "Le Club des Talents réunit anciens et actuels salariés : construire une communauté engagée, favoriser le parrainage des nouveaux arrivants, créer un réseau d'opportunités avec les entreprises partenaires.",
+          stat: "2ᵉ", statL: "édition organisée en 2025" },
+      ],
+      partenaires: ["Compass", "Sodexo", "Accor", "Newrest", "Le Grand Pin", "École de la 2e Chance"],
+      video: {
+        poster: "images/latable de cana/tabledecana_cdutrey_170124-6293-B-2048x1365.jpg",
+      },
     },
     {
       id: "restaure",
@@ -514,6 +531,18 @@ window.FESTIN_DATA = {
         { prenom: "[Prénom]", role: "Partenaire ou employeur", citation: "", placeholder: true },
       ],
       presseFilter: ["Tournesol", "Refugee Food"],
+      // --- Champs page projet dédiée (source : refugee-food.org/formation-tournesol-a-marseille) ---
+      parcours: [
+        { tab: "Le français", title: "Cours de français appliqués à la restauration",
+          text: "Un apprentissage du français centré sur le vocabulaire et les situations du métier, pour lever la première barrière à l'emploi." },
+        { tab: "La formation technique", title: "Formation technique en cuisine",
+          text: "Dispensée par AFC Groupe, cette formation prépare au métier de commis de cuisine." },
+        { tab: "Le stage en entreprise", title: "Une mise en pratique chez Compass Group",
+          text: "Les stagiaires sont rémunérés par Pôle Emploi tout au long de la formation, stage compris." },
+        { tab: "Le diplôme", title: "Examens et remise des diplômes",
+          text: "Le parcours se conclut par les examens et la remise des diplômes, suivis d'un accompagnement individuel post-formation pour une insertion socio-professionnelle durable." },
+      ],
+      partenaires: ["AFC Groupe", "Compass Group", "Pôle emploi", "AKTO", "Ville de Marseille", "Préfecture des Bouches-du-Rhône", "Fondation RAJA-Danièle Marcovici"],
     },
   ],
   formations: [
