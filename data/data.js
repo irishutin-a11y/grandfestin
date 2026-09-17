@@ -862,11 +862,13 @@ window.FESTIN_DATA.home = {
   },
   impact: {
     eyebrow: "L'impact 2025",
+    // 5 photos réelles : Des Étoiles et des Femmes ×3, Les Beaux Mets ×1, La Table de Cana ×1
     photos: [
-      "images/photo-groupe-portrait.jpg",
+      "images/images-def/hero-promo-cuisine.jpg",
+      "images/beauxmets-images/LBM_cdutrey_071122-7264.jpg",
       "images/images-def/HOTELERIE-035.jpg",
-      "images/photo-tabliers-violets.jpg",
-      "images/photo-applaudissements.jpg"
+      "images/latable de cana/tabledecana_cdutrey_160124-4393.jpg",
+      "images/images-def/chaudbouillon-045.jpg"
     ]
   },
   quotes: {

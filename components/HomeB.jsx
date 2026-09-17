@@ -14,6 +14,7 @@ function HomeB() {
     const reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
     const gsap = window.gsap, ST = window.ScrollTrigger;
     const cleanups = [];
+    const impactPhotos = root.querySelector('#impactPhotos');
 
     // clone marquees (toujours, même en reduced-motion)
     const vtrack = root.querySelector('#vtrack');
@@ -26,6 +27,7 @@ function HomeB() {
       root.querySelectorAll('.hero__title .l span').forEach(s => s.style.transform = 'none');
       root.querySelectorAll('.istat__n').forEach(el => el.textContent = el.dataset.count + (el.dataset.suffix || ''));
       root.querySelectorAll('.appr__card').forEach(c => c.classList.add('on'));
+      if (impactPhotos) impactPhotos.classList.add('is-scattered');
       return;
     }
     gsap.registerPlugin(ST);
@@ -95,6 +97,17 @@ function HomeB() {
         gsap.to(o, { v: target, duration: 1.6, ease: 'power2.out', onUpdate: () => { el.textContent = Math.round(o.v) + suffix; } });
       }});
     });
+
+    // ---- IMPACT : photos éparpillées depuis le centre (désactivé <900px, cf. CSS)
+    if (impactPhotos && window.innerWidth >= 900) {
+      const stImpact = ST.create({
+        trigger: impactPhotos, start: 'top 70%', once: true,
+        onEnter: () => impactPhotos.classList.add('is-scattered'),
+      });
+      cleanups.push(() => stImpact.kill());
+    } else if (impactPhotos) {
+      impactPhotos.classList.add('is-scattered');
+    }
 
     window.addEventListener('load', () => ST.refresh());
     ST.refresh();
@@ -261,9 +274,9 @@ function HomeB() {
               })}
             </div>
           </div>
-          <div className="b-impact__photos">
+          <div className="b-impact__photos" id="impactPhotos">
             {H.impact.photos.map((src, i) => (
-              <div key={i} className={"b-impact__ph b-impact__ph--" + ['tl', 'tr', 'bl', 'br'][i] + " reveal"}><img src={IMG(src)} loading="lazy" alt="" /></div>
+              <div key={i} className={"b-impact__ph b-impact__ph--p" + (i + 1)}><img src={IMG(src)} loading="lazy" alt="" /></div>
             ))}
           </div>
         </div>
