@@ -190,7 +190,7 @@ section{position:relative}
 @media(max-width:760px){.impactgrid{grid-template-columns:1fr 1fr;gap:28px}}
 
 /* ============ BLOC TÉMOIGNAGES ============ */
-.b-quotes{background:var(--gold-pale);color:var(--ink);padding:clamp(80px,12vw,168px) 0}
+.b-quotes{background:var(--cream);color:var(--ink);padding:clamp(80px,12vw,168px) 0}
 .b-quotes .eyb{color:var(--teal);display:block;text-align:center}
 .b-quotes .h2b{text-align:center}
 .b-quotes__lede{margin:16px auto 0;max-width:46ch;font-size:clamp(15px,1.4vw,18px);color:var(--ink-mid);text-align:center}
