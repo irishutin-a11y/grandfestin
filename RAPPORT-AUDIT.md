@@ -1,9 +1,11 @@
 # Rapport d'audit — site grandfestin.com
 
 Branche de travail : `audit/refonte-autonome-2026-09-16`.
-Commits, dans l'ordre : `Page Restaure, corrections chiffres et ajustements home` (6d60396) · `Audit — Partie 1` (43ba555) · `Rapport d'audit` (e72ec58) · `Audit — Partie 2 (début)` (628bc1e) · `Audit — Partie 3` (9897320) · `Rapport d'audit — mise à jour` (17401df) · `Audit — Partie 4` (de4ebd0) · `Audit — Partie 5 (début)` (651c31f) · `Audit — Partie 6` (70f6750) · `Audit — Partie 7` (337ae7e).
+Commits, dans l'ordre : `Page Restaure, corrections chiffres et ajustements home` (6d60396) · `Audit — Partie 1` (43ba555) · `Rapport d'audit` (e72ec58) · `Audit — Partie 2 (début)` (628bc1e) · `Audit — Partie 3` (9897320) · `Rapport d'audit — mise à jour` (17401df) · `Audit — Partie 4` (de4ebd0) · `Audit — Partie 5 (début)` (651c31f) · `Audit — Partie 6` (70f6750) · `Audit — Partie 7` (337ae7e) · `refonte` (8661f6f, fait en parallèle sur cette branche — voir note ci-dessous) · `Vrai bug trouvé : le H1 du hero était plafonné à 64px par du code mort` (6f7291c).
 
 **Les 7 parties du méga-prompt ont reçu une passe réelle**, mais à des degrés de complétude différents selon ce qui était mesurable/corrigeable sans risque dans le temps disponible. Ce rapport dit précisément où chaque partie s'arrête. Ce n'est **pas** une relecture ligne à ligne de chaque mot sur chacune des ~15 pages — c'est un audit ciblé, sourcé par grep et vérification navigateur, qui a trouvé et corrigé des bugs réels (voir section 1), et qui liste honnêtement ce qui resterait à faire pour un passage exhaustif.
+
+**Note technique** : un commit `refonte` (8661f6f) a été fait en parallèle sur cette même branche, probablement depuis une autre session travaillant sur les mêmes instructions (terminologie Restaure, `--ink-soft`, suppression du code mort). Vérifié cohérent avec le travail décrit ici ; le commit suivant (6f7291c) complète ce qu'il ne couvrait pas encore, sans rien dupliquer.
 
 ---
 
@@ -36,11 +38,20 @@ Les apparitions au défilement dépassaient largement 300-400ms : 800ms sur la h
 ### Partie 7 — accessibilité/responsive (337ae7e)
 Aucune page n'utilisait le landmark `<main>` → ajouté une fois dans `index.html`, couvre tout le site. **Débordement horizontal réel et mesuré à 375px sur toutes les pages** (21px, `scrollWidth` 396 vs `clientWidth` 375) : la nav fixe elle-même en héritait et débordait de l'écran. Cause : rien ne bornait `html`/`body`. Corrigé par `overflow-x:hidden` — vérifié : `scrollWidth` redescend exactement à 375px. Un `<div onClick>` (`.formation-card`) converti en `<button>` accessible au clavier — mais en vérifiant, ce composant n'est en réalité rendu nulle part sur le site actuel (voir section "constat transversal" ci-dessous).
 
+### Suivi — clôture des points laissés ouverts (8661f6f + 6f7291c)
+- **`--ink-soft` corrigé** : sur instruction explicite, le token est passé de `#6B8489` à `#566A6E` dans `_tokens.css` (5.16-5.57:1 sur cream/off-white, conforme AA). La consigne "ne pas toucher les tokens globaux" a été levée explicitement pour ce cas précis.
+- **Restaure : "mouvement" → "programme"** partout en copie visible (hero, chiffres, presse, mega-menu, page Restaure) — Restaure est en restructuration, le mot "mouvement" ne doit plus être utilisé. Les URLs réelles (`mouvement-restaure.com`) et les titres d'articles de presse cités (externes, datés) n'ont pas été touchés : ce sont des faits, pas de la copie éditoriale.
+- **Code mort supprimé** : `Hero.jsx`, `Selector.jsx`, `Formations.jsx` (fichiers entiers + leurs balises `<script>`), et les blocs CSS morts restants dans `styles.css` (`.modal*`, `.nav__link.active`, `.nav__dd-all`).
+- **Vrai bug trouvé en creusant le signalement répété sur la hiérarchie H1/H2** : une règle CSS morte `.hero h1{font-size:64px}` avait une spécificité plus élevée que la règle vivante `.hero__title{font-size:var(--title)}` et gagnait donc systématiquement, quel que soit le viewport. Le H1 réel était plafonné à 64px pendant qu'un H2 de section montait à ~88px — exactement l'inverse de la hiérarchie voulue, et invisible à l'analyse de Partie 3 qui n'avait grepé que `.hero__title`, pas le sélecteur générique `.hero h1`. Supprimé avec le reste du bloc `.hero` mort ; vérifié au navigateur : H1 ≈ 97px vs H2 ≈ 57px.
+- **Logo du footer corrigé** : la Partie 1 avait par erreur mis le logo de l'Académie Festin en pied de page. Remplacé par le vrai logo Festin (doré), fichier fourni par l'utilisateur.
+- **Eyebrow du hero home** : remplacé "Association à but non lucratif — depuis 1992" par "35 ans d'innovation sociale par la cuisine", sur demande explicite. **Cela ré-ouvre partiellement la règle 1** (non-lucrativité au premier écran) — voir section 7.
+- **Correction de ma propre erreur** : le fichier "Genèse du projet.docx" ne concerne **que Les Beaux Mets**, pas Festin/DEF comme je l'avais écrit en section 4. Corrigé ci-dessous.
+
 ---
 
 ## 2. Les 7 règles — état avant/après
 
-**1. Non-lucrativité dès l'accueil** — *Avant* : seulement en mention légale de pied de page. *Corrigé* : eyebrow du hero home → "Association à but non lucratif — depuis 1992", premier écran.
+**1. Non-lucrativité dès l'accueil** — *Avant* : seulement en mention légale de pied de page. *Corrigé initialement* : eyebrow du hero home → "Association à but non lucratif — depuis 1992", premier écran. **Retiré ensuite sur demande explicite**, remplacé par "35 ans d'innovation sociale par la cuisine" — la mention légale reste au pied de page (`legalMention`), mais n'est plus dans le premier écran. Voir section 7.
 
 **2. Statut ESUS à chaque évocation d'une filiale** — **Non traité, volontairement**. Zéro occurrence du terme "ESUS" dans tout le dépôt, aucune source attestant qui est réellement agréé. Voir section 6.
 
@@ -69,15 +80,11 @@ investisseur / levée / actionnariat     → 0 occurrence
 
 ---
 
-## 3. Constat transversal : code mort
+## 3. Constat transversal : code mort — **résolu**
 
-En travaillant les Parties 5 à 7, j'ai trouvé plusieurs composants et blocs CSS **jamais montés dans l'application réelle**, restes d'itérations antérieures :
-- `components/Hero.jsx` (`function Hero()`) — remplacé par `HomeB.jsx`, jamais importé dans le routeur.
-- `components/Selector.jsx` (`function Selector()`) — jamais monté ; c'est `data.meganav` + `Nav.jsx` qui alimente réellement le menu.
-- `components/Formations.jsx` : `Formations()` / `FormationCard` / `FormationModal` — jamais montés ; c'est `FormationCardLink` (dans `Pages.jsx`) qui est réellement utilisé partout.
-- `styles.css` : un bloc entier `.nav`/`.nav__link`/`.nav__dropdown`/`.hero` (~25 règles) qui ne correspond à aucun composant actuel.
+En travaillant les Parties 5 à 7, j'avais trouvé plusieurs composants et blocs CSS **jamais montés dans l'application réelle**, restes d'itérations antérieures : `components/Hero.jsx`, `components/Selector.jsx`, `components/Formations.jsx` (fonctions `Formations`/`FormationCard`/`FormationModal`), et un bloc CSS entier `.nav`/`.hero`/`.modal` dans `styles.css`.
 
-Le dernier point est le plus préoccupant : ce `.hero` mort et le vrai `.hero` de `HomeB.jsx` **partagent le même nom de classe**. La cascade fait que `home-b.css` (chargé après) gagne sur les propriétés qu'il redéclare, mais je n'ai pas vérifié qu'aucune propriété du `.hero` mort ne "fuit" par une propriété que `home-b.css` ne redéclare pas. Je recommande un chantier dédié : identifier ce qui est mort, décider de le supprimer ou de le réactiver, avant qu'un futur renommage (ex. celui de "DEF") ne le confonde avec du code vivant.
+**Tout a été supprimé** (voir "Suivi" en fin de section Partie 7). Le risque de collision que j'avais signalé — le `.hero` mort et le vrai `.hero` de `HomeB.jsx` partageant le même nom de classe — s'est avéré réel et actif : la règle morte `.hero h1{font-size:64px}`, plus spécifique que la règle vivante, plafonnait silencieusement le H1 du hero à 64px à tous les viewports. C'était très probablement la cause exacte du problème de hiérarchie H1/H2 signalé deux fois par l'utilisateur. Corrigé, vérifié (H1 ≈ 97px, H2 ≈ 57px).
 
 ---
 
@@ -92,31 +99,31 @@ Le dernier point est le plus préoccupant : ce `.hero` mort et le vrai `.hero` d
 - Logos réels des 3 structures fondatrices de Restaure hors Festin (actuellement en placeholder).
 
 **Secondaire :**
-- Le fichier "Genèse du projet.docx" fourni en session contient une version interne explicitement marquée "pas celle à raconter" — non utilisée. Si l'histoire officielle remonte plus loin que 1992, `[À COMPLÉTER]`.
+- Le fichier "Genèse du projet.docx" fourni en session concerne **Les Beaux Mets** (et non Festin/DEF comme écrit par erreur dans une version précédente de ce rapport) et contient une version interne explicitement marquée "pas celle à raconter" — non utilisée dans la copie du site.
 
 ---
 
 ## 5. Ce que je n'ai pas pu corriger — et pourquoi
 
 - **Renommage "DEF"** (fichiers, dossiers, classes CSS `pdef-*`) : chantier mécanique de grande ampleur (~10 fichiers, ~150 classes), risque de casser un chemin d'image oublié, aucun bénéfice visible pour un vrai visiteur. Décision éditoriale reportée.
-- **Contraste de `--ink-soft`** (voir section 6) : correction prête mais non appliquée, conflit avec la consigne permanente de ne pas toucher les design tokens globaux.
-- **Fusion `.btn`/`.btnb`**, **messages d'erreur de formulaire personnalisés**, **suppression du code mort** (section 3) : chantiers identifiés, non faits, risque de régression trop large pour cette passe.
-- **Relecture exhaustive mot à mot** de chaque page pour triades décoratives/jargon résiduel, et **audit typographique complet** (tailles réellement rendues à 360/768/1024/1440/1920px) au-delà des 5 défauts déjà signalés : non fait faute de temps sur ~15 pages.
+- **Fusion `.btn`/`.btnb`**, **messages d'erreur de formulaire personnalisés** : chantiers identifiés, non faits, risque de régression trop large pour cette passe.
+- **Relecture exhaustive mot à mot** de chaque page pour triades décoratives/jargon résiduel, et **audit typographique complet** (tailles réellement rendues à 360/768/1024/1440/1920px) au-delà des défauts déjà signalés : non fait faute de temps sur ~15 pages.
+- ~~Contraste de `--ink-soft`~~ et ~~suppression du code mort~~ : **résolus**, voir "Suivi" en fin de Partie 7.
 
 ---
 
 ## 6. Les problèmes les plus graves restants
 
 1. **Statut ESUS complètement absent alors que la règle l'exige "sans exception".** À trancher : quelles structures sont réellement agréées, je les ajoute immédiatement ensuite.
-2. **`--ink-soft` échoue le contraste AA sur au moins 17 textes secondaires du site** (rôles de témoignages, descriptions du mega-menu, labels de contact — tous en 11-13.5px, donc soumis au seuil 4.5:1, mesuré à 3.59-3.88:1 selon le fond). Correction prête (`#566A6E`, testée à 5.16-5.57:1) mais non appliquée — c'est un token de `_tokens.css`, fichier protégé par votre consigne permanente. À trancher : autorisez-vous explicitement à toucher ce token précis, ou dois-je passer par 17 surcharges locales à la place ?
-3. **Code mort créant un risque de collision** (section 3), en particulier le `.hero` dupliqué entre du code mort et le vrai hero de la home.
-4. **Renommage "DEF"** dans les identifiants techniques : non conforme à la lettre de la règle 7, invisible à l'écran. Priorité réelle à trancher.
+2. **Renommage "DEF"** dans les identifiants techniques : non conforme à la lettre de la règle 7, invisible à l'écran. Priorité réelle à trancher.
+3. La règle 1 (non-lucrativité au premier écran) est de nouveau partiellement ouverte depuis le retrait de la mention dans le hero — voir section 7.
+
+Résolus depuis la dernière version de ce rapport : contraste `--ink-soft`, code mort et sa collision de classe CSS (qui plafonnait le H1 du hero à 64px — probablement la cause du problème de hiérarchie signalé).
 
 ---
 
 ## 7. Ce sur quoi je ne suis pas d'accord
 
 - **La règle ESUS contredit directement la règle "zéro information inventée".** Je respecte la seconde : afficher un statut juridique/fiscal faux est plus dommageable qu'une mention manquante.
-- **"35 ans d'innovation sociale par la cuisine"** (appliqué sur votre demande explicite en session) contredit la règle 4 de ce même méga-prompt ("n'écris jamais un nombre d'années figé"). Appliqué quand même car instruction directe et plus récente, mais signalé : dans six mois ce sera faux et rien ne rappellera de le corriger — exactement le problème que la règle anticipe. Cohérent avec vos propres règles, la home devrait dire "depuis 1992".
-- **Le renommage forcé de tout identifiant technique "DEF"** (classes CSS, fichiers) me semble disproportionné par rapport au risque réel : invisible pour tout visiteur, journaliste ou financeur. Je le placerais après un nettoyage du code mort (section 3) et après les corrections de contraste (section 6), qui ont un impact direct sur ce qu'un vrai visiteur perçoit ou peut lire.
-- **Je n'ai pas touché `_tokens.css`** malgré la demande explicite de corriger les contrastes, parce que la consigne permanente du projet ("ne pas toucher les design tokens globaux") est plus ancienne, plus générale, et n'a pas été explicitement levée pour cette tâche. Si vous voulez que je corrige `--ink-soft` maintenant, dites-le clairement et je le fais dans la minute.
+- **"35 ans d'innovation sociale par la cuisine" au premier écran, sans la mention "à but non lucratif"**, contredit deux points que j'avais moi-même signalés comme importants : (a) la règle 4 du méga-prompt ("n'écris jamais un nombre d'années figé") — dans six mois "35 ans" sera faux et rien ne rappellera de le corriger ; (b) la règle 1 (non-lucrativité visible dès l'accueil, "pas relégué en mentions légales") — elle ne l'est plus qu'en pied de page maintenant. J'ai appliqué le changement parce que c'est une instruction directe et plus récente que le méga-prompt, mais je le signale clairement : ces deux règles, que vous avez vous-même posées, ne sont plus respectées sur ce point précis.
+- **Le renommage forcé de tout identifiant technique "DEF"** (classes CSS, fichiers) me semble disproportionné par rapport au risque réel : invisible pour tout visiteur, journaliste ou financeur.

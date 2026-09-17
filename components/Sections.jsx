@@ -231,7 +231,7 @@ function Footer() {
         <div className="wrap">
           <div className="footer__grid">
             <div className="footer__brand">
-              <img className="footer__logo" src={data.brand.logoWhite} alt="Festin" loading="lazy" />
+              <img className="footer__logo" src={data.brand.logoGold} alt="Festin" loading="lazy" />
               <p>Festin est une association qui agit depuis 1992 pour rendre la gastronomie plus inclusive&nbsp;: insertion, formation, plaidoyer. Basée à Marseille, présente sur 14 territoires.</p>
               <a className="footer__don" href={data.donation} target="_blank" rel="noopener noreferrer">
                 <i data-lucide="heart" style={{ width: 16, height: 16 }} aria-hidden="true" />
