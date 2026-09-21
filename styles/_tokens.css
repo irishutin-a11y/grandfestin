@@ -32,8 +32,50 @@
   font-style: normal;
   font-display: swap;
 }
-/* Italic falls back to Google CDN (KoHo italic not in uploads) */
-@import url('https://fonts.googleapis.com/css2?family=KoHo:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap');
+/* Italiques et semi-bold : fichiers locaux (typos/), plus de dépendance à Google Fonts */
+@font-face {
+  font-family: 'KoHo';
+  src: url('../typos/KoHo-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'KoHo';
+  src: url('../typos/KoHo-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'KoHo';
+  src: url('../typos/KoHo-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'KoHo';
+  src: url('../typos/KoHo-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'KoHo';
+  src: url('../typos/KoHo-SemiBoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'KoHo';
+  src: url('../typos/KoHo-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
 
 :root {
   /* ---------- BRAND COLORS ---------- */

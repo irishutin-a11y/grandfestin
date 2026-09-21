@@ -1,5 +1,5 @@
 /* Festin — UI kit styles */
-@import url('./_tokens.css');
+@import url('./_tokens.css?v=2');
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { font-family: 'KoHo', sans-serif; color: var(--ink); background: var(--off-white); overflow-x: hidden; }
@@ -754,3 +754,8 @@ a.formation-card:hover .lnk { color: var(--gold); }
 .pxs__avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .pxs__person strong { display: block; font-size: 16px; }
 .pxs__person span span { display: block; font-size: 13px; color: var(--ink-mid); }
+
+/* ---------- Accessibilité : lien d'évitement ---------- */
+.skip-link { position: fixed; left: 12px; top: -60px; z-index: 10000; background: var(--gold); color: var(--ink); padding: 12px 18px; border-radius: 8px; font-weight: 700; text-decoration: none; transition: top .15s; }
+.skip-link:focus { top: 12px; }
+main:focus { outline: none; }
