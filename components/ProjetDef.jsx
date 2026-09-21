@@ -294,7 +294,7 @@ function ProjetDefPage() {
                 <span className="pdef-projet__farrow" aria-hidden="true">→</span>
               </a>
               <a className="pdef-projet__fcard" href="#/formations/tfp">
-                <span className="pdef-projet__fname">Titre Professionnel</span>
+                <span className="pdef-projet__fname">Titre à finalité professionnelle</span>
                 <span className="pdef-projet__fmeta">4 mois</span>
                 <span className="pdef-projet__farrow" aria-hidden="true">→</span>
               </a>

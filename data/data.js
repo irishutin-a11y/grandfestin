@@ -228,7 +228,7 @@ window.FESTIN_DATA = {
         poster: "images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg",
       },
       candidater: {
-        pitch: "Depuis 2015, Des Étoiles et des Femmes permet à des femmes éloignées de l’emploi d’accéder aux métiers de la restauration.",
+        pitch: "Depuis 2015, Des Étoiles et des Femmes forme des femmes aux métiers de la cuisine : un diplôme, des stages, un suivi social complet.",
         eligibility: "Le parcours s’adresse aux femmes majeures qui maîtrisent le français au niveau B1 (B2 pour le CAP) et souhaitent entrer dans la cuisine.",
         sessions: "Recrutement chaque année en mai. La réunion d’information collective est obligatoire pour candidater. Prochaine session du titre à finalité professionnelle : du 9 novembre 2026 au 13 avril 2027.",
         cost: "Formation entièrement gratuite, financée par les pouvoirs publics et les mécènes. Une indemnisation est possible selon la situation.",
@@ -350,14 +350,14 @@ window.FESTIN_DATA = {
       shortTitle: "La Table de Cana",
       tagline: "Traiteur et restauration collective en insertion — depuis 1993",
       subtitle: "Traiteur et restauration collective en insertion à Marseille",
-      short: "Premier projet de Festin, La Table de Cana Marseille transforme l’exigence professionnelle en levier d’inclusion. 45 salariés en insertion accompagnés en 2025, 89 % de sorties dynamiques, plus de 400 000 convives régalés.",
+      short: "Premier projet de Festin, La Table de Cana Marseille forme des personnes en insertion au traiteur et à la restauration collective. 45 salariés en insertion accompagnés en 2025, 89 % de sorties dynamiques, plus de 400 000 convives régalés.",
       stats: [
         { value: "45",      label: "salariés en insertion en 2025" },
         { value: "89 %",    label: "de sorties dynamiques" },
         { value: "400 000", unit: "+", label: "convives régalés" },
         { value: "≈ 500",   label: "prestations traiteur" },
       ],
-      description: "La Table de Cana Marseille est le premier projet de Festin, fondé en 1993. Depuis plus de 30 ans, cette structure de restauration collective et de traiteur transforme l’exigence professionnelle en levier d’inclusion. En 2025, La Table de Cana a obtenu le label LUCIE Progress (848/1000) et renouvelé le label Empl’itude. Elle a également organisé la deuxième édition du Club des Talents — un réseau d’anciens salariés en insertion inspiré des réseaux alumni — et lancé le collectif EPICES, espace de coopération entre acteurs de l’insertion par la cuisine. Elle a aussi servi plus de 15 000 repas d’aide alimentaire à des personnes hébergées en hôtel d’urgence à Marseille.",
+      description: "La Table de Cana Marseille est le premier projet de Festin, fondé en 1993. Depuis plus de 30 ans, cette structure de restauration collective et de traiteur forme des personnes en insertion à un métier, dans un cadre structurant et exigeant. En 2025, La Table de Cana a obtenu le label LUCIE Progress (848/1000) et renouvelé le label Empl’itude. Elle a également organisé la deuxième édition du Club des Talents — un réseau d’anciens salariés en insertion inspiré des réseaux alumni — et lancé le collectif EPICES, espace de coopération entre acteurs de l’insertion par la cuisine. Elle a aussi servi plus de 15 000 repas d’aide alimentaire à des personnes hébergées en hôtel d’urgence à Marseille.",
       ctaLabel: "Visiter latabledecana-marseille.com",
       ctaUrl: "https://www.latabledecana-marseille.com",
       quote: {
@@ -377,7 +377,7 @@ window.FESTIN_DATA = {
       presentationTitle: "Traiteur et restauration collective en insertion — depuis 1993",
       mediaType: "youtube",
       mediaId: "RUpAD7u0Khs",
-      projetPhrase: "Premier projet de Festin, La Table de Cana transforme l’exigence professionnelle en levier d’inclusion depuis plus de 30 ans.",
+      projetPhrase: "Premier projet de Festin, La Table de Cana forme des personnes en insertion au traiteur et à la restauration collective depuis plus de 30 ans.",
       projetPoints: [
         "Traiteur professionnel et restauration collective avec des salariés en insertion",
         "Accompagnement individualisé de chaque salarié en insertion : coaching, formation, accès au réseau",
@@ -577,6 +577,16 @@ window.FESTIN_DATA = {
           text: "Le parcours se conclut par les examens du titre à finalité professionnelle et du DCL, puis par la remise des diplômes, suivis d'un accompagnement individuel pour une insertion socio-professionnelle durable." },
       ],
       prochaineSession: "Prochaine session : du 30 novembre 2026 au 22 avril 2027.",
+      galerie: {
+        title: "Refugee Food Festival 2026",
+        lede: "Le festival de Refugee Food, partenaire de la formation Tournesol, a réuni des restaurants à Lille et à Lyon en 2026.",
+        photos: [
+          { src: "images/refugee-food-festival/rff-lille-1.jpg", alt: "Refugee Food Festival 2026 à Lille, restaurant L’Annexe", caption: "Lille, restaurant L’Annexe", credit: "@monsieurhuman" },
+          { src: "images/refugee-food-festival/rff-lille-2.jpg", alt: "Refugee Food Festival 2026 à Lille, restaurant L’Annexe", caption: "Lille, restaurant L’Annexe", credit: "@monsieurhuman" },
+          { src: "images/refugee-food-festival/rff-lyon-3.jpg", alt: "Refugee Food Festival 2026, soirée de clôture à Lyon", caption: "Lyon, soirée de clôture", credit: "Agathe Waechter" },
+          { src: "images/refugee-food-festival/rff-lyon-4.jpg", alt: "Refugee Food Festival 2026, soirée de clôture à Lyon", caption: "Lyon, soirée de clôture", credit: "Agathe Waechter" },
+        ],
+      },
       bilan: {
         eyebrow: "Bilan de la promotion 2025-2026",
         title: "Ce que la promotion marseillaise a obtenu",
@@ -631,7 +641,7 @@ window.FESTIN_DATA = {
       price: "600 € / salarié (2 jours) · 3 000 € / organisation (groupe)",
       publicLabel: "Cheffes, chefs, managers, responsables RH",
       objectives: [
-        "Comprendre les leviers de fidélisation des équipes en restauration",
+        "Comprendre ce qui fait rester une équipe en restauration",
         "Recruter au-delà des CV et ouvrir le recrutement à la diversité",
         "Animer une équipe avec un management non-toxique",
         "Construire un cadre clair sur les conditions de travail",

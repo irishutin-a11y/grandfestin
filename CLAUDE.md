@@ -32,7 +32,7 @@ Le design system Claude Design (zip) contient d'anciennes versions des composant
 - Projets non acquis jamais au présent : « CAP vers l'Emploi », futur lieu près du Vieux-Port, Sadi Carnot.
 
 ## Chantier copywriting (dossier `copywriting/`)
-Processus en 6 étapes, validation entre chaque : 1 audit, 2 questions, 3 pistes de ton, 4 charte éditoriale, 5 arbitrage page par page, 6 réécriture. **Aucun fichier du site n'est modifié avant l'étape 6**, et à l'étape 6 seulement les chaînes de texte (data.js et textes en dur). Fichiers : `01-audit.md`, `01b-audit-complement.md`, `01c-nouveaux-elements.md`, `02-questions.md`, `02-reponses.md`, `03-pistes.md`. État : étape 3 rendue, piste à choisir.
+Processus en 6 étapes, validation entre chaque : 1 audit, 2 questions, 3 pistes de ton, 4 charte éditoriale, 5 arbitrage page par page, 6 réécriture. **Aucun fichier du site n'est modifié avant l'étape 6**, et à l'étape 6 seulement les chaînes de texte (data.js et textes en dur). Fichiers : `01-audit.md`, `01b-audit-complement.md`, `01c-nouveaux-elements.md`, `02-questions.md`, `02-reponses.md`, `03-pistes.md`, `05-plus-values.md`, `06-journal-des-changements.md`. État : implémentation faite le 21 septembre 2026 (voir `06-journal-des-changements.md`).
 
 Décisions de ton : « nous » de l'association (fiches projet à la 3ᵉ personne factuelle) ; **vouvoiement** partout ; le site parle du secteur, pas du financement public ; national d'abord, Marseille comme preuve (accueil, About), Marseille nommée là où c'est un fait (accompagnement) ; la baseline « Le goût d'avancer ensemble » **reste le titre de la home**. Intouchables : noms de dispositifs, témoignages mot pour mot, intitulés du catalogue, phrases de la direction reprises.
 

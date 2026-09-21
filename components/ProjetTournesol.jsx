@@ -302,6 +302,20 @@ function ProjetTournesolPage() {
         </section>
       )}
 
+      {/* EN IMAGES — Refugee Food Festival 2026 (crédits : voir data.js) */}
+      {p.galerie && (
+        <window.ProjetExtra tone="cream" eyebrow="En images" title={p.galerie.title} lede={p.galerie.lede}>
+          <div className="pxs__grid">
+            {p.galerie.photos.map((ph, i) => (
+              <figure key={i} style={{margin:0}}>
+                <img src={ph.src} alt={ph.alt} loading="lazy" style={{width:'100%', aspectRatio:'4/5', objectFit:'cover', borderRadius:16, display:'block'}} />
+                <figcaption style={{fontSize:13, color:'var(--ink-mid)', marginTop:8}}>{ph.caption}{ph.credit ? ' · Photo : ' + ph.credit : ''}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </window.ProjetExtra>
+      )}
+
       {/* PARTENAIRES */}
       <section className="pts-support" aria-labelledby="pts-support-t">
         <div className="wrap pts-support__inner reveal">
