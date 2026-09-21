@@ -50,7 +50,7 @@ function AboutHero() {
         <nav className="breadcrumb" aria-label="Fil d'Ariane"><a href="#/">Accueil</a><span className="breadcrumb__sep">/</span><span>Qui sommes-nous</span></nav>
         <span className="ab-eyebrow ab-eyebrow--gold">L'association Festin</span>
         <h1 className="ab-title ab-title--hero">Former, inclure, <em>transformer.</em></h1>
-        <p className="ab-lede">Née à Marseille en 1992 avec La Table de Cana, Festin construit depuis lors un écosystème de dispositifs complémentaires au service d'une restauration plus inclusive.</p>
+        <p className="ab-lede">Nous formons aux métiers de la cuisine, nous accompagnons les restaurants qui veulent recruter et manager autrement, et nous changeons les pratiques du secteur : un restaurant en prison, un traiteur d'insertion, deux parcours diplômants, un programme national. Cinq projets, tous rattachés à Festin.</p>
       </div>
     </section>
   );
@@ -63,10 +63,10 @@ function CeQuOnEst() {
       <div className="container ab-split">
         <div className="ab-split__txt ab-reveal">
           <span className="ab-eyebrow">Ce qu'on est</span>
-          <Title em="ensemble" after={null}>
-            Le goût <span className="ab-thumb"><img src={src('images/photo-cuisine-action.jpg')} alt="" loading="lazy" /></span> d'avancer
+          <Title em="un métier" after={null}>
+            Des cuisines où l'on <span className="ab-thumb"><img src={src('images/photo-cuisine-action.jpg')} alt="" loading="lazy" /></span> apprend
           </Title>
-          <p className="ab-body">Née en 1992 à Marseille avec La Table de Cana, l'association Festin mobilise la cuisine et le secteur de la restauration comme vecteurs de transformation et d'insertion sociale. Elle porte aujourd'hui cinq dispositifs complémentaires en faveur de l'inclusion et de l'évolution du secteur.</p>
+          <p className="ab-body">La Table de Cana, premier projet de l'association, est née à Marseille en 1993. Elle a ouvert la voie : Festin porte aujourd'hui cinq projets, du restaurant des Baumettes au programme national Restaure. Chacun forme, accompagne ou transforme, et tous se rattachent à une association loi 1901 à but non lucratif et d'intérêt général, agréée ESUS.</p>
         </div>
         <figure className="ab-split__photo ab-reveal">
           <img src={src('images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg')} alt="Le Grand Festin, rassemblement annuel de l'association" loading="lazy" />
@@ -137,7 +137,7 @@ function Histoire() {
       <div className="ab-hist__word" ref={word} aria-hidden="true">HISTOIRE</div>
       <div className="container ab-hist__head">
         <span className="ab-eyebrow ab-eyebrow--gold">Notre histoire</span>
-        <Title em="cuisine.">35 ans à transformer le secteur par la</Title>
+        <Title em="cuisine.">Plus de trente ans d'insertion par la</Title>
       </div>
       <div className="ab-hist__viewport">
         <ol className="ab-hist__track" ref={track}>
@@ -192,7 +192,7 @@ function Equipe() {
       <div className="container ab-team__head">
         <div>
           <span className="ab-eyebrow">L'équipe</span>
-          <Title em="écosystème">Les visages derrière l'</Title>
+          <Title em="Festin">Les visages de</Title>
         </div>
         <div className="ab-arrows">
           <button type="button" onClick={() => scrollBy(-1)} aria-label="Équipe : précédent">←</button>
@@ -211,6 +211,7 @@ function Equipe() {
                         onClick={() => setActive(a => a === id ? null : id)} aria-pressed={active === id}>
                   <span className="ab-member__frame">
                     {m.photo ? <img src={src(m.photo)} alt={m.name} loading="lazy" draggable="false" />
+                    : m.avatar ? <span className="ab-member__ph ab-member__ph--avatar"><img src={src(m.avatar)} alt={m.name} loading="lazy" draggable="false" /></span>
                              : <span className="ab-member__ph" aria-hidden="true">[XX]</span>}
                     <span className="ab-member__role"><span>{p.label}</span>{m.role}</span>
                   </span>
@@ -221,6 +222,18 @@ function Equipe() {
           </React.Fragment>
         ))}
         <span className="ab-team__end" aria-hidden="true" />
+      </div>
+      <div className="container ab-gov">
+        <span className="ab-eyebrow">Gouvernance</span>
+        <h3 className="ab-gov__title">Le bureau de l'association</h3>
+        <ul className="ab-gov__list">
+          {window.FESTIN_DATA.about.gouvernance.map(g => (
+            <li key={g.name} className="ab-gov__item">
+              <span className="ab-gov__avatar">{g.avatar ? <img src={src(g.avatar)} alt={g.name} loading="lazy" /> : <span aria-hidden="true">[XX]</span>}</span>
+              <span><strong>{g.name}</strong><span>{g.role}</span></span>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
@@ -254,7 +267,7 @@ function Valeurs() {
       <div className="container">
         <div className="ab-head">
           <span className="ab-eyebrow">Nos valeurs</span>
-          <Title em="choix">Trois convictions qui guident nos</Title>
+          <Title em="choix">Ce qui guide nos</Title>
         </div>
         <div className="ab-vals">
           {valeurs.map((v, i) => (
@@ -271,13 +284,7 @@ function Valeurs() {
 }
 
 // ---------- 6. PARTENAIRES — même hauteur optique, monochrome, couleur + pause au survol ----------
-const ABOUT_LOGOS = [
-  { src: 'images/partners/la-source.svg',           alt: 'La Source' },
-  { src: 'images/partners/the-small-group.webp',    alt: 'The Small Group' },
-  { src: 'images/partners/les-grandes-tables.jpeg', alt: 'Les Grandes Tables' },
-  { src: 'images/partners/les-bords-de-mer.png',    alt: 'Les Bords de Mer' },
-  { src: 'images/partners/sofitel.jpg',             alt: 'Sofitel Hotels & Resorts' },
-];
+const ABOUT_LOGOS = window.FESTIN_DATA.about.partenaires;
 function Partenaires() {
   const row = (hidden) => ABOUT_LOGOS.map((l, i) => (
     <li key={(hidden ? 'b' : 'a') + i} className="ab-logo" aria-hidden={hidden || undefined}>
@@ -299,7 +306,7 @@ function Engager() {
   const cards = [
     { profile: "Vous êtes restaurateur", title: "Faire évoluer vos pratiques", cta: "Découvrir les formations", href: "#/formations" },
     { profile: "Vous êtes partenaire ou financeur", title: "Soutenir l'écosystème Festin", cta: "Nous contacter", href: "#/contact" },
-    { profile: "Vous êtes en parcours d'insertion", title: "Rejoindre une promotion", cta: "Découvrir les parcours", href: "#/projets/des-etoiles-et-des-femmes" },
+    { profile: "Vous cherchez un métier", title: "Rejoindre une promotion", cta: "Découvrir les parcours", href: "#/projets/des-etoiles-et-des-femmes" },
   ];
   return (
     <section className="ab-engage">
