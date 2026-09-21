@@ -1,0 +1,353 @@
+// About.jsx — page « Qui sommes-nous ». Contenus : window.FESTIN_DATA (.about, .stats).
+// Animations : GSAP + ScrollTrigger (déjà synchronisés avec Lenis dans index.html). Styles : styles/about.css.
+(function () {
+const { useRef, useEffect, useState, useCallback } = React;
+
+const RM = () => window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+const src = (p) => encodeURI(p);
+
+// Titre : capitales grasses + mot clé en italique léger (contraste graisse / pente)
+function Title({ children, em, after, level = 2, className = '' }) {
+  const Tag = 'h' + level;
+  return <Tag className={'ab-title ' + className}>{children}{em && <> <em>{em}</em></>}{after}</Tag>;
+}
+
+// ---------- 0. HERO — titre monumental + tuiles portrait flottantes ----------
+const HERO_TILES = [
+  { img: 'images/photo-groupe-portrait.jpg',     cls: 't1', speed: -60 },
+  { img: 'images/photo-apprenante-plats.jpg',    cls: 't2', speed: 40 },
+  { img: 'images/photo-promo-groupe.jpg',        cls: 't3', speed: -90 },
+  { img: 'images/photo-micro-temoignage.jpg',    cls: 't4', speed: 70 },
+  { img: 'images/photo-tabliers-violets.jpg',    cls: 't5', speed: -40 },
+  { img: 'images/photo-service-restaurant.jpg',  cls: 't6', speed: 90 },
+  { img: 'images/photo-applaudissements.jpg',    cls: 't7', speed: -70 },
+];
+
+function AboutHero() {
+  const root = useRef(null);
+  useEffect(() => {
+    if (RM() || !window.gsap) return;
+    const { gsap, ScrollTrigger } = window;
+    const ctx = gsap.context(() => {
+      gsap.from('.ab-tile', { opacity: 0, scale: .82, y: 30, duration: .7, stagger: .08, ease: 'power3.out', delay: .1 });
+      root.current.querySelectorAll('.ab-tile').forEach((t, i) => {
+        gsap.to(t.querySelector('.ab-tile__in'), {
+          y: HERO_TILES[i].speed, ease: 'none',
+          scrollTrigger: { trigger: root.current, start: 'top top', end: 'bottom top', scrub: true },
+        });
+      });
+    }, root);
+    return () => ctx.revert();
+  }, []);
+  return (
+    <section className="ab-hero" ref={root}>
+      <div className="ab-hero__tiles" aria-hidden="true">
+        {HERO_TILES.map((t, i) => (
+          <div key={i} className={'ab-tile ' + t.cls}><div className="ab-tile__in"><img src={src(t.img)} alt="" loading="eager" /></div></div>
+        ))}
+      </div>
+      <div className="container ab-hero__inner">
+        <nav className="breadcrumb" aria-label="Fil d'Ariane"><a href="#/">Accueil</a><span className="breadcrumb__sep">/</span><span>Qui sommes-nous</span></nav>
+        <span className="ab-eyebrow ab-eyebrow--gold">L'association Festin</span>
+        <h1 className="ab-title ab-title--hero">Former, inclure, <em>transformer.</em></h1>
+        <p className="ab-lede">Née à Marseille en 1992 avec La Table de Cana, Festin construit depuis lors un écosystème de dispositifs complémentaires au service d'une restauration plus inclusive.</p>
+      </div>
+    </section>
+  );
+}
+
+// ---------- 1. CE QU'ON EST — split asymétrique, photo débordante, vignette dans le titre ----------
+function CeQuOnEst() {
+  return (
+    <section className="ab-sec ab-sec--cream">
+      <div className="container ab-split">
+        <div className="ab-split__txt ab-reveal">
+          <span className="ab-eyebrow">Ce qu'on est</span>
+          <Title em="ensemble" after={null}>
+            Le goût <span className="ab-thumb"><img src={src('images/photo-cuisine-action.jpg')} alt="" loading="lazy" /></span> d'avancer
+          </Title>
+          <p className="ab-body">Née en 1992 à Marseille avec La Table de Cana, l'association Festin mobilise la cuisine et le secteur de la restauration comme vecteurs de transformation et d'insertion sociale. Elle porte aujourd'hui cinq dispositifs complémentaires en faveur de l'inclusion et de l'évolution du secteur.</p>
+        </div>
+        <figure className="ab-split__photo ab-reveal">
+          <img src={src('images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg')} alt="Le Grand Festin, rassemblement annuel de l'association" loading="lazy" />
+        </figure>
+      </div>
+    </section>
+  );
+}
+
+// ---------- 2. CHIFFRES — une couleur par chiffre, filets verticaux, compteur ----------
+function Chiffres() {
+  const root = useRef(null);
+  const stats = window.FESTIN_DATA.stats.slice(0, 4);
+  const colors = ['var(--teal)', 'var(--coral)', 'var(--violet)', 'var(--gold)'];
+  useEffect(() => {
+    if (RM() || !window.gsap) return;
+    const { gsap } = window;
+    const ctx = gsap.context(() => {
+      root.current.querySelectorAll('[data-count]').forEach(el => {
+        const end = parseFloat(el.dataset.count), o = { v: 0 };
+        el.textContent = '0';
+        gsap.to(o, { v: end, duration: 1.6, ease: 'power2.out', onUpdate: () => { el.textContent = Math.round(o.v); },
+          scrollTrigger: { trigger: el, start: 'top 85%', once: true } });
+      });
+    }, root);
+    return () => ctx.revert();
+  }, []);
+  return (
+    <section className="ab-sec ab-sec--white" ref={root}>
+      <div className="container">
+        <ul className="ab-stats">
+          {stats.map((s, i) => (
+            <li key={i} className="ab-stat">
+              <div className="ab-stat__v" style={{ color: colors[i] }}>
+                <span data-count={s.value}>{s.value}</span><span className="ab-stat__u">{s.unit}</span>
+              </div>
+              <div className="ab-stat__l">{s.label}</div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
+// ---------- 3. HISTOIRE — scroll horizontal épinglé (desktop), frise verticale (mobile) ----------
+function Histoire() {
+  const root = useRef(null), track = useRef(null), word = useRef(null);
+  const jalons = window.FESTIN_DATA.about.jalons;
+  useEffect(() => {
+    if (!window.gsap || !window.ScrollTrigger) return;
+    const { gsap } = window;
+    const mm = gsap.matchMedia();
+    mm.add('(min-width:900px) and (prefers-reduced-motion:no-preference)', () => {
+      const el = root.current;
+      el.classList.add('is-pinned');
+      const dist = () => Math.max(0, track.current.scrollWidth - window.innerWidth + 48);
+      gsap.to(track.current, { x: () => -dist(), ease: 'none',
+        scrollTrigger: { trigger: el, start: 'top top', end: () => '+=' + dist(), pin: true, scrub: .6, anticipatePin: 1, invalidateOnRefresh: true } });
+      gsap.to(word.current, { x: () => -dist() * .35, ease: 'none',
+        scrollTrigger: { trigger: el, start: 'top top', end: () => '+=' + dist(), scrub: true, invalidateOnRefresh: true } });
+      return () => el.classList.remove('is-pinned');
+    });
+    return () => mm.revert();
+  }, []);
+  return (
+    <section className="ab-hist ab-sec--dark" ref={root}>
+      <div className="ab-hist__word" ref={word} aria-hidden="true">HISTOIRE</div>
+      <div className="container ab-hist__head">
+        <span className="ab-eyebrow ab-eyebrow--gold">Notre histoire</span>
+        <Title em="cuisine.">35 ans à transformer le secteur par la</Title>
+      </div>
+      <div className="ab-hist__viewport">
+        <ol className="ab-hist__track" ref={track}>
+          {jalons.map((j, i) => (
+            <li key={i} className={'ab-jalon' + (j.dark ? ' is-dark-text' : '')} style={{ background: j.color }}>
+              <span className="ab-jalon__year">{j.year}</span>
+              <div className="ab-jalon__body">
+                <h3>{j.title}</h3>
+                <p>{j.desc}</p>
+              </div>
+              <span className="ab-jalon__img"><img src={src(j.photo)} alt="" loading="lazy" /></span>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+}
+
+// ---------- 4. ÉQUIPE — carrousel draggable groupé par pôle ----------
+function Equipe() {
+  const poles = window.FESTIN_DATA.about.poles;
+  const track = useRef(null);
+  const drag = useRef({ down: false, x: 0, left: 0, moved: false });
+  const [active, setActive] = useState(null);
+
+  const scrollBy = useCallback((dir) => {
+    const t = track.current; if (!t) return;
+    t.scrollBy({ left: dir * Math.max(260, t.clientWidth * .6), behavior: RM() ? 'auto' : 'smooth' });
+  }, []);
+  const onKey = (e) => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); scrollBy(1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); scrollBy(-1); }
+  };
+  const onDown = (e) => {
+    if (e.pointerType !== 'mouse') return;   // tactile : scroll natif + snap
+    const t = track.current, d = drag.current;
+    d.down = true; d.moved = false; d.x = e.clientX; d.left = t.scrollLeft;
+    t.classList.add('is-drag');
+  };
+  const onMove = (e) => {
+    const d = drag.current; if (!d.down) return;
+    const dx = e.clientX - d.x;
+    if (Math.abs(dx) > 5) d.moved = true;
+    track.current.scrollLeft = d.left - dx;
+  };
+  const onUp = () => { drag.current.down = false; track.current && track.current.classList.remove('is-drag'); };
+  const onClickCapture = (e) => { if (drag.current.moved) { e.preventDefault(); e.stopPropagation(); drag.current.moved = false; } };
+
+  return (
+    <section className="ab-sec ab-sec--cream ab-team">
+      <div className="container ab-team__head">
+        <div>
+          <span className="ab-eyebrow">L'équipe</span>
+          <Title em="écosystème">Les visages derrière l'</Title>
+        </div>
+        <div className="ab-arrows">
+          <button type="button" onClick={() => scrollBy(-1)} aria-label="Équipe : précédent">←</button>
+          <button type="button" onClick={() => scrollBy(1)} aria-label="Équipe : suivant">→</button>
+        </div>
+      </div>
+      <div className="ab-team__track" ref={track} tabIndex={0} role="region" aria-label="Équipe Festin, défilement horizontal (flèches gauche et droite)"
+           onKeyDown={onKey} onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerLeave={onUp} onClickCapture={onClickCapture}>
+        {poles.map(p => (
+          <React.Fragment key={p.key}>
+            <div className="ab-pole" style={{ '--pc': p.color }}><span>{p.label}</span></div>
+            {p.members.map(m => {
+              const id = p.key + m.name;
+              return (
+                <button type="button" key={id} className={'ab-member' + (active === id ? ' is-open' : '')} style={{ '--pc': p.color }}
+                        onClick={() => setActive(a => a === id ? null : id)} aria-pressed={active === id}>
+                  <span className="ab-member__frame">
+                    {m.photo ? <img src={src(m.photo)} alt={m.name} loading="lazy" draggable="false" />
+                             : <span className="ab-member__ph" aria-hidden="true">[XX]</span>}
+                    <span className="ab-member__role"><span>{p.label}</span>{m.role}</span>
+                  </span>
+                  <span className="ab-member__name">{m.name}</span>
+                </button>
+              );
+            })}
+          </React.Fragment>
+        ))}
+        <span className="ab-team__end" aria-hidden="true" />
+      </div>
+    </section>
+  );
+}
+
+// ---------- 5. VALEURS — pile de 3 cartes qui se déploie au scroll ----------
+function Valeurs() {
+  const root = useRef(null);
+  const valeurs = window.FESTIN_DATA.about.valeurs;
+  const rest = [-2.5, 1.5, -1.5];
+  useEffect(() => {
+    if (!window.gsap || !window.ScrollTrigger) return;
+    const { gsap } = window;
+    const mm = gsap.matchMedia();
+    mm.add('(min-width:900px) and (prefers-reduced-motion:no-preference)', () => {
+      const cards = gsap.utils.toArray('.ab-val', root.current);
+      cards.forEach((c, i) => {
+        gsap.fromTo(c,
+          { x: () => -(c.offsetLeft - cards[0].offsetLeft) + i * 18, y: i * 14, rotation: [-6, 4, -3][i] * 1.4, scale: .96 },
+          { x: 0, y: 0, rotation: rest[i], scale: 1, ease: 'none', immediateRender: true,
+            scrollTrigger: { trigger: root.current, start: 'top 75%', end: 'top 20%', scrub: .5, invalidateOnRefresh: true } });
+      });
+    });
+    mm.add('(max-width:899px), (prefers-reduced-motion:reduce)', () => {
+      gsap.utils.toArray('.ab-val', root.current).forEach((c, i) => gsap.set(c, { rotation: rest[i] }));
+    });
+    return () => mm.revert();
+  }, []);
+  return (
+    <section className="ab-sec ab-sec--white" ref={root}>
+      <div className="container">
+        <div className="ab-head">
+          <span className="ab-eyebrow">Nos valeurs</span>
+          <Title em="choix">Trois convictions qui guident nos</Title>
+        </div>
+        <div className="ab-vals">
+          {valeurs.map((v, i) => (
+            <article key={i} className={'ab-val' + (v.dark ? ' is-dark-text' : '')} style={{ background: v.color, zIndex: 3 - i }}>
+              <span className="ab-val__n">0{i + 1}</span>
+              <h3>{v.title}</h3>
+              <p>{v.desc}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ---------- 6. PARTENAIRES — même hauteur optique, monochrome, couleur + pause au survol ----------
+const ABOUT_LOGOS = [
+  { src: 'images/partners/la-source.svg',           alt: 'La Source' },
+  { src: 'images/partners/the-small-group.webp',    alt: 'The Small Group' },
+  { src: 'images/partners/les-grandes-tables.jpeg', alt: 'Les Grandes Tables' },
+  { src: 'images/partners/les-bords-de-mer.png',    alt: 'Les Bords de Mer' },
+  { src: 'images/partners/sofitel.jpg',             alt: 'Sofitel Hotels & Resorts' },
+];
+function Partenaires() {
+  const row = (hidden) => ABOUT_LOGOS.map((l, i) => (
+    <li key={(hidden ? 'b' : 'a') + i} className="ab-logo" aria-hidden={hidden || undefined}>
+      <img src={src(l.src)} alt={hidden ? '' : l.alt} loading="lazy" />
+    </li>
+  ));
+  return (
+    <section className="ab-sec ab-sec--cream ab-logos">
+      <div className="container"><span className="ab-eyebrow ab-eyebrow--center">Ils nous font confiance</span></div>
+      <div className="ab-logos__mask">
+        <ul className="ab-logos__track">{row(false)}{row(true)}</ul>
+      </div>
+    </section>
+  );
+}
+
+// ---------- 7. S'ENGAGER — photo plein cadre, 3 entrées par profil ----------
+function Engager() {
+  const cards = [
+    { profile: "Vous êtes restaurateur", title: "Faire évoluer vos pratiques", cta: "Découvrir les formations", href: "#/formations" },
+    { profile: "Vous êtes partenaire ou financeur", title: "Soutenir l'écosystème Festin", cta: "Nous contacter", href: "#/contact" },
+    { profile: "Vous êtes en parcours d'insertion", title: "Rejoindre une promotion", cta: "Découvrir les parcours", href: "#/projets/des-etoiles-et-des-femmes" },
+  ];
+  return (
+    <section className="ab-engage">
+      <img className="ab-engage__bg" src={src('images/photo-groupe-portrait.jpg')} alt="" loading="lazy" />
+      <div className="ab-engage__veil" />
+      <div className="container ab-engage__in">
+        <span className="ab-eyebrow ab-eyebrow--gold">S'engager</span>
+        <Title em="côtés" className="ab-title--xl">S'engager à nos</Title>
+        <ul className="ab-engage__cards">
+          {cards.map((c, i) => (
+            <li key={i}><a href={c.href}>
+              <span className="ab-engage__profile">{c.profile}</span>
+              <span className="ab-engage__t">{c.title}</span>
+              <span className="ab-engage__cta">{c.cta} <span aria-hidden="true">→</span></span>
+            </a></li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
+// ---------- PAGE ----------
+function AboutPage() {
+  const root = useRef(null);
+  useEffect(() => {
+    // apparitions : une seule intention, révéler
+    const els = root.current.querySelectorAll('.ab-reveal');
+    if (RM() || !window.ScrollTrigger) { els.forEach(e => e.classList.add('is-in')); return; }
+    const triggers = [...els].map(el => window.ScrollTrigger.create({ trigger: el, start: 'top 88%', once: true, onEnter: () => el.classList.add('is-in') }));
+    // les pins/images modifient les hauteurs : recalcul une fois tout monté
+    const refresh = () => window.ScrollTrigger.refresh();
+    const t = setTimeout(refresh, 150);
+    window.addEventListener('load', refresh);
+    return () => { clearTimeout(t); window.removeEventListener('load', refresh); triggers.forEach(tr => tr.kill()); };
+  }, []);
+  return (
+    <div className="about" ref={root} data-screen-label="04 Qui sommes-nous">
+      <AboutHero />
+      <CeQuOnEst />
+      <Chiffres />
+      <Histoire />
+      <Equipe />
+      <Valeurs />
+      <Partenaires />
+      <Engager />
+    </div>
+  );
+}
+window.AboutPage = AboutPage;
+})();

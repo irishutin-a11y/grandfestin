@@ -895,5 +895,46 @@ window.FESTIN_DATA.home = {
   }
 };
 
+// ---------- PAGE ABOUT — contenus (déplacés depuis Pages.jsx, textes inchangés sauf corrections listées) ----------
+// Chiffres : source unique = FESTIN_DATA.stats ci-dessus (Rapport d'activité 2025 : 441 / 83 % / 14 / 35 ans).
+// Ne plus les recopier en dur dans les composants. `photo: null` = portrait à fournir → cadre neutre « [XX] ».
+window.FESTIN_DATA.about = {
+  poles: [
+    { key: "direction", label: "Direction & gestion", color: "#1D6B78", members: [
+      { name: "Armand Hurault", role: "Directeur", photo: null },
+      { name: "Marine Vever",   role: "Directrice adjointe", photo: null },
+      { name: "Marie Plé",      role: "Assistante de gestion", photo: null },
+    ]},
+    { key: "com", label: "Communication & communauté", color: "#9A5BA8", members: [
+      { name: "Iris Liberty",      role: "Animation de communauté — Restaure", photo: null },
+      { name: "Iris Hutin",        role: "Chargée de projet Communication", photo: null },
+      { name: "Mattieu Donsimoni", role: "Communication (alternance)", photo: null },
+    ]},
+    { key: "formation", label: "Formation & emploi", color: "#E8A825", members: [
+      { name: "Florence Armitano", role: "Responsable Pôle Formation", photo: null },
+      { name: "Mélanie Gambert",   role: "Coordinatrice réseau Des Étoiles et des Femmes", photo: null },
+      { name: "Karima Hellou",     role: "Responsable Emploi & Inclusion — Étoiles et Femmes", photo: null },
+      { name: "Lucie Gueydon",     role: "Chargée de projet formation (Estello Formation)", photo: null },
+    ]},
+    { key: "cuisine", label: "Cuisine — Les Beaux Mets", color: "#E4572E", members: [
+      { name: "Valentin Majan", role: "Chef de cuisine — Les Beaux Mets", photo: null },
+      { name: "Camille Lafon",  role: "Second de cuisine — Les Beaux Mets", photo: null },
+      { name: "Boris Ruel",     role: "Second de cuisine — Les Beaux Mets", photo: null },
+    ]},
+  ],
+  jalons: [
+    { year: "1992", title: "La Table de Cana", desc: "Création du premier traiteur en insertion à Marseille — la pierre fondatrice.", color: "#E8A825", dark: true, photo: "images/latable de cana/tabledecana_cdutrey_160124-5010.jpg" },
+    { year: "2015", title: "Naissance de Des Étoiles et des Femmes", desc: "Lancement à Marseille du programme d'insertion des femmes par la haute gastronomie.", color: "#E4572E", dark: true, photo: "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg" },
+    { year: "2022", title: "Ouverture des Beaux Mets", desc: "Le premier restaurant en prison ouvert au public en France — Marseille, Baumettes.", color: "#1D6B78", dark: false, photo: "images/beauxmets-images/LBM_cdutrey_071122-7922.jpg" },
+    { year: "2024", title: "Le programme Restaure", desc: "4 structures co-fondatrices, 35 structures engagées, 700 signataires du manifeste.", color: "#9A5BA8", dark: false, photo: "images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg" },
+    { year: "2026", title: "Académie Festin", desc: "Festin devient organisme de formation.", color: "#F5C84A", dark: true, photo: "images/photo-cuisine-formation.jpg" },
+  ],
+  valeurs: [
+    { title: "Non-lucrativité", color: "#E8A825", dark: true,  desc: "Festin est une association loi 1901 à but non lucratif et d'intérêt général. Chaque euro sert le projet associatif, jamais un actionnaire." },
+    { title: "Excellence",      color: "#E4572E", dark: true,  desc: "Viser l'excellence n'est pas un luxe. C'est ce qui rend l'insertion durable et l'engagement crédible auprès du secteur." },
+    { title: "Collectif",       color: "#9A5BA8", dark: false, desc: "Aucun projet Festin ne se fait seul. Nous avançons avec des chefs, des restaurants, des financeurs, des pairs." },
+  ],
+};
+
 // Backward-compat alias so anything still referencing the old name keeps working
 window.ACADEMIE_DATA = window.FESTIN_DATA;
