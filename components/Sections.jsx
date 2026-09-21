@@ -285,7 +285,7 @@ function FloatingCTA() {
     { t: "Faire un don", d: "Soutenir Festin — HelloAsso", ic: "heart", c: "#E4572E", href: data.donation, external: true },
     { t: "Réserver une table", d: "Les Beaux Mets — Baumettes", ic: "calendar-check", c: "#1D6B78", href: lesBeauxMets.ctaUrl, external: true },
     { t: "Se former / candidater", d: "Rejoindre une promotion", ic: "graduation-cap", c: "#E8A825", href: "#/formations" },
-    { t: "Recruter via Festin", d: "Travailler autrement avec les restaurateurs", ic: "briefcase", c: "#1D6B78", href: "#/accompagnement/professionnels" },
+    { t: "Recruter via Festin", d: "Recruter et manager autrement", ic: "briefcase", c: "#1D6B78", href: "#/accompagnement/professionnels" },
     { t: "Devenir partenaire", d: "Mécénat & soutien", ic: "handshake", c: "#9A5BA8", href: "#/contact" },
   ];
   useEffect(() => {
@@ -316,6 +316,21 @@ function FloatingCTA() {
     </>
   );
 }
+
+// ProjetExtra — section d'enrichissement réutilisée par les fiches projet (styles : .pxs* dans styles.css)
+function ProjetExtra({ eyebrow, title, accent, lede, tone = 'cream', children }) {
+  return (
+    <section className={'pxs pxs--' + tone}>
+      <div className="pxs__wrap">
+        <span className="pxs__eyebrow">{eyebrow}</span>
+        <h2 className="pxs__title">{title}{accent && <> <em>{accent}</em></>}</h2>
+        {lede && <p className="pxs__lede">{lede}</p>}
+        {children}
+      </div>
+    </section>
+  );
+}
+window.ProjetExtra = ProjetExtra;
 
 window.Ticker = Ticker;
 window.Academie = Academie;

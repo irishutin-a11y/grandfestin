@@ -193,6 +193,21 @@ function ProjetTournesolPage() {
         </div>
       </section>
 
+      {/* BILAN DE LA PROMOTION — source : bilan de fin de promotion Tournesol */}
+      {p.bilan && (
+        <window.ProjetExtra tone="white" eyebrow={p.bilan.eyebrow} title={p.bilan.title} lede={p.prochaineSession}>
+          <div className="pxs__grid">
+            {p.bilan.items.map((it, i) => (
+              <div className="pxs__card" key={i}>
+                <div className="pxs__stat">{it.value}</div>
+                <p>{it.label}</p>
+              </div>
+            ))}
+          </div>
+          <p className="pxs__note">{p.bilan.source}</p>
+        </window.ProjetExtra>
+      )}
+
       {/* LE PROJET — texte + accordéon à gauche, diaporama à droite */}
       <section className="pts-projet" aria-labelledby="pts-projet-t">
         <div className="wrap pts-projet__split">

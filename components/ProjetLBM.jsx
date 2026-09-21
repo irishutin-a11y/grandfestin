@@ -251,6 +251,19 @@ function ProjetLBMPage() {
         </div>
       </section>
 
+      {/* LA BRIGADE — source : rapport d'activité 2025 */}
+      <window.ProjetExtra tone="cream" eyebrow="La brigade" title="Ceux qui" accent="encadrent"
+        lede="Un chef qui forme les commis, un second, un maître d'hôtel qui forme l'équipe de salle, une conseillère en insertion professionnelle, et une direction qui pilote le projet.">
+        <ul className="pxs__people">
+          {D.about.poles.find(x => x.key === 'cuisine').members.map((m, i) => (
+            <li className="pxs__person" key={i}>
+              <span className="pxs__avatar">{m.avatar ? <img src={m.avatar} alt={m.name} loading="lazy" /> : <span aria-hidden="true">[XX]</span>}</span>
+              <span><strong>{m.name}</strong><span>{m.role}</span></span>
+            </li>
+          ))}
+        </ul>
+      </window.ProjetExtra>
+
       {/* TÉMOIGNAGES — duo statique */}
       <section className="plbm-testi" aria-labelledby="plbm-testi-t">
         <div className="wrap">

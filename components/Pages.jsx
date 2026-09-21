@@ -1697,6 +1697,48 @@ function ActualitesPage() {
           )}
         </div>
       </section>
+
+      {/* Presse : présentation, chiffres clés, contact, logos */}
+      <section id="presse" style={{padding:'var(--s-9) 0', background:'var(--cream)'}}>
+        <div className="container">
+          <div style={{maxWidth:760, marginBottom:40}}>
+            <span className="eyebrow">Presse</span>
+            <h2 className="h2">Présenter Festin <em className="accent">en quelques mots</em></h2>
+            <p className="lede" style={{marginTop:14}}>Des textes à reprendre tels quels, des chiffres sourcés et datés, un contact et les logos.</p>
+          </div>
+          <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap:20}}>
+            {[
+              {k:'En 50 mots', t:"Festin est une association à but non lucratif et d'intérêt général, agréée ESUS, basée à Marseille. Elle forme aux métiers de la cuisine des personnes en insertion, accompagne les restaurants qui veulent recruter et manager autrement, et change les pratiques du secteur avec le programme Restaure."},
+              {k:'En 100 mots', t:"Festin est une association loi 1901 à but non lucratif et d'intérêt général, agréée ESUS, basée à Marseille. Elle réunit cinq projets : Des Étoiles et des Femmes, qui forme des femmes aux métiers de la cuisine dans 13 antennes ; Les Beaux Mets, le premier restaurant en prison ouvert au public en France ; La Table de Cana, traiteur et restauration collective en insertion depuis 1993 ; le programme Restaure, qui réunit 35 structures pour prévenir les violences en cuisine ; et Tournesol, formation diplômante pour personnes réfugiées ou primo-arrivantes, avec Refugee Food. L'Académie Festin, organisme de formation certifié Qualiopi, réunit l'offre de formation."},
+            ].map((b, i) => (
+              <div key={i} style={{background:'#fff', border:'1px solid var(--line)', borderRadius:16, padding:28}}>
+                <span style={{fontSize:12, fontWeight:700, letterSpacing:'0.12em', textTransform:'uppercase', color:'var(--teal)'}}>{b.k}</span>
+                <p style={{fontSize:15, color:'var(--ink)', lineHeight:1.7, margin:'10px 0 0'}}>{b.t}</p>
+              </div>
+            ))}
+          </div>
+          <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap:20, marginTop:20}}>
+            <div style={{background:'#fff', border:'1px solid var(--line)', borderRadius:16, padding:28}}>
+              <span style={{fontSize:12, fontWeight:700, letterSpacing:'0.12em', textTransform:'uppercase', color:'var(--teal)'}}>Chiffres clés</span>
+              <ul style={{listStyle:'none', padding:0, margin:'12px 0 0', display:'grid', gap:8, fontSize:15, color:'var(--ink)'}}>
+                {[...window.FESTIN_DATA.stats.slice(0,3).map(s => s.value + (s.unit === '%' ? ' %' : s.unit === '' ? '' : ' ' + s.unit.trim()) + ' ' + s.label + (s.value === '441' || s.value === '83' ? ' (2025)' : '')),
+                  'Plus de 1 200 femmes accompagnées par Des Étoiles et des Femmes depuis 2015',
+                  '91 % de réussite aux diplômes en 2025 (Des Étoiles et des Femmes)'].map((l, i) => <li key={i}>{l}</li>)}
+              </ul>
+              <p style={{fontSize:12, color:'var(--ink-soft)', margin:'14px 0 0'}}>Source : rapport d'activité Festin 2025.</p>
+            </div>
+            <div style={{background:'#fff', border:'1px solid var(--line)', borderRadius:16, padding:28}}>
+              <span style={{fontSize:12, fontWeight:700, letterSpacing:'0.12em', textTransform:'uppercase', color:'var(--teal)'}}>Contact presse et logos</span>
+              <p style={{fontSize:15, color:'var(--ink)', lineHeight:1.7, margin:'10px 0 14px'}}>Toute demande presse, avant publication d'un communiqué ou d'un chiffre : <a href="mailto:contact@grandfestin.com" style={{color:'var(--teal)', fontWeight:700}}>contact@grandfestin.com</a>, à l'attention d'Iris Hutin, chargée de projet Communication.</p>
+              <div style={{display:'flex', flexWrap:'wrap', gap:10}}>
+                <a className="btn btn--ghost" href="images/logo-festin.png" download>Logo Festin, couleur</a>
+                <a className="btn btn--ghost" href="images/logo-festin-jaune.png" download>Logo Festin, jaune</a>
+                <a className="btn btn--ghost" href="images/logo-academie-festin.png" download>Logo Académie Festin</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

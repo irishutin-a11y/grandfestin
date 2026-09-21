@@ -179,6 +179,16 @@ window.FESTIN_DATA = {
           variant: "teal",
           bw: false,
         },
+        {
+          prenom: "Najat",
+          ville: "Marseille",
+          promo: "Promotion 2023-2024",
+          accroche: "Cette formation ouvre plein de portes",
+          extrait: "Ce n’est pas un CAP comme les autres, il donne la possibilité d’avoir son propre projet et de faire ce qu’on aime.",
+          photo: "",
+          variant: "violet",
+          bw: false,
+        },
         // Slot en attente — portrait et témoignage à recueillir
         {
           prenom: "Julia Sedefdjian",

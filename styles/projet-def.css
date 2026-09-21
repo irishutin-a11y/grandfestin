@@ -35,7 +35,7 @@
 /* ---- Hiérarchie typographique unifiée ---- */
 .pdef-sec{display:block;font-family:'KoHo',sans-serif;font-weight:700;
   font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
-.pdef-h2{font-family:'KoHo',sans-serif;font-weight:700;text-transform:none;
+.pdef-h2{font-family:'KoHo',sans-serif;font-weight:700;text-transform:uppercase;
   line-height:1.2;letter-spacing:-.015em;font-size:clamp(28px,3.4vw,38px);margin:0 0 16px}
 .pdef-h2 em{font-style:italic;color:var(--gold-light)}
 .pageProjetDef p{font-size:15px;line-height:1.6}

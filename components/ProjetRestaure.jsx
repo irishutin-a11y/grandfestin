@@ -189,7 +189,7 @@ function ProjetRestaurePage() {
         <div className="wrap prst-projet__split">
           <div className="prst-projet__body">
             <span className="prst-sec" id="prst-projet-t">Le projet</span>
-            <h2 className="prst-h2 reveal">Qu’est-ce qu’on souhaite transformer&nbsp;?</h2>
+            <h2 className="prst-h2 reveal">Ce que le programme veut transformer</h2>
             <p className="prst-projet__mission reveal">{p.mission}</p>
             <div className="prst-acc reveal">
               {(p.transformation || []).map((it, i) => {
@@ -250,6 +250,22 @@ function ProjetRestaurePage() {
           </div>
         </div>
       </section>
+
+      {/* GROUPES DE TRAVAIL, GOUVERNANCE, TOAST — source : rapport d'activité 2025 */}
+      {p.groupes && (
+        <window.ProjetExtra tone="cream" eyebrow="Comment le programme travaille" title="Cinq groupes de travail," accent="quatre structures au pilotage"
+          lede={"Le pilotage réunit " + p.gouvernance.join(", ").replace(/, ([^,]*)$/, " et $1") + ". Chaque groupe de travail a une structure pilote."}>
+          <div className="pxs__grid">
+            {p.groupes.map((g, i) => (
+              <div className="pxs__card" key={i}>
+                <h3>{g.title}</h3>
+                <p>Avec {g.pilote}</p>
+              </div>
+            ))}
+          </div>
+          <p className="pxs__lede" style={{marginTop:32, marginBottom:0}}>{p.toast}</p>
+        </window.ProjetExtra>
+      )}
 
       {/* TÉMOIGNAGE — citation unique */}
       {t && (

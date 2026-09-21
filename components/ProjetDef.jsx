@@ -303,6 +303,20 @@ function ProjetDefPage() {
         </div>
       </section>
 
+      {/* RÉSEAU DE CHEFS — source : deck financeurs */}
+      <window.ProjetExtra tone="cream" eyebrow="Le réseau" title="Des chefs qui" accent="forment"
+        lede="Des stages, du mentorat, des brigades solidaires et des festivals avec des chefs gastronomiques, dont plusieurs étoilés. Julia Sedefdjian, cheffe du restaurant Baieta à Paris, est la marraine nationale du réseau.">
+        <div className="pxs__grid">
+          {D.about.chefs.map((c, i) => (
+            <div className="pxs__card" key={i}>
+              <h3>{c.name}</h3>
+              <p>{c.place}</p>
+            </div>
+          ))}
+        </div>
+        <p className="pxs__note">Prochaine session du titre à finalité professionnelle : du 9 novembre 2026 au 13 avril 2027.</p>
+      </window.ProjetExtra>
+
       {/* TÉMOIGNAGES — bandeau défilant en boucle infinie (marquee CSS), pause au survol */}
       <section className="pdef-testi" aria-labelledby="pdef-testi-t">
         <div className="wrap">
