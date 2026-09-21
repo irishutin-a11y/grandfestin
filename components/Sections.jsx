@@ -194,7 +194,7 @@ function Contact() {
                     ))}
                   </div>
                 </div>
-                <div className="field"><label>Formation concernée <span style={{color:'var(--ink-soft)',fontWeight:400}}>(facultatif)</span></label><select defaultValue=""><option value="">Toutes formations / je ne sais pas encore</option><option>Prévention des VSS</option><option>Management juste &amp; inclusif</option><option>Étoiles &amp; Femmes — TFP</option><option>Étoiles &amp; Femmes — CAP</option><option>Tournesol — Réfugiés</option></select></div>
+                <div className="field"><label>Formation concernée <span style={{color:'var(--ink-soft)',fontWeight:400}}>(facultatif)</span></label><select defaultValue=""><option value="">Toutes formations / je ne sais pas encore</option><option>Prévention des violences sexistes et sexuelles</option><option>Management juste &amp; inclusif</option><option>Étoiles &amp; Femmes — TFP</option><option>Étoiles &amp; Femmes — CAP</option><option>Tournesol — Réfugiés</option></select></div>
                 <div className="field"><label>Message</label><textarea placeholder="Votre besoin, votre contexte…"/></div>
                 <button type="submit" className="btn btn--teal" style={{width:'100%',justifyContent:'center'}}>Envoyer le message</button>
               </form>
@@ -222,7 +222,7 @@ function Footer() {
             <div className="footer__brand">
               <img className="footer__logo" src={data.brand.logoGold} alt="Festin" loading="lazy" />
               <p className="footer__tagline">{data.brand.tagline}</p>
-              <p>Festin est une association loi 1901 à but non lucratif et d'intérêt général, agréée ESUS. Nous formons aux métiers de la cuisine, nous accompagnons les restaurants et nous changeons les pratiques du secteur.</p>
+              <p>Festin est une association loi 1901, à but non lucratif et d'intérêt général, agréée ESUS. Nous formons aux métiers de la cuisine. Nous accompagnons les restaurants. Nous changeons les pratiques du secteur.</p>
               <a className="footer__don" href={data.donation} target="_blank" rel="noopener noreferrer">
                 <i data-lucide="heart" style={{ width: 16, height: 16 }} aria-hidden="true" />
                 Faire un don

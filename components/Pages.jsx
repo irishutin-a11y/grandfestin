@@ -69,7 +69,7 @@ function Engagement() {
       icon: "chef-hat",
       profile: "Vous êtes restaurateur",
       title: "Faire évoluer vos pratiques",
-      desc: "Formations courtes pour les équipes : prévention des VSS, management juste, accueil de la diversité. Accueil de stagiaires en parcours d'insertion.",
+      desc: "Formations courtes pour les équipes : prévention des violences sexistes et sexuelles, management juste, accueil de la diversité. Accueil de stagiaires en parcours d'insertion.",
       cta: "Découvrir les formations",
       href: "#/formations",
     },
@@ -245,7 +245,7 @@ function FormationsTeaser() {
         <div className="formations__head" style={{display:'flex',justifyContent:'space-between',alignItems:'flex-end',marginBottom:48,flexWrap:'wrap',gap:24}}>
           <div>
             <span className="eyebrow">Nos formations</span>
-            <h2 className="h2">5 parcours, <em className="accent">5 publics</em></h2>
+            <h2 className="h2">Choisir sa <em className="accent">formation</em></h2>
           </div>
           <a href="#/formations" className="btn btn--ghost">Voir toutes les formations <i data-lucide="arrow-right" style={{width:16,height:16}}/></a>
         </div>
@@ -303,7 +303,7 @@ function FormationsListPage() {
         eyebrow="Catalogue"
         title="Toutes nos"
         accent="formations"
-        subtitle="Des parcours diplômants pour les personnes en insertion, des formations courtes pour les équipes de restaurants. Ouvrez une formation pour en voir le programme complet."
+        subtitle="Des parcours diplômants pour les personnes en insertion. Des formations courtes pour les équipes de restaurants. Ouvrez une formation pour voir son programme."
         breadcrumb={[{label:'Accueil',href:'#/'},{label:'Formations'}]}
       />
       <section className="formations">
@@ -550,7 +550,7 @@ function ContactPage() {
         eyebrow="Nous écrire"
         title="Parlons de votre"
         accent="projet"
-        subtitle="Restaurateur, partenaire, personne en parcours : écrivez-nous. Notre équipe vous répond sous 48 h ouvrées."
+        subtitle="Restaurateur, partenaire, personne en parcours : écrivez-nous. Notre équipe répond sous 48 h ouvrées."
         breadcrumb={[{label:'Accueil',href:'#/'},{label:'Contact'}]}
       />
       <Contact />
@@ -1056,7 +1056,7 @@ function AccompagnementInsertionPage() {
         eyebrow="Vous cherchez un métier"
         title="Apprendre un métier de cuisine,"
         accent="avec un suivi complet"
-        subtitle="Un diplôme reconnu, des stages en restaurant, un accompagnement social complet. Nous construisons votre parcours avec vous, jusqu'à l'emploi."
+        subtitle="Un diplôme reconnu. Des stages en restaurant. Un suivi social complet. Nous construisons votre parcours avec vous, jusqu'à l'emploi."
         breadcrumb={[
           {label:'Accueil', href:'#/'},
           {label:'Accompagnement'},
@@ -1086,7 +1086,7 @@ function AccompagnementInsertionPage() {
           <span className="eyebrow">Notre approche</span>
           <h2 className="h2" style={{marginTop:8, marginBottom:18}}>Un diplôme, et quelqu'un <em className="accent">à vos côtés</em></h2>
           <p className="lede" style={{color:'var(--ink-mid)'}}>
-            Nos parcours tiennent ensemble un diplôme reconnu, de l'expérience en restaurant et un accompagnement social complet : mobilité, garde d'enfants, logement, soutien linguistique. Des femmes, des personnes réfugiées ou primo-arrivantes, des personnes détenues ou en sortie de détention y trouvent leur place.
+            Nos parcours réunissent trois choses : un diplôme reconnu, de l'expérience en restaurant, un accompagnement social complet. Mobilité, garde d'enfants, logement, soutien linguistique. Des femmes, des personnes réfugiées ou primo-arrivantes, des personnes détenues ou en sortie de détention y trouvent leur place.
           </p>
           <p className="body" style={{marginTop:16}}>
             Tous nos parcours sont gratuits. Une indemnisation est possible selon votre situation.
@@ -1127,7 +1127,7 @@ function AccompagnementInsertionPage() {
         <div className="container">
           <span className="eyebrow eyebrow--gold">Candidater à une promotion</span>
           <h2 className="h2" style={{color:'#fff', maxWidth:680, margin:'14px auto 18px'}}>Construire votre <em className="accent">projet professionnel</em></h2>
-          <p className="lede" style={{color:'rgba(255,255,255,0.78)', maxWidth:560, margin:'0 auto 32px'}}>Écrivez-nous pour vérifier ensemble votre éligibilité et démarrer un parcours. Prochaines sessions : Des Étoiles et des Femmes (titre à finalité professionnelle) du 9 novembre 2026 au 13 avril 2027, Tournesol du 30 novembre 2026 au 22 avril 2027.</p>
+          <p className="lede" style={{color:'rgba(255,255,255,0.78)', maxWidth:560, margin:'0 auto 32px'}}>Écrivez-nous. Nous vérifierons ensemble votre éligibilité. Prochaines sessions : Des Étoiles et des Femmes (titre à finalité professionnelle), du 9 novembre 2026 au 13 avril 2027. Tournesol, du 30 novembre 2026 au 22 avril 2027.</p>
           <a href="#/contact" className="btn btn--gold">Nous contacter <i data-lucide="arrow-right" style={{width:16, height:16}}/></a>
         </div>
       </section>
@@ -1145,7 +1145,7 @@ function AccompagnementProsPage() {
         eyebrow="Vous êtes restaurateur"
         title="Recruter et manager autrement,"
         accent="avec Festin"
-        subtitle="Des stagiaires formées à votre carte, des formations sur les violences en cuisine et le management juste : un partenariat construit avec des professionnels du secteur."
+        subtitle="Des stagiaires formées à votre carte. Des formations sur les violences en cuisine et le management juste. Un partenariat construit avec des professionnels du secteur."
         breadcrumb={[
           {label:'Accueil', href:'#/'},
           {label:'Accompagnement'},
@@ -1165,17 +1165,17 @@ function AccompagnementProsPage() {
               {
                 icon: 'users',
                 title: 'Recruter autrement',
-                desc: 'Accueillez des stagiaires de Des Étoiles et des Femmes ou de Tournesol : un binôme, un tutorat, un suivi pendant le stage, puis un recrutement si la rencontre a lieu. Vous ne restez pas seul face à la pénurie de main-d\'œuvre.',
+                desc: 'Accueillez des stagiaires de Des Étoiles et des Femmes ou de Tournesol. Un binôme, un tutorat, un suivi pendant le stage. Si la rencontre a lieu, vous recrutez. Face à la pénurie de main-d\'œuvre, vous n\'êtes plus seul.',
               },
               {
                 icon: 'shield-check',
                 title: 'Prévenir les violences',
-                desc: 'Une formation sur les violences sexistes et sexuelles pensée pour la cuisine, la salle et la brigade : cadre légal, cas pratiques tirés de situations réelles, protocole de signalement.',
+                desc: 'Une formation sur les violences sexistes et sexuelles, pensée pour la cuisine, la salle et la brigade. Le cadre légal. Des cas tirés de situations réelles. Un protocole de signalement.',
               },
               {
                 icon: 'handshake',
                 title: 'Manager juste',
-                desc: 'Deux jours pour fidéliser une équipe : posture managériale, recrutement inclusif, droit à l\'erreur, plan d\'action pour votre établissement.',
+                desc: 'Deux jours pour fidéliser une équipe. Posture managériale, recrutement inclusif, droit à l\'erreur. Vous repartez avec un plan d\'action pour votre établissement.',
               },
             ].map((b, i) => (
               <div key={i} style={{background:'#fff', border:'1px solid var(--line)', borderRadius:16, padding:28}}>
@@ -1196,7 +1196,7 @@ function AccompagnementProsPage() {
           <div style={{maxWidth:760, marginBottom:40}}>
             <span className="eyebrow">Recruter avec France Travail</span>
             <h2 className="h2">Accueillir un candidat, <em className="accent">étape par étape</em></h2>
-            <p className="lede" style={{marginTop:14}}>La préparation opérationnelle à l'emploi individuelle (POEI), financée par France Travail, permet de recruter une personne formée à votre cuisine. Festin facilite les démarches.</p>
+            <p className="lede" style={{marginTop:14}}>La préparation opérationnelle à l'emploi individuelle (POEI) est financée par France Travail. Elle permet de recruter une personne formée à votre cuisine. Festin facilite les démarches.</p>
           </div>
           <div style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:20}}>
             {[
@@ -1241,7 +1241,7 @@ function AccompagnementProsPage() {
             <span className="eyebrow eyebrow--gold">Au-delà des formations</span>
             <h2 className="h2" style={{marginTop:8, marginBottom:18}}>Rejoindre <em className="accent">le programme Restaure</em></h2>
             <p className="lede" style={{color:'var(--ink-mid)'}}>
-              Restaure réunit 35 structures et 700 signataires du manifeste pour changer les pratiques du secteur. Vous pouvez signer le manifeste, rejoindre un groupe de travail, venir aux tables rondes ou aux Toast : des apéros inspirants, organisés avec La Communauté Ecotable, où les restaurateurs échangent leurs pratiques.
+              Restaure réunit 35 structures et 700 signataires du manifeste. Leur but : changer les pratiques du secteur. Vous pouvez signer le manifeste, rejoindre un groupe de travail, venir aux tables rondes. Ou aux Toast : des apéros inspirants, organisés avec La Communauté Ecotable, où les restaurateurs échangent leurs pratiques.
             </p>
             <a href="#/projets/restaure" className="btn btn--teal" style={{marginTop:24}}>Découvrir Restaure <i data-lucide="arrow-right" style={{width:16, height:16}}/></a>
           </div>
@@ -1256,7 +1256,7 @@ function AccompagnementProsPage() {
         <div className="container">
           <span className="eyebrow eyebrow--gold">Nous contacter</span>
           <h2 className="h2" style={{color:'#fff', maxWidth:680, margin:'14px auto 18px'}}>Parlons de votre <em className="accent">établissement</em></h2>
-          <p className="lede" style={{color:'rgba(255,255,255,0.78)', maxWidth:560, margin:'0 auto 32px'}}>Notre équipe vous répond sous 48&nbsp;h ouvrées. Le Book de l'emploi, qui présente les personnes diplômées de nos parcours en recherche de poste, vous est envoyé sur demande.</p>
+          <p className="lede" style={{color:'rgba(255,255,255,0.78)', maxWidth:560, margin:'0 auto 32px'}}>Notre équipe répond sous 48&nbsp;h ouvrées. Le Book de l'emploi présente les personnes diplômées de nos parcours qui cherchent un poste. Nous vous l'envoyons sur demande.</p>
           <a href="#/contact" className="btn btn--gold">Échanger avec notre équipe, ou demander le Book de l'emploi <i data-lucide="arrow-right" style={{width:16, height:16}}/></a>
         </div>
       </section>
@@ -1332,7 +1332,7 @@ function ImpactPage() {
         eyebrow="Chiffres et rapports"
         title="Ce que 2025"
         accent="a changé"
-        subtitle="Les chiffres du rapport d'activité 2025, les faits marquants de l'année et les reconnaissances obtenues."
+        subtitle="Les chiffres du rapport d'activité 2025. Les faits marquants de l'année. Les reconnaissances obtenues."
         breadcrumb={[
           {label:'Accueil', href:'#/'},
           {label:'Notre impact'},
@@ -1364,15 +1364,15 @@ function ImpactPage() {
           </div>
           <div style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:20}}>
             {[
-              {k:'Des Étoiles et des Femmes', t:'Le Grand Festin des dix ans', d:'Le 3 octobre, 13 villes, 13 brigades, 550 convives et plus de 100 bénévoles sur le Vieux-Port de Marseille.'},
-              {k:'Des Étoiles et des Femmes', t:'Un partenariat avec le Greta', d:'Festin devient sous-traitant d\'une partie des heures de formation du marché de la formation professionnelle de la Région Sud.'},
-              {k:'Des Étoiles et des Femmes', t:'Julia Sedefdjian, marraine nationale', d:'La cheffe rejoint le réseau à l\'occasion des dix ans du programme.'},
-              {k:'Restaure', t:'Cinq tables rondes, deux millions de vues', d:'Marseille, Toulouse, Lille : cinq tables rondes enregistrées en podcast, et des vidéos de prévention des violences en cuisine vues plus de deux millions de fois.'},
-              {k:'Les Beaux Mets', t:'Un documentaire de 45 minutes sur M6', d:'« Un jour un doc » consacre un numéro au restaurant. La brigade lance aussi ses biscuits à emporter, navettes et croquants.'},
-              {k:'La Table de Cana', t:'LUCIE Progress et Empl\'itude', d:'Le label LUCIE Progress (848 sur 1 000), et un label Empl\'itude renouvelé. Le collectif EPICES voit le jour.'},
-              {k:'Tournesol', t:'Une formation portée avec Refugee Food', d:'Festin porte la formation Tournesol avec Refugee Food et Estello Formation, en cinq mois, gratuite et rémunérée.'},
-              {k:'Restaure', t:'Cinq groupes de travail', d:'La gouvernance est consolidée autour de quatre structures, et une formation « Management juste » est lancée.'},
-              {k:'Des Étoiles et des Femmes', t:'Une formation sur les violences sexistes et sexuelles', d:'Elle s\'adresse aux professionnels de la restauration.'},
+              {k:'Des Étoiles et des Femmes', t:'Le Grand Festin des dix ans', d:'Le 3 octobre : 13 villes, 13 brigades, 550 convives, plus de 100 bénévoles. Sur le Vieux-Port de Marseille.'},
+              {k:'Des Étoiles et des Femmes', t:'Un partenariat avec le Greta', d:'Festin devient sous-traitant d\'une partie des heures de formation du marché de la Région Sud.'},
+              {k:'Des Étoiles et des Femmes', t:'Julia Sedefdjian, marraine nationale', d:'La cheffe rejoint le réseau pour les dix ans du programme.'},
+              {k:'Restaure', t:'Cinq tables rondes, deux millions de vues', d:'Cinq tables rondes à Marseille, Toulouse et Lille, enregistrées en podcast. Des vidéos de prévention des violences en cuisine vues plus de deux millions de fois.'},
+              {k:'Les Beaux Mets', t:'Un documentaire de 45 minutes sur M6', d:'« Un jour un doc » lui consacre 45 minutes. La brigade lance aussi ses biscuits à emporter : navettes et croquants.'},
+              {k:'La Table de Cana', t:'LUCIE Progress et Empl\'itude', d:'Le label LUCIE Progress, avec 848 sur 1 000. Le label Empl\'itude, renouvelé. Et la naissance du collectif EPICES.'},
+              {k:'Tournesol', t:'Une formation portée avec Refugee Food', d:'Festin porte la formation avec Refugee Food et Estello Formation. Cinq mois, gratuits et rémunérés.'},
+              {k:'Restaure', t:'Cinq groupes de travail', d:'La gouvernance se consolide autour de quatre structures. Une formation « Management juste » voit le jour.'},
+              {k:'Des Étoiles et des Femmes', t:'Une formation sur les violences sexistes et sexuelles', d:'Une formation destinée aux professionnels de la restauration.'},
             ].map((f, i) => (
               <div key={i} style={{background:'#fff', border:'1px solid var(--line)', borderRadius:14, padding:24}}>
                 <span style={{fontSize:11, fontWeight:700, letterSpacing:'0.12em', textTransform:'uppercase', color:'var(--teal)'}}>{f.k}</span>
@@ -1390,7 +1390,7 @@ function ImpactPage() {
           <div style={{maxWidth:760, marginBottom:48}}>
             <span className="eyebrow">Synthèse financière 2025</span>
             <h2 className="h2">Un budget de <em className="accent">1,7 M€</em></h2>
-            <p className="lede" style={{marginTop:14}}>Le budget 2025 vient de quatre sources : mécénat privé, subventions publiques, aides aux postes et chiffre d'affaires. Cette diversité protège l'autonomie de l'association.</p>
+            <p className="lede" style={{marginTop:14}}>Quatre sources financent le budget 2025 : mécénat privé, subventions publiques, aides aux postes, chiffre d'affaires. Cette diversité protège l'autonomie de l'association.</p>
           </div>
           {(() => {
             const budget = [
@@ -1516,7 +1516,7 @@ function AcademiePage() {
         eyebrow="Depuis 2026"
         title="L'Académie"
         accent="Festin"
-        subtitle="Organisme de formation certifié Qualiopi, l'Académie Festin réunit l'offre de formation de l'association : des formations courtes pour les équipes de restaurants, des parcours diplômants pour les personnes en insertion."
+        subtitle="Organisme de formation certifié Qualiopi. L'Académie Festin réunit l'offre de formation de l'association : des formations courtes pour les équipes, des parcours diplômants pour les personnes en insertion."
         breadcrumb={[{label:'Accueil',href:'#/'},{label:"L'Académie Festin"}]}
       />
 
@@ -1528,7 +1528,7 @@ function AcademiePage() {
             <span className="eyebrow">Notre positionnement</span>
             <h2 className="h2" style={{marginTop:8, marginBottom:20}}>Former <em className="accent">autrement</em></h2>
             <p className="lede" style={{color:'var(--ink-mid)', lineHeight:1.7}}>
-              Festin forme sur le terrain depuis plus de trente ans. En 2026, l'association en fait un organisme de formation, l'Académie Festin, certifié Qualiopi et co-porté avec Estello Formation. Ses parcours tiennent ensemble trois choses : l'exigence de la cuisine, le suivi social des personnes formées et la connaissance du secteur.
+              Festin forme sur le terrain depuis plus de trente ans. En 2026, l'association en fait un organisme de formation : l'Académie Festin, certifiée Qualiopi, co-portée avec Estello Formation. Trois choses tiennent ses parcours : l'exigence de la cuisine, le suivi social des personnes formées, la connaissance du secteur.
             </p>
             <div style={{display:'flex', alignItems:'center', gap:14, marginTop:28, padding:'16px 20px', background:'var(--cream)', borderRadius:12, border:'1px solid var(--line)'}}>
               <img src={window.FESTIN_DATA.brand.qualiopi} alt="Logo Qualiopi" loading="lazy"
@@ -1708,8 +1708,8 @@ function ActualitesPage() {
           </div>
           <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap:20}}>
             {[
-              {k:'En 50 mots', t:"Festin est une association à but non lucratif et d'intérêt général, agréée ESUS, basée à Marseille. Elle forme aux métiers de la cuisine des personnes en insertion, accompagne les restaurants qui veulent recruter et manager autrement, et change les pratiques du secteur avec le programme Restaure."},
-              {k:'En 100 mots', t:"Festin est une association loi 1901 à but non lucratif et d'intérêt général, agréée ESUS, basée à Marseille. Elle réunit cinq projets : Des Étoiles et des Femmes, qui forme des femmes aux métiers de la cuisine dans 13 antennes ; Les Beaux Mets, le premier restaurant en prison ouvert au public en France ; La Table de Cana, traiteur et restauration collective en insertion depuis 1993 ; le programme Restaure, qui réunit 35 structures pour prévenir les violences en cuisine ; et Tournesol, formation diplômante pour personnes réfugiées ou primo-arrivantes, avec Refugee Food. L'Académie Festin, organisme de formation certifié Qualiopi, réunit l'offre de formation."},
+              {k:'En 50 mots', t:"Festin est une association à but non lucratif et d'intérêt général, agréée ESUS, basée à Marseille. Elle forme aux métiers de la cuisine des personnes en insertion. Elle accompagne les restaurants qui veulent recruter et manager autrement. Avec le programme Restaure, elle change les pratiques du secteur."},
+              {k:'En 100 mots', t:"Festin est une association loi 1901, à but non lucratif et d'intérêt général, agréée ESUS. Elle est basée à Marseille. Elle réunit cinq projets. Des Étoiles et des Femmes forme des femmes aux métiers de la cuisine, dans 13 antennes. Les Beaux Mets est le premier restaurant en prison ouvert au public en France. La Table de Cana, traiteur et restauration collective en insertion, existe depuis 1993. Le programme Restaure réunit 35 structures contre les violences en cuisine. Tournesol forme des personnes réfugiées ou primo-arrivantes, avec Refugee Food. L'Académie Festin, certifiée Qualiopi, réunit l'offre de formation."},
             ].map((b, i) => (
               <div key={i} style={{background:'#fff', border:'1px solid var(--line)', borderRadius:16, padding:28}}>
                 <span style={{fontSize:12, fontWeight:700, letterSpacing:'0.12em', textTransform:'uppercase', color:'var(--teal)'}}>{b.k}</span>

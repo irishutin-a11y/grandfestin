@@ -231,7 +231,7 @@ function ProjetDefPage() {
             <span className="pdef-sec" id="pdef-projet-t">Le projet</span>
             <h2 className="pdef-h2 reveal">Un programme national,<br />une exigence partagée</h2>
             <p className="pdef-projet__lede reveal">
-              Un réseau national de 13 antennes essaime le programme dans toute la France&nbsp;: chaque antenne s’appuie sur des centres de formation, des restaurateurs et des partenaires locaux.
+              13 antennes, dans toute la France. Chacune s’appuie sur des centres de formation, des restaurateurs et des partenaires locaux.
             </p>
             <div className="pdef-acc reveal">
               {projetItems.map((it, i) => {

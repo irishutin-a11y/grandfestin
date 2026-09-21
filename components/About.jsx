@@ -50,7 +50,7 @@ function AboutHero() {
         <nav className="breadcrumb" aria-label="Fil d'Ariane"><a href="#/">Accueil</a><span className="breadcrumb__sep">/</span><span>Qui sommes-nous</span></nav>
         <span className="ab-eyebrow ab-eyebrow--gold">L'association Festin</span>
         <h1 className="ab-title ab-title--hero">Former, inclure, <em>transformer.</em></h1>
-        <p className="ab-lede">Nous formons aux métiers de la cuisine, nous accompagnons les restaurants qui veulent recruter et manager autrement, et nous changeons les pratiques du secteur : un restaurant en prison, un traiteur d'insertion, deux parcours diplômants, un programme national. Cinq projets, tous rattachés à Festin.</p>
+        <p className="ab-lede">Nous formons aux métiers de la cuisine. Nous accompagnons les restaurants qui veulent recruter et manager autrement. Nous changeons les pratiques du secteur. Un restaurant en prison, un traiteur d'insertion, deux parcours diplômants, un programme national : cinq projets, tous rattachés à Festin.</p>
       </div>
     </section>
   );
@@ -66,7 +66,7 @@ function CeQuOnEst() {
           <Title em="un métier" after={null}>
             Des cuisines où l'on <span className="ab-thumb"><img src={src('images/photo-cuisine-action.jpg')} alt="" loading="lazy" /></span> apprend
           </Title>
-          <p className="ab-body">La Table de Cana, premier projet de l'association, est née à Marseille en 1993. Elle a ouvert la voie : Festin porte aujourd'hui cinq projets, du restaurant des Baumettes au programme national Restaure. Chacun forme, accompagne ou transforme, et tous se rattachent à une association loi 1901 à but non lucratif et d'intérêt général, agréée ESUS.</p>
+          <p className="ab-body">La Table de Cana naît à Marseille en 1993. C'est le premier projet de l'association. Elle a ouvert la voie. Festin porte aujourd'hui cinq projets, du restaurant des Baumettes au programme national Restaure. Chacun forme, accompagne ou transforme. Tous se rattachent à une association loi 1901, à but non lucratif et d'intérêt général, agréée ESUS.</p>
         </div>
         <figure className="ab-split__photo ab-reveal">
           <img src={src('images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg')} alt="Le Grand Festin, rassemblement annuel de l'association" loading="lazy" />
