@@ -7,7 +7,7 @@ Relevé de tes réponses dans `02-questions.md`. Ce fichier sert de mémoire si 
 | # | Décision | Conséquence pour l'écriture |
 |---|---|---|
 | 1 | **Option b** : le « nous » est celui de l'association Festin, sans signataires. Les pages projet gardent la voix du projet. | Pas de « la direction vous écrit ». « Nous » sur les pages institutionnelles, 3ᵉ personne factuelle (« Les Beaux Mets accueille… ») sur les fiches projet. |
-| 1 bis | Ajouter Jérôme Schatzman (président) et « Guillaume Hermite » (trésorier) à la page équipe. | Changement de contenu de la page About, à l'étape 6. **Orthographe du nom du trésorier à confirmer.** |
+| 1 bis | Ajouter Jérôme Schatzman (président) et Guillaume **Hermitte** (trésorier ; deux « t » dans le rapport) à la page équipe. | Changement de contenu de la page About, à l'étape 6. Le rapport liste aussi la secrétaire et les administrateurs : voir `01b`, section F. |
 | 2 | **Option a** : vouvoiement chaleureux partout. | Aucun tutoiement, y compris pour les personnes en parcours. |
 | 3 | **Option b** : le site parle du secteur (restauration, violences en cuisine, management, conditions de travail), pas du financement public. | Aucune phrase sur « la crise des financements » ni sur « les associations, associées des pouvoirs publics ». Cela reste dans les documents financeurs. |
 | 4 | **Option b** sur l'accueil et About : national d'abord, Marseille comme preuve (« depuis Marseille, jusqu'à 14 territoires »). **Option c** sur les pages d'accompagnement : Marseille nommée là où c'est un fait. | Les titres généraux ne mettent pas Marseille en tête. |
@@ -17,7 +17,7 @@ Relevé de tes réponses dans `02-questions.md`. Ce fichier sert de mémoire si 
 
 | # | Point | Réponse |
 |---|---|---|
-| 1 | Chiffres 2025 | En attente du **Rapport d'activité 2025** (PDF à venir). Tant qu'il n'est pas là : `[XX]` pour 441, 83 %, 91 %, 336, 89 %, 550. |
+| 1 | Chiffres 2025 | **Tranché : 441 / 83 % / 14.** Référence : version de 34 pages du rapport d'activité (`ressources/documents/rapport-activite-2025/`). Autres chiffres du même rapport : 336 femmes, 91 %, 89 %, 550 convives (le « 1 100 » contre « 1 200 » reste à trancher, voir `01b`). |
 | 2 | La Table de Cana | **1993**. |
 | 3 | Restaure | **« programme »** (restructuration en cours). |
 | 4 | « 35 ans » sur About | Ta ligne s'arrête au rappel de la règle : **pas de décision lisible**. Voir question ci-dessous. |

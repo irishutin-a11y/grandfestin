@@ -1,5 +1,7 @@
 # 03 — Trois pistes de ton
 
+> **À remplir** (repris dans `02-questions.md`, point A1) : piste retenue ______ · dosage : accueil ___ · fiches projet ___ · accompagnement ___ · impact et statuts ___ · une phrase de conviction par page : oui / non.
+
 Cadre commun (tes décisions, `02-reponses.md`) : « nous » de l'association, vouvoiement, le secteur et non le financement, national d'abord avec Marseille comme preuve, titre de la home inchangé : **LE GOÛT D'AVANCER ENSEMBLE**. La non-lucrativité est dite dans le texte du hero.
 
 Toutes les pistes partent de la voix de l'édito : un fait derrière chaque conviction, des verbes qui font quelque chose, un « nous » qui assume. Elles poussent des curseurs différents.
