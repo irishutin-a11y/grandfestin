@@ -171,13 +171,13 @@ function Contact() {
             ) : (
               <form onSubmit={(e)=>{e.preventDefault();setSent(true);}}>
                 <div className="field-row">
-                  <div className="field"><label>Prénom <span style={{color:'var(--gold)'}}>*</span></label><input required defaultValue=""/></div>
-                  <div className="field"><label>Nom <span style={{color:'var(--gold)'}}>*</span></label><input required/></div>
+                  <div className="field"><label>Prénom <span style={{color:'var(--teal)'}} aria-hidden="true">*</span></label><input required defaultValue=""/></div>
+                  <div className="field"><label>Nom <span style={{color:'var(--teal)'}} aria-hidden="true">*</span></label><input required/></div>
                 </div>
-                <div className="field"><label>Email <span style={{color:'var(--gold)'}}>*</span></label><input type="email" required placeholder="vous@exemple.fr"/></div>
+                <div className="field"><label>Email <span style={{color:'var(--teal)'}} aria-hidden="true">*</span></label><input type="email" required placeholder="vous@exemple.fr"/></div>
                 <div className="field"><label>Organisation</label><input placeholder="Restaurant, OPCO, collectivité…"/></div>
                 <div className="field">
-                  <label>Motif de votre demande <span style={{color:'var(--gold)'}}>*</span></label>
+                  <label>Motif de votre demande <span style={{color:'var(--teal)'}} aria-hidden="true">*</span></label>
                   <div className="motif-group" role="radiogroup" aria-required="true">
                     {[
                       { value: 'engager', label: "S'engager", icon: 'handshake' },

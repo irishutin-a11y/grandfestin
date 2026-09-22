@@ -236,7 +236,7 @@ function HomeB() {
                 <a key={c.id} href={`#/projets/${c.id}`} className="ecocard reveal">
                   <div className="ecocard__img"><img src={IMG(c.img)} loading="lazy" alt={p.shortTitle} /></div>
                   <div className="ecocard__body">
-                    <img className="ecocard__logo" src={IMG(p.logo)} alt="" />
+                    <img className="ecocard__logo" src={IMG(p.logo)} alt="" loading="lazy" decoding="async" />
                     <span className="ecocard__eb">{p.eyebrow}</span>
                     <h3>{p.shortTitle}</h3>
                     <p>{c.blurb}</p>
@@ -306,7 +306,7 @@ function HomeB() {
                   <p className="tcard__q">{c.q}</p>
                 </div>
                 <div className="tpanel"><div className="tpanel__grid"></div>
-                  {c.logo ? <img src={IMG(c.logo)} alt="" /> : <span>{c.panelText}</span>}
+                  {c.logo ? <img src={IMG(c.logo)} alt="" loading="lazy" decoding="async" /> : <span>{c.panelText}</span>}
                 </div>
               </div>
             ))}

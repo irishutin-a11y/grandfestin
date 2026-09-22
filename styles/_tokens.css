@@ -32,8 +32,7 @@
   font-style: normal;
   font-display: swap;
 }
-/* Italic falls back to Google CDN (KoHo italic not in uploads) */
-@import url('https://fonts.googleapis.com/css2?family=KoHo:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap');
+/* Italiques KoHo : chargées par <link> Google Fonts dans index.html (plus d'@import, qui bloquait le rendu en chaîne). */
 
 :root {
   /* ---------- BRAND COLORS ---------- */

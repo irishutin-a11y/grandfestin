@@ -68,6 +68,7 @@
 .plbm-crumb2__inner a{color:var(--teal);font-weight:700}
 .plbm-crumb2__inner a:hover,.plbm-crumb2__inner a:focus-visible{color:var(--teal-deep)}
 .plbm-crumb2__inner span[aria-current]{color:var(--ink);font-weight:700}
+.plbm-crumb2__rest,.plbm-crumb2__ellipsis{white-space:pre} /* garde l'espace avant le séparateur « / » */
 .plbm-crumb2__ellipsis{display:none;color:var(--ink-mid)}
 @media(max-width:640px){
   .plbm-crumb2__rest{display:none}
@@ -242,10 +243,10 @@ body.plbm-has-crumb .mnav{top:28px}
 .plbm-logogrid{position:relative;z-index:1;display:flex;justify-content:center;flex-wrap:wrap;gap:16px}
 .plbm-logocard{position:relative;display:flex;width:clamp(96px,7.5vw,116px);height:clamp(96px,7.5vw,116px);
   flex:none;background:var(--off-white);border-radius:var(--r-6);border:1px solid rgba(255,255,255,.55);
-  box-shadow:0 10px 26px -4px rgba(40,14,4,.28)}
+  box-shadow:var(--sh-md)}
 .plbm-logocard img{margin:auto;max-width:64%;max-height:64%;object-fit:contain}
 .plbm-logocard--hub{background:#fff;border:1px solid var(--teal-deep);
-  box-shadow:0 12px 32px -4px rgba(40,14,4,.34)}
+  box-shadow:var(--sh-lg)}
 .plbm-logocard--hub img{max-width:72%;max-height:72%}
 .plbm-logocard--ph{border:1.5px dashed rgba(13,43,48,.35);box-shadow:none;background:rgba(255,255,255,.5);
   align-items:center;justify-content:center;padding:8px}

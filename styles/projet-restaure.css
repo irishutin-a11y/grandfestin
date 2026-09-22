@@ -71,6 +71,7 @@
 .prst-crumb2__inner a{color:var(--teal);font-weight:700}
 .prst-crumb2__inner a:hover,.prst-crumb2__inner a:focus-visible{color:var(--teal-deep)}
 .prst-crumb2__inner span[aria-current]{color:var(--ink);font-weight:700}
+.prst-crumb2__rest,.prst-crumb2__ellipsis{white-space:pre} /* garde l'espace avant le séparateur « / » */
 .prst-crumb2__ellipsis{display:none;color:var(--ink-mid)}
 @media(max-width:640px){
   .prst-crumb2__rest{display:none}

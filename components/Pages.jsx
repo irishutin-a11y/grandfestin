@@ -437,7 +437,7 @@ function ImpactCumuleBande() {
         <div style={{display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:12}}>
           {[
             {value:'441',   label:'personnes accompagnées en 2025'},
-            {value:'83 %',  label:'de sorties en emploi ou formation'},
+            {value:'83\u00a0%',  label:'de sorties en emploi ou formation'},
             {value:'14',    label:'territoires d\'intervention'},
             {value:'5',     label:'projets complémentaires'},
           ].map((s,i) => (
@@ -1070,7 +1070,7 @@ function AccompagnementInsertionPage() {
           <div style={{display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:16}}>
             {[
               {value:'441', label:'personnes accompagnées en 2025'},
-              {value:'83 %', label:'de sorties en emploi ou formation'},
+              {value:'83\u00a0%', label:'de sorties en emploi ou formation'},
               {value:'14', label:'territoires d\'intervention'},
               {value:'5', label:'projets complémentaires'},
             ].map((s, i) => (
@@ -1312,7 +1312,7 @@ function ImpactPage() {
           <div style={{display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:16}}>
             {[
               {value:'441',   label:'personnes accompagnées en 2025'},
-              {value:'83 %',  label:'de sorties en emploi ou formation'},
+              {value:'83\u00a0%',  label:'de sorties en emploi ou formation'},
               {value:'14',    label:'territoires d\'intervention'},
               {value:'5',     label:'projets complémentaires'},
             ].map((s, i) => (
