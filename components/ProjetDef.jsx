@@ -231,7 +231,7 @@ function ProjetDefPage() {
             <span className="pdef-sec" id="pdef-projet-t">Le projet</span>
             <h2 className="pdef-h2 reveal">Un programme national,<br />une exigence partagée</h2>
             <p className="pdef-projet__lede reveal">
-              Un réseau national de 13 antennes essaime le programme dans toute la France&nbsp;: chaque antenne s’appuie sur des centres de formation, des restaurateurs et des partenaires locaux.
+              13 antennes, dans toute la France. Chacune s’appuie sur des centres de formation, des restaurateurs et des partenaires locaux.
             </p>
             <div className="pdef-acc reveal">
               {projetItems.map((it, i) => {
@@ -294,7 +294,7 @@ function ProjetDefPage() {
                 <span className="pdef-projet__farrow" aria-hidden="true">→</span>
               </a>
               <a className="pdef-projet__fcard" href="#/formations/tfp">
-                <span className="pdef-projet__fname">Titre Professionnel</span>
+                <span className="pdef-projet__fname">Titre à finalité professionnelle</span>
                 <span className="pdef-projet__fmeta">4 mois</span>
                 <span className="pdef-projet__farrow" aria-hidden="true">→</span>
               </a>
@@ -302,6 +302,20 @@ function ProjetDefPage() {
           </div>
         </div>
       </section>
+
+      {/* RÉSEAU DE CHEFS — source : deck financeurs */}
+      <window.ProjetExtra tone="cream" eyebrow="Le réseau" title="Des chefs qui" accent="forment"
+        lede="Des stages, du mentorat, des brigades solidaires et des festivals avec des chefs gastronomiques, dont plusieurs étoilés. Julia Sedefdjian, cheffe du restaurant Baieta à Paris, est la marraine nationale du réseau.">
+        <div className="pxs__grid">
+          {D.about.chefs.map((c, i) => (
+            <div className="pxs__card" key={i}>
+              <h3>{c.name}</h3>
+              <p>{c.place}</p>
+            </div>
+          ))}
+        </div>
+        <p className="pxs__note">Prochaine session du titre à finalité professionnelle : du 9 novembre 2026 au 13 avril 2027.</p>
+      </window.ProjetExtra>
 
       {/* TÉMOIGNAGES — bandeau défilant en boucle infinie (marquee CSS), pause au survol */}
       <section className="pdef-testi" aria-labelledby="pdef-testi-t">

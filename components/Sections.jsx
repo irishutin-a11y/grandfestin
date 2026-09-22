@@ -29,9 +29,9 @@ function Academie() {
           </div>
           <div className="academie__text">
             <span className="eyebrow">L'association Festin</span>
-            <h2 className="h2">Former, inclure, <em className="accent">transformer.</em></h2>
-            <p className="lede">Née à Marseille en 1992 avec La Table de Cana, l'association Festin a construit un écosystème de dispositifs de formation, d'insertion et de plaidoyer qui font de la cuisine un levier d'émancipation.</p>
-            <p className="body">Aujourd'hui présente sur 14 territoires, Festin porte 5 projets complémentaires, tous animés par la même conviction : viser l'excellence ne s'oppose pas à l'inclusion. C'est même souvent sa condition.</p>
+            <h2 className="h2">Ce que nous <em className="accent">faisons</em></h2>
+            <p className="lede">La Table de Cana, premier projet de l'association, est née à Marseille en 1993. Festin porte aujourd'hui cinq projets, du restaurant des Baumettes au programme national Restaure.</p>
+            <p className="body">Présents dans 14 territoires, nous croyons que viser haut n'exclut pas : cela élève. Les Beaux Mets en sont la preuve chaque jour, avec un chef qui forme les commis et un maître d'hôtel qui forme l'équipe de salle.</p>
             <div className="pillars">
               {pillars.map((p, i) => (
                 <div className="pillar" key={i}>
@@ -53,8 +53,8 @@ function Publics() {
       key: "insertion",
       audience: "Vous êtes en parcours d'insertion",
       tag: "Personnes en insertion",
-      title: "Accompagnement à l'insertion",
-      desc: "Femmes éloignées de l'emploi, personnes réfugiées ou primo-arrivantes : un parcours diplômant, un accompagnement social global et un vrai horizon professionnel. Festin construit le projet avec vous, jusqu'à l'emploi.",
+      title: "Apprendre un métier de cuisine",
+      desc: "Un diplôme reconnu, des stages en restaurant et un accompagnement social complet, pour des femmes et pour des personnes réfugiées ou primo-arrivantes. Nous construisons le parcours avec vous, jusqu'à l'emploi.",
       cta: "Parcours d'insertion",
       href: "#/accompagnement/insertion",
       img: "images/photo-tabliers-violets.jpg",
@@ -63,7 +63,7 @@ function Publics() {
       key: "pros",
       audience: "Vous êtes restaurateur",
       tag: "Professionnels de la restauration",
-      title: "Travailler autrement avec les restaurateurs",
+      title: "Recruter et manager autrement",
       desc: "Festin accompagne les établissements dans la transformation de leurs pratiques : recrutement inclusif, fidélisation des équipes, prévention des violences, management juste.",
       cta: "Accompagnement professionnels",
       href: "#/accompagnement/professionnels",
@@ -75,8 +75,8 @@ function Publics() {
       <div className="container">
         <div className="publics__head">
           <span className="eyebrow">Festin, deux publics</span>
-          <h2 className="h2">Un acteur dual <em className="accent">au service du secteur</em></h2>
-          <p className="lede" style={{marginTop:14}}>D'un côté l'accompagnement vers la qualification et l'emploi pour les personnes éloignées du marché du travail. De l'autre un accompagnement des professionnels de la restauration vers des pratiques plus justes. Deux portes d'entrée, une même conviction&nbsp;: la cuisine peut transformer.</p>
+          <h2 className="h2">Deux entrées, <em className="accent">un même secteur</em></h2>
+          <p className="lede" style={{marginTop:14}}>Vous apprenez un métier de cuisine, ou vous dirigez une équipe : nous accompagnons les personnes vers un diplôme et un emploi, et les restaurants vers des pratiques plus justes.</p>
         </div>
         <div className="publics__split">
           {pubs.map((p) => (
@@ -150,8 +150,8 @@ function Contact() {
           <div className="contact__info">
             <div>
               <span className="eyebrow">Contact</span>
-              <h2 className="h2">Une question ? <em className="accent">Parlons-en.</em></h2>
-              <p className="lede" style={{marginTop:12}}>Notre équipe pédagogique vous répond sous 48h ouvrées.</p>
+              <h2 className="h2">Parlons de votre <em className="accent">projet</em></h2>
+              <p className="lede" style={{marginTop:12}}>Notre équipe vous répond sous 48 h ouvrées.</p>
             </div>
             <div className="contact-items">
               <div className="contact-item"><div className="contact-item__icon"><i data-lucide="mail" style={{width:18,height:18}}/></div><div><div className="contact-item__lbl">Email</div><div className="contact-item__v">{c.email}</div></div></div>
@@ -159,8 +159,8 @@ function Contact() {
               <div className="contact-item"><div className="contact-item__icon"><i data-lucide="file-text" style={{width:18,height:18}}/></div><div><div className="contact-item__lbl">NDA / Siret</div><div className="contact-item__v">NDA {c.nda} · Siret {c.siret}</div></div></div>
             </div>
             <div className="refs">
-              <div className="ref-card"><div className="ref-card__lbl">Responsable handicap et pédagogique</div><div className="ref-card__name">Lucie Gueydon</div><div className="ref-card__role">Accessibilité, aménagements &amp; coordination des formations</div></div>
-              <div className="ref-card"><div className="ref-card__lbl">Relations restaurateurs &amp; engagement</div><div className="ref-card__name">Armand Hurault</div><div className="ref-card__role">Directeur — interlocuteur restaurateurs &amp; partenaires</div></div>
+              <div className="ref-card"><div className="ref-card__lbl">Responsable handicap et pédagogique</div><div className="ref-card__name">Lucie Gueydon</div><div className="ref-card__role">Accessibilité, aménagements et coordination des formations</div></div>
+              <div className="ref-card"><div className="ref-card__lbl">Restaurateurs et partenaires</div><div className="ref-card__name">Armand Hurault</div><div className="ref-card__role">Directeur général, interlocuteur des restaurateurs et des partenaires</div></div>
             </div>
           </div>
           <div className="contact__form">
@@ -194,7 +194,7 @@ function Contact() {
                     ))}
                   </div>
                 </div>
-                <div className="field"><label>Formation concernée <span style={{color:'var(--ink-soft)',fontWeight:400}}>(facultatif)</span></label><select defaultValue=""><option value="">Toutes formations / je ne sais pas encore</option><option>Prévention des VSS</option><option>Management juste &amp; inclusif</option><option>Étoiles &amp; Femmes — TFP</option><option>Étoiles &amp; Femmes — CAP</option><option>Tournesol — Réfugiés</option></select></div>
+                <div className="field"><label>Formation concernée <span style={{color:'var(--ink-soft)',fontWeight:400}}>(facultatif)</span></label><select defaultValue=""><option value="">Toutes formations / je ne sais pas encore</option><option>Prévention des violences sexistes et sexuelles</option><option>Management juste &amp; inclusif</option><option>Étoiles &amp; Femmes — TFP</option><option>Étoiles &amp; Femmes — CAP</option><option>Tournesol — Réfugiés</option></select></div>
                 <div className="field"><label>Message</label><textarea placeholder="Votre besoin, votre contexte…"/></div>
                 <button type="submit" className="btn btn--teal" style={{width:'100%',justifyContent:'center'}}>Envoyer le message</button>
               </form>
@@ -222,7 +222,7 @@ function Footer() {
             <div className="footer__brand">
               <img className="footer__logo" src={data.brand.logoGold} alt="Festin" loading="lazy" />
               <p className="footer__tagline">{data.brand.tagline}</p>
-              <p>Festin est une association loi 1901, non lucrative et d'intérêt général. Insertion, formation et transformation du secteur de la restauration — depuis 1992.</p>
+              <p>Festin est une association loi 1901, à but non lucratif et d'intérêt général, agréée ESUS. Nous formons aux métiers de la cuisine. Nous accompagnons les restaurants. Nous changeons les pratiques du secteur.</p>
               <a className="footer__don" href={data.donation} target="_blank" rel="noopener noreferrer">
                 <i data-lucide="heart" style={{ width: 16, height: 16 }} aria-hidden="true" />
                 Faire un don
@@ -267,7 +267,7 @@ function Footer() {
               </a>
             </div>
             <span>{data.contact.legalMention}</span>
-            <span>NDA {data.contact.nda} · Siret {data.contact.siret} · Organisme certifié Qualiopi</span>
+            <span>NDA {data.contact.nda} · Académie Festin, organisme de formation certifié Qualiopi</span>
           </div>
         </div>
       </footer>
@@ -285,7 +285,7 @@ function FloatingCTA() {
     { t: "Faire un don", d: "Soutenir Festin — HelloAsso", ic: "heart", c: "#E4572E", href: data.donation, external: true },
     { t: "Réserver une table", d: "Les Beaux Mets — Baumettes", ic: "calendar-check", c: "#1D6B78", href: lesBeauxMets.ctaUrl, external: true },
     { t: "Se former / candidater", d: "Rejoindre une promotion", ic: "graduation-cap", c: "#E8A825", href: "#/formations" },
-    { t: "Recruter via Festin", d: "Travailler autrement avec les restaurateurs", ic: "briefcase", c: "#1D6B78", href: "#/accompagnement/professionnels" },
+    { t: "Recruter via Festin", d: "Recruter et manager autrement", ic: "briefcase", c: "#1D6B78", href: "#/accompagnement/professionnels" },
     { t: "Devenir partenaire", d: "Mécénat & soutien", ic: "handshake", c: "#9A5BA8", href: "#/contact" },
   ];
   useEffect(() => {
@@ -316,6 +316,21 @@ function FloatingCTA() {
     </>
   );
 }
+
+// ProjetExtra — section d'enrichissement réutilisée par les fiches projet (styles : .pxs* dans styles.css)
+function ProjetExtra({ eyebrow, title, accent, lede, tone = 'cream', children }) {
+  return (
+    <section className={'pxs pxs--' + tone}>
+      <div className="pxs__wrap">
+        <span className="pxs__eyebrow">{eyebrow}</span>
+        <h2 className="pxs__title">{title}{accent && <> <em>{accent}</em></>}</h2>
+        {lede && <p className="pxs__lede">{lede}</p>}
+        {children}
+      </div>
+    </section>
+  );
+}
+window.ProjetExtra = ProjetExtra;
 
 window.Ticker = Ticker;
 window.Academie = Academie;

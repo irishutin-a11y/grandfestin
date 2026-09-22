@@ -4,17 +4,45 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Festin — Insertion, formation et gastronomie inclusive</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=KoHo:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" />
-<link rel="stylesheet" href="styles/styles.css?v=9" />
+<meta name="description" content="Festin, association à but non lucratif et d'intérêt général basée à Marseille : formation aux métiers de la cuisine, accompagnement des restaurants et programme Restaure." />
+<meta name="theme-color" content="#0F3C44" />
+<link rel="canonical" href="https://www.grandfestin.com/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Festin" />
+<meta property="og:locale" content="fr_FR" />
+<meta property="og:title" content="Festin, le goût d'avancer ensemble" />
+<meta property="og:description" content="Association à but non lucratif et d'intérêt général : nous formons aux métiers de la cuisine et nous accompagnons les restaurants qui veulent recruter et manager autrement." />
+<meta property="og:url" content="https://www.grandfestin.com/" />
+<meta property="og:image" content="https://www.grandfestin.com/images/web/1600/photo-groupe-portrait.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"NGO","name":"Festin","alternateName":"Association Festin","url":"https://www.grandfestin.com","logo":"https://www.grandfestin.com/images/logo-festin.png","description":"Association loi 1901 à but non lucratif et d'intérêt général, agréée ESUS. Formation aux métiers de la cuisine, accompagnement des restaurants, programme Restaure.","email":"contact@grandfestin.com","address":{"@type":"PostalAddress","streetAddress":"21 rue Grignan","postalCode":"13006","addressLocality":"Marseille","addressCountry":"FR"},"identifier":"SIRET 379 756 026 00074","sameAs":["https://www.instagram.com/association_festin/"]}
+</script>
+<script>
+/* Images lourdes : ajoute un srcset (800 / 1600 px) sans toucher aux fichiers d'origine, qui restent le repli. */
+(function(){
+  var M=["photo-cuisine-action.jpg", "photo-patisserie.jpg", "photo-apprenante-plats.jpg", "photo-groupe-portrait.jpg", "photo-tabliers-violets.jpg", "photo-applaudissements.jpg", "photo-service-restaurant.jpg", "photo-promo-groupe.jpg", "photo-chapeau-cuisine.jpg", "tournesol:formation/festin_tournesol_cdutrey_0124-3645.jpg", "images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-40.jpg", "images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg", "images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg", "images-def/chaudbouillon-045.jpg", "images-def/chaudbouillon-046.jpg", "images-def/HOTELERIE-097.jpg", "images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00022.jpg", "images-def/HOTELERIE-035.jpg", "images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00032.jpg", "beauxmets-images/LBM_carte printemps25_cdutrey_080425-1661.jpg", "beauxmets-images/LBM_cdutrey_071122-7922.jpg", "beauxmets-images/LBM_cdutrey_071122-7264.jpg", "beauxmets-images/Copie de LBM_masterclass_chloeCharles_cdutrey_030325-7735.jpg", "latable de cana/TABLECANA_EVENT_cdutrey_230625-5158.jpg", "latable de cana/tabledecana_cdutrey_160124-4393.jpg", "latable de cana/tabledecana_cdutrey_160124-5010.jpg", "latable de cana/tabledecana_cdutrey_230124-7705.jpg", "restaure : formation pro/IMG_2950.JPG", "restaure : formation pro/FESTIN_TOAST_12 FEVRIER_FEED-25.jpg", "restaure : formation pro/TASTING_RFF_CLOSING-FEED-34 (1).JPG"], S={}; M.forEach(function(p){S[p]=1});
+  function fix(img){ try{
+    var s=img.getAttribute('src'); if(!s||img.dataset.fx===s) return;
+    var rel=decodeURI(s).replace(/^\.?\//,''); if(rel.indexOf('images/')!==0) return; rel=rel.slice(7);
+    if(!S[rel]) return; img.dataset.fx=s;
+    var e=function(w){return encodeURI('images/web/'+w+'/'+rel)};
+    img.setAttribute('srcset', e(800)+' 800w, '+e(1600)+' 1600w'); img.decoding='async';
+  }catch(_){} }
+  function scan(n){ if(n.nodeType!==1) return; if(n.tagName==='IMG') fix(n); if(n.querySelectorAll) n.querySelectorAll('img').forEach(fix); }
+  new MutationObserver(function(ms){ ms.forEach(function(m){ if(m.type==='attributes') fix(m.target); else m.addedNodes.forEach(scan); }); })
+    .observe(document.documentElement,{childList:true,subtree:true,attributes:true,attributeFilter:['src']});
+})();
+</script>
+
+<link rel="stylesheet" href="styles/styles.css?v=12" />
 <link rel="stylesheet" href="styles/home-b.css?v=15" />
 <link rel="stylesheet" href="styles/projet-def.css?v=10" />
 <link rel="stylesheet" href="styles/projet-lbm.css?v=4" />
 <link rel="stylesheet" href="styles/projet-restaure.css?v=4" />
 <link rel="stylesheet" href="styles/projet-table-de-cana.css?v=2" />
 <link rel="stylesheet" href="styles/projet-tournesol.css?v=2" />
-<link rel="stylesheet" href="styles/about.css?v=2" />
+<link rel="stylesheet" href="styles/about.css?v=4" />
 <script src="https://unpkg.com/lucide@1.47.0/dist/umd/lucide.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -22,32 +50,34 @@
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
-<script src="data/data.js?v=14"></script>
+<script src="data/data.js?v=20"></script>
 </head>
 <body>
+<a class="skip-link" href="#main">Aller au contenu</a>
 <div id="root"></div>
 <!-- Bloc légal statique : présent dans le HTML servi, indépendant du rendu React
      (voir #root ci-dessus, jamais touché par ReactDOM.createRoot plus bas).
      Ne pas déplacer dans un composant React ni masquer en CSS : sert à la
      vérification Google for Nonprofits, qui lit le HTML brut sans exécuter JS. -->
 <div id="legal-static" role="contentinfo" aria-label="Informations légales" style="font-family:'KoHo',system-ui,sans-serif;font-size:13px;line-height:1.6;color:#3D5E63;background:#F7F3EC;padding:24px clamp(20px,5vw,96px);border-top:1px solid rgba(13,43,48,.08)">
-  <p style="margin:0 0 4px">Site édité par l'Association Festin, association loi 1901.</p>
+  <p style="margin:0 0 4px">Site édité par l'Association Festin, association loi 1901 à but non lucratif et d'intérêt général, agréée ESUS.</p>
   <p style="margin:0 0 4px">Siège social : 21 rue Grignan, 13006 Marseille</p>
   <p style="margin:0 0 4px">RNA : W133012740</p>
-  <p style="margin:0 0 4px">SIRET : 379 756 026 00074</p>
+  <p style="margin:0 0 4px">SIRET : 379 756 026 00074 · NDA : 93132168513</p>
+  <p style="margin:0 0 4px">Académie Festin : organisme de formation certifié Qualiopi.</p>
   <p style="margin:0 0 4px">Le site grandfestin.com est le site officiel de l'Association Festin.</p>
   <p style="margin:0"><a href="/mentions-legales" style="color:#1D6B78">Mentions légales</a></p>
 </div>
 <script type="text/babel" src="components/Nav.jsx?v=4"></script>
-<script type="text/babel" src="components/Sections.jsx?v=8"></script>
+<script type="text/babel" src="components/Sections.jsx?v=12"></script>
 <script type="text/babel" src="components/HomeB.jsx?v=6"></script>
-<script type="text/babel" src="components/ProjetDef.jsx?v=8"></script>
-<script type="text/babel" src="components/ProjetLBM.jsx?v=2"></script>
-<script type="text/babel" src="components/ProjetRestaure.jsx?v=2"></script>
-<script type="text/babel" src="components/ProjetTableDeCana.jsx?v=1"></script>
-<script type="text/babel" src="components/ProjetTournesol.jsx?v=1"></script>
-<script type="text/babel" src="components/About.jsx?v=2"></script>
-<script type="text/babel" src="components/Pages.jsx?v=10"></script>
+<script type="text/babel" src="components/ProjetDef.jsx?v=12"></script>
+<script type="text/babel" src="components/ProjetLBM.jsx?v=4"></script>
+<script type="text/babel" src="components/ProjetRestaure.jsx?v=4"></script>
+<script type="text/babel" src="components/ProjetTableDeCana.jsx?v=3"></script>
+<script type="text/babel" src="components/ProjetTournesol.jsx?v=4"></script>
+<script type="text/babel" src="components/About.jsx?v=5"></script>
+<script type="text/babel" src="components/Pages.jsx?v=15"></script>
 <script type="text/babel">
 // ─── Hash router ─────────────────────────────────────────────────
 function parseRoute(hash) {
@@ -95,6 +125,21 @@ function App() {
     if (window.__lenis) window.__lenis.scrollTo(0, { immediate: true });
     else window.scrollTo(0, 0);
     const t = setTimeout(() => { if (window.ScrollTrigger) window.ScrollTrigger.refresh(); }, 80);
+    // titre et description de la page courante (référencement, onglet)
+    const D = window.FESTIN_DATA, base = 'Festin';
+    const proj = route.name === 'projet' ? D.projets.find(x => x.id === route.id) : null;
+    const titles = {
+      home: 'Festin — Insertion, formation et gastronomie inclusive',
+      about: 'Qui sommes-nous | ' + base, formations: 'Formations | ' + base, formation: 'Formation | ' + base,
+      academie: "L'Académie Festin | " + base, impact: 'Notre impact 2025 | ' + base, actualites: 'Actualités et presse | ' + base,
+      contact: 'Contact | ' + base, 'accomp-insertion': 'Apprendre un métier de cuisine | ' + base,
+      'accomp-pros': 'Recruter et manager autrement | ' + base, 'sadi-carnot': 'Sadi Carnot | ' + base,
+    };
+    document.title = proj ? proj.shortTitle + ' | ' + base : (titles[route.name] || 'Page introuvable | ' + base);
+    const md = document.querySelector('meta[name="description"]');
+    if (md) md.setAttribute('content', proj ? proj.short : route.name === 'home'
+      ? "Festin, association à but non lucratif et d'intérêt général basée à Marseille : formation aux métiers de la cuisine, accompagnement des restaurants et programme Restaure."
+      : (document.title.split(' | ')[0] + ' : ' + base + ', association à but non lucratif et d\'intérêt général, forme aux métiers de la cuisine et accompagne les restaurants.'));
     return () => clearTimeout(t);
   }, [hash]);
 
@@ -123,7 +168,7 @@ function App() {
   return (
     <div data-screen-label={`Site — ${route.name}`}>
       <Nav />
-      <main>{page}</main>
+      <main id="main" tabIndex={-1}>{page}</main>
       <Footer />
       <FloatingCTA />
     </div>

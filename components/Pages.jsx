@@ -69,7 +69,7 @@ function Engagement() {
       icon: "chef-hat",
       profile: "Vous êtes restaurateur",
       title: "Faire évoluer vos pratiques",
-      desc: "Formations courtes pour les équipes : prévention des VSS, management juste, accueil de la diversité. Accueil de stagiaires en parcours d'insertion.",
+      desc: "Formations courtes pour les équipes : prévention des violences sexistes et sexuelles, management juste, accueil de la diversité. Accueil de stagiaires en parcours d'insertion.",
       cta: "Découvrir les formations",
       href: "#/formations",
     },
@@ -120,15 +120,15 @@ function Journal() {
       icon: "newspaper",
       cat: "Actualité",
       date: "12 mars 2026",
-      title: "Lancement de la promotion Tournesol 2026",
-      excerpt: "La nouvelle promotion Tournesol démarre aux côtés de Refugee Food et Estello Formation, avec 18 apprenants accueillis à Marseille.",
+      title: "Promotion Tournesol 2025-2026, à Marseille",
+      excerpt: "Cinq mois de formation, rémunérée, pour préparer le titre à finalité professionnelle de commis de cuisine et le DCL, avec Refugee Food et Estello Formation.",
     },
     {
       icon: "award",
       cat: "Reconnaissance",
       date: "28 février 2026",
       title: "La Table de Cana obtient le label LUCIE Progress",
-      excerpt: "Avec 848/1000, La Table de Cana Marseille consolide sa démarche RSE et son engagement pour l'insertion par la cuisine.",
+      excerpt: "La Table de Cana Marseille obtient 848 sur 1 000, et son label Empl'itude est renouvelé.",
     },
     {
       icon: "tv",
@@ -245,7 +245,7 @@ function FormationsTeaser() {
         <div className="formations__head" style={{display:'flex',justifyContent:'space-between',alignItems:'flex-end',marginBottom:48,flexWrap:'wrap',gap:24}}>
           <div>
             <span className="eyebrow">Nos formations</span>
-            <h2 className="h2">5 parcours, <em className="accent">5 publics</em></h2>
+            <h2 className="h2">Choisir sa <em className="accent">formation</em></h2>
           </div>
           <a href="#/formations" className="btn btn--ghost">Voir toutes les formations <i data-lucide="arrow-right" style={{width:16,height:16}}/></a>
         </div>
@@ -303,7 +303,7 @@ function FormationsListPage() {
         eyebrow="Catalogue"
         title="Toutes nos"
         accent="formations"
-        subtitle="Cinq parcours, deux publics, une même exigence pédagogique. Cliquez sur une formation pour découvrir le programme complet."
+        subtitle="Des parcours diplômants pour les personnes en insertion. Des formations courtes pour les équipes de restaurants. Ouvrez une formation pour voir son programme."
         breadcrumb={[{label:'Accueil',href:'#/'},{label:'Formations'}]}
       />
       <section className="formations">
@@ -550,7 +550,7 @@ function ContactPage() {
         eyebrow="Nous écrire"
         title="Parlons de votre"
         accent="projet"
-        subtitle="Notre équipe pédagogique vous répond sous 48h ouvrées."
+        subtitle="Restaurateur, partenaire, personne en parcours : écrivez-nous. Notre équipe répond sous 48 h ouvrées."
         breadcrumb={[{label:'Accueil',href:'#/'},{label:'Contact'}]}
       />
       <Contact />
@@ -1020,7 +1020,7 @@ function SadiCarnotPage() {
         eyebrow="Prochainement"
         title="Projet"
         accent="Sadi Carnot"
-        subtitle="Un nouveau projet de restaurant d'insertion — en cours de développement."
+        subtitle="Un futur restaurant d'insertion, en cours de développement."
         breadcrumb={[
           {label:'Accueil',href:'#/'},
           {label:'Restaurants'},
@@ -1035,7 +1035,7 @@ function SadiCarnotPage() {
             </div>
             <h2 className="h3" style={{marginBottom:14}}>En cours de développement</h2>
             <p className="lede" style={{color:'var(--ink-mid)',marginBottom:28,maxWidth:520,margin:'0 auto 28px'}}>
-              Ce projet est en cours de développement. Revenez bientôt pour en savoir plus, ou contactez-nous pour plus d'informations.
+              Ce projet est en cours de développement. Écrivez-nous pour en savoir plus.
             </p>
             <a href="#/contact" className="btn btn--teal">Nous contacter <i data-lucide="arrow-right" style={{width:16,height:16}}/></a>
           </div>
@@ -1053,10 +1053,10 @@ function AccompagnementInsertionPage() {
   return (
     <div data-screen-label="Accompagnement — Insertion">
       <PageHeader
-        eyebrow="Vous êtes en parcours d'insertion"
-        title="Accompagnement à"
-        accent="l'insertion"
-        subtitle="Un parcours diplômant, un accompagnement social global, un horizon professionnel. Festin construit votre projet avec vous, jusqu'à l'emploi."
+        eyebrow="Vous cherchez un métier"
+        title="Apprendre un métier de cuisine,"
+        accent="avec un suivi complet"
+        subtitle="Un diplôme reconnu. Des stages en restaurant. Un suivi social complet. Nous construisons votre parcours avec vous, jusqu'à l'emploi."
         breadcrumb={[
           {label:'Accueil', href:'#/'},
           {label:'Accompagnement'},
@@ -1068,11 +1068,8 @@ function AccompagnementInsertionPage() {
       <section style={{background:'var(--cream)', padding:'var(--s-8) 0'}}>
         <div className="container">
           <div style={{display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:16}}>
-            {[
-              {value:'441', label:'personnes accompagnées en 2025'},
-              {value:'83\u00a0%', label:'de sorties en emploi ou formation'},
-              {value:'14', label:'territoires d\'intervention'},
-              {value:'5', label:'projets complémentaires'},
+            {[...window.FESTIN_DATA.stats.slice(0,3).map(s => ({value: s.value + (s.unit === '%' ? ' %' : s.unit), label: s.label})),
+              {value:'5', label:'projets, tous rattachés à Festin'},
             ].map((s, i) => (
               <div key={i} style={{background:'#fff', border:'1px solid var(--line)', borderRadius:14, padding:24}}>
                 <div style={{fontSize:38, fontWeight:700, color:'var(--teal)', lineHeight:1, letterSpacing:'-0.02em'}}>{s.value}</div>
@@ -1087,12 +1084,12 @@ function AccompagnementInsertionPage() {
       <section style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
         <div className="container" style={{maxWidth:880, margin:'0 auto'}}>
           <span className="eyebrow">Notre approche</span>
-          <h2 className="h2" style={{marginTop:8, marginBottom:18}}>Ne pas former un métier, accompagner <em className="accent">une personne</em></h2>
+          <h2 className="h2" style={{marginTop:8, marginBottom:18}}>Un diplôme, et quelqu'un <em className="accent">à vos côtés</em></h2>
           <p className="lede" style={{color:'var(--ink-mid)'}}>
-            L'insertion par la cuisine, c'est notre spécialité depuis 1992. Femmes éloignées de l'emploi, personnes réfugiées ou primo-arrivantes, personnes détenues ou récemment libérées : nos parcours combinent diplôme reconnu, expérience terrain en restaurant, et accompagnement social complet (mobilité, garde d'enfants, logement, soutien linguistique).
+            Nos parcours réunissent trois choses : un diplôme reconnu, de l'expérience en restaurant, un accompagnement social complet. Mobilité, garde d'enfants, logement, soutien linguistique. Des femmes, des personnes réfugiées ou primo-arrivantes, des personnes détenues ou en sortie de détention y trouvent leur place.
           </p>
           <p className="body" style={{marginTop:16}}>
-            Tous nos parcours sont entièrement gratuits, financés par les pouvoirs publics et nos mécènes. Une indemnisation est possible selon votre situation.
+            Tous nos parcours sont gratuits. Une indemnisation est possible selon votre situation.
           </p>
         </div>
       </section>
@@ -1102,7 +1099,7 @@ function AccompagnementInsertionPage() {
         <div className="container">
           <div className="formations__head" style={{marginBottom:48, maxWidth:760}}>
             <span className="eyebrow">Nos parcours d'insertion</span>
-            <h2 className="h2">Quatre dispositifs pour <em className="accent">quatre publics</em></h2>
+            <h2 className="h2">Le parcours qui vous <em className="accent">correspond</em></h2>
           </div>
           <div className="formations__grid">
             {projetsInsertion.map((p) => (
@@ -1129,8 +1126,8 @@ function AccompagnementInsertionPage() {
       <section style={{background:'var(--teal-deep)', color:'#fff', padding:'var(--s-9) 0', textAlign:'center'}}>
         <div className="container">
           <span className="eyebrow eyebrow--gold">Candidater à une promotion</span>
-          <h2 className="h2" style={{color:'#fff', maxWidth:680, margin:'14px auto 18px'}}>Prêt à construire votre <em className="accent">projet professionnel</em>&nbsp;?</h2>
-          <p className="lede" style={{color:'rgba(255,255,255,0.78)', maxWidth:560, margin:'0 auto 32px'}}>Contactez-nous pour étudier votre éligibilité et démarrer un parcours.</p>
+          <h2 className="h2" style={{color:'#fff', maxWidth:680, margin:'14px auto 18px'}}>Construire votre <em className="accent">projet professionnel</em></h2>
+          <p className="lede" style={{color:'rgba(255,255,255,0.78)', maxWidth:560, margin:'0 auto 32px'}}>Écrivez-nous. Nous vérifierons ensemble votre éligibilité. Prochaines sessions : Des Étoiles et des Femmes (titre à finalité professionnelle), du 9 novembre 2026 au 13 avril 2027. Tournesol, du 30 novembre 2026 au 22 avril 2027.</p>
           <a href="#/contact" className="btn btn--gold">Nous contacter <i data-lucide="arrow-right" style={{width:16, height:16}}/></a>
         </div>
       </section>
@@ -1146,9 +1143,9 @@ function AccompagnementProsPage() {
     <div data-screen-label="Accompagnement — Professionnels">
       <PageHeader
         eyebrow="Vous êtes restaurateur"
-        title="Travailler autrement,"
-        accent="avec les restaurateurs"
-        subtitle="Recrutement inclusif, fidélisation des équipes, prévention des violences, management juste : un engagement construit avec des professionnels du secteur."
+        title="Recruter et manager autrement,"
+        accent="avec Festin"
+        subtitle="Des stagiaires formées à votre carte. Des formations sur les violences en cuisine et le management juste. Un partenariat construit avec des professionnels du secteur."
         breadcrumb={[
           {label:'Accueil', href:'#/'},
           {label:'Accompagnement'},
@@ -1161,24 +1158,24 @@ function AccompagnementProsPage() {
         <div className="container">
           <div style={{maxWidth:760, marginBottom:48}}>
             <span className="eyebrow">Ce que Festin construit avec les restaurateurs</span>
-            <h2 className="h2">Trois leviers pour <em className="accent">transformer les pratiques</em></h2>
+            <h2 className="h2">Ce que nous construisons <em className="accent">ensemble</em></h2>
           </div>
           <div style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:20}}>
             {[
               {
                 icon: 'users',
                 title: 'Recruter autrement',
-                desc: 'Accueil de stagiaires en parcours d\'insertion (Étoiles & Femmes, Tournesol). Pré-qualification, intégration, suivi. Une réponse concrète à la pénurie de main-d\'œuvre.',
+                desc: 'Accueillez des stagiaires de Des Étoiles et des Femmes ou de Tournesol. Un binôme, un tutorat, un suivi pendant le stage. Si la rencontre a lieu, vous recrutez. Face à la pénurie de main-d\'œuvre, vous n\'êtes plus seul.',
               },
               {
                 icon: 'shield-check',
                 title: 'Prévenir les violences',
-                desc: 'Module de prévention des violences sexistes et sexuelles, conçu pour la réalité du secteur (cuisine, salle, brigade, mixité). Cadre légal, cas pratiques, protocole de signalement.',
+                desc: 'Une formation sur les violences sexistes et sexuelles, pensée pour la cuisine, la salle et la brigade. Le cadre légal. Des cas tirés de situations réelles. Un protocole de signalement.',
               },
               {
                 icon: 'handshake',
                 title: 'Manager juste',
-                desc: 'Fidélisation des équipes, posture managériale, recrutement inclusif. Un parcours en deux jours pour construire un cadre de travail respectueux et durable.',
+                desc: 'Deux jours pour fidéliser une équipe. Posture managériale, recrutement inclusif, droit à l\'erreur. Vous repartez avec un plan d\'action pour votre établissement.',
               },
             ].map((b, i) => (
               <div key={i} style={{background:'#fff', border:'1px solid var(--line)', borderRadius:16, padding:28}}>
@@ -1193,13 +1190,38 @@ function AccompagnementProsPage() {
         </div>
       </section>
 
+      {/* Recruter avec France Travail (POEI) */}
+      <section style={{padding:'var(--s-9) 0', background:'var(--cream)'}}>
+        <div className="container">
+          <div style={{maxWidth:760, marginBottom:40}}>
+            <span className="eyebrow">Recruter avec France Travail</span>
+            <h2 className="h2">Accueillir un candidat, <em className="accent">étape par étape</em></h2>
+            <p className="lede" style={{marginTop:14}}>La préparation opérationnelle à l'emploi individuelle (POEI) est financée par France Travail. Elle permet de recruter une personne formée à votre cuisine. Festin facilite les démarches.</p>
+          </div>
+          <div style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:20}}>
+            {[
+              {n:'1', when:'Dès septembre 2026', t:'Des candidats présentés', d:'Nous présentons des candidats qui correspondent à vos besoins. Des journées d\'immersion en cuisine valident le profil.'},
+              {n:'2', when:'Janvier et mars 2027', t:'Deux stages chez vous', d:'Deux semaines en janvier, trois semaines en mars, dans votre établissement.'},
+              {n:'3', when:'À partir d\'avril 2027', t:'Une prise de poste', d:'Si l\'expérience est concluante : un CDD de quatre mois minimum.'},
+            ].map((s) => (
+              <div key={s.n} style={{background:'#fff', border:'1px solid var(--line)', borderRadius:16, padding:28}}>
+                <div style={{fontSize:40, fontWeight:700, color:'var(--gold)', lineHeight:1}}>{s.n}</div>
+                <span style={{display:'block', fontSize:12, fontWeight:700, letterSpacing:'0.1em', textTransform:'uppercase', color:'var(--teal)', margin:'14px 0 6px'}}>{s.when}</span>
+                <h3 style={{fontSize:20, fontWeight:700, lineHeight:1.25, margin:'0 0 8px'}}>{s.t}</h3>
+                <p style={{fontSize:14, color:'var(--ink-mid)', lineHeight:1.6, margin:0}}>{s.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Catalogue de formations */}
       <section style={{background:'var(--cream)', padding:'var(--s-9) 0'}}>
         <div className="container">
           <div className="formations__head" style={{marginBottom:48, maxWidth:760}}>
             <span className="eyebrow">Catalogue de formations</span>
-            <h2 className="h2">Deux parcours conçus pour <em className="accent">vos équipes</em></h2>
-            <p className="lede" style={{marginTop:14}}>Inter ou intra, présentiel, certifiés Qualiopi. Prise en charge OPCO possible.</p>
+            <h2 className="h2">Des formations pour <em className="accent">vos équipes</em></h2>
+            <p className="lede" style={{marginTop:14}}>Inter ou intra, en présentiel, par l'Académie Festin, organisme de formation certifié Qualiopi. Prise en charge OPCO possible.</p>
           </div>
           <div className="formations__grid">
             {formationsPros.map((f) => <FormationCardLink key={f.id} f={f}/>)}
@@ -1219,7 +1241,7 @@ function AccompagnementProsPage() {
             <span className="eyebrow eyebrow--gold">Au-delà des formations</span>
             <h2 className="h2" style={{marginTop:8, marginBottom:18}}>Rejoindre <em className="accent">le programme Restaure</em></h2>
             <p className="lede" style={{color:'var(--ink-mid)'}}>
-              Restaure fédère 35 structures et 700 signataires engagés pour transformer durablement le secteur de la restauration. Signer le manifeste, intégrer un groupe de travail, participer aux tables rondes : Festin accompagne votre engagement collectif.
+              Restaure réunit 35 structures et 700 signataires du manifeste. Leur but : changer les pratiques du secteur. Vous pouvez signer le manifeste, rejoindre un groupe de travail, venir aux tables rondes. Ou aux Toast : des apéros inspirants, organisés avec La Communauté Ecotable, où les restaurateurs échangent leurs pratiques.
             </p>
             <a href="#/projets/restaure" className="btn btn--teal" style={{marginTop:24}}>Découvrir Restaure <i data-lucide="arrow-right" style={{width:16, height:16}}/></a>
           </div>
@@ -1234,8 +1256,8 @@ function AccompagnementProsPage() {
         <div className="container">
           <span className="eyebrow eyebrow--gold">Nous contacter</span>
           <h2 className="h2" style={{color:'#fff', maxWidth:680, margin:'14px auto 18px'}}>Parlons de votre <em className="accent">établissement</em></h2>
-          <p className="lede" style={{color:'rgba(255,255,255,0.78)', maxWidth:560, margin:'0 auto 32px'}}>Notre équipe vous répond sous 48&nbsp;h ouvrées pour construire ensemble le format qui vous convient.</p>
-          <a href="#/contact" className="btn btn--gold">Échanger avec notre équipe <i data-lucide="arrow-right" style={{width:16, height:16}}/></a>
+          <p className="lede" style={{color:'rgba(255,255,255,0.78)', maxWidth:560, margin:'0 auto 32px'}}>Notre équipe répond sous 48&nbsp;h ouvrées. Le Book de l'emploi présente les personnes diplômées de nos parcours qui cherchent un poste. Nous vous l'envoyons sur demande.</p>
+          <a href="#/contact" className="btn btn--gold">Échanger avec notre équipe, ou demander le Book de l'emploi <i data-lucide="arrow-right" style={{width:16, height:16}}/></a>
         </div>
       </section>
     </div>
@@ -1244,6 +1266,17 @@ function AccompagnementProsPage() {
 
 // ---------- IMPACT PAGE ----------
 function ImpactPage() {
+  React.useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion:reduce)').matches || !window.gsap || !window.ScrollTrigger) return;
+    const els = document.querySelectorAll('.impact-count');
+    els.forEach(el => {
+      const end = parseFloat(el.dataset.count), o = { v: 0 };
+      if (isNaN(end)) return;
+      el.textContent = '0';
+      window.gsap.to(o, { v: end, duration: 1.4, ease: 'power2.out', onUpdate: () => { el.textContent = Math.round(o.v); },
+        scrollTrigger: { trigger: el, start: 'top 90%', once: true } });
+    });
+  }, []);
   // Données vérifiées (source : Plaquette Offre restaurateurs Festin 2025).
   // Toutes les autres séries seront alimentées depuis le rapport d'activité.
   // Source : Rapport d'activité Festin 2025
@@ -1253,28 +1286,28 @@ function ImpactPage() {
       year: '2025',
       url: "https://drive.google.com/file/d/1dymsU5cV00adUDLBz7zLEQYWa_t_-70z/view?usp=sharing",
       title: "Rapport d'activité 2025",
-      desc: "441 personnes accompagnées tous dispositifs confondus, 83 % de sorties en emploi ou formation. 10 ans de Des Étoiles et des Femmes, lancement de la promotion Tournesol, consolidation du programme Restaure.",
+      desc: "441 personnes accompagnées tous dispositifs confondus, 83 % de sorties en emploi ou formation. Les dix ans de Des Étoiles et des Femmes, la formation Tournesol, la consolidation du programme Restaure.",
       size: "PDF",
     },
     {
       year: '2024',
       url: "https://drive.google.com/file/d/1SxibbIWJkudH9Yd21vz9synn5vjeMwep/view?usp=sharing",
       title: "Rapport d'activité 2024",
-      desc: "Bilan de l'année 2024 — chiffres clés, projets conduits et perspectives pour l'association Festin.",
+      desc: "Bilan de l'année 2024 : chiffres clés, projets conduits et perspectives.",
       size: "PDF",
     },
     {
       year: '2023',
       url: "https://drive.google.com/file/d/1J67VBmxYVh8WEmvzWL57WAWSkNeJs-0N/view?usp=sharing",
       title: "Rapport d'activité 2023",
-      desc: "Bilan de l'année 2023 — chiffres clés, projets conduits et perspectives pour l'association Festin.",
+      desc: "Bilan de l'année 2023 : chiffres clés, projets conduits et perspectives.",
       size: "PDF",
     },
     {
       year: '2022',
       url: "https://drive.google.com/file/d/1S3p13F2abtwOqXLHTto_TPeSeRzxZfya/view?usp=sharing",
       title: "Rapport d'activité 2022",
-      desc: "Bilan de l'année 2022 — chiffres clés, projets conduits et perspectives pour l'association Festin.",
+      desc: "Bilan de l'année 2022 : chiffres clés, projets conduits et perspectives.",
       size: "PDF",
     },
   ];
@@ -1296,10 +1329,10 @@ function ImpactPage() {
   return (
     <div data-screen-label="Notre impact">
       <PageHeader
-        eyebrow="Chiffres & rapports"
-        title="Depuis 1992,"
-        accent="ce que nous avons transformé"
-        subtitle="Les rapports d'activité, les chiffres qui en sont tirés, et les reconnaissances obtenues au fil des années."
+        eyebrow="Chiffres et rapports"
+        title="Ce que 2025"
+        accent="a changé"
+        subtitle="Les chiffres du rapport d'activité 2025. Les faits marquants de l'année. Les reconnaissances obtenues."
         breadcrumb={[
           {label:'Accueil', href:'#/'},
           {label:'Notre impact'},
@@ -1310,15 +1343,41 @@ function ImpactPage() {
       <section style={{background:'var(--cream)', padding:'var(--s-8) 0'}}>
         <div className="container">
           <div style={{display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:16}}>
-            {[
-              {value:'441',   label:'personnes accompagnées en 2025'},
-              {value:'83\u00a0%',  label:'de sorties en emploi ou formation'},
-              {value:'14',    label:'territoires d\'intervention'},
-              {value:'5',     label:'projets complémentaires'},
+            {[...window.FESTIN_DATA.stats.slice(0,3).map(s => ({value: s.value, unit: s.unit, label: s.label})),
+              {value:'5', unit:'', label:'projets, tous rattachés à Festin'},
             ].map((s, i) => (
               <div key={i} style={{background:'#fff', border:'1px solid var(--line)', borderRadius:14, padding:28}}>
-                <div style={{fontSize:42, fontWeight:700, color:'var(--teal)', lineHeight:1, letterSpacing:'-0.02em'}}>{s.value}</div>
+                <div style={{fontSize:42, fontWeight:700, color:'var(--teal)', lineHeight:1, letterSpacing:'-0.02em'}}><span className="impact-count" data-count={s.value}>{s.value}</span>{s.unit === '%' ? ' %' : s.unit}</div>
                 <div style={{fontSize:13, color:'var(--ink-mid)', marginTop:12, lineHeight:1.4}}>{s.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Faits marquants 2025 — source : Rapport d'activité 2025 */}
+      <section style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
+        <div className="container">
+          <div style={{maxWidth:760, marginBottom:48}}>
+            <span className="eyebrow">L'année 2025</span>
+            <h2 className="h2">Ce qui a marqué <em className="accent">l'année</em></h2>
+          </div>
+          <div style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:20}}>
+            {[
+              {k:'Des Étoiles et des Femmes', t:'Le Grand Festin des dix ans', d:'Le 3 octobre : 13 villes, 13 brigades, 550 convives, plus de 100 bénévoles. Sur le Vieux-Port de Marseille.'},
+              {k:'Des Étoiles et des Femmes', t:'Un partenariat avec le Greta', d:'Festin devient sous-traitant d\'une partie des heures de formation du marché de la Région Sud.'},
+              {k:'Des Étoiles et des Femmes', t:'Julia Sedefdjian, marraine nationale', d:'La cheffe rejoint le réseau pour les dix ans du programme.'},
+              {k:'Restaure', t:'Cinq tables rondes, deux millions de vues', d:'Cinq tables rondes à Marseille, Toulouse et Lille, enregistrées en podcast. Des vidéos de prévention des violences en cuisine vues plus de deux millions de fois.'},
+              {k:'Les Beaux Mets', t:'Un documentaire de 45 minutes sur M6', d:'« Un jour un doc » lui consacre 45 minutes. La brigade lance aussi ses biscuits à emporter : navettes et croquants.'},
+              {k:'La Table de Cana', t:'LUCIE Progress et Empl\'itude', d:'Le label LUCIE Progress, avec 848 sur 1 000. Le label Empl\'itude, renouvelé. Et la naissance du collectif EPICES.'},
+              {k:'Tournesol', t:'Une formation portée avec Refugee Food', d:'Festin porte la formation avec Refugee Food et Estello Formation. Cinq mois, gratuits et rémunérés.'},
+              {k:'Restaure', t:'Cinq groupes de travail', d:'La gouvernance se consolide autour de quatre structures. Une formation « Management juste » voit le jour.'},
+              {k:'Des Étoiles et des Femmes', t:'Une formation sur les violences sexistes et sexuelles', d:'Une formation destinée aux professionnels de la restauration.'},
+            ].map((f, i) => (
+              <div key={i} style={{background:'#fff', border:'1px solid var(--line)', borderRadius:14, padding:24}}>
+                <span style={{fontSize:11, fontWeight:700, letterSpacing:'0.12em', textTransform:'uppercase', color:'var(--teal)'}}>{f.k}</span>
+                <h3 style={{fontSize:18, fontWeight:700, margin:'8px 0 8px', lineHeight:1.3}}>{f.t}</h3>
+                <p style={{fontSize:14, color:'var(--ink-mid)', lineHeight:1.6, margin:0}}>{f.d}</p>
               </div>
             ))}
           </div>
@@ -1331,7 +1390,7 @@ function ImpactPage() {
           <div style={{maxWidth:760, marginBottom:48}}>
             <span className="eyebrow">Synthèse financière 2025</span>
             <h2 className="h2">Un budget de <em className="accent">1,7 M€</em></h2>
-            <p className="lede" style={{marginTop:14}}>Le modèle économique de Festin repose sur la complémentarité de plusieurs sources de financement. Cette diversité constitue un levier essentiel de stabilité et d'autonomie pour l'association.</p>
+            <p className="lede" style={{marginTop:14}}>Quatre sources financent le budget 2025 : mécénat privé, subventions publiques, aides aux postes, chiffre d'affaires. Cette diversité protège l'autonomie de l'association.</p>
           </div>
           {(() => {
             const budget = [
@@ -1381,7 +1440,7 @@ function ImpactPage() {
           <div style={{maxWidth:760, marginBottom:48}}>
             <span className="eyebrow">Documents publics</span>
             <h2 className="h2">Tous nos <em className="accent">rapports d'activité</em></h2>
-            <p className="lede" style={{marginTop:14}}>Téléchargez les rapports annuels Festin — chiffres, projets et perspectives.</p>
+            <p className="lede" style={{marginTop:14}}>Téléchargez les rapports annuels : chiffres, projets et perspectives.</p>
           </div>
           <div style={{display:'grid', gridTemplateColumns:'repeat(2, 1fr)', gap:20}}>
             {rapports.map(r => (
@@ -1454,10 +1513,10 @@ function AcademiePage() {
   return (
     <div data-screen-label="Académie Festin">
       <PageHeader
-        eyebrow="Depuis 2025"
+        eyebrow="Depuis 2026"
         title="L'Académie"
         accent="Festin"
-        subtitle="Organisme de formation certifié Qualiopi, l'Académie Festin structure l'offre de formation de l'association pour les professionnels de la restauration et les personnes en parcours d'insertion."
+        subtitle="Organisme de formation certifié Qualiopi. L'Académie Festin réunit l'offre de formation de l'association : des formations courtes pour les équipes, des parcours diplômants pour les personnes en insertion."
         breadcrumb={[{label:'Accueil',href:'#/'},{label:"L'Académie Festin"}]}
       />
 
@@ -1467,9 +1526,9 @@ function AcademiePage() {
           {/* Gauche */}
           <div>
             <span className="eyebrow">Notre positionnement</span>
-            <h2 className="h2" style={{marginTop:8, marginBottom:20}}>Former autrement, <em className="accent">certifier vraiment.</em></h2>
+            <h2 className="h2" style={{marginTop:8, marginBottom:20}}>Former <em className="accent">autrement</em></h2>
             <p className="lede" style={{color:'var(--ink-mid)', lineHeight:1.7}}>
-              Depuis 1992, Festin forme sur le terrain. En 2025, l'association structure cette expertise en un organisme de formation certifié Qualiopi, co-porté avec Estello Formation. L'Académie Festin conçoit des parcours qui allient exigence pédagogique, impact social et expertise sectorielle.
+              Festin forme sur le terrain depuis plus de trente ans. En 2026, l'association en fait un organisme de formation : l'Académie Festin, certifiée Qualiopi, co-portée avec Estello Formation. Trois choses tiennent ses parcours : l'exigence de la cuisine, le suivi social des personnes formées, la connaissance du secteur.
             </p>
             <div style={{display:'flex', alignItems:'center', gap:14, marginTop:28, padding:'16px 20px', background:'var(--cream)', borderRadius:12, border:'1px solid var(--line)'}}>
               <img src={window.FESTIN_DATA.brand.qualiopi} alt="Logo Qualiopi" loading="lazy"
@@ -1484,8 +1543,8 @@ function AcademiePage() {
           <div style={{display:'flex', flexDirection:'column', gap:24}}>
             {[
               { icon:'award',     title:'Certification reconnue',       desc:"Diplômes et titres professionnels reconnus par l'État." },
-              { icon:'users',     title:'Deux publics, une exigence',    desc:'Professionnels en poste ou personnes en insertion : une même rigueur pédagogique.' },
-              { icon:'handshake', title:'Co-construit avec le terrain',  desc:'Chaque formation conçue avec des acteurs du secteur.' },
+              { icon:'users',     title:'Pour les équipes et les apprenants', desc:'Professionnels en poste ou personnes en insertion : chacun suit une formation conçue pour son métier.' },
+              { icon:'handshake', title:'Co-construit avec le terrain',  desc:'Chaque formation est conçue avec des acteurs du secteur.' },
             ].map((item, i) => (
               <div key={i} style={{display:'flex', gap:16, alignItems:'flex-start', padding:20, background:'#fff', borderRadius:12, border:'1px solid var(--line)'}}>
                 <div style={{width:44, height:44, borderRadius:10, background:'var(--cream)', display:'grid', placeItems:'center', flexShrink:0}}>
@@ -1506,7 +1565,7 @@ function AcademiePage() {
         <div className="container">
           <div style={{maxWidth:760, marginBottom:48}}>
             <span className="eyebrow">Pour qui ?</span>
-            <h2 className="h2" style={{marginTop:8}}>Deux publics, <em className="accent">un même engagement</em></h2>
+            <h2 className="h2" style={{marginTop:8}}>À chacun sa <em className="accent">formation</em></h2>
           </div>
           <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:24}}>
             <a href="#/formations" className="formation-card" style={{textDecoration:'none'}}>
@@ -1516,7 +1575,7 @@ function AcademiePage() {
                 </div>
                 <span className="eyebrow">Professionnels</span>
                 <h3 style={{fontSize:22, fontWeight:700, margin:'8px 0 12px'}}>Vous êtes professionnel de la restauration</h3>
-                <p style={{fontSize:15, color:'var(--ink-mid)', lineHeight:1.6, marginBottom:20}}>Formations courtes certifiantes en management, prévention des VSS, recrutement inclusif.</p>
+                <p style={{fontSize:15, color:'var(--ink-mid)', lineHeight:1.6, marginBottom:20}}>Des formations courtes en management juste, en prévention des violences sexistes et sexuelles et en recrutement inclusif.</p>
                 <span className="lnk">Voir les formations professionnelles <i data-lucide="arrow-right" style={{width:14,height:14}}/></span>
               </div>
             </a>
@@ -1526,8 +1585,8 @@ function AcademiePage() {
                   <i data-lucide="star" style={{width:24, height:24, color:'var(--gold)'}}/>
                 </div>
                 <span className="eyebrow">Insertion</span>
-                <h3 style={{fontSize:22, fontWeight:700, margin:'8px 0 12px'}}>Vous êtes en parcours d'insertion</h3>
-                <p style={{fontSize:15, color:'var(--ink-mid)', lineHeight:1.6, marginBottom:20}}>Parcours diplômants longs, gratuits et rémunérés pour accéder aux métiers de la restauration.</p>
+                <h3 style={{fontSize:22, fontWeight:700, margin:'8px 0 12px'}}>Vous cherchez un métier</h3>
+                <p style={{fontSize:15, color:'var(--ink-mid)', lineHeight:1.6, marginBottom:20}}>Des parcours diplômants, gratuits, pour entrer dans les métiers de la cuisine.</p>
                 <span className="lnk">Découvrir les parcours d'insertion <i data-lucide="arrow-right" style={{width:14,height:14}}/></span>
               </div>
             </a>
@@ -1636,6 +1695,48 @@ function ActualitesPage() {
               Aucun article pour ce filtre.
             </p>
           )}
+        </div>
+      </section>
+
+      {/* Presse : présentation, chiffres clés, contact, logos */}
+      <section id="presse" style={{padding:'var(--s-9) 0', background:'var(--cream)'}}>
+        <div className="container">
+          <div style={{maxWidth:760, marginBottom:40}}>
+            <span className="eyebrow">Presse</span>
+            <h2 className="h2">Présenter Festin <em className="accent">en quelques mots</em></h2>
+            <p className="lede" style={{marginTop:14}}>Des textes à reprendre tels quels, des chiffres sourcés et datés, un contact et les logos.</p>
+          </div>
+          <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap:20}}>
+            {[
+              {k:'En 50 mots', t:"Festin est une association à but non lucratif et d'intérêt général, agréée ESUS, basée à Marseille. Elle forme aux métiers de la cuisine des personnes en insertion. Elle accompagne les restaurants qui veulent recruter et manager autrement. Avec le programme Restaure, elle change les pratiques du secteur."},
+              {k:'En 100 mots', t:"Festin est une association loi 1901, à but non lucratif et d'intérêt général, agréée ESUS. Elle est basée à Marseille. Elle réunit cinq projets. Des Étoiles et des Femmes forme des femmes aux métiers de la cuisine, dans 13 antennes. Les Beaux Mets est le premier restaurant en prison ouvert au public en France. La Table de Cana, traiteur et restauration collective en insertion, existe depuis 1993. Le programme Restaure réunit 35 structures contre les violences en cuisine. Tournesol forme des personnes réfugiées ou primo-arrivantes, avec Refugee Food. L'Académie Festin, certifiée Qualiopi, réunit l'offre de formation."},
+            ].map((b, i) => (
+              <div key={i} style={{background:'#fff', border:'1px solid var(--line)', borderRadius:16, padding:28}}>
+                <span style={{fontSize:12, fontWeight:700, letterSpacing:'0.12em', textTransform:'uppercase', color:'var(--teal)'}}>{b.k}</span>
+                <p style={{fontSize:15, color:'var(--ink)', lineHeight:1.7, margin:'10px 0 0'}}>{b.t}</p>
+              </div>
+            ))}
+          </div>
+          <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap:20, marginTop:20}}>
+            <div style={{background:'#fff', border:'1px solid var(--line)', borderRadius:16, padding:28}}>
+              <span style={{fontSize:12, fontWeight:700, letterSpacing:'0.12em', textTransform:'uppercase', color:'var(--teal)'}}>Chiffres clés</span>
+              <ul style={{listStyle:'none', padding:0, margin:'12px 0 0', display:'grid', gap:8, fontSize:15, color:'var(--ink)'}}>
+                {[...window.FESTIN_DATA.stats.slice(0,3).map(s => s.value + (s.unit === '%' ? ' %' : s.unit === '' ? '' : ' ' + s.unit.trim()) + ' ' + s.label + (s.value === '441' || s.value === '83' ? ' (2025)' : '')),
+                  'Plus de 1 200 femmes accompagnées par Des Étoiles et des Femmes depuis 2015',
+                  '91 % de réussite aux diplômes en 2025 (Des Étoiles et des Femmes)'].map((l, i) => <li key={i}>{l}</li>)}
+              </ul>
+              <p style={{fontSize:12, color:'var(--ink-soft)', margin:'14px 0 0'}}>Source : rapport d'activité Festin 2025.</p>
+            </div>
+            <div style={{background:'#fff', border:'1px solid var(--line)', borderRadius:16, padding:28}}>
+              <span style={{fontSize:12, fontWeight:700, letterSpacing:'0.12em', textTransform:'uppercase', color:'var(--teal)'}}>Contact presse et logos</span>
+              <p style={{fontSize:15, color:'var(--ink)', lineHeight:1.7, margin:'10px 0 14px'}}>Toute demande presse, avant publication d'un communiqué ou d'un chiffre : <a href="mailto:contact@grandfestin.com" style={{color:'var(--teal)', fontWeight:700}}>contact@grandfestin.com</a>, à l'attention d'Iris Hutin, chargée de projet Communication.</p>
+              <div style={{display:'flex', flexWrap:'wrap', gap:10}}>
+                <a className="btn btn--ghost" href="images/logo-festin.png" download>Logo Festin, couleur</a>
+                <a className="btn btn--ghost" href="images/logo-festin-jaune.png" download>Logo Festin, jaune</a>
+                <a className="btn btn--ghost" href="images/logo-academie-festin.png" download>Logo Académie Festin</a>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>

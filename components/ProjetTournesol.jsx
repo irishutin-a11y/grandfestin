@@ -193,6 +193,21 @@ function ProjetTournesolPage() {
         </div>
       </section>
 
+      {/* BILAN DE LA PROMOTION — source : bilan de fin de promotion Tournesol */}
+      {p.bilan && (
+        <window.ProjetExtra tone="white" eyebrow={p.bilan.eyebrow} title={p.bilan.title} lede={p.prochaineSession}>
+          <div className="pxs__grid">
+            {p.bilan.items.map((it, i) => (
+              <div className="pxs__card" key={i}>
+                <div className="pxs__stat">{it.value}</div>
+                <p>{it.label}</p>
+              </div>
+            ))}
+          </div>
+          <p className="pxs__note">{p.bilan.source}</p>
+        </window.ProjetExtra>
+      )}
+
       {/* LE PROJET — texte + accordéon à gauche, diaporama à droite */}
       <section className="pts-projet" aria-labelledby="pts-projet-t">
         <div className="wrap pts-projet__split">
@@ -285,6 +300,20 @@ function ProjetTournesolPage() {
             </div>
           </div>
         </section>
+      )}
+
+      {/* EN IMAGES — Refugee Food Festival 2026 (crédits : voir data.js) */}
+      {p.galerie && (
+        <window.ProjetExtra tone="cream" eyebrow="En images" title={p.galerie.title} lede={p.galerie.lede}>
+          <div className="pxs__grid">
+            {p.galerie.photos.map((ph, i) => (
+              <figure key={i} style={{margin:0}}>
+                <img src={ph.src} alt={ph.alt} loading="lazy" style={{width:'100%', aspectRatio:'4/5', objectFit:'cover', borderRadius:16, display:'block'}} />
+                <figcaption style={{fontSize:13, color:'var(--ink-mid)', marginTop:8}}>{ph.caption}{ph.credit ? ' · Photo : ' + ph.credit : ''}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </window.ProjetExtra>
       )}
 
       {/* PARTENAIRES */}

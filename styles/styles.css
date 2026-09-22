@@ -1,5 +1,5 @@
 /* Festin — UI kit styles */
-@import url('./_tokens.css');
+@import url('./_tokens.css?v=2');
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { font-family: 'KoHo', sans-serif; color: var(--ink); background: var(--off-white); overflow-x: hidden; }
@@ -724,3 +724,40 @@ a.formation-card:hover .lnk { color: var(--gold); }
 
 /* Icônes Lucide : trait de 1,5px (design system) au lieu des 2px par défaut de la bibliothèque */
 .lucide, [data-lucide] { stroke-width: 1.5; }
+
+/* ---------- Titres en capitales (charte) : h1 / h2 de toutes les pages ---------- */
+.h1, .h2, .page-header .h1 { text-transform: uppercase; letter-spacing: -0.01em; line-height: 1.05; }
+.h1 em.accent, .h2 em.accent, .h1 .accent, .h2 .accent { font-weight: 300; letter-spacing: -0.02em; }
+
+/* ---------- Sections d'enrichissement des fiches projet (ProjetExtra, Sections.jsx) ---------- */
+.pxs { padding: var(--s-9) 0; position: relative; }
+.pxs--cream { background: var(--cream); color: var(--ink); }
+.pxs--white { background: var(--off-white); color: var(--ink); }
+.pxs--dark { background: var(--teal-dark); color: #fff; }
+.pxs__wrap { max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 96px); }
+.pxs__eyebrow { display: block; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--teal); margin-bottom: 14px; }
+.pxs--dark .pxs__eyebrow { color: var(--gold-light); }
+.pxs__title { font-size: clamp(30px, 4vw, 54px); font-weight: 700; text-transform: uppercase; line-height: 1.04; letter-spacing: -.015em; margin: 0 0 20px; max-width: 900px; color: inherit; }
+.pxs__title em { font-style: italic; font-weight: 300; color: var(--teal); letter-spacing: -.02em; }
+.pxs--dark .pxs__title em { color: var(--gold-light); }
+.pxs__lede { font-size: 17px; line-height: 1.7; max-width: 62ch; margin: 0 0 32px; color: var(--ink-mid); }
+.pxs--dark .pxs__lede { color: rgba(255,255,255,.8); }
+.pxs__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 16px; }
+.pxs__card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 24px; color: var(--ink); }
+.pxs--dark .pxs__card { background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.14); color: #fff; }
+.pxs__card h3 { font-size: 18px; font-weight: 700; line-height: 1.25; margin: 0 0 6px; color: inherit; }
+.pxs__card p { font-size: 14px; line-height: 1.55; margin: 0; color: var(--ink-mid); }
+.pxs--dark .pxs__card p { color: rgba(255,255,255,.78); }
+.pxs__stat { font-size: clamp(34px, 3.6vw, 48px); font-weight: 700; color: var(--teal); line-height: 1; letter-spacing: -.02em; margin-bottom: 10px; }
+.pxs__note { font-size: 13px; color: var(--ink-soft); margin-top: 20px; }
+.pxs__people { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 20px 36px; }
+.pxs__person { display: flex; align-items: center; gap: 14px; }
+.pxs__avatar { width: 64px; height: 64px; border-radius: 50%; overflow: hidden; background: #E5E0D6; flex: none; display: grid; place-items: center; font-weight: 700; color: rgba(13,43,48,.4); }
+.pxs__avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pxs__person strong { display: block; font-size: 16px; }
+.pxs__person span span { display: block; font-size: 13px; color: var(--ink-mid); }
+
+/* ---------- Accessibilité : lien d'évitement ---------- */
+.skip-link { position: fixed; left: 12px; top: -60px; z-index: 10000; background: var(--gold); color: var(--ink); padding: 12px 18px; border-radius: 8px; font-weight: 700; text-decoration: none; transition: top .15s; }
+.skip-link:focus { top: 12px; }
+main:focus { outline: none; }

@@ -90,14 +90,14 @@ window.FESTIN_DATA = {
       shortTitle: "Des Étoiles et des Femmes",
       tagline: "Le programme national qui forme des femmes aux métiers de la cuisine",
       subtitle: "Un diplôme de cuisine, des stages dans des restaurants gastronomiques, un accompagnement social complet",
-      short: "Depuis 2015, Des Étoiles et des Femmes forme des femmes aux métiers de la cuisine : un diplôme, des stages dans des restaurants gastronomiques et un accompagnement social complet. 13 antennes en France, 91 % de réussite aux diplômes en 2025.",
+      short: "Depuis 2015, Des Étoiles et des Femmes forme des femmes aux métiers de la cuisine. Un diplôme. Des stages dans des restaurants gastronomiques. Un accompagnement social complet. 13 antennes, 91 % de réussite aux diplômes en 2025.",
       stats: [
         { value: "13",    label: "antennes partout en France" },
         { value: "336",   label: "femmes accompagnées en 2025" },
         { value: "91 %",  label: "de réussite aux diplômes en 2025" },
         { value: "1 200", unit: "+", label: "femmes accompagnées en 10 ans" },
       ],
-      description: "Des Étoiles et des Femmes est né en 2015 à Marseille d’une conviction : l’exigence de la haute gastronomie peut changer la trajectoire de femmes éloignées de l’emploi. Dix ans plus tard, le programme compte 13 antennes en France et plus de 1 200 femmes accompagnées vers une qualification en cuisine, une stabilité retrouvée et un emploi durable. Chaque promotion suit un parcours complet : formation diplômante (CAP cuisine ou titre à finalité professionnelle), accompagnement social global et stages dans des restaurants engagés. En 2025, Julia Sedefdjian a rejoint le réseau comme marraine nationale. Le 3 octobre, le Grand Festin a réuni 13 brigades, 550 convives et plus de 100 bénévoles sur le Vieux-Port de Marseille pour les dix ans du programme.",
+      description: "Des Étoiles et des Femmes naît en 2015, à Marseille. Sa conviction : l’exigence de la haute gastronomie peut changer la trajectoire de femmes éloignées de l’emploi. Dix ans plus tard, le programme compte 13 antennes en France. Plus de 1 200 femmes ont été accompagnées vers une qualification en cuisine, une stabilité retrouvée, un emploi durable. Chaque promotion suit un parcours complet : une formation diplômante (CAP cuisine ou titre à finalité professionnelle), un accompagnement social global, des stages dans des restaurants engagés. En 2025, Julia Sedefdjian devient marraine nationale. Le 3 octobre, le Grand Festin réunit 13 brigades, 550 convives et plus de 100 bénévoles sur le Vieux-Port de Marseille, pour les dix ans du programme.",
       ctaLabel: "Visiter desetoilesetdesfemmes.org",
       ctaUrl: "https://www.desetoilesetdesfemmes.org",
       quote: {
@@ -126,7 +126,7 @@ window.FESTIN_DATA = {
       projetCtaLabel: "Découvrir les formations",
       projetCtaHref: "#/formations",
       implicationTitle: "Vous êtes restaurateur ?",
-      implicationText: "Accueillir une stagiaire Des Étoiles et des Femmes, c’est confier un binôme et un tutorat à une personne formée à vos standards, pour 155 à 490 heures de stage.",
+      implicationText: "Accueillir une stagiaire Des Étoiles et des Femmes, c’est confier un binôme et un tutorat à une personne formée à vos standards. Pour 155 à 490 heures de stage.",
       implicationCtaLabel: "Devenir restaurant partenaire",
       implicationCtaHref: "#/contact",
       // Portraits & témoignages authentiques (4 femmes formées) — exposition photo Des Étoiles et des Femmes
@@ -179,6 +179,16 @@ window.FESTIN_DATA = {
           variant: "teal",
           bw: false,
         },
+        {
+          prenom: "Najat",
+          ville: "Marseille",
+          promo: "Promotion 2023-2024",
+          accroche: "Cette formation ouvre plein de portes",
+          extrait: "Ce n’est pas un CAP comme les autres, il donne la possibilité d’avoir son propre projet et de faire ce qu’on aime.",
+          photo: "",
+          variant: "violet",
+          bw: false,
+        },
         // Slot en attente — portrait et témoignage à recueillir
         {
           prenom: "Julia Sedefdjian",
@@ -195,11 +205,11 @@ window.FESTIN_DATA = {
       godmother: { name: "Julia Sedefdjian", role: "Marraine nationale — depuis 2025" },
       parcours: [
         { tab: "Se former", title: "Un diplôme reconnu",
-          text: "CAP Cuisine sur 11 mois, avec le lycée hôtelier Jean-Paul Passedat et le Greta-CFA Marseille Méditerranée. Ou titre à finalité professionnelle de commis de cuisine sur 4 mois : techniques, remise à niveau, préparation à l’examen.",
+          text: "CAP Cuisine sur 11 mois, avec le lycée hôtelier Jean-Paul Passedat et le Greta-CFA Marseille Méditerranée. Ou titre à finalité professionnelle de commis de cuisine sur 4 mois. Techniques, remise à niveau, préparation à l’examen.",
           stat: "600 h à 1 476 h", statL: "de formation selon le parcours",
           img: "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg" },
         { tab: "Pratiquer", title: "En restaurant, sur le terrain",
-          text: "Des stages dans des restaurants engagés — Les Grandes Tables, Sofitel, Les Bords de Mer… — pour apprendre le métier en brigade.",
+          text: "Des stages dans des restaurants engagés : Les Grandes Tables, Sofitel, Les Bords de Mer… On y apprend le métier en brigade.",
           stat: "155 à 490 h", statL: "de stage en restaurant",
           img: "images/images-def/HOTELERIE-035.jpg" },
         { tab: "Être accompagnée", title: "Lever les freins",
@@ -218,7 +228,7 @@ window.FESTIN_DATA = {
         poster: "images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg",
       },
       candidater: {
-        pitch: "Depuis 2015, Des Étoiles et des Femmes permet à des femmes éloignées de l’emploi d’accéder aux métiers de la restauration.",
+        pitch: "Depuis 2015, Des Étoiles et des Femmes forme des femmes aux métiers de la cuisine : un diplôme, des stages, un suivi social complet.",
         eligibility: "Le parcours s’adresse aux femmes majeures qui maîtrisent le français au niveau B1 (B2 pour le CAP) et souhaitent entrer dans la cuisine.",
         sessions: "Recrutement chaque année en mai. La réunion d’information collective est obligatoire pour candidater. Prochaine session du titre à finalité professionnelle : du 9 novembre 2026 au 13 avril 2027.",
         cost: "Formation entièrement gratuite, financée par les pouvoirs publics et les mécènes. Une indemnisation est possible selon la situation.",
@@ -228,7 +238,7 @@ window.FESTIN_DATA = {
       },
       accueil: {
         title: "Accueillir une stagiaire",
-        text: "Accueillir une stagiaire Des Étoiles et des Femmes, c’est confier à un membre de votre brigade un binôme et un tutorat, le temps d’un stage. C’est aussi rencontrer de futurs profils formés à votre carte, et prendre part à une restauration plus inclusive.",
+        text: "Accueillir une stagiaire, c’est confier un binôme et un tutorat à quelqu’un de votre brigade, le temps d’un stage. C’est aussi rencontrer de futurs profils formés à votre carte, et prendre part à une restauration plus inclusive.",
         stat: "155 à 490 h", statL: "de stage par promotion",
         ctaLabel: "Devenir restaurant partenaire", ctaHref: "#/accompagnement/professionnels",
         img: "images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00032.jpg"
@@ -236,7 +246,7 @@ window.FESTIN_DATA = {
       grandFestin: {
         eyebrow: "Temps fort",
         title: "Le Grand Festin",
-        text: "Le 3 octobre 2025, pour les dix ans du programme, 13 villes ont envoyé leur brigade d’alumnis, de chefs engagés et de chefs marseillais sur le Vieux-Port : une exposition en plein air, des grandes tablées, 550 convives et plus de 100 bénévoles.",
+        text: "Le 3 octobre 2025, pour les dix ans du programme, 13 villes envoient leur brigade sur le Vieux-Port. Alumnis, chefs engagés, chefs marseillais. Une exposition en plein air. Des grandes tablées. 550 convives et plus de 100 bénévoles.",
         stats: [
           { value: "13",   label: "brigades réunies" },
           { value: "550", unit: "", label: "convives" },
@@ -249,7 +259,7 @@ window.FESTIN_DATA = {
       },
       soutenir: {
         title: "Soutenir une promotion",
-        text: "Le parcours est gratuit pour les femmes qui le suivent. Chaque promotion est financée par les pouvoirs publics et par des mécènes. Un don finance de la formation, des stages et un accompagnement social, jusqu’à l’emploi.",
+        text: "Le parcours est gratuit pour les femmes qui le suivent. Les pouvoirs publics et des mécènes financent chaque promotion. Un don paie de la formation, des stages et un accompagnement social. Jusqu’à l’emploi.",
         donLabel: "Faire un don",
         contactLabel: "Parler mécénat",
         contactHref: "#/contact"
@@ -264,14 +274,14 @@ window.FESTIN_DATA = {
       shortTitle: "Les Beaux Mets",
       tagline: "Le premier restaurant en prison ouvert au public en France",
       subtitle: "Le premier restaurant en prison ouvert au public en France",
-      short: "Ouvert en 2022 au sein de la prison des Baumettes à Marseille, Les Beaux Mets accompagne des personnes détenues ou récemment libérées vers l’emploi en restauration. 86 % de sorties dynamiques, plus de 12 000 convives depuis l’ouverture.",
+      short: "Ouvert en 2022 dans la prison des Baumettes, à Marseille, Les Beaux Mets accompagne des personnes détenues ou récemment libérées vers l’emploi en restauration. 86 % de sorties dynamiques. Plus de 12 000 convives depuis l’ouverture.",
       stats: [
         { value: "48",     label: "personnes accompagnées en 2025" },
         { value: "86 %",   label: "de sorties dynamiques" },
         { value: "12 000", unit: "+", label: "convives depuis l’ouverture" },
         { value: "+25 %",  label: "de chiffre d’affaires en 2025" },
       ],
-      description: "Ouvert en 2022 au sein de la maison d’arrêt des Baumettes à Marseille, Les Beaux Mets est une expérience unique en France : un restaurant bistronomique accessible au public dont la brigade est composée de personnes détenues ou récemment libérées. Depuis l’ouverture, 119 personnes placées sous main de justice ont été employées par le projet. En 2025, la troisième année d’ouverture est marquée par une couverture médiatique nationale (documentaire M6 « Un jour un doc », 45 minutes), six masterclass animées par des chefs reconnus, l’organisation de 3 Cafés Emploi en prison, et le lancement d’une offre de biscuits à emporter fabriqués par la brigade.",
+      description: "Les Beaux Mets ouvre en 2022 dans la maison d’arrêt des Baumettes, à Marseille. C’est une première en France : un restaurant bistronomique ouvert au public, dont la brigade est composée de personnes détenues ou récemment libérées. Depuis l’ouverture, 119 personnes placées sous main de justice y ont travaillé. La troisième année, en 2025, est riche. Un documentaire de 45 minutes sur M6. Six masterclass de chefs reconnus. Trois Cafés Emploi en prison. Des biscuits à emporter, fabriqués par la brigade.",
       ctaLabel: "Visiter lesbeauxmets-marseille.fr",
       ctaUrl: "https://www.lesbeauxmets-marseille.fr",
       quote: {
@@ -315,13 +325,13 @@ window.FESTIN_DATA = {
           text: "16 personnes détenues composent 2 brigades, encadrées par le Chef Valentin Majan et son Second Boris Ruel en cuisine, le Maître d’hôtel Marc Balthazard en salle. Elles apprennent le métier sur un vrai service, carte incluse.",
           stat: "16", statL: "commis en poste, répartis en 2 brigades" },
         { tab: "L’accompagnement", title: "Un accompagnement sur mesure",
-          text: "Du recrutement à la sortie, puis 6 mois après, chaque commis est suivi individuellement : entretiens, stages, ateliers collectifs, construction d’un projet professionnel avec la conseillère en insertion professionnelle Nissa Boudhabhay.",
+          text: "Du recrutement à la sortie, puis six mois après, chaque commis est suivi individuellement. Entretiens, stages, ateliers collectifs, projet professionnel : la conseillère en insertion professionnelle Nissa Boudhabhay l’accompagne.",
           stat: "6 mois", statL: "de suivi après la détention" },
         { tab: "La sortie", title: "Une passerelle vers l’emploi",
-          text: "L’objectif : accompagner 40 personnes par an vers une sortie durable, dans un secteur de la restauration qui peine à recruter — 200 000 postes restent à pourvoir en France.",
+          text: "L’objectif : accompagner 40 personnes par an vers une sortie durable. Le secteur peine à recruter : 200 000 postes restent à pourvoir en France.",
           stat: "40", statL: "personnes accompagnées par an, c’est l’objectif" },
         { tab: "Hors les murs", title: "Le restaurant sort de la prison",
-          text: "Street Food Festival, KoussKouss Festival, Grand Festin, Climat Libé Tour : en 2025, les commis ont montré leur travail hors les murs. Trois Cafés Emploi ont aussi réuni des entreprises en prison, et le restaurant a lancé des biscuits à emporter (navettes et croquants) fabriqués par la brigade.",
+          text: "Street Food Festival, KoussKouss Festival, Grand Festin, Climat Libé Tour : en 2025, les commis montrent leur travail hors les murs. Trois Cafés Emploi réunissent des entreprises en prison. Le restaurant lance aussi des biscuits à emporter, navettes et croquants, fabriqués par la brigade.",
           stat: "16", statL: "stages à l’extérieur en 2025" },
         { tab: "Les masterclass", title: "Six chefs devant la brigade",
           text: "Laëtitia Visse, Éloi Spinnler, Elsa Leblanc, Chloé Charles, Justine Audoin et Hyacinthe Lescoët ont chacun animé une masterclass aux Beaux Mets en 2025.",
@@ -338,16 +348,16 @@ window.FESTIN_DATA = {
       title: "La Table",
       accent: "de Cana",
       shortTitle: "La Table de Cana",
-      tagline: "Traiteur et restauration collective en insertion — depuis 1993",
+      tagline: "Traiteur et restauration collective en insertion, depuis 1993",
       subtitle: "Traiteur et restauration collective en insertion à Marseille",
-      short: "Premier projet de Festin, La Table de Cana Marseille transforme l’exigence professionnelle en levier d’inclusion. 45 salariés en insertion accompagnés en 2025, 89 % de sorties dynamiques, plus de 400 000 convives régalés.",
+      short: "Premier projet de Festin, La Table de Cana Marseille forme des personnes en insertion au traiteur et à la restauration collective. 45 salariés en insertion accompagnés en 2025, 89 % de sorties dynamiques, plus de 400 000 convives régalés.",
       stats: [
         { value: "45",      label: "salariés en insertion en 2025" },
         { value: "89 %",    label: "de sorties dynamiques" },
         { value: "400 000", unit: "+", label: "convives régalés" },
         { value: "≈ 500",   label: "prestations traiteur" },
       ],
-      description: "La Table de Cana Marseille est le premier projet de Festin, fondé en 1993. Depuis plus de 30 ans, cette structure de restauration collective et de traiteur transforme l’exigence professionnelle en levier d’inclusion. En 2025, La Table de Cana a obtenu le label LUCIE Progress (848/1000) et renouvelé le label Empl’itude. Elle a également organisé la deuxième édition du Club des Talents — un réseau d’anciens salariés en insertion inspiré des réseaux alumni — et lancé le collectif EPICES, espace de coopération entre acteurs de l’insertion par la cuisine. Elle a aussi servi plus de 15 000 repas d’aide alimentaire à des personnes hébergées en hôtel d’urgence à Marseille.",
+      description: "La Table de Cana Marseille est le premier projet de Festin. Elle naît en 1993. Depuis plus de 30 ans, ce traiteur et cette restauration collective forment des personnes en insertion à un métier, dans un cadre structurant et exigeant. En 2025, elle obtient le label LUCIE Progress (848 sur 1 000) et renouvelle le label Empl’itude. Elle organise la deuxième édition du Club des Talents, un réseau d’anciens salariés en insertion inspiré des réseaux alumni. Elle lance le collectif EPICES, un espace de coopération entre acteurs de l’insertion par la cuisine. Elle sert aussi plus de 15 000 repas d’aide alimentaire à des personnes hébergées en hôtel d’urgence à Marseille.",
       ctaLabel: "Visiter latabledecana-marseille.com",
       ctaUrl: "https://www.latabledecana-marseille.com",
       quote: {
@@ -364,10 +374,10 @@ window.FESTIN_DATA = {
         "images/latable%20de%20cana/TABLECANA_EVENT_cdutrey_230625-5158.jpg",
         "images/latable%20de%20cana/tabledecana_cdutrey_230124-7705.jpg",
       ],
-      presentationTitle: "Traiteur et restauration collective en insertion — depuis 1993",
+      presentationTitle: "Traiteur et restauration collective en insertion, depuis 1993",
       mediaType: "youtube",
       mediaId: "RUpAD7u0Khs",
-      projetPhrase: "Premier projet de Festin, La Table de Cana transforme l’exigence professionnelle en levier d’inclusion depuis plus de 30 ans.",
+      projetPhrase: "Premier projet de Festin, La Table de Cana forme des personnes en insertion au traiteur et à la restauration collective depuis plus de 30 ans.",
       projetPoints: [
         "Traiteur professionnel et restauration collective avec des salariés en insertion",
         "Accompagnement individualisé de chaque salarié en insertion : coaching, formation, accès au réseau",
@@ -400,7 +410,7 @@ window.FESTIN_DATA = {
           text: "Plus de 15 000 repas d’aide alimentaire pour des personnes hébergées en hôtel d’urgence à Marseille. MediaPerformances est devenu financeur de cette aide en 2025.",
           stat: "15 000+", statL: "repas d’aide alimentaire" },
         { tab: "Outils d’accompagnement", title: "Coacher, filmer, mettre en réseau",
-          text: "Les Tutos du Chef (vidéos pédagogiques pour les salariés en insertion et pour toute personne qui veut apprendre les bases), les Vendredis de l’emploi (coaching et préparation à la recherche d’emploi) et le collectif EPICES, espace de coopération entre acteurs de l’insertion par la cuisine.",
+          text: "Trois outils. Les Tutos du Chef : des vidéos pédagogiques pour les salariés en insertion, et pour toute personne qui veut apprendre les bases. Les Vendredis de l’emploi : du coaching et de la préparation à la recherche d’emploi. Le collectif EPICES : un espace de coopération entre acteurs de l’insertion par la cuisine.",
           stat: "3", statL: "outils lancés ou renforcés en 2025" },
       ],
       partenaires: ["Compass", "Sodexo", "Accor", "Newrest", "Le Grand Pin", "École de la 2e Chance", "MediaPerformances", "Culture du Cœur"],
@@ -417,14 +427,14 @@ window.FESTIN_DATA = {
       shortTitle: "Le programme Restaure",
       tagline: "Un programme national pour transformer le secteur",
       subtitle: "Un programme national pour transformer le secteur de la restauration",
-      short: "Restaure fédère 35 structures engagées pour faire évoluer les pratiques de la restauration : prévenir les violences, promouvoir un management juste, imaginer une restauration durable. 700 signataires du manifeste, +2 millions de vues.",
+      short: "Restaure réunit 35 structures engagées. Objectif : prévenir les violences en cuisine, promouvoir un management juste, imaginer une restauration durable. 700 signataires du manifeste. Plus de 2 millions de vues.",
       stats: [
         { value: "35",  label: "structures engagées" },
         { value: "700", label: "signataires du manifeste" },
         { value: "2 M", unit: "+", label: "de vues" },
         { value: "5",   label: "groupes de travail" },
       ],
-      description: "Restaure est un programme national qui fédère des acteurs de la restauration engagés pour faire évoluer les pratiques du secteur, prévenir les violences en cuisine et promouvoir un management plus juste. Piloté par quatre structures fondatrices — Yes We Camp, Les Petites Cantines, La Communauté Ecotable et Festin — le programme a franchi en 2025 plusieurs étapes structurantes : consolidation de la gouvernance, lancement de 5 groupes de travail, organisation de 5 tables rondes à Marseille, Toulouse et Lille, et déploiement d’une formation « Management juste ». Les vidéos de prévention contre les violences en cuisine ont dépassé les 2 millions de vues cumulées.",
+      description: "Restaure est un programme national. Il réunit des acteurs de la restauration pour changer les pratiques du secteur, prévenir les violences en cuisine et promouvoir un management plus juste. Quatre structures le pilotent : Yes We Camp, Les Petites Cantines, La Communauté Ecotable et Festin. En 2025, il franchit plusieurs étapes. La gouvernance se consolide. Cinq groupes de travail se lancent. Cinq tables rondes se tiennent à Marseille, Toulouse et Lille. Une formation « Management juste » voit le jour. Les vidéos de prévention des violences en cuisine dépassent deux millions de vues.",
       ctaLabel: "Visiter mouvement-restaure.com",
       ctaUrl: "https://www.mouvement-restaure.com",
       quote: {
@@ -444,11 +454,11 @@ window.FESTIN_DATA = {
       presentationTitle: "Un programme national pour transformer le secteur",
       mediaType: "instagram",
       mediaUrl: "https://www.instagram.com/reel/DJ9kq6iIb5j/",
-      projetPhrase: "Restaure fédère 35 structures engagées pour faire évoluer les pratiques de la restauration, prévenir les violences et promouvoir un management juste.",
+      projetPhrase: "Restaure réunit 35 structures engagées pour changer les pratiques de la restauration. Prévenir les violences. Promouvoir un management juste.",
       projetPoints: [
         "Un manifeste pour une restauration juste et durable, porté collectivement par des structures engagées à travers la France",
         "Tables rondes et groupes de travail thématiques organisés à Marseille, Toulouse, Lille et au-delà",
-        "Formations Management juste et inclusif et Prévention des VSS déployées auprès des professionnels du secteur",
+        "Formations Management juste et inclusif et Prévention des violences sexistes et sexuelles déployées auprès des professionnels du secteur",
       ],
       projetCtaLabel: "Signer le manifeste",
       projetCtaHref: "https://www.mouvement-restaure.com",
@@ -461,7 +471,7 @@ window.FESTIN_DATA = {
       ],
       presseFilter: ["Restaure", "Mouvement Restaure"],
       // --- Repositionnement stratégique Restaure (2026) : mission + 3 axes de transformation ---
-      mission: "Restaure aura réussi s’il a transformé durablement les pratiques du secteur de la restauration, en améliorant à la fois les conditions humaines et l’impact écologique, par la sensibilisation et la formation des professionnels.",
+      mission: "Restaure aura réussi s’il a transformé durablement les pratiques du secteur de la restauration. Objectif : améliorer les conditions humaines et l’impact écologique, par la sensibilisation et la formation des professionnels.",
       transformation: [
         { title: "Renforcer l’équité et l’inclusion",
           text: "Créer un secteur plus inclusif et équitable en intégrant des pratiques favorisant la diversité, l’horizontalité et une meilleure représentativité à tous les niveaux.",
@@ -475,7 +485,7 @@ window.FESTIN_DATA = {
           indicateurs: [
             "70 % de satisfaction des équipes visés dans les restaurants signataires du manifeste",
             "Turnover réduit de moitié, fin de la pénurie RH visée",
-            "Management formé, prévention des violences et VSS effective",
+            "Management formé, prévention des violences sexistes et sexuelles effective",
           ] },
         { title: "Accélérer la transition écologique",
           subtitle: "Avec la Communauté Ecotable",
@@ -510,14 +520,14 @@ window.FESTIN_DATA = {
       shortTitle: "Tournesol",
       tagline: "Formation diplômante pour personnes réfugiées et primo-arrivantes",
       subtitle: "Un parcours diplômant pour les personnes réfugiées et primo-arrivantes",
-      short: "Imaginée par Refugee Food et portée par Festin, la formation Tournesol prépare en 5 mois au titre à finalité professionnelle de commis de cuisine et au DCL, le diplôme de compétence en langue. Gratuite et rémunérée, elle combine diplôme, accompagnement socio-professionnel et accès à l’emploi.",
+      short: "Imaginée par Refugee Food et portée par Festin, la formation Tournesol prépare en 5 mois au titre à finalité professionnelle de commis de cuisine et au DCL. Elle est gratuite et rémunérée. Diplôme, accompagnement socio-professionnel, accès à l’emploi.",
       stats: [
         { value: "5",     label: "mois de formation" },
         { value: "TFP",   label: "Commis de cuisine" },
         { value: "0 €",   label: "Gratuite et rémunérée" },
         { value: "100 %", label: "accompagnement inclus" },
       ],
-      description: "Imaginée par Refugee Food et portée par Festin depuis 2025 en partenariat avec Estello Formation, la formation Tournesol s’adresse aux personnes réfugiées ou primo-arrivantes autorisées à travailler en France. En cinq mois, ce parcours prépare au titre à finalité professionnelle de commis de cuisine et au diplôme de compétence en langue (DCL), avec un accompagnement socio-professionnel individuel et un accès à l’emploi. La formation est entièrement gratuite et rémunérée. Un an après la formation, 86 % des personnes de la promotion marseillaise sont en insertion.",
+      description: "Refugee Food imagine Tournesol. Festin la porte depuis 2025, avec Estello Formation. La formation s’adresse aux personnes réfugiées ou primo-arrivantes autorisées à travailler en France. En cinq mois, elle prépare au titre à finalité professionnelle de commis de cuisine et au diplôme de compétence en langue (DCL). Elle est gratuite et rémunérée. Chaque personne bénéficie d’un accompagnement socio-professionnel individuel, jusqu’à l’emploi. Un an après la formation, 86 % des personnes de la promotion marseillaise sont en insertion.",
       ctaLabel: "En savoir plus sur refugee-food.org",
       ctaUrl: "https://refugee-food.org",
       quote: null,
@@ -564,9 +574,19 @@ window.FESTIN_DATA = {
         { tab: "Le stage en entreprise", title: "Une mise en pratique chez Compass Group",
           text: "Les stagiaires sont rémunérés par France Travail tout au long de la formation, stage compris." },
         { tab: "Le diplôme", title: "Examens et remise des diplômes",
-          text: "Le parcours se conclut par les examens du titre à finalité professionnelle et du DCL, puis par la remise des diplômes, suivis d'un accompagnement individuel pour une insertion socio-professionnelle durable." },
+          text: "Le parcours se termine par les examens du titre à finalité professionnelle et du DCL. Vient ensuite la remise des diplômes. Un accompagnement individuel suit, pour une insertion socio-professionnelle durable." },
       ],
       prochaineSession: "Prochaine session : du 30 novembre 2026 au 22 avril 2027.",
+      galerie: {
+        title: "Refugee Food Festival 2026",
+        lede: "Le festival de Refugee Food, partenaire de la formation Tournesol, a réuni des restaurants à Lille et à Lyon en 2026.",
+        photos: [
+          { src: "images/refugee-food-festival/rff-lille-1.jpg", alt: "Refugee Food Festival 2026 à Lille, restaurant L’Annexe", caption: "Lille, restaurant L’Annexe", credit: "@monsieurhuman" },
+          { src: "images/refugee-food-festival/rff-lille-2.jpg", alt: "Refugee Food Festival 2026 à Lille, restaurant L’Annexe", caption: "Lille, restaurant L’Annexe", credit: "@monsieurhuman" },
+          { src: "images/refugee-food-festival/rff-lyon-3.jpg", alt: "Refugee Food Festival 2026, soirée de clôture à Lyon", caption: "Lyon, soirée de clôture", credit: "Agathe Waechter" },
+          { src: "images/refugee-food-festival/rff-lyon-4.jpg", alt: "Refugee Food Festival 2026, soirée de clôture à Lyon", caption: "Lyon, soirée de clôture", credit: "Agathe Waechter" },
+        ],
+      },
       bilan: {
         eyebrow: "Bilan de la promotion 2025-2026",
         title: "Ce que la promotion marseillaise a obtenu",
@@ -588,7 +608,7 @@ window.FESTIN_DATA = {
       id: "vss",
       cat: "Professionnels",
       audienceKey: "pros",
-      title: "Prévention des VSS en restauration",
+      title: "Prévention des violences sexistes et sexuelles en restauration",
       desc: "Identifier, prévenir et agir contre les violences sexistes et sexuelles en milieu professionnel.",
       img: "images/photo-service-restaurant.jpg",
       duration: "Inter (3h) ou Intra (3h ou 1 jour / 7h)",
@@ -596,7 +616,7 @@ window.FESTIN_DATA = {
       price: "Inter 180 € HT/pers · Intra 800 € (3h) ou 1 500 € (1 jour)",
       publicLabel: "Tout professionnel de la restauration",
       objectives: [
-        "Identifier les situations de VSS sur le lieu de travail",
+        "Identifier les violences sexistes et sexuelles sur le lieu de travail",
         "Comprendre le cadre légal et les obligations de l'employeur",
         "Mettre en place un protocole de prévention adapté",
         "Réagir avec justesse face à un signalement",
@@ -617,11 +637,11 @@ window.FESTIN_DATA = {
       desc: "Recruter, fidéliser et manager autrement. Construire un environnement de travail respectueux.",
       img: "images/photo-cuisine-action.jpg",
       duration: "1 journée (7h) + 2 demi-journées (2 × 3h)",
-      format: "Présentiel — option +3h dédiées VSS",
+      format: "Présentiel — option : 3 h dédiées aux violences sexistes et sexuelles",
       price: "600 € / salarié (2 jours) · 3 000 € / organisation (groupe)",
       publicLabel: "Cheffes, chefs, managers, responsables RH",
       objectives: [
-        "Comprendre les leviers de fidélisation des équipes en restauration",
+        "Comprendre ce qui fait rester une équipe en restauration",
         "Recruter au-delà des CV et ouvrir le recrutement à la diversité",
         "Animer une équipe avec un management non-toxique",
         "Construire un cadre clair sur les conditions de travail",
@@ -632,7 +652,7 @@ window.FESTIN_DATA = {
         "Posture managériale : feedback, conflits, droit à l'erreur",
         "Plan d'action personnalisé pour son établissement",
       ],
-      tariff: "600 € HT pour 1 salarié sur les 2 jours · 3 000 € HT pour une organisation (le groupe complet). Option : module complémentaire de 3h dédiées à la prévention des VSS. Éligible OPCO et FNE.",
+      tariff: "600 € HT pour 1 salarié sur les 2 jours · 3 000 € HT pour une organisation (le groupe complet). Option : module complémentaire de 3h dédiées à la prévention des violences sexistes et sexuelles. Éligible OPCO et FNE.",
     },
     {
       id: "tfp",
@@ -830,7 +850,7 @@ window.FESTIN_DATA.home = {
   hero: {
     eyebrow: "Association Festin",
     titleLines: ["Le goût", "d'avancer", "ensemble"],   // dernière ligne = accent
-    sub: "Association à but non lucratif et d'intérêt général, agréée ESUS. Nous formons aux métiers de la cuisine et nous accompagnons les restaurants qui veulent recruter et manager autrement, depuis Marseille jusqu'à 14 territoires.",
+    sub: "Association à but non lucratif et d'intérêt général, agréée ESUS. Nous formons aux métiers de la cuisine. Nous accompagnons les restaurants qui veulent recruter et manager autrement. Depuis Marseille, dans 14 territoires.",
     ctas: [
       { label: "Découvrir nos projets", scroll: "eco", variant: "gold" },
       { label: "S'engager", scroll: "engage", variant: "ghost" }
@@ -845,38 +865,38 @@ window.FESTIN_DATA.home = {
   approche: {
     eyebrow: "L'association Festin",
     titleLines: ["De la cuisine", "à l'emploi"],
-    intro: "Viser haut n'exclut pas : cela élève. Nous formons aux métiers de la cuisine avec un diplôme reconnu et, pour les apprenantes de Des Étoiles et des Femmes, de 155 à 490 heures de stage en restaurant. Nous accompagnons aussi les restaurants qui veulent recruter et manager autrement.",
+    intro: "Viser haut n'exclut pas : cela élève. Nous formons aux métiers de la cuisine. Un diplôme reconnu, puis de 155 à 490 heures de stage en restaurant pour les apprenantes de Des Étoiles et des Femmes. Nous accompagnons aussi les restaurants qui veulent recruter et manager autrement.",
     steps: [
       { tab: "Accompagner", kicker: "01 · Insertion", title: "Accompagner",
-        text: "Des femmes, des personnes réfugiées ou primo-arrivantes, des personnes détenues : chacune suit un parcours vers un métier de cuisine, avec un accompagnement social de la première semaine à l'emploi.",
+        text: "Des femmes, des personnes réfugiées ou primo-arrivantes, des personnes détenues. Chacune suit un parcours vers un métier de cuisine. Un suivi social l'accompagne, de la première semaine à l'emploi.",
         img: "images/photo-groupe-portrait.jpg", variant: "a" },
       { tab: "Former", kicker: "02 · Formation", title: "Former",
-        text: "Un CAP cuisine ou un titre à finalité professionnelle de commis de cuisine, des stages en brigade. Pour les personnes en parcours comme pour les équipes déjà en poste.",
+        text: "Un CAP cuisine ou un titre à finalité professionnelle de commis de cuisine. Des stages en brigade. Pour les personnes en parcours, comme pour les équipes déjà en poste.",
         img: "images/photo-patisserie.jpg", variant: "b" },
       { tab: "Transformer", kicker: "03 · Transformation", title: "Transformer",
-        text: "Le programme Restaure réunit 35 structures et 700 signataires du manifeste pour prévenir les violences en cuisine et défendre un management juste.",
+        text: "Le programme Restaure réunit 35 structures. 700 signataires ont rejoint son manifeste. Leur cause : prévenir les violences en cuisine et défendre un management juste.",
         img: "images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00022.jpg", variant: "c" }
     ]
   },
   logoband: { eyebrow: "Cinq projets, tous rattachés à Festin" },
   dual: {
     titleLines: ["Se former,", "ou former ses équipes"],   // 2e = accent
-    lede: "Vous apprenez un métier ou vous dirigez une équipe : chaque entrée a son parcours.",
+    lede: "Vous apprenez un métier, ou vous dirigez une équipe. Chaque entrée a son parcours.",
     cards: [
       { tag: "Vous cherchez un métier", kicker: "Parcours d'insertion",
         title: "Apprendre un métier de cuisine, gratuitement",
         pts: [
           "Un diplôme reconnu : CAP cuisine ou titre à finalité professionnelle",
-          "Des stages en restaurant, un accompagnement social complet, un coaching vers l'emploi",
-          "Des parcours pour les femmes (Des Étoiles et des Femmes) et pour les personnes réfugiées ou primo-arrivantes (Tournesol)"
+          "Des stages en restaurant. Un accompagnement social complet. Un coaching vers l'emploi.",
+          "Des parcours pour les femmes (Des Étoiles et des Femmes), et pour les personnes réfugiées ou primo-arrivantes (Tournesol)."
         ],
         cta: "Voir les parcours", href: "#/accompagnement/insertion",
         img: "images/photo-tabliers-violets.jpg" },
       { tag: "Vous dirigez un établissement", kicker: "Professionnels de la restauration",
         title: "Recruter, former et garder vos équipes",
         pts: [
-          "Des formations courtes : prévention des violences, management juste, accueil de la diversité",
-          "Des stagiaires en parcours d'insertion accueillis dans votre brigade",
+          "Des formations courtes : violences en cuisine, management juste, accueil de la diversité.",
+          "Des stagiaires en parcours d'insertion, dans votre brigade.",
           "Un partenariat avec Festin pour recruter autrement"
         ],
         cta: "Voir l'accompagnement des restaurateurs", href: "#/accompagnement/professionnels",
@@ -885,16 +905,16 @@ window.FESTIN_DATA.home = {
   },
   eco: {
     titlePre: "L'écosystème ", titleAccent: "Festin",
-    lede: "Un restaurant en prison, un traiteur d'insertion, deux parcours diplômants et un programme national pour le secteur : cinq projets, tous rattachés à Festin.",
+    lede: "Un restaurant en prison. Un traiteur d'insertion. Deux parcours diplômants. Un programme national. Cinq projets, tous rattachés à Festin.",
     // par projet.id : accroche + chiffre + image de carte (le reste vient de FESTIN_DATA.projets)
     cards: [
-      { id:"des-etoiles-et-des-femmes", blurb:"Un diplôme de cuisine et des stages dans des restaurants gastronomiques, pour des femmes, dans 13 antennes en France.", stat:"91 % de réussite aux diplômes en 2025", img:"images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg" },
-      { id:"les-beaux-mets",           blurb:"Le premier restaurant en prison ouvert au public en France, aux Baumettes, à Marseille.", stat:"86 % de sorties dynamiques", img:"images/beauxmets-images/LBM_cdutrey_071122-7264.jpg" },
+      { id:"des-etoiles-et-des-femmes", blurb:"Un diplôme de cuisine et des stages en restaurants gastronomiques, pour des femmes. 13 antennes en France.", stat:"91 % de réussite aux diplômes en 2025", img:"images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg" },
+      { id:"les-beaux-mets",           blurb:"Le premier restaurant en prison ouvert au public en France. Aux Baumettes, à Marseille.", stat:"86 % de sorties dynamiques", img:"images/beauxmets-images/LBM_cdutrey_071122-7264.jpg" },
       { id:"la-table-de-cana",         blurb:"Traiteur et restauration collective en insertion, à Marseille.", stat:"400 000+ convives régalés", img:"images/latable de cana/tabledecana_cdutrey_160124-4393.jpg" },
-      { id:"restaure",                 blurb:"Un programme national pour prévenir les violences en cuisine et changer les pratiques du secteur.", stat:"700 signataires du manifeste", img:"images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00032.jpg" },
-      { id:"tournesol",                blurb:"Une formation diplômante de 5 mois pour des personnes réfugiées ou primo-arrivantes.", stat:"86 % d'insertion un an après", img:"images/photo-rouleaux.jpg" }
+      { id:"restaure",                 blurb:"Un programme national. Il prévient les violences en cuisine et change les pratiques du secteur.", stat:"700 signataires du manifeste", img:"images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00032.jpg" },
+      { id:"tournesol",                blurb:"Cinq mois de formation diplômante pour des personnes réfugiées ou primo-arrivantes.", stat:"86 % d'insertion un an après", img:"images/photo-rouleaux.jpg" }
     ],
-    explore: { title:"Explorer tout l'écosystème", text:"Un restaurant, un traiteur, deux parcours diplômants, un programme national : 14 territoires.", cta:"Voir les projets", href:"#/projets/des-etoiles-et-des-femmes" }
+    explore: { title:"Explorer tout l'écosystème", text:"Un restaurant, un traiteur, deux parcours diplômants, un programme national. 14 territoires.", cta:"Voir les projets", href:"#/projets/des-etoiles-et-des-femmes" }
   },
   impact: {
     eyebrow: "L'impact 2025",
@@ -910,7 +930,7 @@ window.FESTIN_DATA.home = {
   quotes: {
     eyebrow: "Témoignages",
     title: "Dans leurs mots",
-    lede: "Des personnes formées, un chef qui recrute, un chef engagé : ce qu'ils racontent.",
+    lede: "Des personnes formées, un chef qui recrute, un chef engagé. Leurs mots.",
     band: "images/photo-applaudissements.jpg",
     cards: [
       { av:"P", kind:"p", chip:"Personne accompagnée", name:"Hafida", role:"Des Étoiles et des Femmes, Lille",
@@ -966,17 +986,17 @@ window.FESTIN_DATA.about = {
     { name: "Virginie Leconte", role: "Secrétaire", avatar: null },
   ],
   jalons: [
-    { year: "1993", title: "La Table de Cana", desc: "Création du premier traiteur en insertion à Marseille, premier projet de l'association.", color: "#E8A825", dark: true, photo: "images/latable de cana/tabledecana_cdutrey_160124-5010.jpg" },
-    { year: "2015", title: "Naissance de Des Étoiles et des Femmes", desc: "Lancement à Marseille du programme qui forme des femmes aux métiers de la cuisine avec de grands chefs.", color: "#E4572E", dark: true, photo: "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg" },
-    { year: "2022", title: "Ouverture des Beaux Mets", desc: "Le premier restaurant en prison ouvert au public en France, aux Baumettes, à Marseille.", color: "#1D6B78", dark: false, photo: "images/beauxmets-images/LBM_cdutrey_071122-7922.jpg" },
-    { year: "2024", title: "Le programme Restaure", desc: "Quatre structures au pilotage, 35 structures engagées et 700 signataires du manifeste.", color: "#9A5BA8", dark: false, photo: "images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg" },
-    { year: "2025", title: "Tournesol", desc: "Festin porte la formation Tournesol avec Refugee Food : cinq mois pour préparer un titre à finalité professionnelle de commis de cuisine.", color: "#0F3C44", dark: false, photo: "images/photo-rouleaux.jpg" },
+    { year: "1993", title: "La Table de Cana", desc: "Le premier traiteur en insertion de Marseille. Le premier projet de l'association.", color: "#E8A825", dark: true, photo: "images/latable de cana/tabledecana_cdutrey_160124-5010.jpg" },
+    { year: "2015", title: "Naissance de Des Étoiles et des Femmes", desc: "Un programme qui forme des femmes aux métiers de la cuisine, avec de grands chefs.", color: "#E4572E", dark: true, photo: "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg" },
+    { year: "2022", title: "Ouverture des Beaux Mets", desc: "Le premier restaurant en prison ouvert au public en France. Aux Baumettes, à Marseille.", color: "#1D6B78", dark: false, photo: "images/beauxmets-images/LBM_cdutrey_071122-7922.jpg" },
+    { year: "2024", title: "Le programme Restaure", desc: "Quatre structures au pilotage. 35 structures engagées. 700 signataires du manifeste.", color: "#9A5BA8", dark: false, photo: "images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg" },
+    { year: "2025", title: "Tournesol", desc: "Festin porte la formation Tournesol avec Refugee Food. Cinq mois pour préparer un titre à finalité professionnelle de commis de cuisine.", color: "#0F3C44", dark: false, photo: "images/photo-rouleaux.jpg" },
     { year: "2026", title: "Académie Festin", desc: "Festin devient organisme de formation.", color: "#F5C84A", dark: true, photo: "images/photo-cuisine-formation.jpg" },
   ],
   valeurs: [
-    { title: "Non-lucrativité", color: "#E8A825", dark: true,  desc: "Festin est une association loi 1901 à but non lucratif et d'intérêt général, agréée ESUS. Chaque euro sert le projet associatif, jamais un actionnaire." },
-    { title: "Excellence",      color: "#E4572E", dark: true,  desc: "Aux Beaux Mets, le chef forme les commis à une cuisine bistronomique et le maître d'hôtel forme l'équipe de salle. Viser haut est ce qui rend les parcours solides." },
-    { title: "Collectif",       color: "#9A5BA8", dark: false, desc: "Aucun projet Festin ne se fait seul : chefs, restaurateurs, entreprises, fondations et pouvoirs publics avancent avec nous." },
+    { title: "Non-lucrativité", color: "#E8A825", dark: true,  desc: "Festin est une association loi 1901, à but non lucratif et d'intérêt général, agréée ESUS. Chaque euro sert le projet associatif." },
+    { title: "Excellence",      color: "#E4572E", dark: true,  desc: "Aux Beaux Mets, le chef forme les commis à la cuisine bistronomique. Le maître d'hôtel forme l'équipe de salle. Viser haut rend les parcours solides." },
+    { title: "Collectif",       color: "#9A5BA8", dark: false, desc: "Aucun projet Festin ne se fait seul. Chefs, restaurateurs, entreprises, fondations et pouvoirs publics avancent avec nous." },
   ],
   // Partenaires institutionnels affichés (logos dans images/partners/)
   partenaires: [
