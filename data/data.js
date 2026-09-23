@@ -340,7 +340,7 @@ window.FESTIN_DATA = {
       // --- Champs page projet dédiée (sourcés du dossier de présentation LBM, janv. 2026) ---
       parcours: [
         { tab: "La brigade", title: "Un service ouvert au public",
-          text: "16 personnes détenues composent 2 brigades, encadrées par le Chef Valentin Majan et son Second Boris Ruel en cuisine, le Maître d’hôtel Marc Balthazard en salle. Elles cuisinent et servent la carte du restaurant, devant des clients.",
+          text: "16 personnes détenues composent 2 brigades, encadrées par le Chef Valentin Majan et son Second Boris Ruel en cuisine, le Maître d’hôtel Marc Balthazard en salle. Elles cuisinent et servent la carte du restaurant, devant des convives.",
           stat: "16", statL: "commis en poste, répartis en 2 brigades" },
         { tab: "L’accompagnement", title: "Un suivi jusqu’à six mois après la sortie",
           text: "Chaque commis est suivi individuellement, du recrutement jusqu’à six mois après la sortie de détention : entretiens, stages, ateliers collectifs, projet professionnel. C’est le travail de Nissa Boudhabhay, conseillère en insertion professionnelle.",
@@ -1052,7 +1052,7 @@ window.FESTIN_DATA.about = {
   ],
   valeurs: [
     { title: "Non-lucrativité", color: "#E8A825", dark: true,  desc: "Festin est une association loi 1901, à but non lucratif et d'intérêt général, agréée ESUS. Chaque euro sert le projet associatif." },
-    { title: "Excellence",      color: "#E4572E", dark: true,  desc: "Aux Beaux Mets, le chef forme les commis à la cuisine bistronomique et le maître d'hôtel forme l'équipe de salle. Les commis apprennent sur un vrai service, face à des clients." },
+    { title: "Excellence",      color: "#E4572E", dark: true,  desc: "Aux Beaux Mets, le chef forme les commis à la cuisine bistronomique et le maître d'hôtel forme l'équipe de salle. Les commis apprennent sur un vrai service, face à des convives." },
     { title: "Collectif",       color: "#9A5BA8", dark: false, desc: "Aucun projet Festin ne se fait seul. Chefs, restaurateurs, entreprises, fondations et pouvoirs publics avancent avec nous." },
   ],
   // Partenaires institutionnels affichés (logos dans images/partners/)

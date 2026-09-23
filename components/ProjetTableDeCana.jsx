@@ -179,7 +179,7 @@ function ProjetTableDeCanaPage() {
         <div className="wrap proj-projet__split">
           <div className="proj-projet__body">
             <span className="proj-sec" id="proj-projet-t">Le projet</span>
-            <h2 className="proj-h2 reveal">Le premier projet de<br />Festin, depuis 1993</h2>
+            <h2 className="proj-h2 reveal">Le premier projet<br />de Festin</h2>
             <p className="proj-projet__lede reveal">{p.description}</p>
             <div className="proj-acc reveal">
               {(p.parcours || []).map((s, i) => {

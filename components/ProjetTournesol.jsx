@@ -213,7 +213,7 @@ function ProjetTournesolPage() {
         <div className="wrap proj-projet__split">
           <div className="proj-projet__body">
             <span className="proj-sec" id="proj-projet-t">Le projet</span>
-            <h2 className="proj-h2 reveal">Un parcours diplômant,<br />pas à pas</h2>
+            <h2 className="proj-h2 reveal">Du français<br />jusqu’au diplôme</h2>
             <p className="proj-projet__lede reveal">{p.description}</p>
             <div className="proj-acc reveal">
               {(p.parcours || []).map((s, i) => {

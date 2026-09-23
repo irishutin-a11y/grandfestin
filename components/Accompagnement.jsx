@@ -299,8 +299,7 @@ function AccompagnementInsertionPage() {
   useReveal(root);
   const D = window.FESTIN_DATA;
   const projets = D.projets.filter(p => ['des-etoiles-et-des-femmes', 'tournesol', 'les-beaux-mets', 'la-table-de-cana'].includes(p.id));
-  const chiffres = [...D.stats.slice(0, 3).map(s => ({ value: s.value, unit: s.unit === '%' ? ' %' : s.unit, label: s.label })),
-    { value: '5', unit: '', label: 'projets, tous rattachés à Festin' }];
+  const chiffres = D.stats.slice(0, 4).map(s => ({ value: s.value, unit: s.unit === '%' ? ' %' : s.unit, label: s.label }));
   const pal = [
     { color: 'var(--teal)' }, { color: 'var(--coral)' }, { color: 'var(--gold)', dark: true }, { color: 'var(--violet)' },
     { color: 'var(--teal-secondary)' }, { color: 'var(--cream)', dark: true }, { color: 'var(--gold-secondary)', dark: true },
@@ -308,8 +307,7 @@ function AccompagnementInsertionPage() {
   const calendrier = [
     { year: 'Septembre', title: "Recrutement et atelier de préparation", desc: "Entretiens, puis un atelier collectif pour préparer la rencontre avec les restaurants." },
     { year: 'Octobre',   title: "Rencontre avec les restaurants", desc: "Immersion courte dans un restaurant pour valider le projet, puis mise en relation avec l'établissement qui vous accueillera." },
-    { year: 'Novembre',  title: "Début de la formation Tournesol", desc: "La promotion Tournesol entre en formation." },
-    { year: 'Décembre',  title: "Début de la formation Des Étoiles et des Femmes", desc: "Entrée en formation, et démarrage du suivi individuel et collectif." },
+    { year: 'Novembre — décembre', title: "Entrée en formation", desc: "Les deux promotions démarrent, et le suivi individuel commence. En 2026 : le 9 novembre pour Des Étoiles et des Femmes, le 30 novembre pour Tournesol." },
     { year: 'Janvier — mars', title: "Formation, stages et suivi", desc: "Alternance entre les cours, les stages en brigade et les rendez-vous de suivi." },
     { year: 'Avril',     title: "Examens et sortie de formation", desc: "Passage du diplôme, puis fin de la formation pour les deux promotions." },
     { year: 'Mai — juin', title: "Accompagnement vers l'emploi", desc: "Recherche de poste, mise en relation avec les restaurants, et préparation des promotions suivantes." },
@@ -318,13 +316,13 @@ function AccompagnementInsertionPage() {
   return (
     <div className="about acc" ref={root} data-screen-label="Accompagnement — Insertion">
       <AccHero img="images/photo-tabliers-violets.jpg" crumb="Insertion"
-        eyebrow="Vous cherchez un métier" title="Apprendre un métier de cuisine," em="avec un suivi complet"
-        lede="Un diplôme reconnu. Des stages en restaurant. Un suivi social complet. Nous construisons votre parcours avec vous, jusqu'à l'emploi." />
+        eyebrow="Vous cherchez un métier" title="Apprendre un métier de cuisine," em="gratuitement"
+        lede="Vous préparez un diplôme reconnu, vous faites vos stages en restaurant, et une personne de l'équipe vous suit jusqu'à l'emploi." />
 
       <AccSplit tone="cream" eyebrow="Notre approche" title="Un diplôme, et quelqu'un" em="à vos côtés"
         img="images/photo-apprenante-plats.jpg">
-        <p className="ab-body">Nos parcours réunissent trois choses : un diplôme reconnu, de l'expérience en restaurant, un accompagnement social complet. Mobilité, garde d'enfants, logement, soutien linguistique. Des femmes, des personnes réfugiées ou primo-arrivantes, des personnes détenues ou en sortie de détention y trouvent leur place.</p>
-        <p className="ab-body acc-note">Tous nos parcours sont gratuits. Une indemnisation est possible selon votre situation.</p>
+        <p className="ab-body">Chaque parcours prépare un diplôme reconnu et comprend des stages en restaurant. Pendant toute la formation, une personne de l'équipe vous aide pour ce qui peut vous empêcher d'avancer : transport, garde d'enfants, logement, cours de français. Nos parcours accueillent des femmes, des personnes réfugiées ou primo-arrivantes, et des personnes détenues ou sorties de détention.</p>
+        <p className="ab-body acc-note">Tous nos parcours sont gratuits. Selon votre situation, vous pouvez percevoir une indemnité ou une rémunération pendant la formation.</p>
       </AccSplit>
 
       <AccChiffres items={chiffres} />
@@ -332,13 +330,13 @@ function AccompagnementInsertionPage() {
       <AccParcours eyebrow="Nos parcours d'insertion" title="Le parcours qui vous" em="correspond" projets={projets} />
 
       <AccFrise word="PROMOTION" eyebrow="Une année, mois par mois" title="Comment se déroule" em="une promotion"
-        lede="Le calendrier est le même chaque année. Il vous donne une idée précise de ce qui vous attend, du premier entretien jusqu'à l'accompagnement vers l'emploi."
+        lede="Voici le déroulé d'une année, du premier entretien jusqu'à l'emploi. Les dates exactes changent d'une session à l'autre."
         items={calendrier} />
 
       <AccEngage img="images/photo-promo-groupe.jpg" eyebrow="Candidater à une promotion"
-        title="Construire votre" em="projet professionnel"
-        text="Écrivez-nous. Nous vérifierons ensemble votre éligibilité. Prochaines sessions : Des Étoiles et des Femmes (titre à finalité professionnelle), du 9 novembre 2026 au 13 avril 2027. Tournesol, du 30 novembre 2026 au 22 avril 2027."
-        cta="Nous contacter" href="#/contact" />
+        title="Vérifier si le parcours" em="est fait pour vous"
+        text="Écrivez-nous : nous vérifions ensemble votre éligibilité, puis nous vous invitons à une réunion d'information. Prochaines sessions : Des Étoiles et des Femmes (titre à finalité professionnelle), du 9 novembre 2026 au 13 avril 2027. Tournesol, du 30 novembre 2026 au 22 avril 2027."
+        cta="Vérifier mon éligibilité" href="#/contact" />
     </div>
   );
 }
@@ -355,23 +353,23 @@ function AccompagnementProsPage() {
   return (
     <div className="about acc" ref={root} data-screen-label="Accompagnement — Professionnels">
       <AccHero img="images/beauxmets-images/LBM_cdutrey_071122-7264.jpg" crumb="Professionnels"
-        eyebrow="Vous êtes restaurateur" title="Recruter et manager autrement," em="avec Festin"
-        lede="Des stagiaires formées à votre carte. Des formations sur les violences en cuisine et le management juste. Un partenariat construit avec des professionnels du secteur." />
+        eyebrow="Vous êtes restaurateur" title="Recruter des commis formés," em="avec Festin"
+        lede="Nous vous présentons des candidats formés dans nos parcours, et leur préparation à l'emploi peut être financée par France Travail. Nous formons aussi vos équipes contre les violences en cuisine et au management." />
 
-      <AccEventail eyebrow="Ce que Festin construit avec les restaurateurs" title="Ce que nous construisons" em="ensemble"
+      <AccEventail eyebrow="Nos partenariats" title="Ce que nous faisons" em="avec vous"
         items={[
-          { color: 'var(--teal)', title: 'Recruter autrement',
-            desc: "Accueillez des stagiaires de Des Étoiles et des Femmes ou de Tournesol. Un binôme, un tutorat, un suivi pendant le stage. Si la rencontre a lieu, vous recrutez. Face à la pénurie de main-d'œuvre, vous n'êtes plus seul." },
+          { color: 'var(--teal)', title: 'Accueillir un stagiaire',
+            desc: "Une personne formée par Des Étoiles et des Femmes ou Tournesol rejoint votre brigade. Un membre de votre équipe la suit en binôme, et Festin reste en appui pendant tout le stage. Si la rencontre fonctionne, vous recrutez." },
           { color: 'var(--coral)', title: 'Prévenir les violences',
-            desc: "Une formation sur les violences sexistes et sexuelles, pensée pour la cuisine, la salle et la brigade. Le cadre légal. Des cas tirés de situations réelles. Un protocole de signalement." },
+            desc: "Une formation de trois heures ou d'une journée, pensée pour la cuisine et la salle : le cadre légal, des cas tirés de situations réelles, et un protocole de signalement à mettre en place." },
           { color: 'var(--gold)', dark: true, title: 'Manager juste',
-            desc: "Deux jours pour fidéliser une équipe. Posture managériale, recrutement inclusif, droit à l'erreur. Vous repartez avec un plan d'action pour votre établissement." },
+            desc: "Deux jours pour apprendre à garder une équipe : posture de manager, recrutement, droit à l'erreur. Vous repartez avec un plan d'action pour votre établissement." },
         ]} />
 
       <AccEtapes tone="cream" eyebrow="Recruter avec France Travail" title="Accueillir un candidat," em="étape par étape"
         lede="La préparation opérationnelle à l'emploi individuelle (POEI) est financée par France Travail. Elle permet de recruter une personne formée à votre cuisine. Festin facilite les démarches."
         steps={[
-          { n: '1', when: 'Dès septembre 2026', t: 'Des candidats présentés', d: "Nous présentons des candidats qui correspondent à vos besoins. Des journées d'immersion en cuisine valident le profil." },
+          { n: '1', when: 'Automne 2026', t: 'Des candidats présentés', d: "Nous présentons des candidats qui correspondent à vos besoins. Des journées d'immersion en cuisine valident le profil." },
           { n: '2', when: 'Janvier et mars 2027', t: 'Deux stages chez vous', d: 'Deux semaines en janvier, trois semaines en mars, dans votre établissement.' },
           { n: '3', when: "À partir d'avril 2027", t: 'Une prise de poste', d: "Si l'expérience est concluante : un CDD de quatre mois minimum." },
         ]} />
@@ -384,7 +382,7 @@ function AccompagnementProsPage() {
             <p className="ab-body">Inter ou intra, en présentiel, par l'Académie Festin, organisme de formation certifié Qualiopi. Prise en charge OPCO possible.</p>
           </div>
           <div className="formations__grid">
-            {FCL && formationsPros.map((f) => <FCL key={f.id} f={f} />)}
+            {FCL && formationsPros.map((f) => <FCL key={f.id} f={f} noPrice />)}
           </div>
           <div className="acc-center">
             <a href={D.catalogPdf} target="_blank" rel="noopener" className="btn btn--ghost">Télécharger le catalogue complet (PDF)</a>
@@ -394,15 +392,15 @@ function AccompagnementProsPage() {
 
       <AccSplit tone="cream" eyebrow="Au-delà des formations" title="Rejoindre" em="le programme Restaure"
         img="images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg" alt="Soirée de lancement du programme Restaure">
-        <p className="ab-body">Restaure réunit 35 structures et 700 signataires du manifeste. Leur but : changer les pratiques du secteur. Vous pouvez signer le manifeste, rejoindre un groupe de travail, venir aux tables rondes. Ou aux Toast : des apéros inspirants, organisés avec La Communauté Ecotable, où les restaurateurs échangent leurs pratiques.</p>
+        <p className="ab-body">Restaure réunit 35 structures et 700 signataires de son manifeste contre les violences en cuisine. Vous pouvez signer le manifeste, rejoindre un groupe de travail ou venir aux tables rondes. Aux Toast, des apéros organisés avec La Communauté Ecotable, des restaurateurs racontent ce qu'ils ont changé chez eux.</p>
         <a href="#/projets/restaure" className="btn btn--teal acc-btn">Découvrir Restaure <span aria-hidden="true">→</span></a>
         <p className="acc-credit">Photo : Caroline Dutrey</p>
       </AccSplit>
 
       <AccEngage img="images/photo-service-restaurant.jpg" eyebrow="Nous contacter"
-        title="Parlons de votre" em="établissement"
-        text="Notre équipe répond sous 48 h ouvrées. Le Book de l'emploi présente les personnes diplômées de nos parcours qui cherchent un poste. Nous vous l'envoyons sur demande."
-        cta="Échanger avec notre équipe, ou demander le Book de l'emploi" href="#/contact" />
+        title="Recevoir le" em="Book de l'emploi"
+        text="Le chef Davin, de l'Intercontinental Marseille, a accueilli dans son équipe un commis formé aux Beaux Mets : « Sami s'est très vite intégré à l'équipe. » Le Book de l'emploi présente les personnes diplômées de nos parcours qui cherchent un poste. Nous vous l'envoyons sur demande, sous 48 h ouvrées."
+        cta="Demander le Book de l'emploi" href="#/contact" />
     </div>
   );
 }

@@ -277,7 +277,7 @@ function ProjetLBMPage() {
         </div>
       </section>
 
-      {/* SOUTENIR — texte + CTA à gauche, logos placeholder à droite */}
+      {/* SOUTENIR — texte + CTA à gauche, logo du projet à droite */}
       <section className="proj-support" aria-labelledby="proj-support-t">
         <div className="wrap proj-support__inner reveal">
           <div className="proj-support__body">
@@ -293,17 +293,11 @@ function ProjetLBMPage() {
               </a>
             </div>
           </div>
-          <div className="proj-support__logos" role="group" aria-label="Partenaires (à venir)">
+          <div className="proj-support__logos">
             <div className="proj-logogrid">
-              <span className="proj-logocard proj-logocard--ph"><span>Logo<br />partenaire</span></span>
-              <span className="proj-logocard proj-logocard--ph"><span>Logo<br />partenaire</span></span>
-            </div>
-            <div className="proj-logogrid">
-              <span className="proj-logocard proj-logocard--ph"><span>Logo<br />partenaire</span></span>
               <span className="proj-logocard proj-logocard--hub">
                 <img src={PIMG(p.logo)} alt={p.shortTitle} loading="lazy" />
               </span>
-              <span className="proj-logocard proj-logocard--ph"><span>Logo<br />partenaire</span></span>
             </div>
           </div>
         </div>

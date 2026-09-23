@@ -66,7 +66,7 @@ function FormationsTeaser() {
   );
 }
 
-function FormationCardLink({ f, wide }) {
+function FormationCardLink({ f, wide, noPrice }) {
   return (
     <a className={"formation-card" + (wide ? " wide" : "")} href={`#/formations/${f.id}`}>
       <div className="formation-card__img"><img src={f.img} alt={f.title} loading="lazy"/></div>
@@ -77,7 +77,7 @@ function FormationCardLink({ f, wide }) {
         <div className="formation-card__chips">
           <span className="chip"><i data-lucide="clock" style={{width:12,height:12}}/> {f.duration}</span>
           <span className="chip"><i data-lucide="map-pin" style={{width:12,height:12}}/> {f.format.split('—')[0].trim()}</span>
-          <span className="chip"><i data-lucide="euro" style={{width:12,height:12}}/> {f.price.split('—')[0].trim()}</span>
+          {!noPrice && <span className="chip"><i data-lucide="euro" style={{width:12,height:12}}/> {f.price.split('—')[0].trim()}</span>}
         </div>
         <div className="formation-card__bottom">
           <span className="lnk">Voir le détail <i data-lucide="arrow-right" style={{width:14,height:14}}/></span>
