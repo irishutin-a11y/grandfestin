@@ -794,3 +794,6 @@ main:focus { outline: none; }
    plus masquer l'élément qui reçoit le focus au clavier. On garde le sticky. */
 html { scroll-padding-top: 104px; scroll-padding-bottom: 96px; }
 .pageProjetDef, .pageProjetLBM, .pageProjetRestaure, .pageProjetTDC, .pageProjetTS { scroll-padding-top: 132px; }
+
+/* <picture> : conteneur neutre, l'image garde le comportement qu'avait <img> */
+picture { display: contents; }

@@ -380,7 +380,7 @@ function ProjetTournesolPage() {
           <div className="wrap proj-gallery__grid">
             {galleryImages.map((src, i) => (
               <div className="proj-gallery__item" key={i}>
-                <img src={PIMG(src)} alt="" loading="lazy" />
+                <window.Picture src={src} alt="" sizes="(max-width: 700px) 60vw, 320px" />
               </div>
             ))}
           </div>

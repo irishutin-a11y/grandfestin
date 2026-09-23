@@ -234,7 +234,7 @@ function ProjetLBMPage() {
                   onClick={() => setVideoOn(true)}
                   aria-label={"Lire la vidéo de présentation du " + p.shortTitle}
                 >
-                  <img src={PIMG(p.video.poster)} alt="" aria-hidden="true" />
+                  <window.Picture src={p.video.poster} alt="" aria-hidden="true" sizes="(max-width: 900px) 100vw, 55vw" />
                   <span className="proj-projet__scrim" aria-hidden="true"></span>
                   <span className="proj-projet__playlabel">Lire la vidéo <span aria-hidden="true">→</span></span>
                 </button>
@@ -355,7 +355,7 @@ function ProjetLBMPage() {
         <div className="proj-gallery__track">
           {[...galleryImages, ...galleryImages].map((src, i) => (
             <div className="proj-gallery__item" key={i} aria-hidden={i >= galleryImages.length}>
-              <img src={PIMG(src)} alt="" loading="lazy" />
+              <window.Picture src={src} alt="" sizes="(max-width: 700px) 60vw, 320px" />
             </div>
           ))}
         </div>

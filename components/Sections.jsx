@@ -1,4 +1,39 @@
 // Sections.jsx — Ticker, Festin section, Publics, Témoignages, Contact, Footer
+
+// ---------------------------------------------------------------------------
+// Picture — sert l'AVIF quand il existe, avec repli JPEG et deux largeurs.
+// Les variantes vivent dans images/web/{800,1600}/ et sont listées dans
+// data/images-manifest.js (généré). Une image absente du manifeste est rendue
+// telle quelle : aucun risque de lien mort.
+// ---------------------------------------------------------------------------
+const URI = (p) => (/%[0-9A-Fa-f]{2}/.test(p) ? p : encodeURI(p));
+
+function Picture({ src, alt = '', sizes = '100vw', className, imgClassName, style, loading = 'lazy', fetchPriority, ...rest }) {
+  const rel = String(src || '').replace(/^images\//, '');
+  const entry = window.FESTIN_IMG && window.FESTIN_IMG[rel];
+  const img = (
+    <img
+      src={URI(src)} alt={alt} className={imgClassName || className} style={style}
+      loading={loading} decoding="async" fetchpriority={fetchPriority} {...rest}
+    />
+  );
+  if (!entry) return img;
+
+  const stem = rel.replace(/\.[^.]+$/, '');
+  const set = (widths, ext) => widths
+    .map(w => URI('images/web/' + w + '/' + stem + '.' + ext) + ' ' + w + 'w')
+    .join(', ');
+
+  return (
+    <picture className={className}>
+      {entry.avif && entry.avif.length > 0 && (
+        <source type="image/avif" srcSet={set(entry.avif, 'avif')} sizes={sizes} />
+      )}
+      <source type="image/jpeg" srcSet={set(entry.w, 'jpg')} sizes={sizes} />
+      {img}
+    </picture>
+  );
+}
 function Ticker() {
   const items = window.FESTIN_DATA.ticker;
   return (
@@ -353,6 +388,7 @@ function ProjetExtra({ eyebrow, title, accent, lede, tone = 'cream', children })
   );
 }
 window.ProjetExtra = ProjetExtra;
+window.Picture = Picture;
 
 window.Ticker = Ticker;
 window.Academie = Academie;

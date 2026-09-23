@@ -43,7 +43,7 @@ function AboutHero() {
     <section className="ab-hero" ref={root}>
       <div className="ab-hero__tiles" aria-hidden="true">
         {HERO_TILES.map((t, i) => (
-          <div key={i} className={'ab-tile ' + t.cls}><div className="ab-tile__in"><img src={src(t.img)} alt="" loading="eager" /></div></div>
+          <div key={i} className={'ab-tile ' + t.cls}><div className="ab-tile__in"><window.Picture src={t.img} alt="" sizes="(max-width: 899px) 45vw, 22vw" loading={i < 3 ? 'eager' : 'lazy'} /></div></div>
         ))}
       </div>
       <div className="container ab-hero__inner">
@@ -69,7 +69,7 @@ function CeQuOnEst() {
           <p className="ab-body">La Table de Cana naît à Marseille en 1993. C'est le premier projet de l'association. Elle a ouvert la voie. Festin porte aujourd'hui cinq projets, du restaurant des Baumettes au programme national Restaure. Chacun forme, accompagne ou transforme. Tous se rattachent à une association loi 1901, à but non lucratif et d'intérêt général, agréée ESUS.</p>
         </div>
         <figure className="ab-split__photo ab-reveal">
-          <img src={src('images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg')} alt="Le Grand Festin, rassemblement annuel de l'association" loading="lazy" />
+          <window.Picture src='images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg' alt="Le Grand Festin, rassemblement annuel de l'association" sizes="(max-width: 899px) 100vw, 60vw" />
         </figure>
       </div>
     </section>
@@ -148,7 +148,7 @@ function Histoire() {
                 <h3>{j.title}</h3>
                 <p>{j.desc}</p>
               </div>
-              <span className="ab-jalon__img"><img src={src(j.photo)} alt="" loading="lazy" /></span>
+              <span className="ab-jalon__img"><window.Picture src={j.photo} alt="" sizes="(max-width: 899px) 60vw, 30vw" /></span>
             </li>
           ))}
         </ol>
@@ -310,7 +310,7 @@ function Engager() {
   ];
   return (
     <section className="ab-engage">
-      <img className="ab-engage__bg" src={src('images/photo-groupe-portrait.jpg')} alt="" loading="lazy" />
+      <window.Picture imgClassName="ab-engage__bg" src='images/photo-groupe-portrait.jpg' alt="" sizes="100vw" />
       <div className="ab-engage__veil" />
       <div className="container ab-engage__in">
         <span className="ab-eyebrow ab-eyebrow--gold">S'engager</span>

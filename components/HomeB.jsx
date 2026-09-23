@@ -129,7 +129,7 @@ function HomeB() {
 
       {/* HERO */}
       <header className="hero" id="hero">
-        <div className="hero__media" id="heroMedia"><img src={IMG(H.hero.img)} alt="Personnes en cuisine, atelier Festin" /></div>
+        <div className="hero__media" id="heroMedia"><window.Picture src={H.hero.img} alt="Personnes en cuisine, atelier Festin" sizes="100vw" loading="eager" fetchPriority="high" /></div>
         <div className="hero__scrim"></div>
         <div className="hero__prism"></div>
         <div className="hero__inner wrap">
@@ -182,7 +182,7 @@ function HomeB() {
                       <h3>{s.title}</h3>
                       <p>{s.text}</p>
                     </div>
-                    <img src={IMG(s.img)} loading="lazy" alt="" />
+                    <window.Picture src={s.img} alt="" sizes="(max-width: 900px) 100vw, 50vw" />
                   </article>
                 ))}
               </div>
@@ -211,7 +211,7 @@ function HomeB() {
           <div className="dualcards">
             {H.dual.cards.map((c, i) => (
               <a key={i} href={c.href} className="dcard reveal">
-                <div className="dcard__img"><img src={IMG(c.img)} loading="lazy" alt="" /><span className="dcard__tag">{c.tag}</span></div>
+                <div className="dcard__img"><window.Picture src={c.img} alt="" sizes="(max-width: 820px) 100vw, 50vw" /><span className="dcard__tag">{c.tag}</span></div>
                 <div className="dcard__body">
                   <span className="dcard__kicker">{c.kicker}</span>
                   <h3>{c.title}</h3>
@@ -234,7 +234,7 @@ function HomeB() {
               const p = byId(c.id);
               return (
                 <a key={c.id} href={`#/projets/${c.id}`} className="ecocard reveal">
-                  <div className="ecocard__img"><img src={IMG(c.img)} loading="lazy" alt={p.shortTitle} /></div>
+                  <div className="ecocard__img"><window.Picture src={c.img} alt={p.shortTitle} sizes="(max-width: 620px) 100vw, (max-width: 960px) 50vw, 33vw" /></div>
                   <div className="ecocard__body">
                     <img className="ecocard__logo" src={IMG(p.logo)} alt="" loading="lazy" decoding="async" />
                     <span className="ecocard__eb">{p.eyebrow}</span>
@@ -276,7 +276,7 @@ function HomeB() {
           </div>
           <div className="b-impact__photos" id="impactPhotos">
             {H.impact.photos.map((src, i) => (
-              <div key={i} className={"b-impact__ph b-impact__ph--p" + (i + 1)}><img src={IMG(src)} loading="lazy" alt="" /></div>
+              <div key={i} className={"b-impact__ph b-impact__ph--p" + (i + 1)}><window.Picture src={src} alt="" sizes="(max-width: 900px) 50vw, 170px" /></div>
             ))}
           </div>
         </div>
@@ -288,7 +288,7 @@ function HomeB() {
           <span className="eyb">{H.quotes.eyebrow}</span>
           <h2 className="h2b reveal">{H.quotes.title}</h2>
           <p className="b-quotes__lede reveal">{H.quotes.lede}</p>
-          <div className="qband reveal"><img src={IMG(H.quotes.band)} loading="lazy" alt="Cérémonie de fin de formation" /></div>
+          <div className="qband reveal"><window.Picture src={H.quotes.band} alt="Cérémonie de fin de formation" sizes="100vw" /></div>
         </div>
         <div className="tmarquee reveal" aria-label="Témoignages">
           <div className="tmarquee__track" id="ttrack">
