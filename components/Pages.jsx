@@ -1420,6 +1420,8 @@ function ActualitesPage() {
         breadcrumb={[{label:'Accueil',href:'#/'},{label:'Qui sommes-nous',href:'#/about'},{label:'Actualités'}]}
       />
 
+      <window.TempsForts items={window.FESTIN_DATA.tempsForts || []} />
+
       <section style={{padding:'var(--s-8) 0 var(--s-9)', background:'var(--off-white)'}}>
         <div className="container">
 
@@ -1492,26 +1494,14 @@ function ActualitesPage() {
         </div>
       </section>
 
-      {/* Presse : présentation, chiffres clés, contact, logos */}
+      {/* Presse : chiffres clés, contact, logos */}
       <section id="presse" style={{padding:'var(--s-9) 0', background:'var(--cream)'}}>
         <div className="container">
           <div style={{maxWidth:760, marginBottom:40}}>
             <span className="eyebrow">Presse</span>
-            <h2 className="h2">Présenter Festin <em className="accent">en quelques mots</em></h2>
-            <p className="lede" style={{marginTop:14}}>Des textes à reprendre tels quels, des chiffres sourcés et datés, un contact et les logos.</p>
+            <h2 className="h2">Chiffres, contact <em className="accent">et logos</em></h2>
           </div>
           <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap:20}}>
-            {[
-              {k:'En 50 mots', t:"Festin est une association à but non lucratif et d'intérêt général, agréée ESUS, basée à Marseille. Elle forme aux métiers de la cuisine des personnes en insertion. Elle accompagne les restaurants qui veulent recruter et manager autrement. Avec le programme Restaure, elle change les pratiques du secteur."},
-              {k:'En 100 mots', t:"Festin est une association loi 1901, à but non lucratif et d'intérêt général, agréée ESUS. Elle est basée à Marseille. Elle réunit cinq projets. Des Étoiles et des Femmes forme des femmes aux métiers de la cuisine, dans 13 antennes. Les Beaux Mets est le premier restaurant en prison ouvert au public en France. La Table de Cana, traiteur et restauration collective en insertion, existe depuis 1993. Le programme Restaure réunit 35 structures contre les violences en cuisine. Tournesol forme des personnes réfugiées ou primo-arrivantes, avec Refugee Food. L'Académie Festin, certifiée Qualiopi, réunit l'offre de formation."},
-            ].map((b, i) => (
-              <div key={i} style={{background:'#fff', border:'1px solid var(--line)', borderRadius:16, padding:28}}>
-                <span style={{fontSize:12, fontWeight:700, letterSpacing:'0.12em', textTransform:'uppercase', color:'var(--teal)'}}>{b.k}</span>
-                <p style={{fontSize:15, color:'var(--ink)', lineHeight:1.7, margin:'10px 0 0'}}>{b.t}</p>
-              </div>
-            ))}
-          </div>
-          <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap:20, marginTop:20}}>
             <div style={{background:'#fff', border:'1px solid var(--line)', borderRadius:16, padding:28}}>
               <span style={{fontSize:12, fontWeight:700, letterSpacing:'0.12em', textTransform:'uppercase', color:'var(--teal)'}}>Chiffres clés</span>
               <ul style={{listStyle:'none', padding:0, margin:'12px 0 0', display:'grid', gap:8, fontSize:15, color:'var(--ink)'}}>

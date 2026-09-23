@@ -218,5 +218,109 @@ function ImgSphere({ images = [], size: maxSize = 520, radius, autoSpeed = 0.18,
   );
 }
 
+
+// ---------------------------------------------------------------------------
+// TempsForts — carrousel grand format, une image plein cadre par temps fort.
+// Transition : la nouvelle image se dévoile par un volet (clip-path) pendant
+// que l'ancienne recule ; le texte monte ensuite. Lecture automatique (7 s),
+// en pause au survol, au focus et hors écran ; aucune lecture automatique
+// avec mouvement réduit. Flèches du clavier, boutons, puces numérotées.
+// items : [{ date, lieu, title, accent, text, img, alt, credit, href, cta }]
+// ---------------------------------------------------------------------------
+function TempsForts({ items = [], label = 'Temps forts' }) {
+  const { useRef, useState, useEffect, useCallback } = React;
+  const rootRef = useRef(null);
+  // cur : temps fort affiché ; last : le précédent, gardé visible sous le volet
+  const [{ cur, last }, setPos] = useState({ cur: 0, last: 0 });
+  const [paused, setPaused] = useState(false);
+  const n = items.length;
+  const reduce = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const go = useCallback((i) => setPos((p) => {
+    const nx = ((i % n) + n) % n;
+    return nx === p.cur ? p : { cur: nx, last: p.cur };
+  }), [n]);
+
+  useEffect(() => {
+    const root = rootRef.current, g = window.gsap;
+    if (!root) return;
+    const slides = root.querySelectorAll('.tf__slide');
+    const from = last;
+    if (!g || reduce || from === cur) return;
+    const inS = slides[cur], outS = slides[from];
+    const dir = (cur > from && !(from === 0 && cur === n - 1)) || (from === n - 1 && cur === 0) ? 1 : -1;
+    g.killTweensOf([inS, outS]);
+    g.fromTo(inS, { clipPath: dir > 0 ? 'inset(0 0 0 100%)' : 'inset(0 100% 0 0)' },
+      { clipPath: 'inset(0 0% 0 0%)', duration: 1.1, ease: 'expo.inOut' });
+    g.fromTo(inS.querySelector('.tf__media'), { scale: 1.18, xPercent: dir * 6 }, { scale: 1.04, xPercent: 0, duration: 1.6, ease: 'expo.out' });
+    g.fromTo(outS.querySelector('.tf__media'), { scale: 1.04, xPercent: 0 }, { scale: 1, xPercent: -dir * 12, duration: 1.1, ease: 'expo.inOut' });
+    g.fromTo(inS.querySelectorAll('.tf__txt > *'), { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease: 'expo.out', stagger: 0.07, delay: 0.45 });
+  }, [cur]);
+
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root || reduce || n < 2) return;
+    let visible = true;
+    const io = new IntersectionObserver(([e]) => { visible = e.isIntersecting; }, { threshold: 0.3 });
+    io.observe(root);
+    const id = setInterval(() => { if (visible && !paused && !document.hidden) setPos((p) => ({ cur: (p.cur + 1) % n, last: p.cur })); }, 7000);
+    return () => { clearInterval(id); io.disconnect(); };
+  }, [paused, n, cur]);
+
+  const onKey = (e) => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); go(cur + 1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); go(cur - 1); }
+  };
+  const URIx = (p) => (/%[0-9A-Fa-f]{2}/.test(p) ? p : encodeURI(p));
+  const pad = (i) => String(i + 1).padStart(2, '0');
+  if (!n) return null;
+
+  return (
+    <section className="tf on-dark" ref={rootRef} aria-roledescription="carrousel" aria-label={label}
+      onPointerEnter={() => setPaused(true)} onPointerLeave={() => setPaused(false)}
+      onFocus={() => setPaused(true)} onBlur={() => setPaused(false)} onKeyDown={onKey}>
+      <div className="tf__stage">
+        {items.map((it, i) => (
+          <article key={i} className={'tf__slide' + (i === cur ? ' is-on' : i === last ? ' is-last' : '')} aria-roledescription="diapositive"
+            aria-label={pad(i) + ' sur ' + pad(n - 1)} aria-hidden={i !== cur}>
+            <div className="tf__media">
+              {it.img
+                ? <window.Picture src={it.img} alt={it.alt || ''} sizes="100vw" loading="eager" />
+                : <div className="tf__ph"><span>Photo à venir</span></div>}
+            </div>
+            <div className="tf__scrim" aria-hidden="true" />
+            <div className="tf__txt">
+              <span className="tf__meta">{it.date}{it.lieu && <> · {it.lieu}</>}</span>
+              <h2 className="tf__t">{it.title}{it.accent && <> <em>{it.accent}</em></>}</h2>
+              {it.text && <p className="tf__p">{it.text}</p>}
+              {it.href && <a className="tf__link" href={it.href} tabIndex={i === cur ? 0 : -1}>{it.cta || 'Découvrir'} <span aria-hidden="true">→</span></a>}
+            </div>
+            {it.credit && <span className="tf__credit">Photo : {it.credit}</span>}
+          </article>
+        ))}
+      </div>
+      <div className="tf__bar">
+        <span className="tf__eyb">{label}</span>
+        <ol className="tf__dots">
+          {items.map((it, i) => (
+            <li key={i}>
+              <button type="button" className={'tf__dot' + (i === cur ? ' is-on' : '')} aria-current={i === cur ? 'true' : undefined}
+                aria-label={'Temps fort ' + (i + 1) + ' : ' + it.title + (it.accent ? ' ' + it.accent : '')} onClick={() => go(i)}>
+                <span className="tf__dotn">{pad(i)}</span>
+                <span className="tf__dotbar"><span style={{ animationPlayState: paused || reduce ? 'paused' : 'running' }} key={cur + '-' + i} /></span>
+              </button>
+            </li>
+          ))}
+        </ol>
+        <div className="tf__nav">
+          <button type="button" className="tf__arrow" aria-label="Temps fort précédent" onClick={() => go(cur - 1)}>←</button>
+          <button type="button" className="tf__arrow" aria-label="Temps fort suivant" onClick={() => go(cur + 1)}>→</button>
+        </div>
+      </div>
+      <p className="sr-only" aria-live="polite">{pad(cur)} sur {pad(n - 1)} : {items[cur].title} {items[cur].accent}</p>
+    </section>
+  );
+}
+
 window.HoverImageList = HoverImageList;
 window.ImgSphere = ImgSphere;
+window.TempsForts = TempsForts;

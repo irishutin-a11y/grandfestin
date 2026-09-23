@@ -1,5 +1,5 @@
 /* Festin — UI kit styles */
-@import url('./_tokens.css?v=16');
+@import url('./_tokens.css?v=20');
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { font-family: 'KoHo', sans-serif; color: var(--ink); background: var(--off-white); overflow-x: hidden; }
@@ -575,3 +575,49 @@ main h1:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 6p
 .isph__name b { font-size: calc(var(--isph-tile) * .3); font-weight: 300; font-style: italic; line-height: 1; color: var(--gold); }
 .isph__name span { font-size: calc(var(--isph-tile) * .11); font-weight: 700; text-transform: uppercase; line-height: 1.1; letter-spacing: .02em; }
 .isph__figname { width: min(60vw, 420px); aspect-ratio: 1; display: grid; place-items: center; background: var(--teal); color: var(--gold); font-size: clamp(64px, 12vw, 140px); font-weight: 300; font-style: italic; }
+
+/* TempsForts — carrousel grand format (page Actualités) */
+.tf { position: relative; background: var(--teal-deep); color: #fff; }
+.tf__stage { position: relative; height: clamp(520px, 86vh, 860px); overflow: hidden; }
+.tf__slide { position: absolute; inset: 0; visibility: hidden; background: var(--teal-deep); overflow: hidden; }
+.tf__slide.is-on { visibility: visible; z-index: 2; }
+.tf__slide.is-last { visibility: visible; z-index: 1; }
+.tf__media { position: absolute; inset: 0; transform: scale(1.04); }
+.tf__media picture, .tf__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.tf__ph { position: absolute; inset: 0; display: grid; place-items: center; background: repeating-linear-gradient(135deg, var(--teal) 0 22px, var(--teal-dark) 22px 44px); }
+.tf__ph span { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding: 10px 18px; border: 1px dashed rgba(255,255,255,.5); border-radius: 999px; color: rgba(255,255,255,.85); }
+.tf__scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(13,43,48,.1) 30%, rgba(13,43,48,.88)), linear-gradient(90deg, rgba(13,43,48,.55), transparent 60%); }
+.tf__txt { position: absolute; left: 0; right: 0; bottom: clamp(96px, 13vh, 130px); padding: 0 clamp(20px, 5vw, 96px); max-width: 1100px; }
+.tf__meta { display: block; font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+.tf .tf__t { font-size: clamp(40px, 7vw, 112px); font-weight: 700; text-transform: uppercase; line-height: .92; letter-spacing: -.025em; margin: 0 0 18px; color: #fff; }
+.tf__t em { font-style: italic; font-weight: 300; color: var(--gold); letter-spacing: -.03em; }
+.tf__p { font-size: clamp(16px, 1.4vw, 20px); line-height: 1.5; max-width: 52ch; margin: 0 0 22px; color: rgba(255,255,255,.9); }
+.tf__link { display: inline-flex; gap: 8px; align-items: center; padding: 12px 22px; border-radius: 999px; background: var(--gold); color: var(--ink); font-weight: 700; text-decoration: none; transition: transform .25s; }
+.tf__link:hover { transform: translateX(4px); }
+.tf__link:focus-visible, .tf__dot:focus-visible, .tf__arrow:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+.tf__credit { position: absolute; right: clamp(20px, 5vw, 96px); top: 24px; font-size: 12px; color: rgba(255,255,255,.75); }
+.tf__bar { position: absolute; left: 0; right: 0; bottom: 0; z-index: 5; display: flex; align-items: center; gap: 28px; padding: 22px clamp(20px, 5vw, 96px); border-top: 1px solid rgba(255,255,255,.18); }
+.tf__eyb { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.7); white-space: nowrap; }
+.tf__dots { list-style: none; margin: 0; padding: 0; display: flex; gap: 14px; flex: 1; }
+.tf__dots li { flex: 1; max-width: 160px; }
+.tf__dot { width: 100%; background: none; border: 0; padding: 6px 0; color: rgba(255,255,255,.6); cursor: pointer; text-align: left; font: inherit; }
+.tf__dotn { display: block; font-size: 13px; font-weight: 700; margin-bottom: 8px; }
+.tf__dot.is-on { color: #fff; }
+.tf__dotbar { display: block; height: 3px; border-radius: 3px; background: rgba(255,255,255,.22); overflow: hidden; }
+.tf__dotbar span { display: block; height: 100%; width: 0; background: var(--gold); }
+.tf__dot.is-on .tf__dotbar span { animation: tfFill 7s linear forwards; }
+@keyframes tfFill { to { width: 100%; } }
+.tf__nav { display: flex; gap: 10px; }
+.tf__arrow { width: 52px; height: 52px; border-radius: 50%; border: 1px solid rgba(255,255,255,.4); background: transparent; color: #fff; font-size: 20px; cursor: pointer; transition: background .25s, color .25s; }
+.tf__arrow:hover { background: var(--gold); color: var(--ink); border-color: var(--gold); }
+@media (max-width: 700px) {
+  .tf__stage { height: min(88vh, 680px); }
+  .tf__eyb { display: none; }
+  .tf__bar { gap: 14px; padding: 16px 20px; }
+  .tf__arrow { width: 44px; height: 44px; }
+  .tf__txt { bottom: 96px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tf__dot.is-on .tf__dotbar span { animation: none; width: 100%; }
+  .tf__media { transform: none; }
+}
