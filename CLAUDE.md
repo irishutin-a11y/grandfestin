@@ -3,7 +3,7 @@
 Site de l'association Festin (Marseille). Pas de date de sortie : le site sort quand tout est prêt. Ce fichier est lu au début de chaque session : il donne le cadre et ce qui est déjà tranché.
 
 ## Stack et lancement en local
-- React 18 (CDN) + Babel standalone, routeur par hash, GSAP 3.12.5 + ScrollTrigger, Lenis. Pas de build, aucune dépendance à ajouter sans validation.
+- React 18 (CDN) + Babel standalone, routeur par hash, GSAP 3.12.5 + ScrollTrigger, Lenis. Pas de build par défaut. **Levée le 23/09/2026** : une dépendance (CDN) ou un outillage est autorisé s'il est nécessaire pour un composant ou une mise en page aboutie — le justifier dans le commit.
 - Contenus : `window.FESTIN_DATA` dans `data/data.js` (dont `.home`, `.about`, `.stats`) et quelques textes en dur dans `components/*.jsx`. Styles : `styles/_tokens.css` + un CSS par page.
 - Aperçu : `.claude/launch.json`, config « Festin site » (port 4500). macOS bloque le serveur Ruby dans `~/Downloads` : il sert une **copie** dans `/tmp/Site_Festin`. Après chaque modification :
   `rsync -a --delete --exclude .git --exclude .claude --exclude ressources ./ /tmp/Site_Festin/`
@@ -35,9 +35,15 @@ Le design system Claude Design (zip) contient d'anciennes versions des composant
 ## Chantier copywriting (dossier `copywriting/`)
 Processus en 6 étapes, validation entre chaque : 1 audit, 2 questions, 3 pistes de ton, 4 charte éditoriale, 5 arbitrage page par page, 6 réécriture. Fichiers : `01-audit.md`, `01b-audit-complement.md`, `01c-nouveaux-elements.md`, `02-questions.md`, `02-reponses.md`, `03-pistes.md`, `05-plus-values.md`, `06-journal-des-changements.md`. État : implémentation faite le 21 septembre 2026 (voir `06-journal-des-changements.md`).
 
-Décisions de ton : « nous » de l'association (fiches projet à la 3ᵉ personne factuelle) ; **vouvoiement** partout ; le site parle du secteur, pas du financement public ; national d'abord, Marseille comme preuve (accueil, About), Marseille nommée là où c'est un fait (accompagnement) ; la baseline « Le goût d'avancer ensemble » **reste le titre de la home**. Intouchables : noms de dispositifs, témoignages mot pour mot, intitulés du catalogue, phrases de la direction reprises.
+Décisions de ton : « nous » de l'association (fiches projet à la 3ᵉ personne factuelle) ; **vouvoiement** partout ; le site parle du secteur, pas du financement public ; national d'abord, Marseille comme preuve (accueil, About), Marseille nommée là où c'est un fait (accompagnement) ; la baseline « Le goût d'avancer ensemble » passe **en sous-titre** du hero de l'accueil, sous le logo `images/logo-festin-blanc.png` (décision du 23/09/2026). L'accueil présente l'**écosystème** Festin (dispositifs associatifs ou non : Les Beaux Mets, Sadi Carnot…), pas seulement l'association. Intouchables : noms de dispositifs, témoignages mot pour mot, intitulés du catalogue, phrases de la direction reprises.
 
 Tics à rationner (une fois par page au plus, jamais en titre, toujours suivis d'un fait) : « n'est pas X, c'est Y », « plus qu'un X », fragments en série. Bannis : « Et si… ? », adjectifs creux, « éloignées de l'emploi » dans les textes adressés aux personnes, noms abstraits (« vecteur », « levier » en série).
+
+## Décisions de refonte (23/09/2026)
+- Pages « Restaurateurs » = **acteurs du secteur** (pas que des restaurateurs) ; pas de page Partenaires. Pages Restaurateurs et Insertion refondues sur le modèle de la page Association (référence DA du site).
+- Témoignages : carrousel défilant **sans dégradé**, standard sur toutes les pages projet ; cadres vides si pas assez de témoignages.
+- Sphère d'images (ImgSphere) : **seulement sur Des Étoiles et des Femmes**, bloc Soutenir ; les logos partenaires quittent ce bloc. Photos des chefs à venir.
+- Antennes : liste à survol (HoverImageList) avec les photos d'antenne du formulaire Drive en attendant les logos.
 
 ## Faits tranchés
 - Chiffres 2025 : **441 personnes accompagnées, 83 % de sorties en emploi ou formation, 14 territoires**. Référence : `ressources/documents/rapport-activite-2025/rapport-activite-2025_v441-83_REFERENCE.pdf`. La version 453 / 72 % est une ancienne version ; les documents qui la citent (deck financeurs, kit de communication) sont à mettre à jour.
