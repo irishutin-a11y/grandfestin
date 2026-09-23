@@ -15,7 +15,8 @@ Le design system Claude Design (zip) contient d'anciennes versions des composant
 
 ## Charte (non négociable)
 - **KoHo uniquement**, fichiers locaux dans `typos/` (italiques et semi-bold compris, aucune requête Google Fonts).
-- Palette du site (`styles/_tokens.css`) : teal `#1D6B78`, or `#E8A825`, corail, violet, crème, ink. Décidé : on garde cette palette (la charte 2022 donne `#217078` / `#FFC100`).
+- Palette (`styles/_tokens.css`). **Tranché le 23 septembre 2026 : les couleurs principales sont celles de la charte 2022** — teal `#217078` (`--teal`), or `#FFC100` (`--gold`). On ne s'en passe pas. Les couleurs 2026 restent disponibles en **déclinaisons d'appoint** : `--teal-secondary` `#1D6B78`, `--gold-secondary` `#E8A825`. Plus corail, violet, crème, ink.
+- **Règle de l'or** : `#FFC100` est illisible en texte sur fond clair (1,47:1) et excellent sur fond sombre (8,97:1). Donc : en **aplat** (bouton, pastille, bande) avec du texte encre par-dessus ; en **texte uniquement sur fond sombre** ; sur fond clair, texte et icônes passent par `--gold-ink` `#8C6A00` (4,55:1 sur crème). Le basculement est automatique via `--accent-color` / `--eyebrow-gold-color` : tout bloc sombre déclare la classe `on-dark` (ou figure dans la liste de sélecteurs de `_tokens.css`).
 - **Titres en capitales**, avec contraste capitales grasses / italique KoHo léger sur le mot clé.
 - Rythme : aplats de couleur alternés. Retenue d'animation : chaque animation sert à révéler, relier ou comparer. Deux composants horizontaux interactifs au plus par page. `prefers-reduced-motion` respecté.
 - Neutraliser la fuite `h1..h3{color:var(--ink)}` de `_tokens.css` sur les blocs colorés.

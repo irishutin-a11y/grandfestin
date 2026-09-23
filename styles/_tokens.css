@@ -80,18 +80,26 @@
 :root {
   /* ---------- BRAND COLORS ---------- */
 
-  /* Teal — primary brand (the "festin" logotype color) */
-  --teal:        #1D6B78;   /* primary, body links, CTAs, eyebrow on cream */
-  --teal-dark:   #0F3C44;   /* page-headers, footer, hero deep BG */
-  --teal-deep:   #0A2D33;   /* hero deepest BG, dark testimonial cards */
-  --teal-tint:   #E8F1F2;   /* hover backgrounds, dropdown highlights */
-  --teal-tint-2: #C9DDE0;   /* card borders, dividers on cream */
+  /* Teal — couleur principale de la charte Festin 2022 (couleur du logotype) */
+  --teal:        #217078;   /* PRIMAIRE (charte 2022) : liens, CTA, eyebrow sur crème */
+  --teal-dark:   #0F3C44;   /* page-headers, footer, fond de hero */
+  --teal-deep:   #0A2D33;   /* fond de hero le plus profond, cartes témoignage sombres */
+  --teal-tint:   #E8F1F2;   /* fonds de survol, surbrillance de menu */
+  --teal-tint-2: #C9DDE0;   /* bordures de carte, filets sur crème */
 
-  /* Gold — warm accent. Used SPARINGLY: stat numbers, eyebrow pills,
-     CTAs, italic emphasis in headlines. Never a body color. */
-  --gold:        #E8A825;   /* primary gold, CTA buttons */
-  --gold-light:  #F5C84A;   /* highlights, pill bg-tint */
-  --gold-pale:   #FBF1D9;   /* tariff blocks, accessibility notes */
+  /* Or — couleur principale de la charte Festin 2022.
+     En aplat (boutons, pastilles, bandes) avec du texte encre par-dessus,
+     ou en texte UNIQUEMENT sur fond sombre. Sur fond clair : --gold-ink. */
+  --gold:        #FFC100;   /* PRIMAIRE (charte 2022) : aplats, boutons, pastilles */
+  --gold-light:  #FFD961;   /* texte/accent sur fond sombre, survol de bouton or */
+  --gold-pale:   #FFF6DB;   /* blocs tarifs, encarts accessibilité */
+  --gold-hover:  #DBA600;   /* survol du bouton or plein */
+  --gold-ink:    #8C6A00;   /* or assombri : texte/accent sur fond CLAIR (4,55:1 sur crème) */
+
+  /* Déclinaisons complémentaires (ancienne charte 2026) — palette d'appoint,
+     pour élargir les possibilités graphiques sans remplacer les primaires. */
+  --teal-secondary: #1D6B78;
+  --gold-secondary: #E8A825;
 
   /* Backgrounds — warm, paper-like, never pure white */
   --cream:       #F7F3EC;   /* section bg (ticker, publics, témoignages, contact) */
@@ -263,9 +271,25 @@ p, .body { font-size: var(--fs-body); line-height: var(--lh-normal); color: var(
 /* Italic gold accent — used inside h1/h2 for emphasis (signature pattern) */
 .accent {
   font-style: italic;
-  color: var(--gold);
+  color: var(--accent-color, var(--gold-ink));
   font-weight: inherit;
 }
+
+/* L'or primaire (#FFC100) est illisible en texte sur fond clair (1,47:1) et
+   excellent sur fond sombre (8,97:1). Deux niveaux, un seul réglage :
+   --accent-color vaut --gold-ink par défaut (fond clair) et bascule sur
+   --gold-light dans tout bloc sombre déclaré ci-dessous. */
+.on-dark,
+.page-header,
+.hero, .ab-hero, .ab-engage, .ab-sec--dark,
+.b-dual, .b-eco, .b-impact, .appr__card--a,
+.quote--dark, .footer,
+.pdef-projet, .plbm-projet, .prst-projet, .ptdc-projet, .pts-projet,
+.pdef-heroband, .plbm-heroband, .prst-heroband, .ptdc-heroband, .pts-heroband {
+  --accent-color: var(--gold-light);
+  --eyebrow-gold-color: var(--gold);
+}
+.eyebrow--gold, .ab-eyebrow--gold { color: var(--eyebrow-gold-color, var(--gold-ink)); }
 
 /* ---------- Ajouts pour la home portée (maquettes/home-b.html) ---------- */
 :root{

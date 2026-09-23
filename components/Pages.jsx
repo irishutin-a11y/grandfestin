@@ -281,7 +281,7 @@ function FormationCardLink({ f, wide }) {
 
 function ContactCTA() {
   return (
-    <section style={{background:'var(--teal-deep)',color:'#fff',padding:'var(--s-9) 0',textAlign:'center'}}>
+    <section className="on-dark" style={{background:'var(--teal-deep)',color:'#fff',padding:'var(--s-9) 0',textAlign:'center'}}>
       <div className="container">
         <span className="eyebrow eyebrow--gold">Une question ?</span>
         <h2 className="h2" style={{color:'#fff',maxWidth:640,margin:'14px auto 18px'}}>Parlons de votre <em className="accent">projet de formation</em></h2>
@@ -370,7 +370,7 @@ function FormationDetailPage({ id }) {
                     <div className="catalog-cta__title">Consulter notre catalogue de formations</div>
                     <div className="catalog-cta__desc">Tous les programmes, durées, tarifs et modalités au format PDF.</div>
                   </div>
-                  <i data-lucide="external-link" style={{width:20,height:20,flexShrink:0,color:'var(--gold)'}}/>
+                  <i data-lucide="external-link" style={{width:20,height:20,flexShrink:0,color:'var(--gold-ink)'}}/>
                 </a>
               )}
               <div className="access-note" style={{marginTop:24}}>
@@ -425,7 +425,7 @@ function FormationDetailPage({ id }) {
 // ---------- IMPACT CUMULÉ (sur About) — bandeau résumé ----------
 function ImpactCumuleBande() {
   return (
-    <section style={{padding:'var(--s-9) 0', background:'var(--teal-deep)', color:'#fff'}}>
+    <section className="on-dark" style={{padding:'var(--s-9) 0', background:'var(--teal-deep)', color:'#fff'}}>
       <div className="container">
         <div style={{display:'flex', justifyContent:'space-between', alignItems:'flex-end', gap:24, flexWrap:'wrap', marginBottom:36}}>
           <div>
@@ -525,7 +525,7 @@ function ProjetAssociatif() {
           <div style={{display:'flex', flexDirection:'column', gap:48}}>
             {piliers.map((p, i) => (
               <div key={i} style={{display:'grid', gridTemplateColumns:'90px 1fr', gap:32, alignItems:'flex-start'}}>
-                <div style={{fontSize:48, fontWeight:700, color:'var(--gold)', lineHeight:1, letterSpacing:'-0.02em'}}>{p.n}</div>
+                <div style={{fontSize:48, fontWeight:700, color:'var(--gold-ink)', lineHeight:1, letterSpacing:'-0.02em'}}>{p.n}</div>
                 <div>
                   <h3 style={{fontSize:24, fontWeight:700, lineHeight:1.3, margin:'0 0 12px', color:'var(--ink)'}}>{p.title}</h3>
                   <p style={{fontSize:17, lineHeight:1.65, color:'var(--ink-mid)', margin:0}}>{p.body}</p>
@@ -590,7 +590,7 @@ function ProjetThumb({ icon }) {
         <rect width="100" height="100" fill={"url(#dots-"+icon+")"} />
       </svg>
       <div style={{position:'absolute',inset:0,display:'grid',placeItems:'center'}}>
-        <div style={{width:84,height:84,borderRadius:'50%',background:'rgba(232,168,37,0.16)',border:'1.5px solid rgba(232,168,37,0.55)',display:'grid',placeItems:'center',color:'var(--gold)'}}>
+        <div style={{width:84,height:84,borderRadius:'50%',background:'rgba(255,193,0,0.16)',border:'1.5px solid rgba(255,193,0,0.55)',display:'grid',placeItems:'center',color:'var(--gold)'}}>
           <i data-lucide={icon} style={{width:36,height:36}}/>
         </div>
       </div>
@@ -732,7 +732,7 @@ function ProjetTemoignages({ temoignages }) {
   const initiale = t && t.prenom ? t.prenom[0].toUpperCase() : '?';
 
   return (
-    <section style={{background:'var(--teal-deep)', color:'#fff', padding:'var(--s-9) 0'}}>
+    <section className="on-dark" style={{background:'var(--teal-deep)', color:'#fff', padding:'var(--s-9) 0'}}>
       <div className="container" style={{maxWidth:800, margin:'0 auto', textAlign:'center'}}>
         <span className="eyebrow eyebrow--gold">Témoignages</span>
         <div style={{marginTop:40, position:'relative', minHeight:200}}>
@@ -756,7 +756,7 @@ function ProjetTemoignages({ temoignages }) {
                   <p style={{fontSize:20, fontStyle:'italic', lineHeight:1.6, color:'rgba(255,255,255,0.94)', margin:'0 0 20px'}}>
                     "{tm.citation}"
                   </p>
-                  <div style={{fontWeight:700, color:'var(--gold)', fontSize:15}}>{tm.prenom}</div>
+                  <div style={{fontWeight:700, color:'var(--gold-ink)', fontSize:15}}>{tm.prenom}</div>
                   <div style={{fontSize:13, color:'rgba(255,255,255,0.65)', marginTop:4}}>{tm.role}</div>
                 </>
               )}
@@ -854,7 +854,7 @@ function ProjetHero({ p }) {
     return () => clearInterval(t);
   }, [slides.length]);
   return (
-    <section style={{position:'relative', width:'100%', height:'80vh', minHeight:520, overflow:'hidden', background:'var(--teal-deep)', color:'#fff'}}>
+    <section className="on-dark" style={{position:'relative', width:'100%', height:'80vh', minHeight:520, overflow:'hidden', background:'var(--teal-deep)', color:'#fff'}}>
       {slides.map((src, i) => (
         <div key={i} style={{
           position:'absolute', inset:0,
@@ -967,7 +967,7 @@ function ProjetPage({ id }) {
                 <ul style={{listStyle:'none', padding:0, margin:'0 0 24px', display:'flex', flexDirection:'column', gap:10}}>
                   {p.projetPoints.map((pt, j) => (
                     <li key={j} style={{display:'flex', gap:10, alignItems:'flex-start', fontSize:14, lineHeight:1.5, color:'var(--ink)'}}>
-                      <i data-lucide="check-circle" style={{width:16, height:16, color:'var(--gold)', flexShrink:0, marginTop:2}}/>
+                      <i data-lucide="check-circle" style={{width:16, height:16, color:'var(--gold-ink)', flexShrink:0, marginTop:2}}/>
                       {pt}
                     </li>
                   ))}
@@ -1030,7 +1030,7 @@ function SadiCarnotPage() {
       <section style={{padding:'var(--s-9) 0',background:'var(--off-white)'}}>
         <div className="container">
           <div style={{background:'var(--cream)',borderRadius:18,padding:'72px 48px',textAlign:'center',maxWidth:720,margin:'0 auto'}}>
-            <div style={{width:80,height:80,borderRadius:'50%',background:'rgba(232,168,37,0.14)',display:'grid',placeItems:'center',color:'var(--gold)',margin:'0 auto 24px'}}>
+            <div style={{width:80,height:80,borderRadius:'50%',background:'rgba(255,193,0,0.14)',display:'grid',placeItems:'center',color:'var(--gold-ink)',margin:'0 auto 24px'}}>
               <i data-lucide="hard-hat" style={{width:36,height:36}}/>
             </div>
             <h2 className="h3" style={{marginBottom:14}}>En cours de développement</h2>
@@ -1123,7 +1123,7 @@ function AccompagnementInsertionPage() {
       </section>
 
       {/* CTA contact */}
-      <section style={{background:'var(--teal-deep)', color:'#fff', padding:'var(--s-9) 0', textAlign:'center'}}>
+      <section className="on-dark" style={{background:'var(--teal-deep)', color:'#fff', padding:'var(--s-9) 0', textAlign:'center'}}>
         <div className="container">
           <span className="eyebrow eyebrow--gold">Candidater à une promotion</span>
           <h2 className="h2" style={{color:'#fff', maxWidth:680, margin:'14px auto 18px'}}>Construire votre <em className="accent">projet professionnel</em></h2>
@@ -1205,7 +1205,7 @@ function AccompagnementProsPage() {
               {n:'3', when:'À partir d\'avril 2027', t:'Une prise de poste', d:'Si l\'expérience est concluante : un CDD de quatre mois minimum.'},
             ].map((s) => (
               <div key={s.n} style={{background:'#fff', border:'1px solid var(--line)', borderRadius:16, padding:28}}>
-                <div style={{fontSize:40, fontWeight:700, color:'var(--gold)', lineHeight:1}}>{s.n}</div>
+                <div style={{fontSize:40, fontWeight:700, color:'var(--gold-ink)', lineHeight:1}}>{s.n}</div>
                 <span style={{display:'block', fontSize:12, fontWeight:700, letterSpacing:'0.1em', textTransform:'uppercase', color:'var(--teal)', margin:'14px 0 6px'}}>{s.when}</span>
                 <h3 style={{fontSize:20, fontWeight:700, lineHeight:1.25, margin:'0 0 8px'}}>{s.t}</h3>
                 <p style={{fontSize:14, color:'var(--ink-mid)', lineHeight:1.6, margin:0}}>{s.d}</p>
@@ -1252,7 +1252,7 @@ function AccompagnementProsPage() {
       </section>
 
       {/* CTA contact */}
-      <section style={{background:'var(--teal-deep)', color:'#fff', padding:'var(--s-9) 0', textAlign:'center'}}>
+      <section className="on-dark" style={{background:'var(--teal-deep)', color:'#fff', padding:'var(--s-9) 0', textAlign:'center'}}>
         <div className="container">
           <span className="eyebrow eyebrow--gold">Nous contacter</span>
           <h2 className="h2" style={{color:'#fff', maxWidth:680, margin:'14px auto 18px'}}>Parlons de votre <em className="accent">établissement</em></h2>
@@ -1474,7 +1474,7 @@ function ImpactPage() {
           <div style={{display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:20}}>
             {prix.map((p, i) => (
               <div key={i} style={{background:'#fff', border:'1px solid var(--line)', borderRadius:14, padding:24}}>
-                <div style={{width:44, height:44, borderRadius:10, background:'rgba(232,168,37,0.16)', display:'grid', placeItems:'center', color:'var(--gold)', marginBottom:18}}>
+                <div style={{width:44, height:44, borderRadius:10, background:'rgba(255,193,0,0.16)', display:'grid', placeItems:'center', color:'var(--gold-ink)', marginBottom:18}}>
                   <i data-lucide="award" style={{width:22, height:22}}/>
                 </div>
                 <span style={{fontSize:11, fontWeight:700, letterSpacing:'0.12em', textTransform:'uppercase', color:'var(--ink-soft)'}}>{p.year}</span>
@@ -1582,7 +1582,7 @@ function AcademiePage() {
             <a href="#/projets/tournesol" className="formation-card" style={{textDecoration:'none'}}>
               <div className="formation-card__body" style={{padding:32}}>
                 <div style={{width:56, height:56, borderRadius:14, background:'var(--cream)', display:'grid', placeItems:'center', marginBottom:20}}>
-                  <i data-lucide="star" style={{width:24, height:24, color:'var(--gold)'}}/>
+                  <i data-lucide="star" style={{width:24, height:24, color:'var(--gold-ink)'}}/>
                 </div>
                 <span className="eyebrow">Insertion</span>
                 <h3 style={{fontSize:22, fontWeight:700, margin:'8px 0 12px'}}>Vous cherchez un métier</h3>
@@ -1598,7 +1598,7 @@ function AcademiePage() {
       <FormationsTeaser />
 
       {/* Section 4 — Partenaire Estello */}
-      <section style={{background:'var(--teal-dark, var(--teal-deep))', color:'#fff', padding:'var(--s-8) 0', textAlign:'center'}}>
+      <section className="on-dark" style={{background:'var(--teal-dark, var(--teal-deep))', color:'#fff', padding:'var(--s-8) 0', textAlign:'center'}}>
         <div className="container" style={{maxWidth:680}}>
           <span className="eyebrow eyebrow--gold">En partenariat avec</span>
           <h2 className="h2" style={{color:'#fff', marginTop:10, marginBottom:16}}>Estello Formation</h2>

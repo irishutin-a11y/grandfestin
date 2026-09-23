@@ -11,13 +11,13 @@ button { font-family: inherit; cursor: pointer; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
 section { padding: 96px 0; }
 .eyebrow { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); margin-bottom: 14px; }
-.eyebrow--gold { color: var(--gold); }
+.eyebrow--gold { color: var(--eyebrow-gold-color, var(--gold-ink)); }
 .h1 { font-size: 56px; font-weight: 700; line-height: 1.1; letter-spacing: -0.01em; }
 .h2 { font-size: 40px; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; }
 .h3 { font-size: 24px; font-weight: 700; line-height: 1.3; }
 .lede { font-size: 18px; line-height: 1.7; color: var(--ink-mid); }
 .body { font-size: 16px; line-height: 1.55; color: var(--ink-mid); }
-em.accent, .accent { font-style: italic; color: var(--gold); font-weight: inherit; }
+em.accent, .accent { font-style: italic; color: var(--accent-color, var(--gold-ink)); font-weight: inherit; }
 
 /* ===== BUTTONS ===== */
 .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 26px; border-radius: 6px; font-size: 15px; font-weight: 700; border: 2px solid transparent; transition: all 250ms var(--ease-out); cursor: pointer; white-space: nowrap; }
@@ -25,7 +25,7 @@ em.accent, .accent { font-style: italic; color: var(--gold); font-weight: inheri
 .btn:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
 .btn[disabled], .btn[aria-disabled="true"] { opacity: .5; cursor: not-allowed; pointer-events: none; }
 .btn--gold { background: var(--gold); color: var(--ink); }
-.btn--gold:hover { background: #D29719; }
+.btn--gold:hover { background: var(--gold-hover); }
 .btn--teal { background: var(--teal); color: #fff; }
 .btn--teal:hover { background: var(--teal-dark); }
 .btn--ghost { background: transparent; color: var(--teal); border-color: var(--teal); padding: 12px 24px; }
@@ -39,7 +39,7 @@ em.accent, .accent { font-style: italic; color: var(--gold); font-weight: inheri
 /* ===== TICKER ===== */
 .ticker { background: var(--cream); padding: 28px 0; border-top: 1px solid rgba(13,43,48,0.04); border-bottom: 1px solid rgba(13,43,48,0.04); }
 .ticker__inner { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; font-size: 13px; font-weight: 600; color: var(--ink-mid); letter-spacing: 0.02em; }
-.ticker__dot { color: var(--gold); font-size: 18px; line-height: 1; }
+.ticker__dot { color: var(--gold-ink); font-size: 18px; line-height: 1; }
 
 /* ===== ACADEMIE ===== */
 .academie { background: var(--off-white); }
@@ -74,7 +74,7 @@ em.accent, .accent { font-style: italic; color: var(--gold); font-weight: inheri
 .public-card.large h3 { font-size: 32px; }
 .public-card p { font-size: 14px; color: rgba(255,255,255,0.85); line-height: 1.55; margin-bottom: 14px; max-width: 460px; }
 .public-card__lnk { color: var(--gold-light); font-size: 14px; font-weight: 700; transition: color 200ms; }
-.public-card__lnk:hover { color: var(--gold); }
+.public-card__lnk:hover { color: var(--gold-light); }
 
 /* ===== FORMATIONS ===== */
 .formations { background: var(--off-white); }
@@ -96,7 +96,7 @@ em.accent, .accent { font-style: italic; color: var(--gold); font-weight: inheri
 .formation-card__chips { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 18px; }
 .chip { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: var(--teal-tint); color: var(--teal); }
 .formation-card__bottom { display: flex; align-items: center; justify-content: space-between; padding-top: 16px; border-top: 1px solid var(--line); }
-.formation-card__bottom .lnk { color: var(--gold); font-size: 14px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; transition: gap 200ms; }
+.formation-card__bottom .lnk { color: var(--gold-ink); font-size: 14px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; transition: gap 200ms; }
 .formation-card:hover .formation-card__bottom .lnk { gap: 10px; }
 .formation-card__public { font-size: 11px; color: var(--ink-soft); font-weight: 600; text-align: right; max-width: 200px; }
 
@@ -106,7 +106,7 @@ em.accent, .accent { font-style: italic; color: var(--gold); font-weight: inheri
 .temoignages__bot { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .quote { background: #fff; border-radius: 14px; padding: 28px; display: flex; flex-direction: column; gap: 14px; }
 .quote--dark { background: var(--teal-deep); color: #fff; padding: 36px; }
-.quote__mark { font-size: 48px; color: var(--gold); line-height: 0.6; font-weight: 700; }
+.quote__mark { font-size: 48px; color: var(--gold-ink); line-height: 0.6; font-weight: 700; }
 .quote--dark .quote__mark { color: var(--gold-light); }
 .quote p { font-style: italic; font-size: 16px; line-height: 1.6; color: var(--ink); }
 .quote--dark p { color: rgba(255,255,255,0.92); font-size: 18px; }
@@ -128,7 +128,7 @@ em.accent, .accent { font-style: italic; color: var(--gold); font-weight: inheri
 .contact-item__v { font-size: 15px; color: var(--ink); }
 .refs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 8px; }
 .ref-card { background: #fff; border-radius: 10px; padding: 16px; }
-.ref-card__lbl { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+.ref-card__lbl { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-ink); margin-bottom: 4px; }
 .ref-card__name { font-size: 14px; font-weight: 700; }
 .ref-card__role { font-size: 12px; color: var(--ink-soft); margin-top: 2px; }
 .contact__form { background: #fff; border-radius: 14px; padding: 36px; box-shadow: var(--sh-sm); }
@@ -171,7 +171,7 @@ em.accent, .accent { font-style: italic; color: var(--gold); font-weight: inheri
 .programme li::before { content: counter(prog); position: absolute; left: 12px; top: 12px; width: 22px; height: 22px; background: var(--teal); color: #fff; border-radius: 50%; display: grid; place-items: center; font-size: 11px; font-weight: 700; }
 .tariff { background: var(--gold-pale); border-left: 3px solid var(--gold); border-radius: 0 10px 10px 0; padding: 16px 20px; font-size: 14px; line-height: 1.6; color: var(--ink); }
 .access-note { background: var(--gold-pale); border-radius: 10px; padding: 14px 18px; margin-top: 16px; font-size: 13px; color: var(--ink-mid); display: flex; gap: 10px; align-items: flex-start; }
-.access-note svg { color: var(--gold); flex-shrink: 0; margin-top: 1px; }
+.access-note svg { color: var(--gold-ink); flex-shrink: 0; margin-top: 1px; }
 
 @media (max-width: 900px) {
   .academie__grid, .publics__grid, .contact__grid { grid-template-columns: 1fr; gap: 32px; }
@@ -189,7 +189,7 @@ em.accent, .accent { font-style: italic; color: var(--gold); font-weight: inheri
 /* Page header — dark teal banner shared by inner pages */
 .page-header { position: relative; background: var(--teal-deep); color: #fff; padding: 156px 0 72px; overflow: hidden; }
 .page-header::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 32px 32px; opacity: 0.6; }
-.page-header::after { content: ""; position: absolute; right: -120px; top: -80px; width: 420px; height: 420px; background: radial-gradient(circle, rgba(232,168,37,0.16) 0%, transparent 70%); pointer-events: none; }
+.page-header::after { content: ""; position: absolute; right: -120px; top: -80px; width: 420px; height: 420px; background: radial-gradient(circle, rgba(255,193,0,0.16) 0%, transparent 70%); pointer-events: none; }
 .page-header > .container { position: relative; z-index: 2; }
 .page-header .h1 { font-size: 64px; max-width: 880px; margin-top: 6px; }
 
@@ -209,7 +209,7 @@ em.accent, .accent { font-style: italic; color: var(--gold); font-weight: inheri
 /* Make formation card a clickable link variant */
 a.formation-card { display: flex; flex-direction: column; }
 a.formation-card .lnk { display: inline-flex; align-items: center; gap: 6px; color: var(--teal); font-weight: 700; font-size: 14px; }
-a.formation-card:hover .lnk { color: var(--gold); }
+a.formation-card:hover .lnk { color: var(--gold-ink); }
 
 /* ===== FORMATION DETAIL ===== */
 .detail-grid { display: grid; grid-template-columns: 1fr 360px; gap: 56px; align-items: flex-start; }
@@ -220,17 +220,17 @@ a.formation-card:hover .lnk { color: var(--gold); }
 
 .objectives { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 14px 28px; }
 .objectives li { position: relative; padding-left: 28px; font-size: 15px; line-height: 1.55; color: var(--ink-mid); }
-.objectives li::before { content: ""; position: absolute; left: 0; top: 8px; width: 14px; height: 14px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px rgba(232,168,37,0.18); }
+.objectives li::before { content: ""; position: absolute; left: 0; top: 8px; width: 14px; height: 14px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px rgba(255,193,0,0.18); }
 
 .programme { list-style: none; counter-reset: prog; display: flex; flex-direction: column; gap: 14px; }
 .programme li { counter-increment: prog; position: relative; padding: 18px 22px 18px 64px; background: var(--cream); border-radius: 10px; border-left: 3px solid var(--teal); font-size: 15px; line-height: 1.55; color: var(--ink); }
 .programme li::before { content: counter(prog, decimal-leading-zero); position: absolute; left: 22px; top: 18px; font-weight: 700; color: var(--teal); font-size: 14px; letter-spacing: 0.04em; }
 
-.tariff { padding: 24px 28px; background: linear-gradient(135deg, rgba(232,168,37,0.10) 0%, rgba(232,168,37,0.04) 100%); border: 1px solid rgba(232,168,37,0.30); border-radius: 12px; font-size: 15px; line-height: 1.7; color: var(--ink); }
+.tariff { padding: 24px 28px; background: linear-gradient(135deg, rgba(255,193,0,0.10) 0%, rgba(255,193,0,0.04) 100%); border: 1px solid rgba(255,193,0,0.30); border-radius: 12px; font-size: 15px; line-height: 1.7; color: var(--ink); }
 .tariff strong { color: var(--teal-dark); }
 
-.access-note { display: flex; gap: 14px; align-items: flex-start; padding: 18px 22px; background: rgba(232,168,37,0.08); border-radius: 10px; font-size: 14px; line-height: 1.55; color: var(--ink-mid); }
-.access-note svg { color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+.access-note { display: flex; gap: 14px; align-items: flex-start; padding: 18px 22px; background: rgba(255,193,0,0.08); border-radius: 10px; font-size: 14px; line-height: 1.55; color: var(--ink-mid); }
+.access-note svg { color: var(--gold-ink); flex-shrink: 0; margin-top: 2px; }
 
 /* Sidebar */
 .detail-side { position: sticky; top: 100px; display: flex; flex-direction: column; gap: 16px; }
@@ -284,11 +284,11 @@ a.formation-card:hover .lnk { color: var(--gold); }
 .public-split__body { padding: 28px 28px 32px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
 .public-split__tag { display: inline-block; align-self: flex-start; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 12px; border-radius: 6px; }
 .public-split__tag.tag--teal { background: var(--teal-tint); color: var(--teal); }
-.public-split__tag.tag--gold { background: rgba(232,168,37,0.14); color: #A6770F; }
+.public-split__tag.tag--gold { background: var(--gold-pale); color: var(--gold-ink); }
 .public-split h3 { font-size: 24px; font-weight: 700; line-height: 1.25; color: var(--ink); }
 .public-split p { font-size: 15px; line-height: 1.6; color: var(--ink-mid); flex: 1; }
 .public-split__lnk { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: var(--teal); margin-top: 4px; transition: gap 200ms; }
-.public-split:hover .public-split__lnk { gap: 12px; color: var(--gold); }
+.public-split:hover .public-split__lnk { gap: 12px; color: var(--gold-ink); }
 
 /* FOOTER Qualiopi block (replaces text-only pill) */
 .footer__qualiopi { display: inline-flex; align-items: center; gap: 12px; padding: 10px 14px 10px 10px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; }
@@ -406,7 +406,7 @@ a.formation-card:hover .lnk { color: var(--gold); }
   white-space: nowrap;
   flex-shrink: 0;
 }
-.projets-marquee__item svg { color: var(--gold); flex-shrink: 0; }
+.projets-marquee__item svg { color: var(--gold-ink); flex-shrink: 0; }
 .projets-marquee__item span { font-size: 15px; font-weight: 700; letter-spacing: 0.01em; color: var(--ink); }
 
 /* ============================================================
@@ -443,7 +443,7 @@ a.formation-card:hover .lnk { color: var(--gold); }
   color: var(--teal);
   transition: background 200ms var(--ease-out), color 200ms var(--ease-out);
 }
-.engager-card:hover .engager-card__icon { background: rgba(232,168,37,0.16); color: var(--gold); }
+.engager-card:hover .engager-card__icon { background: var(--gold-pale); color: var(--gold-ink); }
 .engager-card__profile {
   font-size: 11px;
   font-weight: 700;
@@ -457,7 +457,7 @@ a.formation-card:hover .lnk { color: var(--gold); }
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: var(--gold);
+  color: var(--gold-ink);
   font-size: 14px;
   font-weight: 700;
   margin-top: 4px;
@@ -502,7 +502,7 @@ a.formation-card:hover .lnk { color: var(--gold); }
   inset: 0;
   display: grid;
   place-items: center;
-  color: rgba(232,168,37,0.55);
+  color: rgba(255,193,0,0.55);
 }
 .journal-card__body { padding: 22px 22px 26px; display: flex; flex-direction: column; gap: 10px; }
 .journal-card__meta {
@@ -518,7 +518,7 @@ a.formation-card:hover .lnk { color: var(--gold); }
 .journal-card__cat { color: var(--teal); }
 .journal-card h3 { font-size: 18px; line-height: 1.35; font-weight: 700; margin: 2px 0 0; }
 .journal-card__excerpt { font-size: 14px; line-height: 1.55; color: var(--ink-mid); }
-.journal-card__lnk { color: var(--gold); font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; margin-top: 6px; transition: gap 200ms var(--ease-out); }
+.journal-card__lnk { color: var(--gold-ink); font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; margin-top: 6px; transition: gap 200ms var(--ease-out); }
 .journal-card:hover .journal-card__lnk { gap: 10px; }
 
 @media (max-width: 900px) {
@@ -553,7 +553,7 @@ a.formation-card:hover .lnk { color: var(--gold); }
   transition: border-color 200ms var(--ease-out), color 200ms var(--ease-out);
 }
 .presse__item:hover { border-color: var(--teal); color: var(--teal); }
-.presse__item svg { color: var(--gold); }
+.presse__item svg { color: var(--gold-ink); }
 
 /* ============================================================
    FOOTER — bande "Nous contacter / S'engager" prioritaire au top
@@ -582,14 +582,14 @@ a.formation-card:hover .lnk { color: var(--gold); }
 }
 .footer__cta-card:hover {
   background: rgba(255,255,255,0.10);
-  border-color: rgba(232,168,37,0.4);
+  border-color: rgba(255,193,0,0.4);
   transform: translateY(-2px);
 }
 .footer__cta-icon {
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: rgba(232,168,37,0.16);
+  background: rgba(255,193,0,0.16);
   color: var(--gold-light);
   display: grid;
   place-items: center;
