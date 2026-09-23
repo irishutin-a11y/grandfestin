@@ -246,7 +246,52 @@ function ProjetExtra({ eyebrow, title, accent, lede, tone = 'cream', children })
     </section>
   );
 }
+// ---------------------------------------------------------------------------
+// TestiCarousel — carrousel défilant des témoignages, standard des pages projet.
+// Sans dégradé sur les bords. S'il y a moins de `min` témoignages, la piste est
+// complétée par des cadres « à venir » (contenu fourni plus tard).
+// items : [{ name, meta, accroche, quote, photo, objPos, bw }]
+// ---------------------------------------------------------------------------
+function TestiCarousel({ items = [], min = 6, label = 'Témoignages' }) {
+  const real = items.filter(Boolean);
+  const filled = real.slice();
+  while (filled.length < min) filled.push({ empty: true });
+  const loop = filled.concat(filled);
+  const tones = ['teal', 'cream', 'deep', 'gold'];
+  return (
+    <div className="tcar" role="region" aria-label={label}>
+      <div className="tcar__track" style={{ '--tcar-dur': (filled.length * 7) + 's' }}>
+        {loop.map((t, i) => (
+          <div className="tcar__item" key={i} aria-hidden={i >= filled.length ? true : undefined}>
+            {t.empty ? (
+              <article className="tcar__card tcar__card--empty">
+                <span className="tcar__ph" aria-hidden="true" />
+                <p>Témoignage à venir</p>
+              </article>
+            ) : (
+              <article className={'tcar__card tcar__card--' + tones[(i % filled.length) % tones.length] + (t.bw ? ' is-bw' : '')}>
+                <div className="tcar__head">
+                  {t.photo
+                    ? <img className="tcar__photo" src={URI(t.photo)} alt={'Portrait de ' + t.name} loading="lazy" style={{ objectPosition: t.objPos || 'center 18%' }} />
+                    : <span className="tcar__photo tcar__photo--ini" aria-hidden="true">{(t.name || '?').trim().charAt(0)}</span>}
+                  <div>
+                    <h3 className="tcar__name">{t.name}</h3>
+                    {t.meta && <span className="tcar__meta">{t.meta}</span>}
+                  </div>
+                </div>
+                {t.accroche && <p className="tcar__accroche">« {t.accroche} »</p>}
+                <p className="tcar__quote">« {t.quote} »</p>
+              </article>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 window.ProjetExtra = ProjetExtra;
+window.TestiCarousel = TestiCarousel;
 window.Picture = Picture;
 
 window.Contact = Contact;

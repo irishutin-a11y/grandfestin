@@ -346,14 +346,11 @@ function ProjetDefPage() {
           <span className="proj-sec" id="proj-testi-t">Elles l’ont fait</span>
           <h2 className="proj-h2 reveal">Des parcours, des visages</h2>
         </div>
-        <div className="proj-tmarquee reveal">
-          <div className="proj-tmarquee__track">
-            {[...p.temoignages, ...p.temoignages].map((t, i) => (
-              <div className="proj-tmarquee__item" key={i} aria-hidden={i >= p.temoignages.length}>
-                <PdefTestiCard t={t} />
-              </div>
-            ))}
-          </div>
+        <div className="reveal">
+          <window.TestiCarousel label="Témoignages d'anciennes stagiaires" items={(p.temoignages || []).filter(t => !t.placeholder).map(t => ({
+            name: t.prenom, meta: t.ville + ' · ' + t.promo, accroche: t.accroche, quote: t.extrait,
+            photo: t.photo, objPos: t.objPos, bw: t.bw,
+          }))} />
         </div>
       </section>
 

@@ -252,19 +252,8 @@ function ProjetTableDeCanaPage() {
           <div className="wrap">
             <span className="proj-sec" id="proj-testi-t">Ils l’ont vécu</span>
             <h2 className="proj-h2 reveal">Des parcours, des voix</h2>
-            <div className="proj-tgrid reveal">
-              {p.temoignages.filter(t => !t.placeholder).map((t, i) => (
-                <article className={"proj-tcard proj-tcard--" + (i % 2 === 0 ? 'teal' : 'wine')} key={i}>
-                  <div className="proj-tcard__head">
-                    <span className="proj-tcard__photo--ph" aria-hidden="true" />
-                    <div>
-                      <h3 className="proj-tcard__name">{t.prenom}</h3>
-                      <span className="proj-tcard__role">{t.role}</span>
-                    </div>
-                  </div>
-                  <p className="proj-tcard__quote">« {t.citation} »</p>
-                </article>
-              ))}
+            <div className="reveal">
+              <window.TestiCarousel items={p.temoignages.filter(t => !t.placeholder).map(t => ({ name: t.prenom, meta: t.role, quote: t.citation }))} />
             </div>
           </div>
         </section>

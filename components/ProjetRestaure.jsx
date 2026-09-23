@@ -297,11 +297,9 @@ function ProjetRestaurePage() {
           <div className="wrap">
             <span className="proj-sec" id="proj-testi-t">Ils s’engagent</span>
             <h2 className="proj-h2 reveal">Une voix du programme</h2>
-            <blockquote className="proj-tquote reveal">
-              <span className="proj-tquote__mark" aria-hidden="true">“</span>
-              <p className="proj-tquote__text">{t.citation}</p>
-              <cite className="proj-tquote__name"><b>{t.prenom}</b> — {t.role}</cite>
-            </blockquote>
+          </div>
+          <div className="reveal">
+            <window.TestiCarousel items={[{ name: t.prenom, meta: t.role, quote: t.citation }]} />
           </div>
         </section>
       )}

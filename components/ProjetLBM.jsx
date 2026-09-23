@@ -188,35 +188,6 @@ function ProjetLBMPage() {
             <span className="proj-sec" id="proj-projet-t">Le projet</span>
             <h2 className="proj-h2 reveal">Un restaurant d’insertion<br />en milieu carcéral</h2>
             <p className="proj-projet__lede reveal">{p.description}</p>
-            <div className="proj-acc reveal">
-              {(p.parcours || []).map((s, i) => {
-                const isOpen = projStep === i;
-                return (
-                  <div className={"proj-acc__item" + (isOpen ? " is-open" : "")} key={i}>
-                    <h3 className="proj-acc__h">
-                      <button
-                        type="button" className="proj-acc__btn"
-                        id={"placc-h-" + i} aria-expanded={isOpen} aria-controls={"placc-p-" + i}
-                        onClick={() => setProjStep(isOpen ? -1 : i)}
-                      >
-                        <span className="proj-acc__label">{s.tab}</span>
-                        <span className="proj-acc__chev" aria-hidden="true" />
-                      </button>
-                    </h3>
-                    <div
-                      className="proj-acc__panel" id={"placc-p-" + i}
-                      role="region" aria-labelledby={"placc-h-" + i}
-                    >
-                      <div className="proj-acc__body">
-                        <span className="proj-acc__k">{s.title}</span>
-                        <p>{s.text}</p>
-                        <div className="proj-acc__stat"><strong>{s.stat}</strong><span>{s.statL}</span></div>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
           </div>
           <div className="proj-projet__media reveal">
             <div className="proj-projet__frame">
@@ -249,29 +220,38 @@ function ProjetLBMPage() {
             </a>
           </div>
         </div>
-      </section>
-
-      {/* LA GENÈSE — trois repères, volontairement court (source : dossier de présentation) */}
-      <window.ProjetExtra tone="white" eyebrow="La genèse" title="Deux voyages," accent="une rencontre"
-        lede="Le restaurant est né de deux visites faites séparément, la même année.">
-        <div className="pxs__grid">
-          <div className="pxs__card">
-            <h3>2016 — Londres et Milan</h3>
-            <p>Festin découvre The Clink, restaurant en prison à Londres. Au même moment, la Direction
-            interrégionale des services pénitentiaires de Marseille visite In Galera, à Milan.</p>
-          </div>
-          <div className="pxs__card">
-            <h3>La rencontre</h3>
-            <p>Les deux structures se retrouvent autour de la même idée et décident de la porter
-            ensemble, en France.</p>
-          </div>
-          <div className="pxs__card">
-            <h3>15 novembre 2022</h3>
-            <p>Les Beaux Mets ouvre au public, au centre pénitentiaire des Baumettes. Une première
-            en France.</p>
-          </div>
+        <div className="wrap proj-projet__accfull">
+              <div className="proj-acc proj-acc--full reveal">
+                {(p.parcours || []).map((s, i) => {
+                  const isOpen = projStep === i;
+                  return (
+                    <div className={"proj-acc__item" + (isOpen ? " is-open" : "")} key={i}>
+                      <h3 className="proj-acc__h">
+                        <button
+                          type="button" className="proj-acc__btn"
+                          id={"placc-h-" + i} aria-expanded={isOpen} aria-controls={"placc-p-" + i}
+                          onClick={() => setProjStep(isOpen ? -1 : i)}
+                        >
+                          <span className="proj-acc__label">{s.tab}</span>
+                          <span className="proj-acc__chev" aria-hidden="true" />
+                        </button>
+                      </h3>
+                      <div
+                        className="proj-acc__panel" id={"placc-p-" + i}
+                        role="region" aria-labelledby={"placc-h-" + i}
+                      >
+                        <div className="proj-acc__body">
+                          <span className="proj-acc__k">{s.title}</span>
+                          <p>{s.text}</p>
+                          <div className="proj-acc__stat"><strong>{s.stat}</strong><span>{s.statL}</span></div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
         </div>
-      </window.ProjetExtra>
+      </section>
 
       {/* LA BRIGADE — source : rapport d'activité 2025 */}
       <window.ProjetExtra tone="cream" eyebrow="La brigade" title="Ceux qui" accent="encadrent"
@@ -291,19 +271,8 @@ function ProjetLBMPage() {
         <div className="wrap">
           <span className="proj-sec" id="proj-testi-t">Ils l’ont vécu</span>
           <h2 className="proj-h2 reveal">Des parcours, des voix</h2>
-          <div className="proj-tgrid reveal">
-            {(p.temoignages || []).map((t, i) => (
-              <article className={"proj-tcard proj-tcard--" + (i % 2 === 0 ? 'teal' : 'terracotta')} key={i}>
-                <div className="proj-tcard__head">
-                  <span className="proj-tcard__photo--ph" aria-hidden="true" />
-                  <div>
-                    <h3 className="proj-tcard__name">{t.prenom}</h3>
-                    <span className="proj-tcard__role">{t.role}</span>
-                  </div>
-                </div>
-                <p className="proj-tcard__quote">« {t.citation} »</p>
-              </article>
-            ))}
+          <div className="reveal">
+            <window.TestiCarousel items={(p.temoignages || []).map(t => ({ name: t.prenom, meta: t.role, quote: t.citation }))} />
           </div>
         </div>
       </section>
