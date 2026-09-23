@@ -797,3 +797,22 @@ html { scroll-padding-top: 104px; scroll-padding-bottom: 96px; }
 
 /* <picture> : conteneur neutre, l'image garde le comportement qu'avait <img> */
 picture { display: contents; }
+
+/* ===== CALENDRIER — déroulé d'une promotion, mois par mois ===== */
+.calendrier { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; counter-reset: cal; }
+.calendrier__item {
+  display: grid; grid-template-columns: 160px 1fr; gap: 24px; align-items: baseline;
+  padding: 18px 20px; border-radius: var(--r-4); background: var(--cream);
+  transition: background var(--t-base) var(--ease-out);
+}
+.calendrier__item:hover { background: var(--teal-tint); }
+.calendrier__mois {
+  font-family: 'KoHo', sans-serif; font-weight: 700; font-size: 13px;
+  letter-spacing: 0.06em; text-transform: uppercase; color: var(--teal);
+}
+.calendrier__body { display: block; }
+.calendrier__t { display: block; font-size: 16px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+.calendrier__d { display: block; font-size: 14px; line-height: 1.55; color: var(--ink-mid); }
+@media (max-width: 720px) {
+  .calendrier__item { grid-template-columns: 1fr; gap: 6px; }
+}

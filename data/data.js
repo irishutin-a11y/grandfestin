@@ -27,14 +27,14 @@ window.FESTIN_DATA = {
     { value: "441", unit: "",   label: "personnes accompagnées en 2025" },
     { value: "83",  unit: "%",  label: "de sorties en emploi ou formation" },
     { value: "14",  unit: "",   label: "territoires d'intervention" },
-    { value: "30",  unit: "+ ans", label: "d'insertion par la cuisine" },
+    { value: "1987", unit: "",     label: "l'année de création de l'association" },
   ],
   // Ticker — defile bandeau sur la home
   ticker: [
     "441 personnes accompagnées en 2025",
     "83 % de sorties en emploi ou formation",
     "14 territoires d'intervention",
-    "Plus de trente ans d'insertion par la cuisine",
+    "L'insertion par la cuisine depuis 1987",
     "Académie Festin, organisme de formation certifié Qualiopi",
     "Le goût d'avancer ensemble",
   ],
@@ -201,6 +201,24 @@ window.FESTIN_DATA = {
       ],
       temoignagesCredit: "Portraits : Des Étoiles et des Femmes",
       presseFilter: ["Des Étoiles et des Femmes", "Etoiles et des Femmes"],
+      // Les 13 antennes du réseau, avec l'année d'ouverture et la structure qui
+      // porte le programme localement. Source : tableau réseau Des Étoiles et
+      // des Femmes. Le Pays Basque a fermé, il n'y figure plus.
+      antennes: [
+        { ville: "Marseille",            annee: "2015", porteur: "Festin" },
+        { ville: "Montpellier",          annee: "2016", porteur: "La Table de Cana" },
+        { ville: "Nice",                 annee: "2017", porteur: "Forum Jorge François" },
+        { ville: "Bordeaux",             annee: "2017", porteur: "La Table de Cana" },
+        { ville: "Arles",                annee: "2018", porteur: "Petit à Petit" },
+        { ville: "Strasbourg",           annee: "2018", porteur: "Les Jardins de la Montagne Verte" },
+        { ville: "Hauts-de-Seine",       annee: "2018", porteur: "La Table de Cana" },
+        { ville: "Paris",                annee: "2019", porteur: "La Table de Cana" },
+        { ville: "Lyon",                 annee: "2021", porteur: "Weavers" },
+        { ville: "Lille",                annee: "2021", porteur: "À Table Citoyens" },
+        { ville: "Seine-Saint-Denis",    annee: "2021", porteur: "La Table de Cana" },
+        { ville: "Toulouse",             annee: "2022", porteur: "Égalitère et Sororitère" },
+        { ville: "Hauts-de-Seine Sud",   annee: "2023", porteur: "La Table de Cana" },
+      ],
       // --- Champs page projet dédiée (extraits de description / formations, sinon [XX]) ---
       godmother: { name: "Julia Sedefdjian", role: "Marraine nationale — depuis 2025" },
       parcours: [
@@ -730,6 +748,13 @@ window.FESTIN_DATA = {
     },
   ],
   testimonials: [
+    // Témoignage financeur — source : Solidarity AccorHotels, partenaire depuis 2015
+    {
+      quote: "Les chefs de cuisine de Sofitel, Pullman ou Mama Shelter à Marseille ont accueilli dans leurs brigades ces femmes dont les horizons professionnels étaient inexistants. Quelle richesse, quels partages.",
+      author: "Christine de Longevialle",
+      role: "Déléguée générale, Solidarity AccorHotels",
+      kind: "financeur",
+    },
     // Témoignages réels — source : Rapport d'activité 2025
     {
       quote: "Je suis fière, indépendante, heureuse d'avoir su franchir toutes ces étapes.",
@@ -802,6 +827,17 @@ window.FESTIN_DATA = {
 //  Couleurs : charte uniquement (teal / or / corail / violet)
 // ============================================================
 // Don en ligne — formulaire HelloAsso de l'association
+// Verbatims recueillis pour la campagne Restaure contre les violences en cuisine.
+// Anonymes, repris mot pour mot. Ils disent le problème que la formation traite.
+window.FESTIN_DATA.verbatimsViolences = [
+  "Le rythme était tellement infernal qu'on ne mangeait pas, pas le droit de s'asseoir. Si on s'appuyait sur le comptoir, on se faisait engueuler.",
+  "J'ai eu des patrons qui étaient tout le temps sur leurs caméras et qui m'appelaient toutes les cinq minutes dès que je prenais cinq secondes pour respirer.",
+  "J'ai ce souvenir d'un apprenti : après une bêtise, le chef avait décidé de l'appeler par une insulte toute la journée.",
+  "On s'est retrouvés de 1 h à 3 h du matin à cuisiner pour le repas d'anniversaire de sa petite-fille. Est-ce que c'est normal ?",
+  "Les assiettes qui volent au-dessus de nos têtes.",
+  "Soit tu te tais, soit tu dégages.",
+];
+
 window.FESTIN_DATA.donation = "https://www.helloasso.com/associations/association-festin/formulaires/3";
 
 window.FESTIN_DATA.meganav = {
@@ -860,7 +896,7 @@ window.FESTIN_DATA.home = {
   marquee: [
     "CAP Cuisine", "Titre à finalité professionnelle de commis de cuisine", "DCL, diplôme de compétence en langue",
     "Prévention des violences en cuisine", "Management juste", "Accueil de la diversité",
-    "Plus de trente ans d'insertion par la cuisine"
+    "L'insertion par la cuisine depuis 1987"
   ],
   approche: {
     eyebrow: "L'association Festin",
@@ -952,7 +988,7 @@ window.FESTIN_DATA.home = {
 };
 
 // ---------- PAGE ABOUT — contenus ----------
-// Chiffres : source unique = FESTIN_DATA.stats ci-dessus (Rapport d'activité 2025 : 441 / 83 % / 14 / plus de trente ans).
+// Chiffres : source unique = FESTIN_DATA.stats ci-dessus (Rapport d'activité 2025 : 441 / 83 % / 14 ; création 1987).
 // `photo: null` = portrait à fournir → cadre neutre « [XX] ». `avatar` = médaillon 240 px (petit avatar rond).
 window.FESTIN_DATA.about = {
   poles: [

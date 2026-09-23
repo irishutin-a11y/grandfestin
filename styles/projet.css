@@ -445,3 +445,38 @@ body.proj-has-crumb .mnav{top:28px}
 @media(max-width:900px){
   .pageProjet--tournesol .proj-gallery__grid{grid-template-columns:repeat(2,1fr)}
 }
+
+/* ===========================================================
+   RÉSEAU — les antennes du programme, une ligne par ville
+   =========================================================== */
+.proj-reseau{background:var(--off-white);color:var(--ink);padding:clamp(56px,8vw,104px) 0}
+.proj-reseau .proj-h2{color:var(--ink)}
+.proj-reseau__lede{color:var(--ink-mid);max-width:54ch;margin:0 0 clamp(24px,3.4vw,40px)}
+.proj-reseau__list{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.proj-reseau__item{display:grid;grid-template-columns:72px 1fr auto;gap:clamp(12px,2vw,24px);align-items:baseline;
+  padding:14px 16px;border-radius:var(--r-4);background:var(--cream);
+  transition:background var(--t-base) var(--ease-out),transform var(--t-base) var(--ease-out)}
+.proj-reseau__item:hover{background:var(--teal-tint);transform:translateX(4px)}
+.proj-reseau__annee{font-family:'KoHo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.04em;color:var(--teal)}
+.proj-reseau__ville{font-family:'KoHo',sans-serif;font-weight:700;font-size:16px;text-transform:uppercase;letter-spacing:-.01em;color:var(--ink)}
+.proj-reseau__porteur{font-size:13px;color:var(--ink-mid);text-align:right}
+@media(max-width:640px){
+  .proj-reseau__item{grid-template-columns:56px 1fr;row-gap:2px}
+  .proj-reseau__porteur{grid-column:2;text-align:left}
+}
+
+/* ===========================================================
+   VERBATIMS — paroles recueillies, bloc sombre et sobre
+   =========================================================== */
+.proj-verbatims{background:var(--teal-deep);color:#fff;padding:clamp(56px,8vw,104px) 0}
+.proj-verbatims .proj-sec{color:var(--gold-light)}
+.proj-verbatims .proj-h2{color:#fff}
+.proj-verbatims__lede{color:rgba(255,255,255,.85);max-width:56ch;margin:0 0 clamp(26px,3.6vw,42px)}
+.proj-verbatims__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));
+  gap:clamp(12px,1.6vw,20px)}
+.proj-verbatims__q{margin:0;padding:clamp(20px,2.4vw,28px);border-radius:var(--r-6);
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);
+  font-size:15px;line-height:1.55;color:#fff}
+.proj-verbatims__q::before{content:"«";display:block;font-family:'KoHo',sans-serif;font-weight:700;
+  font-size:34px;line-height:.6;color:var(--gold-light);margin-bottom:10px}
+.proj-verbatims__note{margin:clamp(22px,3vw,32px) 0 0;font-size:13px;color:rgba(255,255,255,.7);max-width:60ch}

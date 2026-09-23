@@ -137,7 +137,7 @@ function Histoire() {
       <div className="ab-hist__word" ref={word} aria-hidden="true">HISTOIRE</div>
       <div className="container ab-hist__head">
         <span className="ab-eyebrow ab-eyebrow--gold">Notre histoire</span>
-        <Title em="cuisine.">Plus de trente ans d'insertion par la</Title>
+        <Title em="1987.">L'insertion par la cuisine depuis</Title>
       </div>
       <div className="ab-hist__viewport">
         <ol className="ab-hist__track" ref={track}>
@@ -301,6 +301,33 @@ function Partenaires() {
   );
 }
 
+// ---------- 6 bis. LE MOT DU DIRECTEUR — extrait du rapport d'activité 2025 ----------
+function MotDirecteur() {
+  return (
+<section className="ab-mot">
+    <div className="container ab-mot__in">
+      <span className="ab-eyebrow">Le mot du directeur</span>
+      <blockquote className="ab-mot__q">
+        <p>L'excellence et la solidarité ne sont pas des mondes séparés. La haute gastronomie
+        peut être un puissant levier d'insertion pour des personnes éloignées de l'emploi.
+        Mieux&nbsp;: elle en est souvent la condition de réussite. En cuisine comme ailleurs,
+        viser haut n'exclut pas&nbsp;: cela élève.</p>
+        <p>Les associations sont des acteurs structurants de notre modèle social. La construction
+        collective n'est pas un coût, c'est un levier. Un levier contre la dispersion des
+        énergies et l'isolement des initiatives. Le collectif permet de mutualiser, d'apprendre,
+        d'amplifier. Il permet surtout de durer.</p>
+        <p>C'est pour cela que «&nbsp;le goût d'avancer ensemble&nbsp;», pour Festin, n'est pas
+        qu'un slogan. C'est une méthode, une exigence, une responsabilité.</p>
+        <footer className="ab-mot__sig">
+          <strong>Armand Hurault</strong>
+          <span>Directeur de l'association Festin — rapport d'activité 2025</span>
+        </footer>
+      </blockquote>
+    </div>
+  </section>
+  );
+}
+
 // ---------- 7. S'ENGAGER — photo plein cadre, 3 entrées par profil ----------
 function Engager() {
   const cards = [
@@ -352,6 +379,7 @@ function AboutPage() {
       <Equipe />
       <Valeurs />
       <Partenaires />
+      <MotDirecteur />
       <Engager />
     </div>
   );

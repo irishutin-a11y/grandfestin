@@ -303,6 +303,29 @@ function ProjetDefPage() {
         </div>
       </section>
 
+      {/* LE RÉSEAU — les 13 antennes, avec l'année d'ouverture et le porteur local */}
+      {p.antennes && p.antennes.length > 0 && (
+        <section className="proj-reseau" aria-labelledby="proj-reseau-t">
+          <div className="wrap">
+            <span className="proj-sec" id="proj-reseau-t">Le réseau</span>
+            <h2 className="proj-h2 reveal">{p.antennes.length} antennes,<br />une même exigence</h2>
+            <p className="proj-reseau__lede reveal">
+              Le programme est né à Marseille en 2015. Il est aujourd'hui porté dans chaque ville par
+              une structure locale, avec ses centres de formation et ses restaurateurs partenaires.
+            </p>
+            <ul className="proj-reseau__list reveal">
+              {p.antennes.map((a) => (
+                <li className="proj-reseau__item" key={a.ville}>
+                  <span className="proj-reseau__annee">{a.annee}</span>
+                  <span className="proj-reseau__ville">{a.ville}</span>
+                  <span className="proj-reseau__porteur">{a.porteur}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
       {/* RÉSEAU DE CHEFS — source : deck financeurs */}
       <window.ProjetExtra tone="cream" eyebrow="Le réseau" title="Des chefs qui" accent="forment"
         lede="Des stages, du mentorat, des brigades solidaires et des festivals avec des chefs gastronomiques, dont plusieurs étoilés. Julia Sedefdjian, cheffe du restaurant Baieta à Paris, est la marraine nationale du réseau.">

@@ -1122,6 +1122,37 @@ function AccompagnementInsertionPage() {
         </div>
       </section>
 
+      {/* LE CALENDRIER — le déroulé réel d'une promotion, de septembre à juin */}
+      <section className="stack-sm" style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
+        <div className="container">
+          <span className="eyebrow eyebrow--gold">Une année, mois par mois</span>
+          <h2 className="h2" style={{marginTop:8, marginBottom:14}}>Comment se déroule <em className="accent">une promotion</em></h2>
+          <p className="lede" style={{color:'var(--ink-mid)', maxWidth:'60ch', marginBottom:36}}>
+            Le calendrier est le même chaque année. Il vous donne une idée précise de ce qui vous
+            attend, du premier entretien jusqu'à l'accompagnement vers l'emploi.
+          </p>
+          <ol className="calendrier">
+            {[
+              { mois: 'Septembre', t: "Recrutement et atelier de préparation", d: "Entretiens, puis un atelier collectif pour préparer la rencontre avec les restaurants." },
+              { mois: 'Octobre',   t: "Rencontre avec les restaurants", d: "Immersion courte dans un restaurant pour valider le projet, puis mise en relation avec l'établissement qui vous accueillera." },
+              { mois: 'Novembre',  t: "Début de la formation Tournesol", d: "La promotion Tournesol entre en formation." },
+              { mois: 'Décembre',  t: "Début de la formation Des Étoiles et des Femmes", d: "Entrée en formation, et démarrage du suivi individuel et collectif." },
+              { mois: 'Janvier — mars', t: "Formation, stages et suivi", d: "Alternance entre les cours, les stages en brigade et les rendez-vous de suivi." },
+              { mois: 'Avril',     t: "Examens et sortie de formation", d: "Passage du diplôme, puis fin de la formation pour les deux promotions." },
+              { mois: 'Mai — juin', t: "Accompagnement vers l'emploi", d: "Recherche de poste, mise en relation avec les restaurants, et préparation des promotions suivantes." },
+            ].map((e, i) => (
+              <li className="calendrier__item" key={i}>
+                <span className="calendrier__mois">{e.mois}</span>
+                <span className="calendrier__body">
+                  <strong className="calendrier__t">{e.t}</strong>
+                  <span className="calendrier__d">{e.d}</span>
+                </span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
       {/* CTA contact */}
       <section className="on-dark" style={{background:'var(--teal-deep)', color:'#fff', padding:'var(--s-9) 0', textAlign:'center'}}>
         <div className="container">
@@ -1317,6 +1348,10 @@ function ImpactPage() {
     { year: '2025', title: "Label Empli'tude renouvelé", org: "Obtenu initialement en 2019, renouvelé pour La Table de Cana" },
     { year: '2025', title: "Marraine nationale", org: "Julia Sedefdjian rejoint le réseau Des Étoiles et des Femmes" },
     { year: '2025', title: "Sous-traitant Greta — Région Sud", org: "Marché de la formation professionnelle, Région Sud" },
+    { year: '2024', title: "Délégations de service public", org: "Ministère du Travail — repérage et remobilisation, Île-de-France et Hauts-de-France, pour trois ans" },
+    { year: '2022', title: "Fondation des Femmes", org: "Distinction pour l'accompagnement des femmes vers l'autonomie" },
+    { year: '2020', title: "Plan d'Investissement dans les Compétences", org: "Sélection au PIC, ministère du Travail" },
+    { year: '2019', title: "Fondation la France s'engage", org: "Lauréat — Des Étoiles et des Femmes" },
   ];
 
   const presse = [
@@ -1528,7 +1563,7 @@ function AcademiePage() {
             <span className="eyebrow">Notre positionnement</span>
             <h2 className="h2" style={{marginTop:8, marginBottom:20}}>Former <em className="accent">autrement</em></h2>
             <p className="lede" style={{color:'var(--ink-mid)', lineHeight:1.7}}>
-              Festin forme sur le terrain depuis plus de trente ans. En 2026, l'association en fait un organisme de formation : l'Académie Festin, certifiée Qualiopi, co-portée avec Estello Formation. Trois choses tiennent ses parcours : l'exigence de la cuisine, le suivi social des personnes formées, la connaissance du secteur.
+              Festin forme sur le terrain depuis 1987. En 2026, l'association en fait un organisme de formation : l'Académie Festin, certifiée Qualiopi, co-portée avec Estello Formation. Trois choses tiennent ses parcours : l'exigence de la cuisine, le suivi social des personnes formées, la connaissance du secteur.
             </p>
             <div style={{display:'flex', alignItems:'center', gap:14, marginTop:28, padding:'16px 20px', background:'var(--cream)', borderRadius:12, border:'1px solid var(--line)'}}>
               <img src={window.FESTIN_DATA.brand.qualiopi} alt="Logo Qualiopi" loading="lazy"

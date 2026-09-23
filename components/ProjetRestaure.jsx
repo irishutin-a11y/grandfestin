@@ -267,6 +267,30 @@ function ProjetRestaurePage() {
         </window.ProjetExtra>
       )}
 
+      {/* VERBATIMS — ce que le programme traite, dit par celles et ceux qui l'ont vécu */}
+      {(D.verbatimsViolences || []).length > 0 && (
+        <section className="proj-verbatims" aria-labelledby="proj-verbatims-t">
+          <div className="wrap">
+            <span className="proj-sec" id="proj-verbatims-t">Ce qu'on nous raconte</span>
+            <h2 className="proj-h2 reveal">Les mots<br />du terrain</h2>
+            <p className="proj-verbatims__lede reveal">
+              Ces paroles ont été recueillies auprès de professionnels de la restauration.
+              Elles sont reprises mot pour mot et rendues anonymes. Elles disent ce que la
+              formation « Prévention des violences sexistes et sexuelles » cherche à faire reculer.
+            </p>
+            <div className="proj-verbatims__grid reveal">
+              {D.verbatimsViolences.map((v, i) => (
+                <blockquote className="proj-verbatims__q" key={i}>{v}</blockquote>
+              ))}
+            </div>
+            <p className="proj-verbatims__note">
+              Si vous vivez ou observez ces situations, la formation et le violentomètre du
+              programme Restaure sont des points de départ. <a href="#/formations/vss" style={{color:'var(--gold-light)',fontWeight:700}}>Voir la formation</a>.
+            </p>
+          </div>
+        </section>
+      )}
+
       {/* TÉMOIGNAGE — citation unique */}
       {t && (
         <section className="proj-testi" aria-labelledby="proj-testi-t">

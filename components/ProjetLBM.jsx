@@ -251,6 +251,28 @@ function ProjetLBMPage() {
         </div>
       </section>
 
+      {/* LA GENÈSE — trois repères, volontairement court (source : dossier de présentation) */}
+      <window.ProjetExtra tone="white" eyebrow="La genèse" title="Deux voyages," accent="une rencontre"
+        lede="Le restaurant est né de deux visites faites séparément, la même année.">
+        <div className="pxs__grid">
+          <div className="pxs__card">
+            <h3>2016 — Londres et Milan</h3>
+            <p>Festin découvre The Clink, restaurant en prison à Londres. Au même moment, la Direction
+            interrégionale des services pénitentiaires de Marseille visite In Galera, à Milan.</p>
+          </div>
+          <div className="pxs__card">
+            <h3>La rencontre</h3>
+            <p>Les deux structures se retrouvent autour de la même idée et décident de la porter
+            ensemble, en France.</p>
+          </div>
+          <div className="pxs__card">
+            <h3>15 novembre 2022</h3>
+            <p>Les Beaux Mets ouvre au public, au centre pénitentiaire des Baumettes. Une première
+            en France.</p>
+          </div>
+        </div>
+      </window.ProjetExtra>
+
       {/* LA BRIGADE — source : rapport d'activité 2025 */}
       <window.ProjetExtra tone="cream" eyebrow="La brigade" title="Ceux qui" accent="encadrent"
         lede="Un chef qui forme les commis, un second, un maître d'hôtel qui forme l'équipe de salle, une conseillère en insertion professionnelle, et une direction qui pilote le projet.">

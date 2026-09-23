@@ -41,12 +41,19 @@ Tics à rationner (une fois par page au plus, jamais en titre, toujours suivis d
 
 ## Faits tranchés
 - Chiffres 2025 : **441 personnes accompagnées, 83 % de sorties en emploi ou formation, 14 territoires**. Référence : `ressources/documents/rapport-activite-2025/rapport-activite-2025_v441-83_REFERENCE.pdf`. La version 453 / 72 % est une ancienne version ; les documents qui la citent (deck financeurs, kit de communication) sont à mettre à jour.
-- La Table de Cana : 1993. Académie Festin : 2026. Tournesol : 5 mois, portée par Festin depuis 2025, 86 % d'insertion un an après. Aucune date d'ancienneté pour l'association : « plus de trente ans d'insertion par la cuisine ». « 1 200+ » femmes accompagnées par Des Étoiles et des Femmes. Le parcours court de Des Étoiles et des Femmes vise le titre à finalité professionnelle de commis de cuisine.
+- **Association fondée en 1987** (arbitré le 23/09/2026, source LinkedIn officiel). La formule « plus de trente ans » est donc à remplacer par « depuis 1987 » ou « près de quarante ans ».
+- La Table de Cana : 1993, premier projet de l'association. Académie Festin : 2026. Tournesol : 5 mois, portée par Festin depuis 2025, 86 % d'insertion un an après. « 1 200 » femmes accompagnées par Des Étoiles et des Femmes. Le parcours court de Des Étoiles et des Femmes vise le titre à finalité professionnelle de commis de cuisine.
+- **Des Étoiles et des Femmes : 13 antennes** (le Pays Basque a fermé — ne plus le citer). Festin : 14 territoires d'intervention, tous dispositifs confondus.
+- **Taux, toujours avec leur périmètre** : 73 % de sorties positives (Des Étoiles et des Femmes seul, 2025) · 83 % de sorties en emploi ou formation (Festin tous dispositifs, 2025) · 84 % de sorties positives (La Table de Cana, 2024). Réussite aux diplômes : 91 % (2025).
+- Grand Festin du 3 octobre 2025 : **plus de 600 convives**, plus de 100 bénévoles, 14 brigades.
 - Statuts : ESUS = l'association ; Qualiopi = Académie Festin ; SIRET `379 756 026 00074`, NDA `93132168513`, RNA `W133012740`.
 - Équipe : Iris Hutin, chargée de projet Communication ; Armand Hurault, directeur général ; Camille Lafon, direction du restaurant Les Beaux Mets. Gouvernance affichée (bureau) : Jérôme Schatzman (président), Guillaume Hermitte (trésorier), Virginie Leconte (secrétaire).
 
 ## Points ouverts
 Voir `copywriting/06-journal-des-changements.md`, section « Encore en `[XX]` » : portraits de l'équipe, témoignages entreprise et financeur, crédits photo, intitulés de Marion Binachon et Fanny Bouvier.
+
+## Matière disponible dans le Drive
+Relevé complet dans `RESSOURCES-DRIVE.md` (23/09/2026) : récits, témoignages, chiffres sourcés, base presse et photos exploitables, avec l'endroit du site où les intégrer. Validé pour intégration intégrale.
 
 ## Ressources (`ressources/`, hors git)
 - `charte/` : `typos/` (KoHo complet, italiques comprises), `logos/`, `guidelines/` (charte 2022, charte communication du réseau Des Étoiles et des Femmes, kit de communication 2026).
