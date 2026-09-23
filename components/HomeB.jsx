@@ -33,7 +33,7 @@ function HomeB() {
     gsap.registerPlugin(ST);
 
     // ---- HERO
-    cleanups.push(gsap.from(root.querySelectorAll('.hero__title .l span'), { yPercent: 118, duration: 1.1, ease: 'expo.out', stagger: 0.09, delay: 0.1 }));
+    cleanups.push(gsap.from(root.querySelectorAll('.hero__logo, .hero__baseline'), { y: 40, opacity: 0, duration: 1.1, ease: 'expo.out', stagger: 0.12, delay: 0.1 }));
     cleanups.push(gsap.from(root.querySelectorAll('.hero__sub, .hero__cta'), { y: 26, opacity: 0, duration: 0.9, ease: 'power3.out', stagger: 0.12, delay: 0.55 }));
     cleanups.push(gsap.to(root.querySelector('#heroMedia'), { yPercent: 10, ease: 'none', scrollTrigger: { trigger: root.querySelector('#hero'), start: 'top top', end: 'bottom top', scrub: true } }));
 
@@ -89,6 +89,25 @@ function HomeB() {
       appr.querySelectorAll('.appr__card').forEach(c => c.classList.add('on'));
     }
 
+    // ---- #ecosysteme : carrousel horizontal épinglé des projets (même principe que l'ancienne approche)
+    const eco = root.querySelector('#ecocar');
+    const etrack = root.querySelector('#ecocarTrack');
+    if (eco && etrack && window.innerWidth >= 900) {
+      const ebar = root.querySelector('#ecocarBar');
+      const vp = eco.querySelector('.ecocar__viewport');
+      const dist = () => Math.max(0, etrack.scrollWidth - vp.clientWidth);
+      const stEco = ST.create({
+        trigger: eco, start: 'top top',
+        end: () => '+=' + Math.round(dist() * 1.1),
+        pin: '.ecocar__inner', scrub: 1, anticipatePin: 1, invalidateOnRefresh: true,
+        onUpdate: (self) => {
+          etrack.style.transform = 'translateX(' + (-self.progress * dist()) + 'px)';
+          if (ebar) ebar.style.width = (self.progress * 100) + '%';
+        }
+      });
+      cleanups.push(() => stEco.kill());
+    }
+
     // ---- COUNT-UP IMPACT
     root.querySelectorAll('.istat__n').forEach(el => {
       const target = +el.dataset.count, suffix = el.dataset.suffix || '';
@@ -134,11 +153,10 @@ function HomeB() {
         <div className="hero__prism"></div>
         <div className="hero__inner wrap">
           <span className="eyb">{H.hero.eyebrow}</span>
-          <h1 className="display hero__title">
-            {heroT.map((l, i) => (
-              <span className="l" key={i}><span className={i === heroT.length - 1 ? 'accent' : ''}>{l}</span></span>
-            ))}
+          <h1 className="hero__logo">
+            <img src="images/logo-festin-blanc.png" alt="Festin" width="1387" height="650" />
           </h1>
+          <p className="hero__baseline">Le goût d'avancer <em>ensemble</em></p>
           <p className="lede hero__sub">{H.hero.sub}</p>
         </div>
       </header>
@@ -150,43 +168,52 @@ function HomeB() {
         </div>
       </section>
 
-      {/* #approche — DE LA CUISINE À L'EMPLOI */}
-      <section className="b-mission" id="approche">
-        <div className="wrap">
-          <div className="b-mission__head">
-            <div className="reveal">
-              <span className="eyb" style={{ color: 'var(--teal-dark)' }}>{H.approche.eyebrow}</span>
-              <h2 className="h2b">{H.approche.titleLines[0]}<br/>{H.approche.titleLines[1]}</h2>
-              <p className="b-mission__intro">{H.approche.intro}</p>
+      {/* #ecosysteme — CARROUSEL ÉPINGLÉ DES PROJETS (remplace l'approche, gardée plus bas) */}
+      <section className="b-mission b-ecocar" id="ecosysteme">
+        <div className="ecocar" id="ecocar">
+          <div className="ecocar__inner">
+            <div className="wrap ecocar__head">
+              <span className="eyb" style={{ color: 'var(--teal-dark)' }}>Pour les personnes et pour le secteur</span>
+              <h2 className="h2b">{H.eco.titlePre}<em>{H.eco.titleAccent}</em></h2>
             </div>
-          </div>
-        </div>
-        <div className="appr" id="appr">
-          <div className="appr__inner">
-            <div className="wrap">
-              <div className="appr__stepper" role="list" aria-label="Notre façon de faire">
-                {H.approche.steps.map((s, i) => (
-                  <span key={i} className={"appr__step" + (i === 0 ? ' on' : '')} role="listitem">
-                    <b>{String(i + 1).padStart(2, '0')}</b> {s.tab}
-                  </span>
-                ))}
-                <span className="appr__bar" aria-hidden="true"><i id="apprBar"></i></span>
-              </div>
-            </div>
-            <div className="appr__viewport">
-              <div className="appr__track" id="apprTrack">
-                {H.approche.steps.map((s, i) => (
-                  <article key={i} className={"appr__card appr__card--" + s.variant + (i === 0 ? ' on' : '')}>
-                    <div className="appr__ctext">
-                      <div className="num">{s.kicker}</div>
-                      <h3>{s.title}</h3>
-                      <p>{s.text}</p>
+            <div className="ecocar__viewport">
+              <div className="ecocar__track" id="ecocarTrack">
+                {H.eco.cards.map((c) => {
+                  const p = byId(c.id);
+                  return (
+                    <a key={c.id} href={`#/projets/${c.id}`} className="ecocar__card">
+                      <div className="ecocar__img">
+                        <window.Picture src={c.img} alt={p.shortTitle} sizes="(max-width: 900px) 80vw, 380px" />
+                        {p.logo && <span className="ecocar__logo"><img src={IMG(p.logo)} alt="" loading="lazy" /></span>}
+                      </div>
+                      <div className="ecocar__body">
+                        <span className="ecocar__eb">{p.eyebrow}</span>
+                        <h3>{p.shortTitle}</h3>
+                        <dl className="ecocar__pub">
+                          <div><dt>Côté insertion</dt><dd>{c.insertion}</dd></div>
+                          <div><dt>Côté secteur</dt><dd>{c.secteur}</dd></div>
+                        </dl>
+                        <span className="lnk">Découvrir <span className="arrow">→</span></span>
+                      </div>
+                    </a>
+                  );
+                })}
+                {H.eco.avenir && (
+                  <a href={H.eco.avenir.href} className="ecocar__card ecocar__card--avenir">
+                    <div className="ecocar__img ecocar__img--avenir">
+                      <i data-lucide="hard-hat" aria-hidden="true" />
+                      <span>Bientôt</span>
                     </div>
-                    <window.Picture src={s.img} alt="" sizes="(max-width: 900px) 100vw, 50vw" />
-                  </article>
-                ))}
+                    <div className="ecocar__body">
+                      <span className="ecocar__eb">{H.eco.avenir.eyebrow}</span>
+                      <h3>{H.eco.avenir.title}</h3>
+                      <p className="ecocar__txt">{H.eco.avenir.text}</p>
+                    </div>
+                  </a>
+                )}
               </div>
             </div>
+            <div className="wrap"><span className="ecocar__bar" aria-hidden="true"><i id="ecocarBar"></i></span></div>
           </div>
         </div>
       </section>
@@ -220,38 +247,6 @@ function HomeB() {
                 </div>
               </a>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* #eco — DÉCOUVREZ NOS CINQ PROJETS */}
-      <section className="b-eco" id="eco">
-        <div className="wrap">
-          <h2 className="h2b reveal">{H.eco.titlePre}<em>{H.eco.titleAccent}</em></h2>
-          <p className="b-eco__lede reveal">{H.eco.lede}</p>
-          <div className="ecogrid">
-            {H.eco.cards.map((c, i) => {
-              const p = byId(c.id);
-              return (
-                <a key={c.id} href={`#/projets/${c.id}`} className="ecocard reveal">
-                  <div className="ecocard__img"><window.Picture src={c.img} alt={p.shortTitle} sizes="(max-width: 620px) 100vw, (max-width: 960px) 50vw, 33vw" /></div>
-                  <div className="ecocard__body">
-                    <img className="ecocard__logo" src={IMG(p.logo)} alt="" loading="lazy" decoding="async" />
-                    <span className="ecocard__eb">{p.eyebrow}</span>
-                    <h3>{p.shortTitle}</h3>
-                    <p>{c.blurb}</p>
-                    <span className="ecocard__stat">{c.stat}</span>
-                  </div>
-                </a>
-              );
-            })}
-            <a href={H.eco.explore.href} className="ecocard reveal" style={{ background: 'transparent', border: '1.5px dashed rgba(255,255,255,.4)', alignItems: 'flex-start', justifyContent: 'center', padding: 26 }}>
-              <div className="ecocard__body" style={{ justifyContent: 'center' }}>
-                <h3 style={{ color: '#fff' }}>{H.eco.explore.title}</h3>
-                <p>{H.eco.explore.text}</p>
-                <span className="lnk" style={{ color: 'var(--gold-light)' }}>{H.eco.explore.cta} <span className="arrow">→</span></span>
-              </div>
-            </a>
           </div>
         </div>
       </section>
@@ -319,3 +314,55 @@ function HomeB() {
 }
 
 window.HomeB = HomeB;
+
+// ---------------------------------------------------------------------------
+// Approche « Accompagner, former, transformer » — retirée de l'accueil le
+// 23/09/2026 pour l'alléger, gardée ici pour être réutilisée plus tard.
+// Pour la remettre : rendre <ApprocheEpinglee H={H} /> dans HomeB. Sa logique
+// GSAP (#appr) et sa CSS (.appr__*) sont toujours en place.
+// ---------------------------------------------------------------------------
+function ApprocheEpinglee({ H }) {
+  return (
+    <>{/* #approche — DE LA CUISINE À L'EMPLOI */}
+      <section className="b-mission" id="approche">
+        <div className="wrap">
+          <div className="b-mission__head">
+            <div className="reveal">
+              <span className="eyb" style={{ color: 'var(--teal-dark)' }}>{H.approche.eyebrow}</span>
+              <h2 className="h2b">{H.approche.titleLines[0]}<br/>{H.approche.titleLines[1]}</h2>
+              <p className="b-mission__intro">{H.approche.intro}</p>
+            </div>
+          </div>
+        </div>
+        <div className="appr" id="appr">
+          <div className="appr__inner">
+            <div className="wrap">
+              <div className="appr__stepper" role="list" aria-label="Notre façon de faire">
+                {H.approche.steps.map((s, i) => (
+                  <span key={i} className={"appr__step" + (i === 0 ? ' on' : '')} role="listitem">
+                    <b>{String(i + 1).padStart(2, '0')}</b> {s.tab}
+                  </span>
+                ))}
+                <span className="appr__bar" aria-hidden="true"><i id="apprBar"></i></span>
+              </div>
+            </div>
+            <div className="appr__viewport">
+              <div className="appr__track" id="apprTrack">
+                {H.approche.steps.map((s, i) => (
+                  <article key={i} className={"appr__card appr__card--" + s.variant + (i === 0 ? ' on' : '')}>
+                    <div className="appr__ctext">
+                      <div className="num">{s.kicker}</div>
+                      <h3>{s.title}</h3>
+                      <p>{s.text}</p>
+                    </div>
+                    <window.Picture src={s.img} alt="" sizes="(max-width: 900px) 100vw, 50vw" />
+                  </article>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
