@@ -264,10 +264,10 @@ window.FESTIN_DATA = {
       grandFestin: {
         eyebrow: "Temps fort",
         title: "Le Grand Festin",
-        text: "Le 3 octobre 2025, pour les dix ans du programme, 13 villes envoient leur brigade sur le Vieux-Port. Alumnis, chefs engagés, chefs marseillais. Une exposition en plein air. Des grandes tablées. 550 convives et plus de 100 bénévoles.",
+        text: "Le 3 octobre 2025, pour les dix ans du programme, tout le réseau envoie sa brigade sur le Vieux-Port. Alumnis, chefs engagés, chefs marseillais. Une exposition en plein air. Des grandes tablées. 550 convives et plus de 100 bénévoles.",
         stats: [
-          { value: "13",   label: "brigades réunies" },
-          { value: "550", unit: "", label: "convives" },
+          { value: "14",   label: "brigades réunies" },
+          { value: "600", unit: "+", label: "convives" },
           { value: "100",  label: "bénévoles" }
         ],
         images: [

@@ -1399,7 +1399,7 @@ function ImpactPage() {
           </div>
           <div className="stack-sm" style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:20}}>
             {[
-              {k:'Des Étoiles et des Femmes', t:'Le Grand Festin des dix ans', d:'Le 3 octobre : 13 villes, 13 brigades, 550 convives, plus de 100 bénévoles. Sur le Vieux-Port de Marseille.'},
+              {k:'Des Étoiles et des Femmes', t:'Le Grand Festin des dix ans', d:'Le 3 octobre : 14 brigades venues de tout le réseau, plus de 600 convives et plus de 100 bénévoles, sur le Vieux-Port de Marseille.'},
               {k:'Des Étoiles et des Femmes', t:'Un partenariat avec le Greta', d:'Festin devient sous-traitant d\'une partie des heures de formation du marché de la Région Sud.'},
               {k:'Des Étoiles et des Femmes', t:'Julia Sedefdjian, marraine nationale', d:'La cheffe rejoint le réseau pour les dix ans du programme.'},
               {k:'Restaure', t:'Cinq tables rondes, deux millions de vues', d:'Cinq tables rondes à Marseille, Toulouse et Lille, enregistrées en podcast. Des vidéos de prévention des violences en cuisine vues plus de deux millions de fois.'},
@@ -1592,6 +1592,36 @@ function AcademiePage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* LE BESOIN — ce que dit le marché du travail local (source : dossier d'habilitation RNCP) */}
+      <section className="on-dark" style={{padding:'var(--s-8) 0', background:'var(--teal-dark)', color:'#fff'}}>
+        <div className="container">
+          <span className="eyebrow eyebrow--gold">Pourquoi ces formations</span>
+          <h2 className="h2" style={{color:'#fff', marginTop:8, marginBottom:16, maxWidth:'22ch'}}>
+            Un secteur qui <em className="accent">recrute</em>
+          </h2>
+          <p className="lede" style={{color:'rgba(255,255,255,0.82)', maxWidth:'62ch', marginBottom:36}}>
+            À Marseille et dans les Bouches-du-Rhône, la restauration cherche des personnes formées.
+            C'est ce qui rend ces parcours utiles, pour celles et ceux qui les suivent comme pour les
+            établissements qui recrutent.
+          </p>
+          <div className="stack-sm-2" style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:16}}>
+            {[
+              { n: '77 240', l: "projets de recrutement dans les Bouches-du-Rhône, tous secteurs" },
+              { n: '2 sur 3', l: "recrutements de cuisiniers jugés difficiles par les employeurs" },
+              { n: '500+',   l: "offres actives en restauration sur le seul territoire marseillais" },
+            ].map((s2, i) => (
+              <div key={i} style={{background:'rgba(255,255,255,0.06)', border:'1px solid rgba(255,255,255,0.14)', borderRadius:14, padding:24}}>
+                <div style={{fontSize:34, fontWeight:700, color:'var(--gold)', lineHeight:1, letterSpacing:'-0.02em'}}>{s2.n}</div>
+                <div style={{fontSize:13, color:'rgba(255,255,255,0.78)', marginTop:10, lineHeight:1.45}}>{s2.l}</div>
+              </div>
+            ))}
+          </div>
+          <p style={{fontSize:12, color:'rgba(255,255,255,0.6)', marginTop:20}}>
+            Source : enquête Besoins en main-d'œuvre, France Travail.
+          </p>
         </div>
       </section>
 
