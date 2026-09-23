@@ -35,7 +35,7 @@
 })();
 </script>
 
-<link rel="stylesheet" href="styles/styles.css?v=19" />
+<link rel="stylesheet" href="styles/styles.css?v=20" />
 <link rel="stylesheet" href="styles/home-b.css?v=20" />
 <link rel="stylesheet" href="styles/projet.css?v=3" />
 <link rel="stylesheet" href="styles/about.css?v=8" />
@@ -65,7 +65,7 @@
   <p style="margin:0 0 4px">Le site grandfestin.com est le site officiel de l'Association Festin.</p>
   <p style="margin:0"><a href="/mentions-legales" style="color:#1D6B78">Mentions légales</a></p>
 </div>
-<script type="text/babel" src="components/Nav.jsx?v=7"></script>
+<script type="text/babel" src="components/Nav.jsx?v=8"></script>
 <script type="text/babel" src="components/Sections.jsx?v=16"></script>
 <script type="text/babel" src="components/HomeB.jsx?v=10"></script>
 <script type="text/babel" src="components/ProjetDef.jsx?v=17"></script>
@@ -117,6 +117,23 @@ function App() {
     return () => { cancelAnimationFrame(raf); lenis.destroy(); window.__lenis = null; };
   }, []);
 
+  // Changement de page dans une application à page unique : le navigateur ne
+  // recharge rien, donc rien n'est annoncé et le focus reste où il était.
+  // On déplace le focus sur le titre de la nouvelle page et on annonce son nom
+  // dans une zone live, pour les lecteurs d'écran.
+  const [annonce, setAnnonce] = React.useState('');
+  React.useEffect(() => {
+    const t = setTimeout(() => {
+      const h1 = document.querySelector('main h1');
+      if (h1) {
+        if (!h1.hasAttribute('tabindex')) h1.setAttribute('tabindex', '-1');
+        h1.focus({ preventScroll: true });
+        setAnnonce(h1.textContent.trim() + ' — page chargée');
+      }
+    }, 220);
+    return () => clearTimeout(t);
+  }, [hash]);
+
   // à chaque changement de route : scroll top + refresh ScrollTrigger après rendu
   React.useEffect(() => {
     if (window.__lenis) window.__lenis.scrollTo(0, { immediate: true });
@@ -165,6 +182,7 @@ function App() {
   return (
     <div data-screen-label={`Site — ${route.name}`}>
       <Nav />
+      <p role="status" aria-live="polite" className="sr-only">{annonce}</p>
       <main id="main" tabIndex={-1}>{page}</main>
       <Footer />
       <FloatingCTA />

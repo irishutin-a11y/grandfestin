@@ -109,7 +109,7 @@ function Nav() {
 
       <div className={"optA-scrim" + (open ? " open" : "")} onClick={closePanel} aria-hidden="true"></div>
       <div className={"optA-panel" + (open ? " open" : "")} id="megaPanel" ref={panelRef}
-           role="dialog" aria-modal="true" aria-label={mega.title} aria-hidden={!open}>
+           role="dialog" aria-modal="true" aria-label={mega.title} aria-hidden={!open} inert={open ? undefined : ""}>
         <div className="optA-grid">
           <div className="optA-col">
             <h5>Par thématique</h5>
