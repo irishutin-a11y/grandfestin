@@ -12,45 +12,33 @@ function Title({ children, em, after, level = 2, className = '' }) {
   return <Tag className={'ab-title ' + className}>{children}{em && <> <em>{em}</em></>}{after}</Tag>;
 }
 
-// ---------- 0. HERO — titre monumental + tuiles portrait flottantes ----------
-const HERO_TILES = [
-  { img: 'images/photo-groupe-portrait.jpg',     cls: 't1', speed: -60 },
-  { img: 'images/photo-apprenante-plats.jpg',    cls: 't2', speed: 40 },
-  { img: 'images/photo-promo-groupe.jpg',        cls: 't3', speed: -90 },
-  { img: 'images/photo-micro-temoignage.jpg',    cls: 't4', speed: 70 },
-  { img: 'images/photo-tabliers-violets.jpg',    cls: 't5', speed: -40 },
-  { img: 'images/photo-service-restaurant.jpg',  cls: 't6', speed: 90 },
-  { img: 'images/photo-applaudissements.jpg',    cls: 't7', speed: -70 },
-];
+// ---------- 0. HERO — titre monumental sur une photo plein cadre ----------
+// Une seule photo en fond (retour PIT 23/09/2026). Entrée : léger dézoom ;
+// au défilement, la photo glisse plus lentement que le texte.
+const HERO_IMG = 'images/photo-promo-groupe.jpg';
 
 function AboutHero() {
   const root = useRef(null);
   useEffect(() => {
     if (RM() || !window.gsap) return;
-    const { gsap, ScrollTrigger } = window;
+    const { gsap } = window;
     const ctx = gsap.context(() => {
-      gsap.from('.ab-tile', { opacity: 0, scale: .82, y: 30, duration: .7, stagger: .08, ease: 'power3.out', delay: .1 });
-      root.current.querySelectorAll('.ab-tile').forEach((t, i) => {
-        gsap.to(t.querySelector('.ab-tile__in'), {
-          y: HERO_TILES[i].speed, ease: 'none',
-          scrollTrigger: { trigger: root.current, start: 'top top', end: 'bottom top', scrub: true },
-        });
-      });
+      gsap.from('.ab-hero__bg img', { scale: 1.14, duration: 1.8, ease: 'expo.out' });
+      gsap.from('.ab-hero__inner > *', { y: 36, opacity: 0, duration: 1, ease: 'expo.out', stagger: .1, delay: .15 });
+      gsap.to('.ab-hero__bg', { yPercent: 18, ease: 'none',
+        scrollTrigger: { trigger: root.current, start: 'top top', end: 'bottom top', scrub: true } });
     }, root);
     return () => ctx.revert();
   }, []);
   return (
-    <section className="ab-hero" ref={root}>
-      <div className="ab-hero__tiles" aria-hidden="true">
-        {HERO_TILES.map((t, i) => (
-          <div key={i} className={'ab-tile ' + t.cls}><div className="ab-tile__in"><window.Picture src={t.img} alt="" sizes="(max-width: 899px) 45vw, 22vw" loading={i < 3 ? 'eager' : 'lazy'} /></div></div>
-        ))}
+    <section className="ab-hero on-dark" ref={root}>
+      <div className="ab-hero__bg" aria-hidden="true">
+        <window.Picture src={HERO_IMG} alt="" sizes="100vw" loading="eager" />
       </div>
       <div className="container ab-hero__inner">
         <nav className="breadcrumb" aria-label="Fil d'Ariane"><a href="#/">Accueil</a><span className="breadcrumb__sep">/</span><span>Qui sommes-nous</span></nav>
         <span className="ab-eyebrow ab-eyebrow--gold">L'association Festin</span>
         <h1 className="ab-title ab-title--hero">Former, inclure, <em>transformer.</em></h1>
-        <p className="ab-lede">Nous formons des personnes aux métiers de la cuisine et nous les suivons jusqu'à l'emploi. Nous aidons les restaurants à recruter et à garder leurs équipes. Avec le programme Restaure, nous travaillons contre les violences en cuisine. Cinq projets portent ce travail : un restaurant en prison, un traiteur d'insertion, deux formations diplômantes et un programme national.</p>
       </div>
     </section>
   );

@@ -34,6 +34,7 @@ function ProjetRestaurePage() {
   const p = D.projets.find(x => x.id === 'restaure');
   const rootRef = useRef(null);
   const statsGridRef = useRef(null);
+  const groupesRef = useRef(null);
   const [videoOn, setVideoOn] = useState(false);
   const [projStep, setProjStep] = useState(0);
 
@@ -97,6 +98,26 @@ function ProjetRestaurePage() {
     });
     ST.refresh();
     return () => triggers.forEach(t => t.kill());
+  }, []);
+
+  // Groupes de travail : un rail se remplit au défilement et allume chaque
+  // groupe quand il passe au centre de l'écran (révéler, dans l'ordre).
+  useEffect(() => {
+    const list = groupesRef.current;
+    if (!list) return;
+    const rows = [...list.querySelectorAll('.prgw__row')];
+    const reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+    if (reduce || !window.gsap || !window.ScrollTrigger) { rows.forEach(r => r.classList.add('is-lit')); list.classList.add('is-static'); return; }
+    const g = window.gsap, ST = window.ScrollTrigger;
+    g.registerPlugin(ST);
+    const tw = g.fromTo(list.querySelector('.prgw__fill'), { scaleY: 0 }, { scaleY: 1, ease: 'none',
+      scrollTrigger: { trigger: list, start: 'top 55%', end: 'bottom 55%', scrub: 0.4 } });
+    const trs = rows.map((r) => ST.create({ trigger: r, start: 'top 58%', end: 'bottom 58%',
+      onToggle: (self) => r.classList.toggle('is-lit', self.isActive || self.progress === 1),
+      onLeave: () => r.classList.add('is-lit'), onLeaveBack: () => r.classList.remove('is-lit') }));
+    const intro = g.from(list.querySelectorAll('.prgw__n, .prgw__t, .prgw__p'), { x: -40, autoAlpha: 0, duration: 0.8, ease: 'expo.out', stagger: 0.08,
+      scrollTrigger: { trigger: list, start: 'top 80%', once: true } });
+    return () => { tw.scrollTrigger && tw.scrollTrigger.kill(); tw.kill(); intro.scrollTrigger && intro.scrollTrigger.kill(); intro.kill(); trs.forEach(t => t.kill()); };
   }, []);
 
   if (!p) return null;
@@ -253,17 +274,22 @@ function ProjetRestaurePage() {
 
       {/* GROUPES DE TRAVAIL, GOUVERNANCE, TOAST — source : rapport d'activité 2025 */}
       {p.groupes && (
-        <window.ProjetExtra tone="cream" eyebrow="Comment le programme travaille" title="Qui fait" accent="quoi"
+        <window.ProjetExtra tone="dark" eyebrow="Comment le programme travaille" title="Qui fait" accent="quoi"
           lede={"Le pilotage réunit " + p.gouvernance.join(", ").replace(/, ([^,]*)$/, " et $1") + ". Chaque groupe de travail a une structure pilote."}>
-          <div className="pxs__grid">
+          <ol className="prgw" ref={groupesRef}>
+            <span className="prgw__rail" aria-hidden="true"><span className="prgw__fill" /></span>
             {p.groupes.map((g, i) => (
-              <div className="pxs__card" key={i}>
-                <h3>{g.title}</h3>
-                <p>Avec {g.pilote}</p>
-              </div>
+              <li className="prgw__row" key={i}>
+                <span className="prgw__n" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+                <h3 className="prgw__t">{g.title}</h3>
+                <p className="prgw__p"><span>Pilote</span>{g.pilote}</p>
+              </li>
             ))}
-          </div>
-          <p className="pxs__lede" style={{marginTop:32, marginBottom:0}}>{p.toast}</p>
+          </ol>
+          <ul className="prgw__gov" aria-label="Structures au pilotage">
+            {p.gouvernance.map((n) => <li key={n}>{n}</li>)}
+          </ul>
+          <p className="prgw__toast">{p.toast}</p>
         </window.ProjetExtra>
       )}
 

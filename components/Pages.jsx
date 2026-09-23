@@ -748,261 +748,7 @@ function SadiCarnotPage() {
   );
 }
 
-// ---------- ACCOMPAGNEMENT — INSERTION ----------
-function AccompagnementInsertionPage() {
-  const projetsInsertion = window.FESTIN_DATA.projets.filter(p =>
-    ['des-etoiles-et-des-femmes', 'tournesol', 'les-beaux-mets', 'la-table-de-cana'].includes(p.id)
-  );
-  return (
-    <div data-screen-label="Accompagnement — Insertion">
-      <PageHeader
-        image="images/photo-tabliers-violets.jpg"
-        imageAlt="Apprenantes de Des Étoiles et des Femmes en cuisine"
-        focus="center 32%"
-        eyebrow="Vous cherchez un métier"
-        title="Apprendre un métier de cuisine,"
-        accent="avec un suivi complet"
-        subtitle="Un diplôme reconnu. Des stages en restaurant. Un suivi social complet. Nous construisons votre parcours avec vous, jusqu'à l'emploi."
-        breadcrumb={[
-          {label:'Accueil', href:'#/'},
-          {label:'Accompagnement'},
-          {label:'Insertion'},
-        ]}
-      />
-
-      {/* Chiffres clés */}
-      <section style={{background:'var(--cream)', padding:'var(--s-8) 0'}}>
-        <div className="container">
-          <div className="stack-sm-2" style={{display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:16}}>
-            {[...window.FESTIN_DATA.stats.slice(0,3).map(s => ({value: s.value + (s.unit === '%' ? ' %' : s.unit), label: s.label})),
-              {value:'5', label:'projets, tous rattachés à Festin'},
-            ].map((s, i) => (
-              <div key={i} style={{background:'#fff', border:'1px solid var(--line)', borderRadius:14, padding:24}}>
-                <div style={{fontSize:38, fontWeight:700, color:'var(--teal)', lineHeight:1, letterSpacing:'-0.02em'}}>{s.value}</div>
-                <div style={{fontSize:13, color:'var(--ink-mid)', marginTop:10, lineHeight:1.4}}>{s.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Texte d'introduction */}
-      <section style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
-        <div className="container" style={{maxWidth:880, margin:'0 auto'}}>
-          <span className="eyebrow">Notre approche</span>
-          <h2 className="h2" style={{marginTop:8, marginBottom:18}}>Un diplôme, et quelqu'un <em className="accent">à vos côtés</em></h2>
-          <p className="lede" style={{color:'var(--ink-mid)'}}>
-            Nos parcours réunissent trois choses : un diplôme reconnu, de l'expérience en restaurant, un accompagnement social complet. Mobilité, garde d'enfants, logement, soutien linguistique. Des femmes, des personnes réfugiées ou primo-arrivantes, des personnes détenues ou en sortie de détention y trouvent leur place.
-          </p>
-          <p className="body" style={{marginTop:16}}>
-            Tous nos parcours sont gratuits. Une indemnisation est possible selon votre situation.
-          </p>
-        </div>
-      </section>
-
-      {/* Projets d'insertion */}
-      <section style={{background:'var(--cream)', padding:'var(--s-9) 0'}}>
-        <div className="container">
-          <div className="formations__head" style={{marginBottom:48, maxWidth:760}}>
-            <span className="eyebrow">Nos parcours d'insertion</span>
-            <h2 className="h2">Le parcours qui vous <em className="accent">correspond</em></h2>
-          </div>
-          <div className="formations__grid">
-            {projetsInsertion.map((p) => (
-              <a key={p.id} className="formation-card" href={`#/projets/${p.id}`}>
-                <div className="formation-card__img">
-                  <ProjetThumb icon={p.icon} />
-                </div>
-                <div className="formation-card__body">
-                  <span className="eyebrow">{p.eyebrow}</span>
-                  <h3>{p.shortTitle}</h3>
-                  <p className="formation-card__desc" style={{fontWeight:600, color:'var(--ink)'}}>{p.tagline}</p>
-                  <p className="formation-card__desc">{p.short}</p>
-                  <div className="formation-card__bottom">
-                    <span className="lnk">Découvrir <i data-lucide="arrow-right" style={{width:14, height:14}}/></span>
-                  </div>
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* LE CALENDRIER — le déroulé réel d'une promotion, de septembre à juin */}
-      <section className="stack-sm" style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
-        <div className="container">
-          <span className="eyebrow eyebrow--gold">Une année, mois par mois</span>
-          <h2 className="h2" style={{marginTop:8, marginBottom:14}}>Comment se déroule <em className="accent">une promotion</em></h2>
-          <p className="lede" style={{color:'var(--ink-mid)', maxWidth:'60ch', marginBottom:36}}>
-            Le calendrier est le même chaque année. Il vous donne une idée précise de ce qui vous
-            attend, du premier entretien jusqu'à l'accompagnement vers l'emploi.
-          </p>
-          <ol className="calendrier">
-            {[
-              { mois: 'Septembre', t: "Recrutement et atelier de préparation", d: "Entretiens, puis un atelier collectif pour préparer la rencontre avec les restaurants." },
-              { mois: 'Octobre',   t: "Rencontre avec les restaurants", d: "Immersion courte dans un restaurant pour valider le projet, puis mise en relation avec l'établissement qui vous accueillera." },
-              { mois: 'Novembre',  t: "Début de la formation Tournesol", d: "La promotion Tournesol entre en formation." },
-              { mois: 'Décembre',  t: "Début de la formation Des Étoiles et des Femmes", d: "Entrée en formation, et démarrage du suivi individuel et collectif." },
-              { mois: 'Janvier — mars', t: "Formation, stages et suivi", d: "Alternance entre les cours, les stages en brigade et les rendez-vous de suivi." },
-              { mois: 'Avril',     t: "Examens et sortie de formation", d: "Passage du diplôme, puis fin de la formation pour les deux promotions." },
-              { mois: 'Mai — juin', t: "Accompagnement vers l'emploi", d: "Recherche de poste, mise en relation avec les restaurants, et préparation des promotions suivantes." },
-            ].map((e, i) => (
-              <li className="calendrier__item" key={i}>
-                <span className="calendrier__mois">{e.mois}</span>
-                <span className="calendrier__body">
-                  <strong className="calendrier__t">{e.t}</strong>
-                  <span className="calendrier__d">{e.d}</span>
-                </span>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      {/* CTA contact */}
-      <section className="on-dark" style={{background:'var(--teal-deep)', color:'#fff', padding:'var(--s-9) 0', textAlign:'center'}}>
-        <div className="container">
-          <span className="eyebrow eyebrow--gold">Candidater à une promotion</span>
-          <h2 className="h2" style={{color:'#fff', maxWidth:680, margin:'14px auto 18px'}}>Construire votre <em className="accent">projet professionnel</em></h2>
-          <p className="lede" style={{color:'rgba(255,255,255,0.78)', maxWidth:560, margin:'0 auto 32px'}}>Écrivez-nous. Nous vérifierons ensemble votre éligibilité. Prochaines sessions : Des Étoiles et des Femmes (titre à finalité professionnelle), du 9 novembre 2026 au 13 avril 2027. Tournesol, du 30 novembre 2026 au 22 avril 2027.</p>
-          <a href="#/contact" className="btn btn--gold">Nous contacter <i data-lucide="arrow-right" style={{width:16, height:16}}/></a>
-        </div>
-      </section>
-    </div>
-  );
-}
-
-// ---------- ACCOMPAGNEMENT — PROFESSIONNELS ----------
-function AccompagnementProsPage() {
-  const formationsProsIds = ['vss', 'management'];
-  const formationsPros = window.FESTIN_DATA.formations.filter(f => formationsProsIds.includes(f.id));
-  return (
-    <div data-screen-label="Accompagnement — Professionnels">
-      <PageHeader
-        image="images/beauxmets-images/LBM_cdutrey_071122-7264.jpg"
-        imageAlt="Cuisine des Beaux Mets en service"
-        focus="center 45%"
-        eyebrow="Vous êtes restaurateur"
-        title="Recruter et manager autrement,"
-        accent="avec Festin"
-        subtitle="Des stagiaires formées à votre carte. Des formations sur les violences en cuisine et le management juste. Un partenariat construit avec des professionnels du secteur."
-        breadcrumb={[
-          {label:'Accueil', href:'#/'},
-          {label:'Accompagnement'},
-          {label:'Professionnels'},
-        ]}
-      />
-
-      {/* 3 piliers de l'offre RH */}
-      <section style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
-        <div className="container">
-          <div style={{maxWidth:760, marginBottom:48}}>
-            <span className="eyebrow">Ce que Festin construit avec les restaurateurs</span>
-            <h2 className="h2">Ce que nous construisons <em className="accent">ensemble</em></h2>
-          </div>
-          <div className="stack-sm" style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:20}}>
-            {[
-              {
-                icon: 'users',
-                title: 'Recruter autrement',
-                desc: 'Accueillez des stagiaires de Des Étoiles et des Femmes ou de Tournesol. Un binôme, un tutorat, un suivi pendant le stage. Si la rencontre a lieu, vous recrutez. Face à la pénurie de main-d\'œuvre, vous n\'êtes plus seul.',
-              },
-              {
-                icon: 'shield-check',
-                title: 'Prévenir les violences',
-                desc: 'Une formation sur les violences sexistes et sexuelles, pensée pour la cuisine, la salle et la brigade. Le cadre légal. Des cas tirés de situations réelles. Un protocole de signalement.',
-              },
-              {
-                icon: 'handshake',
-                title: 'Manager juste',
-                desc: 'Deux jours pour fidéliser une équipe. Posture managériale, recrutement inclusif, droit à l\'erreur. Vous repartez avec un plan d\'action pour votre établissement.',
-              },
-            ].map((b, i) => (
-              <div key={i} style={{background:'#fff', border:'1px solid var(--line)', borderRadius:16, padding:28}}>
-                <div style={{width:48, height:48, borderRadius:12, background:'var(--cream)', display:'grid', placeItems:'center', color:'var(--teal)', marginBottom:18}}>
-                  <i data-lucide={b.icon} style={{width:24, height:24}}/>
-                </div>
-                <h3 style={{fontSize:20, fontWeight:700, lineHeight:1.25, margin:'0 0 10px'}}>{b.title}</h3>
-                <p style={{fontSize:14, color:'var(--ink-mid)', lineHeight:1.6, margin:0}}>{b.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Recruter avec France Travail (POEI) */}
-      <section style={{padding:'var(--s-9) 0', background:'var(--cream)'}}>
-        <div className="container">
-          <div style={{maxWidth:760, marginBottom:40}}>
-            <span className="eyebrow">Recruter avec France Travail</span>
-            <h2 className="h2">Accueillir un candidat, <em className="accent">étape par étape</em></h2>
-            <p className="lede" style={{marginTop:14}}>La préparation opérationnelle à l'emploi individuelle (POEI) est financée par France Travail. Elle permet de recruter une personne formée à votre cuisine. Festin facilite les démarches.</p>
-          </div>
-          <div className="stack-sm" style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:20}}>
-            {[
-              {n:'1', when:'Dès septembre 2026', t:'Des candidats présentés', d:'Nous présentons des candidats qui correspondent à vos besoins. Des journées d\'immersion en cuisine valident le profil.'},
-              {n:'2', when:'Janvier et mars 2027', t:'Deux stages chez vous', d:'Deux semaines en janvier, trois semaines en mars, dans votre établissement.'},
-              {n:'3', when:'À partir d\'avril 2027', t:'Une prise de poste', d:'Si l\'expérience est concluante : un CDD de quatre mois minimum.'},
-            ].map((s) => (
-              <div key={s.n} style={{background:'#fff', border:'1px solid var(--line)', borderRadius:16, padding:28}}>
-                <div style={{fontSize:40, fontWeight:700, color:'var(--gold-ink)', lineHeight:1}}>{s.n}</div>
-                <span style={{display:'block', fontSize:12, fontWeight:700, letterSpacing:'0.1em', textTransform:'uppercase', color:'var(--teal)', margin:'14px 0 6px'}}>{s.when}</span>
-                <h3 style={{fontSize:20, fontWeight:700, lineHeight:1.25, margin:'0 0 8px'}}>{s.t}</h3>
-                <p style={{fontSize:14, color:'var(--ink-mid)', lineHeight:1.6, margin:0}}>{s.d}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Catalogue de formations */}
-      <section style={{background:'var(--cream)', padding:'var(--s-9) 0'}}>
-        <div className="container">
-          <div className="formations__head" style={{marginBottom:48, maxWidth:760}}>
-            <span className="eyebrow">Catalogue de formations</span>
-            <h2 className="h2">Des formations pour <em className="accent">vos équipes</em></h2>
-            <p className="lede" style={{marginTop:14}}>Inter ou intra, en présentiel, par l'Académie Festin, organisme de formation certifié Qualiopi. Prise en charge OPCO possible.</p>
-          </div>
-          <div className="formations__grid">
-            {formationsPros.map((f) => <FormationCardLink key={f.id} f={f}/>)}
-          </div>
-          <div style={{textAlign:'center', marginTop:48}}>
-            <a href={window.FESTIN_DATA.catalogPdf} target="_blank" rel="noopener" className="btn btn--ghost">
-              <i data-lucide="book-open" style={{width:16, height:16}}/> Télécharger le catalogue complet (PDF)
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Restaure */}
-      <section style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
-        <div className="stack-sm container" style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:48, alignItems:'center'}}>
-          <div>
-            <span className="eyebrow eyebrow--gold">Au-delà des formations</span>
-            <h2 className="h2" style={{marginTop:8, marginBottom:18}}>Rejoindre <em className="accent">le programme Restaure</em></h2>
-            <p className="lede" style={{color:'var(--ink-mid)'}}>
-              Restaure réunit 35 structures et 700 signataires du manifeste. Leur but : changer les pratiques du secteur. Vous pouvez signer le manifeste, rejoindre un groupe de travail, venir aux tables rondes. Ou aux Toast : des apéros inspirants, organisés avec La Communauté Ecotable, où les restaurateurs échangent leurs pratiques.
-            </p>
-            <a href="#/projets/restaure" className="btn btn--teal" style={{marginTop:24}}>Découvrir Restaure <i data-lucide="arrow-right" style={{width:16, height:16}}/></a>
-          </div>
-          <div style={{background:'linear-gradient(135deg, var(--teal) 0%, var(--teal-deep) 100%)', borderRadius:18, aspectRatio:'4/3', display:'grid', placeItems:'center'}}>
-            <i data-lucide="megaphone" style={{width:96, height:96, color:'var(--gold-light)', opacity:0.85}}/>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA contact */}
-      <section className="on-dark" style={{background:'var(--teal-deep)', color:'#fff', padding:'var(--s-9) 0', textAlign:'center'}}>
-        <div className="container">
-          <span className="eyebrow eyebrow--gold">Nous contacter</span>
-          <h2 className="h2" style={{color:'#fff', maxWidth:680, margin:'14px auto 18px'}}>Parlons de votre <em className="accent">établissement</em></h2>
-          <p className="lede" style={{color:'rgba(255,255,255,0.78)', maxWidth:560, margin:'0 auto 32px'}}>Notre équipe répond sous 48&nbsp;h ouvrées. Le Book de l'emploi présente les personnes diplômées de nos parcours qui cherchent un poste. Nous vous l'envoyons sur demande.</p>
-          <a href="#/contact" className="btn btn--gold">Échanger avec notre équipe, ou demander le Book de l'emploi <i data-lucide="arrow-right" style={{width:16, height:16}}/></a>
-        </div>
-      </section>
-    </div>
-  );
-}
+// Pages Insertion et Acteurs du secteur : voir components/Accompagnement.jsx
 
 // ---------- IMPACT PAGE ----------
 function ImpactPage() {
@@ -1087,9 +833,14 @@ function ImpactPage() {
         ]}
       />
 
-      {/* Chiffres clés vérifiés — source : Plaquette Offre restaurateurs Festin */}
-      <section style={{background:'var(--cream)', padding:'var(--s-8) 0'}}>
+      {/* L'année 2025 en une seule section : chiffres clés, faits marquants, budget.
+          Sources : rapport d'activité 2025. */}
+      <section style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
         <div className="container">
+          <div style={{maxWidth:760, marginBottom:40}}>
+            <span className="eyebrow">L'année 2025</span>
+            <h2 className="h2">Ce qui a marqué <em className="accent">l'année</em></h2>
+          </div>
           <div className="stack-sm-2" style={{display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:16}}>
             {[...window.FESTIN_DATA.stats.slice(0,3).map(s => ({value: s.value, unit: s.unit, label: s.label})),
               {value:'119', unit:'', label:'personnes employées aux Beaux Mets depuis 2022'},
@@ -1100,17 +851,7 @@ function ImpactPage() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Faits marquants 2025 — source : Rapport d'activité 2025 */}
-      <section style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
-        <div className="container">
-          <div style={{maxWidth:760, marginBottom:48}}>
-            <span className="eyebrow">L'année 2025</span>
-            <h2 className="h2">Ce qui a marqué <em className="accent">l'année</em></h2>
-          </div>
-          <div className="stack-sm" style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:20}}>
+          <div className="stack-sm" style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:20, marginTop:20}}>
             {[
               {k:'Des Étoiles et des Femmes', t:'Le Grand Festin des dix ans', d:'Le 3 octobre : 14 brigades venues de tout le réseau, plus de 600 convives et plus de 100 bénévoles, sur le Vieux-Port de Marseille.'},
               {k:'Des Étoiles et des Femmes', t:'Un partenariat avec le Greta', d:'Festin devient sous-traitant d\'une partie des heures de formation du marché de la Région Sud.'},
@@ -1129,15 +870,11 @@ function ImpactPage() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Synthèse financière — vraie donnée Rapport d'activité 2025 */}
-      <section style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
-        <div className="container">
-          <div style={{maxWidth:760, marginBottom:48}}>
+          {/* Budget 2025 */}
+          <div style={{maxWidth:760, margin:'72px 0 40px'}}>
             <span className="eyebrow">Synthèse financière 2025</span>
-            <h2 className="h2">Un budget de <em className="accent">1,7 M€</em></h2>
+            <h3 className="h2" style={{fontSize:'clamp(28px,3.4vw,44px)'}}>Un budget de <em className="accent">1,7 M€</em></h3>
             <p className="lede" style={{marginTop:14}}>Quatre sources financent le budget 2025 : mécénat privé, subventions publiques, aides aux postes, chiffre d'affaires. Cette diversité protège l'autonomie de l'association.</p>
           </div>
           {(() => {
@@ -1421,6 +1158,8 @@ function ActualitesPage() {
         breadcrumb={[{label:'Accueil',href:'#/'},{label:'Qui sommes-nous',href:'#/about'},{label:'Actualités'}]}
       />
 
+      <window.TempsForts items={window.FESTIN_DATA.tempsForts || []} />
+
       <section style={{padding:'var(--s-8) 0 var(--s-9)', background:'var(--off-white)'}}>
         <div className="container">
 
@@ -1493,26 +1232,14 @@ function ActualitesPage() {
         </div>
       </section>
 
-      {/* Presse : présentation, chiffres clés, contact, logos */}
+      {/* Presse : chiffres clés, contact, logos */}
       <section id="presse" style={{padding:'var(--s-9) 0', background:'var(--cream)'}}>
         <div className="container">
           <div style={{maxWidth:760, marginBottom:40}}>
             <span className="eyebrow">Presse</span>
-            <h2 className="h2">Présenter Festin <em className="accent">en quelques mots</em></h2>
-            <p className="lede" style={{marginTop:14}}>Des textes à reprendre tels quels, des chiffres sourcés et datés, un contact et les logos.</p>
+            <h2 className="h2">Chiffres, contact <em className="accent">et logos</em></h2>
           </div>
           <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap:20}}>
-            {[
-              {k:'En 50 mots', t:"Festin est une association à but non lucratif et d'intérêt général, agréée ESUS, basée à Marseille. Elle forme des personnes en insertion aux métiers de la cuisine et les suit jusqu'à l'emploi. Elle aide les restaurants à recruter et à garder leurs équipes. Avec le programme Restaure, elle agit contre les violences en cuisine."},
-              {k:'En 100 mots', t:"Festin est une association loi 1901, à but non lucratif et d'intérêt général, agréée ESUS. Elle est basée à Marseille. Elle réunit cinq projets. Des Étoiles et des Femmes forme des femmes aux métiers de la cuisine, dans 13 antennes. Les Beaux Mets est le premier restaurant en prison ouvert au public en France. La Table de Cana, traiteur et restauration collective en insertion, existe depuis 1993. Le programme Restaure réunit 35 structures contre les violences en cuisine. Tournesol forme des personnes réfugiées ou primo-arrivantes, avec Refugee Food. L'Académie Festin, certifiée Qualiopi, réunit toutes ses formations."},
-            ].map((b, i) => (
-              <div key={i} style={{background:'#fff', border:'1px solid var(--line)', borderRadius:16, padding:28}}>
-                <span style={{fontSize:12, fontWeight:700, letterSpacing:'0.12em', textTransform:'uppercase', color:'var(--teal)'}}>{b.k}</span>
-                <p style={{fontSize:15, color:'var(--ink)', lineHeight:1.7, margin:'10px 0 0'}}>{b.t}</p>
-              </div>
-            ))}
-          </div>
-          <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap:20, marginTop:20}}>
             <div style={{background:'#fff', border:'1px solid var(--line)', borderRadius:16, padding:28}}>
               <span style={{fontSize:12, fontWeight:700, letterSpacing:'0.12em', textTransform:'uppercase', color:'var(--teal)'}}>Chiffres clés</span>
               <ul style={{listStyle:'none', padding:0, margin:'12px 0 0', display:'grid', gap:8, fontSize:15, color:'var(--ink)'}}>
@@ -1545,8 +1272,6 @@ window.NotFoundPage = NotFoundPage;
 window.FormationCardLink = FormationCardLink;
 window.ProjetPage = ProjetPage;
 window.SadiCarnotPage = SadiCarnotPage;
-window.AccompagnementInsertionPage = AccompagnementInsertionPage;
-window.AccompagnementProsPage = AccompagnementProsPage;
 window.ImpactPage = ImpactPage;
 window.AcademiePage = AcademiePage;
 window.ActualitesPage = ActualitesPage;

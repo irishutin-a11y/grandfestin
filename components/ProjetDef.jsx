@@ -313,32 +313,17 @@ function ProjetDefPage() {
               Le programme est né à Marseille en 2015. Il est aujourd'hui porté dans chaque ville par
               une structure locale, avec ses centres de formation et ses restaurateurs partenaires.
             </p>
-            <ul className="proj-reseau__list reveal">
-              {p.antennes.map((a) => (
-                <li className="proj-reseau__item" key={a.ville}>
-                  <span className="proj-reseau__annee">{a.annee}</span>
-                  <span className="proj-reseau__ville">{a.ville}</span>
-                  <span className="proj-reseau__porteur">{a.porteur}</span>
-                </li>
-              ))}
-            </ul>
+            <div className="reveal">
+              <window.HoverImageList label="Les antennes du réseau" items={p.antennes.map((a) => ({
+                title: a.ville, meta: a.porteur, year: a.annee,
+                // photo d'antenne : déposer images/antennes/<ville>.jpg (cadre « à venir » sinon)
+                img: 'images/antennes/' + a.ville.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') + '.jpg',
+                alt: 'Antenne de ' + a.ville,
+              }))} />
+            </div>
           </div>
         </section>
       )}
-
-      {/* RÉSEAU DE CHEFS — source : deck financeurs */}
-      <window.ProjetExtra tone="cream" eyebrow="Le réseau" title="Des chefs qui" accent="forment"
-        lede="Des stages, du mentorat, des brigades solidaires et des festivals avec des chefs gastronomiques, dont plusieurs étoilés. Julia Sedefdjian, cheffe du restaurant Baieta à Paris, est la marraine nationale du réseau.">
-        <div className="pxs__grid">
-          {D.about.chefs.map((c, i) => (
-            <div className="pxs__card" key={i}>
-              <h3>{c.name}</h3>
-              <p>{c.place}</p>
-            </div>
-          ))}
-        </div>
-        <p className="pxs__note">Prochaine session du titre à finalité professionnelle : du 9 novembre 2026 au 13 avril 2027.</p>
-      </window.ProjetExtra>
 
       {/* TÉMOIGNAGES — bandeau défilant en boucle infinie (marquee CSS), pause au survol */}
       <section className="proj-testi" aria-labelledby="proj-testi-t">
@@ -371,31 +356,24 @@ function ProjetDefPage() {
               </div>
             </div>
           </div>
-          <div className="proj-support__logos" role="group" aria-label="Partenaires">
-            <div className="proj-logogrid">
-              <span className="proj-logocard">
-                <img src="images/partners/sofitel.jpg" alt="Sofitel Hotels &amp; Resorts" loading="lazy" />
-              </span>
-              <span className="proj-logocard">
-                <img src="images/partners/les-bords-de-mer.png" alt="Les Bords de Mer" loading="lazy" />
-              </span>
-            </div>
-            <div className="proj-logogrid">
-              <span className="proj-logocard">
-                <img src="images/partners/la-source.svg" alt="La Source" loading="lazy" />
-              </span>
-              <span className="proj-logocard proj-logocard--hub">
-                <img src={PIMG(p.logo)} alt={p.shortTitle} loading="lazy" />
-              </span>
-              <span className="proj-logocard">
-                <img src="images/partners/les-grandes-tables.jpeg" alt="Les Grandes Tables" loading="lazy" />
-              </span>
-            </div>
-            <div className="proj-logogrid">
-              <span className="proj-logocard">
-                <img src="images/partners/the-small-group.webp" alt="The Small Group" loading="lazy" />
-              </span>
-            </div>
+          <div className="proj-support__sphere">
+            {/* Photos des chefs à venir : en attendant, des photos du programme */}
+            {/* Réseau de chefs (source : deck financeurs). Sans photo fournie, un chef
+                apparaît en cadre nominatif : aucune photo du programme sous son nom. */}
+            <window.ImgSphere size={520} label="Les chefs du réseau" images={[
+              { name: 'Julia Sedefdjian', place: 'Marraine nationale · Baieta, Paris' },
+              ...D.about.chefs,
+            ].map((c) => ({ src: c.photo, name: c.name, title: c.name, text: c.place }))
+              .concat([
+                'images/images-def/chaudbouillon-045.jpg',
+                'images/images-def/HOTELERIE-097.jpg',
+                'images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00022.jpg',
+                'images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg',
+                'images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-40.jpg',
+                'images/photo-tabliers-violets.jpg', 'images/photo-cuisine-action.jpg',
+                'images/photo-applaudissements.jpg',
+              ].map((src) => ({ src, alt: '', title: 'Des Étoiles et des Femmes', text: 'En cuisine avec le réseau.' })))} />
+            <p className="proj-support__note">Prochaine session du titre à finalité professionnelle : du 9 novembre 2026 au 13 avril 2027.</p>
           </div>
         </div>
       </section>

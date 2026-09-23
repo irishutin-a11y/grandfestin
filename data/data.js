@@ -781,6 +781,27 @@ window.FESTIN_DATA = {
       tone: "dark",
     },
   ],
+  // Temps forts — carrousel grand format de la page Actualités (textes factuels,
+  // à reprendre par le chantier copywriting). img null → cadre « photo à venir ».
+  tempsForts: [
+    { date: "3 octobre 2025", lieu: "Vieux-Port, Marseille", title: "Le Grand", accent: "Festin",
+      text: "Les dix ans de Des Étoiles et des Femmes : plus de 600 convives, 14 brigades, plus de 100 bénévoles.",
+      img: "images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg", alt: "Le Grand Festin, tablées en plein air",
+      href: "#/projets/des-etoiles-et-des-femmes", cta: "Des Étoiles et des Femmes" },
+    { date: "3 octobre 2025", lieu: "Vieux-Port, Marseille", title: "L'exposition", accent: "photo",
+      text: "Une exposition en plein air sur les parcours des femmes du réseau, présentée pendant le Grand Festin.",
+      img: null, alt: "",
+      href: "#/projets/des-etoiles-et-des-femmes", cta: "Des Étoiles et des Femmes" },
+    { date: "2025", lieu: "Les Baumettes, Marseille", title: "Les masterclass", accent: "des Beaux Mets",
+      text: "Six chefs devant la brigade du restaurant en 2025.",
+      img: "images/beauxmets-images/Copie de LBM_masterclass_chloeCharles_cdutrey_030325-7735.jpg", alt: "Masterclass aux Beaux Mets", credit: "Caroline Dutrey",
+      href: "#/projets/les-beaux-mets", cta: "Les Beaux Mets" },
+    { date: "2024", lieu: "Marseille", title: "Le lancement", accent: "de Restaure",
+      text: "Quatre structures au pilotage, 35 structures engagées contre les violences en cuisine.",
+      img: "images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg", alt: "Soirée de lancement du programme Restaure", credit: "Caroline Dutrey",
+      href: "#/projets/restaure", cta: "Le programme Restaure" },
+  ],
+
   presse: [
     // ── Les Beaux Mets ────────────────────────────────────────────────
     { dispositif:"Les Beaux Mets", source:"Impact Story", title:"On donne des couteaux aux détenues pour leur offrir une 2nde chance", type:"Reportage", date:"2026-05-13", href:"https://www.instagram.com/reel/DYSYQ77sfO1/" },
