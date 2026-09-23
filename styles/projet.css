@@ -259,7 +259,7 @@ body.proj-has-crumb .mnav{top:28px}
 .proj-support .proj-sec{color:var(--teal-deep);background:rgba(255,255,255,.92);
   display:inline-block;padding:6px 12px;border-radius:var(--r-pill);letter-spacing:.1em}
 .proj-support .proj-h2{color:#fff}
-.proj-support__inner{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,72px);align-items:center}
+.proj-support__inner{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(28px,5vw,72px);align-items:center}
 /* corail #E4572E : blanc n'y dépasse jamais ~3,7:1 → l'AA "grand format" (3:1) exige soit
    ≥24px, soit ≥18,66px en gras. On prend la 2e option : ça reste bien plus proche des 15px
    du reste de la page qu'un corps à 24-30px, tout en restant conforme. */
@@ -276,10 +276,10 @@ body.proj-has-crumb .mnav{top:28px}
 .proj-support__logos{position:relative;display:flex;flex-direction:column;align-items:center;gap:16px}
 .proj-support__logos::before{content:'';position:absolute;inset:-10%;z-index:0;
   background:radial-gradient(circle,rgba(255,255,255,.16),transparent 70%)}
-.proj-logogrid{position:relative;z-index:1;display:flex;justify-content:center;gap:16px}
+.proj-logogrid{position:relative;z-index:1;display:flex;flex-wrap:wrap;justify-content:center;gap:16px;max-width:calc(4 * clamp(88px,6.6vw,112px) + 3 * 16px)}
 /* ombre affinée : grand flou, décalage quasi nul, teinte chaude proche du corail
    plutôt que le token --sh-* (teinte froide qui « boîtait » sur le fond corail) */
-.proj-logocard{position:relative;display:flex;width:clamp(96px,7.5vw,116px);height:clamp(96px,7.5vw,116px);
+.proj-logocard{position:relative;display:flex;width:clamp(88px,6.6vw,112px);height:clamp(88px,6.6vw,112px);
   flex:none;background:var(--off-white);border-radius:var(--r-6);border:1px solid rgba(255,255,255,.55);
   box-shadow:var(--sh-md)}
 .proj-logocard img{margin:auto;max-width:64%;max-height:64%;object-fit:contain}

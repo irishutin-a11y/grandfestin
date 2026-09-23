@@ -1065,6 +1065,12 @@ window.FESTIN_DATA.about = {
     { src: "images/partners/france-travail.png",      alt: "France Travail" },
     { src: "images/partners/yes-we-camp.png",         alt: "Yes We Camp" },
   ],
+  // Logos partenaires disponibles, par nom tel qu'écrit dans projets[].partenaires.
+  // Sans logo : carte au nom du partenaire (logo à fournir).
+  logosPartenaires: {
+    "France Travail": "images/partners/france-travail.png",
+    "Yes We Camp": "images/partners/yes-we-camp.png",
+  },
   // Réseau de chefs (deck financeurs) — accord confirmé par l'association
   chefs: [
     { name: "Martin Simolka",       place: "Le Scribe, Paris" },

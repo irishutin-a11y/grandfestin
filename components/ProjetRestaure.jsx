@@ -348,7 +348,7 @@ function ProjetRestaurePage() {
           </div>
           <div className="proj-support__logos" role="group" aria-label="Structures fondatrices">
             <div className="proj-logogrid">
-              <span className="proj-logocard proj-logocard--ph"><span>Yes We<br />Camp</span></span>
+              <span className="proj-logocard"><img src="images/partners/yes-we-camp.png" alt="Yes We Camp" loading="lazy" /></span>
               <span className="proj-logocard proj-logocard--hub">
                 <img src="images/logo-festin.png" alt="Festin" loading="lazy" />
               </span>

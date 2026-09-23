@@ -323,9 +323,12 @@ function ProjetTournesolPage() {
           </div>
           <div className="proj-support__logos" role="group" aria-label="Partenaires (logos à venir)">
             <div className="proj-logogrid">
-              {(p.partenaires || []).map((nom, i) => (
-                <span className="proj-logocard proj-logocard--ph" key={i}><span>{nom}</span></span>
-              ))}
+              {(p.partenaires || []).map((nom, i) => {
+                const logo = (D.about.logosPartenaires || {})[nom];
+                return logo
+                  ? <span className="proj-logocard" key={i}><img src={PIMG(logo)} alt={nom} loading="lazy" /></span>
+                  : <span className="proj-logocard proj-logocard--ph" key={i}><span>{nom}</span></span>;
+              })}
             </div>
           </div>
         </div>
