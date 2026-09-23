@@ -694,7 +694,7 @@ a.formation-card:hover .lnk { color: var(--gold-ink); }
 /* ============================================================
    FLOATING CTA — "Agir maintenant" (toutes pages)
    ============================================================ */
-.fab-wrap { position: fixed; right: clamp(16px,2.5vw,28px); bottom: clamp(16px,2.5vw,28px); z-index: 200; display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+.fab-wrap { transition: opacity 260ms var(--ease-out), transform 260ms var(--ease-out); position: fixed; right: clamp(16px,2.5vw,28px); bottom: clamp(16px,2.5vw,28px); z-index: 200; display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
 .fab-actions { display: flex; flex-direction: column; gap: 10px; align-items: stretch; width: 288px; max-width: 78vw; }
 .fab-card { display: flex; align-items: center; gap: 13px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 13px 15px; box-shadow: var(--sh-lg); text-decoration: none; color: inherit; transform-origin: bottom right; animation: fab-pop 320ms var(--ease-out) both; transition: background 200ms, border-color 200ms; }
 .fab-card:hover { border-color: var(--teal-tint-2); background: var(--teal-tint); }
@@ -761,3 +761,36 @@ a.formation-card:hover .lnk { color: var(--gold-ink); }
 .skip-link { position: fixed; left: 12px; top: -60px; z-index: 10000; background: var(--gold); color: var(--ink); padding: 12px 18px; border-radius: 8px; font-weight: 700; text-decoration: none; transition: top .15s; }
 .skip-link:focus { top: 12px; }
 main:focus { outline: none; }
+
+/* ===== GRILLES : repli mobile =====
+   Les grilles de contenu sont déclarées en style inline dans Pages.jsx (sans
+   point de rupture) : sous 768px elles écrasaient le texte dans des colonnes
+   de 180px, tronquées par overflow-x:hidden. Le !important est nécessaire
+   pour passer devant le style inline. Les effets de débordement voulus
+   (marquees, galeries) ne portent pas ces classes et ne sont pas touchés. */
+@media (max-width: 767px) {
+  .stack-sm { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .stack-sm-2 { grid-template-columns: 1fr 1fr !important; gap: 14px !important; }
+}
+@media (max-width: 420px) {
+  .stack-sm-2 { grid-template-columns: 1fr !important; }
+}
+
+/* Encart presse & financeurs (bloc contact + page actualités) */
+.contact-note {
+  display: flex; gap: 12px; align-items: flex-start;
+  background: var(--gold-pale); border-radius: var(--r-4);
+  padding: 16px 18px; font-size: 14px; line-height: 1.55; color: var(--ink-mid);
+}
+.contact-note b { color: var(--ink); }
+.contact-note a { color: var(--gold-ink); font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
+.contact-note a:hover { color: var(--teal); }
+.contact-note svg { color: var(--gold-ink); }
+
+/* FAB : effacement à l'approche du footer (l'animation d'ouverture reste inchangée) */
+.fab-wrap--hidden { opacity: 0; transform: translateY(14px) scale(.96); pointer-events: none; }
+
+/* WCAG 2.4.11 — le chrome fixe (fil d'ariane projet + pastille de nav) ne doit
+   plus masquer l'élément qui reçoit le focus au clavier. On garde le sticky. */
+html { scroll-padding-top: 104px; scroll-padding-bottom: 96px; }
+.pageProjetDef, .pageProjetLBM, .pageProjetRestaure, .pageProjetTDC, .pageProjetTS { scroll-padding-top: 132px; }

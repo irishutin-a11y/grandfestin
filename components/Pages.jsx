@@ -434,7 +434,7 @@ function ImpactCumuleBande() {
           </div>
           <a href="#/impact" className="btn btn--gold">Voir notre impact détaillé <i data-lucide="arrow-right" style={{width:16, height:16}}/></a>
         </div>
-        <div style={{display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:12}}>
+        <div className="stack-sm-2" style={{display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:12}}>
           {[
             {value:'441',   label:'personnes accompagnées en 2025'},
             {value:'83\u00a0%',  label:'de sorties en emploi ou formation'},
@@ -520,7 +520,7 @@ function ProjetAssociatif() {
           <span className="eyebrow">Notre projet associatif</span>
           <h2 className="h2" style={{marginTop:8}}>Trois convictions, <em className="accent">une trajectoire</em></h2>
         </div>
-        <div style={{display:'grid', gridTemplateColumns:'1fr 360px', gap:80, alignItems:'flex-start'}}>
+        <div className="stack-sm" style={{display:'grid', gridTemplateColumns:'1fr 360px', gap:80, alignItems:'flex-start'}}>
           {/* Gauche : convictions */}
           <div style={{display:'flex', flexDirection:'column', gap:48}}>
             {piliers.map((p, i) => (
@@ -808,7 +808,7 @@ function ProjetPresse({ p }) {
           <span className="eyebrow">Presse & médias</span>
           <h2 className="h2" style={{marginTop:8}}>Les <em className="accent">actualités</em></h2>
         </div>
-        <div style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:20}}>
+        <div className="stack-sm" style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:20}}>
           {cards.map((a, i) => (
             a.placeholder ? (
               <div key={i} style={{border:'2px dashed var(--line)', borderRadius:14, padding:28, display:'flex', alignItems:'center', justifyContent:'center', minHeight:160, color:'var(--ink-soft)', fontSize:14}}>
@@ -924,7 +924,7 @@ function ProjetPage({ id }) {
       {/* B. Stats */}
       <section style={{background:'var(--cream)', paddingTop:72, paddingBottom:48, position:'relative'}}>
         <div className="container">
-          <div style={{display:'grid', gridTemplateColumns:'repeat(' + p.stats.length + ', 1fr)', gap:16}}>
+          <div className="stack-sm-2" style={{display:'grid', gridTemplateColumns:'repeat(' + p.stats.length + ', 1fr)', gap:16}}>
             {p.stats.map((s, i) => (
               <div key={i} style={{background:'#fff', border:'1px solid var(--line)', borderRadius:14, padding:24}}>
                 <div style={{fontSize:38, fontWeight:700, color:'var(--teal)', lineHeight:1, letterSpacing:'-0.02em'}}>
@@ -946,7 +946,7 @@ function ProjetPage({ id }) {
 
       {/* C. Présentation 2 colonnes */}
       <section style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
-        <div className="container" style={{display:'grid', gridTemplateColumns:'1.5fr 1fr', gap:64, alignItems:'flex-start'}}>
+        <div className="stack-sm container" style={{display:'grid', gridTemplateColumns:'1.5fr 1fr', gap:64, alignItems:'flex-start'}}>
           {/* Gauche : description + média */}
           <div>
             <span className="eyebrow">À propos du projet</span>
@@ -1067,7 +1067,7 @@ function AccompagnementInsertionPage() {
       {/* Chiffres clés */}
       <section style={{background:'var(--cream)', padding:'var(--s-8) 0'}}>
         <div className="container">
-          <div style={{display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:16}}>
+          <div className="stack-sm-2" style={{display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:16}}>
             {[...window.FESTIN_DATA.stats.slice(0,3).map(s => ({value: s.value + (s.unit === '%' ? ' %' : s.unit), label: s.label})),
               {value:'5', label:'projets, tous rattachés à Festin'},
             ].map((s, i) => (
@@ -1160,7 +1160,7 @@ function AccompagnementProsPage() {
             <span className="eyebrow">Ce que Festin construit avec les restaurateurs</span>
             <h2 className="h2">Ce que nous construisons <em className="accent">ensemble</em></h2>
           </div>
-          <div style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:20}}>
+          <div className="stack-sm" style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:20}}>
             {[
               {
                 icon: 'users',
@@ -1198,7 +1198,7 @@ function AccompagnementProsPage() {
             <h2 className="h2">Accueillir un candidat, <em className="accent">étape par étape</em></h2>
             <p className="lede" style={{marginTop:14}}>La préparation opérationnelle à l'emploi individuelle (POEI) est financée par France Travail. Elle permet de recruter une personne formée à votre cuisine. Festin facilite les démarches.</p>
           </div>
-          <div style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:20}}>
+          <div className="stack-sm" style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:20}}>
             {[
               {n:'1', when:'Dès septembre 2026', t:'Des candidats présentés', d:'Nous présentons des candidats qui correspondent à vos besoins. Des journées d\'immersion en cuisine valident le profil.'},
               {n:'2', when:'Janvier et mars 2027', t:'Deux stages chez vous', d:'Deux semaines en janvier, trois semaines en mars, dans votre établissement.'},
@@ -1236,7 +1236,7 @@ function AccompagnementProsPage() {
 
       {/* Restaure */}
       <section style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
-        <div className="container" style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:48, alignItems:'center'}}>
+        <div className="stack-sm container" style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:48, alignItems:'center'}}>
           <div>
             <span className="eyebrow eyebrow--gold">Au-delà des formations</span>
             <h2 className="h2" style={{marginTop:8, marginBottom:18}}>Rejoindre <em className="accent">le programme Restaure</em></h2>
@@ -1342,7 +1342,7 @@ function ImpactPage() {
       {/* Chiffres clés vérifiés — source : Plaquette Offre restaurateurs Festin */}
       <section style={{background:'var(--cream)', padding:'var(--s-8) 0'}}>
         <div className="container">
-          <div style={{display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:16}}>
+          <div className="stack-sm-2" style={{display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:16}}>
             {[...window.FESTIN_DATA.stats.slice(0,3).map(s => ({value: s.value, unit: s.unit, label: s.label})),
               {value:'5', unit:'', label:'projets, tous rattachés à Festin'},
             ].map((s, i) => (
@@ -1362,7 +1362,7 @@ function ImpactPage() {
             <span className="eyebrow">L'année 2025</span>
             <h2 className="h2">Ce qui a marqué <em className="accent">l'année</em></h2>
           </div>
-          <div style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:20}}>
+          <div className="stack-sm" style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:20}}>
             {[
               {k:'Des Étoiles et des Femmes', t:'Le Grand Festin des dix ans', d:'Le 3 octobre : 13 villes, 13 brigades, 550 convives, plus de 100 bénévoles. Sur le Vieux-Port de Marseille.'},
               {k:'Des Étoiles et des Femmes', t:'Un partenariat avec le Greta', d:'Festin devient sous-traitant d\'une partie des heures de formation du marché de la Région Sud.'},
@@ -1405,7 +1405,7 @@ function ImpactPage() {
               return `${b.color} ${s}% ${c}%`;
             }).join(', ');
             return (
-              <div style={{display:'grid', gridTemplateColumns:'auto 1fr', gap:64, alignItems:'center'}}>
+              <div className="stack-sm" style={{display:'grid', gridTemplateColumns:'auto 1fr', gap:64, alignItems:'center'}}>
                 <div style={{position:'relative', width:240, height:240}}>
                   <div style={{
                     width:'100%', height:'100%', borderRadius:'50%',
@@ -1442,7 +1442,7 @@ function ImpactPage() {
             <h2 className="h2">Tous nos <em className="accent">rapports d'activité</em></h2>
             <p className="lede" style={{marginTop:14}}>Téléchargez les rapports annuels : chiffres, projets et perspectives.</p>
           </div>
-          <div style={{display:'grid', gridTemplateColumns:'repeat(2, 1fr)', gap:20}}>
+          <div className="stack-sm" style={{display:'grid', gridTemplateColumns:'repeat(2, 1fr)', gap:20}}>
             {rapports.map(r => (
               <a key={r.year} href={r.url} target="_blank" rel="noopener noreferrer" className="formation-card" style={{cursor:'pointer'}}>
                 <div className="formation-card__body" style={{display:'flex', gap:20, alignItems:'flex-start'}}>
@@ -1471,7 +1471,7 @@ function ImpactPage() {
             <span className="eyebrow">Reconnaissance</span>
             <h2 className="h2">Les prix &amp; <em className="accent">labels remportés</em></h2>
           </div>
-          <div style={{display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:20}}>
+          <div className="stack-sm-2" style={{display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:20}}>
             {prix.map((p, i) => (
               <div key={i} style={{background:'#fff', border:'1px solid var(--line)', borderRadius:14, padding:24}}>
                 <div style={{width:44, height:44, borderRadius:10, background:'rgba(255,193,0,0.16)', display:'grid', placeItems:'center', color:'var(--gold-ink)', marginBottom:18}}>
@@ -1522,7 +1522,7 @@ function AcademiePage() {
 
       {/* Section 1 — Présentation */}
       <section style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
-        <div className="container" style={{display:'grid', gridTemplateColumns:'1.3fr 1fr', gap:80, alignItems:'flex-start'}}>
+        <div className="stack-sm container" style={{display:'grid', gridTemplateColumns:'1.3fr 1fr', gap:80, alignItems:'flex-start'}}>
           {/* Gauche */}
           <div>
             <span className="eyebrow">Notre positionnement</span>
@@ -1567,7 +1567,7 @@ function AcademiePage() {
             <span className="eyebrow">Pour qui ?</span>
             <h2 className="h2" style={{marginTop:8}}>À chacun sa <em className="accent">formation</em></h2>
           </div>
-          <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:24}}>
+          <div className="stack-sm" style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:24}}>
             <a href="#/formations" className="formation-card" style={{textDecoration:'none'}}>
               <div className="formation-card__body" style={{padding:32}}>
                 <div style={{width:56, height:56, borderRadius:14, background:'var(--cream)', display:'grid', placeItems:'center', marginBottom:20}}>
@@ -1640,6 +1640,17 @@ function ActualitesPage() {
       <section style={{padding:'var(--s-8) 0 var(--s-9)', background:'var(--off-white)'}}>
         <div className="container">
 
+          {/* Contact presse & financeurs */}
+          <div className="contact-note" style={{marginBottom:40, maxWidth:720}}>
+            <i data-lucide="newspaper" style={{width:18,height:18,flexShrink:0,marginTop:2}} aria-hidden="true"/>
+            <div>
+              <b>Vous êtes journaliste ou financeur&nbsp;?</b> Demandes d'interview, visuels,
+              rapports d'activité, mécénat et partenariats&nbsp;:{' '}
+              <a href="mailto:partenariat@grandfestin.com">partenariat@grandfestin.com</a>.
+              Nos rapports d'activité sont en libre accès sur la <a href="#/impact">page Impact</a>.
+            </div>
+          </div>
+
           {/* Filtres */}
           <div style={{display:'flex', gap:10, flexWrap:'wrap', marginBottom:48}}>
             {dispositifs.map(d => (
@@ -1653,7 +1664,7 @@ function ActualitesPage() {
           </div>
 
           {/* Grille */}
-          <div style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:20}}>
+          <div className="stack-sm" style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:20}}>
             {filtered.map((a, i) => (
               <a key={i} href={a.href || '#'} target="_blank" rel="noopener"
                  className="formation-card" style={{cursor:'pointer', textDecoration:'none'}}>

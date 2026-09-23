@@ -158,6 +158,13 @@ function Contact() {
               <div className="contact-item"><div className="contact-item__icon"><i data-lucide="map-pin" style={{width:18,height:18}}/></div><div><div className="contact-item__lbl">Adresse</div><div className="contact-item__v">{c.address}</div></div></div>
               <div className="contact-item"><div className="contact-item__icon"><i data-lucide="file-text" style={{width:18,height:18}}/></div><div><div className="contact-item__lbl">NDA / Siret</div><div className="contact-item__v">NDA {c.nda} · Siret {c.siret}</div></div></div>
             </div>
+            <div className="contact-note">
+              <i data-lucide="newspaper" style={{width:18,height:18,flexShrink:0,marginTop:2}} aria-hidden="true"/>
+              <div>
+                <b>Presse et financeurs</b> — demandes d'interview, visuels, rapports d'activité,
+                mécénat et partenariats : <a href="mailto:partenariat@grandfestin.com">partenariat@grandfestin.com</a>
+              </div>
+            </div>
             <div className="refs">
               <div className="ref-card"><div className="ref-card__lbl">Responsable handicap et pédagogique</div><div className="ref-card__name">Lucie Gueydon</div><div className="ref-card__role">Accessibilité, aménagements et coordination des formations</div></div>
               <div className="ref-card"><div className="ref-card__lbl">Restaurateurs et partenaires</div><div className="ref-card__name">Armand Hurault</div><div className="ref-card__role">Directeur général, interlocuteur des restaurateurs et des partenaires</div></div>
@@ -183,6 +190,8 @@ function Contact() {
                       { value: 'engager', label: "S'engager", icon: 'handshake' },
                       { value: 'former',  label: 'Se former', icon: 'graduation-cap' },
                       { value: 'partner', label: 'Être partenaire', icon: 'users' },
+                      { value: 'presse',  label: 'Presse', icon: 'newspaper' },
+                      { value: 'financeur', label: 'Financeur', icon: 'hand-coins' },
                     ].map((o, i) => (
                       <label key={o.value} className="motif-pill">
                         <input type="radio" name="motif" value={o.value} required defaultChecked={i===0}/>
@@ -261,8 +270,7 @@ function Footer() {
               <a href="https://www.instagram.com/association_festin/" target="_blank" rel="noopener" aria-label="Instagram">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
               </a>
-              {/* URL LinkedIn réelle à fournir — pointe vers le formulaire de contact en attendant */}
-              <a href="#/contact" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/company/associationfestin" target="_blank" rel="noopener" aria-label="LinkedIn">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
               </a>
             </div>
@@ -282,12 +290,26 @@ function FloatingCTA() {
   const data = window.FESTIN_DATA;
   const lesBeauxMets = data.projets.find(p => p.id === 'les-beaux-mets');
   const actions = [
-    { t: "Faire un don", d: "Soutenir Festin — HelloAsso", ic: "heart", c: "#E4572E", href: data.donation, external: true },
-    { t: "Réserver une table", d: "Les Beaux Mets — Baumettes", ic: "calendar-check", c: "#1D6B78", href: lesBeauxMets.ctaUrl, external: true },
-    { t: "Se former / candidater", d: "Rejoindre une promotion", ic: "graduation-cap", c: "#E8A825", href: "#/formations" },
-    { t: "Recruter via Festin", d: "Recruter et manager autrement", ic: "briefcase", c: "#1D6B78", href: "#/accompagnement/professionnels" },
-    { t: "Devenir partenaire", d: "Mécénat & soutien", ic: "handshake", c: "#9A5BA8", href: "#/contact" },
+    { t: "Faire un don", d: "Soutenir Festin — HelloAsso", ic: "heart", c: "var(--coral, #E4572E)", href: data.donation, external: true },
+    { t: "Réserver une table", d: "Les Beaux Mets — Baumettes", ic: "calendar-check", c: "var(--teal)", href: lesBeauxMets.ctaUrl, external: true },
+    { t: "Se former / candidater", d: "Rejoindre une promotion", ic: "graduation-cap", c: "var(--gold-ink)", href: "#/formations" },
+    { t: "Recruter via Festin", d: "Recruter et manager autrement", ic: "briefcase", c: "var(--teal-secondary)", href: "#/accompagnement/professionnels" },
+    { t: "Devenir partenaire", d: "Mécénat & soutien", ic: "handshake", c: "var(--violet, #9A5BA8)", href: "#/contact" },
   ];
+  // Le bouton s'efface dès que le footer entre à l'écran : il ne recouvre plus
+  // le contenu de bas de page (liens, réseaux sociaux, mentions légales).
+  const [atFooter, setAtFooter] = useState(false);
+  useEffect(() => {
+    const footer = document.querySelector('.footer-outer');
+    if (!footer || !('IntersectionObserver' in window)) return;
+    const io = new IntersectionObserver(
+      ([entry]) => { setAtFooter(entry.isIntersecting); if (entry.isIntersecting) setOpen(false); },
+      { rootMargin: '0px 0px -12% 0px' }
+    );
+    io.observe(footer);
+    return () => io.disconnect();
+  }, []);
+
   useEffect(() => {
     const onKey = (e) => { if (e.key === 'Escape') setOpen(false); };
     window.addEventListener('keydown', onKey);
@@ -296,7 +318,7 @@ function FloatingCTA() {
   return (
     <>
       {open && <div className="fab-scrim" onClick={() => setOpen(false)} />}
-      <div className="fab-wrap">
+      <div className={"fab-wrap" + (atFooter ? " fab-wrap--hidden" : "")}>
         {open && (
           <div className="fab-actions">
             {actions.map((a, i) => (
