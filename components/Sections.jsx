@@ -44,8 +44,8 @@ function Contact() {
           <div className="contact__info">
             <div>
               <span className="eyebrow">Contact</span>
-              <h2 className="h2">Parlons de votre <em className="accent">projet</em></h2>
-              <p className="lede" style={{marginTop:12}}>Notre équipe vous répond sous 48 h ouvrées.</p>
+              <h2 className="h2">Nos <em className="accent">coordonnées</em></h2>
+              <p className="lede" style={{marginTop:12}}>Une question simple ? Un e-mail suffit. Pour un projet, le formulaire nous aide à vous orienter vers la bonne personne.</p>
             </div>
             <div className="contact-items">
               <div className="contact-item"><div className="contact-item__icon"><i data-lucide="mail" style={{width:18,height:18}}/></div><div><div className="contact-item__lbl">Email</div><div className="contact-item__v">{c.email}</div></div></div>
@@ -55,8 +55,8 @@ function Contact() {
             <div className="contact-note">
               <i data-lucide="newspaper" style={{width:18,height:18,flexShrink:0,marginTop:2}} aria-hidden="true"/>
               <div>
-                <b>Presse et financeurs</b> — demandes d'interview, visuels, rapports d'activité,
-                mécénat et partenariats : <a href="mailto:partenariat@grandfestin.com">partenariat@grandfestin.com</a>
+                <b>Journalistes</b> : <a href="mailto:contact@grandfestin.com">contact@grandfestin.com</a>, à l'attention d'Iris Hutin.<br/>
+                <b>Mécénat et partenariats</b> : <a href="mailto:partenariat@grandfestin.com">partenariat@grandfestin.com</a>
               </div>
             </div>
             <div className="refs">
@@ -66,7 +66,7 @@ function Contact() {
           </div>
           <div className="contact__form">
             <h3 className="h3">Écrivez-nous</h3>
-            <p className="body">Nous revenons vers vous rapidement, en fonction de votre demande.</p>
+            <p className="body">Dites-nous qui vous êtes et ce que vous cherchez : la bonne personne vous répond sous 48 h ouvrées.</p>
             {sent ? (
               <div className="form-success"><b>Merci, votre message a été envoyé.</b><br/>Nous vous répondrons sous 48h à l'adresse indiquée.</div>
             ) : (
@@ -81,11 +81,11 @@ function Contact() {
                   <label>Motif de votre demande <span style={{color:'var(--teal)'}} aria-hidden="true">*</span></label>
                   <div className="motif-group" role="radiogroup" aria-required="true">
                     {[
-                      { value: 'engager', label: "S'engager", icon: 'handshake' },
+                      { value: 'engager', label: 'Recruter, accueillir un stagiaire', icon: 'handshake' },
                       { value: 'former',  label: 'Se former', icon: 'graduation-cap' },
-                      { value: 'partner', label: 'Être partenaire', icon: 'users' },
+                      { value: 'partner', label: 'Mécénat ou partenariat', icon: 'users' },
                       { value: 'presse',  label: 'Presse', icon: 'newspaper' },
-                      { value: 'financeur', label: 'Financeur', icon: 'hand-coins' },
+                      { value: 'orienter', label: 'Orienter une personne', icon: 'hand-coins' },
                     ].map((o, i) => (
                       <label key={o.value} className="motif-pill">
                         <input type="radio" name="motif" value={o.value} required defaultChecked={i===0}/>
@@ -97,7 +97,7 @@ function Contact() {
                     ))}
                   </div>
                 </div>
-                <div className="field"><label>Formation concernée <span style={{color:'var(--ink-soft)',fontWeight:400}}>(facultatif)</span></label><select defaultValue=""><option value="">Toutes formations / je ne sais pas encore</option><option>Prévention des violences sexistes et sexuelles</option><option>Management juste &amp; inclusif</option><option>Étoiles &amp; Femmes — TFP</option><option>Étoiles &amp; Femmes — CAP</option><option>Tournesol — Réfugiés</option></select></div>
+                <div className="field"><label>Formation concernée <span style={{color:'var(--ink-soft)',fontWeight:400}}>(facultatif)</span></label><select defaultValue=""><option value="">Toutes formations / je ne sais pas encore</option><option>Prévention des violences sexistes et sexuelles</option><option>Management juste &amp; inclusif</option><option>Des Étoiles et des Femmes, titre de commis de cuisine</option><option>Des Étoiles et des Femmes, CAP cuisine</option><option>Tournesol</option></select></div>
                 <div className="field"><label>Message</label><textarea placeholder="Votre besoin, votre contexte…"/></div>
                 <button type="submit" className="btn btn--teal" style={{width:'100%',justifyContent:'center'}}>Envoyer le message</button>
               </form>
@@ -125,7 +125,7 @@ function Footer() {
             <div className="footer__brand">
               <img className="footer__logo" src={data.brand.logoGold} alt="Festin" loading="lazy" />
               <p className="footer__tagline">{data.brand.tagline}</p>
-              <p>Festin est une association loi 1901, à but non lucratif et d'intérêt général, agréée ESUS. Nous formons aux métiers de la cuisine. Nous accompagnons les restaurants. Nous changeons les pratiques du secteur.</p>
+              <p>Festin est une association loi 1901, à but non lucratif et d'intérêt général, agréée ESUS. Depuis Marseille, elle forme des personnes aux métiers de la cuisine et aide les restaurants à recruter.</p>
               <a className="footer__don" href={data.donation} target="_blank" rel="noopener noreferrer">
                 <i data-lucide="heart" style={{ width: 16, height: 16 }} aria-hidden="true" />
                 Faire un don
@@ -159,7 +159,7 @@ function Footer() {
             </div>
           </div>
           <div className="footer__bottom">
-            <span>© 2026 Festin — {data.brand.tagline} · <a href={data.brand.site} target="_blank" rel="noopener">grandfestin.com</a></span>
+            <span>© 2026 Festin · <a href={data.brand.site} target="_blank" rel="noopener">grandfestin.com</a></span>
             <div className="footer__social">
               <a href="https://www.instagram.com/association_festin/" target="_blank" rel="noopener" aria-label="Instagram">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>

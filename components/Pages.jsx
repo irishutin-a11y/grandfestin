@@ -287,7 +287,7 @@ function ContactPage() {
         eyebrow="Nous écrire"
         title="Parlons de votre"
         accent="projet"
-        subtitle="Restaurateur, partenaire, personne en parcours : écrivez-nous. Notre équipe répond sous 48 h ouvrées."
+        subtitle="Vous voulez recruter, vous former, orienter une personne ou soutenir un projet : écrivez-nous. Réponse sous 48 h ouvrées."
         breadcrumb={[{label:'Accueil',href:'#/'},{label:'Contact'}]}
       />
       <Contact />
@@ -1033,28 +1033,28 @@ function ImpactPage() {
       year: '2024',
       url: "https://drive.google.com/file/d/1SxibbIWJkudH9Yd21vz9synn5vjeMwep/view?usp=sharing",
       title: "Rapport d'activité 2024",
-      desc: "Bilan de l'année 2024 : chiffres clés, projets conduits et perspectives.",
+      desc: "Plus de 300 femmes accompagnées par Des Étoiles et des Femmes, le lancement du Club des Talents à La Table de Cana, et des délégations de service public du ministère du Travail.",
       size: "PDF",
     },
     {
       year: '2023',
       url: "https://drive.google.com/file/d/1J67VBmxYVh8WEmvzWL57WAWSkNeJs-0N/view?usp=sharing",
       title: "Rapport d'activité 2023",
-      desc: "Bilan de l'année 2023 : chiffres clés, projets conduits et perspectives.",
+      desc: "Le rapport d'activité de l'année 2023.",
       size: "PDF",
     },
     {
       year: '2022',
       url: "https://drive.google.com/file/d/1S3p13F2abtwOqXLHTto_TPeSeRzxZfya/view?usp=sharing",
       title: "Rapport d'activité 2022",
-      desc: "Bilan de l'année 2022 : chiffres clés, projets conduits et perspectives.",
+      desc: "L'année de l'ouverture des Beaux Mets, le 15 novembre 2022.",
       size: "PDF",
     },
   ];
 
   const prix = [
     { year: '2025', title: "Label LUCIE Progress",  org: "Agence LUCIE — 848 / 1000 pour La Table de Cana Marseille" },
-    { year: '2025', title: "Label Empli'tude renouvelé", org: "Obtenu initialement en 2019, renouvelé pour La Table de Cana" },
+    { year: '2025', title: "Label Empl'itude renouvelé", org: "Obtenu initialement en 2019, renouvelé pour La Table de Cana" },
     { year: '2025', title: "Marraine nationale", org: "Julia Sedefdjian rejoint le réseau Des Étoiles et des Femmes" },
     { year: '2025', title: "Sous-traitant Greta — Région Sud", org: "Marché de la formation professionnelle, Région Sud" },
     { year: '2024', title: "Délégations de service public", org: "Ministère du Travail — repérage et remobilisation, Île-de-France et Hauts-de-France, pour trois ans" },
@@ -1064,10 +1064,11 @@ function ImpactPage() {
   ];
 
   const presse = [
-    { name: "M6 — Un jour un doc (documentaire 45 min sur Les Beaux Mets)", href: "#" },
-    { name: "Couverture médiatique du Grand Festin 2025",                    href: "#" },
-    { name: "Vidéos de prévention Restaure (+2 M de vues cumulées)",         href: "#" },
-    { name: "Podcast — 5 tables rondes Restaure (Marseille, Toulouse, Lille)", href: "#" },
+    { name: "M6, Un jour un doc : « Un restaurant dans une prison » (novembre 2025)", href: "https://www.m6.fr/un-jour-un-doc-p_22196/un-restaurant-dans-une-prison-c_13151161" },
+    { name: "Le Monde : entretien avec Armand Hurault (février 2025)", href: "https://www.lemonde.fr/m-styles/article/2025/02/14/armand-hurault-directeur-de-festin-la-restauration-m-est-apparue-comme-l-un-des-rares-secteurs-d-activite-ou-l-origine-etrangere-peut-etre-une-valeur-ajoutee_6546308_4497319.html" },
+    { name: "Les Échos Weekend : « Les détenus s'en sortent par la cuisine » (novembre 2025)", href: "https://www.lesechos.fr/weekend/business-story/les-clients-sont-sympas-ils-font-des-bons-retours-dans-la-prison-des-baumettes-les-detenus-sen-sortent-par-la-cuisine-2196595" },
+    { name: "El País, repris par Courrier International (2026)", href: "https://www.courrierinternational.com/long-format/vu-d-espagne-au-restaurant-des-beaux-mets-a-marseille-des-detenus-mitonnent-leur-reinsertion_239702" },
+    { name: "Tous les articles de presse", href: "#/actualites" },
   ];
 
   return (
@@ -1079,7 +1080,7 @@ function ImpactPage() {
         eyebrow="Chiffres et rapports"
         title="Ce que 2025"
         accent="a changé"
-        subtitle="Les chiffres du rapport d'activité 2025. Les faits marquants de l'année. Les reconnaissances obtenues."
+        subtitle="Ce que nos projets ont produit en 2025, d'après notre rapport d'activité : les résultats, les faits marquants, les comptes."
         breadcrumb={[
           {label:'Accueil', href:'#/'},
           {label:'Notre impact'},
@@ -1091,7 +1092,7 @@ function ImpactPage() {
         <div className="container">
           <div className="stack-sm-2" style={{display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:16}}>
             {[...window.FESTIN_DATA.stats.slice(0,3).map(s => ({value: s.value, unit: s.unit, label: s.label})),
-              {value:'5', unit:'', label:'projets, tous rattachés à Festin'},
+              {value:'119', unit:'', label:'personnes employées aux Beaux Mets depuis 2022'},
             ].map((s, i) => (
               <div key={i} style={{background:'#fff', border:'1px solid var(--line)', borderRadius:14, padding:28}}>
                 <div style={{fontSize:42, fontWeight:700, color:'var(--teal)', lineHeight:1, letterSpacing:'-0.02em'}}><span className="impact-count" data-count={s.value}>{s.value}</span>{s.unit === '%' ? ' %' : s.unit}</div>
@@ -1114,12 +1115,12 @@ function ImpactPage() {
               {k:'Des Étoiles et des Femmes', t:'Le Grand Festin des dix ans', d:'Le 3 octobre : 14 brigades venues de tout le réseau, plus de 600 convives et plus de 100 bénévoles, sur le Vieux-Port de Marseille.'},
               {k:'Des Étoiles et des Femmes', t:'Un partenariat avec le Greta', d:'Festin devient sous-traitant d\'une partie des heures de formation du marché de la Région Sud.'},
               {k:'Des Étoiles et des Femmes', t:'Julia Sedefdjian, marraine nationale', d:'La cheffe rejoint le réseau pour les dix ans du programme.'},
-              {k:'Restaure', t:'Cinq tables rondes, deux millions de vues', d:'Cinq tables rondes à Marseille, Toulouse et Lille, enregistrées en podcast. Des vidéos de prévention des violences en cuisine vues plus de deux millions de fois.'},
+              {k:'Restaure', t:'Des vidéos vues plus de deux millions de fois', d:'Cinq tables rondes à Marseille, Toulouse et Lille, enregistrées en podcast. Des vidéos de prévention des violences en cuisine vues plus de deux millions de fois.'},
               {k:'Les Beaux Mets', t:'Un documentaire de 45 minutes sur M6', d:'« Un jour un doc » lui consacre 45 minutes. La brigade lance aussi ses biscuits à emporter : navettes et croquants.'},
               {k:'La Table de Cana', t:'LUCIE Progress et Empl\'itude', d:'Le label LUCIE Progress, avec 848 sur 1 000. Le label Empl\'itude, renouvelé. Et la naissance du collectif EPICES.'},
               {k:'Tournesol', t:'Une formation portée avec Refugee Food', d:'Festin porte la formation avec Refugee Food et Estello Formation. Cinq mois, gratuits et rémunérés.'},
-              {k:'Restaure', t:'Cinq groupes de travail', d:'La gouvernance se consolide autour de quatre structures. Une formation « Management juste » voit le jour.'},
-              {k:'Des Étoiles et des Femmes', t:'Une formation sur les violences sexistes et sexuelles', d:'Une formation destinée aux professionnels de la restauration.'},
+              {k:'Restaure', t:'Cinq groupes de travail au démarrage', d:'Quatre structures pilotent désormais le programme. La formation « Management juste » est lancée.'},
+              {k:'Des Étoiles et des Femmes', t:'Une formation contre les violences sexistes et sexuelles', d:'Créée pour les professionnels de la restauration : cadre légal, cas réels en cuisine et en salle, protocole de signalement.'},
             ].map((f, i) => (
               <div key={i} style={{background:'#fff', border:'1px solid var(--line)', borderRadius:14, padding:24}}>
                 <span style={{fontSize:11, fontWeight:700, letterSpacing:'0.12em', textTransform:'uppercase', color:'var(--teal)'}}>{f.k}</span>
@@ -1171,7 +1172,7 @@ function ImpactPage() {
                     <li key={b.label} style={{display:'grid', gridTemplateColumns:'18px 1fr 72px', gap:14, alignItems:'center'}}>
                       <span style={{width:14, height:14, borderRadius:4, background:b.color, justifySelf:'start'}}/>
                       <span style={{fontSize:15, color:'var(--ink)', fontWeight:600}}>{b.label}</span>
-                      <span style={{fontSize:18, fontWeight:700, color:'var(--ink)', textAlign:'right'}}>{b.value} %</span>
+                      <span style={{fontSize:18, fontWeight:700, color:'var(--ink)', textAlign:'right'}}>{String(b.value).replace('.', ',')} %</span>
                     </li>
                   ))}
                 </ul>
@@ -1216,7 +1217,7 @@ function ImpactPage() {
         <div className="container">
           <div style={{maxWidth:760, marginBottom:48}}>
             <span className="eyebrow">Reconnaissance</span>
-            <h2 className="h2">Les prix &amp; <em className="accent">labels remportés</em></h2>
+            <h2 className="h2">Prix, labels et <em className="accent">marchés obtenus</em></h2>
           </div>
           <div className="stack-sm-2" style={{display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:20}}>
             {prix.map((p, i) => (
@@ -1266,7 +1267,7 @@ function AcademiePage() {
         eyebrow="Depuis 2026"
         title="L'Académie"
         accent="Festin"
-        subtitle="Organisme de formation certifié Qualiopi. L'Académie Festin réunit l'offre de formation de l'association : des formations courtes pour les équipes, des parcours diplômants pour les personnes en insertion."
+        subtitle="Organisme de formation certifié Qualiopi. L'Académie Festin réunit toutes les formations de l'association : des formations courtes pour les équipes de restaurants, des parcours diplômants pour les personnes en insertion."
         breadcrumb={[{label:'Accueil',href:'#/'},{label:"L'Académie Festin"}]}
       />
 
@@ -1292,9 +1293,9 @@ function AcademiePage() {
           {/* Droite — 3 piliers */}
           <div style={{display:'flex', flexDirection:'column', gap:24}}>
             {[
-              { icon:'award',     title:'Certification reconnue',       desc:"Diplômes et titres professionnels reconnus par l'État." },
-              { icon:'users',     title:'Pour les équipes et les apprenants', desc:'Professionnels en poste ou personnes en insertion : chacun suit une formation conçue pour son métier.' },
-              { icon:'handshake', title:'Co-construit avec le terrain',  desc:'Chaque formation est conçue avec des acteurs du secteur.' },
+              { icon:'award',     title:'Des diplômes reconnus',       desc:"CAP cuisine (Éducation nationale), titre à finalité professionnelle de commis de cuisine, DCL (diplôme de compétence en langue)." },
+              { icon:'users',     title:'Un format pour chaque public', desc:'Des parcours de quatre à onze mois pour apprendre un métier. Des sessions de trois heures à deux jours pour les équipes en poste.' },
+              { icon:'handshake', title:'Des stages chez des restaurateurs',  desc:'Les parcours comptent de 155 à 490 heures de stage, chez des partenaires comme Les Grandes Tables, Sofitel ou Les Bords de Mer.' },
             ].map((item, i) => (
               <div key={i} style={{display:'flex', gap:16, alignItems:'flex-start', padding:20, background:'#fff', borderRadius:12, border:'1px solid var(--line)'}}>
                 <div style={{width:44, height:44, borderRadius:10, background:'var(--cream)', display:'grid', placeItems:'center', flexShrink:0}}>
@@ -1427,9 +1428,9 @@ function ActualitesPage() {
           <div className="contact-note" style={{marginBottom:40, maxWidth:720}}>
             <i data-lucide="newspaper" style={{width:18,height:18,flexShrink:0,marginTop:2}} aria-hidden="true"/>
             <div>
-              <b>Vous êtes journaliste ou financeur&nbsp;?</b> Demandes d'interview, visuels,
-              rapports d'activité, mécénat et partenariats&nbsp;:{' '}
-              <a href="mailto:partenariat@grandfestin.com">partenariat@grandfestin.com</a>.
+              <b>Vous êtes journaliste&nbsp;?</b> Interviews et visuels&nbsp;:{' '}
+              <a href="mailto:contact@grandfestin.com">contact@grandfestin.com</a>, à l'attention d'Iris Hutin.
+              Mécénat et partenariats&nbsp;:{' '}<a href="mailto:partenariat@grandfestin.com">partenariat@grandfestin.com</a>.
               Nos rapports d'activité sont en libre accès sur la <a href="#/impact">page Impact</a>.
             </div>
           </div>
@@ -1502,8 +1503,8 @@ function ActualitesPage() {
           </div>
           <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap:20}}>
             {[
-              {k:'En 50 mots', t:"Festin est une association à but non lucratif et d'intérêt général, agréée ESUS, basée à Marseille. Elle forme aux métiers de la cuisine des personnes en insertion. Elle accompagne les restaurants qui veulent recruter et manager autrement. Avec le programme Restaure, elle change les pratiques du secteur."},
-              {k:'En 100 mots', t:"Festin est une association loi 1901, à but non lucratif et d'intérêt général, agréée ESUS. Elle est basée à Marseille. Elle réunit cinq projets. Des Étoiles et des Femmes forme des femmes aux métiers de la cuisine, dans 13 antennes. Les Beaux Mets est le premier restaurant en prison ouvert au public en France. La Table de Cana, traiteur et restauration collective en insertion, existe depuis 1993. Le programme Restaure réunit 35 structures contre les violences en cuisine. Tournesol forme des personnes réfugiées ou primo-arrivantes, avec Refugee Food. L'Académie Festin, certifiée Qualiopi, réunit l'offre de formation."},
+              {k:'En 50 mots', t:"Festin est une association à but non lucratif et d'intérêt général, agréée ESUS, basée à Marseille. Elle forme des personnes en insertion aux métiers de la cuisine et les suit jusqu'à l'emploi. Elle aide les restaurants à recruter et à garder leurs équipes. Avec le programme Restaure, elle agit contre les violences en cuisine."},
+              {k:'En 100 mots', t:"Festin est une association loi 1901, à but non lucratif et d'intérêt général, agréée ESUS. Elle est basée à Marseille. Elle réunit cinq projets. Des Étoiles et des Femmes forme des femmes aux métiers de la cuisine, dans 13 antennes. Les Beaux Mets est le premier restaurant en prison ouvert au public en France. La Table de Cana, traiteur et restauration collective en insertion, existe depuis 1993. Le programme Restaure réunit 35 structures contre les violences en cuisine. Tournesol forme des personnes réfugiées ou primo-arrivantes, avec Refugee Food. L'Académie Festin, certifiée Qualiopi, réunit toutes ses formations."},
             ].map((b, i) => (
               <div key={i} style={{background:'#fff', border:'1px solid var(--line)', borderRadius:16, padding:28}}>
                 <span style={{fontSize:12, fontWeight:700, letterSpacing:'0.12em', textTransform:'uppercase', color:'var(--teal)'}}>{b.k}</span>
@@ -1515,7 +1516,7 @@ function ActualitesPage() {
             <div style={{background:'#fff', border:'1px solid var(--line)', borderRadius:16, padding:28}}>
               <span style={{fontSize:12, fontWeight:700, letterSpacing:'0.12em', textTransform:'uppercase', color:'var(--teal)'}}>Chiffres clés</span>
               <ul style={{listStyle:'none', padding:0, margin:'12px 0 0', display:'grid', gap:8, fontSize:15, color:'var(--ink)'}}>
-                {[...window.FESTIN_DATA.stats.slice(0,3).map(s => s.value + (s.unit === '%' ? ' %' : s.unit === '' ? '' : ' ' + s.unit.trim()) + ' ' + s.label + (s.value === '441' || s.value === '83' ? ' (2025)' : '')),
+                {[...window.FESTIN_DATA.stats.slice(0,3).map(s => s.value + (s.unit === '%' ? ' %' : s.unit === '' ? '' : ' ' + s.unit.trim()) + ' ' + s.label),
                   'Plus de 1 200 femmes accompagnées par Des Étoiles et des Femmes depuis 2015',
                   '91 % de réussite aux diplômes en 2025 (Des Étoiles et des Femmes)'].map((l, i) => <li key={i}>{l}</li>)}
               </ul>

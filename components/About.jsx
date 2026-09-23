@@ -50,7 +50,7 @@ function AboutHero() {
         <nav className="breadcrumb" aria-label="Fil d'Ariane"><a href="#/">Accueil</a><span className="breadcrumb__sep">/</span><span>Qui sommes-nous</span></nav>
         <span className="ab-eyebrow ab-eyebrow--gold">L'association Festin</span>
         <h1 className="ab-title ab-title--hero">Former, inclure, <em>transformer.</em></h1>
-        <p className="ab-lede">Nous formons aux métiers de la cuisine. Nous accompagnons les restaurants qui veulent recruter et manager autrement. Nous changeons les pratiques du secteur. Un restaurant en prison, un traiteur d'insertion, deux parcours diplômants, un programme national : cinq projets, tous rattachés à Festin.</p>
+        <p className="ab-lede">Nous formons des personnes aux métiers de la cuisine et nous les suivons jusqu'à l'emploi. Nous aidons les restaurants à recruter et à garder leurs équipes. Avec le programme Restaure, nous travaillons contre les violences en cuisine. Cinq projets portent ce travail : un restaurant en prison, un traiteur d'insertion, deux formations diplômantes et un programme national.</p>
       </div>
     </section>
   );
@@ -62,11 +62,11 @@ function CeQuOnEst() {
     <section className="ab-sec ab-sec--cream">
       <div className="container ab-split">
         <div className="ab-split__txt ab-reveal">
-          <span className="ab-eyebrow">Ce qu'on est</span>
+          <span className="ab-eyebrow">Qui nous sommes</span>
           <Title em="un métier" after={null}>
             Des cuisines où l'on <span className="ab-thumb"><img src={src('images/photo-cuisine-action.jpg')} alt="" loading="lazy" /></span> apprend
           </Title>
-          <p className="ab-body">La Table de Cana naît à Marseille en 1993. C'est le premier projet de l'association. Elle a ouvert la voie. Festin porte aujourd'hui cinq projets, du restaurant des Baumettes au programme national Restaure. Chacun forme, accompagne ou transforme. Tous se rattachent à une association loi 1901, à but non lucratif et d'intérêt général, agréée ESUS.</p>
+          <p className="ab-body">L'association est créée en 1987. Son premier projet, La Table de Cana, ouvre à Marseille en 1993 : un traiteur où des salariés en insertion apprennent la cuisine en travaillant. Festin porte aujourd'hui cinq projets, du restaurant des Baumettes au programme national Restaure. Tous relèvent d'une association loi 1901, à but non lucratif et d'intérêt général, agréée ESUS.</p>
         </div>
         <figure className="ab-split__photo ab-reveal">
           <window.Picture src='images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg' alt="Le Grand Festin, rassemblement annuel de l'association" sizes="(max-width: 899px) 100vw, 60vw" />
@@ -148,7 +148,7 @@ function Histoire() {
                 <h3>{j.title}</h3>
                 <p>{j.desc}</p>
               </div>
-              <span className="ab-jalon__img"><window.Picture src={j.photo} alt="" sizes="(max-width: 899px) 60vw, 30vw" /></span>
+              {j.photo && <span className="ab-jalon__img"><window.Picture src={j.photo} alt="" sizes="(max-width: 899px) 60vw, 30vw" /></span>}
             </li>
           ))}
         </ol>
@@ -301,26 +301,27 @@ function Partenaires() {
   );
 }
 
-// ---------- 6 bis. LE MOT DU DIRECTEUR — extrait du rapport d'activité 2025 ----------
+// ---------- 6 bis. LE MOT DE LA DIRECTION — extraits mot pour mot de l'édito du rapport d'activité 2025 (pp. 2-3), signé par ses trois auteurs ----------
 function MotDirecteur() {
   return (
 <section className="ab-mot">
     <div className="container ab-mot__in">
-      <span className="ab-eyebrow">Le mot du directeur</span>
+      <span className="ab-eyebrow">Le mot de la direction</span>
       <blockquote className="ab-mot__q">
         <p>L'excellence et la solidarité ne sont pas des mondes séparés. La haute gastronomie
         peut être un puissant levier d'insertion pour des personnes éloignées de l'emploi.
-        Mieux&nbsp;: elle en est souvent la condition de réussite. En cuisine comme ailleurs,
-        viser haut n'exclut pas&nbsp;: cela élève.</p>
-        <p>Les associations sont des acteurs structurants de notre modèle social. La construction
-        collective n'est pas un coût, c'est un levier. Un levier contre la dispersion des
-        énergies et l'isolement des initiatives. Le collectif permet de mutualiser, d'apprendre,
-        d'amplifier. Il permet surtout de durer.</p>
-        <p>C'est pour cela que «&nbsp;le goût d'avancer ensemble&nbsp;», pour Festin, n'est pas
+        Mieux&nbsp;: elle en est souvent la condition de réussite. […] En cuisine comme ailleurs,
+        viser haut n'exclut pas&nbsp;: cela élève. Cela redonne confiance, structure les parcours,
+        ouvre des perspectives professionnelles solides et reconnues.</p>
+        <p>La construction collective n'est pas un coût, c'est un levier. Un levier puissant contre
+        la concurrence stérile, contre la dispersion des énergies, contre l'isolement des initiatives.
+        Le collectif permet de mutualiser, d'apprendre, d'amplifier. Il permet surtout de durer
+        et de transformer en profondeur.</p>
+        <p>C'est pour cela que «&nbsp;Le Goût d'avancer ensemble&nbsp;», pour Festin, n'est pas
         qu'un slogan. C'est une méthode, une exigence, une responsabilité.</p>
         <footer className="ab-mot__sig">
-          <strong>Armand Hurault</strong>
-          <span>Directeur de l'association Festin — rapport d'activité 2025</span>
+          <strong>Jérôme Schatzman, Armand Hurault, Marine Vever</strong>
+          <span>Président, directeur général et directrice adjointe de Festin — édito du rapport d'activité 2025</span>
         </footer>
       </blockquote>
     </div>
@@ -331,9 +332,9 @@ function MotDirecteur() {
 // ---------- 7. S'ENGAGER — photo plein cadre, 3 entrées par profil ----------
 function Engager() {
   const cards = [
-    { profile: "Vous êtes restaurateur", title: "Faire évoluer vos pratiques", cta: "Découvrir les formations", href: "#/formations" },
-    { profile: "Vous êtes partenaire ou financeur", title: "Soutenir l'écosystème Festin", cta: "Nous contacter", href: "#/contact" },
-    { profile: "Vous cherchez un métier", title: "Rejoindre une promotion", cta: "Découvrir les parcours", href: "#/projets/des-etoiles-et-des-femmes" },
+    { profile: "Vous êtes restaurateur", title: "Recruter et former vos équipes", cta: "Voir ce que nous proposons", href: "#/accompagnement/professionnels" },
+    { profile: "Vous êtes partenaire ou mécène", title: "Financer une promotion ou un projet", cta: "Nous écrire", href: "#/contact" },
+    { profile: "Vous cherchez un métier", title: "Rejoindre une promotion", cta: "Voir les formations gratuites", href: "#/accompagnement/insertion" },
   ];
   return (
     <section className="ab-engage">

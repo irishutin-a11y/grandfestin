@@ -158,7 +158,7 @@ function ProjetLBMPage() {
       <section className="proj-stats" aria-labelledby="proj-stats-t">
         <div className="wrap proj-stats2">
           <div className="proj-stats2__intro reveal">
-            <span className="proj-sec" id="proj-stats-t">Les chiffres</span>
+            <span className="proj-sec" id="proj-stats-t">En bref</span>
             <h2 className="proj-h2">{p.tagline}</h2>
             <p>{p.short}</p>
             <a className="btnb btnb--outline-ink" href={p.siteUrl} target="_blank" rel="noopener noreferrer">
@@ -270,7 +270,7 @@ function ProjetLBMPage() {
       <section className="proj-testi" aria-labelledby="proj-testi-t">
         <div className="wrap">
           <span className="proj-sec" id="proj-testi-t">Ils l’ont vécu</span>
-          <h2 className="proj-h2 reveal">Des parcours, des voix</h2>
+          <h2 className="proj-h2 reveal">Ce qu’ils en disent</h2>
           <div className="reveal">
             <window.TestiCarousel items={(p.temoignages || []).map(t => ({ name: t.prenom, meta: t.role, quote: t.citation }))} />
           </div>

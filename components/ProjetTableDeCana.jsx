@@ -151,7 +151,7 @@ function ProjetTableDeCanaPage() {
       <section className="proj-stats" aria-labelledby="proj-stats-t">
         <div className="wrap proj-stats2">
           <div className="proj-stats2__intro reveal">
-            <span className="proj-sec" id="proj-stats-t">Les chiffres</span>
+            <span className="proj-sec" id="proj-stats-t">En bref</span>
             <h2 className="proj-h2">{p.tagline}</h2>
             <p>{p.short}</p>
             <a className="btnb btnb--outline-ink" href={p.siteUrl} target="_blank" rel="noopener noreferrer">
@@ -251,7 +251,7 @@ function ProjetTableDeCanaPage() {
         <section className="proj-testi" aria-labelledby="proj-testi-t">
           <div className="wrap">
             <span className="proj-sec" id="proj-testi-t">Ils l’ont vécu</span>
-            <h2 className="proj-h2 reveal">Des parcours, des voix</h2>
+            <h2 className="proj-h2 reveal">Salariés et encadrants racontent</h2>
             <div className="reveal">
               <window.TestiCarousel items={p.temoignages.filter(t => !t.placeholder).map(t => ({ name: t.prenom, meta: t.role, quote: t.citation }))} />
             </div>
@@ -263,7 +263,7 @@ function ProjetTableDeCanaPage() {
       <section className="proj-support" aria-labelledby="proj-support-t">
         <div className="wrap proj-support__inner reveal">
           <div className="proj-support__body">
-            <span className="proj-sec" id="proj-support-t">Nos partenaires</span>
+            <span className="proj-sec" id="proj-support-t">Le traiteur</span>
             <h2 className="proj-h2">{p.implicationTitle}</h2>
             <p>{p.implicationText}</p>
             <div className="proj-support__cta">

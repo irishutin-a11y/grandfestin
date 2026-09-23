@@ -161,7 +161,7 @@ function ProjetRestaurePage() {
       <section className="proj-stats" aria-labelledby="proj-stats-t">
         <div className="wrap proj-stats2">
           <div className="proj-stats2__intro reveal">
-            <span className="proj-sec" id="proj-stats-t">Les chiffres</span>
+            <span className="proj-sec" id="proj-stats-t">En bref</span>
             <h2 className="proj-h2">{p.tagline}</h2>
             <p>{p.short}</p>
             <a className="btnb btnb--outline-ink" href={p.siteUrl} target="_blank" rel="noopener noreferrer">
@@ -189,7 +189,7 @@ function ProjetRestaurePage() {
         <div className="wrap proj-projet__split">
           <div className="proj-projet__body">
             <span className="proj-sec" id="proj-projet-t">Le projet</span>
-            <h2 className="proj-h2 reveal">Ce que le programme veut transformer</h2>
+            <h2 className="proj-h2 reveal">Ce que le programme veut obtenir</h2>
             <p className="proj-projet__mission reveal">{p.mission}</p>
             <div className="proj-acc reveal">
               {(p.transformation || []).map((it, i) => {
@@ -253,7 +253,7 @@ function ProjetRestaurePage() {
 
       {/* GROUPES DE TRAVAIL, GOUVERNANCE, TOAST — source : rapport d'activité 2025 */}
       {p.groupes && (
-        <window.ProjetExtra tone="cream" eyebrow="Comment le programme travaille" title="Cinq groupes de travail," accent="quatre structures au pilotage"
+        <window.ProjetExtra tone="cream" eyebrow="Comment le programme travaille" title="Qui fait" accent="quoi"
           lede={"Le pilotage réunit " + p.gouvernance.join(", ").replace(/, ([^,]*)$/, " et $1") + ". Chaque groupe de travail a une structure pilote."}>
           <div className="pxs__grid">
             {p.groupes.map((g, i) => (
@@ -271,11 +271,11 @@ function ProjetRestaurePage() {
       {(D.verbatimsViolences || []).length > 0 && (
         <section className="proj-verbatims" aria-labelledby="proj-verbatims-t">
           <div className="wrap">
-            <span className="proj-sec" id="proj-verbatims-t">Ce qu'on nous raconte</span>
+            <span className="proj-sec" id="proj-verbatims-t">Témoignages anonymes</span>
             <h2 className="proj-h2 reveal">Les mots<br />du terrain</h2>
             <p className="proj-verbatims__lede reveal">
               Ces paroles ont été recueillies auprès de professionnels de la restauration.
-              Elles sont reprises mot pour mot et rendues anonymes. Elles disent ce que la
+              Elles sont rendues anonymes, et certains mots ont été adoucis. Elles disent ce que la
               formation « Prévention des violences sexistes et sexuelles » cherche à faire reculer.
             </p>
             <div className="proj-verbatims__grid reveal">
@@ -295,8 +295,8 @@ function ProjetRestaurePage() {
       {t && (
         <section className="proj-testi" aria-labelledby="proj-testi-t">
           <div className="wrap">
-            <span className="proj-sec" id="proj-testi-t">Ils s’engagent</span>
-            <h2 className="proj-h2 reveal">Une voix du programme</h2>
+            <span className="proj-sec" id="proj-testi-t">Témoignage</span>
+            <h2 className="proj-h2 reveal">Pourquoi un chef s’y engage</h2>
           </div>
           <div className="reveal">
             <window.TestiCarousel items={[{ name: t.prenom, meta: t.role, quote: t.citation }]} />

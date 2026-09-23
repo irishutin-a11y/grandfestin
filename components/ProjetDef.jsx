@@ -201,7 +201,7 @@ function ProjetDefPage() {
       <section className="proj-stats" aria-labelledby="proj-stats-t">
         <div className="wrap proj-stats2">
           <div className="proj-stats2__intro reveal">
-            <span className="proj-sec" id="proj-stats-t">Les chiffres</span>
+            <span className="proj-sec" id="proj-stats-t">En bref</span>
             <h2 className="proj-h2">{p.tagline}</h2>
             <p>{p.short.replace(/\s*13 antennes en France, 91\s?%\s?de réussite aux diplômes\.\s*$/, '')}</p>
             <a className="btnb btnb--outline-ink" href={p.siteUrl} target="_blank" rel="noopener noreferrer">
@@ -229,9 +229,9 @@ function ProjetDefPage() {
         <div className="wrap proj-projet__split">
           <div className="proj-projet__body">
             <span className="proj-sec" id="proj-projet-t">Le projet</span>
-            <h2 className="proj-h2 reveal">Un programme national,<br />une exigence partagée</h2>
+            <h2 className="proj-h2 reveal">Le parcours,<br />étape par étape</h2>
             <p className="proj-projet__lede reveal">
-              13 antennes, dans toute la France. Chacune s’appuie sur des centres de formation, des restaurateurs et des partenaires locaux.
+              Dans chacune des 13 antennes, un centre de formation, des restaurants et des partenaires locaux accompagnent la promotion.
             </p>
             <div className="proj-acc reveal">
               {projetItems.map((it, i) => {
@@ -308,7 +308,7 @@ function ProjetDefPage() {
         <section className="proj-reseau" aria-labelledby="proj-reseau-t">
           <div className="wrap">
             <span className="proj-sec" id="proj-reseau-t">Le réseau</span>
-            <h2 className="proj-h2 reveal">{p.antennes.length} antennes,<br />une même exigence</h2>
+            <h2 className="proj-h2 reveal">Où se former,<br />en France</h2>
             <p className="proj-reseau__lede reveal">
               Le programme est né à Marseille en 2015. Il est aujourd'hui porté dans chaque ville par
               une structure locale, avec ses centres de formation et ses restaurateurs partenaires.
@@ -344,7 +344,7 @@ function ProjetDefPage() {
       <section className="proj-testi" aria-labelledby="proj-testi-t">
         <div className="wrap">
           <span className="proj-sec" id="proj-testi-t">Elles l’ont fait</span>
-          <h2 className="proj-h2 reveal">Des parcours, des visages</h2>
+          <h2 className="proj-h2 reveal">Elles racontent<br />leur parcours</h2>
         </div>
         <div className="reveal">
           <window.TestiCarousel label="Témoignages d'anciennes stagiaires" items={(p.temoignages || []).filter(t => !t.placeholder).map(t => ({
