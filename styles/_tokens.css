@@ -100,6 +100,10 @@
      pour élargir les possibilités graphiques sans remplacer les primaires. */
   --teal-secondary: #1D6B78;
   --gold-secondary: #E8A825;
+  --coral:          #E4572E;   /* don, bloc « soutenir » de Des Étoiles et des Femmes */
+  --coral-light:    #EC8669;   /* chiffre sur fond sombre (5,7:1 sur teal-deep) */
+  --violet:         #9A5BA8;
+  --violet-light:   #C099C9;   /* chiffre sur fond sombre (6,0:1 sur teal-deep) */
 
   /* Backgrounds — warm, paper-like, never pure white */
   --cream:       #F7F3EC;   /* section bg (ticker, publics, témoignages, contact) */
@@ -297,6 +301,8 @@ p, .body { font-size: var(--fs-body); line-height: var(--lh-normal); color: var(
   --teal-line:    #C9DDE0;   /* alias de --teal-tint-2 */
   --pad:   clamp(20px, 5vw, 96px);
   --title: clamp(48px, 9.5vw, 150px);
-  --h2:    clamp(36px, 5.6vw, 88px);
+  /* H2 aligné sur l'échelle des pages projet (38px) avec un cran de plus pour
+     l'accueil : 88px écrasait la hiérarchie (H2 72 / H3 59 = rapport 1,2). */
+  --h2:    clamp(30px, 4vw, 48px);
   --h3:    clamp(19px, 1.9vw, 26px);
 }

@@ -868,13 +868,13 @@ window.FESTIN_DATA.home = {
     intro: "Viser haut n'exclut pas : cela élève. Nous formons aux métiers de la cuisine. Un diplôme reconnu, puis de 155 à 490 heures de stage en restaurant pour les apprenantes de Des Étoiles et des Femmes. Nous accompagnons aussi les restaurants qui veulent recruter et manager autrement.",
     steps: [
       { tab: "Accompagner", kicker: "01 · Insertion", title: "Accompagner",
-        text: "Des femmes, des personnes réfugiées ou primo-arrivantes, des personnes détenues. Chacune suit un parcours vers un métier de cuisine. Un suivi social l'accompagne, de la première semaine à l'emploi.",
+        text: "Des femmes, des personnes réfugiées ou primo-arrivantes, des personnes détenues. Un parcours vers un métier de cuisine, et un suivi social de la première semaine jusqu'à l'emploi. 441 personnes accompagnées en 2025.",
         img: "images/photo-groupe-portrait.jpg", variant: "a" },
       { tab: "Former", kicker: "02 · Formation", title: "Former",
-        text: "Un CAP cuisine ou un titre à finalité professionnelle de commis de cuisine. Des stages en brigade. Pour les personnes en parcours, comme pour les équipes déjà en poste.",
+        text: "Un CAP cuisine ou un titre à finalité professionnelle de commis de cuisine, des stages en brigade. Pour les personnes en parcours comme pour les équipes déjà en poste. 83 % de sorties en emploi ou en formation.",
         img: "images/photo-patisserie.jpg", variant: "b" },
       { tab: "Transformer", kicker: "03 · Transformation", title: "Transformer",
-        text: "Le programme Restaure réunit 35 structures. 700 signataires ont rejoint son manifeste. Leur cause : prévenir les violences en cuisine et défendre un management juste.",
+        text: "Le programme Restaure réunit 35 structures et 700 signataires de son manifeste : prévenir les violences en cuisine, défendre un management juste.",
         img: "images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00022.jpg", variant: "c" }
     ]
   },

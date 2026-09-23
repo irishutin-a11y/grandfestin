@@ -75,7 +75,7 @@ function HomeB() {
       const stepW = () => cards[1].offsetLeft - cards[0].offsetLeft;
       const stApp = ST.create({
         trigger: appr, start: 'top top',
-        end: () => '+=' + Math.round(window.innerHeight * 2.4),
+        end: () => '+=' + Math.round(window.innerHeight * 1.6),   // 2,4 écrans pour 3 cartes : trop long
         pin: '.appr__inner', scrub: 1, anticipatePin: 1,
         onUpdate: (self) => {
           const p = self.progress;
