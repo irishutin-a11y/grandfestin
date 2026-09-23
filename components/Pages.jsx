@@ -1,9 +1,20 @@
 // Pages.jsx — dedicated page components for multi-page navigation
 // Each page is a full-screen view; routing handled in index.html via hash.
 
-function PageHeader({ eyebrow, title, accent, subtitle, breadcrumb }) {
+function PageHeader({ eyebrow, title, accent, subtitle, breadcrumb, image, imageAlt = '', focus }) {
   return (
-    <section className="page-header">
+    <section className={"page-header" + (image ? " page-header--photo" : "")}>
+      {image && (
+        <div className="page-header__media" aria-hidden={imageAlt ? undefined : true}>
+          <window.Picture
+            src={image} alt={imageAlt} sizes="100vw"
+            loading="eager" fetchPriority="high"
+            imgClassName="page-header__img"
+            style={focus ? { objectPosition: focus } : undefined}
+          />
+          <span className="page-header__scrim" />
+        </div>
+      )}
       <div className="container">
         {breadcrumb && (
           <nav className="breadcrumb">
@@ -300,6 +311,9 @@ function FormationsListPage() {
   return (
     <div data-screen-label="02 Formations">
       <PageHeader
+        image="images/photo-patisserie.jpg"
+        imageAlt="Atelier de pâtisserie en formation"
+        focus="center 30%"
         eyebrow="Catalogue"
         title="Toutes nos"
         accent="formations"
@@ -547,6 +561,9 @@ function ContactPage() {
   return (
     <div data-screen-label="05 Contact">
       <PageHeader
+        image="images/photo-service-restaurant.jpg"
+        imageAlt="Service en salle dans un restaurant partenaire"
+        focus="center 40%"
         eyebrow="Nous écrire"
         title="Parlons de votre"
         accent="projet"
@@ -1053,6 +1070,9 @@ function AccompagnementInsertionPage() {
   return (
     <div data-screen-label="Accompagnement — Insertion">
       <PageHeader
+        image="images/photo-tabliers-violets.jpg"
+        imageAlt="Apprenantes de Des Étoiles et des Femmes en cuisine"
+        focus="center 32%"
         eyebrow="Vous cherchez un métier"
         title="Apprendre un métier de cuisine,"
         accent="avec un suivi complet"
@@ -1173,6 +1193,9 @@ function AccompagnementProsPage() {
   return (
     <div data-screen-label="Accompagnement — Professionnels">
       <PageHeader
+        image="images/beauxmets-images/LBM_cdutrey_071122-7264.jpg"
+        imageAlt="Cuisine des Beaux Mets en service"
+        focus="center 45%"
         eyebrow="Vous êtes restaurateur"
         title="Recruter et manager autrement,"
         accent="avec Festin"
@@ -1364,6 +1387,9 @@ function ImpactPage() {
   return (
     <div data-screen-label="Notre impact">
       <PageHeader
+        image="images/photo-applaudissements.jpg"
+        imageAlt="Cérémonie de fin de formation"
+        focus="center 38%"
         eyebrow="Chiffres et rapports"
         title="Ce que 2025"
         accent="a changé"
@@ -1548,6 +1574,9 @@ function AcademiePage() {
   return (
     <div data-screen-label="Académie Festin">
       <PageHeader
+        image="images/photo-cuisine-formation.jpg"
+        imageAlt="Séance de formation en cuisine"
+        focus="center 35%"
         eyebrow="Depuis 2026"
         title="L'Académie"
         accent="Festin"
@@ -1695,6 +1724,9 @@ function ActualitesPage() {
   return (
     <div data-screen-label="Actualités — Presse & médias">
       <PageHeader
+        image="images/photo-micro-temoignage.jpg"
+        imageAlt="Prise de parole au micro lors d'un temps fort"
+        focus="center 30%"
         eyebrow="Presse & médias"
         title="Nos"
         accent="actualités"
