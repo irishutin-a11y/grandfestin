@@ -39,8 +39,8 @@ function ProjetTournesolPage() {
   const [slideIdx, setSlideIdx] = useState(0);
 
   useEffect(() => {
-    document.body.classList.add('pts-has-crumb');
-    return () => document.body.classList.remove('pts-has-crumb');
+    document.body.classList.add('proj-has-crumb');
+    return () => document.body.classList.remove('proj-has-crumb');
   }, []);
 
   useEffect(() => {
@@ -123,69 +123,69 @@ function ProjetTournesolPage() {
   const slides = p.carouselImages && p.carouselImages.length ? p.carouselImages : galleryImages;
 
   return (
-    <div className="pageProjetTS" ref={rootRef} data-screen-label={"Projet — " + p.shortTitle}>
+    <div className="pageProjet pageProjet--tournesol" ref={rootRef} data-screen-label={"Projet — " + p.shortTitle}>
 
       {/* FIL D'ARIANE — fixe, au-dessus de la nav */}
-      <nav className="pts-crumb2" aria-label="Fil d’ariane">
-        <div className="wrap pts-crumb2__inner">
+      <nav className="proj-crumb2" aria-label="Fil d’ariane">
+        <div className="wrap proj-crumb2__inner">
           <a href="#/">Accueil</a>
-          <span className="pts-crumb2__rest">
+          <span className="proj-crumb2__rest">
             <span aria-hidden="true"> / </span>
             <a href="#/projets/tournesol">Nos projets</a>
             <span aria-hidden="true"> / </span>
             <span aria-current="page">Tournesol</span>
           </span>
-          <span className="pts-crumb2__ellipsis" aria-hidden="true"> / …</span>
+          <span className="proj-crumb2__ellipsis" aria-hidden="true"> / …</span>
         </div>
       </nav>
 
       {/* HERO */}
-      <div className="pts-heroband">
-        <header className="pts-hero">
-          <div className="pts-hero__media">
+      <div className="proj-heroband">
+        <header className="proj-hero">
+          <div className="proj-hero__media">
             <img src={PIMG(p.heroImages[0])} alt="Promotion Tournesol en formation" />
           </div>
-          <div className="pts-hero__scrim" aria-hidden="true"></div>
-          <div className="wrap pts-hero__inner">
-            <span className="pts-hero__eb">{p.eyebrow} · Marseille · un projet de l’association Festin</span>
-            <h1 className="pts-hero__t">{p.title} <em>{p.accent}</em></h1>
-            <p className="pts-hero__sub">{p.projetPhrase}</p>
-            <div className="pts-hero__cta">
+          <div className="proj-hero__scrim" aria-hidden="true"></div>
+          <div className="wrap proj-hero__inner">
+            <span className="proj-hero__eb">{p.eyebrow} · Marseille · un projet de l’association Festin</span>
+            <h1 className="proj-hero__t">{p.title} <em>{p.accent}</em></h1>
+            <p className="proj-hero__sub">{p.projetPhrase}</p>
+            <div className="proj-hero__cta">
               <a className="btnb btnb--ghost" href={p.siteUrl} target="_blank" rel="noopener noreferrer">{p.siteName}</a>
             </div>
           </div>
         </header>
 
-        <div className="pts-hero__logo">
+        <div className="proj-hero__logo">
           <img src={PIMG(p.logo)} alt={"Logo " + p.shortTitle} />
         </div>
       </div>
 
       {/* CHIFFRES */}
-      <section className="pts-stats" aria-labelledby="pts-stats-t">
-        <div className="wrap pts-stats2">
-          <div className="pts-stats2__intro reveal">
-            <span className="pts-sec" id="pts-stats-t">Les chiffres</span>
-            <h2 className="pts-h2">{p.tagline}</h2>
+      <section className="proj-stats" aria-labelledby="proj-stats-t">
+        <div className="wrap proj-stats2">
+          <div className="proj-stats2__intro reveal">
+            <span className="proj-sec" id="proj-stats-t">Les chiffres</span>
+            <h2 className="proj-h2">{p.tagline}</h2>
             <p>{p.short}</p>
             <a className="btnb btnb--outline-ink" href={p.siteUrl} target="_blank" rel="noopener noreferrer">
               En savoir plus <span className="arrow" aria-hidden="true">→</span>
             </a>
           </div>
-          <div className="pts-stats2__grid reveal" ref={statsGridRef}>
+          <div className="proj-stats2__grid reveal" ref={statsGridRef}>
             {p.stats.map((s, i) => {
               const { target, suffix } = ptsParseStat(s);
               const isNumeric = target > 0;
               return (
-                <div key={i} className={"pts-stat2 pts-stat2--" + ['teal', 'gold', 'ocre', 'deep'][i % 4]}>
+                <div key={i} className={"proj-stat2 proj-stat2--" + ['teal', 'gold', 'ocre', 'deep'][i % 4]}>
                   {isNumeric ? (
-                    <span className="pts-stat2__n" data-count-target={target} data-count-suffix={suffix}>
+                    <span className="proj-stat2__n" data-count-target={target} data-count-suffix={suffix}>
                       {'0' + suffix}
                     </span>
                   ) : (
-                    <span className="pts-stat2__n">{s.value}</span>
+                    <span className="proj-stat2__n">{s.value}</span>
                   )}
-                  <span className="pts-stat2__l">{s.label}</span>
+                  <span className="proj-stat2__l">{s.label}</span>
                 </div>
               );
             })}
@@ -209,36 +209,36 @@ function ProjetTournesolPage() {
       )}
 
       {/* LE PROJET — texte + accordéon à gauche, diaporama à droite */}
-      <section className="pts-projet" aria-labelledby="pts-projet-t">
-        <div className="wrap pts-projet__split">
-          <div className="pts-projet__body">
-            <span className="pts-sec" id="pts-projet-t">Le projet</span>
-            <h2 className="pts-h2 reveal">Un parcours diplômant,<br />pas à pas</h2>
-            <p className="pts-projet__lede reveal">{p.description}</p>
-            <div className="pts-acc reveal">
+      <section className="proj-projet" aria-labelledby="proj-projet-t">
+        <div className="wrap proj-projet__split">
+          <div className="proj-projet__body">
+            <span className="proj-sec" id="proj-projet-t">Le projet</span>
+            <h2 className="proj-h2 reveal">Un parcours diplômant,<br />pas à pas</h2>
+            <p className="proj-projet__lede reveal">{p.description}</p>
+            <div className="proj-acc reveal">
               {(p.parcours || []).map((s, i) => {
                 const isOpen = projStep === i;
                 return (
-                  <div className={"pts-acc__item" + (isOpen ? " is-open" : "")} key={i}>
-                    <h3 className="pts-acc__h">
+                  <div className={"proj-acc__item" + (isOpen ? " is-open" : "")} key={i}>
+                    <h3 className="proj-acc__h">
                       <button
-                        type="button" className="pts-acc__btn"
+                        type="button" className="proj-acc__btn"
                         id={"ptsacc-h-" + i} aria-expanded={isOpen} aria-controls={"ptsacc-p-" + i}
                         onClick={() => setProjStep(isOpen ? -1 : i)}
                       >
-                        <span className="pts-acc__label">{s.tab}</span>
-                        <span className="pts-acc__chev" aria-hidden="true" />
+                        <span className="proj-acc__label">{s.tab}</span>
+                        <span className="proj-acc__chev" aria-hidden="true" />
                       </button>
                     </h3>
                     <div
-                      className="pts-acc__panel" id={"ptsacc-p-" + i}
+                      className="proj-acc__panel" id={"ptsacc-p-" + i}
                       role="region" aria-labelledby={"ptsacc-h-" + i}
                     >
-                      <div className="pts-acc__body">
-                        <span className="pts-acc__k">{s.title}</span>
+                      <div className="proj-acc__body">
+                        <span className="proj-acc__k">{s.title}</span>
                         <p>{s.text}</p>
                         {s.stat && (
-                          <div className="pts-acc__stat"><strong>{s.stat}</strong><span>{s.statL}</span></div>
+                          <div className="proj-acc__stat"><strong>{s.stat}</strong><span>{s.statL}</span></div>
                         )}
                       </div>
                     </div>
@@ -247,32 +247,32 @@ function ProjetTournesolPage() {
               })}
             </div>
           </div>
-          <div className="pts-projet__media reveal">
-            <div className="pts-projet__frame">
+          <div className="proj-projet__media reveal">
+            <div className="proj-projet__frame">
               {slides.map((src, i) => (
                 <img
                   key={i} src={PIMG(src)} alt=""
-                  className="pts-projet__slide"
+                  className="proj-projet__slide"
                   style={{ opacity: i === slideIdx ? 1 : 0 }}
                 />
               ))}
               {slides.length > 1 && (
-                <div className="pts-projet__dots">
+                <div className="proj-projet__dots">
                   {slides.map((_, i) => (
                     <button key={i} type="button"
-                      className={"pts-projet__dot" + (i === slideIdx ? " is-on" : "")}
+                      className={"proj-projet__dot" + (i === slideIdx ? " is-on" : "")}
                       aria-label={"Aller à l'image " + (i + 1)}
                       onClick={() => setSlideIdx(i)} />
                   ))}
                 </div>
               )}
             </div>
-            <a className="pts-projet__cta" href={p.projetCtaHref} target="_blank" rel="noopener noreferrer">
-              <span className="pts-projet__cta-txt">
-                <span className="pts-projet__cta-name">{p.projetCtaLabel}</span>
-                <span className="pts-projet__cta-meta">{p.siteName}</span>
+            <a className="proj-projet__cta" href={p.projetCtaHref} target="_blank" rel="noopener noreferrer">
+              <span className="proj-projet__cta-txt">
+                <span className="proj-projet__cta-name">{p.projetCtaLabel}</span>
+                <span className="proj-projet__cta-meta">{p.siteName}</span>
               </span>
-              <span className="pts-projet__cta-arrow" aria-hidden="true">→</span>
+              <span className="proj-projet__cta-arrow" aria-hidden="true">→</span>
             </a>
           </div>
         </div>
@@ -280,21 +280,21 @@ function ProjetTournesolPage() {
 
       {/* TÉMOIGNAGES — masqué tant qu'aucune citation réelle n'est disponible */}
       {realTemoignages.length > 0 && (
-        <section className="pts-testi" aria-labelledby="pts-testi-t">
+        <section className="proj-testi" aria-labelledby="proj-testi-t">
           <div className="wrap">
-            <span className="pts-sec" id="pts-testi-t">Ils l’ont vécu</span>
-            <h2 className="pts-h2 reveal">Des parcours, des voix</h2>
-            <div className="pts-tgrid reveal">
+            <span className="proj-sec" id="proj-testi-t">Ils l’ont vécu</span>
+            <h2 className="proj-h2 reveal">Des parcours, des voix</h2>
+            <div className="proj-tgrid reveal">
               {realTemoignages.map((t, i) => (
-                <article className={"pts-tcard pts-tcard--" + (i % 2 === 0 ? 'teal' : 'ocre')} key={i}>
-                  <div className="pts-tcard__head">
-                    <span className="pts-tcard__photo--ph" aria-hidden="true" />
+                <article className={"proj-tcard proj-tcard--" + (i % 2 === 0 ? 'teal' : 'ocre')} key={i}>
+                  <div className="proj-tcard__head">
+                    <span className="proj-tcard__photo--ph" aria-hidden="true" />
                     <div>
-                      <h3 className="pts-tcard__name">{t.prenom}</h3>
-                      <span className="pts-tcard__role">{t.role}</span>
+                      <h3 className="proj-tcard__name">{t.prenom}</h3>
+                      <span className="proj-tcard__role">{t.role}</span>
                     </div>
                   </div>
-                  <p className="pts-tcard__quote">« {t.citation} »</p>
+                  <p className="proj-tcard__quote">« {t.citation} »</p>
                 </article>
               ))}
             </div>
@@ -317,25 +317,25 @@ function ProjetTournesolPage() {
       )}
 
       {/* PARTENAIRES */}
-      <section className="pts-support" aria-labelledby="pts-support-t">
-        <div className="wrap pts-support__inner reveal">
-          <div className="pts-support__body">
-            <span className="pts-sec" id="pts-support-t">Nos partenaires</span>
-            <h2 className="pts-h2">{p.implicationTitle}</h2>
+      <section className="proj-support" aria-labelledby="proj-support-t">
+        <div className="wrap proj-support__inner reveal">
+          <div className="proj-support__body">
+            <span className="proj-sec" id="proj-support-t">Nos partenaires</span>
+            <h2 className="proj-h2">{p.implicationTitle}</h2>
             <p>{p.implicationText}</p>
-            <div className="pts-support__cta">
-              <a className="btnb btnb--gold pts-support__cta-main" href={p.implicationCtaHref}>
+            <div className="proj-support__cta">
+              <a className="btnb btnb--gold proj-support__cta-main" href={p.implicationCtaHref}>
                 {p.implicationCtaLabel}
               </a>
-              <a className="btnb btnb--ghost pts-support__cta-sub" href={p.projetCtaHref} target="_blank" rel="noopener noreferrer">
+              <a className="btnb btnb--ghost proj-support__cta-sub" href={p.projetCtaHref} target="_blank" rel="noopener noreferrer">
                 {p.projetCtaLabel}
               </a>
             </div>
           </div>
-          <div className="pts-support__logos" role="group" aria-label="Partenaires (logos à venir)">
-            <div className="pts-logogrid">
+          <div className="proj-support__logos" role="group" aria-label="Partenaires (logos à venir)">
+            <div className="proj-logogrid">
               {(p.partenaires || []).map((nom, i) => (
-                <span className="pts-logocard pts-logocard--ph" key={i}><span>{nom}</span></span>
+                <span className="proj-logocard proj-logocard--ph" key={i}><span>{nom}</span></span>
               ))}
             </div>
           </div>
@@ -344,26 +344,26 @@ function ProjetTournesolPage() {
 
       {/* PRESSE */}
       {presse.length > 0 && (
-        <section className="pts-presse" aria-labelledby="pts-presse-t">
+        <section className="proj-presse" aria-labelledby="proj-presse-t">
           <div className="wrap">
-            <span className="pts-sec" id="pts-presse-t">La presse</span>
-            <h2 className="pts-h2 reveal">Dans la presse</h2>
-            <div className="pts-news">
+            <span className="proj-sec" id="proj-presse-t">La presse</span>
+            <h2 className="proj-h2 reveal">Dans la presse</h2>
+            <div className="proj-news">
               {featured3.map((a, i) => (
-                <a key={i} className="pts-news__card reveal" href={a.href} target="_blank" rel="noopener noreferrer">
-                  <span className="pts-news__top">
+                <a key={i} className="proj-news__card reveal" href={a.href} target="_blank" rel="noopener noreferrer">
+                  <span className="proj-news__top">
                     {a.logo
-                      ? <img className="pts-news__logo" src={PIMG(a.logo)} alt={a.source} loading="lazy" />
-                      : <span className="pts-news__src">{a.source}</span>}
-                    {a.type && <span className="pts-news__tag">{a.type}</span>}
+                      ? <img className="proj-news__logo" src={PIMG(a.logo)} alt={a.source} loading="lazy" />
+                      : <span className="proj-news__src">{a.source}</span>}
+                    {a.type && <span className="proj-news__tag">{a.type}</span>}
                   </span>
-                  <span className="pts-news__title">{a.title}</span>
-                  <span className="pts-news__date">{ptsMonth(a.date)}</span>
+                  <span className="proj-news__title">{a.title}</span>
+                  <span className="proj-news__date">{ptsMonth(a.date)}</span>
                 </a>
               ))}
             </div>
             {presseAlso.length > 0 && (
-              <p className="pts-news__also reveal">
+              <p className="proj-news__also reveal">
                 <b>Également paru dans</b>&nbsp;— {presseAlso
                   .map(a => a.source)
                   .filter((v, k, arr) => arr.findIndex(x => x.toLowerCase() === v.toLowerCase()) === k)
@@ -376,10 +376,10 @@ function ProjetTournesolPage() {
 
       {/* GALERIE — grille statique (peu de photos disponibles à ce stade) */}
       {galleryImages.length > 0 && (
-        <section className="pts-gallery" aria-label="Galerie photo Tournesol">
-          <div className="wrap pts-gallery__grid">
+        <section className="proj-gallery" aria-label="Galerie photo Tournesol">
+          <div className="wrap proj-gallery__grid">
             {galleryImages.map((src, i) => (
-              <div className="pts-gallery__item" key={i}>
+              <div className="proj-gallery__item" key={i}>
                 <img src={PIMG(src)} alt="" loading="lazy" />
               </div>
             ))}

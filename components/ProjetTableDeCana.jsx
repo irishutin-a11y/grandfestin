@@ -36,8 +36,8 @@ function ProjetTableDeCanaPage() {
   const [projStep, setProjStep] = useState(0);
 
   useEffect(() => {
-    document.body.classList.add('ptdc-has-crumb');
-    return () => document.body.classList.remove('ptdc-has-crumb');
+    document.body.classList.add('proj-has-crumb');
+    return () => document.body.classList.remove('proj-has-crumb');
   }, []);
 
   useEffect(() => {
@@ -109,64 +109,64 @@ function ProjetTableDeCanaPage() {
   const galleryImages = p.heroImages.concat(p.video && p.video.poster ? [p.video.poster] : []);
 
   return (
-    <div className="pageProjetTDC" ref={rootRef} data-screen-label={"Projet — " + p.shortTitle}>
+    <div className="pageProjet pageProjet--la-table-de-cana" ref={rootRef} data-screen-label={"Projet — " + p.shortTitle}>
 
       {/* FIL D'ARIANE — fixe, au-dessus de la nav */}
-      <nav className="ptdc-crumb2" aria-label="Fil d’ariane">
-        <div className="wrap ptdc-crumb2__inner">
+      <nav className="proj-crumb2" aria-label="Fil d’ariane">
+        <div className="wrap proj-crumb2__inner">
           <a href="#/">Accueil</a>
-          <span className="ptdc-crumb2__rest">
+          <span className="proj-crumb2__rest">
             <span aria-hidden="true"> / </span>
             <a href="#/projets/la-table-de-cana">Nos projets</a>
             <span aria-hidden="true"> / </span>
             <span aria-current="page">La Table de Cana</span>
           </span>
-          <span className="ptdc-crumb2__ellipsis" aria-hidden="true"> / …</span>
+          <span className="proj-crumb2__ellipsis" aria-hidden="true"> / …</span>
         </div>
       </nav>
 
       {/* HERO */}
-      <div className="ptdc-heroband">
-        <header className="ptdc-hero">
-          <div className="ptdc-hero__media">
+      <div className="proj-heroband">
+        <header className="proj-hero">
+          <div className="proj-hero__media">
             <img src={PIMG(p.heroImages[0])} alt="Cuisine de La Table de Cana à Marseille" />
           </div>
-          <div className="ptdc-hero__scrim" aria-hidden="true"></div>
-          <div className="wrap ptdc-hero__inner">
-            <span className="ptdc-hero__eb">{p.eyebrow} · Marseille · un projet de l’association Festin</span>
-            <h1 className="ptdc-hero__t">{p.title} <em>{p.accent}</em></h1>
-            <p className="ptdc-hero__sub">{p.projetPhrase}</p>
-            <div className="ptdc-hero__cta">
+          <div className="proj-hero__scrim" aria-hidden="true"></div>
+          <div className="wrap proj-hero__inner">
+            <span className="proj-hero__eb">{p.eyebrow} · Marseille · un projet de l’association Festin</span>
+            <h1 className="proj-hero__t">{p.title} <em>{p.accent}</em></h1>
+            <p className="proj-hero__sub">{p.projetPhrase}</p>
+            <div className="proj-hero__cta">
               <a className="btnb btnb--ghost" href={p.siteUrl} target="_blank" rel="noopener noreferrer">{p.siteName}</a>
             </div>
           </div>
         </header>
 
-        <div className="ptdc-hero__logo">
+        <div className="proj-hero__logo">
           <img src={PIMG(p.logo)} alt={"Logo " + p.shortTitle} />
         </div>
       </div>
 
       {/* CHIFFRES */}
-      <section className="ptdc-stats" aria-labelledby="ptdc-stats-t">
-        <div className="wrap ptdc-stats2">
-          <div className="ptdc-stats2__intro reveal">
-            <span className="ptdc-sec" id="ptdc-stats-t">Les chiffres</span>
-            <h2 className="ptdc-h2">{p.tagline}</h2>
+      <section className="proj-stats" aria-labelledby="proj-stats-t">
+        <div className="wrap proj-stats2">
+          <div className="proj-stats2__intro reveal">
+            <span className="proj-sec" id="proj-stats-t">Les chiffres</span>
+            <h2 className="proj-h2">{p.tagline}</h2>
             <p>{p.short}</p>
             <a className="btnb btnb--outline-ink" href={p.siteUrl} target="_blank" rel="noopener noreferrer">
               Visiter le site <span className="arrow" aria-hidden="true">→</span>
             </a>
           </div>
-          <div className="ptdc-stats2__grid reveal" ref={statsGridRef}>
+          <div className="proj-stats2__grid reveal" ref={statsGridRef}>
             {p.stats.map((s, i) => {
               const { target, suffix } = ptdcParseStat(s);
               return (
-                <div key={i} className={"ptdc-stat2 ptdc-stat2--" + ['teal', 'gold', 'wine', 'deep'][i % 4]}>
-                  <span className="ptdc-stat2__n" data-count-target={target} data-count-suffix={suffix}>
+                <div key={i} className={"proj-stat2 proj-stat2--" + ['teal', 'gold', 'wine', 'deep'][i % 4]}>
+                  <span className="proj-stat2__n" data-count-target={target} data-count-suffix={suffix}>
                     {'0' + suffix}
                   </span>
-                  <span className="ptdc-stat2__l">{s.label}</span>
+                  <span className="proj-stat2__l">{s.label}</span>
                 </div>
               );
             })}
@@ -175,36 +175,36 @@ function ProjetTableDeCanaPage() {
       </section>
 
       {/* LE PROJET — texte + accordéon à gauche, vidéo à droite */}
-      <section className="ptdc-projet" aria-labelledby="ptdc-projet-t">
-        <div className="wrap ptdc-projet__split">
-          <div className="ptdc-projet__body">
-            <span className="ptdc-sec" id="ptdc-projet-t">Le projet</span>
-            <h2 className="ptdc-h2 reveal">Le premier projet de<br />Festin, depuis 1993</h2>
-            <p className="ptdc-projet__lede reveal">{p.description}</p>
-            <div className="ptdc-acc reveal">
+      <section className="proj-projet" aria-labelledby="proj-projet-t">
+        <div className="wrap proj-projet__split">
+          <div className="proj-projet__body">
+            <span className="proj-sec" id="proj-projet-t">Le projet</span>
+            <h2 className="proj-h2 reveal">Le premier projet de<br />Festin, depuis 1993</h2>
+            <p className="proj-projet__lede reveal">{p.description}</p>
+            <div className="proj-acc reveal">
               {(p.parcours || []).map((s, i) => {
                 const isOpen = projStep === i;
                 return (
-                  <div className={"ptdc-acc__item" + (isOpen ? " is-open" : "")} key={i}>
-                    <h3 className="ptdc-acc__h">
+                  <div className={"proj-acc__item" + (isOpen ? " is-open" : "")} key={i}>
+                    <h3 className="proj-acc__h">
                       <button
-                        type="button" className="ptdc-acc__btn"
+                        type="button" className="proj-acc__btn"
                         id={"ptdcacc-h-" + i} aria-expanded={isOpen} aria-controls={"ptdcacc-p-" + i}
                         onClick={() => setProjStep(isOpen ? -1 : i)}
                       >
-                        <span className="ptdc-acc__label">{s.tab}</span>
-                        <span className="ptdc-acc__chev" aria-hidden="true" />
+                        <span className="proj-acc__label">{s.tab}</span>
+                        <span className="proj-acc__chev" aria-hidden="true" />
                       </button>
                     </h3>
                     <div
-                      className="ptdc-acc__panel" id={"ptdcacc-p-" + i}
+                      className="proj-acc__panel" id={"ptdcacc-p-" + i}
                       role="region" aria-labelledby={"ptdcacc-h-" + i}
                     >
-                      <div className="ptdc-acc__body">
-                        <span className="ptdc-acc__k">{s.title}</span>
+                      <div className="proj-acc__body">
+                        <span className="proj-acc__k">{s.title}</span>
                         <p>{s.text}</p>
                         {s.stat && (
-                          <div className="ptdc-acc__stat"><strong>{s.stat}</strong><span>{s.statL}</span></div>
+                          <div className="proj-acc__stat"><strong>{s.stat}</strong><span>{s.statL}</span></div>
                         )}
                       </div>
                     </div>
@@ -213,8 +213,8 @@ function ProjetTableDeCanaPage() {
               })}
             </div>
           </div>
-          <div className="ptdc-projet__media reveal">
-            <div className="ptdc-projet__frame">
+          <div className="proj-projet__media reveal">
+            <div className="proj-projet__frame">
               {videoOn ? (
                 <iframe
                   title={"Vidéo de présentation — " + p.shortTitle}
@@ -225,22 +225,22 @@ function ProjetTableDeCanaPage() {
               ) : (
                 <button
                   type="button"
-                  className="ptdc-projet__play"
+                  className="proj-projet__play"
                   onClick={() => setVideoOn(true)}
                   aria-label={"Lire la vidéo de présentation du " + p.shortTitle}
                 >
                   <img src={PIMG(p.video.poster)} alt="" aria-hidden="true" />
-                  <span className="ptdc-projet__scrim" aria-hidden="true"></span>
-                  <span className="ptdc-projet__playlabel">Lire la vidéo <span aria-hidden="true">→</span></span>
+                  <span className="proj-projet__scrim" aria-hidden="true"></span>
+                  <span className="proj-projet__playlabel">Lire la vidéo <span aria-hidden="true">→</span></span>
                 </button>
               )}
             </div>
-            <a className="ptdc-projet__cta" href={p.projetCtaHref} target="_blank" rel="noopener noreferrer">
-              <span className="ptdc-projet__cta-txt">
-                <span className="ptdc-projet__cta-name">{p.projetCtaLabel}</span>
-                <span className="ptdc-projet__cta-meta">{p.siteName}</span>
+            <a className="proj-projet__cta" href={p.projetCtaHref} target="_blank" rel="noopener noreferrer">
+              <span className="proj-projet__cta-txt">
+                <span className="proj-projet__cta-name">{p.projetCtaLabel}</span>
+                <span className="proj-projet__cta-meta">{p.siteName}</span>
               </span>
-              <span className="ptdc-projet__cta-arrow" aria-hidden="true">→</span>
+              <span className="proj-projet__cta-arrow" aria-hidden="true">→</span>
             </a>
           </div>
         </div>
@@ -248,21 +248,21 @@ function ProjetTableDeCanaPage() {
 
       {/* TÉMOIGNAGES */}
       {p.temoignages && p.temoignages.filter(t => !t.placeholder).length > 0 && (
-        <section className="ptdc-testi" aria-labelledby="ptdc-testi-t">
+        <section className="proj-testi" aria-labelledby="proj-testi-t">
           <div className="wrap">
-            <span className="ptdc-sec" id="ptdc-testi-t">Ils l’ont vécu</span>
-            <h2 className="ptdc-h2 reveal">Des parcours, des voix</h2>
-            <div className="ptdc-tgrid reveal">
+            <span className="proj-sec" id="proj-testi-t">Ils l’ont vécu</span>
+            <h2 className="proj-h2 reveal">Des parcours, des voix</h2>
+            <div className="proj-tgrid reveal">
               {p.temoignages.filter(t => !t.placeholder).map((t, i) => (
-                <article className={"ptdc-tcard ptdc-tcard--" + (i % 2 === 0 ? 'teal' : 'wine')} key={i}>
-                  <div className="ptdc-tcard__head">
-                    <span className="ptdc-tcard__photo--ph" aria-hidden="true" />
+                <article className={"proj-tcard proj-tcard--" + (i % 2 === 0 ? 'teal' : 'wine')} key={i}>
+                  <div className="proj-tcard__head">
+                    <span className="proj-tcard__photo--ph" aria-hidden="true" />
                     <div>
-                      <h3 className="ptdc-tcard__name">{t.prenom}</h3>
-                      <span className="ptdc-tcard__role">{t.role}</span>
+                      <h3 className="proj-tcard__name">{t.prenom}</h3>
+                      <span className="proj-tcard__role">{t.role}</span>
                     </div>
                   </div>
-                  <p className="ptdc-tcard__quote">« {t.citation} »</p>
+                  <p className="proj-tcard__quote">« {t.citation} »</p>
                 </article>
               ))}
             </div>
@@ -271,25 +271,25 @@ function ProjetTableDeCanaPage() {
       )}
 
       {/* SOUTENIR — texte + CTA à gauche, logos à droite */}
-      <section className="ptdc-support" aria-labelledby="ptdc-support-t">
-        <div className="wrap ptdc-support__inner reveal">
-          <div className="ptdc-support__body">
-            <span className="ptdc-sec" id="ptdc-support-t">Nos partenaires</span>
-            <h2 className="ptdc-h2">{p.implicationTitle}</h2>
+      <section className="proj-support" aria-labelledby="proj-support-t">
+        <div className="wrap proj-support__inner reveal">
+          <div className="proj-support__body">
+            <span className="proj-sec" id="proj-support-t">Nos partenaires</span>
+            <h2 className="proj-h2">{p.implicationTitle}</h2>
             <p>{p.implicationText}</p>
-            <div className="ptdc-support__cta">
-              <a className="btnb btnb--gold ptdc-support__cta-main" href={p.implicationCtaHref}>
+            <div className="proj-support__cta">
+              <a className="btnb btnb--gold proj-support__cta-main" href={p.implicationCtaHref}>
                 {p.implicationCtaLabel}
               </a>
-              <a className="btnb btnb--ghost ptdc-support__cta-sub" href={p.projetCtaHref} target="_blank" rel="noopener noreferrer">
+              <a className="btnb btnb--ghost proj-support__cta-sub" href={p.projetCtaHref} target="_blank" rel="noopener noreferrer">
                 {p.projetCtaLabel}
               </a>
             </div>
           </div>
-          <div className="ptdc-support__logos" role="group" aria-label="Entreprises partenaires (logos à venir)">
-            <div className="ptdc-logogrid">
+          <div className="proj-support__logos" role="group" aria-label="Entreprises partenaires (logos à venir)">
+            <div className="proj-logogrid">
               {(p.partenaires || []).map((nom, i) => (
-                <span className="ptdc-logocard ptdc-logocard--ph" key={i}><span>{nom}</span></span>
+                <span className="proj-logocard proj-logocard--ph" key={i}><span>{nom}</span></span>
               ))}
             </div>
           </div>
@@ -298,26 +298,26 @@ function ProjetTableDeCanaPage() {
 
       {/* PRESSE */}
       {presse.length > 0 && (
-        <section className="ptdc-presse" aria-labelledby="ptdc-presse-t">
+        <section className="proj-presse" aria-labelledby="proj-presse-t">
           <div className="wrap">
-            <span className="ptdc-sec" id="ptdc-presse-t">La presse</span>
-            <h2 className="ptdc-h2 reveal">Dans la presse</h2>
-            <div className="ptdc-news">
+            <span className="proj-sec" id="proj-presse-t">La presse</span>
+            <h2 className="proj-h2 reveal">Dans la presse</h2>
+            <div className="proj-news">
               {featured3.map((a, i) => (
-                <a key={i} className="ptdc-news__card reveal" href={a.href} target="_blank" rel="noopener noreferrer">
-                  <span className="ptdc-news__top">
+                <a key={i} className="proj-news__card reveal" href={a.href} target="_blank" rel="noopener noreferrer">
+                  <span className="proj-news__top">
                     {a.logo
-                      ? <img className="ptdc-news__logo" src={PIMG(a.logo)} alt={a.source} loading="lazy" />
-                      : <span className="ptdc-news__src">{a.source}</span>}
-                    {a.type && <span className="ptdc-news__tag">{a.type}</span>}
+                      ? <img className="proj-news__logo" src={PIMG(a.logo)} alt={a.source} loading="lazy" />
+                      : <span className="proj-news__src">{a.source}</span>}
+                    {a.type && <span className="proj-news__tag">{a.type}</span>}
                   </span>
-                  <span className="ptdc-news__title">{a.title}</span>
-                  <span className="ptdc-news__date">{ptdcMonth(a.date)}</span>
+                  <span className="proj-news__title">{a.title}</span>
+                  <span className="proj-news__date">{ptdcMonth(a.date)}</span>
                 </a>
               ))}
             </div>
             {presseAlso.length > 0 && (
-              <p className="ptdc-news__also reveal">
+              <p className="proj-news__also reveal">
                 <b>Également paru dans</b>&nbsp;— {presseAlso
                   .map(a => a.source)
                   .filter((v, k, arr) => arr.findIndex(x => x.toLowerCase() === v.toLowerCase()) === k)
@@ -329,10 +329,10 @@ function ProjetTableDeCanaPage() {
       )}
 
       {/* GALERIE */}
-      <section className="ptdc-gallery" aria-label="Galerie photo La Table de Cana">
-        <div className="ptdc-gallery__track">
+      <section className="proj-gallery" aria-label="Galerie photo La Table de Cana">
+        <div className="proj-gallery__track">
           {[...galleryImages, ...galleryImages].map((src, i) => (
-            <div className="ptdc-gallery__item" key={i} aria-hidden={i >= galleryImages.length}>
+            <div className="proj-gallery__item" key={i} aria-hidden={i >= galleryImages.length}>
               <img src={PIMG(src)} alt="" loading="lazy" />
             </div>
           ))}
