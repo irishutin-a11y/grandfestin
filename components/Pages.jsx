@@ -1086,9 +1086,14 @@ function ImpactPage() {
         ]}
       />
 
-      {/* Chiffres clés vérifiés — source : Plaquette Offre restaurateurs Festin */}
-      <section style={{background:'var(--cream)', padding:'var(--s-8) 0'}}>
+      {/* L'année 2025 en une seule section : chiffres clés, faits marquants, budget.
+          Sources : rapport d'activité 2025. */}
+      <section style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
         <div className="container">
+          <div style={{maxWidth:760, marginBottom:40}}>
+            <span className="eyebrow">L'année 2025</span>
+            <h2 className="h2">Ce qui a marqué <em className="accent">l'année</em></h2>
+          </div>
           <div className="stack-sm-2" style={{display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:16}}>
             {[...window.FESTIN_DATA.stats.slice(0,3).map(s => ({value: s.value, unit: s.unit, label: s.label})),
               {value:'5', unit:'', label:'projets, tous rattachés à Festin'},
@@ -1099,17 +1104,7 @@ function ImpactPage() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Faits marquants 2025 — source : Rapport d'activité 2025 */}
-      <section style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
-        <div className="container">
-          <div style={{maxWidth:760, marginBottom:48}}>
-            <span className="eyebrow">L'année 2025</span>
-            <h2 className="h2">Ce qui a marqué <em className="accent">l'année</em></h2>
-          </div>
-          <div className="stack-sm" style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:20}}>
+          <div className="stack-sm" style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:20, marginTop:20}}>
             {[
               {k:'Des Étoiles et des Femmes', t:'Le Grand Festin des dix ans', d:'Le 3 octobre : 14 brigades venues de tout le réseau, plus de 600 convives et plus de 100 bénévoles, sur le Vieux-Port de Marseille.'},
               {k:'Des Étoiles et des Femmes', t:'Un partenariat avec le Greta', d:'Festin devient sous-traitant d\'une partie des heures de formation du marché de la Région Sud.'},
@@ -1128,15 +1123,11 @@ function ImpactPage() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Synthèse financière — vraie donnée Rapport d'activité 2025 */}
-      <section style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
-        <div className="container">
-          <div style={{maxWidth:760, marginBottom:48}}>
+          {/* Budget 2025 */}
+          <div style={{maxWidth:760, margin:'72px 0 40px'}}>
             <span className="eyebrow">Synthèse financière 2025</span>
-            <h2 className="h2">Un budget de <em className="accent">1,7 M€</em></h2>
+            <h3 className="h2" style={{fontSize:'clamp(28px,3.4vw,44px)'}}>Un budget de <em className="accent">1,7 M€</em></h3>
             <p className="lede" style={{marginTop:14}}>Quatre sources financent le budget 2025 : mécénat privé, subventions publiques, aides aux postes, chiffre d'affaires. Cette diversité protège l'autonomie de l'association.</p>
           </div>
           {(() => {
