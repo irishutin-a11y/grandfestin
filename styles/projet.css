@@ -529,3 +529,25 @@ body.proj-has-crumb .mnav{top:28px}
   .proj-acc--full .proj-acc__stat{text-align:left}
 }
 .pageProjet--les-beaux-mets .proj-projet__media{position:static}
+
+/* Soutenir (Des Étoiles et des Femmes) : texte + boutons à gauche, sphère à droite */
+.proj-support__sphere{display:flex;justify-content:center;align-items:center}
+.pageProjet--des-etoiles-et-des-femmes .proj-support__inner{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+@media(max-width:820px){.proj-support__sphere{margin-top:24px}}
+/* La liste des antennes remplace la liste statique : plus de fond crème par ligne */
+.proj-reseau .hil{margin-top:clamp(12px,2vw,24px)}
+
+/* Médaillon du logo sous le hero : l'image n'est plus découpée en cercle (le
+   cercle rognait les bords des logos qui ne sont pas ronds). Le médaillon reste
+   rond pour les logos ronds et devient une pastille arrondie pour les logos
+   larges (La Table de Cana, Les Beaux Mets, Restaure, Tournesol). */
+.proj-hero__logo img{border-radius:0;object-fit:contain}
+.pageProjet--la-table-de-cana .proj-hero__logo,
+.pageProjet--les-beaux-mets .proj-hero__logo,
+.pageProjet--restaure .proj-hero__logo,
+.pageProjet--tournesol .proj-hero__logo{width:clamp(170px,15vw,220px);height:auto;aspect-ratio:auto;
+  border-radius:22px;padding:16px 22px}
+.pageProjet--la-table-de-cana .proj-hero__logo img,
+.pageProjet--les-beaux-mets .proj-hero__logo img,
+.pageProjet--restaure .proj-hero__logo img,
+.pageProjet--tournesol .proj-hero__logo img{width:100%;height:auto;max-height:90px}
