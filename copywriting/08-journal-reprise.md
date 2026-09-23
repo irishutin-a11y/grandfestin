@@ -55,3 +55,18 @@ Corrections des points relevés dans `07-contre-audit.md`. Branche `copywriting-
 ## À trancher
 - **Verbatims Restaure** : deux ont été adoucis par rapport aux originaux du Drive (« Soit tu fermes ta gueule », « l'appeler connard »). La page disait « repris mot pour mot » ; elle dit maintenant « certains mots ont été adoucis ». Autre option : publier les originaux.
 - « 400 000+ convives régalés » (La Table de Cana) : chiffre du rapport 2025, sans période. Je l'ai gardé dans les chiffres de la fiche, pas sur l'accueil.
+
+## Dernière passe (après la fin du design)
+- Fusion du design dans la branche. Trois conflits, tous réglés en gardant la structure du design : en-tête d'About sans sous-titre, textes « en 50/100 mots » retirés d'Actualités, fond sombre des groupes de travail de Restaure (avec le titre « Qui fait quoi »).
+- **Page Insertion** réécrite :
+  - titre « Apprendre un métier de cuisine, gratuitement » ;
+  - calendrier fusionné en « Novembre — décembre : entrée en formation », avec les dates 2026 ;
+  - « 5 projets » remplacé par « 91 % de réussite aux diplômes » ;
+  - bouton « Vérifier mon éligibilité ».
+- **Page Restaurateurs** réécrite :
+  - titre « Recruter des commis formés, avec Festin », l'argument France Travail dès l'en-tête ;
+  - « Automne 2026 » à la place de « Dès septembre 2026 » ;
+  - témoignage du chef Davin placé à côté du bouton, qui porte une seule demande : « Demander le Book de l'emploi » ;
+  - prix masqués sur les cartes de formation (ils restent sur les fiches du catalogue, règle A5).
+- Les Beaux Mets : quatre cases « Logo partenaire » vides retirées, le logo du projet reste.
+- Contrôle final sur 20 pages : il ne reste aucun tic interdit dans la voix du site. Les occurrences restantes sont des citations (mot de la direction, témoignages, verbatims) ou des titres de presse, à ne pas modifier.
