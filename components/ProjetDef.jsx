@@ -325,20 +325,6 @@ function ProjetDefPage() {
         </section>
       )}
 
-      {/* RÉSEAU DE CHEFS — source : deck financeurs */}
-      <window.ProjetExtra tone="cream" eyebrow="Le réseau" title="Des chefs qui" accent="forment"
-        lede="Des stages, du mentorat, des brigades solidaires et des festivals avec des chefs gastronomiques, dont plusieurs étoilés. Julia Sedefdjian, cheffe du restaurant Baieta à Paris, est la marraine nationale du réseau.">
-        <div className="pxs__grid">
-          {D.about.chefs.map((c, i) => (
-            <div className="pxs__card" key={i}>
-              <h3>{c.name}</h3>
-              <p>{c.place}</p>
-            </div>
-          ))}
-        </div>
-        <p className="pxs__note">Prochaine session du titre à finalité professionnelle : du 9 novembre 2026 au 13 avril 2027.</p>
-      </window.ProjetExtra>
-
       {/* TÉMOIGNAGES — bandeau défilant en boucle infinie (marquee CSS), pause au survol */}
       <section className="proj-testi" aria-labelledby="proj-testi-t">
         <div className="wrap">
@@ -372,23 +358,22 @@ function ProjetDefPage() {
           </div>
           <div className="proj-support__sphere">
             {/* Photos des chefs à venir : en attendant, des photos du programme */}
+            {/* Réseau de chefs (source : deck financeurs). Sans photo fournie, un chef
+                apparaît en cadre nominatif : aucune photo du programme sous son nom. */}
             <window.ImgSphere size={520} label="Les chefs du réseau" images={[
-              'images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg',
-              'images/images-def/chaudbouillon-045.jpg',
-              'images/images-def/chaudbouillon-046.jpg',
-              'images/images-def/HOTELERIE-097.jpg',
-              'images/images-def/HOTELERIE-035.jpg',
-              'images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00022.jpg',
-              'images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00032.jpg',
-              'images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg',
-              'images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-40.jpg',
-              'images/photo-tabliers-violets.jpg', 'images/photo-groupe-portrait.jpg',
-              'images/photo-cuisine-action.jpg', 'images/photo-apprenante-plats.jpg',
-              'images/photo-patisserie.jpg', 'images/photo-applaudissements.jpg',
-              'images/photo-promo-groupe.jpg', 'images/photo-service-restaurant.jpg',
-              'images/photo-cuisine-formation.jpg', 'images/photo-chapeau-cuisine.jpg',
-              'images/photo-rouleaux.jpg', 'images/photo-micro-temoignage.jpg',
-            ].map((src) => ({ src, alt: '', title: '[XX] Chef du réseau', text: 'Photo et nom à venir.' }))} />
+              { name: 'Julia Sedefdjian', place: 'Marraine nationale · Baieta, Paris' },
+              ...D.about.chefs,
+            ].map((c) => ({ src: c.photo, name: c.name, title: c.name, text: c.place }))
+              .concat([
+                'images/images-def/chaudbouillon-045.jpg',
+                'images/images-def/HOTELERIE-097.jpg',
+                'images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00022.jpg',
+                'images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg',
+                'images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-40.jpg',
+                'images/photo-tabliers-violets.jpg', 'images/photo-cuisine-action.jpg',
+                'images/photo-applaudissements.jpg',
+              ].map((src) => ({ src, alt: '', title: 'Des Étoiles et des Femmes', text: 'En cuisine avec le réseau.' })))} />
+            <p className="proj-support__note">Prochaine session du titre à finalité professionnelle : du 9 novembre 2026 au 13 avril 2027.</p>
           </div>
         </div>
       </section>

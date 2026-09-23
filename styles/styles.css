@@ -1,5 +1,5 @@
 /* Festin — UI kit styles */
-@import url('./_tokens.css?v=13');
+@import url('./_tokens.css?v=16');
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { font-family: 'KoHo', sans-serif; color: var(--ink); background: var(--off-white); overflow-x: hidden; }
@@ -552,7 +552,7 @@ main h1:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 6p
 
 /* ===== IMG SPHERE — sphère 3D d'images, glissable ===== */
 .isph { position: relative; width: min(var(--isph-size), 100%); aspect-ratio: 1; margin: 0 auto; }
-.isph__stage { position: absolute; inset: 0; touch-action: none; cursor: grab; user-select: none; }
+.isph__stage { position: absolute; inset: 0; touch-action: pan-y; cursor: grab; user-select: none; }
 .isph__stage:active { cursor: grabbing; }
 .isph__node {
   position: absolute; left: 50%; top: 50%; width: var(--isph-tile); aspect-ratio: 1; padding: 0; border: 0;
@@ -571,3 +571,7 @@ main h1:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 6p
 .isph__close { position: absolute; top: 12px; right: 12px; width: 40px; height: 40px; border-radius: 50%; border: 0;
   background: rgba(10,45,51,.8); color: #fff; font-size: 16px; cursor: pointer; }
 @keyframes isphIn { from { opacity: 0; } to { opacity: 1; } }
+.isph__name { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 8px; background: var(--teal); color: #fff; text-align: center; }
+.isph__name b { font-size: calc(var(--isph-tile) * .3); font-weight: 300; font-style: italic; line-height: 1; color: var(--gold); }
+.isph__name span { font-size: calc(var(--isph-tile) * .11); font-weight: 700; text-transform: uppercase; line-height: 1.1; letter-spacing: .02em; }
+.isph__figname { width: min(60vw, 420px); aspect-ratio: 1; display: grid; place-items: center; background: var(--teal); color: var(--gold); font-size: clamp(64px, 12vw, 140px); font-weight: 300; font-style: italic; }

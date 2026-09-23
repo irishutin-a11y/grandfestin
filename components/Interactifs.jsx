@@ -85,12 +85,26 @@ function HoverImageList({ items = [], label }) {
 // ImgSphere — images réparties sur une sphère 3D que l'on fait tourner à la
 // souris ou au doigt, avec inertie et rotation automatique. Un clic ouvre
 // l'image en grand (Échap ou la croix pour fermer).
-// images : [{ src, alt, title, text }]
+// images : [{ src, alt, title, text, name }] — sans src : cadre nominatif
+// (initiales + nom), pour une personne dont la photo n'est pas encore fournie.
 // Répartition : spirale de Fibonacci (espacement régulier sur la sphère).
 // ---------------------------------------------------------------------------
-function ImgSphere({ images = [], size = 520, radius, autoSpeed = 0.18, label = 'Galerie en sphère' }) {
+function ImgSphere({ images = [], size: maxSize = 520, radius, autoSpeed = 0.18, label = 'Galerie en sphère' }) {
   const { useRef, useState, useEffect, useMemo } = React;
+  const wrapRef = useRef(null);
   const stageRef = useRef(null);
+  // La sphère prend la largeur de sa colonne, plafonnée à `size`.
+  const [size, setSize] = useState(maxSize);
+  useEffect(() => {
+    const el = wrapRef.current;
+    if (!el || !window.ResizeObserver) return;
+    const ro = new ResizeObserver(([e]) => {
+      const w = Math.floor(e.contentRect.width);
+      if (w > 0) setSize(Math.min(maxSize, w));
+    });
+    ro.observe(el.parentElement || el);
+    return () => ro.disconnect();
+  }, [maxSize]);
   const nodes = useRef([]);
   const [open, setOpen] = useState(null);
   const R = radius || size * 0.38;
@@ -171,16 +185,19 @@ function ImgSphere({ images = [], size = 520, radius, autoSpeed = 0.18, label = 
 
   const URIx = (p) => (/%[0-9A-Fa-f]{2}/.test(p) ? p : encodeURI(p));
   const tile = Math.round(size * 0.2);
+  const initials = (n = '') => n.split(/[\s-]+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
 
   return (
-    <div className="isph" style={{ '--isph-size': size + 'px', '--isph-tile': tile + 'px' }}>
+    <div className="isph" ref={wrapRef} style={{ '--isph-size': size + 'px', '--isph-tile': tile + 'px' }}>
       <div className="isph__stage" ref={stageRef} role="group" aria-label={label + ' — faites glisser pour tourner'}>
         {images.map((im, i) => (
           <button key={i} type="button" className="isph__node"
             ref={(el) => (nodes.current[i] = el)}
             aria-label={'Agrandir : ' + (im.title || im.alt || 'image ' + (i + 1))}
             onClick={() => { if (stageRef.current.dataset.moved !== '1') setOpen(im); }}>
-            <img src={URIx(im.src)} alt="" loading="lazy" draggable="false" />
+            {im.src
+              ? <img src={URIx(im.src)} alt="" loading="lazy" draggable="false" />
+              : <span className="isph__name"><b>{initials(im.name || im.title)}</b><span>{im.name || im.title}</span></span>}
           </button>
         ))}
       </div>
@@ -188,7 +205,9 @@ function ImgSphere({ images = [], size = 520, radius, autoSpeed = 0.18, label = 
         <div className="isph__modal" role="dialog" aria-modal="true" aria-label={open.title || 'Image'} onClick={() => setOpen(null)}>
           <figure className="isph__fig" onClick={(e) => e.stopPropagation()}>
             <button type="button" className="isph__close" aria-label="Fermer" onClick={() => setOpen(null)}>✕</button>
-            <img src={URIx(open.src)} alt={open.alt || ''} />
+            {open.src
+              ? <img src={URIx(open.src)} alt={open.alt || ''} />
+              : <div className="isph__figname" aria-hidden="true">{initials(open.name || open.title)}</div>}
             {(open.title || open.text) && (
               <figcaption>{open.title && <strong>{open.title}</strong>}{open.text && <span>{open.text}</span>}</figcaption>
             )}

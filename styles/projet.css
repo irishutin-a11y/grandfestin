@@ -531,8 +531,9 @@ body.proj-has-crumb .mnav{top:28px}
 .pageProjet--les-beaux-mets .proj-projet__media{position:static}
 
 /* Soutenir (Des Étoiles et des Femmes) : texte + boutons à gauche, sphère à droite */
-.proj-support__sphere{display:flex;justify-content:center;align-items:center}
-.pageProjet--des-etoiles-et-des-femmes .proj-support__inner{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.proj-support__sphere{display:flex;flex-direction:column;justify-content:center;align-items:center}
+.proj-support__inner .proj-support__note{margin:16px 0 0;font-size:15px;font-weight:600;color:rgba(255,255,255,.9);text-align:center}
+@media(min-width:821px){.pageProjet--des-etoiles-et-des-femmes .proj-support__inner{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
 @media(max-width:820px){.proj-support__sphere{margin-top:24px}}
 /* La liste des antennes remplace la liste statique : plus de fond crème par ligne */
 .proj-reseau .hil{margin-top:clamp(12px,2vw,24px)}
