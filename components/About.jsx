@@ -18,29 +18,11 @@ function Title({ children, em, after, level = 2, className = '' }) {
 const HERO_IMG = 'images/photo-promo-groupe.jpg';
 
 function AboutHero() {
-  const root = useRef(null);
-  useEffect(() => {
-    if (RM() || !window.gsap) return;
-    const { gsap } = window;
-    const ctx = gsap.context(() => {
-      gsap.from('.ab-hero__bg img', { scale: 1.14, duration: 1.8, ease: 'expo.out' });
-      gsap.from('.ab-hero__inner > *', { y: 36, opacity: 0, duration: 1, ease: 'expo.out', stagger: .1, delay: .15 });
-      gsap.to('.ab-hero__bg', { yPercent: 18, ease: 'none',
-        scrollTrigger: { trigger: root.current, start: 'top top', end: 'bottom top', scrub: true } });
-    }, root);
-    return () => ctx.revert();
-  }, []);
+  // Même hero que toutes les pages intérieures (Sections.jsx, HeroPage). Sans sous-titre (retour PIT).
   return (
-    <section className="ab-hero on-dark" ref={root}>
-      <div className="ab-hero__bg" aria-hidden="true">
-        <window.Picture src={HERO_IMG} alt="" sizes="100vw" loading="eager" />
-      </div>
-      <div className="container ab-hero__inner">
-        <nav className="breadcrumb" aria-label="Fil d'Ariane"><a href="#/">Accueil</a><span className="breadcrumb__sep">/</span><span>Qui sommes-nous</span></nav>
-        <span className="ab-eyebrow ab-eyebrow--gold">L'association Festin</span>
-        <h1 className="ab-title ab-title--hero">Former, inclure, <em>transformer.</em></h1>
-      </div>
-    </section>
+    <window.HeroPage tone="deep" kicker="L'association Festin" title="Former, inclure," accent="transformer."
+      img={HERO_IMG} imgAlt="Une promotion de Des Étoiles et des Femmes réunie en tenue de cuisine"
+      crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Qui sommes-nous' }]} />
   );
 }
 

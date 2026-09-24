@@ -244,3 +244,7 @@
   .tf2__ctxt .tf2__t{font-size:var(--fs-h3)}
   .tf2__ctxt .tf2__p{font-size:var(--fs-body)}
 }
+/* Logo de projet dans le hero partagé */
+.hp__logo{display:inline-flex;align-items:center;padding:10px 18px;margin-bottom:var(--sp-5);border-radius:18px;background:var(--off-white);box-shadow:0 10px 30px rgba(6,33,31,.18)}
+.hp__logo img{display:block;height:clamp(44px,4.4vw,64px);width:auto;max-width:200px;object-fit:contain}
+.hp--gold .hp__more .btnb--teal{color:var(--off-white)}

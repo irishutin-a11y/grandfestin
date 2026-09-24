@@ -30,33 +30,11 @@ function useReveal(root) {
 }
 
 // ---------- Hero : une photo plein cadre, dézoom à l'entrée, parallaxe ----------
-function AccHero({ img, eyebrow, title, em, lede, crumb }) {
-  const root = useRef(null);
-  useEffect(() => {
-    if (RM() || !window.gsap) return;
-    const { gsap } = window;
-    const ctx = gsap.context(() => {
-      gsap.from('.ab-hero__bg img', { scale: 1.14, duration: 1.8, ease: 'expo.out' });
-      gsap.from('.ab-hero__inner > *', { y: 36, opacity: 0, duration: 1, ease: 'expo.out', stagger: .1, delay: .15 });
-      gsap.to('.ab-hero__bg', { yPercent: 18, ease: 'none',
-        scrollTrigger: { trigger: root.current, start: 'top top', end: 'bottom top', scrub: true } });
-    }, root);
-    return () => ctx.revert();
-  }, []);
+function AccHero({ img, eyebrow, title, em, lede, crumb, tone = 'teal', imgAlt = '' }) {
+  // Même hero que toutes les pages intérieures (Sections.jsx, HeroPage)
   return (
-    <section className="ab-hero on-dark" ref={root}>
-      <div className="ab-hero__bg" aria-hidden="true">
-        <window.Picture src={img} alt="" sizes="100vw" loading="eager" />
-      </div>
-      <div className="container ab-hero__inner">
-        <nav className="breadcrumb" aria-label="Fil d'Ariane">
-          <a href="#/">Accueil</a><span className="breadcrumb__sep">/</span><span>Accompagnement</span><span className="breadcrumb__sep">/</span><span>{crumb}</span>
-        </nav>
-        <span className="ab-eyebrow ab-eyebrow--gold">{eyebrow}</span>
-        <h1 className="ab-title ab-title--hero">{title} <em>{em}</em></h1>
-        {lede && <p className="ab-lede">{lede}</p>}
-      </div>
-    </section>
+    <window.HeroPage tone={tone} kicker={eyebrow} title={title} accent={em} proof={lede} img={img} imgAlt={imgAlt}
+      crumb={[{ label: 'Accueil', href: '#/' }, { label: crumb }]} />
   );
 }
 
@@ -309,7 +287,7 @@ function AccompagnementInsertionPage() {
 
   return (
     <div className="about acc" ref={root} data-screen-label="Accompagnement — Insertion">
-      <AccHero img="images/photo-tabliers-violets.jpg" crumb="Insertion"
+      <AccHero img="images/photo-tabliers-violets.jpg" crumb="Apprendre un métier" tone="gold" imgAlt="Des apprenties de Des Étoiles et des Femmes en cuisine"
         eyebrow="Vous cherchez un métier" title="Apprendre un métier de cuisine," em="gratuitement"
         lede="Vous préparez un diplôme reconnu, vous faites vos stages en restaurant, et une personne de l'équipe vous suit jusqu'à l'emploi." />
 
@@ -354,7 +332,7 @@ function AccompagnementProsPage() {
   const FCL = window.FormationCardLink;
   return (
     <div className="about acc" ref={root} data-screen-label="Accompagnement — Professionnels">
-      <AccHero img="images/beauxmets-images/LBM_cdutrey_071122-7264.jpg" crumb="Professionnels"
+      <AccHero img="images/beauxmets-images/LBM_cdutrey_071122-7264.jpg" crumb="Acteurs du secteur" tone="teal" imgAlt="La cuisine des Beaux Mets pendant le service"
         eyebrow="Vous êtes du secteur" title="Recruter des commis formés," em="avec Festin"
         lede="Nous vous présentons des candidats formés dans nos parcours, et leur préparation à l'emploi peut être financée par France Travail. Nous formons aussi vos équipes contre les violences en cuisine et au management." />
 

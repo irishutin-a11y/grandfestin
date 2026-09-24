@@ -407,7 +407,7 @@ window.FinDePage = FinDePage;
 // (la seule de la page), un titre-phrase, une preuve, une photo facultative.
 // tone : 'teal' | 'deep' | 'gold'
 // ---------------------------------------------------------------------------
-function HeroPage({ tone = 'teal', kicker, title, accent, proof, note, img, imgAlt = '', crumb = [], children }) {
+function HeroPage({ tone = 'teal', kicker, title, accent, proof, note, img, imgAlt = '', crumb = [], logo, logoAlt = '', children }) {
   const ref = React.useRef(null);
   React.useEffect(() => {
     const g = window.gsap, el = ref.current;
@@ -415,7 +415,7 @@ function HeroPage({ tone = 'teal', kicker, title, accent, proof, note, img, imgA
     const M = window.FESTIN_MOTION;
     const tl = g.timeline({ defaults: { ease: M.ease, duration: M.dur.title } })
       .from(el.querySelector('.hp__t'), { yPercent: 16, autoAlpha: 0 }, 0.1)
-      .from(el.querySelectorAll('.hp__kicker, .hp__proof, .hp__more, .hp__note'), { y: M.y, autoAlpha: 0, stagger: M.stagger }, 0.3);
+      .from(el.querySelectorAll('.hp__logo, .hp__kicker, .hp__proof, .hp__more, .hp__note'), { y: M.y, autoAlpha: 0, stagger: M.stagger }, 0.3);
     const media = el.querySelector('.hp__media');
     if (media) tl.from(media, { clipPath: 'inset(10% 10% 10% 10% round 32px)', scale: 1.06, duration: 1.4 }, 0.15);
     return () => tl.kill();
@@ -432,6 +432,7 @@ function HeroPage({ tone = 'teal', kicker, title, accent, proof, note, img, imgA
               ))}
             </nav>
           )}
+          {logo && <span className="hp__logo"><img src={URI(logo)} alt={logoAlt} /></span>}
           {kicker && <span className="kicker hp__kicker">{kicker}</span>}
           <h1 className="hp__t">{title} {accent && <em>{accent}</em>}</h1>
           {proof && <p className="hp__proof">{proof}</p>}

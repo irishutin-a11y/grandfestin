@@ -174,28 +174,10 @@ function ProjetDefPage() {
       </nav>
 
       {/* HERO — photo, titre, sous-titre. Sans CTA candidater, sans encart marraine. */}
-      <div className="proj-heroband">
-        <header className="proj-hero">
-          <div className="proj-hero__media">
-            <img src={PIMG(p.heroImages[0])} alt="Atelier de cuisine, promotion Des Étoiles et des Femmes" />
-          </div>
-          <div className="proj-hero__scrim" aria-hidden="true"></div>
-          <div className="wrap proj-hero__inner">
-            <span className="proj-hero__eb">Programme national · depuis 2015 · un projet de l’association Festin</span>
-            <h1 className="proj-hero__t">{p.title} <em>{p.accent}</em></h1>
-            <p className="proj-hero__sub">{p.projetPhrase}</p>
-            <div className="proj-hero__cta">
-              <a className="btnb btnb--ghost" href={p.siteUrl} target="_blank" rel="noopener noreferrer">{p.siteName}</a>
-            </div>
-          </div>
-        </header>
-
-        {/* Logo DEF « à cheval », centré, mordant sur la limite hero / chiffres —
-            .proj-heroband n'enveloppe que le hero : bottom:0 tombe pile sur cette limite */}
-        <div className="proj-hero__logo">
-          <img src={PIMG(p.logo)} alt={"Logo " + p.shortTitle} />
-        </div>
-      </div>
+      <window.HeroPage tone="gold" kicker={"Programme national · depuis 2015 · un projet de l’association Festin"} title={p.title} accent={p.accent} proof={p.projetPhrase}
+        img={p.heroImages[0]} imgAlt="Atelier de cuisine, promotion Des Étoiles et des Femmes" logo={p.logo} logoAlt={"Logo " + p.shortTitle}>
+        <a className="btnb btnb--teal" href={p.siteUrl} target="_blank" rel="noopener noreferrer">{p.siteName}<span className="sr-only"> (nouvel onglet)</span> <span aria-hidden="true">↗</span></a>
+      </window.HeroPage>
 
       {/* CHIFFRES — 50/50 : présentation + 4 blocs colorés, compteur au scroll */}
       <section className="proj-stats" aria-labelledby="proj-stats-t">

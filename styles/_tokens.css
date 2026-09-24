@@ -108,7 +108,7 @@
   /* Backgrounds — warm, paper-like, never pure white */
   --cream:       #F7F3EC;   /* section bg (ticker, publics, témoignages, contact) */
   --off-white:   #FEFCF8;   /* surface, card bg on cream */
-  --white:       #FFFEFA;   /* surfaces denses (formulaires) : blanc teinté, jamais #fff pur */
+  --white:       #FFFEFA;   /* surfaces denses (formulaires) : blanc teinté, jamais var(--off-white) pur */
 
   /* Text — warm teal-blacks, never #000 */
   --ink:         #0D2B30;   /* body, h1-h3 */

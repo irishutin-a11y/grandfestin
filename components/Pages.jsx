@@ -64,10 +64,10 @@ function FormationCardLink({ f, wide, noPrice }) {
 
 function ContactCTA() {
   return (
-    <section className="on-dark" style={{background:'var(--teal-deep)',color:'#fff',padding:'var(--s-9) 0',textAlign:'center'}}>
+    <section className="on-dark" style={{background:'var(--teal-deep)',color:'var(--off-white)',padding:'var(--s-9) 0',textAlign:'center'}}>
       <div className="container">
         <span className="eyebrow eyebrow--gold">Une question ?</span>
-        <h2 className="h2" style={{color:'#fff',maxWidth:640,margin:'14px auto 18px'}}>Parlons de votre <em className="accent">projet de formation</em></h2>
+        <h2 className="h2" style={{color:'var(--off-white)',maxWidth:640,margin:'14px auto 18px'}}>Parlons de votre <em className="accent">projet de formation</em></h2>
         <p className="lede" style={{color:'rgba(255,255,255,0.78)',maxWidth:560,margin:'0 auto 32px'}}>Notre équipe pédagogique vous répond sous 48h ouvrées.</p>
         <a href="#/contact" className="btn btn--gold">Nous contacter <i data-lucide="arrow-right" style={{width:16,height:16}}/></a>
       </div>
@@ -374,7 +374,7 @@ function ProjetMediaEmbed({ p }) {
           data-instgrm-permalink={p.mediaUrl}
           data-instgrm-version="14"
           style={{
-            background:'#FFF', border:0, borderRadius:3,
+            background:'var(--off-white)', border:0, borderRadius:3,
             boxShadow:'0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)',
             maxWidth:400, minWidth:326, padding:0, width:'calc(100% - 2px)',
           }}
@@ -401,7 +401,7 @@ function ProjetTemoignages({ temoignages }) {
   const initiale = t && t.prenom ? t.prenom[0].toUpperCase() : '?';
 
   return (
-    <section className="on-dark" style={{background:'var(--teal-deep)', color:'#fff', padding:'var(--s-9) 0'}}>
+    <section className="on-dark" style={{background:'var(--teal-deep)', color:'var(--off-white)', padding:'var(--s-9) 0'}}>
       <div className="container" style={{maxWidth:800, margin:'0 auto', textAlign:'center'}}>
         <span className="eyebrow eyebrow--gold">Témoignages</span>
         <div style={{marginTop:40, position:'relative', minHeight:200}}>
@@ -523,7 +523,7 @@ function ProjetHero({ p }) {
     return () => clearInterval(t);
   }, [slides.length]);
   return (
-    <section className="on-dark" style={{position:'relative', width:'100%', height:'80vh', minHeight:520, overflow:'hidden', background:'var(--teal-deep)', color:'#fff'}}>
+    <section className="on-dark" style={{position:'relative', width:'100%', height:'80vh', minHeight:520, overflow:'hidden', background:'var(--teal-deep)', color:'var(--off-white)'}}>
       {slides.map((src, i) => (
         <div key={i} style={{
           position:'absolute', inset:0,
@@ -555,7 +555,7 @@ function ProjetHero({ p }) {
       {p.logo && (
         <div style={{
           position:'absolute', bottom:-40, left:'50%', transform:'translateX(-50%)',
-          background:'#fff', borderRadius:16, padding:'12px 24px',
+          background:'var(--off-white)', borderRadius:16, padding:'12px 24px',
           boxShadow:'0 12px 40px rgba(10,45,51,0.18)', display:'flex', alignItems:'center',
           gap:12, zIndex:10, whiteSpace:'nowrap',
         }}>
@@ -595,7 +595,7 @@ function ProjetPage({ id }) {
         <div className="container">
           <div className="stack-sm-2" style={{display:'grid', gridTemplateColumns:'repeat(' + p.stats.length + ', 1fr)', gap:16}}>
             {p.stats.map((s, i) => (
-              <div key={i} style={{background:'#fff', border:'1px solid var(--line)', borderRadius:14, padding:24}}>
+              <div key={i} style={{background:'var(--off-white)', border:'1px solid var(--line)', borderRadius:14, padding:24}}>
                 <div style={{fontSize:38, fontWeight:700, color:'var(--teal)', lineHeight:1, letterSpacing:'-0.02em'}}>
                   {s.value}{s.unit && <small style={{fontSize:20}}>{s.unit}</small>}
                 </div>
@@ -885,7 +885,7 @@ function AcademiePage() {
               { icon:'users',     title:'Un format pour chaque public', desc:'Des parcours de quatre à onze mois pour apprendre un métier. Des sessions de trois heures à deux jours pour les équipes en poste.' },
               { icon:'handshake', title:'Des stages chez des restaurateurs',  desc:'Les parcours comptent de 155 à 490 heures de stage, chez des partenaires comme Les Grandes Tables, Sofitel ou Les Bords de Mer.' },
             ].map((item, i) => (
-              <div key={i} style={{display:'flex', gap:16, alignItems:'flex-start', padding:20, background:'#fff', borderRadius:12, border:'1px solid var(--line)'}}>
+              <div key={i} style={{display:'flex', gap:16, alignItems:'flex-start', padding:20, background:'var(--off-white)', borderRadius:12, border:'1px solid var(--line)'}}>
                 <div style={{width:44, height:44, borderRadius:10, background:'var(--cream)', display:'grid', placeItems:'center', flexShrink:0}}>
                   <i data-lucide={item.icon} style={{width:20, height:20, color:'var(--teal)'}}/>
                 </div>
@@ -900,9 +900,9 @@ function AcademiePage() {
       </section>
 
       {/* LE BESOIN — ce que dit le marché du travail local (source : dossier d'habilitation RNCP) */}
-      <section className="on-dark" style={{padding:'var(--s-8) 0', background:'var(--teal-dark)', color:'#fff'}}>
+      <section className="on-dark" style={{padding:'var(--s-8) 0', background:'var(--teal-dark)', color:'var(--off-white)'}}>
         <div className="container">
-          <h2 className="h2" style={{color:'#fff', marginTop:8, marginBottom:16, maxWidth:'22ch'}}>
+          <h2 className="h2" style={{color:'var(--off-white)', marginTop:8, marginBottom:16, maxWidth:'22ch'}}>
             Un secteur qui <em className="accent">recrute</em>
           </h2>
           <p className="lede" style={{color:'rgba(255,255,255,0.82)', maxWidth:'62ch', marginBottom:36}}>
@@ -963,7 +963,7 @@ function AcademiePage() {
       <FormationsTeaser />
 
       {/* Section 4 — Partenaire Estello */}
-      <section className="on-dark" style={{background:'var(--teal-dark, var(--teal-deep))', color:'#fff', padding:'var(--s-8) 0', textAlign:'center'}}>
+      <section className="on-dark" style={{background:'var(--teal-dark, var(--teal-deep))', color:'var(--off-white)', padding:'var(--s-8) 0', textAlign:'center'}}>
         <div className="container" style={{maxWidth:680}}>
           <h2 className="h2" style={{color:'var(--off-white)', marginTop:10, marginBottom:16}}>En partenariat avec <em className="accent">Estello Formation</em></h2>
           <p style={{fontSize:17, color:'rgba(255,255,255,0.78)', lineHeight:1.7, marginBottom:28}}>
