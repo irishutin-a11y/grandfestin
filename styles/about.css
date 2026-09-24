@@ -268,3 +268,5 @@
 .ab-member__ph--ini{background:var(--teal-tint)}
 /* Titre de hero : un mot long (« TRANSFORMER. », « GRATUITEMENT ») doit tenir à 360 px */
 .ab-title--hero{font-size:min(var(--fs-display), 11.5vw)}
+/* Rythme vertical unique (reprise) */
+.ab-sec, .ab-mot, .ab-engage { padding-top: var(--section); padding-bottom: var(--section); }

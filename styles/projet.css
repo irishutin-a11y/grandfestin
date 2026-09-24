@@ -23,7 +23,7 @@
 .pageProjet--restaure{--accent:#5B6E1E}                   /* olive */
 .pageProjet--tournesol{--accent:#C1791A}                  /* ocre */
 
-.pageProjet .wrap{max-width:1280px;margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+.pageProjet .wrap{max-width:1440px;margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)} /* même bord que le reste du site */
 .pageProjet section{position:relative}
 
 .pageProjet h1,.pageProjet h2,.pageProjet h3,
@@ -578,3 +578,5 @@ body.proj-has-crumb .mnav{top:28px}
 /* Témoignages peu nombreux : cartes posées, sans défilement */
 .tcar--still .tcar__track{animation:none;width:auto;flex-wrap:wrap;justify-content:center}
 .proj-support__inner > :only-child{grid-column:1/-1;max-width:760px}
+/* Rythme vertical unique (reprise) */
+.pxs, .proj-verbatims { padding: var(--section) 0; }

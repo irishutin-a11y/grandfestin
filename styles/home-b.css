@@ -548,3 +548,5 @@ section{position:relative}
 .footer .fin__links a:hover .arrow{transform:translateX(6px)}
 .footer .footer__scrim{background:rgba(10,45,51,.92)}
 @media(max-width:900px){.footer .fin{grid-template-columns:1fr}.footer .fin__links a{flex-direction:column;gap:var(--sp-1)}.footer .fin__what{white-space:normal}}
+/* Rythme vertical unique (reprise) */
+.b-dual, .b-quotes, .b-impact, .promesse, .temps { padding: var(--section) 0; }

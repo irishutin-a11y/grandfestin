@@ -432,14 +432,20 @@ function HeroPage({ tone = 'teal', kicker, title, accent, proof, note, img, imgA
               ))}
             </nav>
           )}
-          {logo && <span className="hp__logo"><img src={URI(logo)} alt={logoAlt} /></span>}
+          {logo && !img && <span className="hp__logo"><img src={URI(logo)} alt={logoAlt} /></span>}
           {kicker && <span className="kicker hp__kicker">{kicker}</span>}
           <h1 className="hp__t">{title} {accent && <em>{accent}</em>}</h1>
           {proof && <p className="hp__proof">{proof}</p>}
           {children && <div className="hp__more">{children}</div>}
           {note && <p className="hp__note">{note}</p>}
         </div>
-        {img && <figure className="hp__media"><window.Picture src={img} alt={imgAlt} sizes="(max-width: 900px) 100vw, 44vw" loading="eager" /></figure>}
+        {img && (
+          <div className="hp__mediawrap">
+            <figure className="hp__media"><window.Picture src={img} alt={imgAlt} sizes="(max-width: 900px) 100vw, 44vw" loading="eager" /></figure>
+            {/* logo de projet en surimpression, coin haut droit de l'image (retour du 24/09/2026) */}
+            {logo && <span className="hp__logo hp__logo--over"><img src={URI(logo)} alt={logoAlt} /></span>}
+          </div>
+        )}
       </div>
     </header>
   );

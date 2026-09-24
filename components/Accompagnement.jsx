@@ -255,7 +255,7 @@ function AccEngage({ img, eyebrow, title, em, text, cta, href }) {
       <window.Picture imgClassName="ab-engage__bg" src={img} alt="" sizes="100vw" />
       <div className="ab-engage__veil" />
       <div className="container ab-engage__in">
-        <Title em={em} className="ab-title--xl">{title}</Title>
+        <Title em={em}>{title}</Title>
         <p className="acc-engage__p">{text}</p>
         <a href={href} className="btn btn--gold">{cta} <span aria-hidden="true">→</span></a>
       </div>

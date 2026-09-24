@@ -197,7 +197,7 @@
 .tq__ini{font-size:var(--fs-h1);font-weight:300;font-style:italic;color:var(--teal)}
 .tq__fig{margin:0}
 .tq__q{margin:0;position:relative}
-.tq__q p{margin:0;font-size:clamp(1.375rem,1rem + 1.7vw,2.5rem);font-weight:600;line-height:1.28;letter-spacing:-.01em;color:inherit;max-width:32ch;text-wrap:pretty}
+.tq__q p{margin:0;font-size:clamp(1.25rem,1rem + 1.1vw,2rem);font-weight:600;line-height:1.28;letter-spacing:-.01em;color:inherit;max-width:32ch;text-wrap:pretty}
 .tq__q .tq__acc{font-size:var(--fs-lede);font-weight:700;font-style:italic;color:var(--accent-color,var(--teal));margin-bottom:var(--sp-4)}
 .tq__who{margin-top:var(--sp-6);display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--sp-2) var(--sp-4);font-size:var(--fs-body)}
 .tq__who b{font-weight:700;text-transform:uppercase;letter-spacing:.02em}
@@ -248,3 +248,7 @@
 .hp__logo{display:inline-flex;align-items:center;padding:10px 18px;margin-bottom:var(--sp-5);border-radius:18px;background:var(--off-white);box-shadow:0 10px 30px rgba(6,33,31,.18)}
 .hp__logo img{display:block;height:clamp(44px,4.4vw,64px);width:auto;max-width:200px;object-fit:contain}
 .hp--gold .hp__more .btnb--teal{color:var(--off-white)}
+/* Logo de projet posé sur l'image du hero, coin haut droit */
+.hp__mediawrap{position:relative}
+.hp__logo--over{position:absolute;top:clamp(12px,1.6vw,22px);right:clamp(12px,1.6vw,22px);margin:0;z-index:2}
+.hp__logo--over img{height:clamp(40px,4vw,58px)}
