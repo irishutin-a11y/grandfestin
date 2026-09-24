@@ -529,3 +529,22 @@ section{position:relative}
 /* Chiffres de l'accueil sans photos éparpillées (retour du 24/09/2026) */
 .b-impact .wrap{min-height:0}
 .b-quotes .tq{text-align:left}
+
+/* ============ BLOC DE FIN INTÉGRÉ AU PIED DE PAGE (retour du 24/09/2026) ============
+   Une seule surface sombre : la clôture en haut, les liens dessous, le trait
+   du parcours en fond. Remplace la bande or pâle posée au-dessus du pied de page. */
+.footer__trait{--trait-color:rgba(255,193,0,.10);z-index:0}
+.footer .fin{background:none;padding:clamp(24px,4vw,56px) 0 var(--sp-8);margin-bottom:var(--sp-8);border-bottom:1px solid rgba(254,252,248,.18);
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,96px);align-items:end}
+.footer .fin__t{margin:0;font-size:var(--fs-h2);font-weight:700;text-transform:uppercase;line-height:var(--lh-tight);letter-spacing:var(--tracking-tight);color:var(--off-white)}
+.footer .fin__t em{display:block;color:var(--gold-light);white-space:nowrap}
+.footer .fin__links{list-style:none;margin:0;padding:0}
+.footer .fin__links li{margin:0;font-size:inherit}
+.footer .fin__links a{display:flex;justify-content:space-between;align-items:baseline;gap:var(--sp-5);padding:var(--sp-5) 0;border-top:1px solid rgba(254,252,248,.2);color:var(--off-white);text-decoration:none}
+.footer .fin__links li:last-child a{border-bottom:1px solid rgba(254,252,248,.2)}
+.footer .fin__who{font-size:var(--fs-body);color:rgba(254,252,248,.72)}
+.footer .fin__what{font-size:var(--fs-h3);font-weight:700;text-transform:uppercase;letter-spacing:-.01em;white-space:nowrap}
+.footer .fin__links a:hover .fin__what{color:var(--gold-light)}
+.footer .fin__links a:hover .arrow{transform:translateX(6px)}
+.footer .footer__scrim{background:rgba(10,45,51,.92)}
+@media(max-width:900px){.footer .fin{grid-template-columns:1fr}.footer .fin__links a{flex-direction:column;gap:var(--sp-1)}.footer .fin__what{white-space:normal}}

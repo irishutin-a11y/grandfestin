@@ -137,7 +137,11 @@ function Contact() {
 // Footer partagé — grand titre révélé derrière + panneau qui glisse par-dessus (maquette home-b)
 function Footer() {
   const data = window.FESTIN_DATA;
-
+  // Le bloc de clôture fait partie du pied de page : une seule surface sombre,
+  // traversée par le trait du parcours (retour du 24/09/2026 : les deux blocs
+  // empilés ne s'accordaient pas). Absent là où la page a son propre appel final.
+  const hash = useRoute();
+  const sansFin = ['#/contact', '#/accompagnement/insertion', '#/accompagnement/professionnels'].includes(hash);
   return (
     <div className="footer-outer">
       <footer className="footer">
@@ -145,7 +149,9 @@ function Footer() {
           <img src="images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg" alt="" loading="lazy" />
         </div>
         <div className="footer__scrim" aria-hidden="true"></div>
+        <window.Trait className="footer__trait" width={120} draw={false} />
         <div className="wrap">
+          {!sansFin && <FinDePage />}
           <div className="footer__grid">
             <div className="footer__brand">
               <img className="footer__logo" src={data.brand.logoGold} alt="Festin" loading="lazy" />
@@ -383,16 +389,14 @@ function FinDePage() {
   const F = window.FESTIN_DATA.fin;
   if (!F) return null;
   return (
-    <section className="fin" aria-labelledby="fin-t">
-      <div className="wrap fin__in">
-        <h2 className="fin__t" id="fin-t">{F.title} <em>{F.accent}</em></h2>
-        <ul className="fin__links">
-          {F.links.map((l) => (
-            <li key={l.href}><a href={l.href}><span className="fin__who">{l.who}</span><span className="fin__what">{l.label} <span className="arrow" aria-hidden="true">→</span></span></a></li>
-          ))}
-        </ul>
-      </div>
-    </section>
+    <div className="fin" role="region" aria-labelledby="fin-t">
+      <h2 className="fin__t" id="fin-t">{F.title} <em>{F.accent}</em></h2>
+      <ul className="fin__links">
+        {F.links.map((l) => (
+          <li key={l.href}><a href={l.href}><span className="fin__who">{l.who}</span><span className="fin__what">{l.label} <span className="arrow" aria-hidden="true">→</span></span></a></li>
+        ))}
+      </ul>
+    </div>
   );
 }
 window.FinDePage = FinDePage;

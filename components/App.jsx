@@ -106,7 +106,7 @@ function App() {
     <div data-screen-label={`Site — ${route.name}`}>
       <Nav />
       <p role="status" aria-live="polite" className="sr-only">{annonce}</p>
-      <main id="main" tabIndex={-1}>{page}{!['contact', 'accomp-insertion', 'accomp-pros'].includes(route.name) && <FinDePage />}</main>
+      <main id="main" tabIndex={-1}>{page}</main>
       <Footer />
       <FloatingCTA />
     </div>
