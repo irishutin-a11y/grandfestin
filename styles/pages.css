@@ -183,3 +183,6 @@
 /* 404 */
 .nf__links{display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-5)}
 .nf__lnk{color:var(--teal-deep);font-weight:700;text-decoration:underline;text-underline-offset:5px}
+/* Infobulles des deux dernières barres ancrées à droite (ne sortent pas de l'écran) */
+.ibar:nth-child(n+3) .ibar__tip{left:auto;right:0}
+.hp__t{font-size:min(var(--fs-h1), 12vw)}

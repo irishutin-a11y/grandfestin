@@ -266,3 +266,5 @@
 .ab-engage__cards a:hover,.ab-engage__cards a:focus-visible{background:var(--teal)}
 .ab-member__ph.is-placeholder{font-size:var(--fs-small);font-weight:600;letter-spacing:0;line-height:1.35;padding:var(--sp-4);text-align:center;color:var(--teal-dark)}
 .ab-member__ph--ini{background:var(--teal-tint)}
+/* Titre de hero : un mot long (« TRANSFORMER. », « GRATUITEMENT ») doit tenir à 360 px */
+.ab-title--hero{font-size:min(var(--fs-display), 11.5vw)}
