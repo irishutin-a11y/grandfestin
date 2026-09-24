@@ -1,5 +1,5 @@
 /* Festin — UI kit styles */
-@import url('./_tokens.css?v=1790257397');
+@import url('./_tokens.css?v=1790257438');
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { font-family: 'KoHo', sans-serif; color: var(--ink); background: var(--off-white); overflow-x: hidden; }

@@ -2,6 +2,26 @@
 
 Branche `reprise-design`, 20 commits atomiques depuis `main`, rien de poussé. Aperçu : config « Festin reprise » (port 4503). Direction : `DIRECTION.md`. Arbitrages appliqués : 1A 2B 3B 4B 5C 6A 7B 8B.
 
+## Après vos retours du 24/09/2026 (deuxième passe)
+
+- **Build** : le JSX est compilé à l'avance par `./tools/build.sh`, avec le moteur JavaScript de macOS (aucun Node requis). Le site ne télécharge plus Babel (3 Mo) et ne compile plus rien à chaque visite. Il faut relancer le script après toute modification d'un `.jsx`.
+- **Témoignages** : une grande citation à la fois, avec flèches (accueil et pages projet). Plus aucun bandeau défilant de témoignages.
+- **Accueil** : les photos éparpillées autour des chiffres sont retirées.
+- **Actualités** : les temps forts passent en « index + visuel » (liste numérotée à gauche, grande image à droite, cartes au doigt sur mobile), au lieu du carrousel plein écran.
+- **Bloc de fin** : il fait désormais partie du pied de page, sur une seule surface sombre traversée par le trait.
+- **Titres réduits d'un quart** : H1 76 px, H2 52 px au maximum.
+- **Pages projet** : logo en surimpression dans le coin haut droit de l'image du hero.
+- **Unité des pages** :
+  - même hero partout (pages projet, Association, Insertion et Acteurs du secteur compris) ;
+  - même conteneur et même bord gauche ;
+  - mêmes marges de section ;
+  - un seul style de bouton ;
+  - titres alignés à gauche partout ;
+  - blanc de la charte au lieu de `#fff`.
+  
+  Audit mesuré sur les 14 pages : H1 et H2 identiques partout.
+- **La Table de Cana** : 1993.
+
 ## Ce qui a changé, et pourquoi
 
 **Fondations (une fois pour tout le site).** Échelle typographique unique et fluide (`--fs-label` → `--fs-display`, rapport ≥ 1,25), échelle d'espacement (`--sp-1` → `--sp-10`), courbes et durées centralisées (`--ease-*`, `--dur-*`, `FESTIN_MOTION` pour GSAP). Toutes les tailles de titres codées en dur pointent désormais vers l'échelle. KoHo en woff2 (87 → 12 ko par graisse). GSAP 3.15 en local : 45,7 ko gzippés (budget 60 ko). React en version de production (il tournait en version de développement). Focus visible global, `prefers-reduced-motion` global. Un seul interrupteur pour tous les blocs incomplets : `FESTIN_SHOW_PLACEHOLDERS`.
@@ -37,7 +57,6 @@ Vérifié dans le navigateur : 18 routes internes (aucun lien mort ni vide) et 2
 
 ## [À COMPLÉTER] et [À TRANCHER]
 
-- **[À TRANCHER]** Date de La Table de Cana : 1993 selon CLAUDE.md, mais « créée en 1992 » dans le rapport 2023. Le site ne donne plus d'année sur la page Impact.
 - **[À TRANCHER]** Envoi réel du formulaire (Tally, Formspree ou fonction Vercel) : aujourd'hui, c'est une ouverture de la messagerie.
 - **[À COMPLÉTER]** Adresse du site d'Estello Formation : estelloformation.com répond 404.
 - **[À COMPLÉTER]** Date et lieu du Toast photographié (« 12 février », sans année).
@@ -56,10 +75,10 @@ Vérifié dans le navigateur : 18 routes internes (aucun lien mort ni vide) et 2
 ## Les cinq points les plus graves qui restent
 
 1. **Le rapport d'activité 2025 est modifiable par n'importe qui.** Il est partagé sur le Drive en « modification pour toute personne disposant du lien », et ce lien est public sur le site. À repasser en lecture seule avant la mise en ligne. Je n'ai pas touché aux droits du Drive.
-2. **Le site compile son code dans le navigateur à chaque visite** (Babel standalone, environ 3 Mo). Sur mobile, le premier affichage est lent. Seul un outil de compilation le règle, ce qui change la façon de travailler des autres sessions.
+2. **Les autres sessions doivent connaître le build.** Une modification d'un `.jsx` sans `./tools/build.sh` n'apparaît pas sur le site. C'est inscrit dans CLAUDE.md.
 3. **Le formulaire n'a pas d'envoi réel.** Un visiteur sans messagerie configurée doit copier l'adresse.
 4. **Les visuels manquent sur les moments les plus forts** (Grand Festin 2025, exposition, équipe). En ligne, ces blocs disparaissent et les pages s'allègent. En chantier, ils font maquette.
-5. **L'écart de grammaire entre les pages projet et le reste du site.** L'accueil, Impact et Actualités parlent la nouvelle langue visuelle ; les pages projet, l'ancienne (hero photo sans trait, sections empilées).
+5. **Le corps des pages projet reste plus dense que le reste.** Hero, conteneur, marges, titres et boutons sont désormais communs, mais leurs sections (chiffres en cartes colorées, accordéons, galeries) gardent leur ancienne composition.
 
 ## Là où je ne suis pas d'accord avec vous
 
