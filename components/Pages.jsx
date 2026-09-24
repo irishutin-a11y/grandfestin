@@ -1,38 +1,12 @@
 // Pages.jsx — dedicated page components for multi-page navigation
 // Each page is a full-screen view; routing handled in index.html via hash.
 
-function PageHeader({ eyebrow, title, accent, subtitle, breadcrumb, image, imageAlt = '', focus }) {
+// En-tête des pages Formations, fiche formation et Académie : rendu par le hero
+// partagé des pages intérieures (Sections.jsx, HeroPage), pour une seule grammaire.
+function PageHeader({ eyebrow, title, accent, subtitle, breadcrumb, image, imageAlt = '' }) {
   return (
-    <section className={"page-header" + (image ? " page-header--photo" : "")}>
-      {image && (
-        <div className="page-header__media" aria-hidden={imageAlt ? undefined : true}>
-          <window.Picture
-            src={image} alt={imageAlt} sizes="100vw"
-            loading="eager" fetchPriority="high"
-            imgClassName="page-header__img"
-            style={focus ? { objectPosition: focus } : undefined}
-          />
-          <span className="page-header__scrim" />
-        </div>
-      )}
-      <div className="container">
-        {breadcrumb && (
-          <nav className="breadcrumb">
-            {breadcrumb.map((b, i) => (
-              <React.Fragment key={i}>
-                {i > 0 && <span className="breadcrumb__sep">/</span>}
-                {b.href
-                  ? <a href={b.href}>{b.label}</a>
-                  : <span>{b.label}</span>}
-              </React.Fragment>
-            ))}
-          </nav>
-        )}
-        <span className="eyebrow eyebrow--gold">{eyebrow}</span>
-        <h1 className="h1"><span style={{color:'rgb(255, 255, 255)'}}>{title}</span> {accent && <em className="accent">{accent}</em>}</h1>
-        {subtitle && <p className="lede" style={{color:'rgba(255,255,255,0.78)',marginTop:18,maxWidth:680}}>{subtitle}</p>}
-      </div>
-    </section>
+    <window.HeroPage tone="teal" kicker={eyebrow} title={title} accent={accent} proof={subtitle}
+      img={image} imgAlt={imageAlt} crumb={breadcrumb || []} />
   );
 }
 
@@ -130,7 +104,6 @@ function FormationsListPage() {
           </div>
         </div>
       </section>
-      <ContactCTA />
     </div>
   );
 }
@@ -892,7 +865,6 @@ function AcademiePage() {
         <div className="stack-sm container" style={{display:'grid', gridTemplateColumns:'1.3fr 1fr', gap:80, alignItems:'flex-start'}}>
           {/* Gauche */}
           <div>
-            <span className="eyebrow">Notre positionnement</span>
             <h2 className="h2" style={{marginTop:8, marginBottom:20}}>Former <em className="accent">autrement</em></h2>
             <p className="lede" style={{color:'var(--ink-mid)', lineHeight:1.7}}>
               Festin forme sur le terrain depuis 1987. En 2026, l'association en fait un organisme de formation : l'Académie Festin, certifiée Qualiopi, co-portée avec Estello Formation. Trois choses tiennent ses parcours : l'exigence de la cuisine, le suivi social des personnes formées, la connaissance du secteur.
@@ -930,7 +902,6 @@ function AcademiePage() {
       {/* LE BESOIN — ce que dit le marché du travail local (source : dossier d'habilitation RNCP) */}
       <section className="on-dark" style={{padding:'var(--s-8) 0', background:'var(--teal-dark)', color:'#fff'}}>
         <div className="container">
-          <span className="eyebrow eyebrow--gold">Pourquoi ces formations</span>
           <h2 className="h2" style={{color:'#fff', marginTop:8, marginBottom:16, maxWidth:'22ch'}}>
             Un secteur qui <em className="accent">recrute</em>
           </h2>
@@ -961,7 +932,6 @@ function AcademiePage() {
       <section style={{padding:'var(--s-9) 0', background:'var(--cream)'}}>
         <div className="container">
           <div style={{maxWidth:760, marginBottom:48}}>
-            <span className="eyebrow">Pour qui ?</span>
             <h2 className="h2" style={{marginTop:8}}>À chacun sa <em className="accent">formation</em></h2>
           </div>
           <div className="stack-sm" style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:24}}>
@@ -970,19 +940,17 @@ function AcademiePage() {
                 <div style={{width:56, height:56, borderRadius:14, background:'var(--cream)', display:'grid', placeItems:'center', marginBottom:20}}>
                   <i data-lucide="briefcase" style={{width:24, height:24, color:'var(--teal)'}}/>
                 </div>
-                <span className="eyebrow">Professionnels</span>
-                <h3 style={{fontSize:22, fontWeight:700, margin:'8px 0 12px'}}>Vous êtes professionnel de la restauration</h3>
+                <h3 style={{fontSize:'var(--fs-h3)', fontWeight:700, margin:'8px 0 12px'}}>Vous êtes professionnel de la restauration</h3>
                 <p style={{fontSize:15, color:'var(--ink-mid)', lineHeight:1.6, marginBottom:20}}>Des formations courtes en management juste, en prévention des violences sexistes et sexuelles et en recrutement inclusif.</p>
                 <span className="lnk">Voir les formations professionnelles <i data-lucide="arrow-right" style={{width:14,height:14}}/></span>
               </div>
             </a>
-            <a href="#/projets/tournesol" className="formation-card" style={{textDecoration:'none'}}>
+            <a href="#/accompagnement/insertion" className="formation-card" style={{textDecoration:'none'}}>
               <div className="formation-card__body" style={{padding:32}}>
                 <div style={{width:56, height:56, borderRadius:14, background:'var(--cream)', display:'grid', placeItems:'center', marginBottom:20}}>
                   <i data-lucide="star" style={{width:24, height:24, color:'var(--gold-ink)'}}/>
                 </div>
-                <span className="eyebrow">Insertion</span>
-                <h3 style={{fontSize:22, fontWeight:700, margin:'8px 0 12px'}}>Vous cherchez un métier</h3>
+                <h3 style={{fontSize:'var(--fs-h3)', fontWeight:700, margin:'8px 0 12px'}}>Vous cherchez un métier</h3>
                 <p style={{fontSize:15, color:'var(--ink-mid)', lineHeight:1.6, marginBottom:20}}>Des parcours diplômants, gratuits, pour entrer dans les métiers de la cuisine.</p>
                 <span className="lnk">Découvrir les parcours d'insertion <i data-lucide="arrow-right" style={{width:14,height:14}}/></span>
               </div>
@@ -997,8 +965,7 @@ function AcademiePage() {
       {/* Section 4 — Partenaire Estello */}
       <section className="on-dark" style={{background:'var(--teal-dark, var(--teal-deep))', color:'#fff', padding:'var(--s-8) 0', textAlign:'center'}}>
         <div className="container" style={{maxWidth:680}}>
-          <span className="eyebrow eyebrow--gold">En partenariat avec</span>
-          <h2 className="h2" style={{color:'#fff', marginTop:10, marginBottom:16}}>Estello Formation</h2>
+          <h2 className="h2" style={{color:'var(--off-white)', marginTop:10, marginBottom:16}}>En partenariat avec <em className="accent">Estello Formation</em></h2>
           <p style={{fontSize:17, color:'rgba(255,255,255,0.78)', lineHeight:1.7, marginBottom:28}}>
             L'Académie Festin est co-portée avec Estello Formation, organisme spécialisé dans les formations aux métiers de l'hôtellerie-restauration.
           </p>
