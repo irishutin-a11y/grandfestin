@@ -207,3 +207,21 @@
 .imp-2025{margin-top:var(--sp-7);padding-top:var(--sp-6);border-top:1px solid var(--line-strong)}
 .imp-2025 .lnk{margin-top:var(--sp-4);font-size:13px}
 .pageImpact .imp-2025 .g-preuves__l{max-width:48ch}
+/* Académie */
+.g-bref .g-cards{grid-template-columns:1fr;gap:12px}
+.g-bref .g-card{flex-direction:row;flex-wrap:wrap;align-items:flex-start;gap:6px 16px;padding:var(--sp-5)}
+.g-bref .g-card__n{flex:none}
+.g-bref .g-card__t{flex:1;align-self:center;font-size:clamp(1.05rem,.95rem + .4vw,1.3rem)}
+.g-bref .g-card p{flex-basis:100%;padding-left:60px}
+.aca-qualiopi{display:inline-flex;align-items:center;gap:14px;margin-top:var(--sp-6);padding:14px 18px;border-radius:14px;border:1px solid var(--line-strong);
+  font-size:13px;line-height:1.4;color:var(--ink-mid)}
+.aca-qualiopi img{height:44px;width:auto}
+.aca-qualiopi b{color:var(--ink)}
+/* Actualités : espace presse sur or pâle */
+.apkit-sec .apkit a:not(.btnb){color:var(--teal-dark)}
+.apkit-sec .apkit__facts{background:var(--off-white);border:1px solid var(--line-strong)}
+.apkit-sec .apkit__facts h3{color:var(--teal-dark)}
+.apkit-sec .apkit__facts li{color:var(--ink)}
+.apkit-sec .apkit__facts b{color:var(--teal-dark)}
+.apkit-sec .apkit__facts p{color:var(--ink-mid)}
+.apkit-sec .apkit__logos{align-items:center;gap:var(--sp-4) var(--sp-6)}

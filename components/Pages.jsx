@@ -19,27 +19,6 @@ function HomePage() {
   );
 }
 
-// Compact teaser of formations on home page (instead of full grid)
-function FormationsTeaser() {
-  const items = window.FESTIN_DATA.formations.slice(0, 4);
-  return (
-    <section className="formations">
-      <div className="container">
-        <div className="formations__head" style={{display:'flex',justifyContent:'space-between',alignItems:'flex-end',marginBottom:48,flexWrap:'wrap',gap:24}}>
-          <div>
-            <span className="eyebrow">Nos formations</span>
-            <h2 className="h2">Choisir sa <em className="accent">formation</em></h2>
-          </div>
-          <a href="#/formations" className="btn btn--ghost">Voir toutes les formations <i data-lucide="arrow-right" style={{width:16,height:16}}/></a>
-        </div>
-        <div className="formations__grid">
-          {items.map((f) => <FormationCardLink key={f.id} f={f}/>)}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function FormationCardLink({ f, wide, noPrice }) {
   return (
     <a className={"formation-card" + (wide ? " wide" : "")} href={`#/formations/${f.id}`}>
@@ -59,19 +38,6 @@ function FormationCardLink({ f, wide, noPrice }) {
         </div>
       </div>
     </a>
-  );
-}
-
-function ContactCTA() {
-  return (
-    <section className="on-dark" style={{background:'var(--teal-deep)',color:'var(--off-white)',padding:'var(--s-9) 0',textAlign:'center'}}>
-      <div className="container">
-        <span className="eyebrow eyebrow--gold">Une question ?</span>
-        <h2 className="h2" style={{color:'var(--off-white)',maxWidth:640,margin:'14px auto 18px'}}>Parlons de votre <em className="accent">projet de formation</em></h2>
-        <p className="lede" style={{color:'rgba(255,255,255,0.78)',maxWidth:560,margin:'0 auto 32px'}}>Notre équipe pédagogique vous répond sous 48h ouvrées.</p>
-        <a href="#/contact" className="btn btn--gold">Nous contacter <i data-lucide="arrow-right" style={{width:16,height:16}}/></a>
-      </div>
-    </section>
   );
 }
 
@@ -436,131 +402,78 @@ function ImpactPage() {
 
 // ---------- ACADEMIE PAGE ─────────────────────────────────────────────────────
 function AcademiePage() {
+  // Déploiement du 24/09/2026 : même grammaire que l'accueil (Gabarit.jsx).
+  // Mission « Former » ; plus de bandes sombres ni de styles écrits en ligne.
+  const root = React.useRef(null);
+  window.useGReveal(root);
+  const D = window.FESTIN_DATA;
+  const pros = D.formations.filter((f) => /pro/i.test(f.cat || ''));
+  const diplomantes = D.formations.filter((f) => !/pro/i.test(f.cat || ''));
   return (
-    <div data-screen-label="Académie Festin">
-      <PageHeader
-        image="images/photo-cuisine-formation.jpg"
-        imageAlt="Séance de formation en cuisine"
-        focus="center 35%"
-        eyebrow="Depuis 2026"
-        title="L'Académie"
-        accent="Festin"
-        subtitle="Organisme de formation certifié Qualiopi. L'Académie Festin réunit toutes les formations de l'association : des formations courtes pour les équipes de restaurants, des parcours diplômants pour les personnes en insertion."
-        breadcrumb={[{label:'Accueil',href:'#/'},{label:"L'Académie Festin"}]}
-      />
+    <div className="gpage" ref={root} data-screen-label="Académie Festin" style={{ '--pc': 'var(--gold-ink)' }}>
+      <window.HeroPage tone="gold" kicker="Former · Organisme de formation depuis 2026"
+        title="L'Académie" accent="Festin"
+        proof="L'organisme de formation de l'association, certifié Qualiopi : des parcours diplômants pour apprendre un métier, et des formations courtes pour les équipes en poste."
+        img="images/photo-cuisine-formation.jpg" imgAlt="Séance de formation en cuisine"
+        crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Former' }, { label: "L'Académie Festin" }]}>
+        <div className="g-herocta">
+          <a className="btnb btnb--teal" href="#/formations">Voir les formations <span className="arrow" aria-hidden="true">→</span></a>
+          <a className="g-herolnk" href="#/contact">Nous écrire <span className="arrow" aria-hidden="true">→</span></a>
+        </div>
+      </window.HeroPage>
 
-      {/* Section 1 — Présentation */}
-      <section style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
-        <div className="stack-sm container" style={{display:'grid', gridTemplateColumns:'1.3fr 1fr', gap:80, alignItems:'flex-start'}}>
-          {/* Gauche */}
-          <div>
-            <h2 className="h2" style={{marginTop:8, marginBottom:20}}>Former <em className="accent">autrement</em></h2>
-            <p className="lede" style={{color:'var(--ink-mid)', lineHeight:1.7}}>
-              Festin forme sur le terrain depuis 1987. En 2026, l'association en fait un organisme de formation : l'Académie Festin, certifiée Qualiopi, co-portée avec Estello Formation. Trois choses tiennent ses parcours : l'exigence de la cuisine, le suivi social des personnes formées, la connaissance du secteur.
-            </p>
-            <div style={{display:'flex', alignItems:'center', gap:14, marginTop:28, padding:'16px 20px', background:'var(--cream)', borderRadius:12, border:'1px solid var(--line)'}}>
-              <img src={window.FESTIN_DATA.brand.qualiopi} alt="Logo Qualiopi" loading="lazy"
-                style={{height:48, width:'auto', objectFit:'contain'}}
-                onError={(e) => { e.currentTarget.style.display='none'; }}/>
-              <span style={{fontSize:13, color:'var(--ink-mid)', lineHeight:1.4}}>
-                Certifié Qualiopi<br/><strong style={{color:'var(--ink)'}}>Au titre des actions de formation</strong>
-              </span>
+      <section className="g-sec g-sec--white" aria-labelledby="aca-bref-t">
+        <div className="wrap g-bref">
+          <div className="g-bref__txt">
+            <span className="g-tag g-reveal"><span className="g-tag__dot" aria-hidden="true" />Un projet de l'association Festin · Former</span>
+            <h2 className="g-h2 g-reveal" id="aca-bref-t">Former sur le terrain, <em>avec un diplôme.</em></h2>
+            <p className="g-lede g-reveal">Festin forme sur le terrain depuis 1987. En 2026, l'association en fait un organisme de formation, l'Académie Festin, co-portée avec Estello Formation. Ses parcours tiennent à trois choses : l'exigence de la cuisine, le suivi social des personnes formées, la connaissance du secteur.</p>
+            <div className="aca-qualiopi g-reveal">
+              <img src={D.brand.qualiopi} alt="Logo Qualiopi" loading="lazy" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+              <span>Certifiée Qualiopi<br /><b>au titre des actions de formation</b></span>
             </div>
           </div>
-          {/* Droite — 3 piliers */}
-          <div style={{display:'flex', flexDirection:'column', gap:24}}>
-            {[
-              { icon:'award',     title:'Des diplômes reconnus',       desc:"CAP cuisine (Éducation nationale), titre à finalité professionnelle de commis de cuisine, DCL (diplôme de compétence en langue)." },
-              { icon:'users',     title:'Un format pour chaque public', desc:'Des parcours de quatre à onze mois pour apprendre un métier. Des sessions de trois heures à deux jours pour les équipes en poste.' },
-              { icon:'handshake', title:'Des stages chez des restaurateurs',  desc:'Les parcours comptent de 155 à 490 heures de stage, chez des partenaires comme Les Grandes Tables, Sofitel ou Les Bords de Mer.' },
-            ].map((item, i) => (
-              <div key={i} style={{display:'flex', gap:16, alignItems:'flex-start', padding:20, background:'var(--off-white)', borderRadius:12, border:'1px solid var(--line)'}}>
-                <div style={{width:44, height:44, borderRadius:10, background:'var(--cream)', display:'grid', placeItems:'center', flexShrink:0}}>
-                  <i data-lucide={item.icon} style={{width:20, height:20, color:'var(--teal)'}}/>
-                </div>
-                <div>
-                  <h4 style={{fontSize:15, fontWeight:700, margin:'0 0 6px', color:'var(--ink)'}}>{item.title}</h4>
-                  <p style={{fontSize:13, color:'var(--ink-mid)', lineHeight:1.5, margin:0}}>{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <window.Cartes items={[
+            { color: 'var(--gold-ink)', title: 'Des diplômes reconnus', desc: "CAP cuisine (Éducation nationale), titre à finalité professionnelle de commis de cuisine, DCL (diplôme de compétence en langue)." },
+            { color: 'var(--teal)', title: 'Un format par public', desc: 'Des parcours de quatre à onze mois pour apprendre un métier ; des sessions de trois heures à deux jours pour les équipes en poste.' },
+            { color: 'var(--coral)', title: 'Des stages en restaurant', desc: 'De 155 à 490 heures de stage, chez des partenaires comme Les Grandes Tables, Sofitel ou Les Bords de Mer.' },
+          ]} />
         </div>
       </section>
 
-      {/* LE BESOIN — ce que dit le marché du travail local (source : dossier d'habilitation RNCP) */}
-      <section className="on-dark" style={{padding:'var(--s-8) 0', background:'var(--teal-dark)', color:'var(--off-white)'}}>
-        <div className="container">
-          <h2 className="h2" style={{color:'var(--off-white)', marginTop:8, marginBottom:16, maxWidth:'22ch'}}>
-            Un secteur qui <em className="accent">recrute</em>
-          </h2>
-          <p className="lede" style={{color:'rgba(255,255,255,0.82)', maxWidth:'62ch', marginBottom:36}}>
-            À Marseille et dans les Bouches-du-Rhône, la restauration cherche des personnes formées.
-            C'est ce qui rend ces parcours utiles, pour celles et ceux qui les suivent comme pour les
-            établissements qui recrutent.
-          </p>
-          <div className="stack-sm-2" style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:16}}>
-            {[
-              { n: '77 240', l: "projets de recrutement dans les Bouches-du-Rhône, tous secteurs" },
-              { n: '2 sur 3', l: "recrutements de cuisiniers jugés difficiles par les employeurs" },
-              { n: '500+',   l: "offres actives en restauration sur le seul territoire marseillais" },
-            ].map((s2, i) => (
-              <div key={i} style={{background:'rgba(255,255,255,0.06)', border:'1px solid rgba(255,255,255,0.14)', borderRadius:14, padding:24}}>
-                <div style={{fontSize:34, fontWeight:700, color:'var(--gold)', lineHeight:1, letterSpacing:'-0.02em'}}>{s2.n}</div>
-                <div style={{fontSize:13, color:'rgba(255,255,255,0.78)', marginTop:10, lineHeight:1.45}}>{s2.l}</div>
-              </div>
-            ))}
-          </div>
-          <p style={{fontSize:12, color:'rgba(255,255,255,0.6)', marginTop:20}}>
-            Source : enquête Besoins en main-d'œuvre, France Travail.
-          </p>
+      <section className="g-sec g-sec--cream" aria-labelledby="aca-besoin-t">
+        <div className="wrap">
+          <window.GHead id="aca-besoin-t" split title="Un secteur" accent="qui recrute."
+            lede="À Marseille et dans les Bouches-du-Rhône, la restauration cherche des personnes formées : ces parcours servent celles et ceux qui les suivent, et les établissements qui recrutent." />
+          <window.Preuves lignes={[
+            "<b>77 240</b> projets de recrutement dans les Bouches-du-Rhône, tous secteurs confondus.",
+            "Les employeurs jugent difficiles <b>2 recrutements de cuisiniers sur 3</b>.",
+            "Plus de <b>500 offres</b> actives en restauration, sur le seul territoire marseillais.",
+          ]} source="Source : enquête Besoins en main-d'œuvre, France Travail." />
         </div>
       </section>
 
-      {/* Section 2 — Double entrée public */}
-      <section style={{padding:'var(--s-9) 0', background:'var(--cream)'}}>
-        <div className="container">
-          <div style={{maxWidth:760, marginBottom:48}}>
-            <h2 className="h2" style={{marginTop:8}}>À chacun sa <em className="accent">formation</em></h2>
+      <window.Portes id="aca-portes" title="À chacun" accent="sa formation." tone="white" portes={[
+        { tag: 'Vous cherchez un métier', title: 'Un parcours diplômant, gratuit',
+          pts: ['CAP cuisine ou titre de commis de cuisine, avec des stages en restaurant.', 'Un suivi individuel jusqu’à l’emploi.'],
+          cta: 'Voir les parcours', href: '#/accompagnement/insertion', img: 'images/photo-tabliers-violets.jpg' },
+        { tag: 'Vous êtes du secteur', title: 'Une formation pour vos équipes',
+          pts: ['Management juste, prévention des violences sexistes et sexuelles, recrutement inclusif.', 'Inter ou intra ; prise en charge OPCO possible.'],
+          cta: 'Voir les formations', href: '#/formations', img: 'images/photo-cuisine-action.jpg' },
+      ]} />
+
+      <section className="g-sec g-sec--cream" aria-labelledby="aca-cat-t">
+        <div className="wrap">
+          <window.GHead id="aca-cat-t" split title="Le catalogue" accent="2026."
+            lede={diplomantes.length + ' parcours diplômants et ' + pros.length + ' formations courtes. Chaque fiche donne la durée, le format, le public et le financement.'} />
+          <div className="formations__grid">
+            {D.formations.slice(0, 4).map((f) => <FormationCardLink key={f.id} f={f} />)}
           </div>
-          <div className="stack-sm" style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:24}}>
-            <a href="#/formations" className="formation-card" style={{textDecoration:'none'}}>
-              <div className="formation-card__body" style={{padding:32}}>
-                <div style={{width:56, height:56, borderRadius:14, background:'var(--cream)', display:'grid', placeItems:'center', marginBottom:20}}>
-                  <i data-lucide="briefcase" style={{width:24, height:24, color:'var(--teal)'}}/>
-                </div>
-                <h3 style={{fontSize:'var(--fs-h3)', fontWeight:700, margin:'8px 0 12px'}}>Vous êtes professionnel de la restauration</h3>
-                <p style={{fontSize:15, color:'var(--ink-mid)', lineHeight:1.6, marginBottom:20}}>Des formations courtes en management juste, en prévention des violences sexistes et sexuelles et en recrutement inclusif.</p>
-                <span className="lnk">Voir les formations professionnelles <i data-lucide="arrow-right" style={{width:14,height:14}}/></span>
-              </div>
-            </a>
-            <a href="#/accompagnement/insertion" className="formation-card" style={{textDecoration:'none'}}>
-              <div className="formation-card__body" style={{padding:32}}>
-                <div style={{width:56, height:56, borderRadius:14, background:'var(--cream)', display:'grid', placeItems:'center', marginBottom:20}}>
-                  <i data-lucide="star" style={{width:24, height:24, color:'var(--gold-ink)'}}/>
-                </div>
-                <h3 style={{fontSize:'var(--fs-h3)', fontWeight:700, margin:'8px 0 12px'}}>Vous cherchez un métier</h3>
-                <p style={{fontSize:15, color:'var(--ink-mid)', lineHeight:1.6, marginBottom:20}}>Des parcours diplômants, gratuits, pour entrer dans les métiers de la cuisine.</p>
-                <span className="lnk">Découvrir les parcours d'insertion <i data-lucide="arrow-right" style={{width:14,height:14}}/></span>
-              </div>
-            </a>
-          </div>
+          <p className="g-src"><a href="#/formations">Toutes les formations →</a> L'Académie Festin est co-portée avec Estello Formation, organisme spécialisé dans les métiers de l'hôtellerie-restauration.</p>
         </div>
       </section>
 
-      {/* Section 3 — Formations teaser */}
-      <FormationsTeaser />
-
-      {/* Section 4 — Partenaire Estello */}
-      <section className="on-dark" style={{background:'var(--teal-dark, var(--teal-deep))', color:'var(--off-white)', padding:'var(--s-8) 0', textAlign:'center'}}>
-        <div className="container" style={{maxWidth:680}}>
-          <h2 className="h2" style={{color:'var(--off-white)', marginTop:10, marginBottom:16}}>En partenariat avec <em className="accent">Estello Formation</em></h2>
-          <p style={{fontSize:17, color:'rgba(255,255,255,0.78)', lineHeight:1.7, marginBottom:28}}>
-            L'Académie Festin est co-portée avec Estello Formation, organisme spécialisé dans les formations aux métiers de l'hôtellerie-restauration.
-          </p>
-          {/* [À COMPLÉTER] site d'Estello Formation : estelloformation.com répond 404 (24/09/2026) */}
-        </div>
-      </section>
+      <window.MissionsNav currentId="academie" />
     </div>
   );
 }
@@ -568,6 +481,14 @@ function AcademiePage() {
 // ─────────────────────────────────────────────────────────────────────────────
 // ACTUALITÉS PAGE — toutes les retombées presse
 // ─────────────────────────────────────────────────────────────────────────────
+// Date d'un article de presse : « nov. 2025 »
+function fmtDatePresse(iso) {
+  if (!iso) return '';
+  const d = new Date(iso + 'T12:00:00');
+  if (isNaN(d)) return iso;
+  return d.toLocaleDateString('fr-FR', { month: 'short', year: 'numeric' });
+}
+
 function ActualitesPage() {
   const D = window.FESTIN_DATA;
   const allPresse = (D.presse || []).slice().sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -623,16 +544,16 @@ function ActualitesPage() {
         </div>
       </section>
 
-      {/* Espace presse : famille teal */}
-      <section className="isec isec--teal on-dark" aria-labelledby="actu-kit">
+      {/* Espace presse : famille or pâle (plus d'aplat sombre dans le corps de page) */}
+      <section className="isec isec--gold apkit-sec" aria-labelledby="actu-kit">
         <div className="wrap apkit">
           <div>
             <h2 className="isec__h" id="actu-kit">Espace <em>presse</em></h2>
             <p className="isec__lede">Demandes d'interview, visuels, chiffres : écrivez à <a href="mailto:contact@grandfestin.com">contact@grandfestin.com</a>, à l'attention d'Iris Hutin, chargée de projet Communication. Nos rapports d'activité sont sur la <a href="#/impact">page Impact</a>.</p>
             <div className="apkit__logos">
-              <a className="btnb btnb--gold" href="images/logo-festin.png" download>Logo Festin, couleur</a>
-              <a className="btnb btnb--ghost" href="images/logo-festin-jaune.png" download>Logo Festin, jaune</a>
-              <a className="btnb btnb--ghost" href="images/logo-academie-festin.png" download>Logo Académie Festin</a>
+              <a className="btnb btnb--teal" href="images/logo-festin.png" download>Logo Festin, couleur</a>
+              <a className="lnk" href="images/logo-festin-jaune.png" download>Logo Festin, jaune</a>
+              <a className="lnk" href="images/logo-academie-festin.png" download>Logo Académie Festin</a>
             </div>
           </div>
           <div className="apkit__facts">
