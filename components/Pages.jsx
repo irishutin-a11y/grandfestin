@@ -1003,7 +1003,7 @@ function ActualitesPage() {
         proof="Le Grand Festin, les masterclass, les rencontres de Restaure : les moments de l'année en images. Puis les articles, reportages et podcasts sur nos projets."
         crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Actualités' }]} />
 
-      <window.TempsForts items={D.tempsForts || []} label="Temps forts" />
+      <window.TempsForts items={D.tempsForts || []} />
 
       {/* Presse : liste filtrable */}
       <section className="isec isec--white" aria-labelledby="actu-presse">
