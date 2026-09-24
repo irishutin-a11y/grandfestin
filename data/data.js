@@ -903,6 +903,69 @@ window.FESTIN_DATA.meganav = {
 // ============================================================
 //  HOME — copy éditoriale (portée depuis maquettes/home-b.html)
 // ============================================================
+// ============================================================
+//  PAGE IMPACT (reconstruite le 24/09/2026)
+//  Sources : rapports d'activité Festin 2022, 2023, 2024 (Drive) et 2025
+//  (rapport-activite-2025_v441-83_REFERENCE) ; étude d'impact Koreis,
+//  décembre 2023 (Des Étoiles et des Femmes, 3 à 5 ans après la formation).
+// ============================================================
+window.FESTIN_DATA.impact = {
+  hero: {
+    kicker: "Notre impact",
+    title: "Année après année,", titleAccent: "des métiers et des contrats.",
+    proof: "Quatre rapports d'activité publics, de 2022 à 2025. Les chiffres ci-dessous en viennent tous.",
+    img: "images/photo-applaudissements.jpg", imgAlt: "Une promotion en tenue de cuisine applaudit, dans la cuisine de formation",
+  },
+  // Série annuelle, tous dispositifs Festin confondus
+  annees: [
+    { year: "2022", personnes: 349, sorties: 126, emploi: 116, taux: 92 },
+    { year: "2023", personnes: 427, sorties: 172, emploi: 142, taux: 83 },
+    { year: "2024", personnes: 421, sorties: 203, emploi: 151, taux: 74 },
+    { year: "2025", personnes: 441, sorties: null, emploi: null, taux: 83 },
+  ],
+  serieNote: "Sorties : personnes sorties dans l'année après au moins trois mois dans un programme. Le rapport 2025 publie le taux sans le détail des effectifs.",
+  // Durée : l'étude Koreis suit les anciennes stagiaires 3 à 5 ans après
+  duree: {
+    title: "Trois à cinq ans après,", titleAccent: "elles travaillent.",
+    lede: "En 2023, le cabinet Koreis a retrouvé les anciennes stagiaires de Des Étoiles et des Femmes, trois à cinq ans après leur formation.",
+    faits: [
+      { n: "73 %", t: "sont en emploi.", d: "Contre 40 % des femmes des quartiers prioritaires, au niveau national." },
+      { n: "60 %", t: "de celles qui travaillent sont en CDI.", d: "Et 71 % sont à temps complet." },
+      { n: "1 sur 4", t: "est devenue cheffe ou cheffe de partie.", d: "Des postes à responsabilité, en brigade." },
+    ],
+    source: "Source : mesure d'impact social du programme Des Étoiles et des Femmes, cabinet Koreis, décembre 2023.",
+  },
+  projets: [
+    { id: "des-etoiles-et-des-femmes", n: "1 200", t: "femmes accompagnées depuis 2015", d: "13 antennes en France. 91 % de réussite aux diplômes en 2025." },
+    { id: "les-beaux-mets", n: "119", t: "personnes détenues ont travaillé en brigade depuis 2022", d: "En 2023, 82 % sont entrées en emploi ou en formation à leur sortie de détention." },
+    { id: "la-table-de-cana", n: "84 %", t: "de sorties positives en 2024", d: "Traiteur et restauration collective en insertion, le premier projet de l'association." },
+    { id: "tournesol", n: "86 %", t: "des stagiaires en emploi un an après", d: "Cinq mois de formation pour des personnes réfugiées ou primo-arrivantes, avec Refugee Food." },
+    { id: "restaure", n: "700", t: "signataires du manifeste", d: "35 structures engagées contre les violences en cuisine." },
+  ],
+  annee2025: {
+    title: "2025", titleAccent: "en quatre chiffres",
+    lien: { label: "Les temps forts de l'année", href: "#/actualites" },
+  },
+  rapports: [
+    { year: "2025", url: "https://drive.google.com/file/d/1dymsU5cV00adUDLBz7zLEQYWa_t_-70z/view?usp=sharing", resume: "441 personnes accompagnées, 83 % de sorties en emploi ou en formation, 14 territoires. Les dix ans de Des Étoiles et des Femmes." },
+    { year: "2024", url: "https://drive.google.com/file/d/1SxibbIWJkudH9Yd21vz9synn5vjeMwep/view?usp=sharing", resume: "421 personnes accompagnées. Délégations de service public du ministère du Travail en Île-de-France et dans les Hauts-de-France." },
+    { year: "2023", url: "https://drive.google.com/file/d/14rMQDaahmxp978Woh_dP8TwWL65Cu3Bc/view?usp=sharing", resume: "427 personnes accompagnées. Première année pleine des Beaux Mets, lancement de Tournesol, étude d'impact Koreis." },
+    { year: "2022", url: "https://drive.google.com/file/d/1S3p13F2abtwOqXLHTto_TPeSeRzxZfya/view?usp=sharing", resume: "349 personnes accompagnées. L'association Départ devient Festin ; Les Beaux Mets ouvre le 15 novembre." },
+  ],
+  prix: [
+    { year: "2025", title: "Label LUCIE Progress", org: "848 sur 1 000 pour La Table de Cana Marseille" },
+    { year: "2025", title: "Label Empl'itude renouvelé", org: "La Table de Cana, label obtenu en 2019" },
+    { year: "2025", title: "Sous-traitant du Greta", org: "Marché de la formation professionnelle, Région Sud" },
+    { year: "2024", title: "Délégations de service public", org: "Ministère du Travail, Île-de-France et Hauts-de-France, pour trois ans" },
+    { year: "2023", title: "Acteurs clés de changement", org: "Lauréat, Fondation de France" },
+    { year: "2023", title: "Prix Futur(e)s Food", org: "Les Beaux Mets, catégorie expérience, Sirha" },
+    { year: "2023", title: "Pépites 2023", org: "Les Beaux Mets, Fondation de France" },
+    { year: "2022", title: "Fondation des Femmes", org: "Distinction pour l'accompagnement des femmes vers l'autonomie" },
+    { year: "2020", title: "Plan d'investissement dans les compétences", org: "Sélection au PIC, ministère du Travail" },
+    { year: "2019", title: "La France s'engage", org: "Lauréat, Des Étoiles et des Femmes" },
+  ],
+};
+
 // Bloc de clôture commun à toutes les pages (Sections.jsx, FinDePage)
 window.FESTIN_DATA.fin = {
   title: "Vous avez un projet ?", accent: "Parlons-en.",

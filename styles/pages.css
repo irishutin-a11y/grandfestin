@@ -1,0 +1,110 @@
+/* ============================================================
+   pages.css — pages intérieures de la reprise (24/09/2026)
+   Hero partagé (HeroPage), sections tonales, page Impact.
+   Tailles, espacements et mouvements : variables de _tokens.css uniquement.
+   ============================================================ */
+
+/* ---------- HERO DES PAGES INTÉRIEURES ---------- */
+.hp{position:relative;overflow:hidden;padding:clamp(128px,16vh,176px) 0 var(--sp-9)}
+.hp--teal{background:var(--teal);color:var(--off-white);--trait-color:var(--teal-dark)}
+.hp--deep{background:var(--teal-dark);color:var(--off-white);--trait-color:#164B53}
+.hp--gold{background:var(--gold);color:var(--teal-deep);--trait-color:var(--gold-secondary)}
+.hp__trait{opacity:.85}
+.hp__grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(32px,5vw,88px);align-items:center}
+.hp--img .hp__grid{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr)}
+.hp__crumb{font-size:var(--fs-small);margin-bottom:var(--sp-6);opacity:.85}
+.hp__crumb a{color:inherit;text-decoration:underline;text-underline-offset:4px}
+.hp__kicker{display:block;margin-bottom:var(--sp-5);color:var(--gold-light)}
+.hp--gold .hp__kicker{color:var(--teal-dark)}
+.hp__t{margin:0;font-size:var(--fs-h1);font-weight:700;text-transform:uppercase;line-height:var(--lh-display);letter-spacing:var(--tracking-tight);color:inherit;max-width:14ch}
+.hp__t em{display:block;color:var(--gold-light)}
+.hp--gold .hp__t em{color:var(--teal-dark)}
+.hp__proof{margin:var(--sp-6) 0 0;font-size:var(--fs-lede);line-height:1.5;max-width:48ch;color:inherit;opacity:.92}
+.hp__more{margin-top:var(--sp-6)}
+.hp__note{margin:var(--sp-5) 0 0;font-size:var(--fs-small);opacity:.8;max-width:56ch}
+.hp__media{margin:0;aspect-ratio:4/5;border-radius:clamp(24px,3vw,40px);overflow:hidden;box-shadow:0 30px 80px rgba(6,33,31,.3)}
+.hp__media img{width:100%;height:100%;object-fit:cover}
+@media(max-width:900px){.hp--img .hp__grid{grid-template-columns:1fr}.hp__media{aspect-ratio:4/3}}
+
+/* ---------- SECTIONS TONALES (une famille de couleur par section) ---------- */
+.isec{padding:var(--section) 0}
+.isec--white{background:var(--off-white);color:var(--ink)}
+.isec--cream{background:var(--cream);color:var(--ink)}
+.isec--gold{background:var(--gold-pale);color:var(--teal-dark)}
+.isec--teal{background:var(--teal);color:var(--off-white)}
+.isec__h{margin:0;font-size:var(--fs-h2);font-weight:700;text-transform:uppercase;line-height:var(--lh-tight);letter-spacing:var(--tracking-tight);color:inherit;max-width:18ch}
+.isec__h em{color:var(--teal)}
+.isec--gold .isec__h em{color:var(--gold-ink)}
+.isec--teal .isec__h em{color:var(--gold-light)}
+.isec__lede{margin:var(--sp-5) 0 0;font-size:var(--fs-lede);line-height:1.55;max-width:var(--measure);color:inherit}
+.isec__note{margin:var(--sp-7) 0 0;font-size:var(--fs-small);line-height:1.5;color:var(--ink-mid);max-width:70ch}
+.isec--gold .isec__note{color:var(--teal-dark)}
+.reveal{opacity:0;transform:translateY(28px)}
+.reveal.is-in{opacity:1;transform:none;transition:opacity var(--dur-3) var(--ease-out),transform var(--dur-4) var(--ease-out)}
+
+/* ---------- IMPACT : graphiques ---------- */
+.icharts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(32px,5vw,80px);margin-top:var(--sp-8)}
+.ichart{margin:0}
+.ichart__t{font-size:var(--fs-h3);font-weight:700;text-transform:uppercase;line-height:var(--lh-snug);color:var(--ink);margin-bottom:var(--sp-6)}
+.ichart__plot{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--sp-5);height:clamp(240px,28vw,340px);align-items:end;border-bottom:1.5px solid var(--line-strong)}
+.ibar{position:relative;display:grid;grid-template-rows:auto 1fr;height:100%;outline-offset:6px;cursor:default}
+.ibar__v{font-size:var(--fs-h3);font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums;padding-bottom:var(--sp-2)}
+.ibar__track{position:relative;display:flex;align-items:flex-end}
+.ibar__fill{display:block;width:100%;max-width:72px;background:var(--teal);border-radius:4px 4px 0 0;transition:background var(--dur-2) var(--ease-quart)}
+.ibar:hover .ibar__fill,.ibar:focus-visible .ibar__fill{background:var(--teal-dark)}
+.ibar__l{position:absolute;left:0;bottom:calc(-1 * var(--sp-6));font-size:var(--fs-small);font-weight:700;color:var(--ink-mid)}
+.ibar__tip{position:absolute;left:0;bottom:calc(100% + 8px);z-index:3;width:max-content;max-width:220px;padding:10px 12px;border-radius:8px;background:var(--teal-deep);color:var(--off-white);font-size:var(--fs-small);line-height:1.35;opacity:0;transform:translateY(4px);pointer-events:none;transition:opacity var(--dur-2) var(--ease-quart),transform var(--dur-2) var(--ease-quart)}
+.ibar:hover .ibar__tip,.ibar:focus-visible .ibar__tip{opacity:1;transform:none}
+.ichart__table{margin-top:var(--sp-8);font-size:var(--fs-small)}
+.ichart__table summary{cursor:pointer;color:var(--teal);font-weight:700;text-decoration:underline;text-underline-offset:4px}
+.ichart__table table{margin-top:var(--sp-4);border-collapse:collapse;width:100%}
+.ichart__table th,.ichart__table td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+@media(max-width:900px){.icharts{grid-template-columns:1fr}}
+
+/* ---------- IMPACT : dans la durée ---------- */
+.ifaits{list-style:none;margin:var(--sp-8) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,4vw,56px)}
+.ifait{display:flex;flex-direction:column;gap:var(--sp-3);padding-top:var(--sp-5);border-top:2px solid rgba(15,60,68,.2)}
+.ifait__n{font-size:var(--fs-stat);font-weight:700;line-height:.95;letter-spacing:-.03em;color:var(--teal-dark);font-variant-numeric:tabular-nums}
+.ifait__t{font-size:var(--fs-h3);font-weight:700;line-height:var(--lh-snug);color:var(--teal-dark)}
+.ifait__d{font-size:var(--fs-body);line-height:var(--lh-normal);color:var(--teal-dark);opacity:.85}
+@media(max-width:900px){.ifaits{grid-template-columns:1fr}}
+
+/* ---------- IMPACT : projet par projet ---------- */
+.iprojets{list-style:none;margin:var(--sp-8) 0 0;padding:0}
+.iprojet{display:grid;grid-template-columns:minmax(120px,.7fr) minmax(0,2fr) minmax(0,1fr);gap:var(--sp-6);align-items:baseline;padding:var(--sp-6) 0;border-top:1.5px solid var(--line-strong);color:var(--ink);text-decoration:none}
+.iprojets li:last-child .iprojet{border-bottom:1.5px solid var(--line-strong)}
+.iprojet__n{font-size:var(--fs-h2);font-weight:700;line-height:1;letter-spacing:-.03em;color:var(--teal);white-space:nowrap;font-variant-numeric:tabular-nums}
+.iprojet__body{display:flex;flex-direction:column;gap:var(--sp-2)}
+.iprojet__t{font-size:var(--fs-h3);font-weight:700;line-height:var(--lh-snug)}
+.iprojet__d{font-size:var(--fs-body);color:var(--ink-mid);max-width:56ch}
+.iprojet__name{justify-self:end;font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:var(--fs-small);color:var(--teal)}
+.iprojet:hover .iprojet__n{color:var(--teal-dark)}
+.iprojet:hover .arrow{transform:translateX(5px)}
+@media(max-width:900px){.iprojet{grid-template-columns:1fr;gap:var(--sp-2)}.iprojet__name{justify-self:start;margin-top:var(--sp-2)}}
+
+/* ---------- IMPACT : 2025 ---------- */
+.i2025{list-style:none;margin:var(--sp-8) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--sp-6)}
+.i2025 li{display:flex;flex-direction:column;gap:var(--sp-3)}
+.i2025__n{font-size:var(--fs-stat);font-weight:700;line-height:.95;letter-spacing:-.03em;color:var(--gold-light);font-variant-numeric:tabular-nums;white-space:nowrap}
+.i2025__l{font-size:var(--fs-body);line-height:1.45;color:var(--off-white);max-width:24ch}
+.i2025__lnk{display:inline-flex;gap:8px;margin-top:var(--sp-8);color:var(--off-white);font-weight:700;text-decoration:underline;text-underline-offset:6px;text-decoration-color:var(--gold-light);text-decoration-thickness:2px}
+.i2025__lnk:hover .arrow{transform:translateX(5px)}
+@media(max-width:900px){.i2025{grid-template-columns:1fr 1fr}}
+
+/* ---------- IMPACT : rapports ---------- */
+.irapports{list-style:none;margin:var(--sp-8) 0 0;padding:0}
+.irapport{display:grid;grid-template-columns:minmax(120px,.6fr) minmax(0,2fr) auto;gap:var(--sp-6);align-items:center;padding:var(--sp-6) 0;border-top:1.5px solid var(--line-strong);color:var(--ink);text-decoration:none}
+.irapports li:last-child .irapport{border-bottom:1.5px solid var(--line-strong)}
+.irapport__y{font-size:var(--fs-h1);font-weight:700;line-height:.9;letter-spacing:-.04em;color:var(--teal-dark);font-variant-numeric:tabular-nums;transition:color var(--dur-2) var(--ease-quart)}
+.irapport__r{font-size:var(--fs-body);line-height:1.5;color:var(--ink-mid);max-width:58ch}
+.irapport__dl{font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:var(--fs-small);color:var(--teal);white-space:nowrap}
+.irapport:hover .irapport__y{color:var(--teal)}
+@media(max-width:900px){.irapport{grid-template-columns:1fr;gap:var(--sp-2)}}
+
+/* ---------- IMPACT : prix ---------- */
+.iprix{list-style:none;margin:var(--sp-8) 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(260px,100%),1fr));gap:var(--sp-6) var(--sp-7)}
+.iprix li{display:flex;flex-direction:column;gap:var(--sp-1);padding-top:var(--sp-4);border-top:2px solid var(--gold)}
+.iprix__y{font-size:var(--fs-small);font-weight:700;color:var(--gold-ink);font-variant-numeric:tabular-nums}
+.iprix__t{font-size:var(--fs-body);font-weight:700;color:var(--ink);line-height:1.3}
+.iprix__o{font-size:var(--fs-small);color:var(--ink-mid);line-height:1.45}
+.ichart__t{min-height:calc(2em * 1.15)}

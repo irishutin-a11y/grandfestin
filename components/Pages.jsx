@@ -718,248 +718,166 @@ function ProjetPage({ id }) {
 
 // Pages Insertion et Acteurs du secteur : voir components/Accompagnement.jsx
 
-// ---------- IMPACT PAGE ----------
-function ImpactPage() {
+// ---------- IMPACT (reconstruite le 24/09/2026) ----------
+// L'impact général de Festin, pas seulement 2025 : série annuelle tirée des
+// quatre rapports publics, effet dans la durée (étude Koreis), un chiffre par
+// projet, 2025 en une section, tous les rapports, les reconnaissances.
+// Données : FESTIN_DATA.impact (data.js), sources en commentaire.
+
+// Barres verticales, une série, une couleur. Survol et focus : détail.
+// Un tableau (details) donne les mêmes valeurs sans le graphique.
+function ImpactBars({ title, unit = '', items, max, caption }) {
+  const ref = React.useRef(null);
   React.useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion:reduce)').matches || !window.gsap || !window.ScrollTrigger) return;
-    const els = document.querySelectorAll('.impact-count');
-    els.forEach(el => {
-      const end = parseFloat(el.dataset.count), o = { v: 0 };
-      if (isNaN(end)) return;
-      el.textContent = '0';
-      window.gsap.to(o, { v: end, duration: 1.4, ease: 'expo.out', onUpdate: () => { el.textContent = Math.round(o.v); },
-        scrollTrigger: { trigger: el, start: 'top 90%', once: true } });
-    });
+    const g = window.gsap, el = ref.current;
+    if (!g || !el || (window.FESTIN_RM && window.FESTIN_RM())) return;
+    const tw = g.from(el.querySelectorAll('.ibar__fill'), { scaleY: 0, transformOrigin: '50% 100%', duration: 1.1, stagger: 0.1,
+      scrollTrigger: { trigger: el, start: 'top 80%', once: true } });
+    return () => { tw.scrollTrigger && tw.scrollTrigger.kill(); tw.kill(); };
   }, []);
-  // Données vérifiées (source : Plaquette Offre restaurateurs Festin 2025).
-  // Toutes les autres séries seront alimentées depuis le rapport d'activité.
-  // Source : Rapport d'activité Festin 2025
-
-  const rapports = [
-    {
-      year: '2025',
-      url: "https://drive.google.com/file/d/1dymsU5cV00adUDLBz7zLEQYWa_t_-70z/view?usp=sharing",
-      title: "Rapport d'activité 2025",
-      desc: "441 personnes accompagnées tous dispositifs confondus, 83 % de sorties en emploi ou formation. Les dix ans de Des Étoiles et des Femmes, la formation Tournesol, la consolidation du programme Restaure.",
-      size: "PDF",
-    },
-    {
-      year: '2024',
-      url: "https://drive.google.com/file/d/1SxibbIWJkudH9Yd21vz9synn5vjeMwep/view?usp=sharing",
-      title: "Rapport d'activité 2024",
-      desc: "Plus de 300 femmes accompagnées par Des Étoiles et des Femmes, le lancement du Club des Talents à La Table de Cana, et des délégations de service public du ministère du Travail.",
-      size: "PDF",
-    },
-    {
-      year: '2023',
-      url: "https://drive.google.com/file/d/1J67VBmxYVh8WEmvzWL57WAWSkNeJs-0N/view?usp=sharing",
-      title: "Rapport d'activité 2023",
-      desc: "Le rapport d'activité de l'année 2023.",
-      size: "PDF",
-    },
-    {
-      year: '2022',
-      url: "https://drive.google.com/file/d/1S3p13F2abtwOqXLHTto_TPeSeRzxZfya/view?usp=sharing",
-      title: "Rapport d'activité 2022",
-      desc: "L'année de l'ouverture des Beaux Mets, le 15 novembre 2022.",
-      size: "PDF",
-    },
-  ];
-
-  const prix = [
-    { year: '2025', title: "Label LUCIE Progress",  org: "Agence LUCIE — 848 / 1000 pour La Table de Cana Marseille" },
-    { year: '2025', title: "Label Empl'itude renouvelé", org: "Obtenu initialement en 2019, renouvelé pour La Table de Cana" },
-    { year: '2025', title: "Marraine nationale", org: "Julia Sedefdjian rejoint le réseau Des Étoiles et des Femmes" },
-    { year: '2025', title: "Sous-traitant Greta — Région Sud", org: "Marché de la formation professionnelle, Région Sud" },
-    { year: '2024', title: "Délégations de service public", org: "Ministère du Travail — repérage et remobilisation, Île-de-France et Hauts-de-France, pour trois ans" },
-    { year: '2022', title: "Fondation des Femmes", org: "Distinction pour l'accompagnement des femmes vers l'autonomie" },
-    { year: '2020', title: "Plan d'Investissement dans les Compétences", org: "Sélection au PIC, ministère du Travail" },
-    { year: '2019', title: "Fondation la France s'engage", org: "Lauréat — Des Étoiles et des Femmes" },
-  ];
-
-  const presse = [
-    { name: "M6, Un jour un doc : « Un restaurant dans une prison » (novembre 2025)", href: "https://www.m6.fr/un-jour-un-doc-p_22196/un-restaurant-dans-une-prison-c_13151161" },
-    { name: "Le Monde : entretien avec Armand Hurault (février 2025)", href: "https://www.lemonde.fr/m-styles/article/2025/02/14/armand-hurault-directeur-de-festin-la-restauration-m-est-apparue-comme-l-un-des-rares-secteurs-d-activite-ou-l-origine-etrangere-peut-etre-une-valeur-ajoutee_6546308_4497319.html" },
-    { name: "Les Échos Weekend : « Les détenus s'en sortent par la cuisine » (novembre 2025)", href: "https://www.lesechos.fr/weekend/business-story/les-clients-sont-sympas-ils-font-des-bons-retours-dans-la-prison-des-baumettes-les-detenus-sen-sortent-par-la-cuisine-2196595" },
-    { name: "El País, repris par Courrier International (2026)", href: "https://www.courrierinternational.com/long-format/vu-d-espagne-au-restaurant-des-beaux-mets-a-marseille-des-detenus-mitonnent-leur-reinsertion_239702" },
-    { name: "Tous les articles de presse", href: "#/actualites" },
-  ];
-
   return (
-    <div data-screen-label="Notre impact">
-      <PageHeader
-        image="images/photo-applaudissements.jpg"
-        imageAlt="Cérémonie de fin de formation"
-        focus="center 38%"
-        eyebrow="Chiffres et rapports"
-        title="Ce que 2025"
-        accent="a changé"
-        subtitle="Ce que nos projets ont produit en 2025, d'après notre rapport d'activité : les résultats, les faits marquants, les comptes."
-        breadcrumb={[
-          {label:'Accueil', href:'#/'},
-          {label:'Notre impact'},
-        ]}
-      />
+    <figure className="ichart" ref={ref}>
+      <figcaption className="ichart__t">{title}</figcaption>
+      <div className="ichart__plot" role="list">
+        {items.map((it) => (
+          <div className="ibar" role="listitem" key={it.label} tabIndex={0} aria-label={it.label + ' : ' + it.value + unit + (it.detail ? '. ' + it.detail : '')}>
+            <span className="ibar__v">{it.value}{unit}</span>
+            <span className="ibar__track"><span className="ibar__fill" style={{ height: (it.value / max * 100) + '%' }} /></span>
+            <span className="ibar__l">{it.label}</span>
+            {it.detail && <span className="ibar__tip" role="tooltip">{it.detail}</span>}
+          </div>
+        ))}
+      </div>
+      <details className="ichart__table">
+        <summary>Voir les données en tableau</summary>
+        <table>
+          <thead><tr><th scope="col">Année</th><th scope="col">{title}</th><th scope="col">Détail</th></tr></thead>
+          <tbody>{items.map((it) => <tr key={it.label}><th scope="row">{it.label}</th><td>{it.value}{unit}</td><td>{it.detail || '—'}</td></tr>)}</tbody>
+        </table>
+      </details>
+      {caption && <p className="ichart__cap">{caption}</p>}
+    </figure>
+  );
+}
 
-      {/* L'année 2025 en une seule section : chiffres clés, faits marquants, budget.
-          Sources : rapport d'activité 2025. */}
-      <section style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
-        <div className="container">
-          <div style={{maxWidth:760, marginBottom:40}}>
-            <span className="eyebrow">L'année 2025</span>
-            <h2 className="h2">Ce qui a marqué <em className="accent">l'année</em></h2>
-          </div>
-          <div className="stack-sm-2" style={{display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:16}}>
-            {[...window.FESTIN_DATA.stats.slice(0,3).map(s => ({value: s.value, unit: s.unit, label: s.label})),
-              {value:'119', unit:'', label:'personnes employées aux Beaux Mets depuis 2022'},
-            ].map((s, i) => (
-              <div key={i} style={{background:'#fff', border:'1px solid var(--line)', borderRadius:14, padding:28}}>
-                <div style={{fontSize:42, fontWeight:700, color:'var(--teal)', lineHeight:1, letterSpacing:'-0.02em'}}><span className="impact-count" data-count={s.value}>{s.value}</span>{s.unit === '%' ? ' %' : s.unit}</div>
-                <div style={{fontSize:13, color:'var(--ink-mid)', marginTop:12, lineHeight:1.4}}>{s.label}</div>
-              </div>
-            ))}
-          </div>
-          <div className="stack-sm" style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:20, marginTop:20}}>
-            {[
-              {k:'Des Étoiles et des Femmes', t:'Le Grand Festin des dix ans', d:'Le 3 octobre : 14 brigades venues de tout le réseau, plus de 600 convives et plus de 100 bénévoles, sur le Vieux-Port de Marseille.'},
-              {k:'Des Étoiles et des Femmes', t:'Un partenariat avec le Greta', d:'Festin devient sous-traitant d\'une partie des heures de formation du marché de la Région Sud.'},
-              {k:'Des Étoiles et des Femmes', t:'Julia Sedefdjian, marraine nationale', d:'La cheffe rejoint le réseau pour les dix ans du programme.'},
-              {k:'Restaure', t:'Des vidéos vues plus de deux millions de fois', d:'Cinq tables rondes à Marseille, Toulouse et Lille, enregistrées en podcast. Des vidéos de prévention des violences en cuisine vues plus de deux millions de fois.'},
-              {k:'Les Beaux Mets', t:'Un documentaire de 45 minutes sur M6', d:'« Un jour un doc » lui consacre 45 minutes. La brigade lance aussi ses biscuits à emporter : navettes et croquants.'},
-              {k:'La Table de Cana', t:'LUCIE Progress et Empl\'itude', d:'Le label LUCIE Progress, avec 848 sur 1 000. Le label Empl\'itude, renouvelé. Et la naissance du collectif EPICES.'},
-              {k:'Tournesol', t:'Une formation portée avec Refugee Food', d:'Festin porte la formation avec Refugee Food et Estello Formation. Cinq mois, gratuits et rémunérés.'},
-              {k:'Restaure', t:'Cinq groupes de travail au démarrage', d:'Quatre structures pilotent désormais le programme. La formation « Management juste » est lancée.'},
-              {k:'Des Étoiles et des Femmes', t:'Une formation contre les violences sexistes et sexuelles', d:'Créée pour les professionnels de la restauration : cadre légal, cas réels en cuisine et en salle, protocole de signalement.'},
-            ].map((f, i) => (
-              <div key={i} style={{background:'#fff', border:'1px solid var(--line)', borderRadius:14, padding:24}}>
-                <span style={{fontSize:11, fontWeight:700, letterSpacing:'0.12em', textTransform:'uppercase', color:'var(--teal)'}}>{f.k}</span>
-                <h3 style={{fontSize:18, fontWeight:700, margin:'8px 0 8px', lineHeight:1.3}}>{f.t}</h3>
-                <p style={{fontSize:14, color:'var(--ink-mid)', lineHeight:1.6, margin:0}}>{f.d}</p>
-              </div>
-            ))}
-          </div>
+function ImpactPage() {
+  const D = window.FESTIN_DATA, I = D.impact;
+  const rootRef = React.useRef(null);
+  React.useEffect(() => {
+    const els = rootRef.current.querySelectorAll('.reveal');
+    if ((window.FESTIN_RM && window.FESTIN_RM()) || !window.ScrollTrigger) { els.forEach(e => e.classList.add('is-in')); return; }
+    const t = [...els].map(el => window.ScrollTrigger.create({ trigger: el, start: 'top 88%', once: true, onEnter: () => el.classList.add('is-in') }));
+    return () => t.forEach(x => x.kill());
+  }, []);
+  const byId = (id) => D.projets.find(p => p.id === id) || {};
+  const nb = (n) => n.toLocaleString('fr-FR');
+  return (
+    <div className="pageImpact" ref={rootRef} data-screen-label="Impact">
+      <window.HeroPage tone="deep" kicker={I.hero.kicker} title={I.hero.title} accent={I.hero.titleAccent} proof={I.hero.proof}
+        img={I.hero.img} imgAlt={I.hero.imgAlt}
+        crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Notre impact' }]} />
 
-          {/* Budget 2025 */}
-          <div style={{maxWidth:760, margin:'72px 0 40px'}}>
-            <span className="eyebrow">Synthèse financière 2025</span>
-            <h3 className="h2" style={{fontSize:'clamp(28px,3.4vw,44px)'}}>Un budget de <em className="accent">1,7 M€</em></h3>
-            <p className="lede" style={{marginTop:14}}>Quatre sources financent le budget 2025 : mécénat privé, subventions publiques, aides aux postes, chiffre d'affaires. Cette diversité protège l'autonomie de l'association.</p>
+      {/* Série annuelle : deux graphiques, jamais un double axe */}
+      <section className="isec isec--white" aria-labelledby="imp-serie">
+        <div className="wrap">
+          <h2 className="isec__h reveal" id="imp-serie">Quatre ans, <em>mesurés</em></h2>
+          <div className="icharts">
+            <ImpactBars title="Personnes accompagnées vers l'emploi" max={500}
+              items={I.annees.map(a => ({ label: a.year, value: a.personnes, detail: 'Tous dispositifs Festin, rapport d\'activité ' + a.year }))} />
+            <ImpactBars title="Sorties en emploi ou en formation" unit={'\u00a0%'} max={100}
+              items={I.annees.map(a => ({ label: a.year, value: a.taux, detail: a.emploi ? nb(a.emploi) + ' personnes sur ' + nb(a.sorties) + ' sorties' : 'Effectifs non publiés dans le rapport 2025' }))} />
           </div>
-          {(() => {
-            const budget = [
-              { label: "Mécénat privé",        value: 54,   color: "var(--gold)" },
-              { label: "Subventions publiques",value: 17.6, color: "var(--teal)" },
-              { label: "Aides aux postes",     value: 15.9, color: "var(--teal-tint-2)" },
-              { label: "Chiffre d'affaires",   value: 12.5, color: "var(--gold-light)" },
-            ];
-            let c = 0;
-            const stops = budget.map(b => {
-              const s = c; c += b.value;
-              return `${b.color} ${s}% ${c}%`;
-            }).join(', ');
-            return (
-              <div className="stack-sm" style={{display:'grid', gridTemplateColumns:'auto 1fr', gap:64, alignItems:'center'}}>
-                <div style={{position:'relative', width:240, height:240}}>
-                  <div style={{
-                    width:'100%', height:'100%', borderRadius:'50%',
-                    background:`conic-gradient(${stops})`,
-                  }}/>
-                  <div style={{position:'absolute', inset:48, background:'#fff', borderRadius:'50%', display:'grid', placeItems:'center', boxShadow:'0 0 0 1px var(--line)'}}>
-                    <div style={{textAlign:'center'}}>
-                      <div style={{fontSize:32, fontWeight:700, color:'var(--teal)', lineHeight:1, letterSpacing:'-0.02em'}}>1,7</div>
-                      <div style={{fontSize:14, fontWeight:700, color:'var(--ink)', marginTop:2}}>M€</div>
-                      <div style={{fontSize:10, color:'var(--ink-soft)', letterSpacing:'0.08em', textTransform:'uppercase', marginTop:4}}>budget 2025</div>
-                    </div>
-                  </div>
-                </div>
-                <ul style={{listStyle:'none', padding:0, margin:0, display:'flex', flexDirection:'column', gap:14}}>
-                  {budget.map(b => (
-                    <li key={b.label} style={{display:'grid', gridTemplateColumns:'18px 1fr 72px', gap:14, alignItems:'center'}}>
-                      <span style={{width:14, height:14, borderRadius:4, background:b.color, justifySelf:'start'}}/>
-                      <span style={{fontSize:15, color:'var(--ink)', fontWeight:600}}>{b.label}</span>
-                      <span style={{fontSize:18, fontWeight:700, color:'var(--ink)', textAlign:'right'}}>{String(b.value).replace('.', ',')} %</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            );
-          })()}
+          <p className="isec__note">{I.serieNote}</p>
         </div>
       </section>
 
-      {/* Rapports d'activité — téléchargement */}
-      <section style={{padding:'var(--s-9) 0', background:'var(--cream)'}}>
-        <div className="container">
-          <div style={{maxWidth:760, marginBottom:48}}>
-            <span className="eyebrow">Documents publics</span>
-            <h2 className="h2">Tous nos <em className="accent">rapports d'activité</em></h2>
-            <p className="lede" style={{marginTop:14}}>Téléchargez les rapports annuels : chiffres, projets et perspectives.</p>
-          </div>
-          <div className="stack-sm" style={{display:'grid', gridTemplateColumns:'repeat(2, 1fr)', gap:20}}>
-            {rapports.map(r => (
-              <a key={r.year} href={r.url} target="_blank" rel="noopener noreferrer" className="formation-card" style={{cursor:'pointer'}}>
-                <div className="formation-card__body" style={{display:'flex', gap:20, alignItems:'flex-start'}}>
-                  <div style={{width:56, height:64, borderRadius:8, background:'var(--cream)', display:'grid', placeItems:'center', color:'var(--teal)', flexShrink:0}}>
-                    <i data-lucide="file-text" style={{width:28, height:28}}/>
-                  </div>
-                  <div style={{flex:1}}>
-                    <span className="eyebrow">Rapport {r.year}</span>
-                    <h3 style={{fontSize:18, fontWeight:700, margin:'4px 0 8px'}}>{r.title}</h3>
-                    <p style={{fontSize:13, color:'var(--ink-mid)', lineHeight:1.5, margin:'0 0 12px'}}>{r.desc}</p>
-                    <span className="lnk" style={{fontSize:13}}>
-                      <i data-lucide="download" style={{width:14, height:14}}/> Télécharger le PDF · {r.size}
+      {/* Dans la durée : famille or */}
+      <section className="isec isec--gold" aria-labelledby="imp-duree">
+        <div className="wrap">
+          <h2 className="isec__h reveal" id="imp-duree">{I.duree.title} <em>{I.duree.titleAccent}</em></h2>
+          <p className="isec__lede reveal">{I.duree.lede}</p>
+          <ul className="ifaits">
+            {I.duree.faits.map((f) => (
+              <li className="ifait reveal" key={f.n}>
+                <span className="ifait__n">{f.n}</span>
+                <span className="ifait__t">{f.t}</span>
+                <span className="ifait__d">{f.d}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="isec__note">{I.duree.source}</p>
+        </div>
+      </section>
+
+      {/* Un chiffre par projet */}
+      <section className="isec isec--white" aria-labelledby="imp-projets">
+        <div className="wrap">
+          <h2 className="isec__h reveal" id="imp-projets">Projet <em>par projet</em></h2>
+          <ul className="iprojets">
+            {I.projets.map((p) => {
+              const pr = byId(p.id);
+              return (
+                <li key={p.id} className="reveal">
+                  <a className="iprojet" href={'#/projets/' + p.id}>
+                    <span className="iprojet__n">{p.n}</span>
+                    <span className="iprojet__body">
+                      <span className="iprojet__t">{p.t}</span>
+                      <span className="iprojet__d">{p.d}</span>
                     </span>
-                  </div>
-                </div>
-              </a>
-            ))}
-          </div>
+                    <span className="iprojet__name">{pr.shortTitle} <span className="arrow" aria-hidden="true">→</span></span>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </section>
 
-      {/* Prix & reconnaissance */}
-      <section style={{padding:'var(--s-9) 0', background:'var(--off-white)'}}>
-        <div className="container">
-          <div style={{maxWidth:760, marginBottom:48}}>
-            <span className="eyebrow">Reconnaissance</span>
-            <h2 className="h2">Prix, labels et <em className="accent">marchés obtenus</em></h2>
-          </div>
-          <div className="stack-sm-2" style={{display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:20}}>
-            {prix.map((p, i) => (
-              <div key={i} style={{background:'#fff', border:'1px solid var(--line)', borderRadius:14, padding:24}}>
-                <div style={{width:44, height:44, borderRadius:10, background:'rgba(255,193,0,0.16)', display:'grid', placeItems:'center', color:'var(--gold-ink)', marginBottom:18}}>
-                  <i data-lucide="award" style={{width:22, height:22}}/>
-                </div>
-                <span style={{fontSize:11, fontWeight:700, letterSpacing:'0.12em', textTransform:'uppercase', color:'var(--ink-soft)'}}>{p.year}</span>
-                <h3 style={{fontSize:16, fontWeight:700, margin:'6px 0 6px', lineHeight:1.35}}>{p.title}</h3>
-                <p style={{fontSize:12, color:'var(--ink-mid)', margin:0}}>{p.org}</p>
-              </div>
+      {/* 2025, une seule section */}
+      <section className="isec isec--teal on-dark" aria-labelledby="imp-2025">
+        <div className="wrap">
+          <h2 className="isec__h reveal" id="imp-2025">{I.annee2025.title} <em>{I.annee2025.titleAccent}</em></h2>
+          <ul className="i2025">
+            {D.stats.map((s, i) => (
+              <li key={i} className="reveal"><span className="i2025__n">{s.value}{s.unit === '%' ? '\u00a0%' : s.unit}</span><span className="i2025__l">{s.label}</span></li>
             ))}
-          </div>
+          </ul>
+          <a className="i2025__lnk" href={I.annee2025.lien.href}>{I.annee2025.lien.label} <span className="arrow" aria-hidden="true">→</span></a>
         </div>
       </section>
 
-      {/* Retombées presse */}
-      <section style={{padding:'var(--s-8) 0', background:'var(--cream)', borderTop:'1px solid var(--line)'}}>
-        <div className="container">
-          <div className="presse__head">
-            <span className="eyebrow">Retombées médias</span>
-            <h2 className="h2" style={{marginTop:8, maxWidth:760, textAlign:'center', marginLeft:'auto', marginRight:'auto'}}>Ils parlent <em className="accent">de Festin</em></h2>
-          </div>
-          <div className="presse__list" style={{marginTop:40}}>
-            {presse.map((m, i) => (
-              <a key={i} href={m.href} target="_blank" rel="noopener" className="presse__item">
-                <i data-lucide="external-link" style={{width:13, height:13}}/>
-                {m.name}
-              </a>
+      {/* Tous les rapports d'activité */}
+      <section className="isec isec--cream" aria-labelledby="imp-rapports">
+        <div className="wrap">
+          <h2 className="isec__h reveal" id="imp-rapports">Tous nos rapports <em>d'activité</em></h2>
+          <ul className="irapports">
+            {I.rapports.map((r) => (
+              <li key={r.year} className="reveal">
+                <a className="irapport" href={r.url} target="_blank" rel="noopener noreferrer">
+                  <span className="irapport__y">{r.year}</span>
+                  <span className="irapport__r">{r.resume}</span>
+                  <span className="irapport__dl">Lire le rapport (PDF)<span className="sr-only">, s'ouvre dans un nouvel onglet</span> <span className="arrow" aria-hidden="true">↗</span></span>
+                </a>
+              </li>
             ))}
-          </div>
+          </ul>
+        </div>
+      </section>
+
+      {/* Reconnaissances : frise sobre */}
+      <section className="isec isec--white" aria-labelledby="imp-prix">
+        <div className="wrap">
+          <h2 className="isec__h reveal" id="imp-prix">Prix, labels <em>et marchés</em></h2>
+          <ol className="iprix">
+            {I.prix.map((p, i) => (
+              <li key={i} className="reveal"><span className="iprix__y">{p.year}</span><span className="iprix__t">{p.title}</span><span className="iprix__o">{p.org}</span></li>
+            ))}
+          </ol>
         </div>
       </section>
     </div>
   );
 }
-
 
 // ---------- ACADEMIE PAGE ─────────────────────────────────────────────────────
 function AcademiePage() {

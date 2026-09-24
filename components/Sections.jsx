@@ -358,3 +358,47 @@ function FinDePage() {
   );
 }
 window.FinDePage = FinDePage;
+
+// ---------------------------------------------------------------------------
+// HeroPage — hero des pages intérieures (grammaire beetogreen, DIRECTION.md) :
+// couleur pleine d'une famille de la charte, trait du parcours, une étiquette
+// (la seule de la page), un titre-phrase, une preuve, une photo facultative.
+// tone : 'teal' | 'deep' | 'gold'
+// ---------------------------------------------------------------------------
+function HeroPage({ tone = 'teal', kicker, title, accent, proof, note, img, imgAlt = '', crumb = [], children }) {
+  const ref = React.useRef(null);
+  React.useEffect(() => {
+    const g = window.gsap, el = ref.current;
+    if (!g || !el || (window.FESTIN_RM && window.FESTIN_RM())) return;
+    const M = window.FESTIN_MOTION;
+    const tl = g.timeline({ defaults: { ease: M.ease, duration: M.dur.title } })
+      .from(el.querySelector('.hp__t'), { yPercent: 16, autoAlpha: 0 }, 0.1)
+      .from(el.querySelectorAll('.hp__kicker, .hp__proof, .hp__more, .hp__note'), { y: M.y, autoAlpha: 0, stagger: M.stagger }, 0.3);
+    const media = el.querySelector('.hp__media');
+    if (media) tl.from(media, { clipPath: 'inset(10% 10% 10% 10% round 32px)', scale: 1.06, duration: 1.4 }, 0.15);
+    return () => tl.kill();
+  }, []);
+  return (
+    <header className={'hp hp--' + tone + (img ? ' hp--img' : '') + (tone === 'gold' ? '' : ' on-dark')} ref={ref}>
+      <window.Trait className="hp__trait" width={160} />
+      <div className="wrap hp__grid">
+        <div className="hp__txt">
+          {crumb.length > 0 && (
+            <nav className="hp__crumb" aria-label="Fil d'Ariane">
+              {crumb.map((c, i) => (
+                <React.Fragment key={i}>{i > 0 && <span aria-hidden="true"> / </span>}{c.href ? <a href={c.href}>{c.label}</a> : <span aria-current="page">{c.label}</span>}</React.Fragment>
+              ))}
+            </nav>
+          )}
+          {kicker && <span className="kicker hp__kicker">{kicker}</span>}
+          <h1 className="hp__t">{title} {accent && <em>{accent}</em>}</h1>
+          {proof && <p className="hp__proof">{proof}</p>}
+          {children && <div className="hp__more">{children}</div>}
+          {note && <p className="hp__note">{note}</p>}
+        </div>
+        {img && <figure className="hp__media"><window.Picture src={img} alt={imgAlt} sizes="(max-width: 900px) 100vw, 44vw" loading="eager" /></figure>}
+      </div>
+    </header>
+  );
+}
+window.HeroPage = HeroPage;
