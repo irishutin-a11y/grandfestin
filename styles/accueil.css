@@ -270,3 +270,10 @@
 @media (min-width:2400px){ :root{--zoom:1.5} }
 @media (min-width:3000px){ :root{--zoom:1.85} }
 @media (min-width:900px){ .frise.is-pinned .frise__inner{height:calc(100vh / var(--zoom,1))} }
+/* Preuves de l'accueil resserrées sur téléphone */
+@media (max-width:699px){
+  .ac-pv__line{font-size:1.3rem;line-height:1.25}
+  .ac-pv__lines{gap:12px}
+  .ac-pv__chefs li{gap:0}
+  .ac-pv__chefs span{font-size:12px}
+}
