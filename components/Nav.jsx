@@ -1,7 +1,8 @@
 // Nav.jsx — navigation partagée : pastille compacte centrée + méga-panneau
 // plein-largeur (Option A validée, voir artefact « Options Navigation Festin »).
-// Le panneau s'ouvre sous la pastille, 3 colonnes : par thématique / par projet /
-// accès rapide. Un seul composant, importé sur toutes les pages.
+// Refonte du 24/09/2026 (DIRECTION-ACCUEIL.md §4) : trois liens visibles dans
+// la pastille (Se former, Recruter, L'association) et un panneau rangé par
+// public (Vous cherchez un métier / Vous êtes du secteur / L'association).
 const { useState, useEffect, useRef, useCallback } = React;
 
 function NavIcon({ name, size = 16 }) {
@@ -91,12 +92,6 @@ function Nav() {
   const triggerRef = useRef(null);
   const lastFocus = useRef(null);
 
-  const themeCards = (mega.views.find(v => v.key === 'theme') || mega.views[0]).cards;
-  const projectItems = [
-    ...data.projets.map(p => ({ t: p.shortTitle, href: `#/projets/${p.id}`, icon: p.icon })),
-    { t: "Académie Festin", href: "#/academie", icon: "graduation-cap" },
-  ];
-
   useEffect(() => {
     const onScroll = () => setSolid(window.scrollY > 40);
     onScroll();
@@ -156,6 +151,11 @@ function Nav() {
         <a href="#/" className="navpill__brand" aria-label="Festin — accueil">
           <img src={data.brand.logo} alt="Festin" />
         </a>
+        <ul className="navpill__links">
+          {(mega.primary || []).map((l) => (
+            <li key={l.href}><a href={l.href} aria-current={hash === l.href ? 'page' : undefined}>{l.label}</a></li>
+          ))}
+        </ul>
         <span className="navpill__sep" aria-hidden="true"></span>
         <a className="navpill__don" href={data.donation} target="_blank" rel="noopener noreferrer">
           <i data-lucide="heart" aria-hidden="true" /> Don
@@ -172,43 +172,27 @@ function Nav() {
       <div className={"optA-scrim" + (open ? " open" : "")} onClick={closePanel} aria-hidden="true"></div>
       <div className={"optA-panel" + (open ? " open" : "")} id="megaPanel" ref={panelRef}
            role="dialog" aria-modal="true" aria-label={mega.title} aria-hidden={!open} inert={open ? undefined : ""}>
-        <div className="optA-grid">
-          <div className="optA-col">
-            <h5>Par thématique</h5>
-            <div className="optA-theme">
-              {themeCards.map(c => (
-                <a key={c.t} href={c.href} onClick={closePanel}>
-                  <span className="dot" style={{ background: c.c + '22', color: c.c }}>
-                    <NavIcon name={c.ic} size={18} />
-                  </span>
-                  <span><strong>{c.t}</strong><span>{c.d}</span></span>
-                </a>
-              ))}
+        <div className="optA-grid optA-grid--publics">
+          {(mega.groups || []).map((g) => (
+            <div className="optA-col" key={g.title}>
+              <h2 className="optA-h">{g.title}</h2>
+              <ul className="optA-links">
+                {g.links.map((l) => (
+                  <li key={l.href + l.label}>
+                    <a href={l.href} onClick={closePanel} aria-current={hash === l.href ? 'page' : undefined}>
+                      <span className="optA-links__t">{l.label}</span>
+                      {l.d && <span className="optA-links__d">{l.d}</span>}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
-          <div className="optA-col">
-            <h5>Par projet</h5>
-            <div className="optA-list">
-              {projectItems.map(p => (
-                <a key={p.t} href={p.href} className={p.disabled ? 'disabled' : ''}
-                   onClick={p.disabled ? (e) => e.preventDefault() : closePanel}
-                   aria-disabled={p.disabled || undefined}>
-                  <NavIcon name={p.icon} size={16} /><span>{p.t}</span>
-                  {p.pill && <span className="optA-pill">{p.pill}</span>}
-                </a>
-              ))}
-            </div>
-          </div>
-          <div className="optA-col">
-            <h5>Accès rapide</h5>
-            <div className="optA-quick">
-              {mega.links.map(l => (
-                <a key={l.href} href={l.href} onClick={closePanel}>{l.label} <span aria-hidden="true">→</span></a>
-              ))}
-            </div>
+          ))}
+          <div className="optA-foot">
             <a className="optA-don" href={data.donation} target="_blank" rel="noopener noreferrer" onClick={closePanel}>
               <i data-lucide="heart" aria-hidden="true" /> Faire un don à Festin
             </a>
+            <span className="optA-foot__txt">Association loi 1901, d'intérêt général, agréée ESUS.</span>
           </div>
         </div>
       </div>

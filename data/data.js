@@ -1118,6 +1118,166 @@ window.FESTIN_DATA.home = {
   }
 };
 
+// ============================================================
+//  ACCUEIL — refonte du 24/09/2026 (DIRECTION-ACCUEIL.md)
+//  Un seul rangement : trois missions, deux projets chacune. Chiffres avec
+//  périmètre, année et source. Les champs plus anciens de .home restent pour
+//  les pages qui les lisent (Accompagnement lit .home.eco.cards).
+// ============================================================
+Object.assign(window.FESTIN_DATA.home, {
+  hero: {
+    kicker: "Association d'intérêt général, depuis 1987",
+    title: "Former en cuisine,", titleAccent: "jusqu'à l'emploi.",
+    signature: "Le goût d'avancer ensemble",
+    lede: "Nous formons aux métiers de la cuisine des femmes, des personnes réfugiées et des personnes détenues, et nous les suivons jusqu'au contrat. Avec les restaurants, nous agissons contre les violences en cuisine.",
+    ctaPrimary: { label: "Apprendre un métier", href: "#/accompagnement/insertion" },
+    ctaSecondary: { label: "Vous recrutez ? Travaillons ensemble", href: "#/accompagnement/professionnels" },
+    img: "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-40.jpg",
+    imgAlt: "Une promotion de Des Étoiles et des Femmes en tabliers violets, en plein air",
+  },
+  // Ligne de confiance : statuts, puis les médias nationaux (liens vers les articles de .presse)
+  confiance: {
+    statuts: ["Association loi 1901", "D'intérêt général, agréée ESUS", "Depuis 1987", "14 territoires"],
+    presseLabel: "Ils en ont parlé",
+    // source telle qu'écrite dans FESTIN_DATA.presse → nom affiché
+    medias: [
+      { source: "TF1 : JT 20h", nom: "TF1" },
+      { source: "France 2 : 13h15 le dimanche", nom: "France 2" },
+      { source: "M6 : Un jour, un doc", nom: "M6" },
+      { source: "France Inter : On va déguster", nom: "France Inter" },
+      { source: "Le Monde", nom: "Le Monde" },
+      { source: "Libération", nom: "Libération" },
+      { source: "Les Échos Weekend", nom: "Les Échos" },
+      { source: "El País", nom: "El País" },
+    ],
+  },
+  missions: {
+    title: "Nos six projets servent", titleAccent: "trois missions.",
+    lede: "L'association Festin porte chacun de ces projets, depuis Marseille jusqu'aux 13 antennes de Des Étoiles et des Femmes.",
+    items: [
+      { key: "former", title: "Former",
+        text: "Des parcours diplômants et gratuits : le CAP cuisine ou le titre de commis de cuisine, avec des stages en brigade.",
+        fait: { n: "91 %", t: "de réussite aux diplômes en 2025", p: "Des Étoiles et des Femmes" },
+        projets: [
+          { id: "des-etoiles-et-des-femmes", line: "Des femmes formées avec des chefs, dans 13 villes.", img: "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg" },
+          { id: "tournesol", line: "Cinq mois de formation pour des personnes réfugiées ou primo-arrivantes, à Marseille.", img: "images/tournesol:formation/festin_tournesol_cdutrey_0124-3645.jpg" },
+        ] },
+      { key: "accompagner", title: "Accompagner", titleAccent: "jusqu'à l'emploi",
+        text: "Un suivi de la première semaine jusqu'au contrat : logement, garde d'enfants, papiers, recherche de poste. Et un premier emploi salarié, en brigade.",
+        fait: { n: "83 %", t: "de sorties en emploi ou en formation en 2025", p: "tous projets confondus" },
+        projets: [
+          { id: "les-beaux-mets", line: "Un restaurant ouvert au public, dans la prison des Baumettes.", img: "images/beauxmets-images/LBM_cdutrey_071122-7264.jpg" },
+          { id: "la-table-de-cana", line: "Traiteur et restauration collective en insertion, depuis 1993.", img: "images/latable de cana/tabledecana_cdutrey_160124-4393.jpg" },
+        ] },
+      { key: "changer", title: "Changer", titleAccent: "les cuisines",
+        text: "Prévenir les violences en cuisine, former les managers, aider les établissements à recruter autrement.",
+        fait: { n: "700", t: "signataires du manifeste, 35 structures engagées", p: "le programme Restaure" },
+        projets: [
+          { id: "restaure", line: "Un programme national contre les violences en cuisine.", img: "images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg" },
+          { id: "academie", href: "#/academie", name: "Académie Festin", logo: "images/logo-academie-festin.png", line: "Des formations courtes pour les équipes en poste. Certifiée Qualiopi.", img: "images/photo-cuisine-formation.jpg" },
+        ] },
+    ],
+  },
+  // Frise : le calendrier réel d'une promotion (dossier de passation, déjà publié
+  // sur la page Insertion). Périmètre dit dans le chapeau.
+  frise: {
+    title: "Une année pour changer", titleAccent: "de métier.",
+    lede: "Le calendrier d'une promotion de Des Étoiles et des Femmes ou de Tournesol, de la candidature au premier contrat.",
+    steps: [
+      { when: "Septembre", tab: "Candidater", title: "Entretiens et atelier de préparation",
+        text: "Vous rencontrez l'équipe en entretien. Un atelier collectif vous prépare ensuite à rencontrer les restaurants.",
+        stat: "Gratuit", statL: "pour les personnes formées", img: "images/photo-micro-temoignage.jpg" },
+      { when: "Octobre", tab: "Rencontrer", title: "Une immersion en restaurant",
+        text: "Une immersion courte valide votre projet. Nous vous présentons ensuite l'établissement qui vous accueillera en stage.",
+        img: "images/images-def/HOTELERIE-035.jpg" },
+      { when: "Novembre à mars", tab: "Se former", title: "Cours, stages en brigade et suivi",
+        text: "Les cours alternent avec les stages en restaurant. Les promotions 2026 démarrent le 9 novembre (Des Étoiles et des Femmes) et le 30 novembre (Tournesol).",
+        stat: "155 à 490 h", statL: "de stage en restaurant, Des Étoiles et des Femmes", img: "images/photo-patisserie.jpg" },
+      { when: "Avril", tab: "Le diplôme", title: "CAP cuisine ou titre de commis",
+        text: "Vous passez l'examen du CAP cuisine ou du titre à finalité professionnelle de commis de cuisine.",
+        stat: "91 %", statL: "de réussite aux diplômes en 2025, Des Étoiles et des Femmes", img: "images/photo-applaudissements.jpg" },
+      { when: "Mai et juin", tab: "Travailler", title: "La recherche de poste",
+        text: "Nous cherchons le poste avec vous et nous vous présentons aux restaurants du réseau.",
+        stat: "73 %", statL: "de sorties positives en 2025, Des Étoiles et des Femmes", img: "images/photo-service-restaurant.jpg" },
+    ],
+    rail: { tab: "Toute l'année", title: "Un suivi individuel",
+      text: "Logement, garde d'enfants, papiers, transport, cours de français : une personne de l'équipe vous suit jusqu'à l'emploi." },
+    cta: { label: "Le détail des parcours", href: "#/accompagnement/insertion" },
+  },
+  // Preuves : chaque phrase porte son chiffre ; <b> = chiffre mis en avant
+  preuve: {
+    title: "L'exigence,", titleAccent: "chiffres à l'appui.",
+    lignes: [
+      "En 2025, nous avons accompagné <b>441 personnes</b> dans <b>14 territoires</b>.",
+      "<b>83 %</b> sont sorties en emploi ou en formation.",
+      "Avec Des Étoiles et des Femmes, des femmes apprennent auprès de chefs, dans des restaurants gastronomiques : <b>91 %</b> ont obtenu leur diplôme en 2025.",
+      "Trois à cinq ans après, <b>73 %</b> des anciennes stagiaires travaillent, et <b>une sur quatre</b> est devenue cheffe ou cheffe de partie.",
+    ],
+    sources: "Sources : rapport d'activité Festin 2025, tous projets confondus (phrases 1 et 2) ; Des Étoiles et des Femmes, 2025 (phrase 3) ; mesure d'impact social, cabinet Koreis, décembre 2023 (phrase 4).",
+    citation: { text: "En cuisine comme ailleurs, viser haut n'exclut pas : cela élève.", auteur: "Armand Hurault", role: "Directeur général de Festin, rapport d'activité 2025" },
+    chefsTitre: "Ils forment avec le réseau",
+    marraine: { name: "Julia Sedefdjian", place: "Marraine nationale de Des Étoiles et des Femmes" },
+    lien: { label: "Voir notre impact", href: "#/impact" },
+  },
+  portes: {
+    title: "Par où", titleAccent: "commencer ?",
+    cards: [
+      { tag: "Vous cherchez un métier", title: "Apprendre un métier de cuisine, gratuitement",
+        pts: [
+          "Un diplôme reconnu : CAP cuisine ou titre à finalité professionnelle.",
+          "Des stages en restaurant, et un suivi jusqu'à l'emploi.",
+          "Des parcours pour les femmes, et pour les personnes réfugiées ou primo-arrivantes.",
+        ],
+        cta: "Voir les parcours", href: "#/accompagnement/insertion", img: "images/photo-tabliers-violets.jpg" },
+      { tag: "Vous êtes du secteur", title: "Recruter, former et garder vos équipes",
+        pts: [
+          "Des stagiaires en parcours d'insertion, dans votre brigade.",
+          "Des candidats présentés par Festin, avec une préparation à l'emploi financée par France Travail.",
+          "Des formations courtes : violences en cuisine, management juste, accueil de la diversité.",
+        ],
+        cta: "Recruter avec Festin", href: "#/accompagnement/professionnels", img: "images/photo-cuisine-action.jpg" },
+    ],
+    agir: {
+      tag: "Vous voulez agir avec nous", title: "Soutenir,", titleAccent: "réserver, commander",
+      text: "Votre don finance des heures de formation et le suivi, jusqu'à l'emploi. Vous pouvez aussi déjeuner aux Beaux Mets ou faire appel à La Table de Cana.",
+      links: [
+        { label: "Faire un don", href: "don", primary: true },
+        { label: "Devenir mécène", href: "mailto:partenariat@grandfestin.com" },
+        { label: "Réserver aux Beaux Mets", href: "https://www.lesbeauxmets-marseille.fr", external: true },
+        { label: "Commander à La Table de Cana", href: "https://www.latabledecana-marseille.com", external: true },
+      ],
+    },
+  },
+});
+
+// Menu : rangé par public (DIRECTION-ACCUEIL.md §4). Chaque lien mène à une page existante.
+window.FESTIN_DATA.meganav.primary = [
+  { label: "Se former", href: "#/accompagnement/insertion" },
+  { label: "Recruter", href: "#/accompagnement/professionnels" },
+  { label: "L'association", href: "#/about" },
+];
+window.FESTIN_DATA.meganav.groups = [
+  { title: "Vous cherchez un métier", links: [
+    { label: "Apprendre un métier de cuisine", d: "Les parcours gratuits, du premier entretien à l'emploi", href: "#/accompagnement/insertion" },
+    { label: "Nos formations", d: "CAP cuisine, titre de commis, formations courtes", href: "#/formations" },
+    { label: "Des Étoiles et des Femmes", d: "Des femmes formées avec des chefs, dans 13 villes", href: "#/projets/des-etoiles-et-des-femmes" },
+    { label: "Tournesol", d: "Pour les personnes réfugiées ou primo-arrivantes", href: "#/projets/tournesol" },
+  ] },
+  { title: "Vous êtes du secteur", links: [
+    { label: "Recruter avec Festin", d: "Stagiaires, candidats, préparation à l'emploi", href: "#/accompagnement/professionnels" },
+    { label: "Académie Festin", d: "Formations courtes pour les équipes en poste", href: "#/academie" },
+    { label: "Le programme Restaure", d: "Contre les violences en cuisine", href: "#/projets/restaure" },
+    { label: "Les Beaux Mets", d: "Le restaurant de la prison des Baumettes", href: "#/projets/les-beaux-mets" },
+    { label: "La Table de Cana", d: "Traiteur et restauration collective en insertion", href: "#/projets/la-table-de-cana" },
+  ] },
+  { title: "L'association", links: [
+    { label: "Qui sommes-nous", href: "#/about" },
+    { label: "Notre impact", href: "#/impact" },
+    { label: "Actualités et presse", href: "#/actualites" },
+    { label: "Nous écrire", href: "#/contact" },
+  ] },
+];
+
 // ---------- PAGE ABOUT — contenus ----------
 // Chiffres : source unique = FESTIN_DATA.stats ci-dessus (Rapport d'activité 2025 : 441 / 83 % / 14 ; création 1987).
 // `photo: null` = portrait à fournir → cadre neutre « [XX] ». `avatar` = médaillon 240 px (petit avatar rond).

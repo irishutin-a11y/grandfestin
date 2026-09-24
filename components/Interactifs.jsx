@@ -293,3 +293,101 @@ function TempsForts({ items: all = [], title = 'Les moments', accent = "de l'ann
 window.HoverImageList = HoverImageList;
 window.ImgSphere = ImgSphere;
 window.TempsForts = TempsForts;
+
+// ---------------------------------------------------------------------------
+// Frise — suite d'étapes numérotées reliées par le fil du parcours
+// (DIRECTION-ACCUEIL.md, règle 4). Composant partagé : accueil, puis pages
+// projet et pages d'accompagnement.
+// ≥ 900 px et mouvement normal : la frise s'épingle et le défilement vertical
+// fait glisser les étapes à l'horizontale (même grammaire que la frise de
+// Des Étoiles et des Femmes validée le 24/09/2026) ; chaque pastille s'allume
+// quand le fil l'atteint, le rail du suivi sert de barre de progression.
+// Sinon : liste verticale, chaque étape s'allume à son entrée dans l'écran.
+// steps : [{ when, tab, title, text, stat, statL, img, alt, missing, links }]
+// rail : { tab, title, text } (ce qui court sous toutes les étapes)
+// ---------------------------------------------------------------------------
+function Frise({ id = 'frise', title, accent, lede, steps = [], rail, cta, tone = 'tint' }) {
+  const { useRef, useEffect } = React;
+  const rootRef = useRef(null);
+
+  useEffect(() => {
+    const root = rootRef.current, g = window.gsap, ST = window.ScrollTrigger;
+    if (!root) return;
+    const items = [...root.querySelectorAll('.frise__step')];
+    if (!g || !ST || (window.FESTIN_RM && window.FESTIN_RM())) { items.forEach((s) => s.classList.add('is-on')); return; }
+    const triggers = [];
+    const track = root.querySelector('.frise__track');
+    const vp = root.querySelector('.frise__viewport');
+    const bar = root.querySelector('.frise__bar');
+    if (window.innerWidth >= 900 && track && vp) {
+      root.classList.add('is-pinned');
+      const dist = () => Math.max(0, track.scrollWidth - vp.clientWidth);
+      const light = (p) => items.forEach((s, i) => {
+        const at = items.length > 1 ? i / (items.length - 1) : 0;
+        s.classList.toggle('is-on', p >= at - 0.04);
+      });
+      light(0);
+      triggers.push(ST.create({
+        trigger: root, start: 'top top', end: () => '+=' + Math.round(dist() * 1.15),
+        pin: root.querySelector('.frise__inner'), scrub: 1, anticipatePin: 1, invalidateOnRefresh: true,
+        onUpdate: (self) => {
+          track.style.transform = 'translate3d(' + (-self.progress * dist()) + 'px,0,0)';
+          if (bar) bar.style.transform = 'scaleX(' + self.progress + ')';
+          light(self.progress);
+        },
+      }));
+    } else {
+      items.forEach((s) => triggers.push(ST.create({ trigger: s, start: 'top 78%', once: true, onEnter: () => s.classList.add('is-on') })));
+    }
+    // la hauteur de la page change quand photos et polices arrivent : on recale
+    let rt;
+    const ro = new ResizeObserver(() => { clearTimeout(rt); rt = setTimeout(() => ST.refresh(), 160); });
+    ro.observe(document.body);
+    return () => { ro.disconnect(); clearTimeout(rt); triggers.forEach((t) => t.kill()); root.classList.remove('is-pinned'); if (track) track.style.transform = ''; };
+  }, []);
+
+  return (
+    <section className={'frise frise--' + tone} id={id} ref={rootRef} aria-labelledby={id + '-t'}>
+      <div className="frise__inner">
+        <div className="wrap frise__head">
+          <h2 className="frise__h" id={id + '-t'}>{title}{accent && <> <em>{accent}</em></>}</h2>
+          {lede && <p className="frise__lede">{lede}</p>}
+        </div>
+        <div className="frise__viewport">
+          <ol className="frise__track">
+            {steps.map((s, i) => (
+              <li className="frise__step" key={i}>
+                <div className="frise__mark" aria-hidden="true">{String(i + 1).padStart(2, '0')}</div>
+                <article className="frise__card">
+                  <div className="frise__img">
+                    {s.img
+                      ? <window.Picture src={s.img} alt={s.alt || ''} sizes="(max-width: 900px) 100vw, 18vw" />
+                      : <window.PhotoMissing subject={s.missing || s.title} ratio="4/3" />}
+                  </div>
+                  <div className="frise__body">
+                    <span className="frise__tab">{s.when ? s.when + ' · ' : ''}{s.tab}</span>
+                    <h3 className="frise__t">{s.title}</h3>
+                    <p>{s.text}</p>
+                    {s.stat && <p className="frise__stat"><strong>{s.stat}</strong> <span>{s.statL}</span></p>}
+                  </div>
+                </article>
+              </li>
+            ))}
+          </ol>
+        </div>
+        {(rail || cta) && (
+          <div className="wrap frise__foot">
+            {rail && (
+              <div className="frise__rail">
+                <span className="frise__bar" aria-hidden="true" />
+                <p><span className="frise__railk">{rail.tab}</span> <b>{rail.title}.</b> {rail.text}</p>
+              </div>
+            )}
+            {cta && <a className="frise__cta lnk" href={cta.href}>{cta.label} <span className="arrow" aria-hidden="true">→</span></a>}
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+window.Frise = Frise;

@@ -108,7 +108,6 @@ function App() {
       <p role="status" aria-live="polite" className="sr-only">{annonce}</p>
       <main id="main" tabIndex={-1}>{page}</main>
       <Footer />
-      <FloatingCTA />
     </div>
   );
 }
