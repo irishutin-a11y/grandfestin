@@ -1,8 +1,11 @@
 // ProjetDef.jsx — page projet dédiée « Des Étoiles et des Femmes »
 // Contenu : window.FESTIN_DATA.projets (id des-etoiles-et-des-femmes) + .presse + .donation
-// Structure : fil d'ariane fixe au-dessus de la nav · hero épuré (+ logo à cheval, centré) ·
-// chiffres 50/50 (compteur au scroll) · vidéo · le projet (accordéon 3 items) ·
-// témoignages en marquee infini · soutenir (3 voies) · presse · galerie plein-largeur.
+// Gabarit de page projet (24/09/2026), cas de référence. Ordre des blocs :
+// 1 hero (fil d'ariane intégré, 2 portes d'entrée, logo à cheval) · 2 en bref (chiffres) ·
+// 3 le parcours (frise horizontale épinglée ≥900px, liste verticale sinon) · 4 témoignages ·
+// 5 vidéo · 6 le réseau (antennes) · 7 deux portes : candidater / accueillir ·
+// 8 soutenir · 9 porté par Festin · 10 presse.
+// Deux composants horizontaux interactifs : la frise et le carrousel de témoignages.
 const { useEffect, useRef, useState } = React;
 const PIMG = (p) => (/%[0-9A-Fa-f]{2}/.test(p) ? p : encodeURI(p));
 
@@ -24,49 +27,12 @@ function pdefFormatNumber(n) {
   return n.toLocaleString('fr-FR');
 }
 
-// Carte témoignage — utilisée dans le bandeau défilant (marquee). Format compact fixe.
-function PdefTestiCard({ t }) {
-  const isPh = !!t.placeholder;
-  const badge = isPh ? t.role : (t.ville + ' · ' + t.promo);
-  const text = isPh ? t.citation : t.extrait;
-  return (
-    <article className={'proj-tcard proj-tcard--' + (t.variant || 'cream') + (t.bw ? ' is-bw' : '')}>
-      <div className="proj-tcard__head">
-        {t.photo
-          ? (
-            <img
-              className="proj-tcard__photo"
-              src={PIMG(t.photo)}
-              alt={'Portrait de ' + t.prenom}
-              style={{ objectPosition: t.objPos || 'center 18%' }}
-              loading="lazy"
-            />
-          )
-          : <span className="proj-tcard__photo proj-tcard__photo--ph" aria-hidden="true" />}
-        <span className="proj-tcard__badge">{badge}</span>
-      </div>
-      <h3 className="proj-tcard__name">{t.prenom}</h3>
-      {t.accroche && <p className="proj-tcard__accroche">« {t.accroche} »</p>}
-      <p className="proj-tcard__quote">{isPh ? text : '« ' + text + ' »'}</p>
-    </article>
-  );
-}
-
 function ProjetDefPage() {
   const D = window.FESTIN_DATA;
   const p = D.projets.find(x => x.id === 'des-etoiles-et-des-femmes');
   const rootRef = useRef(null);
   const statsGridRef = useRef(null);
   const [videoOn, setVideoOn] = useState(false);
-  const [projStep, setProjStep] = useState(0);
-
-  // Le fil d'ariane passe au-dessus de la nav : la nav se décale vers le bas le temps
-  // que cette page est montée (classe posée sur <body>, retirée au démontage — Nav.jsx
-  // et sa CSS ne sont pas modifiés, seul projet-def.css réagit à cette classe).
-  useEffect(() => {
-    document.body.classList.add('proj-has-crumb');
-    return () => document.body.classList.remove('proj-has-crumb');
-  }, []);
 
   // Chiffres — compteur au scroll, une seule fois.
   // IntersectionObserver déclenche, requestAnimationFrame anime (1s, ease-out-cubic).
@@ -108,13 +74,17 @@ function ProjetDefPage() {
     return () => { io.disconnect(); if (raf) cancelAnimationFrame(raf); };
   }, []);
 
+  // Révélations au scroll + frise du parcours épinglée (même grammaire que le
+  // carrousel de l'écosystème sur l'accueil : pin, scrub 1, barre de progression).
   useEffect(() => {
     const root = rootRef.current;
     if (!root) return;
     if (window.lucide) window.lucide.createIcons();
     const reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+    const steps = [...root.querySelectorAll('.proj-step')];
     if (reduce || !window.gsap || !window.ScrollTrigger) {
       root.querySelectorAll('.reveal').forEach(el => el.classList.add('is-in'));
+      steps.forEach(s => s.classList.add('is-on'));
       return;
     }
     const ST = window.ScrollTrigger;
@@ -123,8 +93,40 @@ function ProjetDefPage() {
     root.querySelectorAll('.reveal').forEach(el => {
       triggers.push(ST.create({ trigger: el, start: 'top 88%', once: true, onEnter: () => el.classList.add('is-in') }));
     });
+
+    const frise = root.querySelector('.proj-frise');
+    const track = root.querySelector('.proj-frise__track');
+    const vp = root.querySelector('.proj-frise__viewport');
+    const bar = root.querySelector('.proj-frise__bar');
+    if (frise && track && vp && window.innerWidth >= 900) {
+      frise.classList.add('is-pinned');
+      const dist = () => Math.max(0, track.scrollWidth - vp.clientWidth);
+      const light = (progress) => steps.forEach((s, i) => {
+        // une étape s'allume quand son point de la ligne est atteint
+        const at = steps.length > 1 ? i / (steps.length - 1) : 0;
+        s.classList.toggle('is-on', progress >= at - 0.02);
+      });
+      light(0);
+      triggers.push(ST.create({
+        trigger: frise, start: 'top top',
+        end: () => '+=' + Math.round(dist() * 1.1),
+        pin: '.proj-frise__inner', scrub: 1, anticipatePin: 1, invalidateOnRefresh: true,
+        onUpdate: (self) => {
+          track.style.transform = 'translateX(' + (-self.progress * dist()) + 'px)';
+          if (bar) bar.style.transform = 'scaleX(' + self.progress + ')';
+          light(self.progress);
+        }
+      }));
+    } else {
+      // liste verticale : chaque étape s'allume à son entrée dans l'écran
+      steps.forEach(s => triggers.push(ST.create({ trigger: s, start: 'top 75%', once: true, onEnter: () => s.classList.add('is-on') })));
+    }
+    // la hauteur de la page bouge quand photos et polices arrivent : on recale les déclencheurs
+    let rt;
+    const ro = new ResizeObserver(() => { clearTimeout(rt); rt = setTimeout(() => ST.refresh(), 150); });
+    ro.observe(root);
     ST.refresh();
-    return () => triggers.forEach(t => t.kill());
+    return () => { ro.disconnect(); clearTimeout(rt); triggers.forEach(t => t.kill()); if (frise) frise.classList.remove('is-pinned'); };
   }, []);
 
   if (!p) return null;
@@ -137,75 +139,76 @@ function ProjetDefPage() {
   const featured3 = presse.slice(0, 3);
   const presseAlso = presse.slice(3);
 
-  // « Le projet » — accordéon 3 items, réutilise 3 des 4 étapes de p.parcours (data.js
-  // non modifié) sous des intitulés dédiés à cette section.
-  const projetItems = [
-    { label: 'La formation', d: p.parcours.find(x => x.tab === 'Se former') },
-    { label: "L'accompagnement", d: p.parcours.find(x => x.tab === 'Être accompagnée') },
-    { label: 'Les stages', d: p.parcours.find(x => x.tab === 'Pratiquer') },
-  ].filter(x => x.d);
+  // Parcours — les étapes successives de la personne accompagnée. L'accompagnement
+  // n'est pas une étape : il court sous toute la frise (le « rail »).
+  const byTab = (t) => (p.parcours || []).find(x => x.tab === t) || {};
+  const cand = p.candidater || {};
+  const steps = [
+    { tab: 'Candidater', title: 'Une réunion d’information, puis la candidature',
+      text: cand.eligibility + ' La réunion d’information collective est obligatoire pour candidater.',
+      stat: 'Gratuit', statL: 'formation financée par les pouvoirs publics et des mécènes',
+      missing: 'réunion d’information collective, plan moyen, sujet centré (recadré 3:4 et 4:3)' },
+    { ...byTab('Se former'), links: [
+      { href: '#/formations/cap', name: 'CAP Cuisine', meta: '11 mois' },
+      { href: '#/formations/tfp', name: 'Titre de commis', meta: '4 mois' },
+    ] },
+    byTab('Pratiquer'),
+    byTab('Travailler'),
+  ].filter(s => s.tab);
+  const rail = byTab('Être accompagnée');
 
-  // Galerie (fin de page) — bandeau photo authentique, non réutilisées ailleurs sur la page
-  const galleryImages = [
-    'images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg',
-    'images/images-def/chaudbouillon-045.jpg',
-    'images/images-def/chaudbouillon-046.jpg',
-    'images/images-def/HOTELERIE-097.jpg',
-    'images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00022.jpg',
-    'images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00032.jpg',
-    'images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-40.jpg',
-  ];
+  // Le routeur est par hash : les ancres internes passent par un défilement en JS
+  const goTo = (id) => (e) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    e.preventDefault();
+    if (window.__lenis) window.__lenis.scrollTo(el, { offset: -80 });
+    else el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const f = el.querySelector('a.btnb');
+    if (f) setTimeout(() => f.focus({ preventScroll: true }), 900);
+  };
+
+  const antSlug = (v) => v.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
   return (
     <div className="pageProjet pageProjet--des-etoiles-et-des-femmes" ref={rootRef} data-screen-label={"Projet — " + p.shortTitle}>
 
-      {/* FIL D'ARIANE — fixe, au-dessus de la nav (la nav se décale via body.proj-has-crumb) */}
-      <nav className="proj-crumb2" aria-label="Fil d’ariane">
-        <div className="wrap proj-crumb2__inner">
-          <a href="#/">Accueil</a>
-          <span className="proj-crumb2__rest">
-            <span aria-hidden="true"> / </span>
-            <a href="#/projets/des-etoiles-et-des-femmes">Nos projets</a>
-            <span aria-hidden="true"> / </span>
-            <span aria-current="page">Des Étoiles et des Femmes</span>
-          </span>
-          <span className="proj-crumb2__ellipsis" aria-hidden="true"> / …</span>
-        </div>
-      </nav>
-
-      {/* HERO — photo, titre, sous-titre. Sans CTA candidater, sans encart marraine. */}
+      {/* 1 · HERO — fil d'ariane intégré, titre, phrase, deux portes d'entrée à parts égales */}
       <div className="proj-heroband">
         <header className="proj-hero">
           <div className="proj-hero__media">
-            <img src={PIMG(p.heroImages[0])} alt="Atelier de cuisine, promotion Des Étoiles et des Femmes" />
+            <img src={PIMG(p.heroImages[0])} alt="" />
           </div>
           <div className="proj-hero__scrim" aria-hidden="true"></div>
           <div className="wrap proj-hero__inner">
-            <span className="proj-hero__eb">Programme national · depuis 2015 · un projet de l’association Festin</span>
+            <nav className="proj-crumb" aria-label="Fil d’ariane">
+              <a href="#/">Festin</a><span aria-hidden="true">/</span>
+              <span>L’écosystème</span><span aria-hidden="true">/</span>
+              <span aria-current="page">Des Étoiles et des Femmes</span>
+            </nav>
+            <span className="proj-hero__eb">Programme national · depuis 2015 · porté par l’association Festin</span>
             <h1 className="proj-hero__t">{p.title} <em>{p.accent}</em></h1>
             <p className="proj-hero__sub">{p.projetPhrase}</p>
-            <div className="proj-hero__cta">
-              <a className="btnb btnb--ghost" href={p.siteUrl} target="_blank" rel="noopener noreferrer">{p.siteName}</a>
+            <div className="proj-hero__cta proj-hero__cta--duo">
+              <a className="btnb btnb--gold" href={cand.applyHref} onClick={goTo('proj-portes')}>Candidater <span className="arrow" aria-hidden="true">→</span></a>
+              <a className="btnb btnb--light" href={p.accueil.ctaHref} onClick={goTo('proj-portes-pro')}>Accueillir une stagiaire <span className="arrow" aria-hidden="true">→</span></a>
             </div>
           </div>
         </header>
-
-        {/* Logo DEF « à cheval », centré, mordant sur la limite hero / chiffres —
-            .proj-heroband n'enveloppe que le hero : bottom:0 tombe pile sur cette limite */}
         <div className="proj-hero__logo">
           <img src={PIMG(p.logo)} alt={"Logo " + p.shortTitle} />
         </div>
       </div>
 
-      {/* CHIFFRES — 50/50 : présentation + 4 blocs colorés, compteur au scroll */}
+      {/* 2 · EN BREF — présentation + 4 chiffres datés, compteur au scroll */}
       <section className="proj-stats" aria-labelledby="proj-stats-t">
         <div className="wrap proj-stats2">
           <div className="proj-stats2__intro reveal">
             <span className="proj-sec" id="proj-stats-t">En bref</span>
-            <h2 className="proj-h2">{p.tagline}</h2>
-            <p>{p.short.replace(/\s*13 antennes en France, 91\s?%\s?de réussite aux diplômes\.\s*$/, '')}</p>
+            <h2 className="proj-h2">Former des femmes <em>aux métiers de la cuisine</em></h2>
+            <p>{p.short.replace(/\s*Le programme existe depuis 2015 et compte 13 antennes\. En 2025, 91\s?%\s?des candidates ont obtenu leur diplôme\.\s*$/, '')}</p>
             <a className="btnb btnb--outline-ink" href={p.siteUrl} target="_blank" rel="noopener noreferrer">
-              Visiter le site <span className="arrow" aria-hidden="true">→</span>
+              {p.siteName} <span className="arrow" aria-hidden="true">↗</span>
             </a>
           </div>
           <div className="proj-stats2__grid reveal" ref={statsGridRef}>
@@ -224,112 +227,61 @@ function ProjetDefPage() {
         </div>
       </section>
 
-      {/* LE PROJET — colonne 50/50 : texte + accordéon à gauche, vidéo à droite */}
-      <section className="proj-projet" aria-labelledby="proj-projet-t">
-        <div className="wrap proj-projet__split">
-          <div className="proj-projet__body">
-            <span className="proj-sec" id="proj-projet-t">Le projet</span>
-            <h2 className="proj-h2 reveal">Le parcours,<br />étape par étape</h2>
-            <p className="proj-projet__lede reveal">
-              Dans chacune des 13 antennes, un centre de formation, des restaurants et des partenaires locaux accompagnent la promotion.
-            </p>
-            <div className="proj-acc reveal">
-              {projetItems.map((it, i) => {
-                const isOpen = projStep === i;
-                const s = it.d;
-                return (
-                  <div className={"proj-acc__item" + (isOpen ? " is-open" : "")} key={i}>
-                    <h3 className="proj-acc__h">
-                      <button
-                        type="button" className="proj-acc__btn"
-                        id={"pdacc-h-" + i} aria-expanded={isOpen} aria-controls={"pdacc-p-" + i}
-                        onClick={() => setProjStep(isOpen ? -1 : i)}
-                      >
-                        <span className="proj-acc__label">{it.label}</span>
-                        <span className="proj-acc__chev" aria-hidden="true" />
-                      </button>
-                    </h3>
-                    <div
-                      className="proj-acc__panel" id={"pdacc-p-" + i}
-                      role="region" aria-labelledby={"pdacc-h-" + i}
-                    >
-                      <div className="proj-acc__body">
-                        <span className="proj-acc__k">{s.title}</span>
-                        <p>{s.text}</p>
-                        <div className="proj-acc__stat"><strong>{s.stat}</strong><span>{s.statL}</span></div>
-                      </div>
+      {/* 3 · LE PARCOURS — frise horizontale épinglée (≥900px), liste verticale sinon.
+          L'accompagnement social court sous toutes les étapes. */}
+      <section className="proj-frise on-dark" aria-labelledby="proj-frise-t">
+        <div className="proj-frise__inner">
+          <div className="wrap proj-frise__head">
+            <span className="proj-sec" id="proj-frise-t">Le parcours</span>
+            <h2 className="proj-h2">De la candidature <em>à l’emploi</em></h2>
+            <p className="proj-frise__lede">Quatre étapes, dans chacune des 13 antennes. Un centre de formation, des restaurants et des partenaires locaux suivent la promotion.</p>
+          </div>
+          <div className="proj-frise__viewport">
+            <ol className="proj-frise__track">
+              {steps.map((s, i) => (
+                <li className="proj-step" key={i}>
+                  <div className="proj-step__mark" aria-hidden="true"><span>{String(i + 1).padStart(2, '0')}</span></div>
+                  <article className="proj-step__card">
+                    <div className="proj-step__img">
+                      {s.img
+                        ? <window.Picture src={s.img} alt="" sizes="(max-width: 900px) 100vw, 20vw" />
+                        : <span className="proj-ph">[PHOTO MANQUANTE : {s.missing}]</span>}
                     </div>
-                  </div>
-                );
-              })}
-            </div>
+                    <div className="proj-step__body">
+                      <span className="proj-step__tab">Étape {i + 1} · {s.tab}</span>
+                      <h3 className="proj-step__t">{s.title}</h3>
+                      <p>{s.text}</p>
+                      {s.stat && <div className="proj-step__stat"><strong>{s.stat}</strong><span>{s.statL}</span></div>}
+                      {s.links && (
+                        <div className="proj-step__links">
+                          {s.links.map((l) => (
+                            <a key={l.href} href={l.href} className="proj-step__link">
+                              <span><b>{l.name}</b> {l.meta}</span><span aria-hidden="true">→</span>
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </article>
+                </li>
+              ))}
+            </ol>
           </div>
-          <div className="proj-projet__media reveal">
-            <div className="proj-projet__frame">
-              {videoOn ? (
-                <iframe
-                  title={"Vidéo de présentation — " + p.shortTitle}
-                  src="https://drive.google.com/file/d/1X3er9EQUpu61_yXR3KceY1sV4RgfygEK5hNzUFaaHEY/preview"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              ) : (
-                <button
-                  type="button"
-                  className="proj-projet__play"
-                  onClick={() => setVideoOn(true)}
-                  aria-label={"Lire la vidéo de présentation du programme " + p.shortTitle}
-                >
-                  <window.Picture src={p.video.poster} alt="" aria-hidden="true" sizes="(max-width: 900px) 100vw, 55vw" />
-                  <span className="proj-projet__scrim" aria-hidden="true"></span>
-                  <span className="proj-projet__playlabel">Lire la vidéo <span aria-hidden="true">→</span></span>
-                </button>
-              )}
+          {rail.title && (
+            <div className="wrap proj-rail">
+              <span className="proj-rail__k">Tout au long du parcours · {rail.tab}</span>
+              <p><b>{rail.title}.</b> {rail.text}</p>
+              <span className="proj-frise__bar" aria-hidden="true" />
             </div>
-            <p className="proj-projet__credit">Vidéo réalisée par l’agence Les Fabricants</p>
-            <div className="proj-projet__formations">
-              <a className="proj-projet__fcard" href="#/formations/cap">
-                <span className="proj-projet__fname">CAP Cuisine</span>
-                <span className="proj-projet__fmeta">11 mois</span>
-                <span className="proj-projet__farrow" aria-hidden="true">→</span>
-              </a>
-              <a className="proj-projet__fcard" href="#/formations/tfp">
-                <span className="proj-projet__fname">Titre à finalité professionnelle</span>
-                <span className="proj-projet__fmeta">4 mois</span>
-                <span className="proj-projet__farrow" aria-hidden="true">→</span>
-              </a>
-            </div>
-          </div>
+          )}
         </div>
       </section>
 
-      {/* LE RÉSEAU — les 13 antennes, avec l'année d'ouverture et le porteur local */}
-      {p.antennes && p.antennes.length > 0 && (
-        <section className="proj-reseau" aria-labelledby="proj-reseau-t">
-          <div className="wrap">
-            <span className="proj-sec" id="proj-reseau-t">Le réseau</span>
-            <h2 className="proj-h2 reveal">Où se former,<br />en France</h2>
-            <p className="proj-reseau__lede reveal">
-              Le programme est né à Marseille en 2015. Il est aujourd'hui porté dans chaque ville par
-              une structure locale, avec ses centres de formation et ses restaurateurs partenaires.
-            </p>
-            <div className="reveal">
-              <window.HoverImageList label="Les antennes du réseau" items={p.antennes.map((a) => ({
-                title: a.ville, meta: a.porteur, year: a.annee,
-                // photo d'antenne : déposer images/antennes/<ville>.jpg (cadre « à venir » sinon)
-                img: 'images/antennes/' + a.ville.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') + '.jpg',
-                alt: 'Antenne de ' + a.ville,
-              }))} />
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* TÉMOIGNAGES — bandeau défilant en boucle infinie (marquee CSS), pause au survol */}
+      {/* 4 · TÉMOIGNAGES — carrousel défilant standard, cadres « à venir » si moins de 6 */}
       <section className="proj-testi" aria-labelledby="proj-testi-t">
         <div className="wrap">
           <span className="proj-sec" id="proj-testi-t">Elles l’ont fait</span>
-          <h2 className="proj-h2 reveal">Elles racontent<br />leur parcours</h2>
+          <h2 className="proj-h2 reveal">Elles racontent <em>leur parcours</em></h2>
         </div>
         <div className="reveal">
           <window.TestiCarousel label="Témoignages d'anciennes stagiaires" items={(p.temoignages || []).filter(t => !t.placeholder).map(t => ({
@@ -339,7 +291,79 @@ function ProjetDefPage() {
         </div>
       </section>
 
-      {/* SOUTENIR — texte + 3 CTA à gauche, logos partenaires à droite */}
+      {/* 5 · VIDÉO — bloc à part, 16:9, lecture au clic (rien ne se charge avant) */}
+      <section className="proj-video on-dark" aria-labelledby="proj-video-t">
+        <div className="wrap">
+          <span className="proj-sec" id="proj-video-t">{p.video.eyebrow}</span>
+          <h2 className="proj-h2 reveal">Le programme <em>en vidéo</em></h2>
+          <div className="proj-video__frame reveal">
+            {videoOn ? (
+              <iframe
+                title={"Vidéo de présentation — " + p.shortTitle}
+                src="https://drive.google.com/file/d/1X3er9EQUpu61_yXR3KceY1sV4RgfygEK5hNzUFaaHEY/preview"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            ) : (
+              <button type="button" className="proj-projet__play" onClick={() => setVideoOn(true)}
+                aria-label={"Lire la vidéo de présentation du programme " + p.shortTitle}>
+                <window.Picture src={p.video.poster} alt="" aria-hidden="true" sizes="(max-width: 1100px) 100vw, 1100px" />
+                <span className="proj-projet__scrim" aria-hidden="true"></span>
+                <span className="proj-projet__playlabel">Lire la vidéo <span aria-hidden="true">→</span></span>
+              </button>
+            )}
+          </div>
+          <p className="proj-video__credit">Vidéo réalisée par l’agence Les Fabricants</p>
+        </div>
+      </section>
+
+      {/* 6 · LE RÉSEAU — les 13 antennes (liste à survol, photo d'antenne à venir) */}
+      {p.antennes && p.antennes.length > 0 && (
+        <section className="proj-reseau" aria-labelledby="proj-reseau-t">
+          <div className="wrap">
+            <span className="proj-sec" id="proj-reseau-t">Le réseau</span>
+            <h2 className="proj-h2 reveal">Où se former, <em>en France</em></h2>
+            <p className="proj-reseau__lede reveal">
+              Le programme est né à Marseille en 2015. Il est aujourd'hui porté dans chaque ville par
+              une structure locale, avec ses centres de formation et ses restaurateurs partenaires.
+            </p>
+            <div className="reveal">
+              <window.HoverImageList label="Les antennes du réseau" items={p.antennes.map((a) => ({
+                title: a.ville, meta: a.porteur, year: a.annee,
+                img: 'images/antennes/' + antSlug(a.ville) + '.jpg',
+                alt: 'Antenne de ' + a.ville,
+              }))} />
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 7 · DEUX PORTES — candidater / accueillir une stagiaire, à parts égales */}
+      <section className="proj-portes" id="proj-portes" aria-label="Rejoindre le programme">
+        <div className="proj-porte proj-porte--gold reveal">
+          <span className="proj-sec">Vous êtes candidate</span>
+          <h2 className="proj-h2">Rejoindre <em>une promotion</em></h2>
+          <p>{cand.pitch}</p>
+          <ul className="proj-porte__list">
+            <li>{cand.sessions}</li>
+            <li>{cand.antennes}</li>
+          </ul>
+          <a className="btnb btnb--ink" href={cand.applyHref} target="_blank" rel="noopener noreferrer">
+            {cand.applyLabel} <span className="arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <div className="proj-porte proj-porte--teal on-dark reveal" id="proj-portes-pro">
+          <span className="proj-sec">Vous êtes un acteur du secteur</span>
+          <h2 className="proj-h2">Accueillir <em>une stagiaire</em></h2>
+          <p>{p.accueil.text}</p>
+          <div className="proj-porte__stat"><strong>{p.accueil.stat}</strong><span>{p.accueil.statL}</span></div>
+          <a className="btnb btnb--gold" href={p.accueil.ctaHref}>
+            {p.accueil.ctaLabel} <span className="arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </section>
+
+      {/* 8 · SOUTENIR — don, mécénat ; sphère des chefs du réseau */}
       <section className="proj-support" aria-labelledby="proj-support-t">
         <div className="wrap proj-support__inner reveal">
           <div className="proj-support__body">
@@ -350,14 +374,10 @@ function ProjetDefPage() {
               <a className="btnb btnb--gold proj-support__cta-main" href={D.donation} target="_blank" rel="noopener noreferrer">
                 {p.soutenir.donLabel}
               </a>
-              <div className="proj-support__cta-row">
-                <a className="btnb btnb--ghost proj-support__cta-sub" href={p.accueil.ctaHref}>{p.accueil.ctaLabel}</a>
-                <a className="btnb btnb--ghost proj-support__cta-sub" href={p.soutenir.contactHref}>{p.soutenir.contactLabel}</a>
-              </div>
+              <a className="btnb btnb--ghost proj-support__cta-sub" href={p.soutenir.contactHref}>{p.soutenir.contactLabel}</a>
             </div>
           </div>
           <div className="proj-support__sphere">
-            {/* Photos des chefs à venir : en attendant, des photos du programme */}
             {/* Réseau de chefs (source : deck financeurs). Sans photo fournie, un chef
                 apparaît en cadre nominatif : aucune photo du programme sous son nom. */}
             <window.ImgSphere size={520} label="Les chefs du réseau" images={[
@@ -373,17 +393,36 @@ function ProjetDefPage() {
                 'images/photo-tabliers-violets.jpg', 'images/photo-cuisine-action.jpg',
                 'images/photo-applaudissements.jpg',
               ].map((src) => ({ src, alt: '', title: 'Des Étoiles et des Femmes', text: 'En cuisine avec le réseau.' })))} />
-            <p className="proj-support__note">Prochaine session du titre à finalité professionnelle : du 9 novembre 2026 au 13 avril 2027.</p>
           </div>
         </div>
       </section>
 
-      {/* PRESSE — 3 derniers articles + le reste en mentions */}
+      {/* 9 · PORTÉ PAR FESTIN — rattachement, identique sur toutes les pages projet */}
+      <section className="proj-festin on-dark" aria-labelledby="proj-festin-t">
+        <div className="wrap proj-festin__inner reveal">
+          <img className="proj-festin__logo" src="images/logo-festin-blanc.png" alt="Festin" />
+          <div>
+            <span className="proj-sec" id="proj-festin-t">L’écosystème Festin</span>
+            <p className="proj-festin__txt">
+              Des Étoiles et des Femmes est un programme de l’association Festin, créée à Marseille en 1987 :
+              une association loi 1901 à but non lucratif et d’intérêt général, agréée ESUS.
+            </p>
+            <nav className="proj-festin__links" aria-label="Les autres projets de Festin">
+              {D.projets.filter(x => x.id !== p.id).map(x => (
+                <a key={x.id} href={'#/projets/' + x.id}>{x.shortTitle}</a>
+              ))}
+              <a className="is-main" href="#/about">L’association <span aria-hidden="true">→</span></a>
+            </nav>
+          </div>
+        </div>
+      </section>
+
+      {/* 10 · PRESSE — 3 derniers articles + le reste en mentions */}
       {presse.length > 0 && (
         <section className="proj-presse" aria-labelledby="proj-presse-t">
           <div className="wrap">
             <span className="proj-sec" id="proj-presse-t">La presse</span>
-            <h2 className="proj-h2 reveal">Dans la presse</h2>
+            <h2 className="proj-h2 reveal">Ils en <em>parlent</em></h2>
             <div className="proj-news">
               {featured3.map((a, i) => (
                 <a key={i} className="proj-news__card reveal" href={a.href} target="_blank" rel="noopener noreferrer">
@@ -409,17 +448,6 @@ function ProjetDefPage() {
           </div>
         </section>
       )}
-
-      {/* GALERIE — bandeau plein-largeur, défilement auto lent, boucle infinie, fondu aux bords */}
-      <section className="proj-gallery" aria-label="Galerie photo Des Étoiles et des Femmes">
-        <div className="proj-gallery__track">
-          {[...galleryImages, ...galleryImages].map((src, i) => (
-            <div className="proj-gallery__item" key={i} aria-hidden={i >= galleryImages.length}>
-              <window.Picture src={src} alt="" sizes="(max-width: 700px) 60vw, 320px" />
-            </div>
-          ))}
-        </div>
-      </section>
 
     </div>
   );

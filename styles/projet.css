@@ -576,3 +576,243 @@ body.proj-has-crumb .mnav{top:28px}
   .prgw__p{grid-column:2}
 }
 @media (prefers-reduced-motion:reduce){.prgw__row,.prgw__n,.prgw__row::before{transition:none}}
+
+/* ===========================================================
+   GABARIT DE PAGE PROJET (24/09/2026) — cas de référence :
+   Des Étoiles et des Femmes. Blocs nouveaux ou revus ; les autres
+   (chiffres, témoignages, réseau, soutenir, presse) sont repris.
+   Titres : capitales grasses + mot clé en italique léger (charte).
+   =========================================================== */
+.proj-h2 em{font-weight:300}
+.proj-stats .proj-h2 em,.proj-testi .proj-h2 em,.proj-reseau .proj-h2 em,
+.proj-presse .proj-h2 em{color:var(--teal)}
+.on-dark .proj-sec{color:var(--gold-light)}
+.pageProjet .btnb--light{background:#fff;color:var(--teal-deep);border:0}
+.pageProjet .btnb--light:hover{transform:translateY(-2px)}
+.pageProjet .btnb--ink{background:var(--teal-deep);color:#fff;border:0}
+.pageProjet .btnb--ink:hover{transform:translateY(-2px)}
+.pageProjet .btnb--ink:focus-visible{outline-color:var(--teal-deep)}
+
+/* ---- 1 · Hero : fil d'ariane dans le flux, sous la nav ---- */
+.pageProjet--des-etoiles-et-des-femmes .proj-hero{padding-top:clamp(96px,14vh,140px)}
+.proj-crumb{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:clamp(18px,3vh,28px);
+  font-family:'KoHo',sans-serif;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:rgba(255,255,255,.72)}
+.proj-crumb a{color:#fff;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.4)}
+.proj-crumb a:hover{text-decoration-color:var(--gold-light)}
+.proj-crumb [aria-current]{color:var(--gold-light)}
+.proj-hero__cta--duo .btnb{min-width:15.5em;justify-content:center}
+@media(max-width:480px){.proj-hero__cta--duo{flex-direction:column;align-self:stretch}.proj-hero__cta--duo .btnb{width:100%}}
+
+/* ---- Visuel manquant : cadre au bon ratio, jamais un trou ---- */
+.proj-ph{display:grid;place-items:center;width:100%;height:100%;padding:18px;text-align:center;
+  font-family:'KoHo',sans-serif;font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+  line-height:1.4;color:rgba(255,255,255,.75);border:1.5px dashed rgba(255,255,255,.35);border-radius:inherit;
+  background:repeating-linear-gradient(135deg,rgba(255,255,255,.03) 0 12px,transparent 12px 24px)}
+
+/* ---- 3 · Le parcours : frise ---- */
+.proj-frise{background:var(--teal-dark);color:#fff;padding:0}
+.proj-frise__inner{padding:clamp(64px,9vw,120px) 0 clamp(48px,6vw,80px);display:flex;flex-direction:column;
+  gap:clamp(24px,3.4vh,40px)}
+.proj-frise.is-pinned .proj-frise__inner{min-height:100vh;justify-content:center;
+  padding:clamp(72px,10vh,110px) 0 clamp(28px,4vh,44px)}
+.proj-frise .proj-h2{color:#fff;margin-bottom:10px}
+.proj-frise__lede{color:rgba(255,255,255,.85);max-width:56ch;margin:0}
+.proj-frise__viewport{padding-left:var(--pad);padding-right:var(--pad)}
+.proj-frise__track{list-style:none;margin:0;padding:0;display:grid;gap:clamp(28px,5vw,48px)}
+.proj-step{position:relative;display:grid;grid-template-columns:44px 1fr;gap:16px}
+/* ligne et pastilles : en vertical, la ligne descend à gauche */
+.proj-step::before{content:'';position:absolute;left:21px;top:44px;bottom:calc(-1 * clamp(28px,5vw,48px));
+  width:2px;background:rgba(255,255,255,.18)}
+.proj-step:last-child::before{display:none}
+.proj-step__mark{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;
+  border:2px solid rgba(255,255,255,.3);background:var(--teal-dark);position:relative;z-index:1;
+  font-family:'KoHo',sans-serif;font-weight:700;font-size:14px;color:rgba(255,255,255,.7);
+  transition:background .35s var(--ease-out),border-color .35s var(--ease-out),color .35s var(--ease-out)}
+.proj-step.is-on .proj-step__mark{background:var(--gold);border-color:var(--gold);color:var(--teal-deep)}
+.proj-step__card{background:var(--teal-deep);border-radius:var(--r-6);overflow:hidden;
+  display:flex;flex-direction:column;opacity:.55;transform:translateY(14px);
+  transition:opacity .45s var(--ease-out),transform .45s var(--ease-out)}
+.proj-step.is-on .proj-step__card{opacity:1;transform:none}
+.proj-step__img{aspect-ratio:4/3;overflow:hidden;background:var(--teal-deepest);border-radius:var(--r-6) var(--r-6) 0 0}
+.proj-step__img img{width:100%;height:100%;object-fit:cover;display:block}
+.proj-step__body{padding:clamp(18px,2vw,26px);display:flex;flex-direction:column;gap:10px;flex:1}
+.proj-step__tab{font-family:'KoHo',sans-serif;font-weight:700;font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--gold-light)}
+.proj-step__t{font-family:'KoHo',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(18px,1.6vw,22px);
+  line-height:1.15;letter-spacing:-.01em;margin:0;color:#fff}
+.proj-step__body p{margin:0;color:rgba(255,255,255,.86);font-size:14.5px}
+.proj-step__stat{margin-top:auto;padding-top:8px;border-top:1px solid rgba(255,255,255,.14)}
+.proj-step__stat strong{display:block;font-family:'KoHo',sans-serif;font-weight:700;font-size:clamp(26px,2.6vw,34px);
+  line-height:1.1;color:var(--gold-light);letter-spacing:-.02em}
+.proj-step__stat span{font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.proj-step__links{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.proj-step__link{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 12px;
+  border:1px solid rgba(255,255,255,.22);border-radius:var(--r-5);color:#fff;font-size:12.5px;
+  transition:border-color var(--t-base),background var(--t-base)}
+.proj-step__link b{display:block;font-weight:700;text-transform:uppercase;font-size:12px}
+.proj-step__link:hover{border-color:var(--gold-light);background:rgba(255,255,255,.06)}
+/* le rail : l'accompagnement court sous toutes les étapes */
+.proj-rail{display:grid;gap:6px;border-left:4px solid var(--gold);padding-top:4px;padding-bottom:4px}
+.proj-rail{margin-left:var(--pad);padding-left:clamp(16px,2vw,24px)}
+.proj-rail__k{font-family:'KoHo',sans-serif;font-weight:700;font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--gold-light)}
+.proj-rail p{margin:0;max-width:70ch;color:rgba(255,255,255,.9)}
+.proj-rail b{font-weight:700;color:#fff}
+.proj-frise__progress{display:none}
+@media(min-width:900px){
+  .proj-frise__viewport{padding-right:0}
+  .proj-frise__track{display:flex;width:max-content;gap:0;will-change:transform;padding-right:var(--pad)}
+  .proj-step{grid-template-columns:none;grid-template-rows:44px 1fr;gap:18px;
+    width:clamp(320px,min(31vw,56vh),440px);margin-right:clamp(20px,2.2vw,32px)}
+  /* en horizontal, la ligne relie les pastilles */
+  .proj-step::before{left:44px;right:calc(-1 * clamp(20px,2.2vw,32px));top:21px;bottom:auto;width:auto;height:2px}
+  .proj-step__img{aspect-ratio:16/10}
+  .proj-rail{margin-left:0;margin-right:0;border-left:0;border-top:4px solid var(--gold);padding:14px 0 0;
+    grid-template-columns:auto 1fr;align-items:baseline;gap:18px}
+  .proj-frise.is-pinned .proj-frise__progress{display:block;height:3px;background:rgba(255,255,255,.14);
+    border-radius:3px;overflow:hidden;padding:0;margin:0 var(--pad);max-width:none}
+  .proj-frise__bar{display:block;height:100%;background:var(--gold);transform:scaleX(0);transform-origin:left}
+}
+@media(min-width:900px) and (max-height:760px){
+  .proj-step__img{aspect-ratio:2/1}
+  .proj-step__body p{font-size:13.5px}
+}
+@media(prefers-reduced-motion:reduce){
+  .proj-step__card,.proj-step__mark{transition:none;opacity:1;transform:none}
+}
+
+/* ---- 5 · Vidéo : bloc à part ---- */
+.proj-video{background:var(--teal-deep);color:#fff;padding:clamp(64px,9vw,120px) 0}
+.proj-video .proj-h2{color:#fff}
+.proj-video__frame{position:relative;aspect-ratio:16/9;border-radius:var(--r-7);overflow:hidden;
+  background:var(--teal-deepest);box-shadow:var(--sh-lg);margin-top:clamp(20px,3vw,32px)}
+.proj-video__frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.proj-video__credit{margin:14px 0 0;font-size:12px;letter-spacing:.04em;color:rgba(255,255,255,.62)}
+
+/* ---- 7 · Deux portes : candidater / accueillir ---- */
+.proj-portes{display:grid;grid-template-columns:1fr 1fr}
+.proj-porte{padding:clamp(56px,8vw,110px) clamp(20px,5vw,80px);display:flex;flex-direction:column;
+  align-items:flex-start;gap:14px}
+.proj-porte .proj-h2{margin:0}
+.proj-porte p,.proj-porte li{max-width:48ch;margin:0}
+.proj-porte .btnb{margin-top:auto}
+.proj-porte--gold{background:var(--gold);color:var(--teal-deep)}
+.proj-porte--gold .proj-sec{color:var(--teal-deep)}
+.proj-porte--gold .proj-h2,.proj-porte--gold .proj-h2 em{color:var(--teal-deep)}
+.proj-porte--teal{background:var(--teal);color:#fff}
+.proj-porte--teal .proj-h2{color:#fff}
+.proj-porte__list{margin:0 0 12px;padding:0;list-style:none;display:grid;gap:8px}
+.proj-porte__list li{position:relative;padding-left:18px;font-size:14px;line-height:1.5}
+.proj-porte__list li::before{content:'';position:absolute;left:0;top:.55em;width:7px;height:7px;border-radius:50%;background:var(--teal-deep)}
+.proj-porte__stat{margin-bottom:12px}
+.proj-porte__stat strong{display:block;font-family:'KoHo',sans-serif;font-weight:700;font-size:clamp(28px,3vw,38px);
+  line-height:1.1;color:var(--gold-light)}
+.proj-porte__stat span{font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:rgba(255,255,255,.8)}
+@media(max-width:820px){.proj-portes{grid-template-columns:1fr}}
+
+/* ---- 9 · Porté par Festin ---- */
+.proj-festin{background:var(--teal-dark);color:#fff;padding:clamp(44px,6vw,72px) 0}
+.proj-festin__inner{display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,4vw,56px);align-items:center}
+.proj-festin__logo{width:clamp(110px,12vw,160px);height:auto}
+.proj-festin__txt{font-size:clamp(16px,1.5vw,19px);line-height:1.5;max-width:62ch;margin:0 0 16px;color:#fff}
+.proj-festin__links{display:flex;flex-wrap:wrap;gap:8px}
+.proj-festin__links a{font-family:'KoHo',sans-serif;font-weight:700;font-size:12px;letter-spacing:.04em;
+  text-transform:uppercase;color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:var(--r-pill);
+  padding:8px 14px;transition:border-color var(--t-base),background var(--t-base)}
+.proj-festin__links a:hover{border-color:var(--gold-light)}
+.proj-festin__links a.is-main{background:var(--gold);color:var(--teal-deep);border-color:var(--gold)}
+@media(max-width:640px){.proj-festin__inner{grid-template-columns:1fr}}
+.proj-frise__viewport{overflow:hidden;padding-left:max(var(--pad),calc((100% - 1280px) / 2 + var(--pad)))}
+.proj-frise__viewport .proj-frise__track{padding-top:4px}
+.proj-frise__inner > .wrap{width:100%}
+@media(min-width:900px){
+  .proj-step{width:clamp(290px,min(28vw,48vh),420px)}
+  .proj-step__img{aspect-ratio:16/9}
+  .proj-frise.is-pinned .proj-frise__inner{gap:clamp(16px,2.6vh,30px)}
+  .proj-frise.is-pinned .proj-frise__lede{font-size:14px}
+}
+/* bureau : carte d'étape en deux colonnes (photo 3:4 | texte) pour tenir dans
+   un écran épinglé ; mobile : photo 4:3 au-dessus du texte */
+.proj-step__img{aspect-ratio:4/3}
+.proj-rail{position:relative}
+.proj-frise__bar{display:none}
+@media(min-width:900px){
+  .proj-step{width:clamp(500px,46vw,660px)}
+  .proj-step__card{display:grid;grid-template-columns:38% 1fr;align-items:start}
+  .proj-step__img{aspect-ratio:3/4;border-radius:var(--r-6) 0 0 var(--r-6)}
+  .proj-step__body{padding:clamp(18px,1.8vw,24px)}
+  .proj-step__stat{margin-top:4px}
+  /* le rail de l'accompagnement sert aussi de barre de progression */
+  .proj-rail{border-top-color:rgba(255,193,0,.28)}
+  .proj-frise.is-pinned .proj-frise__bar{display:block;position:absolute;left:0;right:0;top:-4px;height:4px;
+    background:var(--gold);transform:scaleX(0);transform-origin:left}
+}
+@media(min-width:900px) and (max-height:820px){
+  .proj-frise.is-pinned .proj-frise__lede{display:none}
+  .proj-step__img{aspect-ratio:4/5}
+}
+@media(min-width:900px){
+  .proj-step__card{align-items:stretch}
+  .proj-step__img{aspect-ratio:auto;min-height:100%}
+  .proj-rail{border-top:0;padding-top:18px}
+  .proj-rail::before{content:'';position:absolute;top:0;left:var(--pad);right:var(--pad);height:4px;background:rgba(255,193,0,.28)}
+  .proj-frise.is-pinned .proj-frise__bar{left:var(--pad);right:var(--pad);top:0}
+  .proj-frise.is-pinned .proj-frise__inner{padding-top:88px}
+}
+@media(min-width:900px) and (max-height:940px){
+  .proj-frise.is-pinned .proj-frise__lede{display:none}
+}
+@media(min-width:900px){
+  .proj-frise.is-pinned .proj-frise__inner{justify-content:flex-start;padding-top:clamp(84px,11vh,120px);padding-bottom:0}
+}
+@media(min-width:900px) and (max-height:820px){
+  .proj-frise.is-pinned .proj-h2{font-size:28px;margin-bottom:0}
+  .proj-step__body{gap:6px}
+  .proj-step__body p{font-size:13.5px;line-height:1.5}
+  .proj-step__stat strong{font-size:24px}
+  .proj-rail p{font-size:13.5px}
+}
+.proj-portes{padding:0}
+@media(min-width:900px){
+  .proj-frise.is-pinned .proj-frise__inner{justify-content:center;padding-top:80px;padding-bottom:24px}
+}
+@media(min-width:900px) and (max-height:940px) and (min-height:821px){
+  .proj-frise.is-pinned .proj-frise__lede{display:block}
+}
+/* le routeur place le focus sur le titre à chaque changement de page : ce n'est
+   pas un élément interactif, pas de cadre de focus */
+.pageProjet h1[tabindex="-1"]:focus{outline:none}
+@media(max-width:560px){
+  .proj-stats2__grid{grid-template-columns:1fr 1fr}
+  .proj-stat2{min-height:128px;padding:18px}
+  .proj-stat2__n{font-size:34px}
+  .proj-stat2__l{font-size:12px}
+}
+/* GSAP pose une largeur en px mesurée avant le `zoom` des très grands écrans :
+   l'élément épinglé déborderait de 12 à 85 %. On le recale sur la fenêtre. */
+.proj-frise.is-pinned .proj-frise__inner{width:100%!important;max-width:100%!important}
+
+/* Sans épinglage (mouvement réduit, pas de GSAP) : liste verticale aussi au
+   bureau — jamais d'étapes coupées hors écran. */
+@media(min-width:900px){
+  .proj-frise:not(.is-pinned) .proj-frise__track{display:grid;width:auto;gap:clamp(28px,4vw,40px);
+    padding-right:var(--pad);max-width:calc(1280px - 2 * var(--pad))}
+  .proj-frise:not(.is-pinned) .proj-step{grid-template-columns:44px 1fr;grid-template-rows:none;
+    width:auto;margin-right:0;gap:20px}
+  .proj-frise:not(.is-pinned) .proj-step::before{left:21px;right:auto;top:44px;
+    bottom:calc(-1 * clamp(28px,4vw,40px));width:2px;height:auto}
+  .proj-frise:not(.is-pinned) .proj-step__card{grid-template-columns:32% 1fr}
+  .proj-frise:not(.is-pinned) .proj-rail{margin-top:8px}
+}
+@media(min-width:900px){
+  .proj-frise.is-pinned .proj-frise__inner{justify-content:flex-start;padding-top:96px}
+}
+/* à partir de la tablette, carte d'étape en deux colonnes : la photo prend la
+   hauteur du texte (jamais l'inverse) */
+.proj-step__img{position:relative}
+.proj-step__img img{position:absolute;inset:0}
+@media(min-width:600px){
+  .proj-step__card{display:grid;grid-template-columns:36% 1fr;align-items:stretch}
+  .proj-step__img{aspect-ratio:auto;min-height:220px;border-radius:var(--r-6) 0 0 var(--r-6)}
+}
