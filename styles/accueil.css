@@ -263,3 +263,10 @@
 @media (max-width:599px){ .frise__img{aspect-ratio:16/9} }
 /* pied de page : la colonne de marque prend toute la largeur sur téléphone */
 @media (max-width:599px){ .footer__grid .footer__brand{grid-column:1 / -1} .footer__brand p{max-width:none} }
+/* Grands écrans : _tokens.css applique un zoom global, qui agrandit aussi 100vh.
+   La frise épinglée divise sa hauteur par le même facteur pour tenir dans l'écran. */
+@media (min-width:1800px){ :root{--zoom:1.12} }
+@media (min-width:2100px){ :root{--zoom:1.3} }
+@media (min-width:2400px){ :root{--zoom:1.5} }
+@media (min-width:3000px){ :root{--zoom:1.85} }
+@media (min-width:900px){ .frise.is-pinned .frise__inner{height:calc(100vh / var(--zoom,1))} }
