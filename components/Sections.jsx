@@ -278,50 +278,56 @@ function ProjetExtra({ eyebrow, title, accent, lede, tone = 'cream', children })
   );
 }
 // ---------------------------------------------------------------------------
-// TestiCarousel — carrousel défilant des témoignages, standard des pages projet.
-// Sans dégradé sur les bords. S'il y a moins de `min` témoignages, la piste est
-// complétée par des cadres « à venir » (contenu fourni plus tard).
-// items : [{ name, meta, accroche, quote, photo, objPos, bw }]
+// TestiCarousel — témoignages en grande citation, une à la fois, avec flèches
+// (retour du 24/09/2026 : remplace les bandeaux défilants, accueil compris).
+// Pas de défilement automatique. Flèches du clavier quand le bloc a le focus,
+// annonce polie du changement. items : [{ name, meta, accroche, quote, photo,
+// objPos, bw, logo, chip }]. Citations reprises mot pour mot.
 // ---------------------------------------------------------------------------
-function TestiCarousel({ items = [], min = 6, label = 'Témoignages' }) {
-  const real = items.filter(Boolean);
-  const filled = real.slice();
-  while (window.FESTIN_SHOW_PLACEHOLDERS && filled.length < min) filled.push({ empty: true });
-  // Moins de trois témoignages réels et pas de cadres « à venir » : pas de
-  // défilement (une piste qui boucle sur une ou deux cartes fait maquette).
-  const still = filled.length < 3;
-  const loop = still ? filled : filled.concat(filled);
-  const tones = ['teal', 'cream', 'deep', 'gold'];
-  if (!filled.length) return null;
+function TestiCarousel({ items = [], label = 'Témoignages' }) {
+  const real = items.filter((t) => t && t.quote);
+  const [i, setI] = React.useState(0);
+  const qRef = React.useRef(null);
+  const n = real.length;
+  const go = (d) => setI((v) => (v + d + n) % n);
+  React.useEffect(() => {
+    const g = window.gsap, el = qRef.current;
+    if (!g || !el || (window.FESTIN_RM && window.FESTIN_RM())) return;
+    const tw = g.fromTo(el.querySelectorAll('.tq__q, .tq__who, .tq__media'), { y: 24, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.7, stagger: 0.06 });
+    return () => tw.kill();
+  }, [i]);
+  if (!n) return null;
+  const t = real[i];
+  const pad = (k) => String(k + 1).padStart(2, '0');
+  const ini = (t.name || '?').trim().split(/\s+/).map((w) => w[0]).slice(0, 2).join('');
   return (
-    <div className={'tcar' + (still ? ' tcar--still' : '')} role="region" aria-label={label} data-marquee>
-      {!still && <MarqueePause label="des témoignages" />}
-      <div className="tcar__track" style={{ '--tcar-dur': (filled.length * 7) + 's' }}>
-        {loop.map((t, i) => (
-          <div className="tcar__item" key={i} aria-hidden={i >= filled.length ? true : undefined}>
-            {t.empty ? (
-              <article className="tcar__card tcar__card--empty is-placeholder">
-                <span className="tcar__ph" aria-hidden="true" />
-                <p>Témoignage à venir</p>
-              </article>
-            ) : (
-              <article className={'tcar__card tcar__card--' + tones[(i % filled.length) % tones.length] + (t.bw ? ' is-bw' : '')}>
-                <div className="tcar__head">
-                  {t.photo
-                    ? <img className="tcar__photo" src={URI(t.photo)} alt={'Portrait de ' + t.name} loading="lazy" style={{ objectPosition: t.objPos || 'center 18%' }} />
-                    : <span className="tcar__photo tcar__photo--ini" aria-hidden="true">{(t.name || '?').trim().charAt(0)}</span>}
-                  <div>
-                    <h3 className="tcar__name">{t.name}</h3>
-                    {t.meta && <span className="tcar__meta">{t.meta}</span>}
-                  </div>
-                </div>
-                {t.accroche && <p className="tcar__accroche">« {t.accroche} »</p>}
-                <p className="tcar__quote">« {t.quote} »</p>
-              </article>
-            )}
-          </div>
-        ))}
+    <div className="tq" role="group" aria-roledescription="carrousel" aria-label={label} tabIndex={n > 1 ? 0 : undefined}
+      onKeyDown={(e) => { if (e.key === 'ArrowRight') { e.preventDefault(); go(1); } if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); } }}>
+      <div className="tq__body" ref={qRef}>
+        <div className="tq__media" aria-hidden="true">
+          {t.photo
+            ? <img src={URI(t.photo)} alt="" loading="lazy" style={{ objectPosition: t.objPos || 'center 20%', filter: t.bw ? 'grayscale(1)' : undefined }} />
+            : t.logo ? <span className="tq__logo"><img src={URI(t.logo)} alt="" loading="lazy" /></span>
+            : <span className="tq__ini">{ini}</span>}
+        </div>
+        <figure className="tq__fig">
+          <blockquote className="tq__q">
+            {t.accroche && <p className="tq__acc">« {t.accroche} »</p>}
+            <p>« {t.quote} »</p>
+          </blockquote>
+          <figcaption className="tq__who">
+            <b>{t.name}</b>{t.meta && <span>{t.meta}</span>}{t.chip && <span className="tq__chip">{t.chip}</span>}
+          </figcaption>
+        </figure>
       </div>
+      {n > 1 && (
+        <div className="tq__nav">
+          <span className="tq__count" aria-hidden="true"><b>{pad(i)}</b> / {pad(n - 1)}</span>
+          <button type="button" className="tq__arrow" onClick={() => go(-1)} aria-label="Témoignage précédent">←</button>
+          <button type="button" className="tq__arrow" onClick={() => go(1)} aria-label="Témoignage suivant">→</button>
+          <span className="sr-only" aria-live="polite">Témoignage {i + 1} sur {n} : {t.name}</span>
+        </div>
+      )}
     </div>
   );
 }

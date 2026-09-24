@@ -186,3 +186,27 @@
 /* Infobulles des deux dernières barres ancrées à droite (ne sortent pas de l'écran) */
 .ibar:nth-child(n+3) .ibar__tip{left:auto;right:0}
 .hp__t{font-size:min(var(--fs-h1), 12vw)}
+
+/* ---------- TÉMOIGNAGES : grande citation, une à la fois (Sections.jsx, TestiCarousel) ---------- */
+.tq{position:relative;margin-top:var(--sp-7);outline-offset:8px}
+.tq__body{display:grid;grid-template-columns:clamp(120px,16vw,220px) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:start}
+.tq__media{aspect-ratio:1;border-radius:50%;overflow:hidden;background:var(--teal-tint);display:grid;place-items:center}
+.tq__media img{width:100%;height:100%;object-fit:cover}
+.tq__logo{display:grid;place-items:center;width:100%;height:100%;background:var(--off-white);border:1.5px solid var(--teal-tint-2);border-radius:50%}
+.tq__logo img{width:62%;height:62%;object-fit:contain}
+.tq__ini{font-size:var(--fs-h1);font-weight:300;font-style:italic;color:var(--teal)}
+.tq__fig{margin:0}
+.tq__q{margin:0;position:relative}
+.tq__q p{margin:0;font-size:clamp(1.375rem,1rem + 1.7vw,2.5rem);font-weight:600;line-height:1.28;letter-spacing:-.01em;color:inherit;max-width:32ch;text-wrap:pretty}
+.tq__q .tq__acc{font-size:var(--fs-lede);font-weight:700;font-style:italic;color:var(--accent-color,var(--teal));margin-bottom:var(--sp-4)}
+.tq__who{margin-top:var(--sp-6);display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--sp-2) var(--sp-4);font-size:var(--fs-body)}
+.tq__who b{font-weight:700;text-transform:uppercase;letter-spacing:.02em}
+.tq__who span{opacity:.8}
+.tq__chip{font-size:var(--fs-small);font-weight:700;padding:4px 12px;border-radius:999px;border:1.5px solid currentColor;opacity:.75}
+.tq__nav{display:flex;align-items:center;justify-content:flex-end;gap:var(--sp-3);margin-top:var(--sp-7);padding-top:var(--sp-5);border-top:1.5px solid color-mix(in oklab,currentColor 20%,transparent)}
+.tq__count{margin-right:auto;font-size:var(--fs-small);font-variant-numeric:tabular-nums;opacity:.8}
+.tq__count b{font-size:var(--fs-h3);font-weight:700;opacity:1}
+.tq__arrow{width:56px;height:56px;border-radius:50%;border:1.5px solid currentColor;background:transparent;color:inherit;font-size:20px;cursor:pointer;transition:background-color var(--dur-2) var(--ease-quart),color var(--dur-2) var(--ease-quart)}
+.tq__arrow:hover{background:var(--teal);border-color:var(--teal);color:var(--off-white)}
+.on-dark .tq__arrow:hover{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+@media(max-width:700px){.tq__body{grid-template-columns:1fr}.tq__media{width:96px}}

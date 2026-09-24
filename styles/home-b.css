@@ -526,3 +526,6 @@ section{position:relative}
 .fin__t{font-size:var(--fs-h2);line-height:var(--lh-tight)}
 .fin__t em{white-space:nowrap}
 @media(max-width:900px){.fin__what{white-space:normal}}
+/* Chiffres de l'accueil sans photos éparpillées (retour du 24/09/2026) */
+.b-impact .wrap{min-height:0}
+.b-quotes .tq{text-align:left}

@@ -14,19 +14,15 @@ function HomeB() {
     const reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
     const gsap = window.gsap, ST = window.ScrollTrigger;
     const cleanups = [];
-    const impactPhotos = root.querySelector('#impactPhotos');
 
     // clone marquees (toujours, même en reduced-motion)
     const vtrack = root.querySelector('#vtrack');
     if (vtrack && vtrack.dataset.cloned !== '1') { vtrack.innerHTML += vtrack.innerHTML; vtrack.dataset.cloned = '1'; }
-    const ttrack = root.querySelector('#ttrack');
-    if (ttrack && ttrack.dataset.cloned !== '1') { ttrack.innerHTML += ttrack.innerHTML; ttrack.dataset.cloned = '1'; }
 
     if (reduce || !gsap || !ST) {
       root.querySelectorAll('.reveal').forEach(el => el.classList.add('is-in'));
       root.querySelectorAll('.istat__n').forEach(el => el.textContent = el.dataset.count + (el.dataset.suffix || ''));
       root.querySelectorAll('.appr__card').forEach(c => c.classList.add('on'));
-      if (impactPhotos) impactPhotos.classList.add('is-scattered');
       return;
     }
     gsap.registerPlugin(ST);
@@ -128,17 +124,6 @@ function HomeB() {
       }});
     });
 
-    // ---- IMPACT : photos éparpillées depuis le centre (désactivé <900px, cf. CSS)
-    if (impactPhotos && window.innerWidth >= 900) {
-      const stImpact = ST.create({
-        trigger: impactPhotos, start: 'top 70%', once: true,
-        onEnter: () => impactPhotos.classList.add('is-scattered'),
-      });
-      cleanups.push(() => stImpact.kill());
-    } else if (impactPhotos) {
-      impactPhotos.classList.add('is-scattered');
-    }
-
     window.addEventListener('load', () => ST.refresh());
     ST.refresh();
 
@@ -224,7 +209,7 @@ function HomeB() {
         </div>
       </section>
 
-      {/* #impact — chiffres expliqués + photos dispersées */}
+      {/* #impact — chiffres expliqués, avec leur source */}
       <section className="b-impact" id="impact">
         <div className="wrap">
           <div className="b-impact__blob" aria-hidden="true"></div>
@@ -242,11 +227,6 @@ function HomeB() {
               })}
             </div>
             <p className="b-impact__src">{H.impact.source} <a href="#/impact">Voir tous nos rapports d'activité <span aria-hidden="true">→</span></a></p>
-          </div>
-          <div className="b-impact__photos" id="impactPhotos">
-            {H.impact.photos.map((src, i) => (
-              <div key={i} className={"b-impact__ph b-impact__ph--p" + (i + 1)}><window.Picture src={src} alt="" sizes="(max-width: 900px) 50vw, 170px" /></div>
-            ))}
           </div>
         </div>
       </section>
@@ -326,28 +306,8 @@ function HomeB() {
           <p className="b-quotes__lede reveal">{H.quotes.lede}</p>
           <div className="qband reveal"><window.Picture src={H.quotes.band} alt="Cérémonie de fin de formation" sizes="100vw" /></div>
         </div>
-        <div className="tmarquee reveal" aria-label="Témoignages" data-marquee>
-          <window.MarqueePause label="des témoignages" />
-          <div className="tmarquee__track" id="ttrack">
-            {H.quotes.cards.map((c, i) => (
-              <div className="tcell" key={i}>
-                <div className="tcard">
-                  <div className="tcard__top">
-                    <div className="tcard__id">
-                      <span className={"tavatar tavatar--" + c.kind}>{c.av}</span>
-                      <div><div className="tcard__name">{c.name}</div><div className="tcard__role">{c.role}</div></div>
-                    </div>
-                    <span className="tcard__src"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
-                  </div>
-                  <span className={"tchip tchip--" + c.kind}>{c.chip}</span>
-                  <p className="tcard__q">{c.q}</p>
-                </div>
-                <div className="tpanel"><div className="tpanel__grid"></div>
-                  {c.logo ? <img src={IMG(c.logo)} alt="" loading="lazy" decoding="async" /> : <span>{c.panelText}</span>}
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="wrap">
+          <window.TestiCarousel label="Témoignages" items={H.quotes.cards.map((c) => ({ name: c.name, meta: c.role, quote: c.q, chip: c.chip, logo: c.logo }))} />
         </div>
       </section>
 

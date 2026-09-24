@@ -962,7 +962,7 @@ window.FESTIN_DATA.impact = {
   projets: [
     { id: "des-etoiles-et-des-femmes", n: "1 200", t: "femmes accompagnées depuis 2015", d: "13 antennes en France. 91 % de réussite aux diplômes en 2025." },
     { id: "les-beaux-mets", n: "119", t: "personnes détenues ont travaillé en brigade depuis 2022", d: "En 2023, 82 % sont entrées en emploi ou en formation à leur sortie de détention." },
-    { id: "la-table-de-cana", n: "84 %", t: "de sorties positives en 2024", d: "Traiteur et restauration collective en insertion, le premier projet de l'association." },
+    { id: "la-table-de-cana", n: "84 %", t: "de sorties positives en 2024", d: "Traiteur et restauration collective en insertion, premier projet de l'association, créé en 1993." },
     { id: "tournesol", n: "86 %", t: "des stagiaires en emploi un an après", d: "Cinq mois de formation pour des personnes réfugiées ou primo-arrivantes, avec Refugee Food." },
     { id: "restaure", n: "700", t: "signataires du manifeste", d: "35 structures engagées contre les violences en cuisine." },
   ],
