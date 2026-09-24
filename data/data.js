@@ -1131,7 +1131,7 @@ window.FESTIN_DATA.about = {
     { key: "com", label: "Communication et communauté", color: "#9A5BA8", members: [
       { name: "Iris Liberty",      role: "Chargée d'animation de communauté, programme Restaure", photo: null },
       { name: "Iris Hutin",        role: "Chargée de projet Communication", photo: null },
-      { name: "Mattieu Donsimoni", role: "Chargé de communication en alternance", photo: null },
+      { name: "Matthieu Donsimoni", role: "Chargé de communication en alternance", photo: null },
     ]},
     { key: "formation", label: "Formation et emploi", color: "#E8A825", members: [
       { name: "Florence Armitano", role: "Responsable du pôle Formation", photo: null },
