@@ -969,9 +969,7 @@ function AcademiePage() {
           <p style={{fontSize:17, color:'rgba(255,255,255,0.78)', lineHeight:1.7, marginBottom:28}}>
             L'Académie Festin est co-portée avec Estello Formation, organisme spécialisé dans les formations aux métiers de l'hôtellerie-restauration.
           </p>
-          <a href="https://www.estelloformation.com" target="_blank" rel="noopener" className="btn btn--ghost-w">
-            estelloformation.com <i data-lucide="external-link" style={{width:14,height:14}}/>
-          </a>
+          {/* [À COMPLÉTER] site d'Estello Formation : estelloformation.com répond 404 (24/09/2026) */}
         </div>
       </section>
     </div>
