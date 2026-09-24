@@ -22,7 +22,7 @@ window.FESTIN_DATA = {
     rna: "W133012740",
     legalMention: "Ce site est édité par l’association Festin, association loi 1901 à but non lucratif et d’intérêt général, agréée ESUS. N° RNA : W133012740. SIRET : 379 756 026 00074.",
   },
-  // Stats (About, accueil) — chiffres 2025, source : Rapport d'activité Festin 2025 (version 441 / 83 %)
+  // Stats (About, accueil) — chiffres 2025, source : Rapport d'activité Festin 2025 (version 441 / 83 %)
   stats: [
     { value: "441", unit: "",   label: "personnes accompagnées en 2025" },
     { value: "83",  unit: "%",  label: "de sorties en emploi ou formation" },
@@ -32,7 +32,7 @@ window.FESTIN_DATA = {
   // Ticker — defile bandeau sur la home
   ticker: [
     "441 personnes accompagnées en 2025",
-    "83 % de sorties en emploi ou formation",
+    "83 % de sorties en emploi ou formation",
     "14 territoires d'intervention",
     "L'insertion par la cuisine depuis 1987",
     "Académie Festin, organisme de formation certifié Qualiopi",
@@ -157,7 +157,7 @@ window.FESTIN_DATA = {
         },
         {
           prenom: "Avotra",
-          ville: "Île-de-France — Antony",
+          ville: "Île-de-France, Antony",
           promo: "Promotion 2024-2025",
           accroche: "Pourquoi les autres, pourquoi pas moi ?",
           extrait: "Intégrer le CAP Cuisine avec Des Étoiles et des Femmes a été une chance. Aujourd’hui, je crée mon entreprise de traiteur malgache. Être femme dans la cuisine, c’est savoir s’imposer.",
@@ -192,7 +192,7 @@ window.FESTIN_DATA = {
         // Slot en attente — portrait et témoignage à recueillir
         {
           prenom: "Julia Sedefdjian",
-          role: "Marraine nationale — Des Étoiles et des Femmes",
+          role: "Marraine nationale, Des Étoiles et des Femmes",
           citation: "[AJOUTER TÉMOIGNAGE]",
           photo: "",
           variant: "deep",
@@ -220,7 +220,7 @@ window.FESTIN_DATA = {
         { ville: "Hauts-de-Seine Sud",   annee: "2023", porteur: "La Table de Cana" },
       ],
       // --- Champs page projet dédiée (extraits de description / formations, sinon [XX]) ---
-      godmother: { name: "Julia Sedefdjian", role: "Marraine nationale — depuis 2025" },
+      godmother: { name: "Julia Sedefdjian", role: "Marraine nationale, depuis 2025" },
       parcours: [
         { tab: "Se former", title: "Un CAP ou un titre de commis",
           text: "CAP Cuisine sur 11 mois, avec le lycée hôtelier Jean-Paul Passedat et le Greta-CFA Marseille Méditerranée. Ou titre à finalité professionnelle de commis de cuisine sur 4 mois. Techniques, remise à niveau, préparation à l’examen.",
@@ -332,9 +332,9 @@ window.FESTIN_DATA = {
       implicationCtaLabel: "Faire un don",
       implicationCtaHref: "https://www.helloasso.com/associations/association-festin/formulaires/3",
       temoignages: [
-        { prenom: "Valentin Majan", role: "Chef de cuisine — Les Beaux Mets", citation: "Ce n’est pas tous les jours évident. On doit apprendre à mélanger les temps de mise en place et d’accompagnement social. Même si ça fait perdre du temps de production, ça rend notre travail plus humain.", placeholder: false },
-        { prenom: "Jason", role: "Cuisinier, 22 ans — promotion 2025", citation: "Je n’avais jamais travaillé avant. Aux Beaux Mets, j’ai appris à cuisiner, à dresser une assiette, à me tenir en cuisine. Aujourd’hui, j’ai ma première fiche de paie. Ça me donne de la fierté.", placeholder: false },
-        { prenom: "Chef Davin", role: "Chef — Intercontinental Marseille", citation: "Sami s’est très vite intégré à l’équipe. Il a été très bien formé aux Beaux Mets et avait également l’attitude qui correspondait à une cuisine.", placeholder: false },
+        { prenom: "Valentin Majan", role: "Chef de cuisine, Les Beaux Mets", citation: "Ce n’est pas tous les jours évident. On doit apprendre à mélanger les temps de mise en place et d’accompagnement social. Même si ça fait perdre du temps de production, ça rend notre travail plus humain.", placeholder: false },
+        { prenom: "Jason", role: "Cuisinier, 22 ans, promotion 2025", citation: "Je n’avais jamais travaillé avant. Aux Beaux Mets, j’ai appris à cuisiner, à dresser une assiette, à me tenir en cuisine. Aujourd’hui, j’ai ma première fiche de paie. Ça me donne de la fierté.", placeholder: false },
+        { prenom: "Chef Davin", role: "Chef, Intercontinental Marseille", citation: "Sami s’est très vite intégré à l’équipe. Il a été très bien formé aux Beaux Mets et avait également l’attitude qui correspondait à une cuisine.", placeholder: false },
       ],
       presseFilter: ["Les Beaux Mets", "Beaux Mets", "Baumettes"],
       // --- Champs page projet dédiée (sourcés du dossier de présentation LBM, janv. 2026) ---
@@ -409,8 +409,8 @@ window.FESTIN_DATA = {
       implicationCtaHref: "#/contact",
       temoignages: [
         { prenom: "Oumar", role: "Ancien salarié en insertion", citation: "J’ai passé deux ans à La Table de Cana. Ça m’a vraiment aidé à savoir m’organiser et à avoir confiance en mes compétences. Aujourd’hui, j’ai un CDI chez Compass à la Tour CMA-CGM.", placeholder: false },
-        { prenom: "Jean Claude", role: "Ancien commis de cuisine — La Table de Cana", citation: "J’ai pu prendre confiance en moi grâce aux différentes tâches.", placeholder: false },
-        { prenom: "Pierre", role: "RRH insertion — La Table de Cana", citation: "Chaque sortie positive, c’est une victoire pour la personne et pour toute l’équipe. Ça montre que notre accompagnement fonctionne !", placeholder: false },
+        { prenom: "Jean Claude", role: "Ancien commis de cuisine, La Table de Cana", citation: "J’ai pu prendre confiance en moi grâce aux différentes tâches.", placeholder: false },
+        { prenom: "Pierre", role: "RRH insertion, La Table de Cana", citation: "Chaque sortie positive, c’est une victoire pour la personne et pour toute l’équipe. Ça montre que notre accompagnement fonctionne !", placeholder: false },
       ],
       presseFilter: ["La Table de Cana", "Table de Cana"],
       // --- Champs page projet dédiée (source : latabledecana-marseille.com/insertion-professionnelle) ---
@@ -420,7 +420,7 @@ window.FESTIN_DATA = {
           stat: "40+", statL: "personnes formées chaque année" },
         { tab: "Trouver un emploi", title: "Et après ? Un emploi chez un partenaire",
           text: "Une fois formés, les salariés sont orientés vers des entreprises partenaires : Compass, Sodexo, Accor, Newrest, le restaurant Le Grand Pin, l'École de la 2e Chance. Lassana, diplômé du CAP cuisine en 2021, est aujourd'hui en CDI au Sofitel Marseille ; Zaky, titulaire du CQP cuisinier, travaille chez Newrest.",
-          stat: "89 %", statL: "de sorties dynamiques en 2025" },
+          stat: "89 %", statL: "de sorties dynamiques en 2025" },
         { tab: "Le Club des Talents", title: "Les anciens parrainent les nouveaux",
           text: "Le Club des Talents réunit anciens et actuels salariés. Les anciens parrainent les nouveaux arrivants et les mettent en relation avec les entreprises partenaires.",
           stat: "2ᵉ", statL: "édition organisée en 2025" },
@@ -615,7 +615,7 @@ window.FESTIN_DATA = {
           { value: "9 sur 11", label: "ont obtenu le titre à finalité professionnelle en totalité" },
           { value: "11 sur 11", label: "ont obtenu le DCL, diplôme de compétence en langue" },
           { value: "150 h", label: "de stage en restaurant" },
-          { value: "86 %", label: "d’insertion globale un an après la formation" },
+          { value: "86 %", label: "d’insertion globale un an après la formation" },
         ],
       },
       partenaires: ["AFC Groupe", "Compass Group", "France Travail", "AKTO", "Ville de Marseille", "Préfecture des Bouches-du-Rhône", "Fondation RAJA-Danièle Marcovici"],
@@ -676,7 +676,7 @@ window.FESTIN_DATA = {
       id: "tfp",
       cat: "Insertion",
       audienceKey: "insertion",
-      title: "Des Étoiles et des Femmes — TFP",
+      title: "Des Étoiles et des Femmes, TFP",
       desc: "Titre à finalité professionnelle de commis de cuisine en 4 mois, gratuit, pour des femmes.",
       img: "images/photo-tabliers-violets.jpg",
       duration: "4 mois — 600h (245h cuisine · 155h stage · 70h remise à niveau · 131h transverses)",
@@ -701,7 +701,7 @@ window.FESTIN_DATA = {
       id: "cap",
       cat: "Insertion",
       audienceKey: "insertion",
-      title: "Des Étoiles et des Femmes — CAP",
+      title: "Des Étoiles et des Femmes, CAP",
       desc: "CAP Cuisine en 11 mois pour des femmes, en alternance avec un restaurant partenaire.",
       img: "images/photo-patisserie.jpg",
       duration: "11 mois — 986h de cours + 490h de stage",
@@ -765,13 +765,13 @@ window.FESTIN_DATA = {
     {
       quote: "Je n'avais jamais travaillé avant. Aux Beaux Mets, j'ai appris à cuisiner, à dresser une assiette, à me tenir en cuisine. Aujourd'hui, j'ai ma première fiche de paie. Ça me donne de la fierté.",
       author: "Jason, 22 ans",
-      role: "Cuisinier — Les Beaux Mets, 2025",
+      role: "Cuisinier, Les Beaux Mets, 2025",
       tone: "light",
     },
     {
       quote: "J'ai passé deux ans à La Table de Cana. Ça m'a vraiment aidé à savoir m'organiser et à avoir confiance en mes compétences. Aujourd'hui, j'ai un CDI chez Compass à la Tour CMA-CGM. Je suis fier du chemin parcouru !",
       author: "Oumar",
-      role: "Ancien salarié en insertion — La Table de Cana",
+      role: "Ancien salarié en insertion, La Table de Cana",
       tone: "dark",
     },
     {
@@ -784,18 +784,42 @@ window.FESTIN_DATA = {
   // Temps forts — carrousel grand format de la page Actualités (textes factuels,
   // à reprendre par le chantier copywriting). img null → cadre « photo à venir ».
   tempsForts: [
+    { date: "Juin 2026", lieu: "Lille et Lyon", title: "Refugee Food", accent: "Festival 2026",
+      text: "Des cuisinières et des cuisiniers réfugiés en cuisine avec les brigades de restaurants partenaires, à Lille et à Lyon.",
+      img: "images/refugee-food-festival/rff-lyon-3.jpg", alt: "Soirée de clôture du Refugee Food Festival 2026 à Lyon", credit: "Agathe Waechter",
+      href: "#/projets/tournesol", cta: "Tournesol" },
+    { date: "Novembre 2025", lieu: "M6", title: "Les Beaux Mets", accent: "à la télévision",
+      text: "« Un jour un doc » consacre 45 minutes au restaurant des Baumettes et à sa brigade.",
+      img: "images/beauxmets-images/LBM_cdutrey_071122-7922.jpg", alt: "Une cliente sonne à l'entrée du restaurant Les Beaux Mets", credit: "Caroline Dutrey",
+      href: "#/projets/les-beaux-mets", cta: "Les Beaux Mets" },
     { date: "3 octobre 2025", lieu: "Vieux-Port, Marseille", title: "Le Grand", accent: "Festin",
-      text: "Les dix ans de Des Étoiles et des Femmes : plus de 600 convives, 14 brigades, plus de 100 bénévoles.",
-      img: "images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg", alt: "Le Grand Festin, tablées en plein air",
+      text: "Les dix ans de Des Étoiles et des Femmes : 14 brigades, plus de 600 convives, plus de 100 bénévoles.",
+      img: null, alt: "Grand Festin 2025 sur le Vieux-Port",
       href: "#/projets/des-etoiles-et-des-femmes", cta: "Des Étoiles et des Femmes" },
     { date: "3 octobre 2025", lieu: "Vieux-Port, Marseille", title: "L'exposition", accent: "photo",
       text: "Une exposition en plein air sur les parcours des femmes du réseau, présentée pendant le Grand Festin.",
-      img: null, alt: "",
+      img: null, alt: "Exposition photo du Grand Festin 2025",
       href: "#/projets/des-etoiles-et-des-femmes", cta: "Des Étoiles et des Femmes" },
-    { date: "2025", lieu: "Les Baumettes, Marseille", title: "Les masterclass", accent: "des Beaux Mets",
-      text: "Six chefs devant la brigade du restaurant en 2025.",
-      img: "images/beauxmets-images/Copie de LBM_masterclass_chloeCharles_cdutrey_030325-7735.jpg", alt: "Masterclass aux Beaux Mets", credit: "Caroline Dutrey",
+    { date: "2025", lieu: "Les Baumettes, Marseille", title: "Six masterclass", accent: "aux Beaux Mets",
+      text: "Laëtitia Visse, Éloi Spinnler, Elsa Leblanc, Chloé Charles, Justine Audoin et Hyacinthe Lescoët devant la brigade.",
+      img: "images/beauxmets-images/Copie de LBM_masterclass_chloeCharles_cdutrey_030325-7735.jpg", alt: "Masterclass de la cheffe Chloé Charles aux Beaux Mets", credit: "Caroline Dutrey",
       href: "#/projets/les-beaux-mets", cta: "Les Beaux Mets" },
+    { date: "2025", lieu: "Marseille", title: "La Table de Cana", accent: "labellisée",
+      text: "Label LUCIE Progress avec 848 points sur 1 000, et label Empl'itude renouvelé.",
+      img: "images/latable de cana/TABLECANA_EVENT_cdutrey_230625-5158.jpg", alt: "Un salarié de La Table de Cana sert des bouchées lors d'un événement", credit: "Caroline Dutrey",
+      href: "#/projets/la-table-de-cana", cta: "La Table de Cana" },
+    { date: "2025", lieu: "Marseille", title: "Tournesol,", accent: "portée par Festin",
+      text: "Cinq mois de formation au métier de commis, gratuits et rémunérés, avec Refugee Food et Estello Formation.",
+      img: "images/tournesol:formation/festin_tournesol_cdutrey_0124-3645.jpg", alt: "Des stagiaires de Tournesol dressent des pâtisseries", credit: "Caroline Dutrey",
+      href: "#/projets/tournesol", cta: "Tournesol" },
+    { date: "2025", lieu: "Marseille, Toulouse, Lille", title: "Les rencontres", accent: "de Restaure",
+      text: "Cinq tables rondes enregistrées en podcast, et les Toast, où des restaurateurs racontent ce qu'ils ont changé dans leur cuisine.",
+      img: "images/restaure : formation pro/FESTIN_TOAST_12 FEVRIER_FEED-25.jpg", alt: "Un Toast du programme Restaure : une salle écoute des restaurateurs sur scène",
+      href: "#/projets/restaure", cta: "Le programme Restaure" },
+    { date: "13 octobre 2024", lieu: "Arles", title: "Le premier", accent: "Grand Festin",
+      text: "La première édition, organisée par l'association Petit à Petit avec Festin, a réuni 450 personnes.",
+      img: "images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg", alt: "Grandes tablées du premier Grand Festin, à Arles",
+      href: "#/projets/des-etoiles-et-des-femmes", cta: "Des Étoiles et des Femmes" },
     { date: "2024", lieu: "Marseille", title: "Le lancement", accent: "de Restaure",
       text: "Quatre structures au pilotage, 35 structures engagées contre les violences en cuisine.",
       img: "images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg", alt: "Soirée de lancement du programme Restaure", credit: "Caroline Dutrey",
@@ -808,16 +832,16 @@ window.FESTIN_DATA = {
     { dispositif:"Les Beaux Mets", source:"Courrier International", title:"Les Beaux Mets à Marseille, restaurant de réinsertion", type:"Article", date:"2026-04-02", href:"https://www.courrierinternational.com/long-format/vu-d-espagne-au-restaurant-des-beaux-mets-a-marseille-des-detenus-mitonnent-leur-reinsertion_239702" },
     { dispositif:"Les Beaux Mets", source:"France 3 PACA", title:"En prison à Marseille, un restaurant bistronomique où l'on est servis par des détenus", type:"Reportage TV", date:"2026-03-25", href:"https://www.youtube.com/watch?v=6qyo6RXsqjI" },
     { dispositif:"Les Beaux Mets", source:"El País", title:"La prison la plus célèbre de Marseille ouvre ses portes à un restaurant unique en son genre", type:"Article", date:"2026-01-11", href:"https://elpais.com/eps/2026-01-09/la-carcel-mas-famosa-de-marsella-abre-sus-puertas-a-un-restaurante-unico.html" },
-    { dispositif:"Les Beaux Mets", source:"M6 — Un jour, un doc", title:"Un restaurant dans une prison", type:"Reportage TV", date:"2025-11-10", href:"https://www.m6.fr/un-jour-un-doc-p_22196/un-restaurant-dans-une-prison-c_13151161" },
+    { dispositif:"Les Beaux Mets", source:"M6 : Un jour, un doc", title:"Un restaurant dans une prison", type:"Reportage TV", date:"2025-11-10", href:"https://www.m6.fr/un-jour-un-doc-p_22196/un-restaurant-dans-une-prison-c_13151161" },
     { dispositif:"Les Beaux Mets", source:"Les Échos Weekend", title:"Les détenus s'en sortent par la cuisine", type:"Article", date:"2025-11-07", href:"https://www.lesechos.fr/weekend/business-story/les-clients-sont-sympas-ils-font-des-bons-retours-dans-la-prison-des-baumettes-les-detenus-sen-sortent-par-la-cuisine-2196595" },
-    { dispositif:"Les Beaux Mets", source:"Revue du barreau", title:"Les Beaux Mets — pages 62-63 de la revue du Barreau", type:"Article Print", date:"2025-12-01", href:"https://drive.google.com/file/d/1jPCV9VGW6BKNubRWoh_FGg4hIs-Is7_u/view" },
+    { dispositif:"Les Beaux Mets", source:"Revue du barreau", title:"Les Beaux Mets : pages 62-63 de la revue du Barreau", type:"Article Print", date:"2025-12-01", href:"https://drive.google.com/file/d/1jPCV9VGW6BKNubRWoh_FGg4hIs-Is7_u/view" },
     { dispositif:"Les Beaux Mets", source:"Le Monde", title:"Armand Hurault, directeur de Festin : « La restauration m'est apparue comme l'un des rares secteurs où l'origine étrangère peut être une valeur ajoutée »", type:"Article", date:"2025-02-14", href:"https://www.lemonde.fr/m-styles/article/2025/02/14/armand-hurault-directeur-de-festin-la-restauration-m-est-apparue-comme-l-un-des-rares-secteurs-d-activite-ou-l-origine-etrangere-peut-etre-une-valeur-ajoutee_6546308_4497319.html" },
     { dispositif:"Les Beaux Mets", source:"Le Figaro", title:"15 Marseillais de moins de 40 ans qui vont changer la ville", type:"Article", date:"2025-01-14", href:"https://www.lefigaro.fr/marseille/ils-ont-moins-de-40-ans-et-vont-changer-la-ville-decouvrez-notre-palmares-des-15-marseillais-les-plus-prometteurs-20250114" },
-    { dispositif:"Les Beaux Mets", source:"France Inter — On va déguster", title:"Après la prison, la cuisine", type:"Sujet Radio", date:"2025-03-02", href:"https://www.radiofrance.fr/franceinter/podcasts/on-va-deguster/on-va-deguster-du-dimanche-02-mars-2025-7190244" },
+    { dispositif:"Les Beaux Mets", source:"France Inter : On va déguster", title:"Après la prison, la cuisine", type:"Sujet Radio", date:"2025-03-02", href:"https://www.radiofrance.fr/franceinter/podcasts/on-va-deguster/on-va-deguster-du-dimanche-02-mars-2025-7190244" },
     { dispositif:"Les Beaux Mets", source:"Zig Zag Paris", title:"À Marseille, ce restaurant insolite aux conditions d'accès sécurisées est le premier en France à se trouver dans une prison", type:"Article", date:"2025-02-20", href:"https://www.pariszigzag.fr/marseille/restaurant-prison-baumettes" },
     { dispositif:"Les Beaux Mets", source:"Made in Marseille", title:"Le restaurant en prison Les Beaux Mets décroche un macaron Écotable", type:"Article", date:"2024-09-20", href:"https://madeinmarseille.net/167722-le-restaurant-en-prison-les-beaux-mets-decroche-un-macaron-ecotable/" },
     { dispositif:"Les Beaux Mets", source:"France TV Info", title:"« Ça nous rapproche de la sortie, de la vie normale » : le restaurant des Baumettes rencontre un franc succès", type:"Article", date:"2024-03-12", href:"https://www.francetvinfo.fr/societe/prisons/reportage-ca-nous-rapproche-de-la-sortie-de-la-vie-normale-a-marseille-le-restaurant-de-la-prison-des-beaumettes-rencontre-un-franc-succes-depuis-un-an_6417697.html" },
-    { dispositif:"Les Beaux Mets", source:"Le Monde — M le Mag", title:"À Marseille, un restaurant bistronomique derrière les barreaux", type:"Article", date:"2022-11-15", href:"https://www.lemonde.fr/m-le-mag/article/2022/11/15/a-marseille-un-restaurant-bistronomique-derriere-les-barreaux_6149880_4500055.html" },
+    { dispositif:"Les Beaux Mets", source:"Le Monde : M le Mag", title:"À Marseille, un restaurant bistronomique derrière les barreaux", type:"Article", date:"2022-11-15", href:"https://www.lemonde.fr/m-le-mag/article/2022/11/15/a-marseille-un-restaurant-bistronomique-derriere-les-barreaux_6149880_4500055.html" },
     { dispositif:"Les Beaux Mets", source:"Libération", title:"Dans la prison des Baumettes, un restaurant met la réinsertion à la carte", type:"Article", date:"2022-11-12", href:"https://www.liberation.fr/lifestyle/gastronomie/dans-la-prison-des-baumettes-un-restaurant-met-la-reinsertion-a-la-carte-20221112_FBYPQVSQH5E5TFUJ7GMTINAEVY/" },
     { dispositif:"Les Beaux Mets", source:"Télérama", title:"Cuisine et réinsertion : j'ai déjeuné à la prison des Baumettes", type:"Article", date:"2022-12-04", href:"https://www.telerama.fr/sortir/cuisine-et-reinsertion-j-ai-dejeune-a-la-prison-des-baumettes-7013292.php" },
 
@@ -826,8 +850,8 @@ window.FESTIN_DATA = {
     { dispositif:"Des Étoiles et des Femmes", source:"La Provence", title:"« Un échange gagnant-gagnant » : à Arles, 10 femmes éloignées de l'emploi obtiennent leur CAP cuisine", type:"Article", date:"2025-12-02", href:"https://www.laprovence.com/article/societe/32963667342845/un-echange-gagnant-gagnant-a-arles-10-femmes-eloignees-de-lemploi-obtiennent-leur-cap-cuisine" },
     { dispositif:"Des Étoiles et des Femmes", source:"Arles Info", title:"Des étoiles et des femmes : la recette de la réussite", type:"Article", date:"2025-12-02", href:"https://arles.fr/actualites/des-etoiles-et-des-femmes-la-recette-de-la-reussite/" },
     { dispositif:"Des Étoiles et des Femmes", source:"Podcast Des Étoiles et des Femmes", title:"Podcast Île-de-France", type:"Podcast", date:"2025-11-20", href:"https://podcasts.apple.com/fr/podcast/des-%C3%A9toiles-et-des-femmes/id1792208177" },
-    { dispositif:"Des Étoiles et des Femmes", source:"TF1 — JT 20h", title:"Reportage insertion professionnelle par la cuisine", type:"Reportage TV", date:"2025-09-01", href:"https://www.tf1.fr/tf1/jt-20h/videos/le-jt-de-20-heures-de-tf1-du-dimanche-24-aout-2025-80434191.html" },
-    { dispositif:"Des Étoiles et des Femmes", source:"France 2 — 13h15 le dimanche", title:"L'assiette française", type:"Reportage TV", date:"2024-05-13", href:"https://www.francetvinfo.fr/replay-magazine/france-2/13h15/13h15-le-dimanche-l-assiette-francaise-episode-4-partie-1_6505052.html" },
+    { dispositif:"Des Étoiles et des Femmes", source:"TF1 : JT 20h", title:"Reportage insertion professionnelle par la cuisine", type:"Reportage TV", date:"2025-09-01", href:"https://www.tf1.fr/tf1/jt-20h/videos/le-jt-de-20-heures-de-tf1-du-dimanche-24-aout-2025-80434191.html" },
+    { dispositif:"Des Étoiles et des Femmes", source:"France 2 : 13h15 le dimanche", title:"L'assiette française", type:"Reportage TV", date:"2024-05-13", href:"https://www.francetvinfo.fr/replay-magazine/france-2/13h15/13h15-le-dimanche-l-assiette-francaise-episode-4-partie-1_6505052.html" },
     { dispositif:"Des Étoiles et des Femmes", source:"Made in Marseille", title:"François Hollande à Marseille pour booster des projets à impact innovants", type:"Article", date:"2024-09-20", href:"https://madeinmarseille.net/167697-video-francois-hollande-a-marseille-pour-booster-des-projets-a-impact-innovants/" },
     { dispositif:"Des Étoiles et des Femmes", source:"Made In Marseille", title:"La recette de la cheffe Laëtitia Visse pour inspirer les talents culinaires féminins", type:"Article", date:"2024-02-28", href:"https://madeinmarseille.net/153708-laetitia-visse-marraine-des-etoiles-et-des-femmes/" },
     { dispositif:"Des Étoiles et des Femmes", source:"Le Progrès", title:"« Pensez à vous et vous réussirez » : le début de l'aventure pour ces femmes qui se forment auprès des grands chefs lyonnais", type:"Article", date:"2023-09-28", href:"https://www.leprogres.fr/education/2023/09/22/pensez-a-vous-et-vous-reussirez-le-debut-de-l-aventure-pour-ces-femmes-qui-vont-se-former-aupres-des-grands-chefs-lyonnais" },
@@ -839,7 +863,7 @@ window.FESTIN_DATA = {
     { dispositif:"Restaure", source:"Le Progrès", title:"Violences en cuisine : ces initiatives qui tentent de « briser l'omerta » dans la restauration", type:"Article", date:"2025-07-04", href:"https://www.leprogres.fr/societe/2025/07/04/violences-en-cuisine-ces-initiatives-qui-tentent-de-briser-l-omerta-dans-la-restauration" },
     { dispositif:"Restaure", source:"L'Hôtellerie Restauration", title:"Le mouvement Restaure organise une journée engagée aux Halles de la Cartoucherie", type:"Article", date:"2025-05-22", href:"https://www.lhotellerie-restauration.fr/actualite/le-mouvement-restaure-organise-une-journee-engagee-aux-halles-de-la-cartoucherie-a-toulouse" },
     { dispositif:"Restaure", source:"Neo Restauration", title:"Restaure, pour une restauration plus juste, inclusive et durable", type:"Article", date:"2024-09-26", href:"https://www.neorestauration.com/article/restaure-pour-une-restauration-plus-juste-inclusive-et-durable,72483" },
-    { dispositif:"Restaure", source:"Carenews", title:"« La restauration est un milieu malade » : avec le mouvement Restaure, Éloi Spinnler s'attaque aux violences en cuisine", type:"Article", date:"2025-11-20", href:"https://www.carenews.com/engagement-et-citoyennete/news/la-restauration-est-un-milieu-malade-avec-le-mouvement-restaure" },
+    { dispositif:"Restaure", source:"Carenews", title:"« La restauration est un milieu malade » : avec le mouvement Restaure, Éloi Spinnler s'attaque aux violences en cuisine", type:"Article", date:"2025-11-20", href:"https://www.carenews.com/carenews-info/news/la-restauration-est-un-milieu-malade-avec-le-mouvement-restaure-eloi-spinnler-s" },
   ],
 };
 
@@ -884,7 +908,7 @@ window.FESTIN_DATA.meganav = {
       key: "lieu", label: "Par lieu", icon: "map-pin",
       cards: [
         { t:"Les Beaux Mets",    ic:"utensils",       c:"#1D6B78", d:"Le restaurant des Baumettes à Marseille, ouvert au public.", tags:["Marseille","Restaurant"], href:"#/projets/les-beaux-mets" },
-        { t:"La Table de Cana",  ic:"chef-hat",       c:"#E8A825", d:"Traiteur événementiel et restauration collective — Mourepiane.", tags:["Mourepiane","Traiteur"], href:"#/projets/la-table-de-cana" },
+        { t:"La Table de Cana",  ic:"chef-hat",       c:"#E8A825", d:"Traiteur événementiel et restauration collective, à Mourepiane.", tags:["Mourepiane","Traiteur"], href:"#/projets/la-table-de-cana" },
                 { t:"L'Académie Festin", ic:"graduation-cap", c:"#E4572E", d:"Le centre de formation certifié Qualiopi de l'association.", tags:["Marseille","Qualiopi"], href:"#/academie" }
       ]
     },
@@ -893,7 +917,7 @@ window.FESTIN_DATA.meganav = {
       cards: [
         { t:"Des Étoiles et des Femmes", ic:"star",     c:"#E8A825", d:"Des femmes formées à la cuisine avec des chefs, dans 13 villes.", tags:["Depuis 2015","13 antennes"], href:"#/projets/des-etoiles-et-des-femmes" },
         { t:"Tournesol",                 ic:"sun",      c:"#E4572E", d:"Le parcours diplômant pour personnes réfugiées et primo-arrivantes.", tags:["Refugee Food","5 mois"], href:"#/projets/tournesol" },
-        { t:"Club des Talents",          ic:"users",    c:"#1D6B78", d:"Le réseau d'anciens salariés en insertion, façon alumni.", tags:["Réseau","Alumni"], href:"#/accompagnement/insertion" },
+        { t:"Club des Talents",          ic:"users",    c:"#1D6B78", d:"Les anciens salariés de La Table de Cana parrainent les nouveaux.", tags:["Réseau","La Table de Cana"], href:"#/projets/la-table-de-cana" },
         { t:"Le programme Restaure",     ic:"megaphone",c:"#9A5BA8", d:"35 structures contre les violences en cuisine.", tags:["700 signataires","Manifeste"], href:"#/projets/restaure" }
       ]
     }
@@ -903,16 +927,102 @@ window.FESTIN_DATA.meganav = {
 // ============================================================
 //  HOME — copy éditoriale (portée depuis maquettes/home-b.html)
 // ============================================================
-window.FESTIN_DATA.home = {
+// ============================================================
+//  PAGE IMPACT (reconstruite le 24/09/2026)
+//  Sources : rapports d'activité Festin 2022, 2023, 2024 (Drive) et 2025
+//  (rapport-activite-2025_v441-83_REFERENCE) ; étude d'impact Koreis,
+//  décembre 2023 (Des Étoiles et des Femmes, 3 à 5 ans après la formation).
+// ============================================================
+window.FESTIN_DATA.impact = {
   hero: {
-    eyebrow: "Association Festin",
-    titleLines: ["Le goût", "d'avancer", "ensemble"],   // dernière ligne = accent
-    sub: "Festin est une association à but non lucratif et d'intérêt général, agréée ESUS. Nous formons des personnes aux métiers de la cuisine, jusqu'à l'emploi, et nous aidons les restaurants à recruter et à garder leurs équipes. Depuis Marseille, dans 14 territoires.",
-    ctas: [
-      { label: "Recruter avec Festin", href: "#/accompagnement/professionnels", variant: "gold" },
-      { label: "Apprendre un métier", href: "#/accompagnement/insertion", variant: "ghost" }
+    kicker: "Notre impact",
+    title: "Année après année,", titleAccent: "des métiers et des contrats.",
+    proof: "Quatre rapports d'activité publics, de 2022 à 2025. Les chiffres ci-dessous en viennent tous.",
+    img: "images/photo-applaudissements.jpg", imgAlt: "Une promotion en tenue de cuisine applaudit, dans la cuisine de formation",
+  },
+  // Série annuelle, tous dispositifs Festin confondus
+  annees: [
+    { year: "2022", personnes: 349, sorties: 126, emploi: 116, taux: 92 },
+    { year: "2023", personnes: 427, sorties: 172, emploi: 142, taux: 83 },
+    { year: "2024", personnes: 421, sorties: 203, emploi: 151, taux: 74 },
+    { year: "2025", personnes: 441, sorties: null, emploi: null, taux: 83 },
+  ],
+  serieNote: "Sorties : personnes sorties dans l'année après au moins trois mois dans un programme. Le rapport 2025 publie le taux sans le détail des effectifs.",
+  // Durée : l'étude Koreis suit les anciennes stagiaires 3 à 5 ans après
+  duree: {
+    title: "Trois à cinq ans après,", titleAccent: "elles travaillent.",
+    lede: "En 2023, le cabinet Koreis a retrouvé les anciennes stagiaires de Des Étoiles et des Femmes, trois à cinq ans après leur formation.",
+    faits: [
+      { n: "73 %", t: "sont en emploi.", d: "Contre 40 % des femmes des quartiers prioritaires, au niveau national." },
+      { n: "60 %", t: "de celles qui travaillent sont en CDI.", d: "Et 71 % sont à temps complet." },
+      { n: "1 sur 4", t: "est devenue cheffe ou cheffe de partie.", d: "Des postes à responsabilité, en brigade." },
     ],
-    img: "images/photo-chapeau-cuisine.jpg"
+    source: "Source : mesure d'impact social du programme Des Étoiles et des Femmes, cabinet Koreis, décembre 2023.",
+  },
+  projets: [
+    { id: "des-etoiles-et-des-femmes", n: "1 200", t: "femmes accompagnées depuis 2015", d: "13 antennes en France. 91 % de réussite aux diplômes en 2025." },
+    { id: "les-beaux-mets", n: "119", t: "personnes détenues ont travaillé en brigade depuis 2022", d: "En 2023, 82 % sont entrées en emploi ou en formation à leur sortie de détention." },
+    { id: "la-table-de-cana", n: "84 %", t: "de sorties positives en 2024", d: "Traiteur et restauration collective en insertion, premier projet de l'association, créé en 1993." },
+    { id: "tournesol", n: "86 %", t: "des stagiaires en emploi un an après", d: "Cinq mois de formation pour des personnes réfugiées ou primo-arrivantes, avec Refugee Food." },
+    { id: "restaure", n: "700", t: "signataires du manifeste", d: "35 structures engagées contre les violences en cuisine." },
+  ],
+  annee2025: {
+    title: "2025", titleAccent: "en quatre chiffres",
+    lien: { label: "Les temps forts de l'année", href: "#/actualites" },
+  },
+  rapports: [
+    { year: "2025", url: "https://drive.google.com/file/d/1dymsU5cV00adUDLBz7zLEQYWa_t_-70z/view?usp=sharing", resume: "441 personnes accompagnées, 83 % de sorties en emploi ou en formation, 14 territoires. Les dix ans de Des Étoiles et des Femmes." },
+    { year: "2024", url: "https://drive.google.com/file/d/1SxibbIWJkudH9Yd21vz9synn5vjeMwep/view?usp=sharing", resume: "421 personnes accompagnées. Délégations de service public du ministère du Travail en Île-de-France et dans les Hauts-de-France." },
+    { year: "2023", url: "https://drive.google.com/file/d/14rMQDaahmxp978Woh_dP8TwWL65Cu3Bc/view?usp=sharing", resume: "427 personnes accompagnées. Première année pleine des Beaux Mets, lancement de Tournesol, étude d'impact Koreis." },
+    { year: "2022", url: "https://drive.google.com/file/d/1S3p13F2abtwOqXLHTto_TPeSeRzxZfya/view?usp=sharing", resume: "349 personnes accompagnées. L'association Départ devient Festin ; Les Beaux Mets ouvre le 15 novembre." },
+  ],
+  prix: [
+    { year: "2025", title: "Label LUCIE Progress", org: "848 sur 1 000 pour La Table de Cana Marseille" },
+    { year: "2025", title: "Label Empl'itude renouvelé", org: "La Table de Cana, label obtenu en 2019" },
+    { year: "2025", title: "Sous-traitant du Greta", org: "Marché de la formation professionnelle, Région Sud" },
+    { year: "2024", title: "Délégations de service public", org: "Ministère du Travail, Île-de-France et Hauts-de-France, pour trois ans" },
+    { year: "2023", title: "Acteurs clés de changement", org: "Lauréat, Fondation de France" },
+    { year: "2023", title: "Prix Futur(e)s Food", org: "Les Beaux Mets, catégorie expérience, Sirha" },
+    { year: "2023", title: "Pépites 2023", org: "Les Beaux Mets, Fondation de France" },
+    { year: "2022", title: "Fondation des Femmes", org: "Distinction pour l'accompagnement des femmes vers l'autonomie" },
+    { year: "2020", title: "Plan d'investissement dans les compétences", org: "Sélection au PIC, ministère du Travail" },
+    { year: "2019", title: "La France s'engage", org: "Lauréat, Des Étoiles et des Femmes" },
+  ],
+};
+
+// Photos d'antennes disponibles dans images/antennes/ (nom de ville en minuscules,
+// sans accent, tirets). Vide tant que le formulaire Drive n'a rien fourni.
+window.FESTIN_DATA.antennesPhotos = [];
+
+// Bloc de clôture commun à toutes les pages (Sections.jsx, FinDePage)
+window.FESTIN_DATA.fin = {
+  title: "Vous avez un projet ?", accent: "Parlons-en.",
+  links: [
+    { who: "Vous cherchez un métier", label: "Voir les formations", href: "#/accompagnement/insertion" },
+    { who: "Vous êtes du secteur", label: "Recruter avec Festin", href: "#/accompagnement/professionnels" },
+    { who: "Vous voulez agir avec nous", label: "Nous écrire", href: "#/contact" },
+  ],
+};
+
+window.FESTIN_DATA.home = {
+  // Reprise 24/09/2026 (arbitrage 2B) : une phrase en titre, la baseline en signature.
+  hero: {
+    title: "Former en cuisine,", titleAccent: "jusqu'à l'emploi.",
+    signature: "Le goût d'avancer ensemble",
+    proof: "441 personnes accompagnées en 2025. 83 % sont sorties en emploi ou en formation.",
+    proofNote: "Tous dispositifs confondus. Source : rapport d'activité Festin 2025.",
+    ctaPrimary: { label: "Découvrir nos formations", href: "#/accompagnement/insertion" },
+    ctaSecondary: { label: "Vous recrutez ? Travaillons ensemble", href: "#/accompagnement/professionnels" },
+    img: "images/photo-chapeau-cuisine.jpg",
+    imgAlt: "Trois personnes en brigade versent une sauce au chinois, dans une cuisine professionnelle"
+  },
+  // Ligne de confiance sous le hero : la solidité par les statuts et l'ancienneté
+  trust: ["Association loi 1901", "D'intérêt général, agréée ESUS", "Depuis 1987", "14 territoires", "Cinq projets"],
+  promesse: {
+    title: "Apprendre en brigade,", titleAccent: "jusqu'au contrat.",
+    text: "Une stagiaire de Des Étoiles et des Femmes passe 155 à 490 heures en restaurant, en brigade, avant son examen. Le restaurant qui l'accueille recrute une personne qu'il a vue travailler. Pendant tout le parcours, une équipe l'aide aussi pour le logement, la garde des enfants, les papiers et la recherche de poste.",
+    img: "images/photo-cuisine-formation.jpg",
+    imgAlt: "Des apprenties en tenue de cuisine préparent leurs légumes sur un plan de travail"
   },
   marquee: [
     "CAP Cuisine", "Titre à finalité professionnelle de commis de cuisine", "DCL, diplôme de compétence en langue",
@@ -921,14 +1031,14 @@ window.FESTIN_DATA.home = {
   ],
   approche: {
     eyebrow: "L'association Festin",
-    titleLines: ["De la cuisine", "à l'emploi"],
+    titleLines: ["Trois façons", "d'agir"],
     intro: "Une stagiaire de Des Étoiles et des Femmes passe 155 à 490 heures en restaurant, en brigade, avant son examen. Les restaurants qui l'accueillent recrutent une personne qu'ils ont vue travailler. C'est notre méthode : former là où le métier se fait.",
     steps: [
       { tab: "L'insertion", kicker: "01 · Insertion", title: "Accompagner jusqu'à l'emploi",
-        text: "Des femmes, des personnes réfugiées ou primo-arrivantes, des personnes détenues suivent un parcours vers un métier de cuisine, avec un suivi social de la première semaine jusqu'à l'emploi. 441 personnes accompagnées en 2025.",
+        text: "Des femmes, des personnes réfugiées ou primo-arrivantes, des personnes détenues suivent un parcours vers un métier de cuisine, avec un suivi social de la première semaine jusqu'à l'emploi.",
         img: "images/photo-groupe-portrait.jpg", variant: "a" },
       { tab: "La formation", kicker: "02 · Formation", title: "Former en cuisine",
-        text: "Nos parcours préparent un CAP cuisine ou un titre à finalité professionnelle de commis de cuisine, avec des stages en brigade. Des formations courtes existent aussi pour les équipes en poste. 83 % de sorties en emploi ou en formation en 2025.",
+        text: "Nos parcours préparent un CAP cuisine ou un titre à finalité professionnelle de commis de cuisine, avec des stages en brigade. Pour les équipes déjà en poste, l'Académie Festin, certifiée Qualiopi, propose des formations courtes.",
         img: "images/photo-patisserie.jpg", variant: "b" },
       { tab: "Le secteur", kicker: "03 · Secteur", title: "Changer les cuisines",
         text: "Le programme Restaure réunit 35 structures et 700 signataires de son manifeste pour prévenir les violences en cuisine et former les managers.",
@@ -937,8 +1047,8 @@ window.FESTIN_DATA.home = {
   },
   logoband: { eyebrow: "Cinq projets, tous rattachés à Festin" },
   dual: {
-    titleLines: ["Se former,", "ou former ses équipes"],   // 2e = accent
-    lede: "Vous cherchez un métier, ou vous dirigez un restaurant : voici par où commencer.",
+    titleLines: ["Par où", "commencer"],   // 2e = accent
+    soutien: { text: "Vous voulez financer une promotion ?", don: "Faire un don", mecenat: "Devenir mécène" },
     cards: [
       { tag: "Vous cherchez un métier", kicker: "Parcours d'insertion",
         title: "Apprendre un métier de cuisine, gratuitement",
@@ -965,17 +1075,18 @@ window.FESTIN_DATA.home = {
     lede: "Un restaurant en prison, un traiteur d'insertion, deux formations diplômantes et un programme national contre les violences en cuisine.",
     // par projet.id : accroche + chiffre + image de carte (le reste vient de FESTIN_DATA.projets)
     cards: [
-      { id:"des-etoiles-et-des-femmes", blurb:"Un diplôme de cuisine et des stages en restaurants gastronomiques, pour des femmes. 13 antennes en France.", insertion:"Des femmes préparent un CAP cuisine ou le titre de commis, avec des stages en restaurant gastronomique.", secteur:"Des commis formées pour les brigades, dans 13 villes.", stat:"91 % de réussite aux diplômes en 2025", img:"images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg" },
+      { id:"des-etoiles-et-des-femmes", blurb:"Un diplôme de cuisine et des stages en restaurants gastronomiques, pour des femmes. 13 antennes en France.", insertion:"Des femmes préparent un CAP cuisine ou le titre de commis, avec des stages en restaurant gastronomique.", secteur:"Des commis formées pour les brigades, dans 13 villes.", stat:"91 % de réussite aux diplômes en 2025", img:"images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg" },
       { id:"les-beaux-mets",           blurb:"Le premier restaurant en prison ouvert au public en France. Aux Baumettes, à Marseille.", insertion:"Des personnes détenues apprennent la cuisine et le service, en brigade, sur un vrai service.", secteur:"Un restaurant bistronomique ouvert au public, aux Baumettes.", stat:"119 personnes employées depuis 2022", img:"images/beauxmets-images/LBM_cdutrey_071122-7264.jpg" },
       { id:"la-table-de-cana",         blurb:"Traiteur et restauration collective en insertion, à Marseille.", insertion:"Des salariés en insertion se forment au traiteur et à la restauration collective.", secteur:"Un traiteur et une cuisine collective pour les entreprises et les collectivités marseillaises.", stat:"89 % de sorties dynamiques en 2025", img:"images/latable de cana/tabledecana_cdutrey_160124-4393.jpg" },
       { id:"restaure",                 blurb:"Un programme national. Il prévient les violences en cuisine et change les pratiques du secteur.", insertion:"Des cuisines plus sûres pour celles et ceux qui y travaillent.", secteur:"Des formations et des outils pour prévenir les violences et former les managers.", stat:"700 signataires du manifeste", img:"images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00032.jpg" },
-      { id:"tournesol",                blurb:"Cinq mois de formation diplômante pour des personnes réfugiées ou primo-arrivantes.", insertion:"Des personnes réfugiées ou primo-arrivantes préparent en cinq mois le titre de commis de cuisine.", secteur:"Des commis formés, avec Refugee Food, pour les restaurants qui recrutent.", stat:"86 % d'insertion un an après", img:"images/photo-rouleaux.jpg" }
+      { id:"tournesol",                blurb:"Cinq mois de formation diplômante pour des personnes réfugiées ou primo-arrivantes.", insertion:"Des personnes réfugiées ou primo-arrivantes préparent en cinq mois le titre de commis de cuisine.", secteur:"Des commis formés, avec Refugee Food, pour les restaurants qui recrutent.", stat:"86 % d'insertion un an après", img:"images/photo-rouleaux.jpg" }
     ],
-    avenir: { title:"Sadi Carnot", eyebrow:"En préparation", text:"Un futur restaurant d'insertion. Le projet est en cours de construction.", href:"#/restaurants/sadi-carnot" },
+    avenir: { title:"Sadi Carnot", eyebrow:"En préparation", text:"Un futur restaurant d'insertion à Marseille. Nous en présenterons le projet quand il sera acquis." },
     explore: { title:"L'association Festin", text:"Créée en 1987. Cinq projets, 14 territoires, 441 personnes accompagnées en 2025.", cta:"Lire notre histoire", href:"#/about" }
   },
   impact: {
-    eyebrow: "L'impact 2025",
+    title: "Ce que 2025", titleAccent: "a donné",
+    source: "Source : rapport d'activité Festin 2025. Taux de sortie : tous dispositifs confondus ; taux de réussite : Des Étoiles et des Femmes.",
     // 5 photos réelles : Des Étoiles et des Femmes ×3, Les Beaux Mets ×1, La Table de Cana ×1
     photos: [
       "images/images-def/hero-promo-cuisine.jpg",
@@ -1008,7 +1119,7 @@ window.FESTIN_DATA.home = {
 };
 
 // ---------- PAGE ABOUT — contenus ----------
-// Chiffres : source unique = FESTIN_DATA.stats ci-dessus (Rapport d'activité 2025 : 441 / 83 % / 14 ; création 1987).
+// Chiffres : source unique = FESTIN_DATA.stats ci-dessus (Rapport d'activité 2025 : 441 / 83 % / 14 ; création 1987).
 // `photo: null` = portrait à fournir → cadre neutre « [XX] ». `avatar` = médaillon 240 px (petit avatar rond).
 window.FESTIN_DATA.about = {
   poles: [
@@ -1020,7 +1131,7 @@ window.FESTIN_DATA.about = {
     { key: "com", label: "Communication et communauté", color: "#9A5BA8", members: [
       { name: "Iris Liberty",      role: "Chargée d'animation de communauté, programme Restaure", photo: null },
       { name: "Iris Hutin",        role: "Chargée de projet Communication", photo: null },
-      { name: "Mattieu Donsimoni", role: "Chargé de communication en alternance", photo: null },
+      { name: "Matthieu Donsimoni", role: "Chargé de communication en alternance", photo: null },
     ]},
     { key: "formation", label: "Formation et emploi", color: "#E8A825", members: [
       { name: "Florence Armitano", role: "Responsable du pôle Formation", photo: null },
@@ -1065,6 +1176,12 @@ window.FESTIN_DATA.about = {
     { src: "images/partners/france-travail.png",      alt: "France Travail" },
     { src: "images/partners/yes-we-camp.png",         alt: "Yes We Camp" },
   ],
+  // Logos partenaires disponibles, par nom tel qu'écrit dans projets[].partenaires.
+  // Sans logo : carte au nom du partenaire (logo à fournir).
+  logosPartenaires: {
+    "France Travail": "images/partners/france-travail.png",
+    "Yes We Camp": "images/partners/yes-we-camp.png",
+  },
   // Réseau de chefs (deck financeurs) — accord confirmé par l'association
   chefs: [
     { name: "Martin Simolka",       place: "Le Scribe, Paris" },

@@ -47,7 +47,7 @@ function HoverImageList({ items = [], label }) {
 
   const URIx = (p) => (/%[0-9A-Fa-f]{2}/.test(p) ? p : encodeURI(p));
   const imgOrPh = (it, i, cls) => (broken[i] || !it.img)
-    ? <span className={cls + ' hil__ph'}><span>Photo à venir</span></span>
+    ? (window.FESTIN_SHOW_PLACEHOLDERS ? <span className={cls + ' hil__ph is-placeholder'}><span>[PHOTO MANQUANTE : {it.alt || it.title}, plan large, paysage]</span></span> : null)
     : <img className={cls} src={URIx(it.img)} alt={it.alt || ''} loading="lazy"
         onError={() => setBroken((b) => ({ ...b, [i]: true }))} />;
 
@@ -220,103 +220,72 @@ function ImgSphere({ images = [], size: maxSize = 520, radius, autoSpeed = 0.18,
 
 
 // ---------------------------------------------------------------------------
-// TempsForts — carrousel grand format, une image plein cadre par temps fort.
-// Transition : la nouvelle image se dévoile par un volet (clip-path) pendant
-// que l'ancienne recule ; le texte monte ensuite. Lecture automatique (7 s),
-// en pause au survol, au focus et hors écran ; aucune lecture automatique
-// avec mouvement réduit. Flèches du clavier, boutons, puces numérotées.
-// items : [{ date, lieu, title, accent, text, img, alt, credit, href, cta }]
+// TempsForts — index + visuel (refait le 24/09/2026 sur retour : le carrousel
+// plein écran ne convenait pas). Bureau : liste des temps forts à gauche
+// (boutons), grande image et texte à droite ; l'image se dévoile par un volet.
+// Mobile : cartes image + texte en défilement horizontal, au doigt.
+// Aucun défilement automatique. items : [{ date, lieu, title, accent, text,
+// img, alt, credit, href, cta }] ; sans img : cadre [PHOTO MANQUANTE] en chantier.
 // ---------------------------------------------------------------------------
-function TempsForts({ items = [], label = 'Temps forts' }) {
-  const { useRef, useState, useEffect, useCallback } = React;
-  const rootRef = useRef(null);
-  // cur : temps fort affiché ; last : le précédent, gardé visible sous le volet
-  const [{ cur, last }, setPos] = useState({ cur: 0, last: 0 });
-  const [paused, setPaused] = useState(false);
-  const n = items.length;
-  const reduce = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const go = useCallback((i) => setPos((p) => {
-    const nx = ((i % n) + n) % n;
-    return nx === p.cur ? p : { cur: nx, last: p.cur };
-  }), [n]);
-
+function TempsForts({ items: all = [], title = 'Les moments', accent = "de l'année" }) {
+  const { useRef, useState, useEffect } = React;
+  const items = all.filter((it) => it.img || window.FESTIN_SHOW_PLACEHOLDERS);
+  const [cur, setCur] = useState(0);
+  const viewRef = useRef(null);
   useEffect(() => {
-    const root = rootRef.current, g = window.gsap;
-    if (!root) return;
-    const slides = root.querySelectorAll('.tf__slide');
-    const from = last;
-    if (!g || reduce || from === cur) return;
-    const inS = slides[cur], outS = slides[from];
-    const dir = (cur > from && !(from === 0 && cur === n - 1)) || (from === n - 1 && cur === 0) ? 1 : -1;
-    g.killTweensOf([inS, outS]);
-    g.fromTo(inS, { clipPath: dir > 0 ? 'inset(0 0 0 100%)' : 'inset(0 100% 0 0)' },
-      { clipPath: 'inset(0 0% 0 0%)', duration: 1.1, ease: 'expo.inOut' });
-    g.fromTo(inS.querySelector('.tf__media'), { scale: 1.18, xPercent: dir * 6 }, { scale: 1.04, xPercent: 0, duration: 1.6, ease: 'expo.out' });
-    g.fromTo(outS.querySelector('.tf__media'), { scale: 1.04, xPercent: 0 }, { scale: 1, xPercent: -dir * 12, duration: 1.1, ease: 'expo.inOut' });
-    g.fromTo(inS.querySelectorAll('.tf__txt > *'), { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease: 'expo.out', stagger: 0.07, delay: 0.45 });
+    const g = window.gsap, el = viewRef.current;
+    if (!g || !el || (window.FESTIN_RM && window.FESTIN_RM())) return;
+    const tl = g.timeline({ defaults: { ease: 'expo.out' } })
+      .fromTo(el.querySelector('.tf2__media'), { clipPath: 'inset(0 0 0 100% round 28px)' }, { clipPath: 'inset(0 0 0 0% round 28px)', duration: 1, ease: 'expo.inOut' }, 0)
+      .fromTo(el.querySelector('.tf2__media img, .tf2__media .ph-photo'), { scale: 1.12 }, { scale: 1, duration: 1.4 }, 0)
+      .fromTo(el.querySelectorAll('.tf2__txt > *'), { y: 24, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.7, stagger: 0.06 }, 0.35);
+    return () => tl.kill();
   }, [cur]);
-
-  useEffect(() => {
-    const root = rootRef.current;
-    if (!root || reduce || n < 2) return;
-    let visible = true;
-    const io = new IntersectionObserver(([e]) => { visible = e.isIntersecting; }, { threshold: 0.3 });
-    io.observe(root);
-    const id = setInterval(() => { if (visible && !paused && !document.hidden) setPos((p) => ({ cur: (p.cur + 1) % n, last: p.cur })); }, 7000);
-    return () => { clearInterval(id); io.disconnect(); };
-  }, [paused, n, cur]);
-
-  const onKey = (e) => {
-    if (e.key === 'ArrowRight') { e.preventDefault(); go(cur + 1); }
-    if (e.key === 'ArrowLeft') { e.preventDefault(); go(cur - 1); }
-  };
-  const URIx = (p) => (/%[0-9A-Fa-f]{2}/.test(p) ? p : encodeURI(p));
-  const pad = (i) => String(i + 1).padStart(2, '0');
-  if (!n) return null;
-
+  if (!items.length) return null;
+  const it = items[cur];
+  const media = (x, sizes) => x.img
+    ? <window.Picture src={x.img} alt={x.alt || ''} sizes={sizes} />
+    : <window.PhotoMissing subject={x.title + ' ' + (x.accent || '')} cadrage="plan large" orientation="paysage" ratio="16/10" />;
+  const text = (x) => (
+    <>
+      <span className="tf2__meta">{x.date}{x.lieu && <> · {x.lieu}</>}</span>
+      <h3 className="tf2__t">{x.title} {x.accent && <em>{x.accent}</em>}</h3>
+      {x.text && <p className="tf2__p">{x.text}</p>}
+      {x.href && <a className="tf2__link" href={x.href}>{x.cta || 'Découvrir'} <span className="arrow" aria-hidden="true">→</span></a>}
+      {x.credit && <span className="tf2__credit">Photo : {x.credit}</span>}
+    </>
+  );
   return (
-    <section className="tf on-dark" ref={rootRef} aria-roledescription="carrousel" aria-label={label}
-      onPointerEnter={() => setPaused(true)} onPointerLeave={() => setPaused(false)}
-      onFocus={() => setPaused(true)} onBlur={() => setPaused(false)} onKeyDown={onKey}>
-      <div className="tf__stage">
-        {items.map((it, i) => (
-          <article key={i} className={'tf__slide' + (i === cur ? ' is-on' : i === last ? ' is-last' : '')} aria-roledescription="diapositive"
-            aria-label={pad(i) + ' sur ' + pad(n - 1)} aria-hidden={i !== cur}>
-            <div className="tf__media">
-              {it.img
-                ? <window.Picture src={it.img} alt={it.alt || ''} sizes="100vw" loading="eager" />
-                : <div className="tf__ph"><span>Photo à venir</span></div>}
-            </div>
-            <div className="tf__scrim" aria-hidden="true" />
-            <div className="tf__txt">
-              <span className="tf__meta">{it.date}{it.lieu && <> · {it.lieu}</>}</span>
-              <h2 className="tf__t">{it.title}{it.accent && <> <em>{it.accent}</em></>}</h2>
-              {it.text && <p className="tf__p">{it.text}</p>}
-              {it.href && <a className="tf__link" href={it.href} tabIndex={i === cur ? 0 : -1}>{it.cta || 'Découvrir'} <span aria-hidden="true">→</span></a>}
-            </div>
-            {it.credit && <span className="tf__credit">Photo : {it.credit}</span>}
-          </article>
-        ))}
-      </div>
-      <div className="tf__bar">
-        <span className="tf__eyb">{label}</span>
-        <ol className="tf__dots">
-          {items.map((it, i) => (
-            <li key={i}>
-              <button type="button" className={'tf__dot' + (i === cur ? ' is-on' : '')} aria-current={i === cur ? 'true' : undefined}
-                aria-label={'Temps fort ' + (i + 1) + ' : ' + it.title + (it.accent ? ' ' + it.accent : '')} onClick={() => go(i)}>
-                <span className="tf__dotn">{pad(i)}</span>
-                <span className="tf__dotbar"><span style={{ animationPlayState: paused || reduce ? 'paused' : 'running' }} key={cur + '-' + i} /></span>
-              </button>
+    <section className="isec isec--cream tf2" aria-labelledby="tf2-t">
+      <div className="wrap">
+        <h2 className="isec__h" id="tf2-t">{title} <em>{accent}</em></h2>
+        {/* Bureau : index + visuel */}
+        <div className="tf2__grid">
+          <ol className="tf2__index">
+            {items.map((x, i) => (
+              <li key={i}>
+                <button type="button" className={'tf2__item' + (i === cur ? ' is-on' : '')} aria-pressed={i === cur} onClick={() => setCur(i)}>
+                  <span className="tf2__idate">{x.date}</span>
+                  <span className="tf2__ititle">{x.title} {x.accent}</span>
+                </button>
+              </li>
+            ))}
+          </ol>
+          <div className="tf2__view" ref={viewRef} aria-live="polite">
+            <div className="tf2__media">{media(it, '(max-width: 900px) 100vw, 56vw')}</div>
+            <div className="tf2__txt">{text(it)}</div>
+          </div>
+        </div>
+        {/* Mobile : cartes au doigt */}
+        <ul className="tf2__cards" aria-label="Temps forts">
+          {items.map((x, i) => (
+            <li key={i} className="tf2__card">
+              <div className="tf2__cmedia">{media(x, '85vw')}</div>
+              <div className="tf2__ctxt">{text(x)}</div>
             </li>
           ))}
-        </ol>
-        <div className="tf__nav">
-          <button type="button" className="tf__arrow" aria-label="Temps fort précédent" onClick={() => go(cur - 1)}>←</button>
-          <button type="button" className="tf__arrow" aria-label="Temps fort suivant" onClick={() => go(cur + 1)}>→</button>
-        </div>
+        </ul>
       </div>
-      <p className="sr-only" aria-live="polite">{pad(cur)} sur {pad(n - 1)} : {items[cur].title} {items[cur].accent}</p>
     </section>
   );
 }
