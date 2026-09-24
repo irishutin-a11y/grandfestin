@@ -263,7 +263,8 @@ function TestiCarousel({ items = [], min = 6, label = 'Témoignages' }) {
   const tones = ['teal', 'cream', 'deep', 'gold'];
   if (!filled.length) return null;
   return (
-    <div className={'tcar' + (still ? ' tcar--still' : '')} role="region" aria-label={label}>
+    <div className={'tcar' + (still ? ' tcar--still' : '')} role="region" aria-label={label} data-marquee>
+      {!still && <MarqueePause label="des témoignages" />}
       <div className="tcar__track" style={{ '--tcar-dur': (filled.length * 7) + 's' }}>
         {loop.map((t, i) => (
           <div className="tcar__item" key={i} aria-hidden={i >= filled.length ? true : undefined}>
@@ -436,3 +437,23 @@ function Faq({ title = 'Vos questions', accent, items = [], tone = 'white', id =
   );
 }
 window.Faq = Faq;
+
+// ---------------------------------------------------------------------------
+// MarqueePause — arrête un bandeau qui défile en continu (WCAG 2.2.2).
+// Se place dans l'élément porteur de data-marquee, qui reçoit .is-paused.
+// ---------------------------------------------------------------------------
+function MarqueePause({ label = 'le défilement' }) {
+  const [p, setP] = React.useState(false);
+  const ref = React.useRef(null);
+  React.useEffect(() => {
+    const host = ref.current && ref.current.closest('[data-marquee]');
+    if (host) host.classList.toggle('is-paused', p);
+  }, [p]);
+  if (window.FESTIN_RM && window.FESTIN_RM()) return null;
+  return (
+    <button type="button" ref={ref} className="mpause" aria-pressed={p} onClick={() => setP((v) => !v)}>
+      <span aria-hidden="true">{p ? '▶' : '❚❚'}</span> {p ? 'Reprendre' : 'Pause'}<span className="sr-only"> {label}</span>
+    </button>
+  );
+}
+window.MarqueePause = MarqueePause;

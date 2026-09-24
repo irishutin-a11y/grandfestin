@@ -57,6 +57,7 @@ function HomeB() {
       const onV = (e) => { vel = e.velocity || 0; };
       if (window.__lenis) window.__lenis.on('scroll', onV);
       const tickV = () => {
+        if (vtrack.parentElement.classList.contains('is-paused')) return;
         mx -= (base + Math.min(Math.abs(vel), 40) * 0.35);
         if (-mx >= half) mx += half;
         vtrack.style.transform = 'translateX(' + mx + 'px)';
@@ -183,8 +184,9 @@ function HomeB() {
       </section>
 
       {/* MARQUEE MÉTIERS */}
-      <section className="vmarquee" aria-hidden="true">
-        <div className="vmarquee__track" id="vtrack">
+      <section className="vmarquee" data-marquee>
+        <window.MarqueePause label="du bandeau des métiers" />
+        <div className="vmarquee__track" id="vtrack" aria-hidden="true">
           {H.marquee.map((m, i) => <span key={i}>{m}</span>)}
         </div>
       </section>
@@ -324,7 +326,8 @@ function HomeB() {
           <p className="b-quotes__lede reveal">{H.quotes.lede}</p>
           <div className="qband reveal"><window.Picture src={H.quotes.band} alt="Cérémonie de fin de formation" sizes="100vw" /></div>
         </div>
-        <div className="tmarquee reveal" aria-label="Témoignages">
+        <div className="tmarquee reveal" aria-label="Témoignages" data-marquee>
+          <window.MarqueePause label="des témoignages" />
           <div className="tmarquee__track" id="ttrack">
             {H.quotes.cards.map((c, i) => (
               <div className="tcell" key={i}>

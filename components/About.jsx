@@ -280,7 +280,8 @@ function Partenaires() {
   return (
     <section className="ab-sec ab-sec--cream ab-logos">
       <div className="container"><span className="ab-eyebrow ab-eyebrow--center">Ils nous font confiance</span></div>
-      <div className="ab-logos__mask">
+      <div className="ab-logos__mask" data-marquee>
+        <window.MarqueePause label="des logos partenaires" />
         <ul className="ab-logos__track">{row(false)}{row(true)}</ul>
       </div>
     </section>
