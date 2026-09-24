@@ -157,7 +157,7 @@ function Footer() {
               </a>
             </div>
             <div>
-              <h5>Nous contacter</h5>
+              <h2 className="footer__h">Nous contacter</h2>
               <ul>
                 <li><a href="#/contact">Écrire à Festin</a></li>
                 <li><a href={`mailto:${data.contact.email}`}>{data.contact.email}</a></li>
@@ -165,16 +165,22 @@ function Footer() {
               </ul>
             </div>
             <div>
-              <h5>S'engager</h5>
+              <h2 className="footer__h">S'engager</h2>
               <ul>
-                <li><a href="#/accompagnement/professionnels">Restaurateurs</a></li>
-                <li><a href="#/contact">Partenaires &amp; financeurs</a></li>
-                <li><a href="#/accompagnement/insertion">Parcours d'insertion</a></li>
-                <li><a href="#/contact">Mécénat</a></li>
+                <li><a href="#/accompagnement/insertion">Apprendre un métier</a></li>
+                <li><a href="#/accompagnement/professionnels">Acteurs du secteur</a></li>
+                <li><a href="mailto:partenariat@grandfestin.com">Mécénat et partenariats</a></li>
+              </ul>
+              <h2 className="footer__h footer__h--2">L'association</h2>
+              <ul>
+                <li><a href="#/about">Qui sommes-nous</a></li>
+                <li><a href="#/impact">Notre impact</a></li>
+                <li><a href="#/actualites">Actualités et presse</a></li>
+                <li><a href="/mentions-legales">Mentions légales</a></li>
               </ul>
             </div>
             <div>
-              <h5>Nos projets</h5>
+              <h2 className="footer__h">Nos projets</h2>
               <ul>
                 {data.projets.map(p => (
                   <li key={p.id}><a href={`#/projets/${p.id}`}>{p.shortTitle}</a></li>
