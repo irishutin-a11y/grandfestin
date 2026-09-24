@@ -141,7 +141,8 @@ function Footer() {
   // traversée par le trait du parcours (retour du 24/09/2026 : les deux blocs
   // empilés ne s'accordaient pas). Absent là où la page a son propre appel final.
   const hash = useRoute();
-  const sansFin = ['#/', '#/contact', '#/accompagnement/insertion', '#/accompagnement/professionnels'].includes(hash);
+  // pages qui finissent déjà par leurs propres portes : accueil, projets, accompagnement, contact
+  const sansFin = ['#/', '#/contact', '#/accompagnement/insertion', '#/accompagnement/professionnels'].includes(hash) || hash.indexOf('#/projets/') === 0;
   return (
     <div className="footer-outer">
       <footer className="footer">

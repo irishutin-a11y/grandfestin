@@ -303,7 +303,8 @@ window.TempsForts = TempsForts;
 // Des Étoiles et des Femmes validée le 24/09/2026) ; chaque pastille s'allume
 // quand le fil l'atteint, le rail du suivi sert de barre de progression.
 // Sinon : liste verticale, chaque étape s'allume à son entrée dans l'écran.
-// steps : [{ when, tab, title, text, stat, statL, img, alt, missing, links }]
+// steps : [{ when, tab, title, text, stat, statL, img, alt, missing }] — sans img ni
+// missing (ou cadres de chantier masqués), la carte est en texte seul.
 // rail : { tab, title, text } (ce qui court sous toutes les étapes)
 // ---------------------------------------------------------------------------
 function Frise({ id = 'frise', title, accent, lede, steps = [], rail, cta, tone = 'tint' }) {
@@ -358,12 +359,14 @@ function Frise({ id = 'frise', title, accent, lede, steps = [], rail, cta, tone 
             {steps.map((s, i) => (
               <li className="frise__step" key={i}>
                 <div className="frise__mark" aria-hidden="true">{String(i + 1).padStart(2, '0')}</div>
-                <article className="frise__card">
-                  <div className="frise__img">
-                    {s.img
-                      ? <window.Picture src={s.img} alt={s.alt || ''} sizes="(max-width: 900px) 100vw, 18vw" />
-                      : <window.PhotoMissing subject={s.missing || s.title} ratio="4/3" />}
-                  </div>
+                <article className={'frise__card' + ((s.img || (s.missing && window.FESTIN_SHOW_PLACEHOLDERS)) ? '' : ' frise__card--txt')}>
+                  {(s.img || (s.missing && window.FESTIN_SHOW_PLACEHOLDERS)) && (
+                    <div className="frise__img">
+                      {s.img
+                        ? <window.Picture src={s.img} alt={s.alt || ''} sizes="(max-width: 900px) 100vw, 18vw" />
+                        : <window.PhotoMissing subject={s.missing} ratio="4/3" />}
+                    </div>
+                  )}
                   <div className="frise__body">
                     <span className="frise__tab">{s.when ? s.when + ' · ' : ''}{s.tab}</span>
                     <h3 className="frise__t">{s.title}</h3>

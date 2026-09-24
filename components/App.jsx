@@ -86,12 +86,7 @@ function App() {
     case 'home':              page = <HomePage />; break;
     case 'formations':        page = <FormationsListPage />; break;
     case 'formation':         page = <FormationDetailPage id={route.id} />; break;
-    case 'projet':            page = route.id === 'des-etoiles-et-des-femmes' ? <ProjetDefPage />
-                                     : route.id === 'les-beaux-mets' ? <ProjetLBMPage />
-                                     : route.id === 'restaure' ? <ProjetRestaurePage />
-                                     : route.id === 'la-table-de-cana' ? <ProjetTableDeCanaPage />
-                                     : route.id === 'tournesol' ? <ProjetTournesolPage />
-                                     : <ProjetPage id={route.id} />; break;
+    case 'projet':            page = <ProjetPage id={route.id} />; break;
     case 'accomp-insertion':  page = <AccompagnementInsertionPage />; break;
     case 'accomp-pros':       page = <AccompagnementProsPage />; break;
     case 'academie':          page = <AcademiePage />; break;
