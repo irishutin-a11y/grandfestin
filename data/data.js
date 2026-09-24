@@ -157,7 +157,7 @@ window.FESTIN_DATA = {
         },
         {
           prenom: "Avotra",
-          ville: "Île-de-France — Antony",
+          ville: "Île-de-France, Antony",
           promo: "Promotion 2024-2025",
           accroche: "Pourquoi les autres, pourquoi pas moi ?",
           extrait: "Intégrer le CAP Cuisine avec Des Étoiles et des Femmes a été une chance. Aujourd’hui, je crée mon entreprise de traiteur malgache. Être femme dans la cuisine, c’est savoir s’imposer.",
@@ -192,7 +192,7 @@ window.FESTIN_DATA = {
         // Slot en attente — portrait et témoignage à recueillir
         {
           prenom: "Julia Sedefdjian",
-          role: "Marraine nationale — Des Étoiles et des Femmes",
+          role: "Marraine nationale, Des Étoiles et des Femmes",
           citation: "[AJOUTER TÉMOIGNAGE]",
           photo: "",
           variant: "deep",
@@ -220,7 +220,7 @@ window.FESTIN_DATA = {
         { ville: "Hauts-de-Seine Sud",   annee: "2023", porteur: "La Table de Cana" },
       ],
       // --- Champs page projet dédiée (extraits de description / formations, sinon [XX]) ---
-      godmother: { name: "Julia Sedefdjian", role: "Marraine nationale — depuis 2025" },
+      godmother: { name: "Julia Sedefdjian", role: "Marraine nationale, depuis 2025" },
       parcours: [
         { tab: "Se former", title: "Un CAP ou un titre de commis",
           text: "CAP Cuisine sur 11 mois, avec le lycée hôtelier Jean-Paul Passedat et le Greta-CFA Marseille Méditerranée. Ou titre à finalité professionnelle de commis de cuisine sur 4 mois. Techniques, remise à niveau, préparation à l’examen.",
@@ -332,9 +332,9 @@ window.FESTIN_DATA = {
       implicationCtaLabel: "Faire un don",
       implicationCtaHref: "https://www.helloasso.com/associations/association-festin/formulaires/3",
       temoignages: [
-        { prenom: "Valentin Majan", role: "Chef de cuisine — Les Beaux Mets", citation: "Ce n’est pas tous les jours évident. On doit apprendre à mélanger les temps de mise en place et d’accompagnement social. Même si ça fait perdre du temps de production, ça rend notre travail plus humain.", placeholder: false },
-        { prenom: "Jason", role: "Cuisinier, 22 ans — promotion 2025", citation: "Je n’avais jamais travaillé avant. Aux Beaux Mets, j’ai appris à cuisiner, à dresser une assiette, à me tenir en cuisine. Aujourd’hui, j’ai ma première fiche de paie. Ça me donne de la fierté.", placeholder: false },
-        { prenom: "Chef Davin", role: "Chef — Intercontinental Marseille", citation: "Sami s’est très vite intégré à l’équipe. Il a été très bien formé aux Beaux Mets et avait également l’attitude qui correspondait à une cuisine.", placeholder: false },
+        { prenom: "Valentin Majan", role: "Chef de cuisine, Les Beaux Mets", citation: "Ce n’est pas tous les jours évident. On doit apprendre à mélanger les temps de mise en place et d’accompagnement social. Même si ça fait perdre du temps de production, ça rend notre travail plus humain.", placeholder: false },
+        { prenom: "Jason", role: "Cuisinier, 22 ans, promotion 2025", citation: "Je n’avais jamais travaillé avant. Aux Beaux Mets, j’ai appris à cuisiner, à dresser une assiette, à me tenir en cuisine. Aujourd’hui, j’ai ma première fiche de paie. Ça me donne de la fierté.", placeholder: false },
+        { prenom: "Chef Davin", role: "Chef, Intercontinental Marseille", citation: "Sami s’est très vite intégré à l’équipe. Il a été très bien formé aux Beaux Mets et avait également l’attitude qui correspondait à une cuisine.", placeholder: false },
       ],
       presseFilter: ["Les Beaux Mets", "Beaux Mets", "Baumettes"],
       // --- Champs page projet dédiée (sourcés du dossier de présentation LBM, janv. 2026) ---
@@ -409,8 +409,8 @@ window.FESTIN_DATA = {
       implicationCtaHref: "#/contact",
       temoignages: [
         { prenom: "Oumar", role: "Ancien salarié en insertion", citation: "J’ai passé deux ans à La Table de Cana. Ça m’a vraiment aidé à savoir m’organiser et à avoir confiance en mes compétences. Aujourd’hui, j’ai un CDI chez Compass à la Tour CMA-CGM.", placeholder: false },
-        { prenom: "Jean Claude", role: "Ancien commis de cuisine — La Table de Cana", citation: "J’ai pu prendre confiance en moi grâce aux différentes tâches.", placeholder: false },
-        { prenom: "Pierre", role: "RRH insertion — La Table de Cana", citation: "Chaque sortie positive, c’est une victoire pour la personne et pour toute l’équipe. Ça montre que notre accompagnement fonctionne !", placeholder: false },
+        { prenom: "Jean Claude", role: "Ancien commis de cuisine, La Table de Cana", citation: "J’ai pu prendre confiance en moi grâce aux différentes tâches.", placeholder: false },
+        { prenom: "Pierre", role: "RRH insertion, La Table de Cana", citation: "Chaque sortie positive, c’est une victoire pour la personne et pour toute l’équipe. Ça montre que notre accompagnement fonctionne !", placeholder: false },
       ],
       presseFilter: ["La Table de Cana", "Table de Cana"],
       // --- Champs page projet dédiée (source : latabledecana-marseille.com/insertion-professionnelle) ---
@@ -676,7 +676,7 @@ window.FESTIN_DATA = {
       id: "tfp",
       cat: "Insertion",
       audienceKey: "insertion",
-      title: "Des Étoiles et des Femmes — TFP",
+      title: "Des Étoiles et des Femmes, TFP",
       desc: "Titre à finalité professionnelle de commis de cuisine en 4 mois, gratuit, pour des femmes.",
       img: "images/photo-tabliers-violets.jpg",
       duration: "4 mois — 600h (245h cuisine · 155h stage · 70h remise à niveau · 131h transverses)",
@@ -701,7 +701,7 @@ window.FESTIN_DATA = {
       id: "cap",
       cat: "Insertion",
       audienceKey: "insertion",
-      title: "Des Étoiles et des Femmes — CAP",
+      title: "Des Étoiles et des Femmes, CAP",
       desc: "CAP Cuisine en 11 mois pour des femmes, en alternance avec un restaurant partenaire.",
       img: "images/photo-patisserie.jpg",
       duration: "11 mois — 986h de cours + 490h de stage",
@@ -765,13 +765,13 @@ window.FESTIN_DATA = {
     {
       quote: "Je n'avais jamais travaillé avant. Aux Beaux Mets, j'ai appris à cuisiner, à dresser une assiette, à me tenir en cuisine. Aujourd'hui, j'ai ma première fiche de paie. Ça me donne de la fierté.",
       author: "Jason, 22 ans",
-      role: "Cuisinier — Les Beaux Mets, 2025",
+      role: "Cuisinier, Les Beaux Mets, 2025",
       tone: "light",
     },
     {
       quote: "J'ai passé deux ans à La Table de Cana. Ça m'a vraiment aidé à savoir m'organiser et à avoir confiance en mes compétences. Aujourd'hui, j'ai un CDI chez Compass à la Tour CMA-CGM. Je suis fier du chemin parcouru !",
       author: "Oumar",
-      role: "Ancien salarié en insertion — La Table de Cana",
+      role: "Ancien salarié en insertion, La Table de Cana",
       tone: "dark",
     },
     {
@@ -832,16 +832,16 @@ window.FESTIN_DATA = {
     { dispositif:"Les Beaux Mets", source:"Courrier International", title:"Les Beaux Mets à Marseille, restaurant de réinsertion", type:"Article", date:"2026-04-02", href:"https://www.courrierinternational.com/long-format/vu-d-espagne-au-restaurant-des-beaux-mets-a-marseille-des-detenus-mitonnent-leur-reinsertion_239702" },
     { dispositif:"Les Beaux Mets", source:"France 3 PACA", title:"En prison à Marseille, un restaurant bistronomique où l'on est servis par des détenus", type:"Reportage TV", date:"2026-03-25", href:"https://www.youtube.com/watch?v=6qyo6RXsqjI" },
     { dispositif:"Les Beaux Mets", source:"El País", title:"La prison la plus célèbre de Marseille ouvre ses portes à un restaurant unique en son genre", type:"Article", date:"2026-01-11", href:"https://elpais.com/eps/2026-01-09/la-carcel-mas-famosa-de-marsella-abre-sus-puertas-a-un-restaurante-unico.html" },
-    { dispositif:"Les Beaux Mets", source:"M6 — Un jour, un doc", title:"Un restaurant dans une prison", type:"Reportage TV", date:"2025-11-10", href:"https://www.m6.fr/un-jour-un-doc-p_22196/un-restaurant-dans-une-prison-c_13151161" },
+    { dispositif:"Les Beaux Mets", source:"M6 : Un jour, un doc", title:"Un restaurant dans une prison", type:"Reportage TV", date:"2025-11-10", href:"https://www.m6.fr/un-jour-un-doc-p_22196/un-restaurant-dans-une-prison-c_13151161" },
     { dispositif:"Les Beaux Mets", source:"Les Échos Weekend", title:"Les détenus s'en sortent par la cuisine", type:"Article", date:"2025-11-07", href:"https://www.lesechos.fr/weekend/business-story/les-clients-sont-sympas-ils-font-des-bons-retours-dans-la-prison-des-baumettes-les-detenus-sen-sortent-par-la-cuisine-2196595" },
-    { dispositif:"Les Beaux Mets", source:"Revue du barreau", title:"Les Beaux Mets — pages 62-63 de la revue du Barreau", type:"Article Print", date:"2025-12-01", href:"https://drive.google.com/file/d/1jPCV9VGW6BKNubRWoh_FGg4hIs-Is7_u/view" },
+    { dispositif:"Les Beaux Mets", source:"Revue du barreau", title:"Les Beaux Mets : pages 62-63 de la revue du Barreau", type:"Article Print", date:"2025-12-01", href:"https://drive.google.com/file/d/1jPCV9VGW6BKNubRWoh_FGg4hIs-Is7_u/view" },
     { dispositif:"Les Beaux Mets", source:"Le Monde", title:"Armand Hurault, directeur de Festin : « La restauration m'est apparue comme l'un des rares secteurs où l'origine étrangère peut être une valeur ajoutée »", type:"Article", date:"2025-02-14", href:"https://www.lemonde.fr/m-styles/article/2025/02/14/armand-hurault-directeur-de-festin-la-restauration-m-est-apparue-comme-l-un-des-rares-secteurs-d-activite-ou-l-origine-etrangere-peut-etre-une-valeur-ajoutee_6546308_4497319.html" },
     { dispositif:"Les Beaux Mets", source:"Le Figaro", title:"15 Marseillais de moins de 40 ans qui vont changer la ville", type:"Article", date:"2025-01-14", href:"https://www.lefigaro.fr/marseille/ils-ont-moins-de-40-ans-et-vont-changer-la-ville-decouvrez-notre-palmares-des-15-marseillais-les-plus-prometteurs-20250114" },
-    { dispositif:"Les Beaux Mets", source:"France Inter — On va déguster", title:"Après la prison, la cuisine", type:"Sujet Radio", date:"2025-03-02", href:"https://www.radiofrance.fr/franceinter/podcasts/on-va-deguster/on-va-deguster-du-dimanche-02-mars-2025-7190244" },
+    { dispositif:"Les Beaux Mets", source:"France Inter : On va déguster", title:"Après la prison, la cuisine", type:"Sujet Radio", date:"2025-03-02", href:"https://www.radiofrance.fr/franceinter/podcasts/on-va-deguster/on-va-deguster-du-dimanche-02-mars-2025-7190244" },
     { dispositif:"Les Beaux Mets", source:"Zig Zag Paris", title:"À Marseille, ce restaurant insolite aux conditions d'accès sécurisées est le premier en France à se trouver dans une prison", type:"Article", date:"2025-02-20", href:"https://www.pariszigzag.fr/marseille/restaurant-prison-baumettes" },
     { dispositif:"Les Beaux Mets", source:"Made in Marseille", title:"Le restaurant en prison Les Beaux Mets décroche un macaron Écotable", type:"Article", date:"2024-09-20", href:"https://madeinmarseille.net/167722-le-restaurant-en-prison-les-beaux-mets-decroche-un-macaron-ecotable/" },
     { dispositif:"Les Beaux Mets", source:"France TV Info", title:"« Ça nous rapproche de la sortie, de la vie normale » : le restaurant des Baumettes rencontre un franc succès", type:"Article", date:"2024-03-12", href:"https://www.francetvinfo.fr/societe/prisons/reportage-ca-nous-rapproche-de-la-sortie-de-la-vie-normale-a-marseille-le-restaurant-de-la-prison-des-beaumettes-rencontre-un-franc-succes-depuis-un-an_6417697.html" },
-    { dispositif:"Les Beaux Mets", source:"Le Monde — M le Mag", title:"À Marseille, un restaurant bistronomique derrière les barreaux", type:"Article", date:"2022-11-15", href:"https://www.lemonde.fr/m-le-mag/article/2022/11/15/a-marseille-un-restaurant-bistronomique-derriere-les-barreaux_6149880_4500055.html" },
+    { dispositif:"Les Beaux Mets", source:"Le Monde : M le Mag", title:"À Marseille, un restaurant bistronomique derrière les barreaux", type:"Article", date:"2022-11-15", href:"https://www.lemonde.fr/m-le-mag/article/2022/11/15/a-marseille-un-restaurant-bistronomique-derriere-les-barreaux_6149880_4500055.html" },
     { dispositif:"Les Beaux Mets", source:"Libération", title:"Dans la prison des Baumettes, un restaurant met la réinsertion à la carte", type:"Article", date:"2022-11-12", href:"https://www.liberation.fr/lifestyle/gastronomie/dans-la-prison-des-baumettes-un-restaurant-met-la-reinsertion-a-la-carte-20221112_FBYPQVSQH5E5TFUJ7GMTINAEVY/" },
     { dispositif:"Les Beaux Mets", source:"Télérama", title:"Cuisine et réinsertion : j'ai déjeuné à la prison des Baumettes", type:"Article", date:"2022-12-04", href:"https://www.telerama.fr/sortir/cuisine-et-reinsertion-j-ai-dejeune-a-la-prison-des-baumettes-7013292.php" },
 
@@ -850,8 +850,8 @@ window.FESTIN_DATA = {
     { dispositif:"Des Étoiles et des Femmes", source:"La Provence", title:"« Un échange gagnant-gagnant » : à Arles, 10 femmes éloignées de l'emploi obtiennent leur CAP cuisine", type:"Article", date:"2025-12-02", href:"https://www.laprovence.com/article/societe/32963667342845/un-echange-gagnant-gagnant-a-arles-10-femmes-eloignees-de-lemploi-obtiennent-leur-cap-cuisine" },
     { dispositif:"Des Étoiles et des Femmes", source:"Arles Info", title:"Des étoiles et des femmes : la recette de la réussite", type:"Article", date:"2025-12-02", href:"https://arles.fr/actualites/des-etoiles-et-des-femmes-la-recette-de-la-reussite/" },
     { dispositif:"Des Étoiles et des Femmes", source:"Podcast Des Étoiles et des Femmes", title:"Podcast Île-de-France", type:"Podcast", date:"2025-11-20", href:"https://podcasts.apple.com/fr/podcast/des-%C3%A9toiles-et-des-femmes/id1792208177" },
-    { dispositif:"Des Étoiles et des Femmes", source:"TF1 — JT 20h", title:"Reportage insertion professionnelle par la cuisine", type:"Reportage TV", date:"2025-09-01", href:"https://www.tf1.fr/tf1/jt-20h/videos/le-jt-de-20-heures-de-tf1-du-dimanche-24-aout-2025-80434191.html" },
-    { dispositif:"Des Étoiles et des Femmes", source:"France 2 — 13h15 le dimanche", title:"L'assiette française", type:"Reportage TV", date:"2024-05-13", href:"https://www.francetvinfo.fr/replay-magazine/france-2/13h15/13h15-le-dimanche-l-assiette-francaise-episode-4-partie-1_6505052.html" },
+    { dispositif:"Des Étoiles et des Femmes", source:"TF1 : JT 20h", title:"Reportage insertion professionnelle par la cuisine", type:"Reportage TV", date:"2025-09-01", href:"https://www.tf1.fr/tf1/jt-20h/videos/le-jt-de-20-heures-de-tf1-du-dimanche-24-aout-2025-80434191.html" },
+    { dispositif:"Des Étoiles et des Femmes", source:"France 2 : 13h15 le dimanche", title:"L'assiette française", type:"Reportage TV", date:"2024-05-13", href:"https://www.francetvinfo.fr/replay-magazine/france-2/13h15/13h15-le-dimanche-l-assiette-francaise-episode-4-partie-1_6505052.html" },
     { dispositif:"Des Étoiles et des Femmes", source:"Made in Marseille", title:"François Hollande à Marseille pour booster des projets à impact innovants", type:"Article", date:"2024-09-20", href:"https://madeinmarseille.net/167697-video-francois-hollande-a-marseille-pour-booster-des-projets-a-impact-innovants/" },
     { dispositif:"Des Étoiles et des Femmes", source:"Made In Marseille", title:"La recette de la cheffe Laëtitia Visse pour inspirer les talents culinaires féminins", type:"Article", date:"2024-02-28", href:"https://madeinmarseille.net/153708-laetitia-visse-marraine-des-etoiles-et-des-femmes/" },
     { dispositif:"Des Étoiles et des Femmes", source:"Le Progrès", title:"« Pensez à vous et vous réussirez » : le début de l'aventure pour ces femmes qui se forment auprès des grands chefs lyonnais", type:"Article", date:"2023-09-28", href:"https://www.leprogres.fr/education/2023/09/22/pensez-a-vous-et-vous-reussirez-le-debut-de-l-aventure-pour-ces-femmes-qui-vont-se-former-aupres-des-grands-chefs-lyonnais" },
@@ -989,6 +989,10 @@ window.FESTIN_DATA.impact = {
     { year: "2019", title: "La France s'engage", org: "Lauréat, Des Étoiles et des Femmes" },
   ],
 };
+
+// Photos d'antennes disponibles dans images/antennes/ (nom de ville en minuscules,
+// sans accent, tirets). Vide tant que le formulaire Drive n'a rien fourni.
+window.FESTIN_DATA.antennesPhotos = [];
 
 // Bloc de clôture commun à toutes les pages (Sections.jsx, FinDePage)
 window.FESTIN_DATA.fin = {

@@ -201,8 +201,7 @@ function ProjetDefPage() {
       <section className="proj-stats" aria-labelledby="proj-stats-t">
         <div className="wrap proj-stats2">
           <div className="proj-stats2__intro reveal">
-            <span className="proj-sec" id="proj-stats-t">En bref</span>
-            <h2 className="proj-h2">{p.tagline}</h2>
+            <h2 className="proj-h2" id="proj-stats-t">{p.tagline}</h2>
             <p>{p.short.replace(/\s*13 antennes en France, 91\s?%\s?de réussite aux diplômes\.\s*$/, '')}</p>
             <a className="btnb btnb--outline-ink" href={p.siteUrl} target="_blank" rel="noopener noreferrer">
               Visiter le site <span className="arrow" aria-hidden="true">→</span>
@@ -228,8 +227,7 @@ function ProjetDefPage() {
       <section className="proj-projet" aria-labelledby="proj-projet-t">
         <div className="wrap proj-projet__split">
           <div className="proj-projet__body">
-            <span className="proj-sec" id="proj-projet-t">Le projet</span>
-            <h2 className="proj-h2 reveal">Le parcours,<br />étape par étape</h2>
+            <h2 className="proj-h2 reveal" id="proj-projet-t">Le parcours,<br />étape par étape</h2>
             <p className="proj-projet__lede reveal">
               Dans chacune des 13 antennes, un centre de formation, des restaurants et des partenaires locaux accompagnent la promotion.
             </p>
@@ -307,8 +305,7 @@ function ProjetDefPage() {
       {p.antennes && p.antennes.length > 0 && (
         <section className="proj-reseau" aria-labelledby="proj-reseau-t">
           <div className="wrap">
-            <span className="proj-sec" id="proj-reseau-t">Le réseau</span>
-            <h2 className="proj-h2 reveal">Où se former,<br />en France</h2>
+            <h2 className="proj-h2 reveal" id="proj-reseau-t">Où se former,<br />en France</h2>
             <p className="proj-reseau__lede reveal">
               Le programme est né à Marseille en 2015. Il est aujourd'hui porté dans chaque ville par
               une structure locale, avec ses centres de formation et ses restaurateurs partenaires.
@@ -316,8 +313,8 @@ function ProjetDefPage() {
             <div className="reveal">
               <window.HoverImageList label="Les antennes du réseau" items={p.antennes.map((a) => ({
                 title: a.ville, meta: a.porteur, year: a.annee,
-                // photo d'antenne : déposer images/antennes/<ville>.jpg (cadre « à venir » sinon)
-                img: 'images/antennes/' + a.ville.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') + '.jpg',
+                // photo d'antenne : déposer images/antennes/<ville>.jpg ET ajouter <ville> à FESTIN_DATA.antennesPhotos
+                img: ((v) => (D.antennesPhotos || []).includes(v) ? 'images/antennes/' + v + '.jpg' : null)(a.ville.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')),
                 alt: 'Antenne de ' + a.ville,
               }))} />
             </div>
@@ -328,8 +325,7 @@ function ProjetDefPage() {
       {/* TÉMOIGNAGES — bandeau défilant en boucle infinie (marquee CSS), pause au survol */}
       <section className="proj-testi" aria-labelledby="proj-testi-t">
         <div className="wrap">
-          <span className="proj-sec" id="proj-testi-t">Elles l’ont fait</span>
-          <h2 className="proj-h2 reveal">Elles racontent<br />leur parcours</h2>
+          <h2 className="proj-h2 reveal" id="proj-testi-t">Elles racontent<br />leur parcours</h2>
         </div>
         <div className="reveal">
           <window.TestiCarousel label="Témoignages d'anciennes stagiaires" items={(p.temoignages || []).filter(t => !t.placeholder).map(t => ({
@@ -343,8 +339,7 @@ function ProjetDefPage() {
       <section className="proj-support" aria-labelledby="proj-support-t">
         <div className="wrap proj-support__inner reveal">
           <div className="proj-support__body">
-            <span className="proj-sec" id="proj-support-t">Soutenir</span>
-            <h2 className="proj-h2">{p.soutenir.title}</h2>
+            <h2 className="proj-h2" id="proj-support-t">{p.soutenir.title}</h2>
             <p>{p.soutenir.text}</p>
             <div className="proj-support__cta">
               <a className="btnb btnb--gold proj-support__cta-main" href={D.donation} target="_blank" rel="noopener noreferrer">
@@ -382,8 +377,7 @@ function ProjetDefPage() {
       {presse.length > 0 && (
         <section className="proj-presse" aria-labelledby="proj-presse-t">
           <div className="wrap">
-            <span className="proj-sec" id="proj-presse-t">La presse</span>
-            <h2 className="proj-h2 reveal">Dans la presse</h2>
+            <h2 className="proj-h2 reveal" id="proj-presse-t">Dans la presse</h2>
             <div className="proj-news">
               {featured3.map((a, i) => (
                 <a key={i} className="proj-news__card reveal" href={a.href} target="_blank" rel="noopener noreferrer">
@@ -400,7 +394,7 @@ function ProjetDefPage() {
             </div>
             {presseAlso.length > 0 && (
               <p className="proj-news__also reveal">
-                <b>Également paru dans</b>&nbsp;— {presseAlso
+                <b>Également paru dans :</b> {presseAlso
                   .map(a => a.source)
                   .filter((v, k, arr) => arr.findIndex(x => x.toLowerCase() === v.toLowerCase()) === k)
                   .join(' · ')}.

@@ -578,3 +578,4 @@ body.proj-has-crumb .mnav{top:28px}
 @media (prefers-reduced-motion:reduce){.prgw__row,.prgw__n,.prgw__row::before{transition:none}}
 /* Témoignages peu nombreux : cartes posées, sans défilement */
 .tcar--still .tcar__track{animation:none;width:auto;flex-wrap:wrap;justify-content:center}
+.proj-support__inner > :only-child{grid-column:1/-1;max-width:760px}

@@ -151,8 +151,7 @@ function ProjetTableDeCanaPage() {
       <section className="proj-stats" aria-labelledby="proj-stats-t">
         <div className="wrap proj-stats2">
           <div className="proj-stats2__intro reveal">
-            <span className="proj-sec" id="proj-stats-t">En bref</span>
-            <h2 className="proj-h2">{p.tagline}</h2>
+            <h2 className="proj-h2" id="proj-stats-t">{p.tagline}</h2>
             <p>{p.short}</p>
             <a className="btnb btnb--outline-ink" href={p.siteUrl} target="_blank" rel="noopener noreferrer">
               Visiter le site <span className="arrow" aria-hidden="true">→</span>
@@ -178,8 +177,7 @@ function ProjetTableDeCanaPage() {
       <section className="proj-projet" aria-labelledby="proj-projet-t">
         <div className="wrap proj-projet__split">
           <div className="proj-projet__body">
-            <span className="proj-sec" id="proj-projet-t">Le projet</span>
-            <h2 className="proj-h2 reveal">Le premier projet<br />de Festin</h2>
+            <h2 className="proj-h2 reveal" id="proj-projet-t">Le premier projet<br />de Festin</h2>
             <p className="proj-projet__lede reveal">{p.description}</p>
             <div className="proj-acc reveal">
               {(p.parcours || []).map((s, i) => {
@@ -250,8 +248,7 @@ function ProjetTableDeCanaPage() {
       {p.temoignages && p.temoignages.filter(t => !t.placeholder).length > 0 && (
         <section className="proj-testi" aria-labelledby="proj-testi-t">
           <div className="wrap">
-            <span className="proj-sec" id="proj-testi-t">Ils l’ont vécu</span>
-            <h2 className="proj-h2 reveal">Salariés et encadrants racontent</h2>
+            <h2 className="proj-h2 reveal" id="proj-testi-t">Salariés et encadrants racontent</h2>
             <div className="reveal">
               <window.TestiCarousel items={p.temoignages.filter(t => !t.placeholder).map(t => ({ name: t.prenom, meta: t.role, quote: t.citation }))} />
             </div>
@@ -263,8 +260,7 @@ function ProjetTableDeCanaPage() {
       <section className="proj-support" aria-labelledby="proj-support-t">
         <div className="wrap proj-support__inner reveal">
           <div className="proj-support__body">
-            <span className="proj-sec" id="proj-support-t">Le traiteur</span>
-            <h2 className="proj-h2">{p.implicationTitle}</h2>
+            <h2 className="proj-h2" id="proj-support-t">{p.implicationTitle}</h2>
             <p>{p.implicationText}</p>
             <div className="proj-support__cta">
               <a className="btnb btnb--gold proj-support__cta-main" href={p.implicationCtaHref}>
@@ -275,7 +271,8 @@ function ProjetTableDeCanaPage() {
               </a>
             </div>
           </div>
-          <div className="proj-support__logos" role="group" aria-label="Entreprises partenaires (logos à venir)">
+          {(window.FESTIN_SHOW_PLACEHOLDERS || (p.partenaires || []).some(n => (D.about.logosPartenaires || {})[n])) && (
+          <div className="proj-support__logos" role="group" aria-label="Entreprises partenaires">
             <div className="proj-logogrid">
               {(p.partenaires || []).map((nom, i) => {
                 const logo = (D.about.logosPartenaires || {})[nom];
@@ -284,7 +281,7 @@ function ProjetTableDeCanaPage() {
                   : <span className="proj-logocard proj-logocard--ph is-placeholder" key={i}><span>{nom}</span></span>;
               })}
             </div>
-          </div>
+          </div>)}
         </div>
       </section>
 
@@ -292,8 +289,7 @@ function ProjetTableDeCanaPage() {
       {presse.length > 0 && (
         <section className="proj-presse" aria-labelledby="proj-presse-t">
           <div className="wrap">
-            <span className="proj-sec" id="proj-presse-t">La presse</span>
-            <h2 className="proj-h2 reveal">Dans la presse</h2>
+            <h2 className="proj-h2 reveal" id="proj-presse-t">Dans la presse</h2>
             <div className="proj-news">
               {featured3.map((a, i) => (
                 <a key={i} className="proj-news__card reveal" href={a.href} target="_blank" rel="noopener noreferrer">
@@ -310,7 +306,7 @@ function ProjetTableDeCanaPage() {
             </div>
             {presseAlso.length > 0 && (
               <p className="proj-news__also reveal">
-                <b>Également paru dans</b>&nbsp;— {presseAlso
+                <b>Également paru dans :</b> {presseAlso
                   .map(a => a.source)
                   .filter((v, k, arr) => arr.findIndex(x => x.toLowerCase() === v.toLowerCase()) === k)
                   .join(' · ')}.
