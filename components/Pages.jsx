@@ -1022,128 +1022,82 @@ function AcademiePage() {
 // ACTUALITÉS PAGE — toutes les retombées presse
 // ─────────────────────────────────────────────────────────────────────────────
 function ActualitesPage() {
-  const allPresse = (window.FESTIN_DATA.presse || [])
-    .slice()
-    .sort((a, b) => new Date(b.date) - new Date(a.date));
-
+  const D = window.FESTIN_DATA;
+  const allPresse = (D.presse || []).slice().sort((a, b) => new Date(b.date) - new Date(a.date));
   const dispositifs = ['Tous', ...Array.from(new Set(allPresse.map(a => a.dispositif).filter(Boolean)))];
   const [filtre, setFiltre] = React.useState('Tous');
-
   const filtered = filtre === 'Tous' ? allPresse : allPresse.filter(a => a.dispositif === filtre);
-
+  const PAS = 8;
+  const [vus, setVus] = React.useState(PAS);
+  React.useEffect(() => setVus(PAS), [filtre]);
+  const listRef = React.useRef(null);
+  // changement de filtre : les articles restants apparaissent en cascade (relier le filtre au résultat)
+  React.useEffect(() => {
+    const g = window.gsap, el = listRef.current;
+    if (!g || !el || (window.FESTIN_RM && window.FESTIN_RM())) return;
+    const tw = g.from(el.children, { y: 16, autoAlpha: 0, duration: 0.5, stagger: 0.03, clearProps: 'all' });
+    return () => tw.kill();
+  }, [filtre]);
+  const S = D.stats;
   return (
-    <div data-screen-label="Actualités — Presse & médias">
-      <PageHeader
-        image="images/photo-micro-temoignage.jpg"
-        imageAlt="Prise de parole au micro lors d'un temps fort"
-        focus="center 30%"
-        eyebrow="Presse & médias"
-        title="Nos"
-        accent="actualités"
-        subtitle="Retombées presse, reportages et podcasts autour des projets de l'association Festin."
-        breadcrumb={[{label:'Accueil',href:'#/'},{label:'Qui sommes-nous',href:'#/about'},{label:'Actualités'}]}
-      />
+    <div className="pageActu" data-screen-label="Actualités">
+      <window.HeroPage tone="gold" kicker="Actualités" title="Les temps forts," accent="et la presse."
+        proof="Le Grand Festin, les masterclass, les rencontres de Restaure : les moments de l'année en images. Puis les articles, reportages et podcasts sur nos projets."
+        crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Actualités' }]} />
 
-      <window.TempsForts items={window.FESTIN_DATA.tempsForts || []} />
+      <window.TempsForts items={D.tempsForts || []} label="Temps forts" />
 
-      <section style={{padding:'var(--s-8) 0 var(--s-9)', background:'var(--off-white)'}}>
-        <div className="container">
-
-          {/* Contact presse & financeurs */}
-          <div className="contact-note" style={{marginBottom:40, maxWidth:720}}>
-            <i data-lucide="newspaper" style={{width:18,height:18,flexShrink:0,marginTop:2}} aria-hidden="true"/>
-            <div>
-              <b>Vous êtes journaliste&nbsp;?</b> Interviews et visuels&nbsp;:{' '}
-              <a href="mailto:contact@grandfestin.com">contact@grandfestin.com</a>, à l'attention d'Iris Hutin.
-              Mécénat et partenariats&nbsp;:{' '}<a href="mailto:partenariat@grandfestin.com">partenariat@grandfestin.com</a>.
-              Nos rapports d'activité sont en libre accès sur la <a href="#/impact">page Impact</a>.
-            </div>
-          </div>
-
-          {/* Filtres */}
-          <div style={{display:'flex', gap:10, flexWrap:'wrap', marginBottom:48}}>
+      {/* Presse : liste filtrable */}
+      <section className="isec isec--white" aria-labelledby="actu-presse">
+        <div className="wrap">
+          <h2 className="isec__h" id="actu-presse">Dans <em>la presse</em></h2>
+          <div className="apfilters" role="group" aria-label="Filtrer par projet">
             {dispositifs.map(d => (
-              <button key={d}
-                className={"filter" + (filtre === d ? ' active' : '')}
-                onClick={() => setFiltre(d)}
-                style={{cursor:'pointer'}}>
-                {d}
-              </button>
+              <button key={d} type="button" className={'apfilter' + (filtre === d ? ' is-on' : '')} aria-pressed={filtre === d} onClick={() => setFiltre(d)}>{d}</button>
             ))}
           </div>
-
-          {/* Grille */}
-          <div className="stack-sm" style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:20}}>
-            {filtered.map((a, i) => (
-              <a key={i} href={a.href || '#'} target="_blank" rel="noopener"
-                 className="formation-card" style={{cursor:'pointer', textDecoration:'none'}}>
-                <div className="formation-card__body">
-                  <div style={{display:'flex', gap:8, marginBottom:12, flexWrap:'wrap'}}>
-                    {a.dispositif && (
-                      <span style={{fontSize:11, fontWeight:700, letterSpacing:'0.12em',
-                                    textTransform:'uppercase', color:'var(--teal)',
-                                    background:'var(--teal-tint)', borderRadius:4, padding:'2px 8px'}}>
-                        {a.dispositif}
-                      </span>
-                    )}
-                    {a.type && (
-                      <span style={{fontSize:11, fontWeight:700, letterSpacing:'0.12em',
-                                    textTransform:'uppercase', color:'var(--ink-mid)',
-                                    background:'var(--cream)', borderRadius:4, padding:'2px 8px'}}>
-                        {a.type}
-                      </span>
-                    )}
-                  </div>
-                  <h3 style={{fontSize:15, fontWeight:700, lineHeight:1.35, margin:'0 0 8px',
-                               color:'var(--ink)', display:'-webkit-box', WebkitLineClamp:3,
-                               WebkitBoxOrient:'vertical', overflow:'hidden'}}>
-                    {a.title}
-                  </h3>
-                  <div style={{fontSize:13, color:'var(--ink-mid)', margin:'0 0 12px'}}>
-                    {a.source}{a.source && a.date && ' · '}{fmtDatePresse(a.date)}
-                  </div>
-                  <span className="lnk" style={{fontSize:13}}>
-                    <i data-lucide="external-link" style={{width:12, height:12}}/> Lire l'article
-                  </span>
-                </div>
-              </a>
+          <p className="sr-only" aria-live="polite">{filtered.length} article{filtered.length > 1 ? 's' : ''}</p>
+          <ul className="aplist" ref={listRef}>
+            {filtered.slice(0, vus).map((a, i) => (
+              <li key={a.href || i}>
+                <a className="apitem" href={a.href} target="_blank" rel="noopener noreferrer">
+                  <span className="apitem__meta"><span className="apitem__src">{a.source}</span>{a.date && <span>{fmtDatePresse(a.date)}</span>}{a.type && <span>{a.type}</span>}</span>
+                  <span className="apitem__t">{a.title}<span className="sr-only"> (s'ouvre dans un nouvel onglet)</span></span>
+                  <span className="apitem__proj">{a.dispositif} <span className="arrow" aria-hidden="true">↗</span></span>
+                </a>
+              </li>
             ))}
-          </div>
-
-          {filtered.length === 0 && (
-            <p style={{color:'var(--ink-soft)', textAlign:'center', padding:'var(--s-8) 0'}}>
-              Aucun article pour ce filtre.
-            </p>
+          </ul>
+          {filtered.length > vus && (
+            <button type="button" className="apmore" onClick={() => setVus(vus + PAS)}>
+              Afficher {Math.min(PAS, filtered.length - vus)} articles de plus <span className="apmore__n">({filtered.length - vus} restants)</span>
+            </button>
           )}
         </div>
       </section>
 
-      {/* Presse : chiffres clés, contact, logos */}
-      <section id="presse" style={{padding:'var(--s-9) 0', background:'var(--cream)'}}>
-        <div className="container">
-          <div style={{maxWidth:760, marginBottom:40}}>
-            <span className="eyebrow">Presse</span>
-            <h2 className="h2">Chiffres, contact <em className="accent">et logos</em></h2>
+      {/* Espace presse : famille teal */}
+      <section className="isec isec--teal on-dark" aria-labelledby="actu-kit">
+        <div className="wrap apkit">
+          <div>
+            <h2 className="isec__h" id="actu-kit">Espace <em>presse</em></h2>
+            <p className="isec__lede">Demandes d'interview, visuels, chiffres : écrivez à <a href="mailto:contact@grandfestin.com">contact@grandfestin.com</a>, à l'attention d'Iris Hutin, chargée de projet Communication. Nos rapports d'activité sont sur la <a href="#/impact">page Impact</a>.</p>
+            <div className="apkit__logos">
+              <a className="btnb btnb--gold" href="images/logo-festin.png" download>Logo Festin, couleur</a>
+              <a className="btnb btnb--ghost" href="images/logo-festin-jaune.png" download>Logo Festin, jaune</a>
+              <a className="btnb btnb--ghost" href="images/logo-academie-festin.png" download>Logo Académie Festin</a>
+            </div>
           </div>
-          <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap:20}}>
-            <div style={{background:'#fff', border:'1px solid var(--line)', borderRadius:16, padding:28}}>
-              <span style={{fontSize:12, fontWeight:700, letterSpacing:'0.12em', textTransform:'uppercase', color:'var(--teal)'}}>Chiffres clés</span>
-              <ul style={{listStyle:'none', padding:0, margin:'12px 0 0', display:'grid', gap:8, fontSize:15, color:'var(--ink)'}}>
-                {[...window.FESTIN_DATA.stats.slice(0,3).map(s => s.value + (s.unit === '%' ? ' %' : s.unit === '' ? '' : ' ' + s.unit.trim()) + ' ' + s.label),
-                  'Plus de 1 200 femmes accompagnées par Des Étoiles et des Femmes depuis 2015',
-                  '91 % de réussite aux diplômes en 2025 (Des Étoiles et des Femmes)'].map((l, i) => <li key={i}>{l}</li>)}
-              </ul>
-              <p style={{fontSize:12, color:'var(--ink-soft)', margin:'14px 0 0'}}>Source : rapport d'activité Festin 2025.</p>
-            </div>
-            <div style={{background:'#fff', border:'1px solid var(--line)', borderRadius:16, padding:28}}>
-              <span style={{fontSize:12, fontWeight:700, letterSpacing:'0.12em', textTransform:'uppercase', color:'var(--teal)'}}>Contact presse et logos</span>
-              <p style={{fontSize:15, color:'var(--ink)', lineHeight:1.7, margin:'10px 0 14px'}}>Toute demande presse, avant publication d'un communiqué ou d'un chiffre : <a href="mailto:contact@grandfestin.com" style={{color:'var(--teal)', fontWeight:700}}>contact@grandfestin.com</a>, à l'attention d'Iris Hutin, chargée de projet Communication.</p>
-              <div style={{display:'flex', flexWrap:'wrap', gap:10}}>
-                <a className="btn btn--ghost" href="images/logo-festin.png" download>Logo Festin, couleur</a>
-                <a className="btn btn--ghost" href="images/logo-festin-jaune.png" download>Logo Festin, jaune</a>
-                <a className="btn btn--ghost" href="images/logo-academie-festin.png" download>Logo Académie Festin</a>
-              </div>
-            </div>
+          <div className="apkit__facts">
+            <h3>Chiffres à reprendre</h3>
+            <ul>
+              <li><b>{S[0].value}</b> personnes accompagnées en 2025</li>
+              <li><b>{S[1].value}&nbsp;%</b> de sorties en emploi ou en formation en 2025, tous dispositifs</li>
+              <li><b>{S[2].value}</b> territoires d'intervention</li>
+              <li><b>1&nbsp;200</b> femmes accompagnées par Des Étoiles et des Femmes depuis 2015</li>
+              <li><b>1987</b> : création de l'association</li>
+            </ul>
+            <p>Source : rapports d'activité Festin. Merci de citer l'année.</p>
           </div>
         </div>
       </section>

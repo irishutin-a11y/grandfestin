@@ -108,3 +108,33 @@
 .iprix__t{font-size:var(--fs-body);font-weight:700;color:var(--ink);line-height:1.3}
 .iprix__o{font-size:var(--fs-small);color:var(--ink-mid);line-height:1.45}
 .ichart__t{min-height:calc(2em * 1.15)}
+
+/* ---------- ACTUALITÉS : presse ---------- */
+.apfilters{display:flex;flex-wrap:wrap;gap:var(--sp-3);margin:var(--sp-7) 0 var(--sp-6)}
+.apfilter{font:inherit;font-size:var(--fs-small);font-weight:700;padding:10px 18px;border-radius:999px;border:1.5px solid var(--teal-tint-2);background:transparent;color:var(--teal-dark);cursor:pointer;transition:background var(--dur-2) var(--ease-quart),color var(--dur-2) var(--ease-quart),border-color var(--dur-2)}
+.apfilter:hover{border-color:var(--teal)}
+.apfilter.is-on{background:var(--teal);border-color:var(--teal);color:var(--off-white)}
+.aplist{list-style:none;margin:0;padding:0}
+.apitem{display:grid;grid-template-columns:minmax(160px,.8fr) minmax(0,2.4fr) minmax(0,.9fr);gap:var(--sp-5);align-items:baseline;padding:var(--sp-5) 0;border-top:1px solid var(--line-strong);color:var(--ink);text-decoration:none}
+.aplist li:last-child .apitem{border-bottom:1px solid var(--line-strong)}
+.apitem__meta{display:flex;flex-direction:column;gap:2px;font-size:var(--fs-small);color:var(--ink-mid)}
+.apitem__src{font-weight:700;color:var(--ink)}
+.apitem__t{font-size:var(--fs-lede);font-weight:600;line-height:1.35;transition:color var(--dur-2) var(--ease-quart)}
+.apitem__proj{justify-self:end;text-align:right;font-size:var(--fs-small);font-weight:700;color:var(--teal)}
+.apitem:hover .apitem__t{color:var(--teal)}
+@media(max-width:900px){.apitem{grid-template-columns:1fr;gap:var(--sp-2)}.apitem__proj{justify-self:start;text-align:left}}
+
+/* ---------- ACTUALITÉS : espace presse ---------- */
+.apkit{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(32px,6vw,96px);align-items:start}
+.apkit a:not(.btnb){color:var(--gold-light);font-weight:700}
+.apkit__logos{display:flex;flex-wrap:wrap;gap:var(--sp-3);margin-top:var(--sp-6)}
+.apkit__facts{padding:var(--sp-6);border-radius:24px;background:var(--teal-dark)}
+.apkit__facts h3{margin:0 0 var(--sp-4);font-size:var(--fs-h3);font-weight:700;text-transform:uppercase;color:var(--off-white)}
+.apkit__facts ul{list-style:none;margin:0;padding:0;display:grid;gap:var(--sp-3)}
+.apkit__facts li{font-size:var(--fs-body);line-height:1.45;color:var(--off-white)}
+.apkit__facts b{color:var(--gold-light);font-variant-numeric:tabular-nums}
+.apkit__facts p{margin:var(--sp-5) 0 0;font-size:var(--fs-small);color:rgba(254,252,248,.78)}
+@media(max-width:900px){.apkit{grid-template-columns:1fr}}
+.apmore{margin-top:var(--sp-6);font:inherit;font-weight:700;font-size:var(--fs-body);padding:14px 24px;border-radius:999px;border:1.5px solid var(--teal);background:transparent;color:var(--teal);cursor:pointer;transition:background var(--dur-2) var(--ease-quart),color var(--dur-2)}
+.apmore:hover{background:var(--teal);color:var(--off-white)}
+.apmore__n{font-weight:400;opacity:.8}

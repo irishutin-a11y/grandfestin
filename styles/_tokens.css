@@ -356,7 +356,7 @@ h1 em, h2 em, .h1 em, .h2 em, .display em { font-style: italic; font-weight: var
 [data-count], [data-count-target], .tabnum { font-variant-numeric: tabular-nums; }
 
 /* Focus visible partout, dans la couleur de la charte */
-:where(a, button, [tabindex], input, select, textarea, summary):focus-visible {
+:where(a, button, [tabindex]:not([tabindex="-1"]), input, select, textarea, summary):focus-visible {
   outline: 3px solid var(--focus-color, var(--teal)); outline-offset: 3px; border-radius: 4px;
 }
 .on-dark { --focus-color: var(--gold); }
@@ -376,3 +376,6 @@ html.ph-off .is-placeholder { display: none !important; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 1ms !important; animation-iteration-count: 1 !important; transition-duration: 1ms !important; scroll-behavior: auto !important; }
 }
+
+/* Titre focalisé par le routeur (tabindex="-1") : pas de contour, ce n'est pas une commande */
+[tabindex="-1"]:focus { outline: none; }
