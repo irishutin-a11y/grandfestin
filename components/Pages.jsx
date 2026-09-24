@@ -279,17 +279,11 @@ function InstagramFeed() {
 // ---------- CONTACT PAGE ----------
 function ContactPage() {
   return (
-    <div data-screen-label="05 Contact">
-      <PageHeader
-        image="images/photo-service-restaurant.jpg"
-        imageAlt="Service en salle dans un restaurant partenaire"
-        focus="center 40%"
-        eyebrow="Nous écrire"
-        title="Parlons de votre"
-        accent="projet"
-        subtitle="Vous voulez recruter, vous former, orienter une personne ou soutenir un projet : écrivez-nous. Réponse sous 48 h ouvrées."
-        breadcrumb={[{label:'Accueil',href:'#/'},{label:'Contact'}]}
-      />
+    <div data-screen-label="Contact">
+      <window.HeroPage tone="teal" kicker="Contact" title="Parlons de" accent="votre projet."
+        proof="Recruter, vous former, orienter une personne ou soutenir un projet : nous répondons sous 48 h ouvrées."
+        img="images/photo-service-restaurant.jpg" imgAlt="Service en salle dans un restaurant partenaire"
+        crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Contact' }]} />
       <Contact />
     </div>
   );
@@ -299,16 +293,15 @@ function ContactPage() {
 function NotFoundPage() {
   return (
     <div data-screen-label="404">
-      <PageHeader
-        eyebrow="Erreur 404"
-        title="Page"
-        accent="introuvable"
-        subtitle="Cette page n'existe pas ou a été déplacée."
-        breadcrumb={[{label:'Accueil',href:'#/'}]}
-      />
-      <section style={{padding:'var(--s-8) 0',textAlign:'center'}}>
-        <a href="#/" className="btn btn--teal">Retour à l'accueil</a>
-      </section>
+      <window.HeroPage tone="gold" kicker="Erreur 404" title="Cette page" accent="n'existe pas."
+        proof="Elle a peut-être changé d'adresse. Reprenez depuis l'accueil, ou allez directement à ce que vous cherchez.">
+        <div className="nf__links">
+          <a className="btnb btnb--teal" href="#/">Retour à l'accueil</a>
+          <a className="nf__lnk" href="#/accompagnement/insertion">Les formations</a>
+          <a className="nf__lnk" href="#/accompagnement/professionnels">Recruter avec Festin</a>
+          <a className="nf__lnk" href="#/contact">Nous écrire</a>
+        </div>
+      </window.HeroPage>
     </div>
   );
 }

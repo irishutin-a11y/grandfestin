@@ -34,75 +34,100 @@ function Picture({ src, alt = '', sizes = '100vw', className, imgClassName, styl
     </picture>
   );
 }
+// Contact — formulaire honnête : le site n'a pas de serveur d'envoi. À la
+// validation, il prépare le message dans la messagerie de la personne
+// (mailto), adressé à la bonne boîte selon le motif, et le dit clairement.
+// Libellés liés, autocomplete, erreurs annoncées (aria-invalid + message).
 function Contact() {
   const c = window.FESTIN_DATA.contact;
-  const [sent, setSent] = React.useState(false);
+  const [etat, setEtat] = React.useState('saisie'); // 'saisie' | 'ouvert'
+  const [err, setErr] = React.useState({});
+  const [dest, setDest] = React.useState(c.email);
+  const motifs = [
+    { value: 'Recruter ou accueillir un stagiaire', label: 'Recruter, accueillir un stagiaire', icon: 'handshake' },
+    { value: 'Se former', label: 'Se former', icon: 'graduation-cap' },
+    { value: 'Mécénat ou partenariat', label: 'Mécénat ou partenariat', icon: 'users', to: 'partenariat@grandfestin.com' },
+    { value: 'Presse', label: 'Presse', icon: 'newspaper' },
+    { value: 'Orienter une personne', label: 'Orienter une personne', icon: 'hand-coins' },
+  ];
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const f = e.currentTarget, v = (n) => (f.elements[n] && f.elements[n].value || '').trim();
+    const e2 = {};
+    if (!v('prenom')) e2.prenom = 'Indiquez votre prénom.';
+    if (!v('nom')) e2.nom = 'Indiquez votre nom.';
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v('email'))) e2.email = 'Indiquez une adresse e-mail valide, par exemple nom@exemple.fr.';
+    setErr(e2);
+    if (Object.keys(e2).length) { const first = f.elements[Object.keys(e2)[0]]; if (first) first.focus(); return; }
+    const m = motifs.find((x) => x.value === v('motif')) || motifs[0];
+    const to = m.to || c.email;
+    const corps = [
+      v('message'),
+      '',
+      '---',
+      'De : ' + v('prenom') + ' ' + v('nom') + ' <' + v('email') + '>',
+      v('organisation') && 'Organisation : ' + v('organisation'),
+      v('formation') && 'Formation concernée : ' + v('formation'),
+    ].filter((x) => x !== false && x !== '').join('\n');
+    setDest(to);
+    window.location.href = 'mailto:' + to + '?subject=' + encodeURIComponent('[' + m.value + '] ' + v('prenom') + ' ' + v('nom')) + '&body=' + encodeURIComponent(corps);
+    setEtat('ouvert');
+  };
+  const fe = (n) => err[n] ? { 'aria-invalid': true, 'aria-describedby': 'err-' + n } : {};
   return (
-    <section className="contact" id="contact">
-      <div className="container">
-        <div className="contact__grid">
-          <div className="contact__info">
-            <div>
-              <span className="eyebrow">Contact</span>
-              <h2 className="h2">Nos <em className="accent">coordonnées</em></h2>
-              <p className="lede" style={{marginTop:12}}>Une question simple ? Un e-mail suffit. Pour un projet, le formulaire nous aide à vous orienter vers la bonne personne.</p>
+    <section className="isec isec--white contact2" id="contact" aria-labelledby="contact-t">
+      <div className="wrap contact2__grid">
+        <div className="contact2__info">
+          <h2 className="isec__h" id="contact-t">Nos <em>coordonnées</em></h2>
+          <dl className="contact2__dl">
+            <div><dt>E-mail</dt><dd><a href={'mailto:' + c.email}>{c.email}</a></dd></div>
+            <div><dt>Mécénat et partenariats</dt><dd><a href="mailto:partenariat@grandfestin.com">partenariat@grandfestin.com</a></dd></div>
+            <div><dt>Presse</dt><dd><a href={'mailto:' + c.email}>{c.email}</a>, à l'attention d'Iris Hutin</dd></div>
+            <div><dt>Adresse</dt><dd>{c.address}</dd></div>
+            <div><dt>Accessibilité et handicap</dt><dd>Lucie Gueydon, responsable handicap et pédagogique : aménagements et coordination des formations</dd></div>
+            <div><dt>Numéros</dt><dd>NDA {c.nda} · SIRET {c.siret}</dd></div>
+          </dl>
+        </div>
+        <div className="contact2__form">
+          <h3 className="contact2__h3">Écrivez-nous</h3>
+          {etat === 'ouvert' ? (
+            <div className="contact2__ok" role="status">
+              <p><b>Votre messagerie s'est ouverte</b> avec votre message prêt à partir vers {dest}. Il ne vous reste qu'à l'envoyer.</p>
+              <p>Rien ne s'est ouvert ? Écrivez directement à <a href={'mailto:' + dest}>{dest}</a>.</p>
+              <button type="button" className="apmore" onClick={() => setEtat('saisie')}>Revenir au formulaire</button>
             </div>
-            <div className="contact-items">
-              <div className="contact-item"><div className="contact-item__icon"><i data-lucide="mail" style={{width:18,height:18}}/></div><div><div className="contact-item__lbl">Email</div><div className="contact-item__v">{c.email}</div></div></div>
-              <div className="contact-item"><div className="contact-item__icon"><i data-lucide="map-pin" style={{width:18,height:18}}/></div><div><div className="contact-item__lbl">Adresse</div><div className="contact-item__v">{c.address}</div></div></div>
-              <div className="contact-item"><div className="contact-item__icon"><i data-lucide="file-text" style={{width:18,height:18}}/></div><div><div className="contact-item__lbl">NDA / Siret</div><div className="contact-item__v">NDA {c.nda} · Siret {c.siret}</div></div></div>
-            </div>
-            <div className="contact-note">
-              <i data-lucide="newspaper" style={{width:18,height:18,flexShrink:0,marginTop:2}} aria-hidden="true"/>
-              <div>
-                <b>Journalistes</b> : <a href="mailto:contact@grandfestin.com">contact@grandfestin.com</a>, à l'attention d'Iris Hutin.<br/>
-                <b>Mécénat et partenariats</b> : <a href="mailto:partenariat@grandfestin.com">partenariat@grandfestin.com</a>
+          ) : (
+            <form onSubmit={onSubmit} noValidate>
+              <p className="contact2__note">Les champs marqués d'un astérisque sont obligatoires. À l'envoi, votre messagerie s'ouvre avec le message prêt à partir.</p>
+              <div className="field-row">
+                <div className="field"><label htmlFor="c-prenom">Prénom <span aria-hidden="true">*</span></label><input id="c-prenom" name="prenom" autoComplete="given-name" required {...fe('prenom')} />{err.prenom && <p className="field__err" id="err-prenom">{err.prenom}</p>}</div>
+                <div className="field"><label htmlFor="c-nom">Nom <span aria-hidden="true">*</span></label><input id="c-nom" name="nom" autoComplete="family-name" required {...fe('nom')} />{err.nom && <p className="field__err" id="err-nom">{err.nom}</p>}</div>
               </div>
-            </div>
-            <div className="refs">
-              <div className="ref-card"><div className="ref-card__lbl">Responsable handicap et pédagogique</div><div className="ref-card__name">Lucie Gueydon</div><div className="ref-card__role">Accessibilité, aménagements et coordination des formations</div></div>
-              <div className="ref-card"><div className="ref-card__lbl">Restaurateurs et partenaires</div><div className="ref-card__name">Armand Hurault</div><div className="ref-card__role">Directeur général, interlocuteur des restaurateurs et des partenaires</div></div>
-            </div>
-          </div>
-          <div className="contact__form">
-            <h3 className="h3">Écrivez-nous</h3>
-            <p className="body">Dites-nous qui vous êtes et ce que vous cherchez : la bonne personne vous répond sous 48 h ouvrées.</p>
-            {sent ? (
-              <div className="form-success"><b>Merci, votre message a été envoyé.</b><br/>Nous vous répondrons sous 48h à l'adresse indiquée.</div>
-            ) : (
-              <form onSubmit={(e)=>{e.preventDefault();setSent(true);}}>
-                <div className="field-row">
-                  <div className="field"><label>Prénom <span style={{color:'var(--teal)'}} aria-hidden="true">*</span></label><input required defaultValue=""/></div>
-                  <div className="field"><label>Nom <span style={{color:'var(--teal)'}} aria-hidden="true">*</span></label><input required/></div>
-                </div>
-                <div className="field"><label>Email <span style={{color:'var(--teal)'}} aria-hidden="true">*</span></label><input type="email" required placeholder="vous@exemple.fr"/></div>
-                <div className="field"><label>Organisation</label><input placeholder="Restaurant, OPCO, collectivité…"/></div>
-                <div className="field">
-                  <label>Motif de votre demande <span style={{color:'var(--teal)'}} aria-hidden="true">*</span></label>
-                  <div className="motif-group" role="radiogroup" aria-required="true">
-                    {[
-                      { value: 'engager', label: 'Recruter, accueillir un stagiaire', icon: 'handshake' },
-                      { value: 'former',  label: 'Se former', icon: 'graduation-cap' },
-                      { value: 'partner', label: 'Mécénat ou partenariat', icon: 'users' },
-                      { value: 'presse',  label: 'Presse', icon: 'newspaper' },
-                      { value: 'orienter', label: 'Orienter une personne', icon: 'hand-coins' },
-                    ].map((o, i) => (
-                      <label key={o.value} className="motif-pill">
-                        <input type="radio" name="motif" value={o.value} required defaultChecked={i===0}/>
-                        <span className="motif-pill__inner">
-                          <i data-lucide={o.icon} style={{width:18,height:18}}/>
-                          <span>{o.label}</span>
-                        </span>
-                      </label>
-                    ))}
-                  </div>
-                </div>
-                <div className="field"><label>Formation concernée <span style={{color:'var(--ink-soft)',fontWeight:400}}>(facultatif)</span></label><select defaultValue=""><option value="">Toutes formations / je ne sais pas encore</option><option>Prévention des violences sexistes et sexuelles</option><option>Management juste &amp; inclusif</option><option>Des Étoiles et des Femmes, titre de commis de cuisine</option><option>Des Étoiles et des Femmes, CAP cuisine</option><option>Tournesol</option></select></div>
-                <div className="field"><label>Message</label><textarea placeholder="Votre besoin, votre contexte…"/></div>
-                <button type="submit" className="btn btn--teal" style={{width:'100%',justifyContent:'center'}}>Envoyer le message</button>
-              </form>
-            )}
-          </div>
+              <div className="field"><label htmlFor="c-email">E-mail <span aria-hidden="true">*</span></label><input id="c-email" name="email" type="email" autoComplete="email" inputMode="email" required {...fe('email')} />{err.email && <p className="field__err" id="err-email">{err.email}</p>}</div>
+              <div className="field"><label htmlFor="c-org">Organisation</label><input id="c-org" name="organisation" autoComplete="organization" /></div>
+              <fieldset className="field motif-group">
+                <legend>Motif de votre demande</legend>
+                {motifs.map((o, i) => (
+                  <label key={o.value} className="motif-pill">
+                    <input type="radio" name="motif" value={o.value} defaultChecked={i === 0} />
+                    <span className="motif-pill__inner"><i data-lucide={o.icon} style={{ width: 18, height: 18 }} aria-hidden="true" /><span>{o.label}</span></span>
+                  </label>
+                ))}
+              </fieldset>
+              <div className="field"><label htmlFor="c-formation">Formation concernée (facultatif)</label>
+                <select id="c-formation" name="formation" defaultValue="">
+                  <option value="">Je ne sais pas encore</option>
+                  <option>Prévention des violences sexistes et sexuelles</option>
+                  <option>Management juste et inclusif</option>
+                  <option>Des Étoiles et des Femmes, titre de commis de cuisine</option>
+                  <option>Des Étoiles et des Femmes, CAP cuisine</option>
+                  <option>Tournesol</option>
+                </select>
+              </div>
+              <div className="field"><label htmlFor="c-msg">Message</label><textarea id="c-msg" name="message" rows={5} /></div>
+              <button type="submit" className="btnb btnb--teal contact2__submit">Préparer mon message <span className="arrow" aria-hidden="true">→</span></button>
+            </form>
+          )}
         </div>
       </div>
     </section>
