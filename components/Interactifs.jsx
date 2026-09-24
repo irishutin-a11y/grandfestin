@@ -369,7 +369,7 @@ function Frise({ id = 'frise', title, accent, lede, steps = [], rail, cta, tone 
                     </div>
                   )}
                   <div className="frise__body">
-                    <span className="frise__tab">{s.when ? s.when + ' · ' : ''}{s.tab}</span>
+                    <span className="frise__tab">{[s.when, s.tab].filter(Boolean).join(' · ')}</span>
                     <h3 className="frise__t">{s.title}</h3>
                     <p>{s.text}</p>
                     {s.stat && <p className="frise__stat"><strong>{s.stat}</strong> <span>{s.statL}</span></p>}

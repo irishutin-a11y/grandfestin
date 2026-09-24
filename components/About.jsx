@@ -35,7 +35,10 @@ function CeQuOnEst() {
           <Title em="un métier" after={null}>
             Des cuisines où l'on <span className="ab-thumb"><img src={src('images/photo-cuisine-action.jpg')} alt="" loading="lazy" /></span> apprend
           </Title>
-          <p className="ab-body">L'association est créée en 1987. Son premier projet, La Table de Cana, ouvre à Marseille en 1993 : un traiteur où des salariés en insertion apprennent la cuisine en travaillant. Festin porte aujourd'hui cinq projets, du restaurant des Baumettes au programme national Restaure. Tous relèvent d'une association loi 1901, à but non lucratif et d'intérêt général, agréée ESUS.</p>
+          <p className="ab-body">L'association est créée en 1987. Son premier projet, La Table de Cana, ouvre à Marseille en 1993 : un traiteur où des salariés en insertion apprennent la cuisine en travaillant. Festin porte aujourd'hui six projets, qui servent trois missions : former, accompagner jusqu'à l'emploi, changer les cuisines. Tous relèvent d'une association loi 1901, à but non lucratif et d'intérêt général, agréée ESUS.</p>
+          <window.Preuves lignes={["En 2025, nous avons accompagné <b>441 personnes</b> dans <b>14 territoires</b> ; <b>83 %</b> sont sorties en emploi ou en formation."]}
+            source="Source : rapport d'activité Festin 2025, tous projets confondus." />
+          <a className="lnk ab-lnk" href="#/impact">Tous nos chiffres depuis 2022 <span className="arrow" aria-hidden="true">→</span></a>
         </div>
         <figure className="ab-split__photo ab-reveal">
           <window.Picture src='images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg' alt="Grandes tablées du premier Grand Festin, à Arles, en 2024" sizes="(max-width: 899px) 100vw, 60vw" />
@@ -45,84 +48,13 @@ function CeQuOnEst() {
   );
 }
 
-// ---------- 2. CHIFFRES — une couleur par chiffre, filets verticaux, compteur ----------
-function Chiffres() {
-  const root = useRef(null);
-  const stats = window.FESTIN_DATA.stats.slice(0, 4);
-  const colors = ['var(--teal)', 'var(--coral)', 'var(--violet)', 'var(--gold-ink)'];
-  useEffect(() => {
-    if (RM() || !window.gsap) return;
-    const { gsap } = window;
-    const ctx = gsap.context(() => {
-      root.current.querySelectorAll('[data-count]').forEach(el => {
-        const end = parseFloat(el.dataset.count), o = { v: 0 };
-        el.textContent = '0';
-        gsap.to(o, { v: end, duration: 1.6, ease: 'expo.out', onUpdate: () => { el.textContent = Math.round(o.v); },
-          scrollTrigger: { trigger: el, start: 'top 85%', once: true } });
-      });
-    }, root);
-    return () => ctx.revert();
-  }, []);
-  return (
-    <section className="ab-sec ab-sec--white" ref={root}>
-      <div className="container">
-        <ul className="ab-stats">
-          {stats.map((s, i) => (
-            <li key={i} className="ab-stat">
-              <div className="ab-stat__v" style={{ color: colors[i] }}>
-                <span data-count={s.value}>{s.value}</span><span className="ab-stat__u">{s.unit}</span>
-              </div>
-              <div className="ab-stat__l">{s.label}</div>
-            </li>
-          ))}
-        </ul>
-        <p className="ab-src">Source : rapport d'activité Festin 2025. Taux de sortie : tous dispositifs confondus ; taux de réussite : Des Étoiles et des Femmes. <a href="#/impact">Tous nos chiffres depuis 2022</a></p>
-      </div>
-    </section>
-  );
-}
-
-// ---------- 3. HISTOIRE — scroll horizontal épinglé (desktop), frise verticale (mobile) ----------
+// ---------- 3. HISTOIRE — la frise partagée (même grammaire que l'accueil et les projets) ----------
 function Histoire() {
-  const root = useRef(null), track = useRef(null), word = useRef(null);
   const jalons = window.FESTIN_DATA.about.jalons;
-  useEffect(() => {
-    if (!window.gsap || !window.ScrollTrigger) return;
-    const { gsap } = window;
-    const mm = gsap.matchMedia();
-    mm.add('(min-width:900px) and (prefers-reduced-motion:no-preference)', () => {
-      const el = root.current;
-      el.classList.add('is-pinned');
-      const dist = () => Math.max(0, track.current.scrollWidth - window.innerWidth + 48);
-      gsap.to(track.current, { x: () => -dist(), ease: 'none',
-        scrollTrigger: { trigger: el, start: 'top top', end: () => '+=' + dist(), pin: true, scrub: .6, anticipatePin: 1, invalidateOnRefresh: true } });
-      gsap.to(word.current, { x: () => -dist() * .35, ease: 'none',
-        scrollTrigger: { trigger: el, start: 'top top', end: () => '+=' + dist(), scrub: true, invalidateOnRefresh: true } });
-      return () => el.classList.remove('is-pinned');
-    });
-    return () => mm.revert();
-  }, []);
   return (
-    <section className="ab-hist ab-sec--dark" ref={root}>
-      <div className="ab-hist__word" ref={word} aria-hidden="true">HISTOIRE</div>
-      <div className="container ab-hist__head">
-        <Title em="1987.">L'insertion par la cuisine depuis</Title>
-      </div>
-      <div className="ab-hist__viewport">
-        <ol className="ab-hist__track" ref={track}>
-          {jalons.map((j, i) => (
-            <li key={i} className={'ab-jalon' + (j.dark ? ' is-dark-text' : '')} style={{ background: j.color }}>
-              <span className="ab-jalon__year">{j.year}</span>
-              <div className="ab-jalon__body">
-                <h3>{j.title}</h3>
-                <p>{j.desc}</p>
-              </div>
-              {j.photo && <span className="ab-jalon__img"><window.Picture src={j.photo} alt="" sizes="(max-width: 899px) 60vw, 30vw" /></span>}
-            </li>
-          ))}
-        </ol>
-      </div>
-    </section>
+    <window.Frise id="histoire" tone="tint" title="L'insertion par la cuisine," accent="depuis 1987."
+      lede="De la création de l'association à l'Académie Festin, les dates qui ont construit Festin."
+      steps={jalons.map((j) => ({ when: j.year, title: j.title, text: j.desc, img: j.photo }))} />
   );
 }
 
@@ -208,63 +140,30 @@ function Equipe() {
   );
 }
 
-// ---------- 5. VALEURS — pile de 3 cartes qui se déploie au scroll ----------
+// ---------- 5. VALEURS — cartes claires numérotées ----------
 function Valeurs() {
-  const root = useRef(null);
   const valeurs = window.FESTIN_DATA.about.valeurs;
-  const rest = [-2.5, 1.5, -1.5];
-  useEffect(() => {
-    if (!window.gsap || !window.ScrollTrigger) return;
-    const { gsap } = window;
-    const mm = gsap.matchMedia();
-    mm.add('(min-width:900px) and (prefers-reduced-motion:no-preference)', () => {
-      const cards = gsap.utils.toArray('.ab-val', root.current);
-      cards.forEach((c, i) => {
-        gsap.fromTo(c,
-          { x: () => -(c.offsetLeft - cards[0].offsetLeft) + i * 18, y: i * 14, rotation: [-6, 4, -3][i] * 1.4, scale: .96 },
-          { x: 0, y: 0, rotation: rest[i], scale: 1, ease: 'none', immediateRender: true,
-            scrollTrigger: { trigger: root.current, start: 'top 75%', end: 'top 20%', scrub: .5, invalidateOnRefresh: true } });
-      });
-    });
-    mm.add('(max-width:899px), (prefers-reduced-motion:reduce)', () => {
-      gsap.utils.toArray('.ab-val', root.current).forEach((c, i) => gsap.set(c, { rotation: rest[i] }));
-    });
-    return () => mm.revert();
-  }, []);
+  const couleurs = ['var(--gold-ink)', 'var(--coral)', 'var(--violet)'];
   return (
-    <section className="ab-sec ab-sec--white" ref={root}>
+    <section className="g-sec g-sec--white" aria-labelledby="valeurs-t">
       <div className="container">
-        <div className="ab-head">
-          <Title em="choix">Ce qui guide nos</Title>
-        </div>
-        <div className="ab-vals">
-          {valeurs.map((v, i) => (
-            <article key={i} className={'ab-val' + (v.dark ? ' is-dark-text' : '')} style={{ background: v.color, zIndex: 3 - i }}>
-              <span className="ab-val__n">0{i + 1}</span>
-              <h3>{v.title}</h3>
-              <p>{v.desc}</p>
-            </article>
-          ))}
-        </div>
+        <window.GHead id="valeurs-t" title="Ce qui guide" accent="nos choix." />
+        <window.Cartes items={valeurs.map((v, i) => ({ title: v.title, desc: v.desc, color: couleurs[i % 3] }))} />
       </div>
     </section>
   );
 }
 
-// ---------- 6. PARTENAIRES — même hauteur optique, monochrome, couleur + pause au survol ----------
+// ---------- 6. PARTENAIRES — une grille fixe : 7 logos n'ont pas besoin de défiler ----------
 const ABOUT_LOGOS = window.FESTIN_DATA.about.partenaires;
 function Partenaires() {
-  const row = (hidden) => ABOUT_LOGOS.map((l, i) => (
-    <li key={(hidden ? 'b' : 'a') + i} className="ab-logo" aria-hidden={hidden || undefined}>
-      <img src={src(l.src)} alt={hidden ? '' : l.alt} loading="lazy" />
-    </li>
-  ));
   return (
-    <section className="ab-sec ab-sec--cream ab-logos">
-      <div className="container"><span className="ab-eyebrow ab-eyebrow--center">Ils nous font confiance</span></div>
-      <div className="ab-logos__mask" data-marquee>
-        <window.MarqueePause label="des logos partenaires" />
-        <ul className="ab-logos__track">{row(false)}{row(true)}</ul>
+    <section className="g-sec g-sec--cream g-sec--tight" aria-labelledby="partenaires-t">
+      <div className="container">
+        <h2 className="ab-logos__t" id="partenaires-t">Ils travaillent avec nous</h2>
+        <ul className="ab-logos__grid">
+          {ABOUT_LOGOS.map((l) => <li key={l.src}><img src={src(l.src)} alt={l.alt} loading="lazy" /></li>)}
+        </ul>
       </div>
     </section>
   );
@@ -327,6 +226,7 @@ function Engager() {
 // ---------- PAGE ----------
 function AboutPage() {
   const root = useRef(null);
+  window.useGReveal(root);
   useEffect(() => {
     // apparitions : une seule intention, révéler
     const els = root.current.querySelectorAll('.ab-reveal');
@@ -339,10 +239,10 @@ function AboutPage() {
     return () => { clearTimeout(t); window.removeEventListener('load', refresh); triggers.forEach(tr => tr.kill()); };
   }, []);
   return (
-    <div className="about" ref={root} data-screen-label="04 Qui sommes-nous">
+    <div className="about gpage" ref={root} data-screen-label="04 Qui sommes-nous">
       <AboutHero />
       <CeQuOnEst />
-      <Chiffres />
+      <window.MissionsNav title="Six projets," accent="trois missions." tone="white" />
       <Histoire />
       <Equipe />
       <Valeurs />

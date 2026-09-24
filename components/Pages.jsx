@@ -324,6 +324,7 @@ function ImpactBars({ title, unit = '', items, max, caption }) {
 function ImpactPage() {
   const D = window.FESTIN_DATA, I = D.impact;
   const rootRef = React.useRef(null);
+  window.useGReveal(rootRef);
   React.useEffect(() => {
     const els = rootRef.current.querySelectorAll('.reveal');
     if ((window.FESTIN_RM && window.FESTIN_RM()) || !window.ScrollTrigger) { els.forEach(e => e.classList.add('is-in')); return; }
@@ -349,6 +350,12 @@ function ImpactPage() {
               items={I.annees.map(a => ({ label: a.year, value: a.taux, detail: a.emploi ? nb(a.emploi) + ' personnes sur ' + nb(a.sorties) + ' sorties' : 'Effectifs non publiés dans le rapport 2025' }))} />
           </div>
           <p className="isec__note">{I.serieNote}</p>
+          <div className="imp-2025 reveal">
+            <window.Preuves lignes={["En 2025, <b>441 personnes</b> accompagnées dans <b>14 territoires</b>, et <b>83 %</b> de sorties en emploi ou en formation.",
+              "Avec Des Étoiles et des Femmes, <b>91 %</b> de réussite aux diplômes la même année."]}
+              source="Source : rapport d'activité Festin 2025 ; taux de sortie tous projets confondus, réussite aux diplômes Des Étoiles et des Femmes." />
+            <a className="lnk" href={I.annee2025.lien.href}>{I.annee2025.lien.label} <span className="arrow" aria-hidden="true">→</span></a>
+          </div>
         </div>
       </section>
 
@@ -391,19 +398,6 @@ function ImpactPage() {
               );
             })}
           </ul>
-        </div>
-      </section>
-
-      {/* 2025, une seule section */}
-      <section className="isec isec--teal on-dark" aria-labelledby="imp-2025">
-        <div className="wrap">
-          <h2 className="isec__h reveal" id="imp-2025">{I.annee2025.title} <em>{I.annee2025.titleAccent}</em></h2>
-          <ul className="i2025">
-            {D.stats.map((s, i) => (
-              <li key={i} className="reveal"><span className="i2025__n">{s.value}{s.unit === '%' ? '\u00a0%' : s.unit}</span><span className="i2025__l">{s.label}</span></li>
-            ))}
-          </ul>
-          <a className="i2025__lnk" href={I.annee2025.lien.href}>{I.annee2025.lien.label} <span className="arrow" aria-hidden="true">→</span></a>
         </div>
       </section>
 

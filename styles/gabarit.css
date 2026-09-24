@@ -195,3 +195,15 @@
   .g-ppm .ac-proj__img{grid-row:1 / span 4;aspect-ratio:4/5;margin:0}
   .g-ppm .ac-proj__name{align-self:end}
 }
+
+/* ---- Association ---- */
+.ab-lnk{margin-top:var(--sp-5);font-size:13px}
+.about .g-preuves{margin-top:var(--sp-5)}
+.ab-logos__t{margin:0 0 var(--sp-6);font-size:var(--fs-label);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mid);text-align:center}
+.ab-logos__grid{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:var(--sp-5) var(--sp-8)}
+.ab-logos__grid img{display:block;height:44px;width:auto;max-width:150px;object-fit:contain;filter:grayscale(1);opacity:.75;transition:filter var(--dur-2),opacity var(--dur-2)}
+.ab-logos__grid li:hover img{filter:none;opacity:1}
+/* Impact : 2025 en phrases, sous la série */
+.imp-2025{margin-top:var(--sp-7);padding-top:var(--sp-6);border-top:1px solid var(--line-strong)}
+.imp-2025 .lnk{margin-top:var(--sp-4);font-size:13px}
+.pageImpact .imp-2025 .g-preuves__l{max-width:48ch}
