@@ -95,7 +95,6 @@ function Nav() {
   const projectItems = [
     ...data.projets.map(p => ({ t: p.shortTitle, href: `#/projets/${p.id}`, icon: p.icon })),
     { t: "Académie Festin", href: "#/academie", icon: "graduation-cap" },
-    { t: "Sadi Carnot", href: "#/restaurants/sadi-carnot", icon: "hard-hat", pill: "Bientôt", disabled: true },
   ];
 
   useEffect(() => {

@@ -715,38 +715,6 @@ function ProjetPage({ id }) {
     </div>
   );
 }
-// ---------- SADI CARNOT — placeholder ----------
-function SadiCarnotPage() {
-  return (
-    <div data-screen-label="Restaurants — Sadi Carnot">
-      <PageHeader
-        eyebrow="Prochainement"
-        title="Projet"
-        accent="Sadi Carnot"
-        subtitle="Un futur restaurant d'insertion, en cours de développement."
-        breadcrumb={[
-          {label:'Accueil',href:'#/'},
-          {label:'Restaurants'},
-          {label:'Sadi Carnot'}
-        ]}
-      />
-      <section style={{padding:'var(--s-9) 0',background:'var(--off-white)'}}>
-        <div className="container">
-          <div style={{background:'var(--cream)',borderRadius:18,padding:'72px 48px',textAlign:'center',maxWidth:720,margin:'0 auto'}}>
-            <div style={{width:80,height:80,borderRadius:'50%',background:'rgba(255,193,0,0.14)',display:'grid',placeItems:'center',color:'var(--gold-ink)',margin:'0 auto 24px'}}>
-              <i data-lucide="hard-hat" style={{width:36,height:36}}/>
-            </div>
-            <h2 className="h3" style={{marginBottom:14}}>En cours de développement</h2>
-            <p className="lede" style={{color:'var(--ink-mid)',marginBottom:28,maxWidth:520,margin:'0 auto 28px'}}>
-              Ce projet est en cours de développement. Écrivez-nous pour en savoir plus.
-            </p>
-            <a href="#/contact" className="btn btn--teal">Nous contacter <i data-lucide="arrow-right" style={{width:16,height:16}}/></a>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
-}
 
 // Pages Insertion et Acteurs du secteur : voir components/Accompagnement.jsx
 
@@ -1271,7 +1239,6 @@ window.ContactPage = ContactPage;
 window.NotFoundPage = NotFoundPage;
 window.FormationCardLink = FormationCardLink;
 window.ProjetPage = ProjetPage;
-window.SadiCarnotPage = SadiCarnotPage;
 window.ImpactPage = ImpactPage;
 window.AcademiePage = AcademiePage;
 window.ActualitesPage = ActualitesPage;
