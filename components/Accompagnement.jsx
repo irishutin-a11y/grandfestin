@@ -66,7 +66,6 @@ function AccSplit({ tone = 'cream', eyebrow, title, em, children, img, alt = '',
     <section className={'ab-sec ab-sec--' + tone}>
       <div className={'container ab-split' + (flip ? ' acc-split--flip' : '')}>
         <div className="ab-split__txt ab-reveal">
-          <span className="ab-eyebrow">{eyebrow}</span>
           <Title em={em}>{title}</Title>
           {children}
         </div>
@@ -136,7 +135,6 @@ function AccFrise({ word, eyebrow, title, em, lede, items }) {
     <section className="ab-hist ab-sec--dark acc-frise" ref={root}>
       <div className="ab-hist__word" ref={wordRef} aria-hidden="true">{word}</div>
       <div className="container ab-hist__head">
-        <span className="ab-eyebrow ab-eyebrow--gold">{eyebrow}</span>
         <Title em={em}>{title}</Title>
         {lede && <p className="acc-frise__lede">{lede}</p>}
       </div>
@@ -184,7 +182,6 @@ function AccEventail({ eyebrow, title, em, items }) {
     <section className="ab-sec ab-sec--white" ref={root}>
       <div className="container">
         <div className="ab-head">
-          <span className="ab-eyebrow">{eyebrow}</span>
           <Title em={em}>{title}</Title>
         </div>
         <div className="ab-vals">
@@ -209,7 +206,6 @@ function AccParcours({ eyebrow, title, em, projets }) {
     <section className="ab-sec ab-sec--cream">
       <div className="container">
         <div className="ab-head">
-          <span className="ab-eyebrow">{eyebrow}</span>
           <Title em={em}>{title}</Title>
         </div>
         <ul className="acc-parcours">
@@ -255,7 +251,6 @@ function AccEtapes({ tone = 'cream', eyebrow, title, em, lede, steps }) {
     <section className={'ab-sec ab-sec--' + tone} ref={root}>
       <div className="container">
         <div className="ab-head">
-          <span className="ab-eyebrow">{eyebrow}</span>
           <Title em={em}>{title}</Title>
           {lede && <p className="ab-body">{lede}</p>}
         </div>
@@ -282,7 +277,6 @@ function AccEngage({ img, eyebrow, title, em, text, cta, href }) {
       <window.Picture imgClassName="ab-engage__bg" src={img} alt="" sizes="100vw" />
       <div className="ab-engage__veil" />
       <div className="container ab-engage__in">
-        <span className="ab-eyebrow ab-eyebrow--gold">{eyebrow}</span>
         <Title em={em} className="ab-title--xl">{title}</Title>
         <p className="acc-engage__p">{text}</p>
         <a href={href} className="btn btn--gold">{cta} <span aria-hidden="true">→</span></a>
@@ -307,10 +301,10 @@ function AccompagnementInsertionPage() {
   const calendrier = [
     { year: 'Septembre', title: "Recrutement et atelier de préparation", desc: "Entretiens, puis un atelier collectif pour préparer la rencontre avec les restaurants." },
     { year: 'Octobre',   title: "Rencontre avec les restaurants", desc: "Immersion courte dans un restaurant pour valider le projet, puis mise en relation avec l'établissement qui vous accueillera." },
-    { year: 'Novembre — décembre', title: "Entrée en formation", desc: "Les deux promotions démarrent, et le suivi individuel commence. En 2026 : le 9 novembre pour Des Étoiles et des Femmes, le 30 novembre pour Tournesol." },
-    { year: 'Janvier — mars', title: "Formation, stages et suivi", desc: "Alternance entre les cours, les stages en brigade et les rendez-vous de suivi." },
+    { year: 'Novembre–décembre', title: "Entrée en formation", desc: "Les deux promotions démarrent, et le suivi individuel commence. En 2026 : le 9 novembre pour Des Étoiles et des Femmes, le 30 novembre pour Tournesol." },
+    { year: 'Janvier–mars', title: "Formation, stages et suivi", desc: "Alternance entre les cours, les stages en brigade et les rendez-vous de suivi." },
     { year: 'Avril',     title: "Examens et sortie de formation", desc: "Passage du diplôme, puis fin de la formation pour les deux promotions." },
-    { year: 'Mai — juin', title: "Accompagnement vers l'emploi", desc: "Recherche de poste, mise en relation avec les restaurants, et préparation des promotions suivantes." },
+    { year: 'Mai–juin', title: "Accompagnement vers l'emploi", desc: "Recherche de poste, mise en relation avec les restaurants, et préparation des promotions suivantes." },
   ].map((e, i) => ({ ...e, ...pal[i] }));
 
   return (
@@ -333,6 +327,14 @@ function AccompagnementInsertionPage() {
         lede="Voici le déroulé d'une année, du premier entretien jusqu'à l'emploi. Les dates exactes changent d'une session à l'autre."
         items={calendrier} />
 
+      <window.Faq id="faq-ins" title="Vos" accent="questions" items={[
+        { q: "La formation est-elle payante ?", a: "Non. Tous nos parcours sont gratuits. Selon votre situation, vous pouvez percevoir une indemnité ou une rémunération pendant la formation." },
+        { q: "Quand commencent les prochaines sessions ?", a: "Des Étoiles et des Femmes (titre à finalité professionnelle de commis de cuisine) : du 9 novembre 2026 au 13 avril 2027. Tournesol : du 30 novembre 2026 au 22 avril 2027." },
+        { q: "Quel parcours est fait pour moi ?", a: "Des Étoiles et des Femmes accueille des femmes. Tournesol accueille des personnes réfugiées ou primo-arrivantes. Les Beaux Mets recrute des personnes détenues aux Baumettes. La Table de Cana emploie des salariés en insertion à Marseille. Écrivez-nous : nous vous orientons." },
+        { q: "Qui m'aide pendant la formation ?", a: "Une personne de l'équipe vous suit du premier entretien jusqu'à l'emploi : transport, garde d'enfants, logement, cours de français, recherche de poste." },
+        { q: "Et après la formation ?", a: "En mai et juin, nous préparons avec vous la recherche de poste et nous vous mettons en relation avec des restaurants qui recrutent." },
+      ]} />
+
       <AccEngage img="images/photo-promo-groupe.jpg" eyebrow="Candidater à une promotion"
         title="Vérifier si le parcours" em="est fait pour vous"
         text="Écrivez-nous : nous vérifions ensemble votre éligibilité, puis nous vous invitons à une réunion d'information. Prochaines sessions : Des Étoiles et des Femmes (titre à finalité professionnelle), du 9 novembre 2026 au 13 avril 2027. Tournesol, du 30 novembre 2026 au 22 avril 2027."
@@ -353,7 +355,7 @@ function AccompagnementProsPage() {
   return (
     <div className="about acc" ref={root} data-screen-label="Accompagnement — Professionnels">
       <AccHero img="images/beauxmets-images/LBM_cdutrey_071122-7264.jpg" crumb="Professionnels"
-        eyebrow="Vous êtes restaurateur" title="Recruter des commis formés," em="avec Festin"
+        eyebrow="Vous êtes du secteur" title="Recruter des commis formés," em="avec Festin"
         lede="Nous vous présentons des candidats formés dans nos parcours, et leur préparation à l'emploi peut être financée par France Travail. Nous formons aussi vos équipes contre les violences en cuisine et au management." />
 
       <AccEventail eyebrow="Nos partenariats" title="Ce que nous faisons" em="avec vous"
@@ -377,7 +379,6 @@ function AccompagnementProsPage() {
       <section className="ab-sec ab-sec--white">
         <div className="container">
           <div className="ab-head">
-            <span className="ab-eyebrow">Catalogue de formations</span>
             <Title em="vos équipes">Des formations pour</Title>
             <p className="ab-body">Inter ou intra, en présentiel, par l'Académie Festin, organisme de formation certifié Qualiopi. Prise en charge OPCO possible.</p>
           </div>
@@ -396,6 +397,13 @@ function AccompagnementProsPage() {
         <a href="#/projets/restaure" className="btn btn--teal acc-btn">Découvrir Restaure <span aria-hidden="true">→</span></a>
         <p className="acc-credit">Photo : Caroline Dutrey</p>
       </AccSplit>
+
+      <window.Faq id="faq-pros" tone="white" title="Vos" accent="questions" items={[
+        { q: "Qu'est-ce que la POEI ?", a: "La préparation opérationnelle à l'emploi individuelle est financée par France Travail. Elle vous permet de recruter une personne formée à votre cuisine : immersion, deux stages chez vous, puis un CDD de quatre mois minimum. Festin s'occupe des démarches avec vous." },
+        { q: "Nos formations sont-elles prises en charge ?", a: "L'Académie Festin est certifiée Qualiopi. Une prise en charge par votre OPCO est possible, en inter ou en intra." },
+        { q: "Comment accueillir un stagiaire ?", a: "Écrivez-nous. Nous vous présentons une personne formée par Des Étoiles et des Femmes ou Tournesol ; un membre de votre équipe la suit en binôme, et Festin reste en appui pendant tout le stage." },
+        { q: "Comment rejoindre le programme Restaure ?", a: "Vous pouvez signer le manifeste, rejoindre un groupe de travail ou venir aux tables rondes et aux Toast. Tout est sur la page du programme Restaure." },
+      ]} />
 
       <AccEngage img="images/photo-service-restaurant.jpg" eyebrow="Nous contacter"
         title="Recevoir le" em="Book de l'emploi"

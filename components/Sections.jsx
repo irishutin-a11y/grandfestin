@@ -402,3 +402,37 @@ function HeroPage({ tone = 'teal', kicker, title, accent, proof, note, img, imgA
   );
 }
 window.HeroPage = HeroPage;
+
+// ---------------------------------------------------------------------------
+// Faq — questions fréquentes. Uniquement des réponses déjà publiées sur le site.
+// Boutons natifs (aria-expanded / aria-controls), ouverture par grid-template-rows.
+// items : [{ q, a }] — a peut être du JSX.
+// ---------------------------------------------------------------------------
+function Faq({ title = 'Vos questions', accent, items = [], tone = 'white', id = 'faq' }) {
+  const [open, setOpen] = React.useState(-1);
+  return (
+    <section className={'isec isec--' + tone + ' faq'} aria-labelledby={id + '-t'}>
+      <div className="wrap faq__grid">
+        <h2 className="isec__h" id={id + '-t'}>{title} {accent && <em>{accent}</em>}</h2>
+        <ul className="faq__list">
+          {items.map((it, i) => {
+            const on = open === i;
+            return (
+              <li className={'faq__item' + (on ? ' is-open' : '')} key={i}>
+                <h3 className="faq__q">
+                  <button type="button" aria-expanded={on} aria-controls={id + '-a' + i} id={id + '-q' + i} onClick={() => setOpen(on ? -1 : i)}>
+                    <span>{it.q}</span><span className="faq__ic" aria-hidden="true" />
+                  </button>
+                </h3>
+                <div className="faq__a" id={id + '-a' + i} role="region" aria-labelledby={id + '-q' + i}>
+                  <div className="faq__in"><p>{it.a}</p></div>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </section>
+  );
+}
+window.Faq = Faq;

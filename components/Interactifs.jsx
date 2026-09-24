@@ -235,6 +235,7 @@ function TempsForts({ items: all = [], label = 'Temps forts' }) {
   // cur : temps fort affiché ; last : le précédent, gardé visible sous le volet
   const [{ cur, last }, setPos] = useState({ cur: 0, last: 0 });
   const [paused, setPaused] = useState(false);
+  const [userPaused, setUserPaused] = useState(false);
   const n = items.length;
   const reduce = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const go = useCallback((i) => setPos((p) => {
@@ -264,9 +265,9 @@ function TempsForts({ items: all = [], label = 'Temps forts' }) {
     let visible = true;
     const io = new IntersectionObserver(([e]) => { visible = e.isIntersecting; }, { threshold: 0.3 });
     io.observe(root);
-    const id = setInterval(() => { if (visible && !paused && !document.hidden) setPos((p) => ({ cur: (p.cur + 1) % n, last: p.cur })); }, 7000);
+    const id = setInterval(() => { if (visible && !paused && !userPaused && !document.hidden) setPos((p) => ({ cur: (p.cur + 1) % n, last: p.cur })); }, 7000);
     return () => { clearInterval(id); io.disconnect(); };
-  }, [paused, n, cur]);
+  }, [paused, userPaused, n, cur]);
 
   const onKey = (e) => {
     if (e.key === 'ArrowRight') { e.preventDefault(); go(cur + 1); }
@@ -308,12 +309,18 @@ function TempsForts({ items: all = [], label = 'Temps forts' }) {
               <button type="button" className={'tf__dot' + (i === cur ? ' is-on' : '')} aria-current={i === cur ? 'true' : undefined}
                 aria-label={'Temps fort ' + (i + 1) + ' : ' + it.title + (it.accent ? ' ' + it.accent : '')} onClick={() => go(i)}>
                 <span className="tf__dotn">{pad(i)}</span>
-                <span className="tf__dotbar"><span style={{ animationPlayState: paused || reduce ? 'paused' : 'running' }} key={cur + '-' + i} /></span>
+                <span className="tf__dotbar"><span style={{ animationPlayState: paused || userPaused || reduce ? 'paused' : 'running' }} key={cur + '-' + i} /></span>
               </button>
             </li>
           ))}
         </ol>
         <div className="tf__nav">
+          {!reduce && n > 1 && (
+            <button type="button" className="tf__arrow tf__pause" aria-pressed={userPaused} onClick={() => setUserPaused((v) => !v)}
+              aria-label={userPaused ? 'Reprendre le défilement automatique' : 'Mettre en pause le défilement automatique'}>
+              <span aria-hidden="true">{userPaused ? '▶' : '❚❚'}</span>
+            </button>
+          )}
           <button type="button" className="tf__arrow" aria-label="Temps fort précédent" onClick={() => go(cur - 1)}>←</button>
           <button type="button" className="tf__arrow" aria-label="Temps fort suivant" onClick={() => go(cur + 1)}>→</button>
         </div>
