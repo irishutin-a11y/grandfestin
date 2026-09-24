@@ -272,19 +272,6 @@ function FloatingCTA() {
   );
 }
 
-// ProjetExtra — section d'enrichissement réutilisée par les fiches projet (styles : .pxs* dans styles.css)
-function ProjetExtra({ eyebrow, title, accent, lede, tone = 'cream', children }) {
-  return (
-    <section className={'pxs pxs--' + tone}>
-      <div className="pxs__wrap">
-        <span className="pxs__eyebrow">{eyebrow}</span>
-        <h2 className="pxs__title">{title}{accent && <> <em>{accent}</em></>}</h2>
-        {lede && <p className="pxs__lede">{lede}</p>}
-        {children}
-      </div>
-    </section>
-  );
-}
 // ---------------------------------------------------------------------------
 // TestiCarousel — témoignages en grande citation, une à la fois, avec flèches
 // (retour du 24/09/2026 : remplace les bandeaux défilants, accueil compris).
@@ -340,7 +327,6 @@ function TestiCarousel({ items = [], label = 'Témoignages' }) {
   );
 }
 
-window.ProjetExtra = ProjetExtra;
 window.TestiCarousel = TestiCarousel;
 window.Picture = Picture;
 
