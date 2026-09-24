@@ -8,13 +8,75 @@ function NavIcon({ name, size = 16 }) {
   return <i data-lucide={name} style={{ width: size, height: size }} aria-hidden="true" />;
 }
 
+// ---------------------------------------------------------------------------
+// Routeur + transition de page (reprise du 24/09/2026, inspirée de beetogreen.com)
+// Un seul écouteur de hashchange pour tout le site. Au changement de page, le
+// « trait du parcours » (une ligne teal jamais droite) se dessine à travers
+// l'écran en s'épaississant jusqu'à le couvrir ; la nouvelle page est rendue
+// dessous, puis le trait se retire en s'amincissant. GSAP core seul.
+// Seuls les hash « #/… » sont des routes : « #main » (lien d'évitement) n'en est pas une.
+// Mouvement réduit, premier chargement : changement direct.
+// ---------------------------------------------------------------------------
+const PARCOURS_D = 'M-60 540 C 80 200 220 60 330 250 S 420 660 600 470 S 700 70 860 150 S 980 610 1120 470 S 1250 60 1380 120';
+const RouteStore = (function () {
+  const isRoute = (h) => !h || h === '#' || h.indexOf('#/') === 0;
+  let current = isRoute(window.location.hash) ? (window.location.hash || '#/') : '#/';
+  const subs = new Set();
+  let busy = false, el = null, path = null, len = 0;
+  const publish = (h) => { current = h; subs.forEach((f) => f(h)); };
+  const build = () => {
+    if (el) return;
+    el = document.createElement('div');
+    el.className = 'ptrans';
+    el.setAttribute('aria-hidden', 'true');
+    el.innerHTML = '<svg viewBox="0 0 1316 664" preserveAspectRatio="xMidYMid slice"><path d="' + PARCOURS_D + '" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    document.body.appendChild(el);
+    path = el.querySelector('path');
+    len = path.getTotalLength();
+  };
+  const go = () => {
+    const next = window.location.hash || '#/';
+    if (!isRoute(next) || next === current) return;
+    const g = window.gsap;
+    if (!g || (window.FESTIN_RM && window.FESTIN_RM())) { publish(next); return; }
+    if (busy) return; // la page affichée à la fin sera la dernière demandée
+    busy = true;
+    build();
+    // sécurité : si l'animation ne peut pas tourner (onglet en arrière-plan…),
+    // la page change quand même et le trait disparaît
+    const guard = setTimeout(() => {
+      if (!busy) return;
+      g.killTweensOf(path); g.set(el, { autoAlpha: 0, pointerEvents: 'none' }); busy = false;
+      publish(window.location.hash || '#/');
+    }, 2500);
+    const M = window.FESTIN_MOTION || { dur: { page: 1.1 } };
+    const d = M.dur.page;
+    g.set(el, { autoAlpha: 1, pointerEvents: 'auto' });
+    g.set(path, { strokeDasharray: len, strokeDashoffset: len, attr: { 'stroke-width': 2 } });
+    g.timeline({ defaults: { ease: 'expo.inOut' } })
+      .to(path, { strokeDashoffset: 0, duration: d * 0.55 }, 0)
+      .to(path, { attr: { 'stroke-width': 1100 }, duration: d * 0.5, ease: 'expo.in' }, d * 0.12)
+      .add(() => {
+        publish(window.location.hash || '#/');
+        // laisser React peindre la nouvelle page sous le trait (ticker GSAP, pas rAF)
+        g.delayedCall(0.08, () => {
+          g.timeline({ defaults: { ease: 'expo.inOut' }, onComplete: () => {
+            clearTimeout(guard); g.set(el, { autoAlpha: 0, pointerEvents: 'none' }); busy = false;
+            if ((window.location.hash || '#/') !== current) go();
+          } })
+            .to(path, { attr: { 'stroke-width': 2 }, duration: d * 0.5, ease: 'expo.out' }, 0)
+            .to(path, { strokeDashoffset: -len, duration: d * 0.6 }, 0.05);
+        });
+      });
+  };
+  window.addEventListener('hashchange', go);
+  return { get: () => current, sub: (f) => { subs.add(f); return () => subs.delete(f); } };
+})();
+window.FestinRoute = RouteStore;
+
 function useRoute() {
-  const [hash, setHash] = useState(window.location.hash || '#/');
-  useEffect(() => {
-    const onHash = () => setHash(window.location.hash || '#/');
-    window.addEventListener('hashchange', onHash);
-    return () => window.removeEventListener('hashchange', onHash);
-  }, []);
+  const [hash, setHash] = useState(RouteStore.get());
+  useEffect(() => RouteStore.sub(setHash), []);
   return hash;
 }
 

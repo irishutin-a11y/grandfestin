@@ -1,5 +1,5 @@
 /* Festin — UI kit styles */
-@import url('./_tokens.css?v=1790249020');
+@import url('./_tokens.css?v=1790253823');
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { font-family: 'KoHo', sans-serif; color: var(--ink); background: var(--off-white); overflow-x: hidden; }
@@ -620,3 +620,8 @@ main h1:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 6p
   .tf__dot.is-on .tf__dotbar span { animation: none; width: 100%; }
   .tf__media { transform: none; }
 }
+
+/* Transition de page : le trait du parcours (components/Nav.jsx, RouteStore) */
+.ptrans { position: fixed; inset: 0; z-index: 9999; pointer-events: none; visibility: hidden; opacity: 0; }
+.ptrans svg { width: 100%; height: 100%; display: block; }
+.ptrans path { stroke: var(--teal); }
