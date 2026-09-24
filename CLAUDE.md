@@ -45,6 +45,16 @@ Tics à rationner (une fois par page au plus, jamais en titre, toujours suivis d
 - Sphère d'images (ImgSphere) : **seulement sur Des Étoiles et des Femmes**, bloc Soutenir ; les logos partenaires quittent ce bloc. Photos des chefs à venir.
 - Antennes : liste à survol (HoverImageList) avec les photos d'antenne du formulaire Drive en attendant les logos.
 
+## Reprise du 24/09/2026 (branche `reprise-design`) — conventions à respecter
+- Direction : `DIRECTION.md` (grammaire de beetogreen.com transposée). Rapport : `RAPPORT-REPRISE.md`.
+- **Fondations** dans `_tokens.css` : tailles `--fs-label` → `--fs-display`, espacements `--sp-1` → `--sp-10` et `--section`, mouvement `--ease-*` / `--dur-*` (côté GSAP : `window.FESTIN_MOTION`). Aucune taille de titre en dur.
+- **Blocs incomplets** : un seul interrupteur, `window.FESTIN_SHOW_PLACEHOLDERS` (index.html). `true` pendant le chantier, **`false` à la mise en ligne**. Photo manquante → `<window.PhotoMissing subject cadrage orientation ratio />` ; tout bloc de chantier porte la classe `is-placeholder`.
+- **Une seule étiquette par page**, dans le hero. Pas de tiret cadratin dans les textes. Pas de filet coloré latéral, pas de verre flouté.
+- Heros des pages intérieures : `window.HeroPage` (Sections.jsx) ; `PageHeader` le rend aussi. Bloc de fin commun : `FinDePage` (sauf Contact, Insertion, Acteurs du secteur).
+- GSAP 3.15 et React de production sont **locaux** (`vendor/`). Polices en woff2 (sous-ensemble latin).
+- Photos d'antennes : déposer `images/antennes/<ville>.jpg` **et** l'ajouter à `FESTIN_DATA.antennesPhotos`.
+- Aperçu de la reprise : config « Festin reprise » (port 4503), copie servie `/tmp/Site_Festin_reprise`.
+
 ## Faits tranchés
 - Chiffres 2025 : **441 personnes accompagnées, 83 % de sorties en emploi ou formation, 14 territoires**. Référence : `ressources/documents/rapport-activite-2025/rapport-activite-2025_v441-83_REFERENCE.pdf`. La version 453 / 72 % est une ancienne version ; les documents qui la citent (deck financeurs, kit de communication) sont à mettre à jour.
 - **Association fondée en 1987** (arbitré le 23/09/2026, source LinkedIn officiel). La formule « plus de trente ans » est donc à remplacer par « depuis 1987 » ou « près de quarante ans ».
