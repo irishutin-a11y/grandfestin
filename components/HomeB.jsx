@@ -163,7 +163,7 @@ function HomeB() {
                   <p>{m.text}</p>
                   <p className="ac-mis__fait"><strong>{m.fait.n}</strong> <span>{m.fait.t}</span> <small>{m.fait.p}</small></p>
                 </div>
-                <ul className="ac-mis__projets">
+                <ul className={'ac-mis__projets ac-mis__projets--n' + m.projets.length} style={{ '--n': m.projets.length }}>
                   {m.projets.map((pr) => {
                     const p = byId(pr.id);
                     const name = pr.name || p.shortTitle;

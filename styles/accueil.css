@@ -277,3 +277,12 @@
   .ac-pv__chefs li{gap:0}
   .ac-pv__chefs span{font-size:12px}
 }
+/* Grille des projets selon leur nombre : 3 → trois colonnes, 1 → carte horizontale */
+@media (min-width:900px){
+  .ac-mis__projets{grid-template-columns:repeat(var(--n,2),minmax(0,1fr))}
+  .ac-mis__projets--n1{grid-template-columns:1fr}
+  .ac-mis__projets--n1 .ac-proj{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);column-gap:var(--sp-5);row-gap:6px;align-items:start}
+  .ac-mis__projets--n1 .ac-proj__img{grid-row:1 / span 4;margin:0}
+  .ac-mis__projets--n1 .ac-proj__name{align-self:end;padding-top:var(--sp-4)}
+  .ac-mis__projets--n3 .ac-proj__line{font-size:14px}
+}
