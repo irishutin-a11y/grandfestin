@@ -1,5 +1,7 @@
 .DS_Store
-.claude/
+.claude/*
+# les skills du projet sont versionnés : les sessions cloud les chargent depuis le dépôt
+!.claude/skills/
 
 # Ressources lourdes (zip Claude Design, exports) : hors git
 ressources/
