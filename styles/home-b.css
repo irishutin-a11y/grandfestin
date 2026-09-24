@@ -550,3 +550,11 @@ section{position:relative}
 @media(max-width:900px){.footer .fin{grid-template-columns:1fr}.footer .fin__links a{flex-direction:column;gap:var(--sp-1)}.footer .fin__what{white-space:normal}}
 /* Rythme vertical unique (reprise) */
 .b-dual, .b-quotes, .b-impact, .promesse, .temps { padding: var(--section) 0; }
+/* Unité : titres de section alignés à gauche partout, comme sur les autres pages (reprise) */
+.b-dual__head,.b-quotes .h2b,.b-quotes__lede,.ecocar__head,.b-impact__center{text-align:left;align-items:flex-start;margin-left:0;margin-right:0}
+.b-dual__h2 span{display:inline;white-space:normal}
+.b-impact__center{max-width:none;width:100%}
+.b-impact__src{margin-left:0}
+.b-dual__soutien{text-align:left}
+.ecocar__head .h2b{text-align:left}
+.istat{text-align:left}.istat__l{margin-left:0;margin-right:0}

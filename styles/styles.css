@@ -1,5 +1,5 @@
 /* Festin — UI kit styles */
-@import url('./_tokens.css?v=1790257286');
+@import url('./_tokens.css?v=1790257397');
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { font-family: 'KoHo', sans-serif; color: var(--ink); background: var(--off-white); overflow-x: hidden; }
@@ -393,7 +393,7 @@ a.formation-card:hover .lnk { color: var(--gold-ink); }
 .pxs--cream { background: var(--cream); color: var(--ink); }
 .pxs--white { background: var(--off-white); color: var(--ink); }
 .pxs--dark { background: var(--teal-dark); color: var(--off-white); }
-.pxs__wrap { max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 96px); }
+.pxs__wrap { max-width: 1440px; margin: 0 auto; padding: 0 var(--gutter); }
 .pxs__eyebrow { display: block; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--teal); margin-bottom: 14px; }
 .pxs--dark .pxs__eyebrow { color: var(--gold-light); }
 .pxs__title { font-size: var(--fs-h2); font-weight: 700; text-transform: uppercase; line-height: 1.04; letter-spacing: -.015em; margin: 0 0 20px; max-width: 900px; color: inherit; }
