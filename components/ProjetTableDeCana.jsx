@@ -281,7 +281,7 @@ function ProjetTableDeCanaPage() {
                 const logo = (D.about.logosPartenaires || {})[nom];
                 return logo
                   ? <span className="proj-logocard" key={i}><img src={PIMG(logo)} alt={nom} loading="lazy" /></span>
-                  : <span className="proj-logocard proj-logocard--ph" key={i}><span>{nom}</span></span>;
+                  : <span className="proj-logocard proj-logocard--ph is-placeholder" key={i}><span>{nom}</span></span>;
               })}
             </div>
           </div>

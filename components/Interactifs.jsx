@@ -47,7 +47,7 @@ function HoverImageList({ items = [], label }) {
 
   const URIx = (p) => (/%[0-9A-Fa-f]{2}/.test(p) ? p : encodeURI(p));
   const imgOrPh = (it, i, cls) => (broken[i] || !it.img)
-    ? <span className={cls + ' hil__ph'}><span>Photo à venir</span></span>
+    ? (window.FESTIN_SHOW_PLACEHOLDERS ? <span className={cls + ' hil__ph is-placeholder'}><span>[PHOTO MANQUANTE : {it.alt || it.title}, plan large, paysage]</span></span> : null)
     : <img className={cls} src={URIx(it.img)} alt={it.alt || ''} loading="lazy"
         onError={() => setBroken((b) => ({ ...b, [i]: true }))} />;
 
@@ -227,7 +227,9 @@ function ImgSphere({ images = [], size: maxSize = 520, radius, autoSpeed = 0.18,
 // avec mouvement réduit. Flèches du clavier, boutons, puces numérotées.
 // items : [{ date, lieu, title, accent, text, img, alt, credit, href, cta }]
 // ---------------------------------------------------------------------------
-function TempsForts({ items = [], label = 'Temps forts' }) {
+function TempsForts({ items: all = [], label = 'Temps forts' }) {
+  // sans photo : diapositive visible seulement pendant le chantier
+  const items = all.filter((it) => it.img || window.FESTIN_SHOW_PLACEHOLDERS);
   const { useRef, useState, useEffect, useCallback } = React;
   const rootRef = useRef(null);
   // cur : temps fort affiché ; last : le précédent, gardé visible sous le volet
@@ -285,7 +287,7 @@ function TempsForts({ items = [], label = 'Temps forts' }) {
             <div className="tf__media">
               {it.img
                 ? <window.Picture src={it.img} alt={it.alt || ''} sizes="100vw" loading="eager" />
-                : <div className="tf__ph"><span>Photo à venir</span></div>}
+                : <div className="tf__ph is-placeholder"><span>[PHOTO MANQUANTE : {it.title} {it.accent}, plan large, paysage]</span></div>}
             </div>
             <div className="tf__scrim" aria-hidden="true" />
             <div className="tf__txt">

@@ -255,16 +255,20 @@ function ProjetExtra({ eyebrow, title, accent, lede, tone = 'cream', children })
 function TestiCarousel({ items = [], min = 6, label = 'Témoignages' }) {
   const real = items.filter(Boolean);
   const filled = real.slice();
-  while (filled.length < min) filled.push({ empty: true });
-  const loop = filled.concat(filled);
+  while (window.FESTIN_SHOW_PLACEHOLDERS && filled.length < min) filled.push({ empty: true });
+  // Moins de trois témoignages réels et pas de cadres « à venir » : pas de
+  // défilement (une piste qui boucle sur une ou deux cartes fait maquette).
+  const still = filled.length < 3;
+  const loop = still ? filled : filled.concat(filled);
   const tones = ['teal', 'cream', 'deep', 'gold'];
+  if (!filled.length) return null;
   return (
-    <div className="tcar" role="region" aria-label={label}>
+    <div className={'tcar' + (still ? ' tcar--still' : '')} role="region" aria-label={label}>
       <div className="tcar__track" style={{ '--tcar-dur': (filled.length * 7) + 's' }}>
         {loop.map((t, i) => (
           <div className="tcar__item" key={i} aria-hidden={i >= filled.length ? true : undefined}>
             {t.empty ? (
-              <article className="tcar__card tcar__card--empty">
+              <article className="tcar__card tcar__card--empty is-placeholder">
                 <span className="tcar__ph" aria-hidden="true" />
                 <p>Témoignage à venir</p>
               </article>
@@ -297,3 +301,17 @@ window.Picture = Picture;
 window.Contact = Contact;
 window.Footer = Footer;
 window.FloatingCTA = FloatingCTA;
+
+// ---------------------------------------------------------------------------
+// PhotoMissing — cadre au bon ratio pour une photo que l'association n'a pas
+// encore fournie. Visible seulement si FESTIN_SHOW_PLACEHOLDERS (index.html).
+// ---------------------------------------------------------------------------
+function PhotoMissing({ subject, cadrage = 'plan moyen', orientation = 'paysage', ratio = '4/3', className = '' }) {
+  if (!window.FESTIN_SHOW_PLACEHOLDERS) return null;
+  return (
+    <div className={'ph-photo is-placeholder ' + className} style={{ aspectRatio: ratio }} role="img" aria-label={'Photo manquante : ' + subject}>
+      [PHOTO MANQUANTE : {subject}, {cadrage}, {orientation}]
+    </div>
+  );
+}
+window.PhotoMissing = PhotoMissing;

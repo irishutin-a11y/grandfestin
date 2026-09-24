@@ -76,7 +76,7 @@ function Chiffres() {
       root.current.querySelectorAll('[data-count]').forEach(el => {
         const end = parseFloat(el.dataset.count), o = { v: 0 };
         el.textContent = '0';
-        gsap.to(o, { v: end, duration: 1.6, ease: 'power2.out', onUpdate: () => { el.textContent = Math.round(o.v); },
+        gsap.to(o, { v: end, duration: 1.6, ease: 'expo.out', onUpdate: () => { el.textContent = Math.round(o.v); },
           scrollTrigger: { trigger: el, start: 'top 85%', once: true } });
       });
     }, root);

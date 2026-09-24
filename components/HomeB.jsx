@@ -34,7 +34,7 @@ function HomeB() {
 
     // ---- HERO
     cleanups.push(gsap.from(root.querySelectorAll('.hero__logo, .hero__baseline'), { y: 40, opacity: 0, duration: 1.1, ease: 'expo.out', stagger: 0.12, delay: 0.1 }));
-    cleanups.push(gsap.from(root.querySelectorAll('.hero__sub, .hero__cta'), { y: 26, opacity: 0, duration: 0.9, ease: 'power3.out', stagger: 0.12, delay: 0.55 }));
+    cleanups.push(gsap.from(root.querySelectorAll('.hero__sub, .hero__cta'), { y: 26, opacity: 0, duration: 0.9, ease: 'expo.out', stagger: 0.12, delay: 0.55 }));
     cleanups.push(gsap.to(root.querySelector('#heroMedia'), { yPercent: 10, ease: 'none', scrollTrigger: { trigger: root.querySelector('#hero'), start: 'top top', end: 'bottom top', scrub: true } }));
 
     // ---- REVEALS
@@ -113,7 +113,7 @@ function HomeB() {
       const target = +el.dataset.count, suffix = el.dataset.suffix || '';
       ST.create({ trigger: el, start: 'top 88%', once: true, onEnter: () => {
         const o = { v: 0 };
-        gsap.to(o, { v: target, duration: 1.6, ease: 'power2.out', onUpdate: () => { el.textContent = Math.round(o.v) + suffix; } });
+        gsap.to(o, { v: target, duration: 1.6, ease: 'expo.out', onUpdate: () => { el.textContent = Math.round(o.v) + suffix; } });
       }});
     });
 

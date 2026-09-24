@@ -759,7 +759,7 @@ function ImpactPage() {
       const end = parseFloat(el.dataset.count), o = { v: 0 };
       if (isNaN(end)) return;
       el.textContent = '0';
-      window.gsap.to(o, { v: end, duration: 1.4, ease: 'power2.out', onUpdate: () => { el.textContent = Math.round(o.v); },
+      window.gsap.to(o, { v: end, duration: 1.4, ease: 'expo.out', onUpdate: () => { el.textContent = Math.round(o.v); },
         scrollTrigger: { trigger: el, start: 'top 90%', once: true } });
     });
   }, []);

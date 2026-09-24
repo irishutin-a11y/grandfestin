@@ -352,10 +352,10 @@ function ProjetRestaurePage() {
               <span className="proj-logocard proj-logocard--hub">
                 <img src="images/logo-festin.png" alt="Festin" loading="lazy" />
               </span>
-              <span className="proj-logocard proj-logocard--ph"><span>Les Petites<br />Cantines</span></span>
+              <span className="proj-logocard proj-logocard--ph is-placeholder"><span>Les Petites<br />Cantines</span></span>
             </div>
             <div className="proj-logogrid">
-              <span className="proj-logocard proj-logocard--ph"><span>La Communauté<br />Ecotable</span></span>
+              <span className="proj-logocard proj-logocard--ph is-placeholder"><span>La Communauté<br />Ecotable</span></span>
             </div>
           </div>
         </div>
