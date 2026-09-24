@@ -225,3 +225,17 @@
 .apkit-sec .apkit__facts b{color:var(--teal-dark)}
 .apkit-sec .apkit__facts p{color:var(--ink-mid)}
 .apkit-sec .apkit__logos{align-items:center;gap:var(--sp-4) var(--sp-6)}
+
+/* ---- Accessibilité (audit axe-core du 24/09/2026) ---- */
+/* Boutons de don : le corail de la charte ne porte pas un texte blanc à 12 px (3,6:1) */
+.navpill__don,.footer__don,.optA-don{background:var(--coral-ink)!important}
+.navpill__don:hover,.footer__don:hover,.optA-don:hover,.optA-don:focus-visible{background:#A8391A!important}
+/* Libellé des pôles de l'équipe : pastille claire, lisible sur les quatre couleurs */
+.ab-pole span{background:var(--off-white);color:var(--ink);padding:4px 12px;border-radius:999px}
+.apmore__n{opacity:1}
+/* Mouvement réduit : la galerie devient une grille fixe (pas de zone défilante sans focus) */
+@media (prefers-reduced-motion:reduce){
+  .g-galerie__track{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));width:auto;overflow:visible;padding:0 var(--pad);animation:none}
+  .g-galerie__item{width:auto}
+  .g-galerie__item[aria-hidden="true"]{display:none}
+}

@@ -130,7 +130,7 @@ function AccompagnementProsPage() {
             { color: 'var(--teal)', title: 'Accueillir un stagiaire',
               desc: "Une personne formée par Des Étoiles et des Femmes ou Tournesol rejoint votre brigade. Un membre de votre équipe la suit en binôme, et Festin reste en appui pendant tout le stage. Si la rencontre fonctionne, vous recrutez.",
               link: { label: 'Recruter avec France Travail', to: 'poei' } },
-            { color: 'var(--coral)', title: 'Prévenir les violences',
+            { color: 'var(--coral-ink)', title: 'Prévenir les violences',
               desc: "Une formation de trois heures ou d'une journée, pensée pour la cuisine et la salle : le cadre légal, des cas tirés de situations réelles, et un protocole de signalement à mettre en place.",
               link: { label: 'La formation', href: '#/formations/vss' } },
             { color: 'var(--gold-ink)', title: 'Manager juste',

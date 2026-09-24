@@ -3,7 +3,7 @@
 Site de l'association Festin (Marseille). Pas de date de sortie : le site sort quand tout est prêt. Ce fichier est lu au début de chaque session : il donne le cadre et ce qui est déjà tranché.
 
 ## Stack et lancement en local
-- React 18 (local, `vendor/`) + JSX **compilé** : `components/*.jsx` → `build/*.js` par `./tools/build.sh` (moteur JavaScript de macOS, aucun Node requis). **Après toute modification d'un .jsx, lancer `./tools/build.sh`** puis tester ; committer `build/` avec le source. Le navigateur ne charge plus Babel. Routeur : `components/App.jsx`. GSAP 3.15 + ScrollTrigger (local), Lenis. Règle « pas de build » levée le 24/09/2026.
+- React 18 (local, `vendor/`) + JSX **compilé** : `components/*.jsx` → `build/*.js` par `./tools/build.sh` (moteur JavaScript de macOS ; ailleurs, repli automatique sur Node via `tools/build-node.js`, même sortie). **Après toute modification d'un .jsx, lancer `./tools/build.sh`** puis tester ; committer `build/` avec le source. Le navigateur ne charge plus Babel. Routeur : `components/App.jsx`. GSAP 3.15 + ScrollTrigger (local), Lenis. Règle « pas de build » levée le 24/09/2026.
 - Contenus : `window.FESTIN_DATA` dans `data/data.js` (dont `.home`, `.about`, `.stats`) et quelques textes en dur dans `components/*.jsx`. Styles : `styles/_tokens.css` + un CSS par page.
 - Aperçu : `.claude/launch.json`, config « Festin site » (port 4500). macOS bloque le serveur Ruby dans `~/Downloads` : il sert une **copie** dans `/tmp/Site_Festin`. Après chaque modification :
   `rsync -a --delete --exclude .git --exclude .claude --exclude ressources ./ /tmp/Site_Festin/`
@@ -54,6 +54,15 @@ Tics à rationner (une fois par page au plus, jamais en titre, toujours suivis d
 - GSAP 3.15 et React de production sont **locaux** (`vendor/`). Polices en woff2 (sous-ensemble latin).
 - Photos d'antennes : déposer `images/antennes/<ville>.jpg` **et** l'ajouter à `FESTIN_DATA.antennesPhotos`.
 - Aperçu de la reprise : config « Festin reprise » (port 4503), copie servie `/tmp/Site_Festin_reprise`.
+
+## Déploiement du 24/09/2026 — la grammaire de l'accueil sur tout le site
+- Références : `DIRECTION-ACCUEIL.md` (accueil validé), `AUDIT-DEPLOIEMENT.md` (mesures et décisions), journal `copywriting/09-journal-deploiement.md`.
+- **Un seul rangement : trois missions.** Former (Des Étoiles et des Femmes, Tournesol, Académie Festin) · Accompagner jusqu'à l'emploi (Les Beaux Mets, La Table de Cana) · Changer les cuisines (le programme Restaure). Source unique : `FESTIN_DATA.home.missions` ; `window.missionDe(id)`. Teinte du hero d'un projet selon sa mission : or / teal / teal profond.
+- **Couleur** : deux surfaces saturées par page au plus (hero et pied de page). Corps de page sur familles tonales claires (`.g-sec--white|cream|tint|gold`). Couleur propre d'un projet en touche discrète (pastille `--pc`), jamais en aplat.
+- **Briques communes** (`components/Gabarit.jsx`, `styles/gabarit.css`) : `GHead`, `Preuves` (chiffres dans des phrases, source dessous), `Portes`, `Appel`, `Cartes`, `Presse`, `Galerie` (avec pause), `MissionsNav`, `ProjetsParMission`, `GVideo`, `GLink`, `useGReveal`. Toute suite d'étapes passe par `window.Frise` (Interactifs.jsx ; `statique` pour les suites courtes).
+- **Pages projet** : un seul composant, `components/ProjetPage.jsx`, piloté par `FESTIN_DATA.projetPages[id]` (faits dans `FESTIN_DATA.projets`). Ordre fixe : hero · en bref · parcours · un bloc propre au plus · témoignages · portes · presse · galerie · projets par mission. Ajouter un projet = une entrée de données, pas un composant.
+- **Navigation** : pastille avec Se former / Recruter / L'association (état « page courante ») ; menu rangé par public (`FESTIN_DATA.meganav.groups`). Plus de bouton flottant. Bloc de fin du pied de page absent de l'accueil, des projets, de l'Académie, des deux pages d'accompagnement et de Contact (elles finissent par leurs portes).
+- Chiffres clés complets sur l'accueil et Impact seulement ; ailleurs, une phrase sourcée et un lien vers Impact.
 
 ## Faits tranchés
 - Chiffres 2025 : **441 personnes accompagnées, 83 % de sorties en emploi ou formation, 14 territoires**. Référence : `ressources/documents/rapport-activite-2025/rapport-activite-2025_v441-83_REFERENCE.pdf`. La version 453 / 72 % est une ancienne version ; les documents qui la citent (deck financeurs, kit de communication) sont à mettre à jour.

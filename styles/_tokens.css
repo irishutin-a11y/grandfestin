@@ -104,6 +104,8 @@
   --coral-light:    #EC8669;   /* chiffre sur fond sombre (5,7:1 sur teal-deep) */
   --violet:         #9A5BA8;
   --violet-light:   #C099C9;   /* chiffre sur fond sombre (6,0:1 sur teal-deep) */
+  --coral-ink:      #C2421C;   /* corail pour les boutons et le texte sur clair (5,0:1 sur blanc chaud) */
+  --violet-ink:     #7E4590;   /* violet pour le texte sur clair (6,5:1) */
 
   /* Backgrounds — warm, paper-like, never pure white */
   --cream:       #F7F3EC;   /* section bg (ticker, publics, témoignages, contact) */

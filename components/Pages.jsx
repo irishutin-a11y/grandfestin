@@ -436,7 +436,7 @@ function AcademiePage() {
           <window.Cartes items={[
             { color: 'var(--gold-ink)', title: 'Des diplômes reconnus', desc: "CAP cuisine (Éducation nationale), titre à finalité professionnelle de commis de cuisine, DCL (diplôme de compétence en langue)." },
             { color: 'var(--teal)', title: 'Un format par public', desc: 'Des parcours de quatre à onze mois pour apprendre un métier ; des sessions de trois heures à deux jours pour les équipes en poste.' },
-            { color: 'var(--coral)', title: 'Des stages en restaurant', desc: 'De 155 à 490 heures de stage, chez des partenaires comme Les Grandes Tables, Sofitel ou Les Bords de Mer.' },
+            { color: 'var(--coral-ink)', title: 'Des stages en restaurant', desc: 'De 155 à 490 heures de stage, chez des partenaires comme Les Grandes Tables, Sofitel ou Les Bords de Mer.' },
           ]} />
         </div>
       </section>

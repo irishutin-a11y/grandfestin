@@ -143,7 +143,7 @@ function Equipe() {
 // ---------- 5. VALEURS — cartes claires numérotées ----------
 function Valeurs() {
   const valeurs = window.FESTIN_DATA.about.valeurs;
-  const couleurs = ['var(--gold-ink)', 'var(--coral)', 'var(--violet)'];
+  const couleurs = ['var(--gold-ink)', 'var(--coral-ink)', 'var(--violet-ink)'];
   return (
     <section className="g-sec g-sec--white" aria-labelledby="valeurs-t">
       <div className="container">
