@@ -301,6 +301,21 @@ function ProjetsIndexPage() {
       <window.HeroPage tone="teal" kicker="Six projets, trois missions" title="Nos" accent="projets"
         proof={H.missions.lede}
         crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Nos projets' }]} />
+      {/* Pourquoi six projets et pas un : la direction, mot pour mot (édito du rapport d'activité 2025, repris en entier sur Qui sommes-nous) */}
+      <section className="g-sec g-sec--cream pj-intro" aria-label="Le mot de la direction">
+        <div className="wrap">
+          <figure className="pj-intro__fig g-reveal">
+            <blockquote className="pj-intro__q">
+              <p>Le collectif permet de mutualiser, d'apprendre, d'amplifier. Il permet surtout de durer et de transformer en profondeur.</p>
+            </blockquote>
+            <figcaption className="pj-intro__sig">
+              <strong>Jérôme Schatzman, Armand Hurault, Marine Vever</strong>
+              <span>Président, directeur général et directrice adjointe de Festin, édito du rapport d'activité 2025</span>
+            </figcaption>
+            <a className="lnk pj-intro__lnk" href="#/about">Qui sommes-nous <span className="arrow" aria-hidden="true">→</span></a>
+          </figure>
+        </div>
+      </section>
       <section className="ac-mis ac-mis--page" aria-label="Les projets, rangés par mission">
         <div className="wrap">
           <MissionsListe />

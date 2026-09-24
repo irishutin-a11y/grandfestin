@@ -86,3 +86,5 @@ Galeries de fin de page (bandeau de photos, avec bouton pause) sur les cinq page
 | 13 | Accueil : portes avant les témoignages | Témoignages, puis « Par où commencer ? » |
 | 14 | Cartes sans lien qui se soulèvent au survol | Survol réservé aux cartes qui contiennent un lien |
 | 15 | Mission dite deux fois dans le premier écran d'un projet | Étiquette du hero sans la mission (elle reste dans « en bref ») |
+
+**Nos projets (25/09/2026)** : ouverture par un extrait mot pour mot de l'édito du rapport d'activité 2025 (Jérôme Schatzman, Armand Hurault, Marine Vever) : « Le collectif permet de mutualiser, d'apprendre, d'amplifier. Il permet surtout de durer et de transformer en profondeur. » Il dit pourquoi six projets sous un même toit. L'édito complet reste sur Qui sommes-nous.
