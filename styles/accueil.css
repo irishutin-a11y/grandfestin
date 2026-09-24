@@ -286,3 +286,21 @@
   .ac-mis__projets--n1 .ac-proj__name{align-self:end;padding-top:var(--sp-4)}
   .ac-mis__projets--n3 .ac-proj__line{font-size:14px}
 }
+
+/* Frise sur téléphone (revue du 25/09/2026) : balayage horizontal, une carte à la fois.
+   Mouvement réduit : la colonne verticale reste (la classe is-swipe n'est pas posée). */
+.frise__ctrl{display:none}
+.frise.is-swipe .frise__ctrl{display:flex;align-items:center;gap:10px;margin-top:calc(-1 * var(--sp-3))}
+.frise__count{margin:0 auto 0 0;font-size:14px;font-weight:600;color:var(--ink-mid)}
+.frise__count b{color:var(--teal-dark)}
+.frise__nav{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--teal);background:var(--off-white);color:var(--teal-dark);
+  font:700 18px/1 'KoHo',sans-serif;display:grid;place-items:center;cursor:pointer}
+.frise__nav:disabled{opacity:.35;cursor:default}
+.frise.is-swipe .frise__viewport{overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-left:var(--pad);scroll-padding-left:var(--pad)}
+.frise.is-swipe .frise__viewport::-webkit-scrollbar{display:none}
+.frise.is-swipe .frise__viewport:focus-visible{outline:2px solid var(--teal);outline-offset:-2px}
+.frise.is-swipe .frise__track{grid-auto-flow:column;grid-auto-columns:min(84vw,440px);gap:14px;padding:4px var(--pad) 8px 0;width:max-content}
+.frise.is-swipe .frise__step{grid-template-columns:1fr;gap:12px;scroll-snap-align:start}
+.frise.is-swipe .frise__step::before{left:44px;right:-14px;top:21px;bottom:auto;width:auto;height:2px}
+.frise.is-swipe .frise__card{grid-template-columns:1fr;height:100%;grid-template-rows:auto 1fr}
+.frise.is-swipe .frise__img{aspect-ratio:16/10;min-height:0}

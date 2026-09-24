@@ -175,7 +175,7 @@ a.formation-card .lnk { display: inline-flex; align-items: center; gap: 6px; col
 a.formation-card:hover .lnk { color: var(--gold-ink); }
 
 /* ===== FORMATION DETAIL ===== */
-.detail-grid { display: grid; grid-template-columns: 1fr 360px; gap: 56px; align-items: flex-start; }
+.detail-grid { display: grid; grid-template-columns: minmax(0,1fr) 360px; gap: 56px; align-items: flex-start; }
 .detail-main { display: flex; flex-direction: column; gap: 56px; }
 .detail-hero { border-radius: 14px; overflow: hidden; aspect-ratio: 16/9; background: var(--cream); }
 .detail-hero img { width: 100%; height: 100%; object-fit: cover; }
@@ -211,7 +211,7 @@ a.formation-card:hover .lnk { color: var(--gold-ink); }
 
 @media (max-width: 980px) {
   .page-header { padding: 130px 0 56px; }
-  .detail-grid { grid-template-columns: 1fr; gap: 36px; }
+  .detail-grid { grid-template-columns: minmax(0,1fr); gap: 36px; }
   .detail-side { position: static; }
   .objectives { grid-template-columns: 1fr; }
 }

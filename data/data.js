@@ -124,7 +124,7 @@ window.FESTIN_DATA = {
         "Des stages dans des restaurants partenaires, dont des maisons gastronomiques",
       ],
       projetCtaLabel: "Découvrir les formations",
-      projetCtaHref: "#/formations",
+      projetCtaHref: "#/academie",
       implicationTitle: "Vous êtes restaurateur ?",
       implicationText: "Une stagiaire rejoint votre brigade pour 155 à 490 heures. Un membre de votre équipe la suit en binôme. Vous la voyez travailler sur votre carte avant de recruter.",
       implicationCtaLabel: "Devenir restaurant partenaire",
@@ -891,7 +891,7 @@ window.FESTIN_DATA.meganav = {
     { label: "L'association", href: "#/about" },
     { label: "Notre impact", href: "#/impact" },
     { label: "Actualités", href: "#/actualites" },
-    { label: "Formations", href: "#/formations" },
+    { label: "Formations", href: "#/academie" },
     { label: "Nous contacter", href: "#/contact" }
   ],
   views: [
@@ -899,7 +899,7 @@ window.FESTIN_DATA.meganav = {
       key: "theme", label: "Par thématique", icon: "sparkles",
       cards: [
         { t:"Nos tables",  ic:"utensils",       c:"#1D6B78", d:"Un restaurant en prison et un traiteur d'insertion, où l'on peut réserver ou commander.", tags:["Les Beaux Mets","La Table de Cana","Traiteur"], href:"#/projets/les-beaux-mets" },
-        { t:"Formations",  ic:"graduation-cap", c:"#E8A825", d:"L'Académie Festin : des parcours diplômants, et des formations courtes pour les équipes de restaurants.", tags:["Des Étoiles et des Femmes","Tournesol","Formations pros"], href:"#/formations" },
+        { t:"Formations",  ic:"graduation-cap", c:"#E8A825", d:"L'Académie Festin : des parcours diplômants, et des formations courtes pour les équipes de restaurants.", tags:["Des Étoiles et des Femmes","Tournesol","Formations pros"], href:"#/academie" },
         { t:"Emploi",      ic:"briefcase",      c:"#E4572E", d:"Un suivi individuel jusqu'à l'emploi, et le réseau d'anciens du Club des Talents.", tags:["Parcours insertion","Club des Talents"], href:"#/accompagnement/insertion" },
         { t:"Le secteur",  ic:"megaphone",      c:"#9A5BA8", d:"Le programme Restaure, contre les violences en cuisine et pour un management juste.", tags:["Manifeste","Plaidoyer"], href:"#/projets/restaure" }
       ]
@@ -998,8 +998,8 @@ window.FESTIN_DATA.antennesPhotos = [];
 window.FESTIN_DATA.fin = {
   title: "Vous avez un projet ?", accent: "Parlons-en.",
   links: [
-    { who: "Vous cherchez un métier", label: "Voir les formations", href: "#/accompagnement/insertion" },
-    { who: "Vous êtes du secteur", label: "Recruter avec Festin", href: "#/accompagnement/professionnels" },
+    { who: "Vous cherchez un métier", label: "Se former", href: "#/accompagnement/insertion" },
+    { who: "Vous êtes du secteur", label: "Recruter", href: "#/accompagnement/professionnels" },
     { who: "Vous voulez agir avec nous", label: "Nous écrire", href: "#/contact" },
   ],
 };
@@ -1250,33 +1250,49 @@ Object.assign(window.FESTIN_DATA.home, {
   },
 });
 
-// Menu : rangé par public (DIRECTION-ACCUEIL.md §4). Chaque lien mène à une page existante.
-window.FESTIN_DATA.meganav.primary = [
-  { label: "Se former", href: "#/accompagnement/insertion" },
-  { label: "Recruter", href: "#/accompagnement/professionnels" },
-  { label: "L'association", href: "#/about" },
+// ============================================================
+//  ARBORESCENCE UNIQUE (revue d'interface du 25/09/2026)
+//  Une seule source pour la pastille, le menu, le pied de page et
+//  l'état « page courante ». Une page = un nom, partout.
+//  match : préfixes d'adresse qui allument la rubrique.
+// ============================================================
+window.FESTIN_DATA.arbo = [
+  { key: "former", label: "Se former", href: "#/accompagnement/insertion",
+    match: ["#/accompagnement/insertion", "#/formations", "#/academie"],
+    links: [
+      { label: "Apprendre un métier", d: "Les parcours gratuits, du premier entretien à l'emploi", href: "#/accompagnement/insertion" },
+      { label: "L'Académie Festin", d: "Toutes nos formations, diplômantes ou courtes", href: "#/academie" },
+    ] },
+  { key: "recruter", label: "Recruter", href: "#/accompagnement/professionnels",
+    match: ["#/accompagnement/professionnels"],
+    links: [
+      { label: "Recruter avec Festin", d: "Stagiaires, candidats, préparation à l'emploi, formations d'équipe", href: "#/accompagnement/professionnels" },
+      { label: "Formations pour vos équipes", d: "Violences en cuisine, management juste", href: "#/academie" },
+    ] },
+  { key: "projets", label: "Nos projets", href: "#/projets",
+    match: ["#/projets"],
+    links: [
+      { label: "Tous les projets", d: "Six projets, trois missions", href: "#/projets" },
+      { label: "Des Étoiles et des Femmes", d: "Former", href: "#/projets/des-etoiles-et-des-femmes" },
+      { label: "Tournesol", d: "Former", href: "#/projets/tournesol" },
+      { label: "Les Beaux Mets", d: "Accompagner jusqu'à l'emploi", href: "#/projets/les-beaux-mets" },
+      { label: "La Table de Cana", d: "Accompagner jusqu'à l'emploi", href: "#/projets/la-table-de-cana" },
+      { label: "Le programme Restaure", d: "Changer les cuisines", href: "#/projets/restaure" },
+    ] },
+  { key: "association", label: "L'association", href: "#/about",
+    match: ["#/about", "#/impact", "#/actualites", "#/contact"],
+    links: [
+      { label: "Qui sommes-nous", href: "#/about" },
+      { label: "Notre impact", href: "#/impact" },
+      { label: "Actualités et presse", href: "#/actualites" },
+      { label: "Nous écrire", href: "#/contact" },
+    ] },
 ];
-window.FESTIN_DATA.meganav.groups = [
-  { title: "Vous cherchez un métier", links: [
-    { label: "Apprendre un métier de cuisine", d: "Les parcours gratuits, du premier entretien à l'emploi", href: "#/accompagnement/insertion" },
-    { label: "Nos formations", d: "CAP cuisine, titre de commis, formations courtes", href: "#/formations" },
-    { label: "Des Étoiles et des Femmes", d: "Des femmes formées avec des chefs, dans 13 villes", href: "#/projets/des-etoiles-et-des-femmes" },
-    { label: "Tournesol", d: "Pour les personnes réfugiées ou primo-arrivantes", href: "#/projets/tournesol" },
-  ] },
-  { title: "Vous êtes du secteur", links: [
-    { label: "Recruter avec Festin", d: "Stagiaires, candidats, préparation à l'emploi", href: "#/accompagnement/professionnels" },
-    { label: "Académie Festin", d: "Formations courtes pour vos équipes, certifiées Qualiopi", href: "#/academie" },
-    { label: "Le programme Restaure", d: "Contre les violences en cuisine", href: "#/projets/restaure" },
-    { label: "Les Beaux Mets", d: "Le restaurant de la prison des Baumettes", href: "#/projets/les-beaux-mets" },
-    { label: "La Table de Cana", d: "Traiteur et restauration collective en insertion", href: "#/projets/la-table-de-cana" },
-  ] },
-  { title: "L'association", links: [
-    { label: "Qui sommes-nous", href: "#/about" },
-    { label: "Notre impact", href: "#/impact" },
-    { label: "Actualités et presse", href: "#/actualites" },
-    { label: "Nous écrire", href: "#/contact" },
-  ] },
-];
+// Rubrique allumée pour une adresse donnée
+window.FESTIN_DATA.rubriqueDe = function (hash) {
+  const h = hash || "#/";
+  return (window.FESTIN_DATA.arbo.find((r) => r.match.some((m) => h === m || h.indexOf(m + "/") === 0)) || {}).key || null;
+};
 
 // ============================================================
 //  PAGES PROJET — gabarit unique (ProjetPage.jsx), 24/09/2026.
@@ -1288,7 +1304,7 @@ window.FESTIN_DATA.projetPages = {
   "des-etoiles-et-des-femmes": {
     kicker: "Depuis 2015 · 13 antennes en France",
     heroImg: "images/images-def/hero-promo-cuisine.jpg", heroAlt: "Une promotion de Des Étoiles et des Femmes réunie dans une cuisine de formation",
-    heroCta: { label: "Candidater", href: "https://www.desetoilesetdesfemmes.org", external: true }, heroLien: { label: "Accueillir une stagiaire", to: "portes" },
+    heroCta: { label: "Candidater sur le site du réseau", href: "https://www.desetoilesetdesfemmes.org", external: true }, heroLien: { label: "Accueillir une stagiaire", to: "portes" },
     bref: { title: "Former des femmes", accent: "avec des chefs.",
       text: "Des Étoiles et des Femmes forme des femmes à la cuisine avec des chefs et des restaurants gastronomiques. Chaque promotion prépare un diplôme, fait ses stages en restaurant et bénéficie d'un suivi social jusqu'à l'emploi." },
     video: { drive: "https://drive.google.com/file/d/1X3er9EQUpu61_yXR3KceY1sV4RgfygEK5hNzUFaaHEY/preview", poster: "images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg", credit: "Vidéo réalisée par l'agence Les Fabricants" },
@@ -1312,7 +1328,7 @@ window.FESTIN_DATA.projetPages = {
     portes: [
       { tag: "Vous êtes une femme et vous cherchez un métier", title: "Rejoindre une promotion",
         pts: ["Un diplôme reconnu : CAP cuisine ou titre de commis de cuisine.", "Des stages dans des restaurants gastronomiques.", "Prochaine session du titre : du 9 novembre 2026 au 13 avril 2027."],
-        cta: "Déposer une candidature", href: "https://www.desetoilesetdesfemmes.org", external: true, img: "images/photo-tabliers-violets.jpg" },
+        cta: "Candidater sur le site du réseau", href: "https://www.desetoilesetdesfemmes.org", external: true, img: "images/photo-tabliers-violets.jpg" },
       { tag: "Vous êtes restaurateur", title: "Accueillir une stagiaire",
         pts: ["Une stagiaire rejoint votre brigade pour 155 à 490 heures.", "Un membre de votre équipe la suit en binôme ; Festin reste votre interlocuteur.", "Vous la voyez travailler avant de recruter."],
         cta: "Devenir restaurant partenaire", href: "#/accompagnement/professionnels", img: "images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00032.jpg" },
@@ -1452,7 +1468,7 @@ window.FESTIN_DATA.projetPages = {
         cta: "Signer le manifeste", href: "https://www.mouvement-restaure.com", external: true, img: "images/restaure : formation pro/FESTIN_TOAST_12 FEVRIER_FEED-25.jpg" },
       { tag: "Vous managez une équipe", title: "Former vos managers",
         pts: ["Prévention des violences sexistes et sexuelles, en trois heures ou une journée.", "Management juste, en deux jours. Par l'Académie Festin, certifiée Qualiopi."],
-        cta: "Voir les formations", href: "#/formations", img: "images/restaure : formation pro/IMG_2950.JPG" },
+        cta: "Voir les formations", href: "#/academie", img: "images/restaure : formation pro/IMG_2950.JPG" },
     ],
     soutien: { title: "Ils pilotent", accent: "Restaure",
       text: "Quatre structures pilotent le programme : Yes We Camp, Les Petites Cantines, La Communauté Ecotable et Festin." },

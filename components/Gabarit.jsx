@@ -186,8 +186,29 @@ function Galerie({ images = [], label = 'Galerie photo' }) {
   );
 }
 
+// Presse d'une page projet, en une ligne sous « en bref » : les titres qui en ont parlé
+function PresseLigne({ filtres = [] }) {
+  const D = window.FESTIN_DATA;
+  const all = (D.presse || []).filter((a) => filtres.some((f) => a.dispositif && a.dispositif.indexOf(f) === 0))
+    .slice().sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')));
+  const vus = [];
+  all.forEach((a) => { if (!vus.some((x) => x.source.toLowerCase() === a.source.toLowerCase())) vus.push(a); });
+  if (!vus.length) return null;
+  return (
+    <p className="g-vudans g-reveal"><span>Vu dans</span>{' '}
+      {vus.slice(0, 5).map((a, i) => (
+        <React.Fragment key={a.href}>
+          {i > 0 && ', '}
+          <a href={a.href} target="_blank" rel="noopener noreferrer">{a.source}<span className="sr-only"> (nouvel onglet)</span></a>
+        </React.Fragment>
+      ))}
+      {'. '}<a href="#/actualites">Toute la presse →</a>
+    </p>
+  );
+}
+
 // Les trois missions et leurs projets : le fil de navigation entre projets
-function MissionsNav({ currentId, title = 'Les projets', accent = 'de Festin', tone = 'white' }) {
+function MissionsNav({ currentId, title = 'Les projets', accent = 'de Festin', tone = 'white', compact = false }) {
   const D = window.FESTIN_DATA;
   const items = (D.home.missions || {}).items || [];
   const byId = (id) => D.projets.find((p) => p.id === id) || {};
@@ -195,7 +216,7 @@ function MissionsNav({ currentId, title = 'Les projets', accent = 'de Festin', t
     <section className={'g-sec g-sec--' + tone + ' g-sec--tight'} aria-labelledby="missions-nav-t">
       <div className="wrap">
         <GHead id="missions-nav-t" title={title} accent={accent} />
-        <div className="g-mnav">
+        <div className={'g-mnav' + (compact ? ' g-mnav--compact' : '')}>
           {items.map((m, i) => (
             <div className={'g-mnav__col g-reveal' + (m.projets.some((p) => p.id === currentId) ? ' is-here' : '')} key={m.key}>
               <span className="g-mnav__n" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
@@ -290,5 +311,5 @@ function ProjetsParMission({ groupes = [] }) {
   );
 }
 
-Object.assign(window, { Appel, Cartes, ProjetsParMission, festinScrollTo, useGReveal, missionDe, GLink, GHead, Preuves, GVideo, Portes, Presse, Galerie, MissionsNav });
+Object.assign(window, { PresseLigne, Appel, Cartes, ProjetsParMission, festinScrollTo, useGReveal, missionDe, GLink, GHead, Preuves, GVideo, Portes, Presse, Galerie, MissionsNav });
 })();

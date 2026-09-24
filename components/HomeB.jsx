@@ -151,41 +151,7 @@ function HomeB() {
             <h2 className="ac-h2" id="ac-mis-t">{H.missions.title} <em>{H.missions.titleAccent}</em></h2>
             <p className="ac-lede">{H.missions.lede}</p>
           </div>
-          <ol className="ac-mis__list">
-            <svg className="ac-mis__fil" viewBox="0 0 40 1000" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-              <path d="M20 0 C 36 120 4 220 20 333 S 36 560 20 666 S 4 880 20 1000" fill="none" vectorEffect="non-scaling-stroke" />
-            </svg>
-            {H.missions.items.map((m, i) => (
-              <li className="ac-mis__item" key={m.key}>
-                <span className="ac-mis__n" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
-                <div className="ac-mis__txt">
-                  <h3 className="ac-mis__t">{m.title}{m.titleAccent && <> <em>{m.titleAccent}</em></>}</h3>
-                  <p>{m.text}</p>
-                  <p className="ac-mis__fait"><strong>{m.fait.n}</strong> <span>{m.fait.t}</span> <small>{m.fait.p}</small></p>
-                </div>
-                <ul className={'ac-mis__projets ac-mis__projets--n' + m.projets.length} style={{ '--n': m.projets.length }}>
-                  {m.projets.map((pr) => {
-                    const p = byId(pr.id);
-                    const name = pr.name || p.shortTitle;
-                    const logo = pr.logo || p.logo;
-                    return (
-                      <li key={pr.id}>
-                        <a className="ac-proj" href={pr.href || ('#/projets/' + pr.id)}>
-                          <span className="ac-proj__img">
-                            <window.Picture src={pr.img} alt="" sizes="(max-width: 700px) 100vw, 26vw" />
-                            {logo && <span className="ac-proj__logo"><img src={IMG(logo)} alt="" loading="lazy" /></span>}
-                          </span>
-                          <span className="ac-proj__name">{name}</span>
-                          <span className="ac-proj__line">{pr.line}</span>
-                          <span className="ac-proj__go" aria-hidden="true">Découvrir <span className="arrow">→</span></span>
-                        </a>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </li>
-            ))}
-          </ol>
+          <window.MissionsListe />
         </div>
       </section>
 
@@ -218,7 +184,16 @@ function HomeB() {
         </div>
       </section>
 
-      {/* 6 · PAR OÙ COMMENCER — les parcours se séparent après la preuve */}
+      {/* 6 · DANS LEURS MOTS — une grande citation à la fois */}
+      <section className="ac-quotes" id="quotes" aria-labelledby="ac-quotes-t">
+        <div className="wrap">
+          <h2 className="ac-h2 reveal" id="ac-quotes-t">{H.quotes.title}</h2>
+          <p className="ac-lede reveal">{H.quotes.lede}</p>
+          <window.TestiCarousel label="Témoignages" items={H.quotes.cards.map((c) => ({ name: c.name, meta: c.role, quote: c.q, chip: c.chip, logo: c.logo }))} />
+        </div>
+      </section>
+
+      {/* 7 · PAR OÙ COMMENCER — les parcours se séparent après la preuve et les témoignages */}
       <section className="ac-portes" id="portes" aria-labelledby="ac-portes-t">
         <div className="wrap">
           <h2 className="ac-h2 reveal" id="ac-portes-t">{H.portes.title} <em>{H.portes.titleAccent}</em></h2>
@@ -253,17 +228,88 @@ function HomeB() {
         </div>
       </section>
 
-      {/* 7 · DANS LEURS MOTS — une grande citation à la fois */}
-      <section className="ac-quotes" id="quotes" aria-labelledby="ac-quotes-t">
-        <div className="wrap">
-          <h2 className="ac-h2 reveal" id="ac-quotes-t">{H.quotes.title}</h2>
-          <p className="ac-lede reveal">{H.quotes.lede}</p>
-          <window.TestiCarousel label="Témoignages" items={H.quotes.cards.map((c) => ({ name: c.name, meta: c.role, quote: c.q, chip: c.chip, logo: c.logo }))} />
-        </div>
-      </section>
-
     </div>
   );
 }
 
+// Trois missions, six projets : la liste partagée par l'accueil et la page « Nos projets »
+function MissionsListe() {
+  const D = window.FESTIN_DATA;
+  const H = D.home;
+  const byId = (id) => D.projets.find((p) => p.id === id) || {};
+  return (
+    <ol className="ac-mis__list">
+      <svg className="ac-mis__fil" viewBox="0 0 40 1000" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path d="M20 0 C 36 120 4 220 20 333 S 36 560 20 666 S 4 880 20 1000" fill="none" vectorEffect="non-scaling-stroke" />
+      </svg>
+      {H.missions.items.map((m, i) => (
+        <li className="ac-mis__item" key={m.key}>
+          <span className="ac-mis__n" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+          <div className="ac-mis__txt">
+            <h3 className="ac-mis__t">{m.title}{m.titleAccent && <> <em>{m.titleAccent}</em></>}</h3>
+            <p>{m.text}</p>
+            <p className="ac-mis__fait"><strong>{m.fait.n}</strong> <span>{m.fait.t}</span> <small>{m.fait.p}</small></p>
+          </div>
+          <ul className={'ac-mis__projets ac-mis__projets--n' + m.projets.length} style={{ '--n': m.projets.length }}>
+            {m.projets.map((pr) => {
+              const p = byId(pr.id);
+              const name = pr.name || p.shortTitle;
+              const logo = pr.logo || p.logo;
+              return (
+                <li key={pr.id}>
+                  <a className="ac-proj" href={pr.href || ('#/projets/' + pr.id)}>
+                    <span className="ac-proj__img">
+                      <window.Picture src={pr.img} alt="" sizes="(max-width: 700px) 100vw, 26vw" />
+                      {logo && <span className="ac-proj__logo"><img src={IMG(logo)} alt="" loading="lazy" /></span>}
+                    </span>
+                    <span className="ac-proj__name">{name}</span>
+                    <span className="ac-proj__line">{pr.line}</span>
+                    <span className="ac-proj__go" aria-hidden="true">Découvrir <span className="arrow">→</span></span>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+// Page « Nos projets » (#/projets) : le niveau intermédiaire du fil d'Ariane des pages projet
+function ProjetsIndexPage() {
+  const root = useRef(null);
+  window.useGReveal(root);
+  useEffect(() => {
+    const list = root.current.querySelector('.ac-mis__list');
+    const place = () => {
+      const ns = list.querySelectorAll('.ac-mis__n');
+      if (ns.length < 2) return;
+      const L = list.getBoundingClientRect(), a = ns[0].getBoundingClientRect(), b = ns[ns.length - 1].getBoundingClientRect();
+      list.style.setProperty('--fil-top', (a.top - L.top + a.height / 2) + 'px');
+      list.style.setProperty('--fil-h', (b.top - a.top) + 'px');
+    };
+    place();
+    list.querySelectorAll('.ac-mis__item').forEach((it) => it.classList.add('is-on'));
+    const ro = new ResizeObserver(place); ro.observe(list);
+    return () => ro.disconnect();
+  }, []);
+  const D = window.FESTIN_DATA;
+  const H = D.home;
+  return (
+    <div className="gpage" ref={root} data-screen-label="Nos projets">
+      <window.HeroPage tone="teal" kicker="Six projets, trois missions" title="Nos" accent="projets"
+        proof={H.missions.lede}
+        crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Nos projets' }]} />
+      <section className="ac-mis ac-mis--page" aria-label="Les projets, rangés par mission">
+        <div className="wrap">
+          <MissionsListe />
+        </div>
+      </section>
+    </div>
+  );
+}
+
+window.MissionsListe = MissionsListe;
+window.ProjetsIndexPage = ProjetsIndexPage;
 window.HomeB = HomeB;

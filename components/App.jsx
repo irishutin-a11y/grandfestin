@@ -5,8 +5,10 @@ function parseRoute(hash) {
   if (!h) return { name: 'home' };
   const parts = h.split('/');
   if (parts[0] === 'formations' && parts[1]) return { name: 'formation', id: parts[1] };
-  if (parts[0] === 'formations') return { name: 'formations' };
+  // le catalogue vit dans la page Académie (une page, un nom) : #/formations y mène, au bon endroit
+  if (parts[0] === 'formations') return { name: 'academie', ancre: 'catalogue' };
   if (parts[0] === 'projets' && parts[1]) return { name: 'projet', id: parts[1] };
+  if (parts[0] === 'projets') return { name: 'projets' };
   // Sadi Carnot : pas de page tant que le projet n'est pas acquis (arbitrage 8B) ; l'ancienne adresse mène à l'accueil
   if (parts[0] === 'restaurants') return { name: 'home' };
   if (parts[0] === 'accompagnement' && parts[1] === 'insertion') return { name: 'accomp-insertion' };
@@ -62,13 +64,17 @@ function App() {
   React.useEffect(() => {
     if (window.__lenis) window.__lenis.scrollTo(0, { immediate: true });
     else window.scrollTo(0, 0);
-    const t = setTimeout(() => { if (window.ScrollTrigger) window.ScrollTrigger.refresh(); }, 80);
+    const t = setTimeout(() => {
+      if (window.ScrollTrigger) window.ScrollTrigger.refresh();
+      const cible = route.ancre && document.getElementById(route.ancre);
+      if (cible) window.festinScrollTo(route.ancre);
+    }, route.ancre ? 400 : 80);
     // titre et description de la page courante (référencement, onglet)
     const D = window.FESTIN_DATA, base = 'Festin';
     const proj = route.name === 'projet' ? D.projets.find(x => x.id === route.id) : null;
     const titles = {
       home: 'Festin — Former en cuisine, jusqu’à l’emploi',
-      about: 'Qui sommes-nous | ' + base, formations: 'Formations | ' + base, formation: 'Formation | ' + base,
+      about: 'Qui sommes-nous | ' + base, projets: 'Nos projets | ' + base, formation: 'Formation | ' + base,
       academie: "L'Académie Festin | " + base, impact: 'Notre impact | ' + base, actualites: 'Actualités et presse | ' + base,
       contact: 'Contact | ' + base, 'accomp-insertion': 'Apprendre un métier de cuisine | ' + base,
       'accomp-pros': 'Recruter avec Festin | ' + base,
@@ -84,7 +90,7 @@ function App() {
   let page;
   switch (route.name) {
     case 'home':              page = <HomePage />; break;
-    case 'formations':        page = <FormationsListPage />; break;
+    case 'projets':           page = <ProjetsIndexPage />; break;
     case 'formation':         page = <FormationDetailPage id={route.id} />; break;
     case 'projet':            page = <ProjetPage id={route.id} />; break;
     case 'accomp-insertion':  page = <AccompagnementInsertionPage />; break;

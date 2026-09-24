@@ -147,10 +147,12 @@ function ImgSphere({ images = [], size: maxSize = 520, radius, autoSpeed = 0.18,
         const k = persp / (persp - z2 * R);
         const s = (0.55 + depth * 0.55) * k;
         el.style.transform = `translate(-50%,-50%) translate3d(${x1 * R * k}px, ${y2 * R * k}px, 0) scale(${s})`;
-        el.style.opacity = (0.25 + depth * 0.75).toFixed(3);
+        el.style.opacity = Math.min(1, 0.25 + depth * 1.25).toFixed(3); // pleine opacité dès que le texte est visible
         el.style.zIndex = String(Math.round(depth * 100));
         el.style.filter = depth < 0.35 ? 'grayscale(.6) brightness(.75)' : 'none';
         el.style.pointerEvents = depth > 0.45 ? 'auto' : 'none';
+        // à l'arrière, les tuiles s'estompent : leur texte disparaît plutôt que de rester illisible
+        el.classList.toggle('is-back', depth < 0.6);
       }
       raf = requestAnimationFrame(frame);
     };
@@ -320,6 +322,31 @@ function Frise({ id = 'frise', title, accent, lede, steps = [], rail, cta, tone 
     const track = root.querySelector('.frise__track');
     const vp = root.querySelector('.frise__viewport');
     const bar = root.querySelector('.frise__bar');
+    // téléphone : la suite se balaie à l'horizontale (une carte par écran, compteur et flèches)
+    // au lieu d'une colonne de trois écrans et plus
+    if (!statique && window.innerWidth < 900 && vp && items.length > 3) {
+      root.classList.add('is-swipe');
+      items.forEach((s) => s.classList.add('is-on'));
+      const out = root.querySelector('.frise__count b');
+      const prev = root.querySelector('.frise__nav--prev'), next = root.querySelector('.frise__nav--next');
+      const courant = () => Math.round(vp.scrollLeft / Math.max(1, items[1].offsetLeft - items[0].offsetLeft));
+      const maj = () => {
+        const i = Math.min(items.length - 1, Math.max(0, courant()));
+        if (out) out.textContent = String(i + 1);
+        if (prev) prev.disabled = i <= 0;
+        if (next) next.disabled = i >= items.length - 1;
+      };
+      const aller = (d) => {
+        const i = Math.min(items.length - 1, Math.max(0, courant() + d));
+        vp.scrollTo({ left: items[i].offsetLeft - items[0].offsetLeft, behavior: window.FESTIN_RM && window.FESTIN_RM() ? 'auto' : 'smooth' });
+      };
+      const ap = () => aller(-1), an = () => aller(1);
+      vp.addEventListener('scroll', maj, { passive: true });
+      if (prev) prev.addEventListener('click', ap);
+      if (next) next.addEventListener('click', an);
+      maj();
+      return () => { vp.removeEventListener('scroll', maj); if (prev) prev.removeEventListener('click', ap); if (next) next.removeEventListener('click', an); root.classList.remove('is-swipe'); };
+    }
     // statique : suite courte, jamais épinglée (étapes en colonnes au bureau)
     if (!statique && window.innerWidth >= 900 && track && vp) {
       root.classList.add('is-pinned');
@@ -355,7 +382,14 @@ function Frise({ id = 'frise', title, accent, lede, steps = [], rail, cta, tone 
           <h2 className="frise__h" id={id + '-t'}>{title}{accent && <> <em>{accent}</em></>}</h2>
           {lede && <p className="frise__lede">{lede}</p>}
         </div>
-        <div className="frise__viewport">
+        {!statique && steps.length > 3 && (
+          <div className="wrap frise__ctrl">
+            <p className="frise__count" aria-live="polite">Étape <b>1</b> sur {steps.length}</p>
+            <button type="button" className="frise__nav frise__nav--prev" aria-label="Étape précédente"><span aria-hidden="true">←</span></button>
+            <button type="button" className="frise__nav frise__nav--next" aria-label="Étape suivante"><span aria-hidden="true">→</span></button>
+          </div>
+        )}
+        <div className="frise__viewport" tabIndex={0} role="region" aria-label={'Étapes : ' + title + (accent ? ' ' + accent : '')}>
           <ol className="frise__track">
             {steps.map((s, i) => (
               <li className="frise__step" key={i}>

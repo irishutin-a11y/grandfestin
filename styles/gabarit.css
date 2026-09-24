@@ -166,7 +166,7 @@
 .g-cards{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--sp-5)}
 .g-card{display:flex;flex-direction:column;gap:12px;padding:var(--sp-6);background:var(--off-white);border:1px solid var(--line-strong);border-radius:22px;
   transition:border-color var(--dur-2) var(--ease-quart),transform var(--dur-3) var(--ease-out)}
-.g-card:hover{border-color:var(--c);transform:translateY(-3px)}
+.g-card:has(a):hover{border-color:var(--c);transform:translateY(-3px)}
 .g-card__n{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:2px solid var(--c);color:var(--c);font-weight:700;font-size:14px}
 .g-card__t{margin:0;font-size:var(--fs-h3);font-weight:700;text-transform:uppercase;line-height:1.1;color:var(--teal-dark)}
 .g-card p{margin:0;font-size:15px;line-height:1.6;color:var(--ink-mid)}
@@ -239,3 +239,48 @@
   .g-galerie__item{width:auto}
   .g-galerie__item[aria-hidden="true"]{display:none}
 }
+
+/* ============================================================
+   REVUE D'INTERFACE DU 25/09/2026 — corrections
+   ============================================================ */
+/* Pied de page : même arborescence que la pastille (4 rubriques) */
+.footer__grid{grid-template-columns:1.4fr repeat(4,minmax(0,1fr))!important}
+.footer__h a{color:inherit}
+.footer__h a:hover{text-decoration:underline;text-underline-offset:4px}
+.footer__contact{margin-top:var(--sp-4)!important}
+.footer__contact a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:1099px){ .footer__grid{grid-template-columns:repeat(2,minmax(0,1fr))!important} .footer__grid .footer__brand{grid-column:1 / -1} }
+/* Pastille : 4 rubriques ; la rubrique parente s'allume aussi (aria-current="location") */
+@media (min-width:1000px) and (max-width:1149px){ .navpill__links a{padding:0 9px;font-size:12px;letter-spacing:.05em} }
+.navpill__links a[aria-current="location"]{background:var(--teal-tint);color:var(--teal-dark)}
+/* Menu : quatre colonnes, la rubrique courante marquée */
+.optA-grid--publics{grid-template-columns:repeat(4,minmax(0,1fr))}
+.optA-panel{width:min(1120px,94vw)}
+.optA-col.is-here .optA-h::after{content:' · vous êtes ici';color:rgba(254,252,248,.7);letter-spacing:.04em;text-transform:none;font-weight:600}
+@media (max-width:1023px){ .optA-grid--publics{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (max-width:640px){ .optA-grid--publics{grid-template-columns:1fr} }
+/* Sphère des chefs : pas de texte estompé à l'arrière (contraste) */
+.isph__node.is-back .isph__name b,.isph__node.is-back .isph__name span{visibility:hidden}
+/* Mouvement réduit : galerie en vignettes carrées, six au plus */
+@media (prefers-reduced-motion:reduce){
+  .g-galerie__track{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:10px;max-width:1100px;margin:0 auto}
+  .g-galerie__item picture,.g-galerie__item img{aspect-ratio:1/1;height:100%}
+  .g-galerie__item:nth-child(n+7){display:none}
+  .g-galerie__item figcaption{display:none}
+  .g-galerie .mpause{display:none}
+}
+@media (prefers-reduced-motion:reduce) and (max-width:699px){ .g-galerie__track{grid-template-columns:repeat(2,minmax(0,1fr))!important} }
+/* Presse d'une page projet, en une ligne */
+.g-vudans{margin:var(--sp-4) 0 0;font-size:15px;line-height:1.6;color:var(--ink-mid)}
+.g-vudans > span:first-child{font-weight:700;color:var(--ink)}
+.g-vudans a{color:var(--teal-dark);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+/* Autres projets en fin de page projet : version compacte */
+.g-mnav--compact .g-mnav__col{padding:var(--sp-5)}
+.g-mnav--compact .g-mnav__n{display:none}
+.g-mnav--compact .g-mnav__t{margin-top:0;font-size:var(--fs-h4,20px)}
+.g-mnav--compact a small{display:none}
+.g-mnav--compact a{min-height:48px}
+/* Petites étiquettes : casse de phrase, 14 px semi-gras (revue du 25/09/2026).
+   Les capitales espacées restent réservées à l'étiquette du hero. */
+.optA-h,.frise__tab,.frise__railk,.frise__stat span,.ac-porte__tag,.g-news__src,.g-tag,.ac-conf__label,.ac-pv__chefsT,.g-ppm__t,.g-ppm__pour,.ab-member__role span{
+  text-transform:none!important;letter-spacing:0!important;font-size:14px!important;font-weight:600!important}

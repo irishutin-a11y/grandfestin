@@ -41,39 +41,6 @@ function FormationCardLink({ f, wide, noPrice }) {
   );
 }
 
-// ---------- FORMATIONS LIST PAGE ----------
-function FormationsListPage() {
-  const items = window.FESTIN_DATA.formations;
-  const [filter, setFilter] = React.useState('all');
-  const filtered = filter === 'all' ? items : items.filter(f => f.cat.toLowerCase() === filter);
-  return (
-    <div data-screen-label="02 Formations">
-      <PageHeader
-        image="images/photo-patisserie.jpg"
-        imageAlt="Atelier de pâtisserie en formation"
-        focus="center 30%"
-        eyebrow="Catalogue"
-        title="Toutes nos"
-        accent="formations"
-        subtitle="Des parcours diplômants pour les personnes en insertion. Des formations courtes pour les équipes de restaurants. Ouvrez une formation pour voir son programme."
-        breadcrumb={[{label:'Accueil',href:'#/'},{label:'Formations'}]}
-      />
-      <section className="formations">
-        <div className="container">
-          <div className="filters">
-            <button className={"filter" + (filter==='all'?' active':'')} onClick={()=>setFilter('all')}>Toutes ({items.length})</button>
-            <button className={"filter" + (filter==='professionnels'?' active':'')} onClick={()=>setFilter('professionnels')}>Professionnels ({items.filter(f=>f.cat==='Professionnels').length})</button>
-            <button className={"filter" + (filter==='insertion'?' active':'')} onClick={()=>setFilter('insertion')}>Insertion ({items.filter(f=>f.cat==='Insertion').length})</button>
-          </div>
-          <div className="formations__grid">
-            {filtered.map((f) => <FormationCardLink key={f.id} f={f}/>)}
-          </div>
-        </div>
-      </section>
-    </div>
-  );
-}
-
 // ---------- FORMATION DETAIL PAGE ----------
 function FormationDetailPage({ id }) {
   const f = window.FESTIN_DATA.formations.find(x => x.id === id);
@@ -87,7 +54,7 @@ function FormationDetailPage({ id }) {
         subtitle={f.desc}
         breadcrumb={[
           {label:'Accueil',href:'#/'},
-          {label:'Formations',href:'#/formations'},
+          {label:"L'Académie Festin",href:'#/academie'},
           {label:f.title}
         ]}
       />
@@ -407,17 +374,15 @@ function AcademiePage() {
   const root = React.useRef(null);
   window.useGReveal(root);
   const D = window.FESTIN_DATA;
-  const pros = D.formations.filter((f) => /pro/i.test(f.cat || ''));
-  const diplomantes = D.formations.filter((f) => !/pro/i.test(f.cat || ''));
   return (
     <div className="gpage" ref={root} data-screen-label="Académie Festin" style={{ '--pc': 'var(--gold-ink)' }}>
       <window.HeroPage tone="gold" kicker="Former · Organisme de formation depuis 2026"
         title="L'Académie" accent="Festin"
         proof="L'organisme de formation de l'association, certifié Qualiopi : des parcours diplômants pour apprendre un métier, et des formations courtes pour les équipes en poste."
         img="images/photo-cuisine-formation.jpg" imgAlt="Séance de formation en cuisine"
-        crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Former' }, { label: "L'Académie Festin" }]}>
+        crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Se former', href: '#/accompagnement/insertion' }, { label: "L'Académie Festin" }]}>
         <div className="g-herocta">
-          <a className="btnb btnb--teal" href="#/formations">Voir les formations <span className="arrow" aria-hidden="true">→</span></a>
+          <window.GLink l={{ to: 'catalogue' }} className="btnb btnb--teal">Voir le catalogue <span className="arrow" aria-hidden="true">↓</span></window.GLink>
           <a className="g-herolnk" href="#/contact">Nous écrire <span className="arrow" aria-hidden="true">→</span></a>
         </div>
       </window.HeroPage>
@@ -462,19 +427,38 @@ function AcademiePage() {
           cta: 'Voir les formations', href: '#/formations', img: 'images/photo-cuisine-action.jpg' },
       ]} />
 
-      <section className="g-sec g-sec--cream" aria-labelledby="aca-cat-t">
-        <div className="wrap">
-          <window.GHead id="aca-cat-t" split title="Le catalogue" accent="2026."
-            lede={diplomantes.length + ' parcours diplômants et ' + pros.length + ' formations courtes. Chaque fiche donne la durée, le format, le public et le financement.'} />
-          <div className="formations__grid">
-            {D.formations.slice(0, 4).map((f) => <FormationCardLink key={f.id} f={f} />)}
-          </div>
-          <p className="g-src"><a href="#/formations">Toutes les formations →</a> L'Académie Festin est co-portée avec Estello Formation, organisme spécialisé dans les métiers de l'hôtellerie-restauration.</p>
-        </div>
-      </section>
+      <AcaCatalogue />
 
       <window.MissionsNav currentId="academie" />
     </div>
+  );
+}
+
+// Catalogue complet de l'Académie (l'ancienne page « Formations » y est fusionnée :
+// une page, un nom). #/formations mène ici, au catalogue.
+function AcaCatalogue() {
+  const D = window.FESTIN_DATA;
+  const items = D.formations;
+  const [filtre, setFiltre] = React.useState('all');
+  const n = (c) => items.filter((f) => f.cat === c).length;
+  const vus = filtre === 'all' ? items : items.filter((f) => f.cat === filtre);
+  const choix = [['all', 'Toutes', items.length], ['Insertion', 'Pour apprendre un métier', n('Insertion')], ['Professionnels', 'Pour les équipes en poste', n('Professionnels')]];
+  return (
+    <section className="g-sec g-sec--cream" id="catalogue" aria-labelledby="aca-cat-t">
+      <div className="wrap">
+        <window.GHead id="aca-cat-t" split title="Le catalogue" accent="2026."
+          lede={n('Insertion') + ' parcours diplômants et ' + n('Professionnels') + ' formations courtes. Chaque fiche donne la durée, le format, le public et le financement.'} />
+        <div className="filters" role="group" aria-label="Filtrer les formations">
+          {choix.map(([k, l, c]) => (
+            <button key={k} type="button" className={'filter' + (filtre === k ? ' active' : '')} aria-pressed={filtre === k} onClick={() => setFiltre(k)}>{l} ({c})</button>
+          ))}
+        </div>
+        <div className="formations__grid">
+          {vus.map((f) => <FormationCardLink key={f.id} f={f} />)}
+        </div>
+        <p className="g-src">L'Académie Festin est co-portée avec Estello Formation, organisme spécialisé dans les métiers de l'hôtellerie-restauration.</p>
+      </div>
+    </section>
   );
 }
 
@@ -573,7 +557,6 @@ function ActualitesPage() {
   );
 }
 window.HomePage = HomePage;
-window.FormationsListPage = FormationsListPage;
 window.FormationDetailPage = FormationDetailPage;
 window.ContactPage = ContactPage;
 window.NotFoundPage = NotFoundPage;

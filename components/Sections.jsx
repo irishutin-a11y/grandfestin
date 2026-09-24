@@ -142,7 +142,7 @@ function Footer() {
   // empilés ne s'accordaient pas). Absent là où la page a son propre appel final.
   const hash = useRoute();
   // pages qui finissent déjà par leurs propres portes : accueil, projets, accompagnement, contact
-  const sansFin = ['#/', '#/contact', '#/academie', '#/accompagnement/insertion', '#/accompagnement/professionnels'].includes(hash) || hash.indexOf('#/projets/') === 0;
+  const sansFin = ['#/', '#/contact', '#/academie', '#/formations', '#/accompagnement/insertion', '#/accompagnement/professionnels'].includes(hash) || hash.indexOf('#/projets/') === 0;
   return (
     <div className="footer-outer">
       <footer className="footer">
@@ -162,39 +162,21 @@ function Footer() {
                 <i data-lucide="heart" style={{ width: 16, height: 16 }} aria-hidden="true" />
                 Faire un don
               </a>
+              <p className="footer__contact"><a href={`mailto:${data.contact.email}`}>{data.contact.email}</a><br />{data.contact.address}</p>
             </div>
-            <div>
-              <h2 className="footer__h">Nous contacter</h2>
-              <ul>
-                <li><a href="#/contact">Écrire à Festin</a></li>
-                <li><a href={`mailto:${data.contact.email}`}>{data.contact.email}</a></li>
-                <li><span>{data.contact.address}</span></li>
-              </ul>
-            </div>
-            <div>
-              <h2 className="footer__h">S'engager</h2>
-              <ul>
-                <li><a href="#/accompagnement/insertion">Apprendre un métier</a></li>
-                <li><a href="#/accompagnement/professionnels">Acteurs du secteur</a></li>
-                <li><a href="mailto:partenariat@grandfestin.com">Mécénat et partenariats</a></li>
-              </ul>
-              <h2 className="footer__h footer__h--2">L'association</h2>
-              <ul>
-                <li><a href="#/about">Qui sommes-nous</a></li>
-                <li><a href="#/impact">Notre impact</a></li>
-                <li><a href="#/actualites">Actualités et presse</a></li>
-                <li><a href="/mentions-legales">Mentions légales</a></li>
-              </ul>
-            </div>
-            <div>
-              <h2 className="footer__h">Nos projets</h2>
-              <ul>
-                {data.projets.map(p => (
-                  <li key={p.id}><a href={`#/projets/${p.id}`}>{p.shortTitle}</a></li>
-                ))}
-                <li><a href="#/academie">Académie Festin</a></li>
-              </ul>
-            </div>
+            {/* Même arborescence que la pastille et le menu (FESTIN_DATA.arbo) */}
+            {data.arbo.map((r) => (
+              <div key={r.key}>
+                <h2 className="footer__h"><a href={r.href}>{r.label}</a></h2>
+                <ul>
+                  {r.links.filter((l) => l.href !== r.href).map((l) => <li key={l.href + l.label}><a href={l.href}>{l.label}</a></li>)}
+                  {r.key === 'association' && <>
+                    <li><a href="mailto:partenariat@grandfestin.com">Mécénat et partenariats</a></li>
+                    <li><a href="/mentions-legales">Mentions légales</a></li>
+                  </>}
+                </ul>
+              </div>
+            ))}
           </div>
           <div className="footer__bottom">
             <span>© 2026 Festin · <a href={data.brand.site} target="_blank" rel="noopener">grandfestin.com</a></span>
@@ -225,7 +207,7 @@ function FloatingCTA() {
   const actions = [
     { t: "Faire un don", d: "Soutenir Festin — HelloAsso", ic: "heart", c: "var(--coral, #E4572E)", href: data.donation, external: true },
     { t: "Réserver une table", d: "Les Beaux Mets — Baumettes", ic: "calendar-check", c: "var(--teal)", href: lesBeauxMets.ctaUrl, external: true },
-    { t: "Se former / candidater", d: "Rejoindre une promotion", ic: "graduation-cap", c: "var(--gold-ink)", href: "#/formations" },
+    { t: "Se former / candidater", d: "Rejoindre une promotion", ic: "graduation-cap", c: "var(--gold-ink)", href: "#/academie" },
     { t: "Recruter via Festin", d: "Recruter et manager autrement", ic: "briefcase", c: "var(--teal-secondary)", href: "#/accompagnement/professionnels" },
     { t: "Devenir partenaire", d: "Mécénat & soutien", ic: "handshake", c: "var(--violet, #9A5BA8)", href: "#/contact" },
   ];

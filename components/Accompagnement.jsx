@@ -48,7 +48,7 @@ function AccompagnementInsertionPage() {
   ];
   return (
     <div className="gpage acc" ref={root} data-screen-label="Accompagnement — Insertion">
-      <AccHero tone="gold" crumb="Apprendre un métier" kicker="Vous cherchez un métier"
+      <AccHero tone="gold" crumb="Se former" kicker="Vous cherchez un métier"
         title="Apprendre un métier de cuisine," em="gratuitement."
         lede="Vous préparez un diplôme reconnu, vous faites vos stages en restaurant, et une personne de l'équipe vous suit jusqu'à l'emploi."
         img="images/photo-tabliers-violets.jpg" imgAlt="Des apprenties de Des Étoiles et des Femmes en cuisine"
@@ -116,7 +116,7 @@ function AccompagnementProsPage() {
   const FCL = window.FormationCardLink;
   return (
     <div className="gpage acc" ref={root} data-screen-label="Accompagnement — Professionnels">
-      <AccHero tone="teal" crumb="Acteurs du secteur" kicker="Vous êtes du secteur"
+      <AccHero tone="teal" crumb="Recruter" kicker="Vous êtes du secteur"
         title="Recruter des commis formés," em="avec Festin."
         lede="Nous vous présentons des candidats formés dans nos parcours ; leur préparation à l'emploi peut être financée par France Travail. Nous formons aussi vos équipes contre les violences en cuisine et au management."
         img="images/beauxmets-images/LBM_cdutrey_071122-7264.jpg" imgAlt="La cuisine des Beaux Mets pendant le service"

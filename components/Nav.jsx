@@ -86,6 +86,7 @@ function Nav() {
   const data = window.FESTIN_DATA;
   const mega = data.meganav;
   const hash = useRoute();
+  const rubrique = data.rubriqueDe(hash);
   const [solid, setSolid] = useState(false);
   const [open, setOpen] = useState(false);
   const panelRef = useRef(null);
@@ -152,8 +153,8 @@ function Nav() {
           <img src={data.brand.logo} alt="Festin" />
         </a>
         <ul className="navpill__links">
-          {(mega.primary || []).map((l) => (
-            <li key={l.href}><a href={l.href} aria-current={hash === l.href ? 'page' : undefined}>{l.label}</a></li>
+          {data.arbo.map((r) => (
+            <li key={r.key}><a href={r.href} aria-current={hash === r.href ? 'page' : (rubrique === r.key ? 'location' : undefined)}>{r.label}</a></li>
           ))}
         </ul>
         <span className="navpill__sep" aria-hidden="true"></span>
@@ -173,9 +174,9 @@ function Nav() {
       <div className={"optA-panel" + (open ? " open" : "")} id="megaPanel" ref={panelRef}
            role="dialog" aria-modal="true" aria-label={mega.title} aria-hidden={!open} inert={open ? undefined : ""}>
         <div className="optA-grid optA-grid--publics">
-          {(mega.groups || []).map((g) => (
-            <div className="optA-col" key={g.title}>
-              <h2 className="optA-h">{g.title}</h2>
+          {data.arbo.map((g) => (
+            <div className={'optA-col' + (rubrique === g.key ? ' is-here' : '')} key={g.key}>
+              <h2 className="optA-h">{g.label}</h2>
               <ul className="optA-links">
                 {g.links.map((l) => (
                   <li key={l.href + l.label}>

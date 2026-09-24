@@ -66,3 +66,23 @@ Galeries de fin de page (bandeau de photos, avec bouton pause) sur les cinq page
 - Photos d'antennes : le dossier des réponses au formulaire Drive est vide pour ce compte. Tant qu'il l'est, les antennes s'affichent en grille compacte (ville, année, porteur) ; dès qu'une photo est déposée dans `images/antennes/` et déclarée dans `FESTIN_DATA.antennesPhotos`, la liste à survol revient.
 - Photos du Grand Festin 2025 : le Drive ne contient que le reportage d'Arles 2024 (Grégoire d'Ablon pour Victor&Simon), déjà utilisé.
 - Citations signées de Carole Guillerm et Christine Charbonnier (Les Beaux Mets) : introuvables en texte dans le Drive.
+
+## Revue d'interface (25/09/2026) : corrections appliquées
+
+| # | Constat | Correction |
+|---|---|---|
+| 1 | Fiches formation coupées à 320 px | Grille `minmax(0,1fr)` |
+| 2 | Noms illisibles à l'arrière de la sphère des chefs | Texte masqué à l'arrière, pleine opacité devant |
+| 3 | Trois navigations, trois arborescences | Une seule, `FESTIN_DATA.arbo` : Se former · Recruter · Nos projets · L'association, dans la pastille, le menu et le pied de page |
+| 4 | Pas de page « Nos projets », fil d'Ariane sans niveau intermédiaire | Nouvelle page `#/projets` (trois missions, six projets) ; fil : Accueil / Nos projets / projet |
+| 5 | Rubrique courante non signalée hors page exacte | `rubriqueDe(hash)` : la rubrique parente s'allume (pastille et menu « vous êtes ici ») |
+| 6 | Trois entrées « formations » qui se recoupent | Catalogue complet fusionné dans l'Académie (filtres) ; `#/formations` y mène ; fiche : Accueil / L'Académie Festin / formation |
+| 7 | Une page, quatre noms | Fils d'Ariane « Se former », « Recruter » |
+| 8 | Frise mobile verticale de trois écrans et plus | Balayage horizontal, compteur « Étape n sur N », flèches (colonne gardée en mouvement réduit) |
+| 9 | Galerie en mouvement réduit : quatre écrans | Six vignettes carrées, deux ou trois colonnes |
+| 10 | Quatre blocs de fin sur les pages projet | Presse en une ligne « Vu dans… » sous « en bref » ; « Les autres projets » en version compacte |
+| 11 | Trop de petites capitales espacées | Étiquettes en casse de phrase, 14 px ; capitales réservées à l'étiquette du hero |
+| 12 | Destination de « Candidater » floue | « Candidater sur le site du réseau » (lien externe marqué ↗) |
+| 13 | Accueil : portes avant les témoignages | Témoignages, puis « Par où commencer ? » |
+| 14 | Cartes sans lien qui se soulèvent au survol | Survol réservé aux cartes qui contiennent un lien |
+| 15 | Mission dite deux fois dans le premier écran d'un projet | Étiquette du hero sans la mission (elle reste dans « en bref ») |

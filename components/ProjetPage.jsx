@@ -127,9 +127,9 @@ function ProjetPage({ id }) {
   return (
     <div className={'gpage gprojet gprojet--' + id} ref={root} style={{ '--pc': COULEUR[id] || 'var(--teal)' }} data-screen-label={'Projet — ' + p.shortTitle}>
 
-      <window.HeroPage tone={tone} kicker={missionLabel + ' · ' + cfg.kicker} title={p.title} accent={p.accent} proof={p.projetPhrase}
+      <window.HeroPage tone={tone} kicker={cfg.kicker} title={p.title} accent={p.accent} proof={p.projetPhrase}
         img={cfg.heroImg} imgAlt={cfg.heroAlt} logo={p.logo} logoAlt={'Logo ' + p.shortTitle} note={cfg.heroCredit}
-        crumb={[{ label: 'Accueil', href: '#/' }, { label: missionLabel }, { label: p.shortTitle }]}>
+        crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Nos projets', href: '#/projets' }, { label: p.shortTitle }]}>
         <div className="g-herocta">
           <window.GLink l={cfg.heroCta} className={'btnb ' + (tone === 'gold' ? 'btnb--teal' : 'btnb--gold')}>{cfg.heroCta.label} <span className="arrow" aria-hidden="true">{cfg.heroCta.external ? '↗' : '→'}</span></window.GLink>
           {cfg.heroLien && <window.GLink l={cfg.heroLien} className="g-herolnk">{cfg.heroLien.label} <span className="arrow" aria-hidden="true">{cfg.heroLien.external ? '↗' : '→'}</span></window.GLink>}
@@ -145,6 +145,7 @@ function ProjetPage({ id }) {
             <p className="g-lede g-reveal">{cfg.bref.text}</p>
             <window.Preuves lignes={cfg.preuves} source={cfg.source} />
             <a className="lnk g-bref__site g-reveal" href={p.siteUrl} target="_blank" rel="noopener noreferrer">Le site du projet : {p.siteName} <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (nouvel onglet)</span></a>
+            <window.PresseLigne filtres={p.presseFilter || []} />
           </div>
           <div className="g-bref__media g-reveal">
             {cfg.video ? <window.GVideo v={cfg.video} label={p.shortTitle} />
@@ -180,11 +181,9 @@ function ProjetPage({ id }) {
       <window.Portes portes={cfg.portes} tone="cream"
         agir={blocs.includes('chefs') ? null : { title: 'Soutenir', accent: p.shortTitle, text: cfg.soutien && cfg.soutien.text, don: cfg.soutien && cfg.soutien.don, site: { href: p.siteUrl, label: 'Le site du projet' } }} />
 
-      <window.Presse filtres={p.presseFilter || []} />
-
       <window.Galerie images={galerie} label={'Galerie photo, ' + p.shortTitle} />
 
-      <window.MissionsNav currentId={id} />
+      <window.MissionsNav currentId={id} title="Les autres projets" accent="de Festin" compact />
     </div>
   );
 }
