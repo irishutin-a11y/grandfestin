@@ -772,7 +772,7 @@ function ImpactPage() {
       year: '2025',
       url: "https://drive.google.com/file/d/1dymsU5cV00adUDLBz7zLEQYWa_t_-70z/view?usp=sharing",
       title: "Rapport d'activité 2025",
-      desc: "441 personnes accompagnées tous dispositifs confondus, 83 % de sorties en emploi ou formation. Les dix ans de Des Étoiles et des Femmes, la formation Tournesol, la consolidation du programme Restaure.",
+      desc: "441 personnes accompagnées tous dispositifs confondus, 83 % de sorties en emploi ou formation. Les dix ans de Des Étoiles et des Femmes, la formation Tournesol, la consolidation du programme Restaure.",
       size: "PDF",
     },
     {
@@ -1245,7 +1245,7 @@ function ActualitesPage() {
               <ul style={{listStyle:'none', padding:0, margin:'12px 0 0', display:'grid', gap:8, fontSize:15, color:'var(--ink)'}}>
                 {[...window.FESTIN_DATA.stats.slice(0,3).map(s => s.value + (s.unit === '%' ? ' %' : s.unit === '' ? '' : ' ' + s.unit.trim()) + ' ' + s.label),
                   'Plus de 1 200 femmes accompagnées par Des Étoiles et des Femmes depuis 2015',
-                  '91 % de réussite aux diplômes en 2025 (Des Étoiles et des Femmes)'].map((l, i) => <li key={i}>{l}</li>)}
+                  '91 % de réussite aux diplômes en 2025 (Des Étoiles et des Femmes)'].map((l, i) => <li key={i}>{l}</li>)}
               </ul>
               <p style={{fontSize:12, color:'var(--ink-soft)', margin:'14px 0 0'}}>Source : rapport d'activité Festin 2025.</p>
             </div>

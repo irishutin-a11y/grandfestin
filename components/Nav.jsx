@@ -18,6 +18,7 @@ function NavIcon({ name, size = 16 }) {
 // Mouvement réduit, premier chargement : changement direct.
 // ---------------------------------------------------------------------------
 const PARCOURS_D = 'M-60 540 C 80 200 220 60 330 250 S 420 660 600 470 S 700 70 860 150 S 980 610 1120 470 S 1250 60 1380 120';
+window.FESTIN_TRAIT = PARCOURS_D;
 const RouteStore = (function () {
   const isRoute = (h) => !h || h === '#' || h.indexOf('#/') === 0;
   let current = isRoute(window.location.hash) ? (window.location.hash || '#/') : '#/';

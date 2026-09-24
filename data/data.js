@@ -22,7 +22,7 @@ window.FESTIN_DATA = {
     rna: "W133012740",
     legalMention: "Ce site est édité par l’association Festin, association loi 1901 à but non lucratif et d’intérêt général, agréée ESUS. N° RNA : W133012740. SIRET : 379 756 026 00074.",
   },
-  // Stats (About, accueil) — chiffres 2025, source : Rapport d'activité Festin 2025 (version 441 / 83 %)
+  // Stats (About, accueil) — chiffres 2025, source : Rapport d'activité Festin 2025 (version 441 / 83 %)
   stats: [
     { value: "441", unit: "",   label: "personnes accompagnées en 2025" },
     { value: "83",  unit: "%",  label: "de sorties en emploi ou formation" },
@@ -32,7 +32,7 @@ window.FESTIN_DATA = {
   // Ticker — defile bandeau sur la home
   ticker: [
     "441 personnes accompagnées en 2025",
-    "83 % de sorties en emploi ou formation",
+    "83 % de sorties en emploi ou formation",
     "14 territoires d'intervention",
     "L'insertion par la cuisine depuis 1987",
     "Académie Festin, organisme de formation certifié Qualiopi",
@@ -420,7 +420,7 @@ window.FESTIN_DATA = {
           stat: "40+", statL: "personnes formées chaque année" },
         { tab: "Trouver un emploi", title: "Et après ? Un emploi chez un partenaire",
           text: "Une fois formés, les salariés sont orientés vers des entreprises partenaires : Compass, Sodexo, Accor, Newrest, le restaurant Le Grand Pin, l'École de la 2e Chance. Lassana, diplômé du CAP cuisine en 2021, est aujourd'hui en CDI au Sofitel Marseille ; Zaky, titulaire du CQP cuisinier, travaille chez Newrest.",
-          stat: "89 %", statL: "de sorties dynamiques en 2025" },
+          stat: "89 %", statL: "de sorties dynamiques en 2025" },
         { tab: "Le Club des Talents", title: "Les anciens parrainent les nouveaux",
           text: "Le Club des Talents réunit anciens et actuels salariés. Les anciens parrainent les nouveaux arrivants et les mettent en relation avec les entreprises partenaires.",
           stat: "2ᵉ", statL: "édition organisée en 2025" },
@@ -615,7 +615,7 @@ window.FESTIN_DATA = {
           { value: "9 sur 11", label: "ont obtenu le titre à finalité professionnelle en totalité" },
           { value: "11 sur 11", label: "ont obtenu le DCL, diplôme de compétence en langue" },
           { value: "150 h", label: "de stage en restaurant" },
-          { value: "86 %", label: "d’insertion globale un an après la formation" },
+          { value: "86 %", label: "d’insertion globale un an après la formation" },
         ],
       },
       partenaires: ["AFC Groupe", "Compass Group", "France Travail", "AKTO", "Ville de Marseille", "Préfecture des Bouches-du-Rhône", "Fondation RAJA-Danièle Marcovici"],
@@ -903,16 +903,35 @@ window.FESTIN_DATA.meganav = {
 // ============================================================
 //  HOME — copy éditoriale (portée depuis maquettes/home-b.html)
 // ============================================================
+// Bloc de clôture commun à toutes les pages (Sections.jsx, FinDePage)
+window.FESTIN_DATA.fin = {
+  title: "Vous avez un projet ?", accent: "Parlons-en.",
+  links: [
+    { who: "Vous cherchez un métier", label: "Voir les formations", href: "#/accompagnement/insertion" },
+    { who: "Vous êtes du secteur", label: "Recruter avec Festin", href: "#/accompagnement/professionnels" },
+    { who: "Vous voulez agir avec nous", label: "Nous écrire", href: "#/contact" },
+  ],
+};
+
 window.FESTIN_DATA.home = {
+  // Reprise 24/09/2026 (arbitrage 2B) : une phrase en titre, la baseline en signature.
   hero: {
-    eyebrow: "Association Festin",
-    titleLines: ["Le goût", "d'avancer", "ensemble"],   // dernière ligne = accent
-    sub: "Festin est une association à but non lucratif et d'intérêt général, agréée ESUS. Nous formons des personnes aux métiers de la cuisine, jusqu'à l'emploi, et nous aidons les restaurants à recruter et à garder leurs équipes. Depuis Marseille, dans 14 territoires.",
-    ctas: [
-      { label: "Recruter avec Festin", href: "#/accompagnement/professionnels", variant: "gold" },
-      { label: "Apprendre un métier", href: "#/accompagnement/insertion", variant: "ghost" }
-    ],
-    img: "images/photo-chapeau-cuisine.jpg"
+    title: "Former en cuisine,", titleAccent: "jusqu'à l'emploi.",
+    signature: "Le goût d'avancer ensemble",
+    proof: "441 personnes accompagnées en 2025. 83 % sont sorties en emploi ou en formation.",
+    proofNote: "Tous dispositifs confondus. Source : rapport d'activité Festin 2025.",
+    ctaPrimary: { label: "Découvrir nos formations", href: "#/accompagnement/insertion" },
+    ctaSecondary: { label: "Vous recrutez ? Travaillons ensemble", href: "#/accompagnement/professionnels" },
+    img: "images/photo-chapeau-cuisine.jpg",
+    imgAlt: "Trois personnes en brigade versent une sauce au chinois, dans une cuisine professionnelle"
+  },
+  // Ligne de confiance sous le hero : la solidité par les statuts et l'ancienneté
+  trust: ["Association loi 1901", "D'intérêt général, agréée ESUS", "Depuis 1987", "14 territoires", "Cinq projets"],
+  promesse: {
+    title: "Apprendre en brigade,", titleAccent: "jusqu'au contrat.",
+    text: "Une stagiaire de Des Étoiles et des Femmes passe 155 à 490 heures en restaurant, en brigade, avant son examen. Le restaurant qui l'accueille recrute une personne qu'il a vue travailler. Pendant tout le parcours, une équipe l'aide aussi pour le logement, la garde des enfants, les papiers et la recherche de poste.",
+    img: "images/photo-cuisine-formation.jpg",
+    imgAlt: "Des apprenties en tenue de cuisine préparent leurs légumes sur un plan de travail"
   },
   marquee: [
     "CAP Cuisine", "Titre à finalité professionnelle de commis de cuisine", "DCL, diplôme de compétence en langue",
@@ -921,14 +940,14 @@ window.FESTIN_DATA.home = {
   ],
   approche: {
     eyebrow: "L'association Festin",
-    titleLines: ["De la cuisine", "à l'emploi"],
+    titleLines: ["Trois façons", "d'agir"],
     intro: "Une stagiaire de Des Étoiles et des Femmes passe 155 à 490 heures en restaurant, en brigade, avant son examen. Les restaurants qui l'accueillent recrutent une personne qu'ils ont vue travailler. C'est notre méthode : former là où le métier se fait.",
     steps: [
       { tab: "L'insertion", kicker: "01 · Insertion", title: "Accompagner jusqu'à l'emploi",
-        text: "Des femmes, des personnes réfugiées ou primo-arrivantes, des personnes détenues suivent un parcours vers un métier de cuisine, avec un suivi social de la première semaine jusqu'à l'emploi. 441 personnes accompagnées en 2025.",
+        text: "Des femmes, des personnes réfugiées ou primo-arrivantes, des personnes détenues suivent un parcours vers un métier de cuisine, avec un suivi social de la première semaine jusqu'à l'emploi.",
         img: "images/photo-groupe-portrait.jpg", variant: "a" },
       { tab: "La formation", kicker: "02 · Formation", title: "Former en cuisine",
-        text: "Nos parcours préparent un CAP cuisine ou un titre à finalité professionnelle de commis de cuisine, avec des stages en brigade. Des formations courtes existent aussi pour les équipes en poste. 83 % de sorties en emploi ou en formation en 2025.",
+        text: "Nos parcours préparent un CAP cuisine ou un titre à finalité professionnelle de commis de cuisine, avec des stages en brigade. Pour les équipes déjà en poste, l'Académie Festin, certifiée Qualiopi, propose des formations courtes.",
         img: "images/photo-patisserie.jpg", variant: "b" },
       { tab: "Le secteur", kicker: "03 · Secteur", title: "Changer les cuisines",
         text: "Le programme Restaure réunit 35 structures et 700 signataires de son manifeste pour prévenir les violences en cuisine et former les managers.",
@@ -937,8 +956,8 @@ window.FESTIN_DATA.home = {
   },
   logoband: { eyebrow: "Cinq projets, tous rattachés à Festin" },
   dual: {
-    titleLines: ["Se former,", "ou former ses équipes"],   // 2e = accent
-    lede: "Vous cherchez un métier, ou vous dirigez un restaurant : voici par où commencer.",
+    titleLines: ["Par où", "commencer"],   // 2e = accent
+    soutien: { text: "Vous voulez financer une promotion ?", don: "Faire un don", mecenat: "Devenir mécène" },
     cards: [
       { tag: "Vous cherchez un métier", kicker: "Parcours d'insertion",
         title: "Apprendre un métier de cuisine, gratuitement",
@@ -965,17 +984,18 @@ window.FESTIN_DATA.home = {
     lede: "Un restaurant en prison, un traiteur d'insertion, deux formations diplômantes et un programme national contre les violences en cuisine.",
     // par projet.id : accroche + chiffre + image de carte (le reste vient de FESTIN_DATA.projets)
     cards: [
-      { id:"des-etoiles-et-des-femmes", blurb:"Un diplôme de cuisine et des stages en restaurants gastronomiques, pour des femmes. 13 antennes en France.", insertion:"Des femmes préparent un CAP cuisine ou le titre de commis, avec des stages en restaurant gastronomique.", secteur:"Des commis formées pour les brigades, dans 13 villes.", stat:"91 % de réussite aux diplômes en 2025", img:"images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg" },
+      { id:"des-etoiles-et-des-femmes", blurb:"Un diplôme de cuisine et des stages en restaurants gastronomiques, pour des femmes. 13 antennes en France.", insertion:"Des femmes préparent un CAP cuisine ou le titre de commis, avec des stages en restaurant gastronomique.", secteur:"Des commis formées pour les brigades, dans 13 villes.", stat:"91 % de réussite aux diplômes en 2025", img:"images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg" },
       { id:"les-beaux-mets",           blurb:"Le premier restaurant en prison ouvert au public en France. Aux Baumettes, à Marseille.", insertion:"Des personnes détenues apprennent la cuisine et le service, en brigade, sur un vrai service.", secteur:"Un restaurant bistronomique ouvert au public, aux Baumettes.", stat:"119 personnes employées depuis 2022", img:"images/beauxmets-images/LBM_cdutrey_071122-7264.jpg" },
       { id:"la-table-de-cana",         blurb:"Traiteur et restauration collective en insertion, à Marseille.", insertion:"Des salariés en insertion se forment au traiteur et à la restauration collective.", secteur:"Un traiteur et une cuisine collective pour les entreprises et les collectivités marseillaises.", stat:"89 % de sorties dynamiques en 2025", img:"images/latable de cana/tabledecana_cdutrey_160124-4393.jpg" },
       { id:"restaure",                 blurb:"Un programme national. Il prévient les violences en cuisine et change les pratiques du secteur.", insertion:"Des cuisines plus sûres pour celles et ceux qui y travaillent.", secteur:"Des formations et des outils pour prévenir les violences et former les managers.", stat:"700 signataires du manifeste", img:"images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00032.jpg" },
-      { id:"tournesol",                blurb:"Cinq mois de formation diplômante pour des personnes réfugiées ou primo-arrivantes.", insertion:"Des personnes réfugiées ou primo-arrivantes préparent en cinq mois le titre de commis de cuisine.", secteur:"Des commis formés, avec Refugee Food, pour les restaurants qui recrutent.", stat:"86 % d'insertion un an après", img:"images/photo-rouleaux.jpg" }
+      { id:"tournesol",                blurb:"Cinq mois de formation diplômante pour des personnes réfugiées ou primo-arrivantes.", insertion:"Des personnes réfugiées ou primo-arrivantes préparent en cinq mois le titre de commis de cuisine.", secteur:"Des commis formés, avec Refugee Food, pour les restaurants qui recrutent.", stat:"86 % d'insertion un an après", img:"images/photo-rouleaux.jpg" }
     ],
-    avenir: { title:"Sadi Carnot", eyebrow:"En préparation", text:"Un futur restaurant d'insertion. Le projet est en cours de construction.", href:"#/restaurants/sadi-carnot" },
+    avenir: { title:"Sadi Carnot", eyebrow:"En préparation", text:"Un futur restaurant d'insertion à Marseille. Nous en présenterons le projet quand il sera acquis." },
     explore: { title:"L'association Festin", text:"Créée en 1987. Cinq projets, 14 territoires, 441 personnes accompagnées en 2025.", cta:"Lire notre histoire", href:"#/about" }
   },
   impact: {
-    eyebrow: "L'impact 2025",
+    title: "Ce que 2025", titleAccent: "a donné",
+    source: "Source : rapport d'activité Festin 2025. Taux de sortie : tous dispositifs confondus ; taux de réussite : Des Étoiles et des Femmes.",
     // 5 photos réelles : Des Étoiles et des Femmes ×3, Les Beaux Mets ×1, La Table de Cana ×1
     photos: [
       "images/images-def/hero-promo-cuisine.jpg",
@@ -1008,7 +1028,7 @@ window.FESTIN_DATA.home = {
 };
 
 // ---------- PAGE ABOUT — contenus ----------
-// Chiffres : source unique = FESTIN_DATA.stats ci-dessus (Rapport d'activité 2025 : 441 / 83 % / 14 ; création 1987).
+// Chiffres : source unique = FESTIN_DATA.stats ci-dessus (Rapport d'activité 2025 : 441 / 83 % / 14 ; création 1987).
 // `photo: null` = portrait à fournir → cadre neutre « [XX] ». `avatar` = médaillon 240 px (petit avatar rond).
 window.FESTIN_DATA.about = {
   poles: [

@@ -102,7 +102,7 @@ section{position:relative}
 .dcard__img{aspect-ratio:16/10;overflow:hidden;position:relative}
 .dcard__img img{width:100%;height:100%;object-fit:cover;transition:transform .6s;transition-timing-function:var(--ease-out)}
 .dcard:hover .dcard__img img{transform:scale(1.06)}
-.dcard__tag{position:absolute;top:16px;left:16px;background:rgba(255,255,255,.94);backdrop-filter:blur(6px);padding:7px 14px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark)}
+.dcard__tag{position:absolute;top:16px;left:16px;background:var(--off-white);padding:7px 14px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark)}
 .dcard__body{padding:clamp(24px,2.6vw,36px)}
 .dcard__kicker{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--teal)}
 .dcard__body h3{font-size:var(--fs-h3);font-weight:700;text-transform:uppercase;letter-spacing:-.015em;line-height:1.05;margin:8px 0 16px}
@@ -397,8 +397,9 @@ section{position:relative}
 .ecocar__eb{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal)}
 .ecocar__body h3{font-size:var(--fs-h3);font-weight:700;text-transform:uppercase;letter-spacing:-.01em;line-height:1.08;margin:0}
 .ecocar__pub{margin:4px 0 6px;display:grid;gap:10px}
-.ecocar__pub div{border-left:3px solid var(--gold);padding-left:10px}
-.ecocar__pub div + div{border-left-color:var(--teal)}
+.ecocar__pub dt{display:flex;align-items:center;gap:8px}
+.ecocar__pub dt::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold);flex:none}
+.ecocar__pub div + div dt::before{background:var(--teal)}
 .ecocar__pub dt{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mid);margin-bottom:2px}
 .ecocar__pub dd{margin:0;font-size:14px;line-height:1.45;color:var(--ink)}
 .ecocar__txt{font-size:14px;line-height:1.5;color:var(--ink-mid);margin:0}
@@ -417,3 +418,111 @@ section{position:relative}
 
 /* Témoignages : plus de dégradé blanc sur les bords du carrousel */
 .tmarquee{-webkit-mask-image:none;mask-image:none}
+
+/* ============================================================
+   ACCUEIL — REPRISE 24/09/2026 (DIRECTION.md)
+   ============================================================ */
+/* Le trait du parcours : signature partagée (Sections.jsx, Trait) */
+.trait{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.trait path{stroke:var(--trait-color,var(--teal-dark))}
+
+/* HERO : couleur pleine teal, trait teal foncé, promesse + preuve */
+.hero2{position:relative;overflow:hidden;background:var(--teal);color:var(--off-white);
+  min-height:100svh;display:flex;align-items:center;padding:clamp(112px,14vh,150px) 0 clamp(48px,7vh,88px)}
+.hero2__trait{--trait-color:var(--teal-dark);opacity:.9}
+.hero2__grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(32px,5vw,88px);align-items:center;width:100%}
+.hero2__t{font-size:var(--fs-h1);font-weight:700;text-transform:uppercase;line-height:var(--lh-display);letter-spacing:var(--tracking-tight);color:var(--off-white);margin:0;max-width:12ch}
+.hero2__t em{display:block;color:var(--gold-light)}
+.hero2__sig{margin:var(--sp-5) 0 0;font-size:var(--fs-lede);font-style:italic;font-weight:300;color:var(--off-white)}
+.hero2__proof{margin:var(--sp-5) 0 0;font-size:var(--fs-lede);font-weight:600;line-height:1.45;max-width:34ch;color:var(--off-white)}
+.hero2__proof sup{color:var(--gold-light);font-size:.7em;margin-left:2px}
+.hero2__cta{display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-5);margin-top:var(--sp-6)}
+.hero2__lnk{display:inline-flex;align-items:center;gap:8px;color:var(--off-white);font-weight:700;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px;text-decoration-color:var(--gold-light);padding:10px 0}
+.hero2__lnk:hover .arrow{transform:translateX(5px)}
+.hero2__note{margin:var(--sp-6) 0 0;font-size:var(--fs-small);color:rgba(254,252,248,.78);max-width:52ch}
+.hero2__media{margin:0;position:relative;aspect-ratio:4/5;border-radius:clamp(24px,3vw,40px);overflow:hidden;box-shadow:0 30px 80px rgba(6,33,31,.35)}
+.hero2__media picture,.hero2__media img{display:block;width:100%;height:115%;object-fit:cover;object-position:50% 30%}
+@media(max-width:900px){
+  .hero2{min-height:0}
+  .hero2__grid{grid-template-columns:1fr}
+  .hero2__media{aspect-ratio:4/3;max-height:52vh}
+}
+
+/* LIGNE DE CONFIANCE */
+.trust{background:var(--cream);border-bottom:1px solid var(--line);padding:0}
+.trust__row{list-style:none;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--sp-3) var(--sp-6);padding-top:var(--sp-5);padding-bottom:var(--sp-5)}
+.trust__row li{font-size:var(--fs-small);font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--teal-dark);white-space:nowrap}
+@media(max-width:700px){.trust__row{justify-content:flex-start}}
+
+/* PROMESSE : famille teal (fond pâle, titre foncé) */
+.promesse{background:var(--teal-tint);padding:var(--section) 0}
+.promesse__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,104px);align-items:center}
+.promesse .h2b{color:var(--teal-dark)}
+.promesse .h2b em{color:var(--teal)}
+.promesse__txt p{margin:var(--sp-6) 0 0;font-size:var(--fs-lede);line-height:1.6;color:var(--teal-dark);max-width:var(--measure)}
+.promesse__media{margin:0;aspect-ratio:5/6;border-radius:clamp(20px,2.4vw,32px);overflow:hidden}
+.promesse__media img{width:100%;height:100%;object-fit:cover}
+@media(max-width:900px){.promesse__grid{grid-template-columns:1fr}.promesse__media{aspect-ratio:4/3}}
+
+/* TROIS TEMPS : numéros, filet qui relie les étapes */
+.temps{background:var(--off-white);padding:var(--section) 0}
+.temps__h{color:var(--teal-dark);max-width:16ch}
+.temps__h em{color:var(--teal)}
+.temps__list{list-style:none;margin:var(--sp-8) 0 0;padding:0;position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(28px,4vw,64px)}
+.temps__line{position:absolute;left:0;right:0;top:clamp(26px,3vw,44px);width:100%;height:60px;pointer-events:none}
+.temps__line path{stroke:var(--gold)}
+.temps__item{position:relative}
+.temps__n{display:inline-grid;place-items:center;width:clamp(64px,6vw,92px);aspect-ratio:1;border-radius:50%;background:var(--teal);color:var(--gold-light);font-size:var(--fs-h3);font-weight:700;position:relative;z-index:1;box-shadow:0 0 0 8px var(--off-white)}
+.temps__item h3{margin:var(--sp-5) 0 var(--sp-3);font-size:var(--fs-h3);font-weight:700;text-transform:uppercase;line-height:var(--lh-snug);color:var(--ink)}
+.temps__item p{margin:0;font-size:var(--fs-body);line-height:var(--lh-normal);color:var(--ink-mid);max-width:38ch}
+@media(max-width:900px){.temps__list{grid-template-columns:1fr}.temps__line{display:none}}
+
+/* CHIFFRES : titre + source */
+.b-impact__h{font-size:var(--fs-h2);font-weight:700;text-transform:uppercase;line-height:var(--lh-tight);letter-spacing:var(--tracking-tight);color:var(--off-white);margin:0 0 var(--sp-7)}
+.b-impact__h em{color:var(--gold-light)}
+.b-impact__src{margin:var(--sp-7) auto 0;max-width:62ch;font-size:var(--fs-small);line-height:1.5;color:rgba(254,252,248,.78)}
+.b-impact__src a{color:var(--gold-light);font-weight:700;white-space:nowrap}
+.istat__l{font-size:var(--fs-small)}
+
+/* ÉCOSYSTÈME : chapeau et carte « en préparation » */
+.ecocar__lede{margin:var(--sp-4) 0 0;max-width:52ch;font-size:var(--fs-lede);color:var(--teal-dark)}
+.ecocar__card--avenir{cursor:default}
+.ecocar__img--avenir{display:grid;place-items:center;background:repeating-linear-gradient(135deg,var(--gold-pale) 0 16px,var(--cream) 16px 32px)}
+.ecocar__img--avenir span{font-size:var(--fs-label);font-weight:700;letter-spacing:var(--tracking-eyebrow);text-transform:uppercase;color:var(--gold-ink)}
+
+/* DEUX PORTES : soutien en troisième, plus discret */
+.b-dual__h2 em{color:var(--gold-light)}
+.b-dual__soutien{margin:var(--sp-7) 0 0;text-align:center;font-size:var(--fs-lede);color:var(--off-white)}
+.b-dual__soutien a{color:var(--gold-light);font-weight:700;text-decoration:underline;text-underline-offset:5px;margin-left:var(--sp-3)}
+
+/* BLOC DE FIN (toutes les pages) : famille or */
+.fin{background:var(--gold-pale);padding:var(--sp-9) 0}
+.fin__in{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,5vw,96px);align-items:end}
+.fin__t{margin:0;font-size:var(--fs-h1);font-weight:700;text-transform:uppercase;line-height:var(--lh-display);letter-spacing:var(--tracking-tight);color:var(--teal-dark)}
+.fin__t em{display:block;color:var(--gold-ink)}
+.fin__links{list-style:none;margin:0;padding:0;display:grid}
+.fin__links a{display:flex;justify-content:space-between;align-items:baseline;gap:var(--sp-5);padding:var(--sp-5) 0;border-top:1.5px solid rgba(15,60,68,.18);color:var(--teal-dark);text-decoration:none}
+.fin__links li:last-child a{border-bottom:1.5px solid rgba(15,60,68,.18)}
+.fin__who{font-size:var(--fs-body);color:var(--ink-mid)}
+.fin__what{font-size:var(--fs-h3);font-weight:700;text-transform:uppercase;letter-spacing:-.01em;white-space:nowrap}
+.fin__links a:hover .arrow{transform:translateX(6px)}
+.fin__links a:hover .fin__what{color:var(--teal)}
+@media(max-width:900px){.fin__in{grid-template-columns:1fr}.fin__links a{flex-direction:column;gap:var(--sp-1)}}
+.temps__item{display:flex;flex-direction:column}
+.temps__item p{flex:1}
+.temps__img{margin:var(--sp-6) 0 0;aspect-ratio:4/5;border-radius:clamp(18px,2vw,28px);overflow:hidden}
+.temps__img img{width:100%;height:100%;object-fit:cover;transition:transform var(--dur-4) var(--ease-out)}
+.temps__item:hover .temps__img img{transform:scale(1.04)}
+.temps__line{top:calc(clamp(64px,6vw,92px) / 2 - 30px)}
+@media(max-width:900px){.temps__img{aspect-ratio:16/10}}
+@media(min-width:901px){.b-impact__ph--p5{display:none}}
+/* Témoignages plus lisibles (reprise) : cartes plus larges, citation au corps du texte courant */
+.tcell{width:min(440px,84vw)}
+.tcard{padding:clamp(24px,2.4vw,34px)}
+.tcard__name{font-size:var(--fs-body)}
+.tcard__q{font-size:var(--fs-lede);line-height:1.5}
+.b-quotes__lede{max-width:52ch}
+.fin__in{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.fin__t{font-size:var(--fs-h2);line-height:var(--lh-tight)}
+.fin__t em{white-space:nowrap}
+@media(max-width:900px){.fin__what{white-space:normal}}

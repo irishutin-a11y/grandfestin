@@ -13,7 +13,7 @@ function pdefMonth(iso) {
 }
 
 // Chiffres (section chiffres) — extrait la cible numérique + le suffixe d'un stat existant
-// (ex. "91 %" -> {target:91, suffix:" %"} ; "1 100" + unit "+" -> {target:1100, suffix:"+"})
+// (ex. "91 %" -> {target:91, suffix:" %"} ; "1 100" + unit "+" -> {target:1100, suffix:"+"})
 function pdefParseStat(s) {
   const isPercent = /%/.test(s.value);
   const target = parseInt(String(s.value).replace(/[^\d]/g, ''), 10) || 0;

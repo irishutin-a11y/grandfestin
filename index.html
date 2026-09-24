@@ -35,10 +35,10 @@
 })();
 </script>
 
-<link rel="stylesheet" href="styles/styles.css?v=1790253823" />
-<link rel="stylesheet" href="styles/home-b.css?v=1790253823" />
-<link rel="stylesheet" href="styles/projet.css?v=1790253823" />
-<link rel="stylesheet" href="styles/about.css?v=1790253823" />
+<link rel="stylesheet" href="styles/styles.css?v=1790254629" />
+<link rel="stylesheet" href="styles/home-b.css?v=1790254629" />
+<link rel="stylesheet" href="styles/projet.css?v=1790254629" />
+<link rel="stylesheet" href="styles/about.css?v=1790254629" />
 <script src="https://unpkg.com/lucide@1.47.0/dist/umd/lucide.min.js"></script>
 <script src="vendor/gsap/gsap.min.js?v=3.15.0"></script>
 <script src="vendor/gsap/ScrollTrigger.min.js?v=3.15.0"></script>
@@ -60,8 +60,8 @@ if (window.gsap) { window.gsap.registerPlugin(window.ScrollTrigger); window.gsap
 </script>
 <link rel="preload" href="typos/KoHo-Bold.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="typos/KoHo-Regular.woff2" as="font" type="font/woff2" crossorigin />
-<script src="data/images-manifest.js?v=1790253823"></script>
-<script src="data/data.js?v=1790253823"></script>
+<script src="data/images-manifest.js?v=1790254629"></script>
+<script src="data/data.js?v=1790254629"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Aller au contenu</a>
@@ -79,18 +79,18 @@ if (window.gsap) { window.gsap.registerPlugin(window.ScrollTrigger); window.gsap
   <p style="margin:0 0 4px">Le site grandfestin.com est le site officiel de l'Association Festin.</p>
   <p style="margin:0"><a href="/mentions-legales" style="color:#1D6B78">Mentions légales</a></p>
 </div>
-<script type="text/babel" src="components/Nav.jsx?v=1790253823"></script>
-<script type="text/babel" src="components/Sections.jsx?v=1790253823"></script>
-<script type="text/babel" src="components/Interactifs.jsx?v=1790253823"></script>
-<script type="text/babel" src="components/HomeB.jsx?v=1790253823"></script>
-<script type="text/babel" src="components/ProjetDef.jsx?v=1790253823"></script>
-<script type="text/babel" src="components/ProjetLBM.jsx?v=1790253823"></script>
-<script type="text/babel" src="components/ProjetRestaure.jsx?v=1790253823"></script>
-<script type="text/babel" src="components/ProjetTableDeCana.jsx?v=1790253823"></script>
-<script type="text/babel" src="components/ProjetTournesol.jsx?v=1790253823"></script>
-<script type="text/babel" src="components/About.jsx?v=1790253823"></script>
-<script type="text/babel" src="components/Pages.jsx?v=1790253823"></script>
-<script type="text/babel" src="components/Accompagnement.jsx?v=1790253823"></script>
+<script type="text/babel" src="components/Nav.jsx?v=1790254629"></script>
+<script type="text/babel" src="components/Sections.jsx?v=1790254629"></script>
+<script type="text/babel" src="components/Interactifs.jsx?v=1790254629"></script>
+<script type="text/babel" src="components/HomeB.jsx?v=1790254629"></script>
+<script type="text/babel" src="components/ProjetDef.jsx?v=1790254629"></script>
+<script type="text/babel" src="components/ProjetLBM.jsx?v=1790254629"></script>
+<script type="text/babel" src="components/ProjetRestaure.jsx?v=1790254629"></script>
+<script type="text/babel" src="components/ProjetTableDeCana.jsx?v=1790254629"></script>
+<script type="text/babel" src="components/ProjetTournesol.jsx?v=1790254629"></script>
+<script type="text/babel" src="components/About.jsx?v=1790254629"></script>
+<script type="text/babel" src="components/Pages.jsx?v=1790254629"></script>
+<script type="text/babel" src="components/Accompagnement.jsx?v=1790254629"></script>
 <script type="text/babel">
 // ─── Hash router ─────────────────────────────────────────────────
 function parseRoute(hash) {
@@ -199,7 +199,7 @@ function App() {
     <div data-screen-label={`Site — ${route.name}`}>
       <Nav />
       <p role="status" aria-live="polite" className="sr-only">{annonce}</p>
-      <main id="main" tabIndex={-1}>{page}</main>
+      <main id="main" tabIndex={-1}>{page}{route.name !== 'contact' && <FinDePage />}</main>
       <Footer />
       <FloatingCTA />
     </div>

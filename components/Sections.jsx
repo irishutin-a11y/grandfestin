@@ -315,3 +315,46 @@ function PhotoMissing({ subject, cadrage = 'plan moyen', orientation = 'paysage'
   );
 }
 window.PhotoMissing = PhotoMissing;
+
+// ---------------------------------------------------------------------------
+// Trait — le « trait du parcours », signature visuelle (même tracé que la
+// transition de page). Décoratif (aria-hidden). draw : se dessine à l'arrivée.
+// ---------------------------------------------------------------------------
+function Trait({ className = '', width = 150, draw = true, delay = 0.2 }) {
+  const ref = React.useRef(null);
+  React.useEffect(() => {
+    const p = ref.current, g = window.gsap;
+    if (!p || !g || !draw || (window.FESTIN_RM && window.FESTIN_RM())) return;
+    const len = p.getTotalLength();
+    const tw = g.fromTo(p, { strokeDasharray: len, strokeDashoffset: len }, { strokeDashoffset: 0, duration: 2.2, ease: 'expo.inOut', delay });
+    return () => tw.kill();
+  }, []);
+  return (
+    <svg className={'trait ' + className} viewBox="0 0 1316 664" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+      <path ref={ref} d={window.FESTIN_TRAIT} fill="none" strokeWidth={width} strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+window.Trait = Trait;
+
+// ---------------------------------------------------------------------------
+// FinDePage — même bloc de clôture sur chaque page (sauf Contact) : une phrase
+// d'action et trois portes. Famille or. Rendu par App (index.html).
+// ---------------------------------------------------------------------------
+function FinDePage() {
+  const F = window.FESTIN_DATA.fin;
+  if (!F) return null;
+  return (
+    <section className="fin" aria-labelledby="fin-t">
+      <div className="wrap fin__in">
+        <h2 className="fin__t" id="fin-t">{F.title} <em>{F.accent}</em></h2>
+        <ul className="fin__links">
+          {F.links.map((l) => (
+            <li key={l.href}><a href={l.href}><span className="fin__who">{l.who}</span><span className="fin__what">{l.label} <span className="arrow" aria-hidden="true">→</span></span></a></li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
+window.FinDePage = FinDePage;

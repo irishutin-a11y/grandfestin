@@ -1,5 +1,5 @@
 /* Festin — UI kit styles */
-@import url('./_tokens.css?v=1790253823');
+@import url('./_tokens.css?v=1790254629');
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { font-family: 'KoHo', sans-serif; color: var(--ink); background: var(--off-white); overflow-x: hidden; }
@@ -39,7 +39,7 @@ em.accent, .accent { font-style: italic; color: var(--accent-color, var(--gold-i
 /* ===== ACADEMIE ===== */
 .academie { background: var(--off-white); }
 .pillars { display: flex; flex-direction: column; gap: 12px; margin-top: 32px; }
-.pillar { display: flex; gap: 18px; padding: 20px; background: var(--cream); border-radius: 12px; border-left: 3px solid transparent; transition: all 250ms var(--ease-out); cursor: pointer; }
+.pillar { display: flex; gap: 18px; padding: 20px; background: var(--cream); border-radius: 12px; transition: all 250ms var(--ease-out); cursor: pointer; }
 .pillar:hover { border-left-color: var(--teal); transform: translateX(4px); background: #fff; box-shadow: var(--sh-sm); }
 .pillar h4 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
 .pillar p { font-size: 14px; color: var(--ink-mid); line-height: 1.5; }
@@ -104,7 +104,7 @@ em.accent, .accent { font-style: italic; color: var(--accent-color, var(--gold-i
 .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--teal); box-shadow: 0 0 0 3px rgba(29,107,120,0.22); }
 .field textarea { resize: vertical; min-height: 100px; }
 .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.form-success { background: var(--teal-tint); border-left: 3px solid var(--teal); border-radius: 0 8px 8px 0; padding: 16px 18px; color: var(--teal-dark); font-size: 14px; }
+.form-success { background: var(--teal-tint); border: 1.5px solid var(--teal-tint-2); border-radius: 8px; padding: 16px 18px; color: var(--teal-dark); font-size: 14px; }
 
 /* ===== FOOTER — encadré/inset, inspiré Found (photo pleine largeur + overlay) ===== */
 .footer-outer { background: var(--cream); padding: clamp(16px,3.2vw,40px); }
@@ -133,7 +133,7 @@ em.accent, .accent { font-style: italic; color: var(--accent-color, var(--gold-i
 .programme { display: flex; flex-direction: column; gap: 8px; counter-reset: prog; }
 .programme li { font-size: 14px; color: var(--ink-mid); padding: 12px 12px 12px 44px; background: var(--cream); border-radius: 8px; position: relative; line-height: 1.5; counter-increment: prog; }
 .programme li::before { content: counter(prog); position: absolute; left: 12px; top: 12px; width: 22px; height: 22px; background: var(--teal); color: #fff; border-radius: 50%; display: grid; place-items: center; font-size: 11px; font-weight: 700; }
-.tariff { background: var(--gold-pale); border-left: 3px solid var(--gold); border-radius: 0 10px 10px 0; padding: 16px 20px; font-size: 14px; line-height: 1.6; color: var(--ink); }
+.tariff { background: var(--gold-pale); border: 1.5px solid rgba(140,106,0,.25); border-radius: 10px; padding: 16px 20px; font-size: 14px; line-height: 1.6; color: var(--ink); }
 .access-note { background: var(--gold-pale); border-radius: 10px; padding: 14px 18px; margin-top: 16px; font-size: 13px; color: var(--ink-mid); display: flex; gap: 10px; align-items: flex-start; }
 .access-note svg { color: var(--gold-ink); flex-shrink: 0; margin-top: 1px; }
 
@@ -186,7 +186,7 @@ a.formation-card:hover .lnk { color: var(--gold-ink); }
 .objectives li::before { content: ""; position: absolute; left: 0; top: 8px; width: 14px; height: 14px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px rgba(255,193,0,0.18); }
 
 .programme { list-style: none; counter-reset: prog; display: flex; flex-direction: column; gap: 14px; }
-.programme li { counter-increment: prog; position: relative; padding: 18px 22px 18px 64px; background: var(--cream); border-radius: 10px; border-left: 3px solid var(--teal); font-size: 15px; line-height: 1.55; color: var(--ink); }
+.programme li { counter-increment: prog; position: relative; padding: 18px 22px 18px 64px; background: var(--cream); border-radius: 10px; font-size: 15px; line-height: 1.55; color: var(--ink); }
 .programme li::before { content: counter(prog, decimal-leading-zero); position: absolute; left: 22px; top: 18px; font-weight: 700; color: var(--teal); font-size: 14px; letter-spacing: 0.04em; }
 
 .tariff { padding: 24px 28px; background: linear-gradient(135deg, rgba(255,193,0,0.10) 0%, rgba(255,193,0,0.04) 100%); border: 1px solid rgba(255,193,0,0.30); border-radius: 12px; font-size: 15px; line-height: 1.7; color: var(--ink); }
