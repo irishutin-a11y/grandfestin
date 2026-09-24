@@ -34,75 +34,100 @@ function Picture({ src, alt = '', sizes = '100vw', className, imgClassName, styl
     </picture>
   );
 }
+// Contact — formulaire honnête : le site n'a pas de serveur d'envoi. À la
+// validation, il prépare le message dans la messagerie de la personne
+// (mailto), adressé à la bonne boîte selon le motif, et le dit clairement.
+// Libellés liés, autocomplete, erreurs annoncées (aria-invalid + message).
 function Contact() {
   const c = window.FESTIN_DATA.contact;
-  const [sent, setSent] = React.useState(false);
+  const [etat, setEtat] = React.useState('saisie'); // 'saisie' | 'ouvert'
+  const [err, setErr] = React.useState({});
+  const [dest, setDest] = React.useState(c.email);
+  const motifs = [
+    { value: 'Recruter ou accueillir un stagiaire', label: 'Recruter, accueillir un stagiaire', icon: 'handshake' },
+    { value: 'Se former', label: 'Se former', icon: 'graduation-cap' },
+    { value: 'Mécénat ou partenariat', label: 'Mécénat ou partenariat', icon: 'users', to: 'partenariat@grandfestin.com' },
+    { value: 'Presse', label: 'Presse', icon: 'newspaper' },
+    { value: 'Orienter une personne', label: 'Orienter une personne', icon: 'hand-coins' },
+  ];
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const f = e.currentTarget, v = (n) => (f.elements[n] && f.elements[n].value || '').trim();
+    const e2 = {};
+    if (!v('prenom')) e2.prenom = 'Indiquez votre prénom.';
+    if (!v('nom')) e2.nom = 'Indiquez votre nom.';
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v('email'))) e2.email = 'Indiquez une adresse e-mail valide, par exemple nom@exemple.fr.';
+    setErr(e2);
+    if (Object.keys(e2).length) { const first = f.elements[Object.keys(e2)[0]]; if (first) first.focus(); return; }
+    const m = motifs.find((x) => x.value === v('motif')) || motifs[0];
+    const to = m.to || c.email;
+    const corps = [
+      v('message'),
+      '',
+      '---',
+      'De : ' + v('prenom') + ' ' + v('nom') + ' <' + v('email') + '>',
+      v('organisation') && 'Organisation : ' + v('organisation'),
+      v('formation') && 'Formation concernée : ' + v('formation'),
+    ].filter((x) => x !== false && x !== '').join('\n');
+    setDest(to);
+    window.location.href = 'mailto:' + to + '?subject=' + encodeURIComponent('[' + m.value + '] ' + v('prenom') + ' ' + v('nom')) + '&body=' + encodeURIComponent(corps);
+    setEtat('ouvert');
+  };
+  const fe = (n) => err[n] ? { 'aria-invalid': true, 'aria-describedby': 'err-' + n } : {};
   return (
-    <section className="contact" id="contact">
-      <div className="container">
-        <div className="contact__grid">
-          <div className="contact__info">
-            <div>
-              <span className="eyebrow">Contact</span>
-              <h2 className="h2">Nos <em className="accent">coordonnées</em></h2>
-              <p className="lede" style={{marginTop:12}}>Une question simple ? Un e-mail suffit. Pour un projet, le formulaire nous aide à vous orienter vers la bonne personne.</p>
+    <section className="isec isec--white contact2" id="contact" aria-labelledby="contact-t">
+      <div className="wrap contact2__grid">
+        <div className="contact2__info">
+          <h2 className="isec__h" id="contact-t">Nos <em>coordonnées</em></h2>
+          <dl className="contact2__dl">
+            <div><dt>E-mail</dt><dd><a href={'mailto:' + c.email}>{c.email}</a></dd></div>
+            <div><dt>Mécénat et partenariats</dt><dd><a href="mailto:partenariat@grandfestin.com">partenariat@grandfestin.com</a></dd></div>
+            <div><dt>Presse</dt><dd><a href={'mailto:' + c.email}>{c.email}</a>, à l'attention d'Iris Hutin</dd></div>
+            <div><dt>Adresse</dt><dd>{c.address}</dd></div>
+            <div><dt>Accessibilité et handicap</dt><dd>Lucie Gueydon, responsable handicap et pédagogique : aménagements et coordination des formations</dd></div>
+            <div><dt>Numéros</dt><dd>NDA {c.nda} · SIRET {c.siret}</dd></div>
+          </dl>
+        </div>
+        <div className="contact2__form">
+          <h3 className="contact2__h3">Écrivez-nous</h3>
+          {etat === 'ouvert' ? (
+            <div className="contact2__ok" role="status">
+              <p><b>Votre messagerie s'est ouverte</b> avec votre message prêt à partir vers {dest}. Il ne vous reste qu'à l'envoyer.</p>
+              <p>Rien ne s'est ouvert ? Écrivez directement à <a href={'mailto:' + dest}>{dest}</a>.</p>
+              <button type="button" className="apmore" onClick={() => setEtat('saisie')}>Revenir au formulaire</button>
             </div>
-            <div className="contact-items">
-              <div className="contact-item"><div className="contact-item__icon"><i data-lucide="mail" style={{width:18,height:18}}/></div><div><div className="contact-item__lbl">Email</div><div className="contact-item__v">{c.email}</div></div></div>
-              <div className="contact-item"><div className="contact-item__icon"><i data-lucide="map-pin" style={{width:18,height:18}}/></div><div><div className="contact-item__lbl">Adresse</div><div className="contact-item__v">{c.address}</div></div></div>
-              <div className="contact-item"><div className="contact-item__icon"><i data-lucide="file-text" style={{width:18,height:18}}/></div><div><div className="contact-item__lbl">NDA / Siret</div><div className="contact-item__v">NDA {c.nda} · Siret {c.siret}</div></div></div>
-            </div>
-            <div className="contact-note">
-              <i data-lucide="newspaper" style={{width:18,height:18,flexShrink:0,marginTop:2}} aria-hidden="true"/>
-              <div>
-                <b>Journalistes</b> : <a href="mailto:contact@grandfestin.com">contact@grandfestin.com</a>, à l'attention d'Iris Hutin.<br/>
-                <b>Mécénat et partenariats</b> : <a href="mailto:partenariat@grandfestin.com">partenariat@grandfestin.com</a>
+          ) : (
+            <form onSubmit={onSubmit} noValidate>
+              <p className="contact2__note">Les champs marqués d'un astérisque sont obligatoires. À l'envoi, votre messagerie s'ouvre avec le message prêt à partir.</p>
+              <div className="field-row">
+                <div className="field"><label htmlFor="c-prenom">Prénom <span aria-hidden="true">*</span></label><input id="c-prenom" name="prenom" autoComplete="given-name" required {...fe('prenom')} />{err.prenom && <p className="field__err" id="err-prenom">{err.prenom}</p>}</div>
+                <div className="field"><label htmlFor="c-nom">Nom <span aria-hidden="true">*</span></label><input id="c-nom" name="nom" autoComplete="family-name" required {...fe('nom')} />{err.nom && <p className="field__err" id="err-nom">{err.nom}</p>}</div>
               </div>
-            </div>
-            <div className="refs">
-              <div className="ref-card"><div className="ref-card__lbl">Responsable handicap et pédagogique</div><div className="ref-card__name">Lucie Gueydon</div><div className="ref-card__role">Accessibilité, aménagements et coordination des formations</div></div>
-              <div className="ref-card"><div className="ref-card__lbl">Restaurateurs et partenaires</div><div className="ref-card__name">Armand Hurault</div><div className="ref-card__role">Directeur général, interlocuteur des restaurateurs et des partenaires</div></div>
-            </div>
-          </div>
-          <div className="contact__form">
-            <h3 className="h3">Écrivez-nous</h3>
-            <p className="body">Dites-nous qui vous êtes et ce que vous cherchez : la bonne personne vous répond sous 48 h ouvrées.</p>
-            {sent ? (
-              <div className="form-success"><b>Merci, votre message a été envoyé.</b><br/>Nous vous répondrons sous 48h à l'adresse indiquée.</div>
-            ) : (
-              <form onSubmit={(e)=>{e.preventDefault();setSent(true);}}>
-                <div className="field-row">
-                  <div className="field"><label>Prénom <span style={{color:'var(--teal)'}} aria-hidden="true">*</span></label><input required defaultValue=""/></div>
-                  <div className="field"><label>Nom <span style={{color:'var(--teal)'}} aria-hidden="true">*</span></label><input required/></div>
-                </div>
-                <div className="field"><label>Email <span style={{color:'var(--teal)'}} aria-hidden="true">*</span></label><input type="email" required placeholder="vous@exemple.fr"/></div>
-                <div className="field"><label>Organisation</label><input placeholder="Restaurant, OPCO, collectivité…"/></div>
-                <div className="field">
-                  <label>Motif de votre demande <span style={{color:'var(--teal)'}} aria-hidden="true">*</span></label>
-                  <div className="motif-group" role="radiogroup" aria-required="true">
-                    {[
-                      { value: 'engager', label: 'Recruter, accueillir un stagiaire', icon: 'handshake' },
-                      { value: 'former',  label: 'Se former', icon: 'graduation-cap' },
-                      { value: 'partner', label: 'Mécénat ou partenariat', icon: 'users' },
-                      { value: 'presse',  label: 'Presse', icon: 'newspaper' },
-                      { value: 'orienter', label: 'Orienter une personne', icon: 'hand-coins' },
-                    ].map((o, i) => (
-                      <label key={o.value} className="motif-pill">
-                        <input type="radio" name="motif" value={o.value} required defaultChecked={i===0}/>
-                        <span className="motif-pill__inner">
-                          <i data-lucide={o.icon} style={{width:18,height:18}}/>
-                          <span>{o.label}</span>
-                        </span>
-                      </label>
-                    ))}
-                  </div>
-                </div>
-                <div className="field"><label>Formation concernée <span style={{color:'var(--ink-soft)',fontWeight:400}}>(facultatif)</span></label><select defaultValue=""><option value="">Toutes formations / je ne sais pas encore</option><option>Prévention des violences sexistes et sexuelles</option><option>Management juste &amp; inclusif</option><option>Des Étoiles et des Femmes, titre de commis de cuisine</option><option>Des Étoiles et des Femmes, CAP cuisine</option><option>Tournesol</option></select></div>
-                <div className="field"><label>Message</label><textarea placeholder="Votre besoin, votre contexte…"/></div>
-                <button type="submit" className="btn btn--teal" style={{width:'100%',justifyContent:'center'}}>Envoyer le message</button>
-              </form>
-            )}
-          </div>
+              <div className="field"><label htmlFor="c-email">E-mail <span aria-hidden="true">*</span></label><input id="c-email" name="email" type="email" autoComplete="email" inputMode="email" required {...fe('email')} />{err.email && <p className="field__err" id="err-email">{err.email}</p>}</div>
+              <div className="field"><label htmlFor="c-org">Organisation</label><input id="c-org" name="organisation" autoComplete="organization" /></div>
+              <fieldset className="field motif-group">
+                <legend>Motif de votre demande</legend>
+                {motifs.map((o, i) => (
+                  <label key={o.value} className="motif-pill">
+                    <input type="radio" name="motif" value={o.value} defaultChecked={i === 0} />
+                    <span className="motif-pill__inner"><i data-lucide={o.icon} style={{ width: 18, height: 18 }} aria-hidden="true" /><span>{o.label}</span></span>
+                  </label>
+                ))}
+              </fieldset>
+              <div className="field"><label htmlFor="c-formation">Formation concernée (facultatif)</label>
+                <select id="c-formation" name="formation" defaultValue="">
+                  <option value="">Je ne sais pas encore</option>
+                  <option>Prévention des violences sexistes et sexuelles</option>
+                  <option>Management juste et inclusif</option>
+                  <option>Des Étoiles et des Femmes, titre de commis de cuisine</option>
+                  <option>Des Étoiles et des Femmes, CAP cuisine</option>
+                  <option>Tournesol</option>
+                </select>
+              </div>
+              <div className="field"><label htmlFor="c-msg">Message</label><textarea id="c-msg" name="message" rows={5} /></div>
+              <button type="submit" className="btnb btnb--teal contact2__submit">Préparer mon message <span className="arrow" aria-hidden="true">→</span></button>
+            </form>
+          )}
         </div>
       </div>
     </section>
@@ -112,7 +137,11 @@ function Contact() {
 // Footer partagé — grand titre révélé derrière + panneau qui glisse par-dessus (maquette home-b)
 function Footer() {
   const data = window.FESTIN_DATA;
-
+  // Le bloc de clôture fait partie du pied de page : une seule surface sombre,
+  // traversée par le trait du parcours (retour du 24/09/2026 : les deux blocs
+  // empilés ne s'accordaient pas). Absent là où la page a son propre appel final.
+  const hash = useRoute();
+  const sansFin = ['#/contact', '#/accompagnement/insertion', '#/accompagnement/professionnels'].includes(hash);
   return (
     <div className="footer-outer">
       <footer className="footer">
@@ -120,7 +149,9 @@ function Footer() {
           <img src="images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg" alt="" loading="lazy" />
         </div>
         <div className="footer__scrim" aria-hidden="true"></div>
+        <window.Trait className="footer__trait" width={120} draw={false} />
         <div className="wrap">
+          {!sansFin && <FinDePage />}
           <div className="footer__grid">
             <div className="footer__brand">
               <img className="footer__logo" src={data.brand.logoGold} alt="Festin" loading="lazy" />
@@ -132,7 +163,7 @@ function Footer() {
               </a>
             </div>
             <div>
-              <h5>Nous contacter</h5>
+              <h2 className="footer__h">Nous contacter</h2>
               <ul>
                 <li><a href="#/contact">Écrire à Festin</a></li>
                 <li><a href={`mailto:${data.contact.email}`}>{data.contact.email}</a></li>
@@ -140,16 +171,22 @@ function Footer() {
               </ul>
             </div>
             <div>
-              <h5>S'engager</h5>
+              <h2 className="footer__h">S'engager</h2>
               <ul>
-                <li><a href="#/accompagnement/professionnels">Restaurateurs</a></li>
-                <li><a href="#/contact">Partenaires &amp; financeurs</a></li>
-                <li><a href="#/accompagnement/insertion">Parcours d'insertion</a></li>
-                <li><a href="#/contact">Mécénat</a></li>
+                <li><a href="#/accompagnement/insertion">Apprendre un métier</a></li>
+                <li><a href="#/accompagnement/professionnels">Acteurs du secteur</a></li>
+                <li><a href="mailto:partenariat@grandfestin.com">Mécénat et partenariats</a></li>
+              </ul>
+              <h2 className="footer__h footer__h--2">L'association</h2>
+              <ul>
+                <li><a href="#/about">Qui sommes-nous</a></li>
+                <li><a href="#/impact">Notre impact</a></li>
+                <li><a href="#/actualites">Actualités et presse</a></li>
+                <li><a href="/mentions-legales">Mentions légales</a></li>
               </ul>
             </div>
             <div>
-              <h5>Nos projets</h5>
+              <h2 className="footer__h">Nos projets</h2>
               <ul>
                 {data.projets.map(p => (
                   <li key={p.id}><a href={`#/projets/${p.id}`}>{p.shortTitle}</a></li>
@@ -247,45 +284,56 @@ function ProjetExtra({ eyebrow, title, accent, lede, tone = 'cream', children })
   );
 }
 // ---------------------------------------------------------------------------
-// TestiCarousel — carrousel défilant des témoignages, standard des pages projet.
-// Sans dégradé sur les bords. S'il y a moins de `min` témoignages, la piste est
-// complétée par des cadres « à venir » (contenu fourni plus tard).
-// items : [{ name, meta, accroche, quote, photo, objPos, bw }]
+// TestiCarousel — témoignages en grande citation, une à la fois, avec flèches
+// (retour du 24/09/2026 : remplace les bandeaux défilants, accueil compris).
+// Pas de défilement automatique. Flèches du clavier quand le bloc a le focus,
+// annonce polie du changement. items : [{ name, meta, accroche, quote, photo,
+// objPos, bw, logo, chip }]. Citations reprises mot pour mot.
 // ---------------------------------------------------------------------------
-function TestiCarousel({ items = [], min = 6, label = 'Témoignages' }) {
-  const real = items.filter(Boolean);
-  const filled = real.slice();
-  while (filled.length < min) filled.push({ empty: true });
-  const loop = filled.concat(filled);
-  const tones = ['teal', 'cream', 'deep', 'gold'];
+function TestiCarousel({ items = [], label = 'Témoignages' }) {
+  const real = items.filter((t) => t && t.quote);
+  const [i, setI] = React.useState(0);
+  const qRef = React.useRef(null);
+  const n = real.length;
+  const go = (d) => setI((v) => (v + d + n) % n);
+  React.useEffect(() => {
+    const g = window.gsap, el = qRef.current;
+    if (!g || !el || (window.FESTIN_RM && window.FESTIN_RM())) return;
+    const tw = g.fromTo(el.querySelectorAll('.tq__q, .tq__who, .tq__media'), { y: 24, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.7, stagger: 0.06 });
+    return () => tw.kill();
+  }, [i]);
+  if (!n) return null;
+  const t = real[i];
+  const pad = (k) => String(k + 1).padStart(2, '0');
+  const ini = (t.name || '?').trim().split(/\s+/).map((w) => w[0]).slice(0, 2).join('');
   return (
-    <div className="tcar" role="region" aria-label={label}>
-      <div className="tcar__track" style={{ '--tcar-dur': (filled.length * 7) + 's' }}>
-        {loop.map((t, i) => (
-          <div className="tcar__item" key={i} aria-hidden={i >= filled.length ? true : undefined}>
-            {t.empty ? (
-              <article className="tcar__card tcar__card--empty">
-                <span className="tcar__ph" aria-hidden="true" />
-                <p>Témoignage à venir</p>
-              </article>
-            ) : (
-              <article className={'tcar__card tcar__card--' + tones[(i % filled.length) % tones.length] + (t.bw ? ' is-bw' : '')}>
-                <div className="tcar__head">
-                  {t.photo
-                    ? <img className="tcar__photo" src={URI(t.photo)} alt={'Portrait de ' + t.name} loading="lazy" style={{ objectPosition: t.objPos || 'center 18%' }} />
-                    : <span className="tcar__photo tcar__photo--ini" aria-hidden="true">{(t.name || '?').trim().charAt(0)}</span>}
-                  <div>
-                    <h3 className="tcar__name">{t.name}</h3>
-                    {t.meta && <span className="tcar__meta">{t.meta}</span>}
-                  </div>
-                </div>
-                {t.accroche && <p className="tcar__accroche">« {t.accroche} »</p>}
-                <p className="tcar__quote">« {t.quote} »</p>
-              </article>
-            )}
-          </div>
-        ))}
+    <div className="tq" role="group" aria-roledescription="carrousel" aria-label={label} tabIndex={n > 1 ? 0 : undefined}
+      onKeyDown={(e) => { if (e.key === 'ArrowRight') { e.preventDefault(); go(1); } if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); } }}>
+      <div className="tq__body" ref={qRef}>
+        <div className="tq__media" aria-hidden="true">
+          {t.photo
+            ? <img src={URI(t.photo)} alt="" loading="lazy" style={{ objectPosition: t.objPos || 'center 20%', filter: t.bw ? 'grayscale(1)' : undefined }} />
+            : t.logo ? <span className="tq__logo"><img src={URI(t.logo)} alt="" loading="lazy" /></span>
+            : <span className="tq__ini">{ini}</span>}
+        </div>
+        <figure className="tq__fig">
+          <blockquote className="tq__q">
+            {t.accroche && <p className="tq__acc">« {t.accroche} »</p>}
+            <p>« {t.quote} »</p>
+          </blockquote>
+          <figcaption className="tq__who">
+            <b>{t.name}</b>{t.meta && <span>{t.meta}</span>}{t.chip && <span className="tq__chip">{t.chip}</span>}
+          </figcaption>
+        </figure>
       </div>
+      {n > 1 && (
+        <div className="tq__nav">
+          <span className="tq__count" aria-hidden="true"><b>{pad(i)}</b> / {pad(n - 1)}</span>
+          <button type="button" className="tq__arrow" onClick={() => go(-1)} aria-label="Témoignage précédent">←</button>
+          <button type="button" className="tq__arrow" onClick={() => go(1)} aria-label="Témoignage suivant">→</button>
+          <span className="sr-only" aria-live="polite">Témoignage {i + 1} sur {n} : {t.name}</span>
+        </div>
+      )}
     </div>
   );
 }
@@ -297,3 +345,163 @@ window.Picture = Picture;
 window.Contact = Contact;
 window.Footer = Footer;
 window.FloatingCTA = FloatingCTA;
+
+// ---------------------------------------------------------------------------
+// PhotoMissing — cadre au bon ratio pour une photo que l'association n'a pas
+// encore fournie. Visible seulement si FESTIN_SHOW_PLACEHOLDERS (index.html).
+// ---------------------------------------------------------------------------
+function PhotoMissing({ subject, cadrage = 'plan moyen', orientation = 'paysage', ratio = '4/3', className = '' }) {
+  if (!window.FESTIN_SHOW_PLACEHOLDERS) return null;
+  return (
+    <div className={'ph-photo is-placeholder ' + className} style={{ aspectRatio: ratio }} role="img" aria-label={'Photo manquante : ' + subject}>
+      [PHOTO MANQUANTE : {subject}, {cadrage}, {orientation}]
+    </div>
+  );
+}
+window.PhotoMissing = PhotoMissing;
+
+// ---------------------------------------------------------------------------
+// Trait — le « trait du parcours », signature visuelle (même tracé que la
+// transition de page). Décoratif (aria-hidden). draw : se dessine à l'arrivée.
+// ---------------------------------------------------------------------------
+function Trait({ className = '', width = 150, draw = true, delay = 0.2 }) {
+  const ref = React.useRef(null);
+  React.useEffect(() => {
+    const p = ref.current, g = window.gsap;
+    if (!p || !g || !draw || (window.FESTIN_RM && window.FESTIN_RM())) return;
+    const len = p.getTotalLength();
+    const tw = g.fromTo(p, { strokeDasharray: len, strokeDashoffset: len }, { strokeDashoffset: 0, duration: 2.2, ease: 'expo.inOut', delay });
+    return () => tw.kill();
+  }, []);
+  return (
+    <svg className={'trait ' + className} viewBox="0 0 1316 664" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+      <path ref={ref} d={window.FESTIN_TRAIT} fill="none" strokeWidth={width} strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+window.Trait = Trait;
+
+// ---------------------------------------------------------------------------
+// FinDePage — même bloc de clôture sur chaque page (sauf Contact) : une phrase
+// d'action et trois portes. Famille or. Rendu par App (index.html).
+// ---------------------------------------------------------------------------
+function FinDePage() {
+  const F = window.FESTIN_DATA.fin;
+  if (!F) return null;
+  return (
+    <div className="fin" role="region" aria-labelledby="fin-t">
+      <h2 className="fin__t" id="fin-t">{F.title} <em>{F.accent}</em></h2>
+      <ul className="fin__links">
+        {F.links.map((l) => (
+          <li key={l.href}><a href={l.href}><span className="fin__who">{l.who}</span><span className="fin__what">{l.label} <span className="arrow" aria-hidden="true">→</span></span></a></li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+window.FinDePage = FinDePage;
+
+// ---------------------------------------------------------------------------
+// HeroPage — hero des pages intérieures (grammaire beetogreen, DIRECTION.md) :
+// couleur pleine d'une famille de la charte, trait du parcours, une étiquette
+// (la seule de la page), un titre-phrase, une preuve, une photo facultative.
+// tone : 'teal' | 'deep' | 'gold'
+// ---------------------------------------------------------------------------
+function HeroPage({ tone = 'teal', kicker, title, accent, proof, note, img, imgAlt = '', crumb = [], logo, logoAlt = '', children }) {
+  const ref = React.useRef(null);
+  React.useEffect(() => {
+    const g = window.gsap, el = ref.current;
+    if (!g || !el || (window.FESTIN_RM && window.FESTIN_RM())) return;
+    const M = window.FESTIN_MOTION;
+    const tl = g.timeline({ defaults: { ease: M.ease, duration: M.dur.title } })
+      .from(el.querySelector('.hp__t'), { yPercent: 16, autoAlpha: 0 }, 0.1)
+      .from(el.querySelectorAll('.hp__logo, .hp__kicker, .hp__proof, .hp__more, .hp__note'), { y: M.y, autoAlpha: 0, stagger: M.stagger }, 0.3);
+    const media = el.querySelector('.hp__media');
+    if (media) tl.from(media, { clipPath: 'inset(10% 10% 10% 10% round 32px)', scale: 1.06, duration: 1.4 }, 0.15);
+    return () => tl.kill();
+  }, []);
+  return (
+    <header className={'hp hp--' + tone + (img ? ' hp--img' : '') + (tone === 'gold' ? '' : ' on-dark')} ref={ref}>
+      <window.Trait className="hp__trait" width={160} />
+      <div className="wrap hp__grid">
+        <div className="hp__txt">
+          {crumb.length > 0 && (
+            <nav className="hp__crumb" aria-label="Fil d'Ariane">
+              {crumb.map((c, i) => (
+                <React.Fragment key={i}>{i > 0 && <span aria-hidden="true"> / </span>}{c.href ? <a href={c.href}>{c.label}</a> : <span aria-current="page">{c.label}</span>}</React.Fragment>
+              ))}
+            </nav>
+          )}
+          {logo && !img && <span className="hp__logo"><img src={URI(logo)} alt={logoAlt} /></span>}
+          {kicker && <span className="kicker hp__kicker">{kicker}</span>}
+          <h1 className="hp__t">{title} {accent && <em>{accent}</em>}</h1>
+          {proof && <p className="hp__proof">{proof}</p>}
+          {children && <div className="hp__more">{children}</div>}
+          {note && <p className="hp__note">{note}</p>}
+        </div>
+        {img && (
+          <div className="hp__mediawrap">
+            <figure className="hp__media"><window.Picture src={img} alt={imgAlt} sizes="(max-width: 900px) 100vw, 44vw" loading="eager" /></figure>
+            {/* logo de projet en surimpression, coin haut droit de l'image (retour du 24/09/2026) */}
+            {logo && <span className="hp__logo hp__logo--over"><img src={URI(logo)} alt={logoAlt} /></span>}
+          </div>
+        )}
+      </div>
+    </header>
+  );
+}
+window.HeroPage = HeroPage;
+
+// ---------------------------------------------------------------------------
+// Faq — questions fréquentes. Uniquement des réponses déjà publiées sur le site.
+// Boutons natifs (aria-expanded / aria-controls), ouverture par grid-template-rows.
+// items : [{ q, a }] — a peut être du JSX.
+// ---------------------------------------------------------------------------
+function Faq({ title = 'Vos questions', accent, items = [], tone = 'white', id = 'faq' }) {
+  const [open, setOpen] = React.useState(-1);
+  return (
+    <section className={'isec isec--' + tone + ' faq'} aria-labelledby={id + '-t'}>
+      <div className="wrap faq__grid">
+        <h2 className="isec__h" id={id + '-t'}>{title} {accent && <em>{accent}</em>}</h2>
+        <ul className="faq__list">
+          {items.map((it, i) => {
+            const on = open === i;
+            return (
+              <li className={'faq__item' + (on ? ' is-open' : '')} key={i}>
+                <h3 className="faq__q">
+                  <button type="button" aria-expanded={on} aria-controls={id + '-a' + i} id={id + '-q' + i} onClick={() => setOpen(on ? -1 : i)}>
+                    <span>{it.q}</span><span className="faq__ic" aria-hidden="true" />
+                  </button>
+                </h3>
+                <div className="faq__a" id={id + '-a' + i} role="region" aria-labelledby={id + '-q' + i}>
+                  <div className="faq__in"><p>{it.a}</p></div>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </section>
+  );
+}
+window.Faq = Faq;
+
+// ---------------------------------------------------------------------------
+// MarqueePause — arrête un bandeau qui défile en continu (WCAG 2.2.2).
+// Se place dans l'élément porteur de data-marquee, qui reçoit .is-paused.
+// ---------------------------------------------------------------------------
+function MarqueePause({ label = 'le défilement' }) {
+  const [p, setP] = React.useState(false);
+  const ref = React.useRef(null);
+  React.useEffect(() => {
+    const host = ref.current && ref.current.closest('[data-marquee]');
+    if (host) host.classList.toggle('is-paused', p);
+  }, [p]);
+  if (window.FESTIN_RM && window.FESTIN_RM()) return null;
+  return (
+    <button type="button" ref={ref} className="mpause" aria-pressed={p} onClick={() => setP((v) => !v)}>
+      <span aria-hidden="true">{p ? '▶' : '❚❚'}</span> {p ? 'Reprendre' : 'Pause'}<span className="sr-only"> {label}</span>
+    </button>
+  );
+}
+window.MarqueePause = MarqueePause;

@@ -3,7 +3,7 @@
 Site de l'association Festin (Marseille). Pas de date de sortie : le site sort quand tout est prêt. Ce fichier est lu au début de chaque session : il donne le cadre et ce qui est déjà tranché.
 
 ## Stack et lancement en local
-- React 18 (CDN) + Babel standalone, routeur par hash, GSAP 3.12.5 + ScrollTrigger, Lenis. Pas de build par défaut. **Levée le 23/09/2026** : une dépendance (CDN) ou un outillage est autorisé s'il est nécessaire pour un composant ou une mise en page aboutie — le justifier dans le commit.
+- React 18 (local, `vendor/`) + JSX **compilé** : `components/*.jsx` → `build/*.js` par `./tools/build.sh` (moteur JavaScript de macOS, aucun Node requis). **Après toute modification d'un .jsx, lancer `./tools/build.sh`** puis tester ; committer `build/` avec le source. Le navigateur ne charge plus Babel. Routeur : `components/App.jsx`. GSAP 3.15 + ScrollTrigger (local), Lenis. Règle « pas de build » levée le 24/09/2026.
 - Contenus : `window.FESTIN_DATA` dans `data/data.js` (dont `.home`, `.about`, `.stats`) et quelques textes en dur dans `components/*.jsx`. Styles : `styles/_tokens.css` + un CSS par page.
 - Aperçu : `.claude/launch.json`, config « Festin site » (port 4500). macOS bloque le serveur Ruby dans `~/Downloads` : il sert une **copie** dans `/tmp/Site_Festin`. Après chaque modification :
   `rsync -a --delete --exclude .git --exclude .claude --exclude ressources ./ /tmp/Site_Festin/`
@@ -44,6 +44,16 @@ Tics à rationner (une fois par page au plus, jamais en titre, toujours suivis d
 - Témoignages : carrousel défilant **sans dégradé**, standard sur toutes les pages projet ; cadres vides si pas assez de témoignages.
 - Sphère d'images (ImgSphere) : **seulement sur Des Étoiles et des Femmes**, bloc Soutenir ; les logos partenaires quittent ce bloc. Photos des chefs à venir.
 - Antennes : liste à survol (HoverImageList) avec les photos d'antenne du formulaire Drive en attendant les logos.
+
+## Reprise du 24/09/2026 (branche `reprise-design`) — conventions à respecter
+- Direction : `DIRECTION.md` (grammaire de beetogreen.com transposée). Rapport : `RAPPORT-REPRISE.md`.
+- **Fondations** dans `_tokens.css` : tailles `--fs-label` → `--fs-display`, espacements `--sp-1` → `--sp-10` et `--section`, mouvement `--ease-*` / `--dur-*` (côté GSAP : `window.FESTIN_MOTION`). Aucune taille de titre en dur.
+- **Blocs incomplets** : un seul interrupteur, `window.FESTIN_SHOW_PLACEHOLDERS` (index.html). `true` pendant le chantier, **`false` à la mise en ligne**. Photo manquante → `<window.PhotoMissing subject cadrage orientation ratio />` ; tout bloc de chantier porte la classe `is-placeholder`.
+- **Une seule étiquette par page**, dans le hero. Pas de tiret cadratin dans les textes. Pas de filet coloré latéral, pas de verre flouté.
+- Heros des pages intérieures : `window.HeroPage` (Sections.jsx) ; `PageHeader` le rend aussi. Bloc de fin commun : `FinDePage` (sauf Contact, Insertion, Acteurs du secteur).
+- GSAP 3.15 et React de production sont **locaux** (`vendor/`). Polices en woff2 (sous-ensemble latin).
+- Photos d'antennes : déposer `images/antennes/<ville>.jpg` **et** l'ajouter à `FESTIN_DATA.antennesPhotos`.
+- Aperçu de la reprise : config « Festin reprise » (port 4503), copie servie `/tmp/Site_Festin_reprise`.
 
 ## Faits tranchés
 - Chiffres 2025 : **441 personnes accompagnées, 83 % de sorties en emploi ou formation, 14 territoires**. Référence : `ressources/documents/rapport-activite-2025/rapport-activite-2025_v441-83_REFERENCE.pdf`. La version 453 / 72 % est une ancienne version ; les documents qui la citent (deck financeurs, kit de communication) sont à mettre à jour.

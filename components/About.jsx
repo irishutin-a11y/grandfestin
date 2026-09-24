@@ -18,29 +18,11 @@ function Title({ children, em, after, level = 2, className = '' }) {
 const HERO_IMG = 'images/photo-promo-groupe.jpg';
 
 function AboutHero() {
-  const root = useRef(null);
-  useEffect(() => {
-    if (RM() || !window.gsap) return;
-    const { gsap } = window;
-    const ctx = gsap.context(() => {
-      gsap.from('.ab-hero__bg img', { scale: 1.14, duration: 1.8, ease: 'expo.out' });
-      gsap.from('.ab-hero__inner > *', { y: 36, opacity: 0, duration: 1, ease: 'expo.out', stagger: .1, delay: .15 });
-      gsap.to('.ab-hero__bg', { yPercent: 18, ease: 'none',
-        scrollTrigger: { trigger: root.current, start: 'top top', end: 'bottom top', scrub: true } });
-    }, root);
-    return () => ctx.revert();
-  }, []);
+  // Même hero que toutes les pages intérieures (Sections.jsx, HeroPage). Sans sous-titre (retour PIT).
   return (
-    <section className="ab-hero on-dark" ref={root}>
-      <div className="ab-hero__bg" aria-hidden="true">
-        <window.Picture src={HERO_IMG} alt="" sizes="100vw" loading="eager" />
-      </div>
-      <div className="container ab-hero__inner">
-        <nav className="breadcrumb" aria-label="Fil d'Ariane"><a href="#/">Accueil</a><span className="breadcrumb__sep">/</span><span>Qui sommes-nous</span></nav>
-        <span className="ab-eyebrow ab-eyebrow--gold">L'association Festin</span>
-        <h1 className="ab-title ab-title--hero">Former, inclure, <em>transformer.</em></h1>
-      </div>
-    </section>
+    <window.HeroPage tone="deep" kicker="L'association Festin" title="Former, inclure," accent="transformer."
+      img={HERO_IMG} imgAlt="Une promotion de Des Étoiles et des Femmes réunie en tenue de cuisine"
+      crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Qui sommes-nous' }]} />
   );
 }
 
@@ -50,14 +32,13 @@ function CeQuOnEst() {
     <section className="ab-sec ab-sec--cream">
       <div className="container ab-split">
         <div className="ab-split__txt ab-reveal">
-          <span className="ab-eyebrow">Qui nous sommes</span>
           <Title em="un métier" after={null}>
             Des cuisines où l'on <span className="ab-thumb"><img src={src('images/photo-cuisine-action.jpg')} alt="" loading="lazy" /></span> apprend
           </Title>
           <p className="ab-body">L'association est créée en 1987. Son premier projet, La Table de Cana, ouvre à Marseille en 1993 : un traiteur où des salariés en insertion apprennent la cuisine en travaillant. Festin porte aujourd'hui cinq projets, du restaurant des Baumettes au programme national Restaure. Tous relèvent d'une association loi 1901, à but non lucratif et d'intérêt général, agréée ESUS.</p>
         </div>
         <figure className="ab-split__photo ab-reveal">
-          <window.Picture src='images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg' alt="Le Grand Festin, rassemblement annuel de l'association" sizes="(max-width: 899px) 100vw, 60vw" />
+          <window.Picture src='images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg' alt="Grandes tablées du premier Grand Festin, à Arles, en 2024" sizes="(max-width: 899px) 100vw, 60vw" />
         </figure>
       </div>
     </section>
@@ -68,7 +49,7 @@ function CeQuOnEst() {
 function Chiffres() {
   const root = useRef(null);
   const stats = window.FESTIN_DATA.stats.slice(0, 4);
-  const colors = ['var(--teal)', 'var(--coral)', 'var(--violet)', 'var(--gold)'];
+  const colors = ['var(--teal)', 'var(--coral)', 'var(--violet)', 'var(--gold-ink)'];
   useEffect(() => {
     if (RM() || !window.gsap) return;
     const { gsap } = window;
@@ -76,7 +57,7 @@ function Chiffres() {
       root.current.querySelectorAll('[data-count]').forEach(el => {
         const end = parseFloat(el.dataset.count), o = { v: 0 };
         el.textContent = '0';
-        gsap.to(o, { v: end, duration: 1.6, ease: 'power2.out', onUpdate: () => { el.textContent = Math.round(o.v); },
+        gsap.to(o, { v: end, duration: 1.6, ease: 'expo.out', onUpdate: () => { el.textContent = Math.round(o.v); },
           scrollTrigger: { trigger: el, start: 'top 85%', once: true } });
       });
     }, root);
@@ -95,6 +76,7 @@ function Chiffres() {
             </li>
           ))}
         </ul>
+        <p className="ab-src">Source : rapport d'activité Festin 2025. Taux de sortie : tous dispositifs confondus ; taux de réussite : Des Étoiles et des Femmes. <a href="#/impact">Tous nos chiffres depuis 2022</a></p>
       </div>
     </section>
   );
@@ -124,7 +106,6 @@ function Histoire() {
     <section className="ab-hist ab-sec--dark" ref={root}>
       <div className="ab-hist__word" ref={word} aria-hidden="true">HISTOIRE</div>
       <div className="container ab-hist__head">
-        <span className="ab-eyebrow ab-eyebrow--gold">Notre histoire</span>
         <Title em="1987.">L'insertion par la cuisine depuis</Title>
       </div>
       <div className="ab-hist__viewport">
@@ -179,7 +160,6 @@ function Equipe() {
     <section className="ab-sec ab-sec--cream ab-team">
       <div className="container ab-team__head">
         <div>
-          <span className="ab-eyebrow">L'équipe</span>
           <Title em="Festin">Les visages de</Title>
         </div>
         <div className="ab-arrows">
@@ -200,7 +180,9 @@ function Equipe() {
                   <span className="ab-member__frame">
                     {m.photo ? <img src={src(m.photo)} alt={m.name} loading="lazy" draggable="false" />
                     : m.avatar ? <span className="ab-member__ph ab-member__ph--avatar"><img src={src(m.avatar)} alt={m.name} loading="lazy" draggable="false" /></span>
-                             : <span className="ab-member__ph" aria-hidden="true">[XX]</span>}
+                             : window.FESTIN_SHOW_PLACEHOLDERS
+                               ? <span className="ab-member__ph is-placeholder">[PHOTO MANQUANTE : portrait de {m.name}, buste, vertical]</span>
+                               : <span className="ab-member__ph ab-member__ph--ini" aria-hidden="true">{m.name.split(' ').map(w => w[0]).slice(0, 2).join('')}</span>}
                     <span className="ab-member__role"><span>{p.label}</span>{m.role}</span>
                   </span>
                   <span className="ab-member__name">{m.name}</span>
@@ -212,12 +194,11 @@ function Equipe() {
         <span className="ab-team__end" aria-hidden="true" />
       </div>
       <div className="container ab-gov">
-        <span className="ab-eyebrow">Gouvernance</span>
         <h3 className="ab-gov__title">Le bureau de l'association</h3>
         <ul className="ab-gov__list">
           {window.FESTIN_DATA.about.gouvernance.map(g => (
             <li key={g.name} className="ab-gov__item">
-              <span className="ab-gov__avatar">{g.avatar ? <img src={src(g.avatar)} alt={g.name} loading="lazy" /> : <span aria-hidden="true">[XX]</span>}</span>
+              <span className="ab-gov__avatar">{g.avatar ? <img src={src(g.avatar)} alt={g.name} loading="lazy" /> : <span aria-hidden="true">{g.name.split(' ').map(w => w[0]).slice(0, 2).join('')}</span>}</span>
               <span><strong>{g.name}</strong><span>{g.role}</span></span>
             </li>
           ))}
@@ -254,7 +235,6 @@ function Valeurs() {
     <section className="ab-sec ab-sec--white" ref={root}>
       <div className="container">
         <div className="ab-head">
-          <span className="ab-eyebrow">Nos valeurs</span>
           <Title em="choix">Ce qui guide nos</Title>
         </div>
         <div className="ab-vals">
@@ -282,7 +262,8 @@ function Partenaires() {
   return (
     <section className="ab-sec ab-sec--cream ab-logos">
       <div className="container"><span className="ab-eyebrow ab-eyebrow--center">Ils nous font confiance</span></div>
-      <div className="ab-logos__mask">
+      <div className="ab-logos__mask" data-marquee>
+        <window.MarqueePause label="des logos partenaires" />
         <ul className="ab-logos__track">{row(false)}{row(true)}</ul>
       </div>
     </section>
@@ -294,7 +275,6 @@ function MotDirecteur() {
   return (
 <section className="ab-mot">
     <div className="container ab-mot__in">
-      <span className="ab-eyebrow">Le mot de la direction</span>
       <blockquote className="ab-mot__q">
         <p>L'excellence et la solidarité ne sont pas des mondes séparés. La haute gastronomie
         peut être un puissant levier d'insertion pour des personnes éloignées de l'emploi.
@@ -329,7 +309,6 @@ function Engager() {
       <window.Picture imgClassName="ab-engage__bg" src='images/photo-groupe-portrait.jpg' alt="" sizes="100vw" />
       <div className="ab-engage__veil" />
       <div className="container ab-engage__in">
-        <span className="ab-eyebrow ab-eyebrow--gold">S'engager</span>
         <Title em="côtés" className="ab-title--xl">S'engager à nos</Title>
         <ul className="ab-engage__cards">
           {cards.map((c, i) => (
@@ -369,7 +348,6 @@ function AboutPage() {
       <Valeurs />
       <Partenaires />
       <MotDirecteur />
-      <Engager />
     </div>
   );
 }

@@ -35,19 +35,33 @@
 })();
 </script>
 
-<link rel="stylesheet" href="styles/styles.css?v=43" />
-<link rel="stylesheet" href="styles/home-b.css?v=42" />
-<link rel="stylesheet" href="styles/projet.css?v=25" />
-<link rel="stylesheet" href="styles/about.css?v=30" />
+<link rel="stylesheet" href="styles/styles.css?v=1790257438" />
+<link rel="stylesheet" href="styles/home-b.css?v=1790257438" />
+<link rel="stylesheet" href="styles/projet.css?v=1790257438" />
+<link rel="stylesheet" href="styles/pages.css?v=1790257438" />
+<link rel="stylesheet" href="styles/about.css?v=1790257438" />
 <script src="https://unpkg.com/lucide@1.47.0/dist/umd/lucide.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="vendor/gsap/gsap.min.js?v=3.15.0"></script>
+<script src="vendor/gsap/ScrollTrigger.min.js?v=3.15.0"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
-<script src="data/images-manifest.js?v=23"></script>
-<script src="data/data.js?v=46"></script>
+<script src="vendor/react/react.production.min.js?v=18.3.1"></script>
+<script src="vendor/react/react-dom.production.min.js?v=18.3.1"></script>
+<script>
+/* ---- Réglages globaux (reprise du 24/09/2026) ----
+   FESTIN_SHOW_PLACEHOLDERS : true pendant le chantier (cadres « [PHOTO MANQUANTE] »,
+   témoignages à venir, partenaires sans logo visibles) ; false à la mise en ligne :
+   ces blocs disparaissent tous. Un seul interrupteur, rien d'autre à toucher. */
+window.FESTIN_SHOW_PLACEHOLDERS = true;
+document.documentElement.classList.toggle('ph-off', !window.FESTIN_SHOW_PLACEHOLDERS);
+/* Mouvement : mêmes courbes et durées que les variables CSS --ease-* / --dur-* */
+window.FESTIN_MOTION = { ease: 'expo.out', easeInOut: 'expo.inOut', dur: { fast: 0.16, base: 0.28, reveal: 0.52, title: 0.9, page: 1.1 }, y: 32, stagger: 0.08 };
+window.FESTIN_RM = function () { return window.matchMedia('(prefers-reduced-motion: reduce)').matches; };
+if (window.gsap) { window.gsap.registerPlugin(window.ScrollTrigger); window.gsap.defaults({ ease: 'expo.out', duration: 0.9 }); }
+</script>
+<link rel="preload" href="typos/KoHo-Bold.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="typos/KoHo-Regular.woff2" as="font" type="font/woff2" crossorigin />
+<script src="data/images-manifest.js?v=1790257438"></script>
+<script src="data/data.js?v=1790257438"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Aller au contenu</a>
@@ -65,136 +79,18 @@
   <p style="margin:0 0 4px">Le site grandfestin.com est le site officiel de l'Association Festin.</p>
   <p style="margin:0"><a href="/mentions-legales" style="color:#1D6B78">Mentions légales</a></p>
 </div>
-<script type="text/babel" src="components/Nav.jsx?v=30"></script>
-<script type="text/babel" src="components/Sections.jsx?v=39"></script>
-<script type="text/babel" src="components/Interactifs.jsx?v=17"></script>
-<script type="text/babel" src="components/HomeB.jsx?v=32"></script>
-<script type="text/babel" src="components/ProjetDef.jsx?v=39"></script>
-<script type="text/babel" src="components/ProjetLBM.jsx?v=31"></script>
-<script type="text/babel" src="components/ProjetRestaure.jsx?v=31"></script>
-<script type="text/babel" src="components/ProjetTableDeCana.jsx?v=29"></script>
-<script type="text/babel" src="components/ProjetTournesol.jsx?v=30"></script>
-<script type="text/babel" src="components/About.jsx?v=34"></script>
-<script type="text/babel" src="components/Pages.jsx?v=45"></script>
-<script type="text/babel" src="components/Accompagnement.jsx?v=5"></script>
-<script type="text/babel">
-// ─── Hash router ─────────────────────────────────────────────────
-function parseRoute(hash) {
-  const h = (hash || '').replace(/^#\/?/, '').replace(/\/$/, '');
-  if (!h) return { name: 'home' };
-  const parts = h.split('/');
-  if (parts[0] === 'formations' && parts[1]) return { name: 'formation', id: parts[1] };
-  if (parts[0] === 'formations') return { name: 'formations' };
-  if (parts[0] === 'projets' && parts[1]) return { name: 'projet', id: parts[1] };
-  if (parts[0] === 'restaurants' && parts[1] === 'sadi-carnot') return { name: 'sadi-carnot' };
-  if (parts[0] === 'accompagnement' && parts[1] === 'insertion') return { name: 'accomp-insertion' };
-  if (parts[0] === 'accompagnement' && parts[1] === 'professionnels') return { name: 'accomp-pros' };
-  if (parts[0] === 'academie') return { name: 'academie' };
-  if (parts[0] === 'actualites') return { name: 'actualites' };
-  if (parts[0] === 'impact') return { name: 'impact' };
-  if (parts[0] === 'about') return { name: 'about' };
-  if (parts[0] === 'contact') return { name: 'contact' };
-  return { name: '404' };
-}
-
-function App() {
-  const hash = useRoute();
-  const route = parseRoute(hash);
-  React.useEffect(() => {
-    if (window.lucide) window.lucide.createIcons();
-  }, [hash]);
-
-  // Lenis smooth scroll — site entier
-  React.useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion:reduce)').matches || !window.Lenis) return;
-    const lenis = new window.Lenis({ duration: 1.15, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
-    window.__lenis = lenis;
-    let raf;
-    const loop = (t) => { lenis.raf(t); raf = requestAnimationFrame(loop); };
-    raf = requestAnimationFrame(loop);
-    if (window.ScrollTrigger) {
-      lenis.on('scroll', window.ScrollTrigger.update);
-      if (window.gsap) window.gsap.ticker.lagSmoothing(0);
-    }
-    return () => { cancelAnimationFrame(raf); lenis.destroy(); window.__lenis = null; };
-  }, []);
-
-  // Changement de page dans une application à page unique : le navigateur ne
-  // recharge rien, donc rien n'est annoncé et le focus reste où il était.
-  // On déplace le focus sur le titre de la nouvelle page et on annonce son nom
-  // dans une zone live, pour les lecteurs d'écran.
-  const [annonce, setAnnonce] = React.useState('');
-  React.useEffect(() => {
-    const t = setTimeout(() => {
-      const h1 = document.querySelector('main h1');
-      if (h1) {
-        if (!h1.hasAttribute('tabindex')) h1.setAttribute('tabindex', '-1');
-        h1.focus({ preventScroll: true });
-        setAnnonce(h1.textContent.trim() + ' — page chargée');
-      }
-    }, 220);
-    return () => clearTimeout(t);
-  }, [hash]);
-
-  // à chaque changement de route : scroll top + refresh ScrollTrigger après rendu
-  React.useEffect(() => {
-    if (window.__lenis) window.__lenis.scrollTo(0, { immediate: true });
-    else window.scrollTo(0, 0);
-    const t = setTimeout(() => { if (window.ScrollTrigger) window.ScrollTrigger.refresh(); }, 80);
-    // titre et description de la page courante (référencement, onglet)
-    const D = window.FESTIN_DATA, base = 'Festin';
-    const proj = route.name === 'projet' ? D.projets.find(x => x.id === route.id) : null;
-    const titles = {
-      home: 'Festin — Former en cuisine, jusqu’à l’emploi',
-      about: 'Qui sommes-nous | ' + base, formations: 'Formations | ' + base, formation: 'Formation | ' + base,
-      academie: "L'Académie Festin | " + base, impact: 'Notre impact 2025 | ' + base, actualites: 'Actualités et presse | ' + base,
-      contact: 'Contact | ' + base, 'accomp-insertion': 'Apprendre un métier de cuisine | ' + base,
-      'accomp-pros': 'Recruter avec Festin | ' + base, 'sadi-carnot': 'Sadi Carnot | ' + base,
-    };
-    document.title = proj ? proj.shortTitle + ' | ' + base : (titles[route.name] || 'Page introuvable | ' + base);
-    const md = document.querySelector('meta[name="description"]');
-    if (md) md.setAttribute('content', proj ? proj.short : route.name === 'home'
-      ? "Festin, association à but non lucratif et d'intérêt général basée à Marseille : formation aux métiers de la cuisine, accompagnement des restaurants et programme Restaure."
-      : (document.title.split(' | ')[0] + ' : ' + base + ', association à but non lucratif et d\'intérêt général, forme aux métiers de la cuisine et accompagne les restaurants.'));
-    return () => clearTimeout(t);
-  }, [hash]);
-
-  let page;
-  switch (route.name) {
-    case 'home':              page = <HomePage />; break;
-    case 'formations':        page = <FormationsListPage />; break;
-    case 'formation':         page = <FormationDetailPage id={route.id} />; break;
-    case 'projet':            page = route.id === 'des-etoiles-et-des-femmes' ? <ProjetDefPage />
-                                     : route.id === 'les-beaux-mets' ? <ProjetLBMPage />
-                                     : route.id === 'restaure' ? <ProjetRestaurePage />
-                                     : route.id === 'la-table-de-cana' ? <ProjetTableDeCanaPage />
-                                     : route.id === 'tournesol' ? <ProjetTournesolPage />
-                                     : <ProjetPage id={route.id} />; break;
-    case 'sadi-carnot':       page = <SadiCarnotPage />; break;
-    case 'accomp-insertion':  page = <AccompagnementInsertionPage />; break;
-    case 'accomp-pros':       page = <AccompagnementProsPage />; break;
-    case 'academie':          page = <AcademiePage />; break;
-    case 'actualites':         page = <ActualitesPage />; break;
-    case 'impact':            page = <ImpactPage />; break;
-    case 'about':             page = <AboutPage />; break;
-    case 'contact':           page = <ContactPage />; break;
-    default:                  page = <NotFoundPage />;
-  }
-
-  return (
-    <div data-screen-label={`Site — ${route.name}`}>
-      <Nav />
-      <p role="status" aria-live="polite" className="sr-only">{annonce}</p>
-      <main id="main" tabIndex={-1}>{page}</main>
-      <Footer />
-      <FloatingCTA />
-    </div>
-  );
-}
-
-if (!window.location.hash) window.location.hash = '#/';
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
-</script>
+<script src="build/Nav.js?v=1790257438"></script>
+<script src="build/Sections.js?v=1790257438"></script>
+<script src="build/Interactifs.js?v=1790257438"></script>
+<script src="build/HomeB.js?v=1790257438"></script>
+<script src="build/ProjetDef.js?v=1790257438"></script>
+<script src="build/ProjetLBM.js?v=1790257438"></script>
+<script src="build/ProjetRestaure.js?v=1790257438"></script>
+<script src="build/ProjetTableDeCana.js?v=1790257438"></script>
+<script src="build/ProjetTournesol.js?v=1790257438"></script>
+<script src="build/About.js?v=1790257438"></script>
+<script src="build/Pages.js?v=1790257438"></script>
+<script src="build/Accompagnement.js?v=1790257438"></script>
+<script src="build/App.js?v=1790257438"></script>
 </body>
 </html>

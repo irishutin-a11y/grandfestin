@@ -6,28 +6,28 @@
 /* ---------- FONTS ---------- */
 @font-face {
   font-family: 'KoHo';
-  src: url('../typos/KoHo-Light.ttf') format('truetype');
+  src: url('../typos/KoHo-Light.woff2') format('woff2');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'KoHo';
-  src: url('../typos/KoHo-Regular.otf') format('opentype');
+  src: url('../typos/KoHo-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'KoHo';
-  src: url('../typos/festin-display.ttf') format('truetype');
+  src: url('../typos/festin-display.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'KoHo';
-  src: url('../typos/KoHo-Bold.ttf') format('truetype');
+  src: url('../typos/KoHo-Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -35,42 +35,42 @@
 /* Italiques et semi-bold : fichiers locaux (typos/), plus de dépendance à Google Fonts */
 @font-face {
   font-family: 'KoHo';
-  src: url('../typos/KoHo-LightItalic.ttf') format('truetype');
+  src: url('../typos/KoHo-LightItalic.woff2') format('woff2');
   font-weight: 300;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: 'KoHo';
-  src: url('../typos/KoHo-Italic.ttf') format('truetype');
+  src: url('../typos/KoHo-Italic.woff2') format('woff2');
   font-weight: 400;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: 'KoHo';
-  src: url('../typos/KoHo-MediumItalic.ttf') format('truetype');
+  src: url('../typos/KoHo-MediumItalic.woff2') format('woff2');
   font-weight: 500;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: 'KoHo';
-  src: url('../typos/KoHo-SemiBold.ttf') format('truetype');
+  src: url('../typos/KoHo-SemiBold.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'KoHo';
-  src: url('../typos/KoHo-SemiBoldItalic.ttf') format('truetype');
+  src: url('../typos/KoHo-SemiBoldItalic.woff2') format('woff2');
   font-weight: 600;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: 'KoHo';
-  src: url('../typos/KoHo-BoldItalic.ttf') format('truetype');
+  src: url('../typos/KoHo-BoldItalic.woff2') format('woff2');
   font-weight: 700;
   font-style: italic;
   font-display: swap;
@@ -108,7 +108,7 @@
   /* Backgrounds — warm, paper-like, never pure white */
   --cream:       #F7F3EC;   /* section bg (ticker, publics, témoignages, contact) */
   --off-white:   #FEFCF8;   /* surface, card bg on cream */
-  --white:       #FFFFFF;   /* pure white for dense surfaces (forms, modals) */
+  --white:       #FFFEFA;   /* surfaces denses (formulaires) : blanc teinté, jamais var(--off-white) pur */
 
   /* Text — warm teal-blacks, never #000 */
   --ink:         #0D2B30;   /* body, h1-h3 */
@@ -125,19 +125,27 @@
   --font-sans:    'KoHo', system-ui, sans-serif;
   --font-display: 'KoHo', system-ui, sans-serif;     /* same family, used at heavier weights */
 
-  /* Sizes — desktop-first, web */
-  --fs-eyebrow:   12px;     /* uppercase tag */
-  --fs-caption:   13px;
-  --fs-body-sm:   14px;
-  --fs-body:      16px;     /* default */
-  --fs-body-lg:   18px;     /* lede paragraphs */
-  --fs-h6:        16px;
-  --fs-h5:        18px;
-  --fs-h4:        22px;
-  --fs-h3:        28px;
-  --fs-h2:        40px;
-  --fs-h1:        56px;
-  --fs-display:   72px;     /* hero headline */
+  /* ÉCHELLE TYPOGRAPHIQUE UNIQUE (reprise du 24/09/2026 ; réduite d'un quart
+     le même jour sur retour : titres jugés trop grands)
+     Fluide de 360 à 1440 px, rapport ≥ 1,25 entre deux crans. Tous les titres
+     du site pointent ici ; aucune taille de titre en dur ailleurs. */
+  --fs-label:     0.8125rem;                                  /* 13 : étiquette en capitales */
+  --fs-small:     0.875rem;                                   /* 14 : légendes, notes */
+  --fs-body:      clamp(1rem, 0.96rem + 0.2vw, 1.125rem);     /* 16 → 18 */
+  --fs-lede:      clamp(1.125rem, 1.02rem + 0.5vw, 1.375rem); /* 18 → 22 */
+  --fs-h3:        clamp(1.25rem, 1.1rem + 0.6vw, 1.625rem);   /* 20 → 26 */
+  --fs-h2:        clamp(1.75rem, 1.2rem + 2.2vw, 3.25rem);    /* 28 → 52 */
+  --fs-h1:        clamp(2.25rem, 1.4rem + 3.6vw, 4.75rem);    /* 36 → 76 */
+  --fs-display:   clamp(2.5rem, 1.4rem + 5.2vw, 6.5rem);      /* 40 → 104 */
+  --fs-stat:      clamp(2.5rem, 1.8rem + 3vw, 4.5rem);        /* chiffres : 40 → 72 */
+  /* anciens noms conservés comme alias */
+  --fs-eyebrow:   var(--fs-label);
+  --fs-caption:   var(--fs-small);
+  --fs-body-sm:   var(--fs-small);
+  --fs-body-lg:   var(--fs-lede);
+  --fs-h6:        var(--fs-body);
+  --fs-h5:        var(--fs-lede);
+  --fs-h4:        var(--fs-h3);
 
   /* Weights */
   --fw-light:    300;
@@ -146,30 +154,38 @@
   --fw-bold:     700;
 
   /* Line heights */
-  --lh-tight:    1.12;      /* h1, hero */
-  --lh-snug:     1.25;      /* h2, h3 */
-  --lh-normal:   1.55;      /* body */
-  --lh-relaxed:  1.7;       /* lede, modal body */
+  --lh-display:  0.92;      /* titres en capitales, display et h1 */
+  --lh-tight:    1.0;       /* h2 en capitales */
+  --lh-snug:     1.15;      /* h3 */
+  --lh-normal:   1.6;       /* texte */
+  --lh-relaxed:  1.55;      /* chapeau (plus gros, un peu plus serré) */
 
   /* Letter-spacing */
-  --tracking-eyebrow: 0.14em;
-  --tracking-tight:   -0.01em;
+  --tracking-eyebrow: 0.12em;
+  --tracking-tight:   -0.02em;   /* grands titres */
 
-  /* ---------- SPACING ---------- */
-  --s-1:  4px;
-  --s-2:  8px;
-  --s-3:  12px;
-  --s-4:  16px;
-  --s-5:  24px;
-  --s-6:  32px;
-  --s-7:  48px;
-  --s-8:  64px;
-  --s-9:  96px;
-  --s-10: 128px;
-
-  /* Section padding */
-  --section-py: 96px;
-  --container:  1200px;
+  /* ---------- ÉCHELLE D'ESPACEMENT UNIQUE ----------
+     Petits crans fixes (composants), grands crans fluides (rythme des sections).
+     Entre deux groupes : au moins le double de l'écart interne. */
+  --sp-1:  4px;
+  --sp-2:  8px;
+  --sp-3:  12px;
+  --sp-4:  16px;
+  --sp-5:  24px;
+  --sp-6:  clamp(28px, 2vw + 20px, 40px);
+  --sp-7:  clamp(40px, 3vw + 28px, 64px);
+  --sp-8:  clamp(56px, 5vw + 36px, 96px);
+  --sp-9:  clamp(72px, 8vw + 40px, 144px);
+  --sp-10: clamp(96px, 12vw + 48px, 208px);
+  --section:    var(--sp-9);       /* padding vertical d'une section */
+  --gutter:     clamp(20px, 5vw, 96px);
+  --measure:    62ch;              /* longueur de ligne des paragraphes */
+  /* anciens noms conservés comme alias */
+  --s-1: var(--sp-1); --s-2: var(--sp-2); --s-3: var(--sp-3); --s-4: var(--sp-4);
+  --s-5: var(--sp-5); --s-6: var(--sp-6); --s-7: var(--sp-7); --s-8: var(--sp-8);
+  --s-9: var(--sp-9); --s-10: var(--sp-10);
+  --section-py: var(--section);
+  --container:  1320px;
 
   /* ---------- RADII ---------- */
   --r-1: 4px;
@@ -197,12 +213,17 @@
   --grad-hero:
     linear-gradient(135deg, rgba(10,45,51,0.92) 0%, rgba(15,60,68,0.78) 100%);
 
-  /* ---------- MOTION ---------- */
-  --ease-out:  cubic-bezier(0.22, 1, 0.36, 1);
-  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-  --t-fast:    150ms;
-  --t-base:    250ms;
-  --t-slow:    400ms;
+  /* ---------- MOUVEMENT CENTRALISÉ ----------
+     Sorties exponentielles, jamais de rebond. Même réglage côté GSAP :
+     window.FESTIN_MOTION (index.html). */
+  --ease-out:     cubic-bezier(0.16, 1, 0.3, 1);     /* expo.out : apparitions */
+  --ease-quart:   cubic-bezier(0.25, 1, 0.5, 1);     /* quart.out : survols */
+  --ease-in-out:  cubic-bezier(0.87, 0, 0.13, 1);    /* expo.inOut : transitions de page */
+  --dur-1: 160ms;   /* retour d'état : focus, pression */
+  --dur-2: 280ms;   /* survol, couleur */
+  --dur-3: 520ms;   /* apparition d'un élément */
+  --dur-4: 900ms;   /* apparition d'un titre, d'une image */
+  --t-fast: var(--dur-1); --t-base: var(--dur-2); --t-slow: var(--dur-3);
 }
 
 /* ============================================================
@@ -216,6 +237,7 @@ body {
   color: var(--ink);
   background: var(--off-white);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
@@ -223,7 +245,7 @@ h1, .h1 {
   font-family: var(--font-display);
   font-size: var(--fs-h1);
   font-weight: var(--fw-bold);
-  line-height: var(--lh-tight);
+  line-height: var(--lh-display);
   letter-spacing: var(--tracking-tight);
   color: var(--ink);
 }
@@ -253,12 +275,12 @@ h6, .h6 { font-size: var(--fs-h6); font-weight: var(--fw-semi); }
 .display {
   font-size: var(--fs-display);
   font-weight: var(--fw-bold);
-  line-height: var(--lh-tight);
+  line-height: var(--lh-display);
   letter-spacing: var(--tracking-tight);
 }
 
 p, .body { font-size: var(--fs-body); line-height: var(--lh-normal); color: var(--ink-mid); }
-.lede { font-size: var(--fs-body-lg); line-height: var(--lh-relaxed); color: var(--ink-mid); }
+.lede { font-size: var(--fs-lede); line-height: var(--lh-relaxed); color: var(--ink-mid); max-width: var(--measure); }
 .caption { font-size: var(--fs-caption); color: var(--ink-soft); }
 
 /* Eyebrow — uppercase pill or inline label, often gold */
@@ -299,12 +321,11 @@ p, .body { font-size: var(--fs-body); line-height: var(--lh-normal); color: var(
 :root{
   --teal-deepest: #06211F;
   --teal-line:    #C9DDE0;   /* alias de --teal-tint-2 */
-  --pad:   clamp(20px, 5vw, 96px);
-  --title: clamp(48px, 9.5vw, 150px);
-  /* H2 aligné sur l'échelle des pages projet (38px) avec un cran de plus pour
-     l'accueil : 88px écrasait la hiérarchie (H2 72 / H3 59 = rapport 1,2). */
-  --h2:    clamp(30px, 4vw, 48px);
-  --h3:    clamp(19px, 1.9vw, 26px);
+  /* alias de l'accueil, rebranchés sur l'échelle unique */
+  --pad:   var(--gutter);
+  --title: var(--fs-display);
+  --h2:    var(--fs-h2);
+  --h3:    var(--fs-h3);
 }
 
 /* ============================================================
@@ -322,3 +343,40 @@ p, .body { font-size: var(--fs-body); line-height: var(--lh-normal); color: var(
 /* Coupures de lignes : titres équilibrés, paragraphes sans mot orphelin */
 h1, h2, h3, .h1, .h2, .h3, .h2b, .display { text-wrap: balance; }
 p, li, blockquote, .lede { text-wrap: pretty; }
+
+/* ============================================================
+   FONDATIONS DE LA REPRISE (24/09/2026)
+   ============================================================ */
+/* Italique léger sur le mot clé des titres en capitales (charte) */
+h1 em, h2 em, .h1 em, .h2 em, .display em { font-style: italic; font-weight: var(--fw-light); letter-spacing: -0.03em; }
+
+/* Une seule étiquette par page, dans le hero */
+.kicker { display: inline-block; font-size: var(--fs-label); font-weight: var(--fw-bold); letter-spacing: var(--tracking-eyebrow); text-transform: uppercase; }
+
+/* Chiffres qui changent : largeur fixe, pas de saut de mise en page */
+[data-count], [data-count-target], .tabnum { font-variant-numeric: tabular-nums; }
+
+/* Focus visible partout, dans la couleur de la charte */
+:where(a, button, [tabindex]:not([tabindex="-1"]), input, select, textarea, summary):focus-visible {
+  outline: 3px solid var(--focus-color, var(--teal)); outline-offset: 3px; border-radius: 4px;
+}
+.on-dark { --focus-color: var(--gold); }
+
+/* Blocs incomplets (arbitrage 5C) : un seul réglage, window.FESTIN_SHOW_PLACEHOLDERS.
+   Vrai pendant le chantier ; faux à la mise en ligne, et ces blocs disparaissent. */
+html.ph-off .is-placeholder { display: none !important; }
+.ph-photo {
+  position: relative; display: grid; place-items: center; width: 100%; height: 100%;
+  min-height: 120px; padding: var(--sp-4); text-align: center;
+  background: repeating-linear-gradient(135deg, var(--teal-tint) 0 14px, var(--cream) 14px 28px);
+  color: var(--teal-dark); font-size: var(--fs-small); font-weight: var(--fw-semi); line-height: 1.35;
+  border: 1.5px dashed var(--teal-tint-2);
+}
+
+/* Mouvement réduit : aucune animation ni transition décorative */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 1ms !important; animation-iteration-count: 1 !important; transition-duration: 1ms !important; scroll-behavior: auto !important; }
+}
+
+/* Titre focalisé par le routeur (tabindex="-1") : pas de contour, ce n'est pas une commande */
+[tabindex="-1"]:focus { outline: none; }

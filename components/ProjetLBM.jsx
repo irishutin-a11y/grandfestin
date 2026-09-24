@@ -133,33 +133,16 @@ function ProjetLBMPage() {
       </nav>
 
       {/* HERO */}
-      <div className="proj-heroband">
-        <header className="proj-hero">
-          <div className="proj-hero__media">
-            <img src={PIMG(p.heroImages[0])} alt="Salle du restaurant Les Beaux Mets" />
-          </div>
-          <div className="proj-hero__scrim" aria-hidden="true"></div>
-          <div className="wrap proj-hero__inner">
-            <span className="proj-hero__eb">{p.eyebrow} · Marseille · un projet de l’association Festin</span>
-            <h1 className="proj-hero__t">{p.title} <em>{p.accent}</em></h1>
-            <p className="proj-hero__sub">{p.projetPhrase}</p>
-            <div className="proj-hero__cta">
-              <a className="btnb btnb--ghost" href={p.siteUrl} target="_blank" rel="noopener noreferrer">{p.siteName}</a>
-            </div>
-          </div>
-        </header>
-
-        <div className="proj-hero__logo">
-          <img src={PIMG(p.logo)} alt={"Logo " + p.shortTitle} />
-        </div>
-      </div>
+      <window.HeroPage tone="deep" kicker={p.eyebrow + " · Marseille · un projet de l’association Festin"} title={p.title} accent={p.accent} proof={p.projetPhrase}
+        img={p.heroImages[0]} imgAlt="Salle du restaurant Les Beaux Mets" logo={p.logo} logoAlt={"Logo " + p.shortTitle}>
+        <a className="btnb btnb--gold" href={p.siteUrl} target="_blank" rel="noopener noreferrer">{p.siteName}<span className="sr-only"> (nouvel onglet)</span> <span aria-hidden="true">↗</span></a>
+      </window.HeroPage>
 
       {/* CHIFFRES */}
       <section className="proj-stats" aria-labelledby="proj-stats-t">
         <div className="wrap proj-stats2">
           <div className="proj-stats2__intro reveal">
-            <span className="proj-sec" id="proj-stats-t">En bref</span>
-            <h2 className="proj-h2">{p.tagline}</h2>
+            <h2 className="proj-h2" id="proj-stats-t">{p.tagline}</h2>
             <p>{p.short}</p>
             <a className="btnb btnb--outline-ink" href={p.siteUrl} target="_blank" rel="noopener noreferrer">
               Visiter le site <span className="arrow" aria-hidden="true">→</span>
@@ -185,8 +168,7 @@ function ProjetLBMPage() {
       <section className="proj-projet" aria-labelledby="proj-projet-t">
         <div className="wrap proj-projet__split">
           <div className="proj-projet__body">
-            <span className="proj-sec" id="proj-projet-t">Le projet</span>
-            <h2 className="proj-h2 reveal">Un restaurant d’insertion<br />en milieu carcéral</h2>
+            <h2 className="proj-h2 reveal" id="proj-projet-t">Un restaurant d’insertion<br />en milieu carcéral</h2>
             <p className="proj-projet__lede reveal">{p.description}</p>
           </div>
           <div className="proj-projet__media reveal">
@@ -259,7 +241,7 @@ function ProjetLBMPage() {
         <ul className="pxs__people">
           {D.about.poles.find(x => x.key === 'cuisine').members.map((m, i) => (
             <li className="pxs__person" key={i}>
-              <span className="pxs__avatar">{m.avatar ? <img src={m.avatar} alt={m.name} loading="lazy" /> : <span aria-hidden="true">[XX]</span>}</span>
+              <span className="pxs__avatar">{m.avatar ? <img src={m.avatar} alt={m.name} loading="lazy" /> : <span aria-hidden="true">{m.name.split(' ').map(w => w[0]).slice(0, 2).join('')}</span>}</span>
               <span><strong>{m.name}</strong><span>{m.role}</span></span>
             </li>
           ))}
@@ -269,8 +251,7 @@ function ProjetLBMPage() {
       {/* TÉMOIGNAGES — duo statique */}
       <section className="proj-testi" aria-labelledby="proj-testi-t">
         <div className="wrap">
-          <span className="proj-sec" id="proj-testi-t">Ils l’ont vécu</span>
-          <h2 className="proj-h2 reveal">Ce qu’ils en disent</h2>
+          <h2 className="proj-h2 reveal" id="proj-testi-t">Ce qu’ils en disent</h2>
           <div className="reveal">
             <window.TestiCarousel items={(p.temoignages || []).map(t => ({ name: t.prenom, meta: t.role, quote: t.citation }))} />
           </div>
@@ -281,8 +262,7 @@ function ProjetLBMPage() {
       <section className="proj-support" aria-labelledby="proj-support-t">
         <div className="wrap proj-support__inner reveal">
           <div className="proj-support__body">
-            <span className="proj-sec" id="proj-support-t">Soutenir</span>
-            <h2 className="proj-h2">{p.implicationTitle}</h2>
+            <h2 className="proj-h2" id="proj-support-t">{p.implicationTitle}</h2>
             <p>{p.implicationText}</p>
             <div className="proj-support__cta">
               <a className="btnb btnb--gold proj-support__cta-main" href={p.implicationCtaHref}>
@@ -307,8 +287,7 @@ function ProjetLBMPage() {
       {presse.length > 0 && (
         <section className="proj-presse" aria-labelledby="proj-presse-t">
           <div className="wrap">
-            <span className="proj-sec" id="proj-presse-t">La presse</span>
-            <h2 className="proj-h2 reveal">Dans la presse</h2>
+            <h2 className="proj-h2 reveal" id="proj-presse-t">Dans la presse</h2>
             <div className="proj-news">
               {featured3.map((a, i) => (
                 <a key={i} className="proj-news__card reveal" href={a.href} target="_blank" rel="noopener noreferrer">
@@ -325,7 +304,7 @@ function ProjetLBMPage() {
             </div>
             {presseAlso.length > 0 && (
               <p className="proj-news__also reveal">
-                <b>Également paru dans</b>&nbsp;— {presseAlso
+                <b>Également paru dans :</b> {presseAlso
                   .map(a => a.source)
                   .filter((v, k, arr) => arr.findIndex(x => x.toLowerCase() === v.toLowerCase()) === k)
                   .join(' · ')}.
