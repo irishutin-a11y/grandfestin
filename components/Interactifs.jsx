@@ -307,7 +307,7 @@ window.TempsForts = TempsForts;
 // missing (ou cadres de chantier masqués), la carte est en texte seul.
 // rail : { tab, title, text } (ce qui court sous toutes les étapes)
 // ---------------------------------------------------------------------------
-function Frise({ id = 'frise', title, accent, lede, steps = [], rail, cta, tone = 'tint' }) {
+function Frise({ id = 'frise', title, accent, lede, steps = [], rail, cta, tone = 'tint', statique = false }) {
   const { useRef, useEffect } = React;
   const rootRef = useRef(null);
 
@@ -320,7 +320,8 @@ function Frise({ id = 'frise', title, accent, lede, steps = [], rail, cta, tone 
     const track = root.querySelector('.frise__track');
     const vp = root.querySelector('.frise__viewport');
     const bar = root.querySelector('.frise__bar');
-    if (window.innerWidth >= 900 && track && vp) {
+    // statique : suite courte, jamais épinglée (étapes en colonnes au bureau)
+    if (!statique && window.innerWidth >= 900 && track && vp) {
       root.classList.add('is-pinned');
       const dist = () => Math.max(0, track.scrollWidth - vp.clientWidth);
       const light = (p) => items.forEach((s, i) => {
@@ -348,7 +349,7 @@ function Frise({ id = 'frise', title, accent, lede, steps = [], rail, cta, tone 
   }, []);
 
   return (
-    <section className={'frise frise--' + tone} id={id} ref={rootRef} aria-labelledby={id + '-t'}>
+    <section className={'frise frise--' + tone + (statique ? ' frise--static' : '')} id={id} ref={rootRef} aria-labelledby={id + '-t'}>
       <div className="frise__inner">
         <div className="wrap frise__head">
           <h2 className="frise__h" id={id + '-t'}>{title}{accent && <> <em>{accent}</em></>}</h2>

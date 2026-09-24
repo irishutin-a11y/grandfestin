@@ -223,5 +223,72 @@ function MissionsNav({ currentId, title = 'Les projets', accent = 'de Festin', t
   );
 }
 
-Object.assign(window, { festinScrollTo, useGReveal, missionDe, GLink, GHead, Preuves, GVideo, Portes, Presse, Galerie, MissionsNav });
+// Appel final d'une page : une phrase, un texte court, une action (famille or pâle)
+function Appel({ id = 'appel', title, accent, text, cta, quote, tone = 'gold' }) {
+  return (
+    <section className={'g-sec g-sec--' + tone} id={id} aria-labelledby={id + '-t'}>
+      <div className="wrap g-appel">
+        <h2 className="g-h2 g-reveal" id={id + '-t'}>{title}{accent && <> <em>{accent}</em></>}</h2>
+        <div className="g-appel__txt g-reveal">
+          {quote && <blockquote className="g-appel__q"><p>« {quote.text} »</p><footer>{quote.who}</footer></blockquote>}
+          <p className="g-lede">{text}</p>
+          {cta && <div className="g-actions"><GLink l={cta} className="btnb btnb--teal">{cta.label} <span className="arrow" aria-hidden="true">→</span></GLink></div>}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Cartes claires numérotées (remplacent les aplats colorés en série)
+function Cartes({ items = [] }) {
+  return (
+    <ol className="g-cards">
+      {items.map((c, i) => (
+        <li className="g-card g-reveal" key={c.title} style={{ '--c': c.color || 'var(--teal)', transitionDelay: (i * 70) + 'ms' }}>
+          <span className="g-card__n" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+          <h3 className="g-card__t">{c.title}</h3>
+          <p>{c.desc}</p>
+          {c.link && <GLink l={c.link} className="lnk">{c.link.label} <span className="arrow" aria-hidden="true">→</span></GLink>}
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+// Projets rangés par mission, pour un public donné (pages d'accompagnement)
+function ProjetsParMission({ groupes = [] }) {
+  const D = window.FESTIN_DATA;
+  const cards = (D.home.missions.items || []).flatMap((m) => m.projets);
+  return (
+    <div className="g-ppm">
+      {groupes.map((g) => (
+        <div className="g-ppm__g" key={g.mission}>
+          <h3 className="g-ppm__t">{g.mission}</h3>
+          <ul className="g-ppm__list">
+            {g.projets.map((it) => {
+              const p = D.projets.find((x) => x.id === it.id) || {};
+              const c = cards.find((x) => x.id === it.id) || {};
+              return (
+                <li key={it.id} className="g-reveal">
+                  <a className="ac-proj" href={'#/projets/' + it.id}>
+                    <span className="ac-proj__img">
+                      <window.Picture src={c.img} alt="" sizes="(max-width: 700px) 100vw, 30vw" />
+                      {p.logo && <span className="ac-proj__logo"><img src={URI(p.logo)} alt="" loading="lazy" /></span>}
+                    </span>
+                    <span className="ac-proj__name">{p.shortTitle}</span>
+                    <span className="g-ppm__pour">{it.pour}</span>
+                    <span className="ac-proj__line">{it.quoi}</span>
+                    <span className="ac-proj__go" aria-hidden="true">Découvrir <span className="arrow">→</span></span>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+Object.assign(window, { Appel, Cartes, ProjetsParMission, festinScrollTo, useGReveal, missionDe, GLink, GHead, Preuves, GVideo, Portes, Presse, Galerie, MissionsNav });
 })();
