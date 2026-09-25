@@ -539,7 +539,7 @@ function ActualitesPage() {
         <div className="wrap apkit">
           <div>
             <h2 className="isec__h" id="actu-kit">Espace <em>presse</em></h2>
-            <p className="isec__lede">Demandes d'interview, visuels, chiffres : écrivez à <a href="mailto:contact@grandfestin.com">contact@grandfestin.com</a>, à l'attention d'Iris Hutin, chargée de projet Communication. Nos rapports d'activité sont sur la <a href="#/impact">page Impact</a>.</p>
+            <p className="isec__lede">Demandes d'interview, visuels, chiffres : écrivez à <a href="mailto:contact@grandfestin.com">contact@grandfestin.com</a>. Nos rapports d'activité sont sur la <a href="#/impact">page Impact</a>.</p>
             <div className="apkit__logos">
               <a className="btnb btnb--teal" href="images/logo-festin.png" download>Logo Festin, couleur</a>
               <a className="lnk" href="images/logo-festin-jaune.png" download>Logo Festin, jaune</a>

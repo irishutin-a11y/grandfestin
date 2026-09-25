@@ -82,7 +82,7 @@ function Contact() {
           <dl className="contact2__dl">
             <div><dt>E-mail</dt><dd><a href={'mailto:' + c.email}>{c.email}</a></dd></div>
             <div><dt>Mécénat et partenariats</dt><dd><a href="mailto:partenariat@grandfestin.com">partenariat@grandfestin.com</a></dd></div>
-            <div><dt>Presse</dt><dd><a href={'mailto:' + c.email}>{c.email}</a>, à l'attention d'Iris Hutin</dd></div>
+            <div><dt>Presse</dt><dd><a href={'mailto:' + c.email}>{c.email}</a></dd></div>
             <div><dt>Adresse</dt><dd>{c.address}</dd></div>
             <div><dt>Accessibilité et handicap</dt><dd>Lucie Gueydon, responsable handicap et pédagogique : aménagements et coordination des formations</dd></div>
             <div><dt>Numéros</dt><dd>NDA {c.nda} · SIRET {c.siret}</dd></div>
