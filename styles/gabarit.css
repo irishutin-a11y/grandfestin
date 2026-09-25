@@ -294,3 +294,48 @@
 .pj-intro__sig strong{color:var(--ink);font-weight:700}
 .pj-intro__lnk{justify-self:start}
 .pj-intro + .ac-mis--page{padding-top:var(--sp-8)}
+/* Nos projets : galerie de cartes filtrable, une couleur par mission */
+.pj-gal__grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-5)}
+@media (max-width:1023px){ .pj-gal__grid{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (max-width:639px){ .pj-gal__grid{grid-template-columns:1fr} }
+.pj-card{--mc:var(--gold);--mt:var(--ink);display:flex;flex-direction:column;height:100%;border-radius:22px;overflow:hidden;background:var(--off-white);
+  border:1px solid var(--line-strong);color:var(--ink);transition:transform var(--dur-3) var(--ease-out),box-shadow var(--dur-3) var(--ease-out),border-color var(--dur-3) var(--ease-out)}
+.pj-card--accompagner{--mc:var(--teal);--mt:var(--off-white)}
+.pj-card--changer{--mc:var(--violet-ink);--mt:var(--off-white)}
+.pj-card:hover{transform:translateY(-4px);border-color:var(--mc);box-shadow:0 22px 44px -22px rgba(15,60,68,.35)}
+.pj-card__img{position:relative;display:block;aspect-ratio:4/3;background:var(--teal-tint)}
+.pj-card__img picture,.pj-card__img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pj-card__logo{position:absolute;left:14px;bottom:14px;display:grid;place-items:center;height:48px;min-width:48px;padding:6px 10px;border-radius:12px;background:var(--white)}
+.pj-card__logo img{position:static;max-height:36px;max-width:110px;width:auto;height:auto;object-fit:contain}
+.pj-card__body{display:flex;flex-direction:column;gap:10px;flex:1;padding:var(--sp-5) var(--sp-5) var(--sp-6)}
+.pj-card__mis{align-self:flex-start;padding:5px 12px;border-radius:999px;background:var(--mc);color:var(--mt);font-size:13px;font-weight:700}
+.pj-card__t{font-size:var(--fs-h3);font-weight:700;line-height:1.1;text-transform:uppercase;color:var(--teal-dark)}
+.pj-card__d{font-size:15px;line-height:1.55;color:var(--ink-mid)}
+.pj-card__go{margin-top:auto;padding-top:var(--sp-3);font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--teal-dark)}
+.pj-card:hover .pj-card__go .arrow{transform:translateX(4px)}
+.pj-card__go .arrow{display:inline-block;transition:transform var(--dur-2) var(--ease-out)}
+@media (prefers-reduced-motion:reduce){ .pj-card:hover{transform:none} }
+/* Compteurs des pages projet : quatre aplats alternés (retours du 25/09/2026) */
+.g-compteurs{margin-top:var(--sp-8)}
+.g-compteurs__grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,1.6vw,20px)}
+.g-compteur{border-radius:22px;padding:clamp(22px,2.4vw,30px);min-height:clamp(150px,14vw,184px);display:flex;flex-direction:column;justify-content:flex-end;gap:10px}
+.g-compteur__n{font-size:var(--fs-stat);font-weight:700;line-height:.9;letter-spacing:-.03em;white-space:nowrap;font-variant-numeric:tabular-nums}
+.g-compteur__l{font-size:15px;line-height:1.35;max-width:22ch}
+.g-compteur--teal{background:var(--teal);color:var(--off-white)}
+.g-compteur--gold{background:var(--gold);color:var(--ink)}
+.g-compteur--violet{background:var(--violet-ink);color:var(--off-white)}
+.g-compteur--deep{background:var(--teal-dark);color:var(--off-white)}
+.g-compteurs .g-src{margin-top:var(--sp-4)}
+@media (max-width:1023px){ .g-compteurs__grid{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (max-width:420px){ .g-compteur__n{font-size:clamp(2rem,10vw,2.6rem)} }
+/* Académie : « Un secteur qui recrute », bloc sombre à trois chiffres */
+.aca-besoin{background:var(--teal-dark);color:var(--off-white);padding:var(--section) 0}
+.aca-besoin .g-h2{color:var(--off-white)}
+.aca-besoin .g-h2 em{color:var(--gold)}
+.aca-besoin .g-lede{color:rgba(254,252,248,.86);max-width:62ch}
+.aca-besoin__grid{list-style:none;margin:var(--sp-7) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.aca-besoin__c{display:grid;gap:10px;align-content:start;padding:var(--sp-5) var(--sp-5) var(--sp-6);border-radius:18px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14)}
+.aca-besoin__c b{font-size:clamp(30px,1.2rem + 1.6vw,44px);font-weight:700;line-height:1;letter-spacing:-.02em;color:var(--gold)}
+.aca-besoin__c span{font-size:15px;line-height:1.45;color:rgba(254,252,248,.82)}
+.aca-besoin__src{margin:var(--sp-5) 0 0;font-size:14px;color:rgba(254,252,248,.7)}
+@media (max-width:767px){ .aca-besoin__grid{grid-template-columns:1fr} }

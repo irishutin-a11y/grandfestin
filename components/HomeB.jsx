@@ -13,25 +13,6 @@ function HomeB() {
     const root = rootRef.current;
     const gsap = window.gsap, ST = window.ScrollTrigger;
     const reduce = window.FESTIN_RM ? window.FESTIN_RM() : false;
-    // Preuves : chaque mot devient un <span> pour être révélé au défilement
-    const splitWords = (el) => {
-      if (el.dataset.split === '1') return;
-      const walk = (node) => {
-        [...node.childNodes].forEach((c) => {
-          if (c.nodeType === 3) {
-            const frag = document.createDocumentFragment();
-            c.textContent.split(/(\s+)/).forEach((w) => {
-              if (!w) return;
-              if (/^\s+$/.test(w)) { frag.appendChild(document.createTextNode(w)); return; }
-              const sp = document.createElement('span'); sp.className = 'w'; sp.textContent = w; frag.appendChild(sp);
-            });
-            c.replaceWith(frag);
-          } else if (c.nodeType === 1) walk(c);
-        });
-      };
-      walk(el); el.dataset.split = '1';
-    };
-
     // Le fil des missions va du centre de la première pastille au centre de la dernière
     const list = root.querySelector('.ac-mis__list');
     const placeFil = () => {
@@ -48,7 +29,7 @@ function HomeB() {
 
     if (reduce || !gsap || !ST) {
       root.querySelectorAll('.reveal').forEach((el) => el.classList.add('is-in'));
-      root.querySelectorAll('.ac-mis__item, .ac-pv__line').forEach((el) => el.classList.add('is-on'));
+      root.querySelectorAll('.ac-mis__item').forEach((el) => el.classList.add('is-on'));
       return () => roFil.disconnect();
     }
     const M = window.FESTIN_MOTION;
@@ -78,13 +59,13 @@ function HomeB() {
           scrollTrigger: { trigger: it, start: 'top 75%', once: true } });
       });
 
-      // PREUVES : les mots passent de l'estompé au net ; les chiffres se surlignent
-      root.querySelectorAll('.ac-pv__line').forEach((line) => {
-        splitWords(line);
-        const words = line.querySelectorAll('.w');
-        gsap.timeline({ scrollTrigger: { trigger: line, start: 'top 82%', end: 'top 42%', scrub: 0.5,
-          onEnter: () => line.classList.add('is-on') } })
-          .fromTo(words, { opacity: 0.16 }, { opacity: 1, stagger: 0.04, ease: 'none' });
+      // CHIFFRES : comptage de 0 à la valeur, une fois
+      root.querySelectorAll('.ac-chiffre__n').forEach((el) => {
+        const target = +el.dataset.count, suffix = el.dataset.suffix || '';
+        ST.create({ trigger: el, start: 'top 88%', once: true, onEnter: () => {
+          const o = { v: 0 };
+          gsap.to(o, { v: target, duration: 1.6, ease: 'expo.out', onUpdate: () => { el.textContent = Math.round(o.v) + suffix; } });
+        } });
       });
 
       // RÉVÉLATIONS génériques
@@ -114,7 +95,7 @@ function HomeB() {
               <span className="ln"><span><em>{H.hero.titleAccent}</em></span></span>
             </h1>
             <p className="ac-hero__sig">{H.hero.signature}</p>
-            <p className="ac-hero__lede">{H.hero.lede}</p>
+            {H.hero.lede && <p className="ac-hero__lede">{H.hero.lede}</p>}
             <div className="ac-hero__cta">
               <a className="btnb btnb--gold" href={H.hero.ctaPrimary.href}>{H.hero.ctaPrimary.label} <span className="arrow" aria-hidden="true">→</span></a>
               <a className="ac-hero__lnk" href={H.hero.ctaSecondary.href}>{H.hero.ctaSecondary.label} <span className="arrow" aria-hidden="true">→</span></a>
@@ -128,10 +109,16 @@ function HomeB() {
 
       {/* 2 · CONFIANCE — statuts, puis les médias qui ont parlé de Festin */}
       <section className="ac-conf" aria-label="L'association en bref">
-        <div className="wrap ac-conf__row">
-          <ul className="ac-conf__statuts">
-            {H.confiance.statuts.map((t) => <li key={t}>{t}</li>)}
+        {/* statuts en bandeau défilant (retours du 25/09/2026) ; liste fixe en mouvement réduit */}
+        <div className="ac-conf__band" data-marquee>
+          <ul className="ac-conf__statuts ac-conf__statuts--defile" aria-label="Statuts de l'association">
+            {H.confiance.statuts.concat(H.confiance.statuts, H.confiance.statuts, H.confiance.statuts).map((t, i) => (
+              <li key={i} aria-hidden={i >= H.confiance.statuts.length ? true : undefined}>{t}</li>
+            ))}
           </ul>
+          <window.MarqueePause label="des statuts" />
+        </div>
+        <div className="wrap ac-conf__row">
           <div className="ac-conf__presse">
             <span className="ac-conf__label">{H.confiance.presseLabel}</span>
             <ul className="ac-conf__media">
@@ -159,41 +146,26 @@ function HomeB() {
       <window.Frise id="parcours" tone="tint" title={H.frise.title} accent={H.frise.titleAccent} lede={H.frise.lede}
         steps={H.frise.steps} rail={H.frise.rail} cta={H.frise.cta} />
 
-      {/* 5 · PREUVES — des phrases, pas des compteurs ; puis la direction et les chefs */}
-      <section className="ac-pv" aria-labelledby="ac-pv-t">
+      {/* 5 · CE QUE 2025 A DONNÉ — les quatre chiffres clés, en couleur, sur fond sombre */}
+      <section className="ac-chiffres on-dark" id="chiffres" aria-labelledby="ac-chiffres-t">
         <div className="wrap">
-          <h2 className="ac-h2 reveal" id="ac-pv-t">{H.preuve.title} <em>{H.preuve.titleAccent}</em></h2>
-          <div className="ac-pv__lines">
-            {H.preuve.lignes.map((l, i) => <p className="ac-pv__line" key={i} dangerouslySetInnerHTML={{ __html: l }} />)}
-          </div>
-          <p className="ac-pv__src">{H.preuve.sources} <a className="lnk" href={H.preuve.lien.href}>{H.preuve.lien.label} <span className="arrow" aria-hidden="true">→</span></a></p>
-          <div className="ac-pv__foot">
-            <figure className="ac-pv__quote reveal">
-              <blockquote><p>« {H.preuve.citation.text} »</p></blockquote>
-              <figcaption><b>{H.preuve.citation.auteur}</b> <span>{H.preuve.citation.role}</span></figcaption>
-            </figure>
-            <div className="ac-pv__chefs reveal">
-              <h3 className="ac-pv__chefsT">{H.preuve.chefsTitre}</h3>
-              <ul>
-                {[H.preuve.marraine, ...D.about.chefs].map((c) => (
-                  <li key={c.name}><b>{c.name}</b> <span>{c.place}</span></li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          <h2 className="ac-h2 reveal" id="ac-chiffres-t">{H.impact.title} <em>{H.impact.titleAccent}</em></h2>
+          <ul className="ac-chiffres__grid">
+            {D.stats.map((s, i) => {
+              const suffix = s.unit === '%' ? '\u00a0%' : (s.unit || '');
+              return (
+                <li className="ac-chiffre reveal" key={i}>
+                  <span className="ac-chiffre__n" data-count={String(s.value).replace(/[^\d]/g, '')} data-suffix={suffix}>{s.value}{suffix}</span>
+                  <span className="ac-chiffre__l">{s.label}</span>
+                </li>
+              );
+            })}
+          </ul>
+          <p className="ac-chiffres__src">{H.impact.source} <a href="#/impact">Voir tous nos rapports d'activité <span aria-hidden="true">→</span></a></p>
         </div>
       </section>
 
-      {/* 6 · DANS LEURS MOTS — une grande citation à la fois */}
-      <section className="ac-quotes" id="quotes" aria-labelledby="ac-quotes-t">
-        <div className="wrap">
-          <h2 className="ac-h2 reveal" id="ac-quotes-t">{H.quotes.title}</h2>
-          <p className="ac-lede reveal">{H.quotes.lede}</p>
-          <window.TestiCarousel label="Témoignages" items={H.quotes.cards.map((c) => ({ name: c.name, meta: c.role, quote: c.q, chip: c.chip, logo: c.logo }))} />
-        </div>
-      </section>
-
-      {/* 7 · PAR OÙ COMMENCER — les parcours se séparent après la preuve et les témoignages */}
+      {/* 6 · PAR OÙ COMMENCER — les parcours se séparent après les chiffres */}
       <section className="ac-portes" id="portes" aria-labelledby="ac-portes-t">
         <div className="wrap">
           <h2 className="ac-h2 reveal" id="ac-portes-t">{H.portes.title} <em>{H.portes.titleAccent}</em></h2>
@@ -276,32 +248,60 @@ function MissionsListe() {
   );
 }
 
-// Page « Nos projets » (#/projets) : le niveau intermédiaire du fil d'Ariane des pages projet
+// Page « Nos projets » (#/projets) : galerie de cartes filtrable par mission
+// (retours du 25/09/2026 : ne pas reprendre la liste à fil de l'accueil)
 function ProjetsIndexPage() {
   const root = useRef(null);
   window.useGReveal(root);
-  useEffect(() => {
-    const list = root.current.querySelector('.ac-mis__list');
-    const place = () => {
-      const ns = list.querySelectorAll('.ac-mis__n');
-      if (ns.length < 2) return;
-      const L = list.getBoundingClientRect(), a = ns[0].getBoundingClientRect(), b = ns[ns.length - 1].getBoundingClientRect();
-      list.style.setProperty('--fil-top', (a.top - L.top + a.height / 2) + 'px');
-      list.style.setProperty('--fil-h', (b.top - a.top) + 'px');
-    };
-    place();
-    list.querySelectorAll('.ac-mis__item').forEach((it) => it.classList.add('is-on'));
-    const ro = new ResizeObserver(place); ro.observe(list);
-    return () => ro.disconnect();
-  }, []);
   const D = window.FESTIN_DATA;
   const H = D.home;
+  const byId = (id) => D.projets.find((p) => p.id === id) || {};
+  const missions = H.missions.items;
+  const cartes = missions.flatMap((m) => m.projets.map((pr) => ({ ...pr, mission: m })));
+  const [filtre, setFiltre] = React.useState('all');
+  const vus = filtre === 'all' ? cartes : cartes.filter((c) => c.mission.key === filtre);
+  const nomMission = (m) => m.title + (m.titleAccent ? ' ' + m.titleAccent : '');
   return (
     <div className="gpage" ref={root} data-screen-label="Nos projets">
       <window.HeroPage tone="teal" kicker="Six projets, trois missions" title="Nos" accent="projets"
-        proof={H.missions.lede}
+        proof={H.missions.ledeProjets}
         crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Nos projets' }]} />
-      {/* Pourquoi six projets et pas un : la direction, mot pour mot (édito du rapport d'activité 2025, repris en entier sur Qui sommes-nous) */}
+      <section className="g-sec g-sec--white pj-gal" aria-labelledby="pj-gal-t">
+        <div className="wrap">
+          <h2 className="sr-only" id="pj-gal-t">Les projets</h2>
+          <div className="filters" role="group" aria-label="Filtrer par mission">
+            <button type="button" className={'filter' + (filtre === 'all' ? ' active' : '')} aria-pressed={filtre === 'all'} onClick={() => setFiltre('all')}>Tous ({cartes.length})</button>
+            {missions.map((m) => (
+              <button type="button" key={m.key} className={'filter' + (filtre === m.key ? ' active' : '')} aria-pressed={filtre === m.key} onClick={() => setFiltre(m.key)}>
+                {nomMission(m)} ({m.projets.length})
+              </button>
+            ))}
+          </div>
+          <ul className="pj-gal__grid">
+            {vus.map((c) => {
+              const p = byId(c.id);
+              const logo = c.logo || p.logo;
+              return (
+                <li key={c.id}>
+                  <a className={'pj-card pj-card--' + c.mission.key} href={c.href || ('#/projets/' + c.id)}>
+                    <span className="pj-card__img">
+                      <window.Picture src={c.img} alt="" sizes="(max-width: 700px) 100vw, 30vw" />
+                      {logo && <span className="pj-card__logo"><img src={IMG(logo)} alt="" loading="lazy" /></span>}
+                    </span>
+                    <span className="pj-card__body">
+                      <span className="pj-card__mis">{nomMission(c.mission)}</span>
+                      <span className="pj-card__t">{c.name || p.shortTitle}</span>
+                      <span className="pj-card__d">{c.line}</span>
+                      <span className="pj-card__go">Découvrir <span className="arrow" aria-hidden="true">→</span></span>
+                    </span>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </section>
+      {/* Pourquoi six projets et pas un : la direction, mot pour mot (édito du rapport d'activité 2025) */}
       <section className="g-sec g-sec--cream pj-intro" aria-label="Le mot de la direction">
         <div className="wrap">
           <figure className="pj-intro__fig g-reveal">
@@ -314,11 +314,6 @@ function ProjetsIndexPage() {
             </figcaption>
             <a className="lnk pj-intro__lnk" href="#/about">Qui sommes-nous <span className="arrow" aria-hidden="true">→</span></a>
           </figure>
-        </div>
-      </section>
-      <section className="ac-mis ac-mis--page" aria-label="Les projets, rangés par mission">
-        <div className="wrap">
-          <MissionsListe />
         </div>
       </section>
     </div>

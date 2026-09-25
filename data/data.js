@@ -1129,7 +1129,6 @@ Object.assign(window.FESTIN_DATA.home, {
     kicker: "Association d'intérêt général, depuis 1987",
     title: "Former en cuisine,", titleAccent: "jusqu'à l'emploi.",
     signature: "Le goût d'avancer ensemble",
-    lede: "Nous formons aux métiers de la cuisine des femmes, des personnes réfugiées et des personnes détenues, et nous les suivons jusqu'au contrat. Avec les restaurants, nous agissons contre les violences en cuisine.",
     ctaPrimary: { label: "Apprendre un métier", href: "#/accompagnement/insertion" },
     ctaSecondary: { label: "Vous recrutez ? Travaillons ensemble", href: "#/accompagnement/professionnels" },
     img: "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-40.jpg",
@@ -1137,7 +1136,7 @@ Object.assign(window.FESTIN_DATA.home, {
   },
   // Ligne de confiance : statuts, puis les médias nationaux (liens vers les articles de .presse)
   confiance: {
-    statuts: ["Association loi 1901", "D'intérêt général, agréée ESUS", "Depuis 1987", "14 territoires"],
+    statuts: ["Association loi 1901", "D'intérêt général, agréée ESUS", "Depuis 1987", "14 territoires", "Social et solidaire"],
     presseLabel: "Ils en ont parlé",
     // source telle qu'écrite dans FESTIN_DATA.presse → nom affiché
     medias: [
@@ -1153,7 +1152,8 @@ Object.assign(window.FESTIN_DATA.home, {
   },
   missions: {
     title: "Nos six projets servent", titleAccent: "trois missions.",
-    lede: "L'association Festin porte chacun de ces projets, depuis Marseille jusqu'aux 13 antennes de Des Étoiles et des Femmes.",
+    lede: "Nous formons aux métiers de la cuisine des femmes, des personnes réfugiées et des personnes détenues, et nous les suivons jusqu'au contrat. Avec les restaurants, nous agissons contre les violences en cuisine.",
+    ledeProjets: "L'association Festin porte chacun de ces projets, depuis Marseille jusqu'aux 13 antennes de Des Étoiles et des Femmes.",
     items: [
       { key: "former", title: "Former",
         text: "Des parcours diplômants et gratuits, le CAP cuisine ou le titre de commis de cuisine, avec des stages en brigade. Et des formations courtes pour les équipes déjà en poste.",
@@ -1260,32 +1260,32 @@ window.FESTIN_DATA.arbo = [
   { key: "former", label: "Se former", href: "#/accompagnement/insertion",
     match: ["#/accompagnement/insertion", "#/formations", "#/academie"],
     links: [
-      { label: "Apprendre un métier", d: "Les parcours gratuits, du premier entretien à l'emploi", href: "#/accompagnement/insertion" },
-      { label: "L'Académie Festin", d: "Toutes nos formations, diplômantes ou courtes", href: "#/academie" },
+      { ic: "chef-hat", c: "#FFC100", label: "Apprendre un métier", d: "Les parcours gratuits, du premier entretien à l'emploi", href: "#/accompagnement/insertion" },
+      { ic: "graduation-cap", c: "#FFC100", label: "L'Académie Festin", d: "Toutes nos formations, diplômantes ou courtes", href: "#/academie" },
     ] },
   { key: "recruter", label: "Recruter", href: "#/accompagnement/professionnels",
     match: ["#/accompagnement/professionnels"],
     links: [
-      { label: "Recruter avec Festin", d: "Stagiaires, candidats, préparation à l'emploi, formations d'équipe", href: "#/accompagnement/professionnels" },
-      { label: "Formations pour vos équipes", d: "Violences en cuisine, management juste", href: "#/academie" },
+      { ic: "briefcase", c: "#EC8669", label: "Recruter avec Festin", d: "Stagiaires, candidats, préparation à l'emploi, formations d'équipe", href: "#/accompagnement/professionnels" },
+      { ic: "users", c: "#EC8669", label: "Formations pour vos équipes", d: "Violences en cuisine, management juste", href: "#/academie" },
     ] },
   { key: "projets", label: "Nos projets", href: "#/projets",
     match: ["#/projets"],
     links: [
-      { label: "Tous les projets", d: "Six projets, trois missions", href: "#/projets" },
-      { label: "Des Étoiles et des Femmes", d: "Former", href: "#/projets/des-etoiles-et-des-femmes" },
-      { label: "Tournesol", d: "Former", href: "#/projets/tournesol" },
-      { label: "Les Beaux Mets", d: "Accompagner jusqu'à l'emploi", href: "#/projets/les-beaux-mets" },
-      { label: "La Table de Cana", d: "Accompagner jusqu'à l'emploi", href: "#/projets/la-table-de-cana" },
-      { label: "Le programme Restaure", d: "Changer les cuisines", href: "#/projets/restaure" },
+      { ic: "layout-grid", c: "#7FC4CB", label: "Tous les projets", d: "Six projets, trois missions", href: "#/projets" },
+      { ic: "star", c: "#FFC100", label: "Des Étoiles et des Femmes", d: "Former", href: "#/projets/des-etoiles-et-des-femmes" },
+      { ic: "sun", c: "#FFC100", label: "Tournesol", d: "Former", href: "#/projets/tournesol" },
+      { ic: "utensils", c: "#7FC4CB", label: "Les Beaux Mets", d: "Accompagner jusqu'à l'emploi", href: "#/projets/les-beaux-mets" },
+      { ic: "soup", c: "#7FC4CB", label: "La Table de Cana", d: "Accompagner jusqu'à l'emploi", href: "#/projets/la-table-de-cana" },
+      { ic: "megaphone", c: "#C099C9", label: "Le programme Restaure", d: "Changer les cuisines", href: "#/projets/restaure" },
     ] },
   { key: "association", label: "L'association", href: "#/about",
     match: ["#/about", "#/impact", "#/actualites", "#/contact"],
     links: [
-      { label: "Qui sommes-nous", href: "#/about" },
-      { label: "Notre impact", href: "#/impact" },
-      { label: "Actualités et presse", href: "#/actualites" },
-      { label: "Nous écrire", href: "#/contact" },
+      { ic: "heart-handshake", c: "#C099C9", label: "Qui sommes-nous", href: "#/about" },
+      { ic: "chart-column", c: "#C099C9", label: "Notre impact", href: "#/impact" },
+      { ic: "newspaper", c: "#C099C9", label: "Actualités et presse", href: "#/actualites" },
+      { ic: "mail", c: "#C099C9", label: "Nous écrire", href: "#/contact" },
     ] },
 ];
 // Rubrique allumée pour une adresse donnée
@@ -1511,9 +1511,9 @@ window.FESTIN_DATA.about = {
     { name: "Virginie Leconte", role: "Secrétaire", avatar: null },
   ],
   jalons: [
-    { year: "1987", title: "Création de l'association", desc: "L'association est créée. Six ans plus tard, elle ouvre son premier projet : La Table de Cana.", color: "#0F3C44", dark: false, photo: null },
+    { year: "1987", title: "Création de l'association", desc: "L'association est créée. Six ans plus tard, elle ouvre son premier projet : La Table de Cana.", color: "#217078", dark: false, photo: null },
     { year: "1993", title: "La Table de Cana", desc: "Le premier traiteur en insertion de Marseille. Le premier projet de l'association.", color: "#E8A825", dark: true, photo: "images/latable de cana/tabledecana_cdutrey_160124-5010.jpg" },
-    { year: "2015", title: "Naissance de Des Étoiles et des Femmes", desc: "Des femmes se forment à la cuisine en stage chez des chefs. Le programme compte aujourd'hui 13 antennes.", color: "#E4572E", dark: true, photo: "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg" },
+    { year: "2015", title: "Naissance de Des Étoiles et des Femmes", desc: "Des femmes se forment à la cuisine en stage chez des chefs. Le programme compte aujourd'hui 13 antennes.", color: "#C2421C", dark: false, photo: "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg" },
     { year: "2022", title: "Ouverture des Beaux Mets", desc: "Le premier restaurant en prison ouvert au public en France. Aux Baumettes, à Marseille.", color: "#1D6B78", dark: false, photo: "images/beauxmets-images/LBM_cdutrey_071122-7922.jpg" },
     { year: "2024", title: "Le programme Restaure", desc: "Un programme national contre les violences en cuisine, piloté par quatre structures. Son manifeste compte 700 signataires.", color: "#9A5BA8", dark: false, photo: "images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg" },
     { year: "2025", title: "Tournesol", desc: "Festin porte la formation Tournesol avec Refugee Food. Cinq mois pour préparer un titre à finalité professionnelle de commis de cuisine.", color: "#0F3C44", dark: false, photo: "images/photo-rouleaux.jpg" },

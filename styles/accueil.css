@@ -304,3 +304,44 @@
 .frise.is-swipe .frise__step::before{left:44px;right:-14px;top:21px;bottom:auto;width:auto;height:2px}
 .frise.is-swipe .frise__card{grid-template-columns:1fr;height:100%;grid-template-rows:auto 1fr}
 .frise.is-swipe .frise__img{aspect-ratio:16/10;min-height:0}
+
+/* ============ RETOURS DU 25/09/2026 : touches de couleur ============ */
+/* Statuts en bandeau défilant, aplat or (texte encre : règle de l'or) */
+.ac-conf{padding-top:0}
+.ac-conf__band{position:relative;overflow:hidden;background:var(--gold);color:var(--ink);margin-bottom:clamp(22px,3vw,34px)}
+.ac-conf__statuts--defile{display:flex;flex-wrap:nowrap;width:max-content;gap:0;padding:15px 0;animation:acDefile 38s linear infinite}
+.ac-conf__statuts--defile li{flex:none;font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;color:var(--ink)}
+.ac-conf__statuts--defile li::before,.ac-conf__statuts--defile li+li::before{content:'';display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--teal);margin:0 22px 1px;vertical-align:middle}
+.ac-conf__band.is-paused .ac-conf__statuts--defile,.ac-conf__band:hover .ac-conf__statuts--defile{animation-play-state:paused}
+.ac-conf__band .mpause{position:absolute;right:var(--pad);top:50%;bottom:auto;transform:translateY(-50%)}
+@keyframes acDefile{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){
+  .ac-conf__statuts--defile{animation:none;width:auto;flex-wrap:wrap;justify-content:center;padding:14px var(--pad)}
+  .ac-conf__statuts--defile li[aria-hidden="true"]{display:none}
+}
+/* Ce que 2025 a donné : quatre chiffres en couleur sur teal profond */
+.ac-chiffres{background:var(--teal-deep);color:var(--off-white);padding:var(--section) 0}
+.ac-chiffres .ac-h2{color:var(--off-white)}
+.ac-chiffres .ac-h2 em{color:var(--gold)}
+.ac-chiffres__grid{list-style:none;margin:var(--sp-8) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--sp-6) clamp(24px,3vw,48px)}
+.ac-chiffre{position:relative;display:grid;gap:12px;align-content:start}
+.ac-chiffre + .ac-chiffre::before{content:'';position:absolute;left:calc(-1 * clamp(12px,1.5vw,24px));top:6%;bottom:6%;width:1px;background:rgba(255,255,255,.18)}
+.ac-chiffre__n{font-size:var(--fs-stat);font-weight:700;line-height:1;letter-spacing:-.03em;white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--c,var(--gold))}
+.ac-chiffre:nth-child(1){--c:var(--gold)}
+.ac-chiffre:nth-child(2){--c:var(--coral-light)}
+.ac-chiffre:nth-child(3){--c:var(--teal-tint-2)}
+.ac-chiffre:nth-child(4){--c:var(--violet-light)}
+.ac-chiffre__l{font-size:16px;line-height:1.45;color:rgba(254,252,248,.86);max-width:22ch}
+.ac-chiffres__src{margin:var(--sp-8) 0 0;font-size:14px;line-height:1.6;color:rgba(254,252,248,.75);max-width:80ch}
+.ac-chiffres__src a{color:var(--gold);font-weight:700}
+@media (max-width:899px){
+  .ac-chiffres__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ac-chiffre + .ac-chiffre::before{display:none}
+}
+/* Menu : une pastille d'icône en couleur devant chaque entrée */
+.optA-links a{flex-direction:row;align-items:center;justify-content:flex-start;gap:12px}
+.optA-links__tx{display:flex;flex-direction:column;gap:2px;min-width:0}
+.optA-links__ic{flex:none;display:grid;place-items:center;width:36px;height:36px;border-radius:10px;color:var(--c);
+  background:color-mix(in srgb,var(--c) 16%,transparent)}
+.optA-links__ic svg{width:18px;height:18px}
+.optA-links a:hover .optA-links__ic{background:color-mix(in srgb,var(--c) 26%,transparent)}

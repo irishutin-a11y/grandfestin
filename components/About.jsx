@@ -49,14 +49,51 @@ function CeQuOnEst() {
 }
 
 // ---------- 3. HISTOIRE — la frise partagée (même grammaire que l'accueil et les projets) ----------
+// Frise chronologique en couleur, épinglée au bureau (rétablie d'après les retours du 25/09/2026)
 function Histoire() {
+  const root = useRef(null), track = useRef(null), word = useRef(null);
   const jalons = window.FESTIN_DATA.about.jalons;
+  useEffect(() => {
+    if (!window.gsap || !window.ScrollTrigger) return;
+    const { gsap } = window;
+    const mm = gsap.matchMedia();
+    mm.add('(min-width:900px) and (prefers-reduced-motion:no-preference)', () => {
+      const el = root.current;
+      el.classList.add('is-pinned');
+      const dist = () => Math.max(0, track.current.scrollWidth - window.innerWidth + 48);
+      gsap.to(track.current, { x: () => -dist(), ease: 'none',
+        scrollTrigger: { trigger: el, start: 'top top', end: () => '+=' + dist(), pin: true, scrub: .6, anticipatePin: 1, invalidateOnRefresh: true } });
+      gsap.to(word.current, { x: () => -dist() * .35, ease: 'none',
+        scrollTrigger: { trigger: el, start: 'top top', end: () => '+=' + dist(), scrub: true, invalidateOnRefresh: true } });
+      return () => el.classList.remove('is-pinned');
+    });
+    return () => mm.revert();
+  }, []);
   return (
-    <window.Frise id="histoire" tone="tint" title="L'insertion par la cuisine," accent="depuis 1987."
-      lede="De la création de l'association à l'Académie Festin, les dates qui ont construit Festin."
-      steps={jalons.map((j) => ({ when: j.year, title: j.title, text: j.desc, img: j.photo }))} />
+    <section className="ab-hist ab-sec--dark" ref={root}>
+      <div className="ab-hist__word" ref={word} aria-hidden="true">HISTOIRE</div>
+      <div className="container ab-hist__head">
+        <Title em="1987.">L'insertion par la cuisine depuis</Title>
+      </div>
+      <div className="ab-hist__viewport">
+        <ol className="ab-hist__track" ref={track} tabIndex={0} aria-label="Les dates de Festin, de 1987 à 2026">
+          {jalons.map((j, i) => (
+            <li key={i} className={'ab-jalon' + (j.dark ? ' is-dark-text' : '')} style={{ background: j.color }}>
+              <span className="ab-jalon__year">{j.year}</span>
+              <div className="ab-jalon__body">
+                <h3>{j.title}</h3>
+                <p>{j.desc}</p>
+              </div>
+              {j.photo && <span className="ab-jalon__img"><window.Picture src={j.photo} alt="" sizes="(max-width: 899px) 60vw, 30vw" /></span>}
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
   );
 }
+
+// ---------- 4. ÉQUIPE — carrousel draggable groupé par pôle ----------
 
 // ---------- 4. ÉQUIPE — carrousel draggable groupé par pôle ----------
 function Equipe() {

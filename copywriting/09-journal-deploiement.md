@@ -88,3 +88,17 @@ Galeries de fin de page (bandeau de photos, avec bouton pause) sur les cinq page
 | 15 | Mission dite deux fois dans le premier écran d'un projet | Étiquette du hero sans la mission (elle reste dans « en bref ») |
 
 **Nos projets (25/09/2026)** : ouverture par un extrait mot pour mot de l'édito du rapport d'activité 2025 (Jérôme Schatzman, Armand Hurault, Marine Vever) : « Le collectif permet de mutualiser, d'apprendre, d'amplifier. Il permet surtout de durer et de transformer en profondeur. » Il dit pourquoi six projets sous un même toit. L'édito complet reste sur Qui sommes-nous.
+
+## Retours du 25/09/2026 (PDF « Retours sur le site web ») : touches de couleur rétablies
+
+| Page | Retour | Fait |
+|---|---|---|
+| Accueil | Accroche du hero déplacée | Le texte « Nous formons aux métiers… » passe en chapeau de la section des missions (à la place de « L'association Festin porte chacun de ces projets… », qui reste sur Nos projets) |
+| Accueil | Bandeau défilant | Statuts en bandeau or défilant (avec pause) : Association loi 1901 · D'intérêt général, agréée ESUS · Depuis 1987 · 14 territoires · Social et solidaire |
+| Accueil | Chiffres | « Ce que 2025 a donné » : quatre chiffres en couleur sur teal profond, comptage au défilement ; la version en phrases reste sur Impact |
+| Accueil | Suppressions | Citation de la direction et liste des chefs ; section témoignages |
+| Menu | Couleurs | Pastille d'icône en couleur devant chaque entrée |
+| Nos projets | Trop proche de l'accueil | Galerie de cartes filtrable par mission (sans le fil des missions) |
+| Association | Frise | Ancienne frise chronologique en couleur, épinglée au bureau (1987 en teal pour se détacher du fond ; 2015 en corail foncé, texte blanc, pour le contraste) |
+| Pages projet | Compteurs | Quatre compteurs en aplats alternés sous « en bref » (les phrases de preuve sont retirées pour ne pas répéter les chiffres ; « 2 M+ » s'affiche en entier, l'ancienne version montrait « 2+ ») |
+| Académie | « Un secteur qui recrute » | Ancien bloc sombre à trois chiffres |

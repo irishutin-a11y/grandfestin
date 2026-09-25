@@ -406,15 +406,21 @@ function AcademiePage() {
         </div>
       </section>
 
-      <section className="g-sec g-sec--cream" aria-labelledby="aca-besoin-t">
+      {/* LE BESOIN — bloc sombre à trois chiffres (rétabli d'après les retours du 25/09/2026) */}
+      <section className="aca-besoin on-dark" aria-labelledby="aca-besoin-t">
         <div className="wrap">
-          <window.GHead id="aca-besoin-t" split title="Un secteur" accent="qui recrute."
-            lede="À Marseille et dans les Bouches-du-Rhône, la restauration cherche des personnes formées : ces parcours servent celles et ceux qui les suivent, et les établissements qui recrutent." />
-          <window.Preuves lignes={[
-            "<b>77 240</b> projets de recrutement dans les Bouches-du-Rhône, tous secteurs confondus.",
-            "Les employeurs jugent difficiles <b>2 recrutements de cuisiniers sur 3</b>.",
-            "Plus de <b>500 offres</b> actives en restauration, sur le seul territoire marseillais.",
-          ]} source="Source : enquête Besoins en main-d'œuvre, France Travail." />
+          <h2 className="g-h2" id="aca-besoin-t">Un secteur qui <em>recrute</em></h2>
+          <p className="g-lede">À Marseille et dans les Bouches-du-Rhône, la restauration cherche des personnes formées. C'est ce qui rend ces parcours utiles, pour celles et ceux qui les suivent comme pour les établissements qui recrutent.</p>
+          <ul className="aca-besoin__grid">
+            {[
+              { n: '77 240', l: 'projets de recrutement dans les Bouches-du-Rhône, tous secteurs' },
+              { n: '2 sur 3', l: 'recrutements de cuisiniers jugés difficiles par les employeurs' },
+              { n: '500+', l: 'offres actives en restauration sur le seul territoire marseillais' },
+            ].map((c) => (
+              <li className="aca-besoin__c g-reveal" key={c.n}><b>{c.n}</b><span>{c.l}</span></li>
+            ))}
+          </ul>
+          <p className="aca-besoin__src">Source : enquête Besoins en main-d'œuvre, France Travail.</p>
         </div>
       </section>
 

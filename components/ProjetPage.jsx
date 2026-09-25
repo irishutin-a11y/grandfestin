@@ -143,7 +143,6 @@ function ProjetPage({ id }) {
             <span className="g-tag g-reveal"><span className="g-tag__dot" aria-hidden="true" />Un projet de l'association Festin · {missionLabel}</span>
             <h2 className="g-h2 g-reveal" id="bref-t">{cfg.bref.title} <em>{cfg.bref.accent}</em></h2>
             <p className="g-lede g-reveal">{cfg.bref.text}</p>
-            <window.Preuves lignes={cfg.preuves} source={cfg.source} />
             <a className="lnk g-bref__site g-reveal" href={p.siteUrl} target="_blank" rel="noopener noreferrer">Le site du projet : {p.siteName} <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (nouvel onglet)</span></a>
             <window.PresseLigne filtres={p.presseFilter || []} />
           </div>
@@ -153,6 +152,9 @@ function ProjetPage({ id }) {
                 <figure className="g-photo"><window.Picture src={cfg.photo.src} alt={cfg.photo.alt} sizes="(max-width: 900px) 100vw, 44vw" />{cfg.photo.credit && <figcaption className="g-cap">{cfg.photo.credit}</figcaption>}</figure>
               ) : null}
           </div>
+        </div>
+        <div className="wrap">
+          <window.Compteurs stats={p.stats || []} source={cfg.source} />
         </div>
       </section>
 

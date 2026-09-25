@@ -181,8 +181,11 @@ function Nav() {
                 {g.links.map((l) => (
                   <li key={l.href + l.label}>
                     <a href={l.href} onClick={closePanel} aria-current={hash === l.href ? 'page' : undefined}>
-                      <span className="optA-links__t">{l.label}</span>
-                      {l.d && <span className="optA-links__d">{l.d}</span>}
+                      {l.ic && <span className="optA-links__ic" style={{ '--c': l.c }} aria-hidden="true"><i data-lucide={l.ic} /></span>}
+                      <span className="optA-links__tx">
+                        <span className="optA-links__t">{l.label}</span>
+                        {l.d && <span className="optA-links__d">{l.d}</span>}
+                      </span>
                     </a>
                   </li>
                 ))}

@@ -69,6 +69,50 @@ function Preuves({ lignes = [], source }) {
   );
 }
 
+// Compteurs en couleur (rétablis d'après les retours du 25/09/2026) :
+// quatre aplats alternés, le chiffre compte de 0 à sa valeur à l'arrivée à l'écran.
+function Compteurs({ stats = [], source }) {
+  const ref = React.useRef(null);
+  const parse = (st) => {
+    const v = String(st.value);
+    const target = parseInt(v.replace(/[^\d]/g, ''), 10) || 0;
+    const reste = v.replace(/[\d\s\u00a0]/g, '');          // « % », « M »
+    const suffix = (reste ? '\u00a0' + reste : '') + (st.unit || '');
+    return { target, suffix };
+  };
+  const fmt = (n) => n.toLocaleString('fr-FR');
+  React.useEffect(() => {
+    const el = ref.current, g = window.gsap, ST = window.ScrollTrigger;
+    if (!el || !g || !ST || (window.FESTIN_RM && window.FESTIN_RM())) return;
+    const nodes = [...el.querySelectorAll('[data-n]')];
+    nodes.forEach((n) => { n.textContent = '0' + n.dataset.s; });
+    const t = ST.create({ trigger: el, start: 'top 85%', once: true, onEnter: () => {
+      nodes.forEach((n) => {
+        const o = { v: 0 }, target = +n.dataset.n, sfx = n.dataset.s;
+        g.to(o, { v: target, duration: 1.4, ease: 'expo.out', onUpdate: () => { n.textContent = fmt(Math.round(o.v)) + sfx; } });
+      });
+    } });
+    return () => t.kill();
+  }, []);
+  if (!stats.length) return null;
+  return (
+    <div className="g-compteurs">
+      <ul className="g-compteurs__grid" ref={ref}>
+        {stats.map((st, i) => {
+          const { target, suffix } = parse(st);
+          return (
+            <li key={i} className={'g-compteur g-compteur--' + ['teal', 'gold', 'violet', 'deep'][i % 4]}>
+              <span className="g-compteur__n" data-n={target} data-s={suffix}>{fmt(target) + suffix}</span>
+              <span className="g-compteur__l">{st.label}</span>
+            </li>
+          );
+        })}
+      </ul>
+      {source && <p className="g-src">{source}</p>}
+    </div>
+  );
+}
+
 // Vidéo au clic : rien ne se charge avant ; lien externe si la plateforme ne s'intègre pas
 function GVideo({ v, label }) {
   const [on, setOn] = React.useState(false);
@@ -311,5 +355,5 @@ function ProjetsParMission({ groupes = [] }) {
   );
 }
 
-Object.assign(window, { PresseLigne, Appel, Cartes, ProjetsParMission, festinScrollTo, useGReveal, missionDe, GLink, GHead, Preuves, GVideo, Portes, Presse, Galerie, MissionsNav });
+Object.assign(window, { Compteurs, PresseLigne, Appel, Cartes, ProjetsParMission, festinScrollTo, useGReveal, missionDe, GLink, GHead, Preuves, GVideo, Portes, Presse, Galerie, MissionsNav });
 })();
