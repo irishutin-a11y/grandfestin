@@ -75,7 +75,7 @@ a:hover .arrow{transform:translateX(4px)}
 .door--pro li a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
 .door__soutien{position:relative;z-index:1;margin:18px 0 0;font-size:15px;color:rgba(254,252,248,.85)}
 .door__soutien a{color:var(--gold);font-weight:700}
-@media (max-width:980px){ .hero__grid{grid-template-columns:1fr} }
+@media (max-width:980px){ .hero__grid{grid-template-columns:1fr} .hero__photo{display:none} }
 
 /* ---------- 2 · Bandeau des statuts ---------- */
 .band{background:var(--gold);overflow:hidden}
@@ -234,6 +234,46 @@ a:hover .arrow{transform:translateX(4px)}
 .panel__foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;padding:18px 26px;border-top:1px solid rgba(255,255,255,.1)}
 @media (max-width:980px){ .panel__grid{grid-template-columns:1fr 1fr} .panel__col+.panel__col{border-left:0} }
 @media (max-width:560px){ .panel__grid{grid-template-columns:1fr} }
+
+/* ---------- Retours du 29/09 ---------- */
+.hero__cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn--light{background:var(--off-white);color:var(--ink)}
+.hero .door__soutien{margin-top:22px}
+.hist{background:var(--teal-dark);color:var(--off-white);overflow:hidden}
+.hist__head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:end;margin-bottom:clamp(36px,5vw,56px)}
+.hist h2{font-size:var(--fs-h2);color:var(--off-white)} .hist h2 em{color:var(--gold)}
+.hist .lede{margin:0;color:rgba(254,252,248,.86)}
+.hist__track{list-style:none;margin:0;padding:0 clamp(16px,4vw,56px) 12px;display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin}
+.hist__track:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+.hist__track li{flex:0 0 min(84vw,400px);scroll-snap-align:start}
+.jal{display:flex;flex-direction:column;height:100%;min-height:460px;border-radius:24px;overflow:hidden;background:var(--bg);color:var(--fg);padding:26px 28px 0;transition:transform .3s var(--ease-out)}
+.jal:hover{transform:translateY(-6px)}
+.jal__y{font-size:clamp(40px,1.6rem + 2vw,60px);font-weight:700;line-height:.9;letter-spacing:-.03em}
+.jal__t{margin-top:14px;font-size:20px;font-weight:700;text-transform:uppercase;line-height:1.15}
+.jal__d{margin-top:8px;font-size:15px;line-height:1.5}
+.jal__go{margin-top:14px;font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.jal__img{display:block;margin:auto -28px 0;height:190px;overflow:hidden;margin-top:22px}
+.jal__img img{width:100%;height:100%;object-fit:cover}
+.ftags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.ftag{display:inline-flex;align-items:center;align-self:flex-start;padding:6px 14px;border-radius:999px;font-size:13px;font-weight:700;border:1.5px solid var(--line-strong);color:var(--ink-mid)}
+.ftags .ftag{padding:10px 18px;font-size:14px}
+.ftag--all{background:var(--teal);border-color:var(--teal);color:#fff}
+.fc .ftag--ins,.ftags .ftag--ins{border-color:var(--teal);color:var(--teal-dark)}
+.fc .ftag--ins{background:var(--teal);color:#fff}
+.ftags .ftag--pro{border-color:var(--gold-ink);color:var(--gold-ink)}
+.fc .ftag--pro{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.fgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.fc{display:flex;flex-direction:column;border-radius:22px;overflow:hidden;background:var(--off-white);border:1px solid var(--line-strong);transition:transform .3s var(--ease-out),border-color .3s}
+.fc:hover{transform:translateY(-4px);border-color:var(--teal)}
+.fc__img{display:block;aspect-ratio:16/9;overflow:hidden}
+.fc__img img{width:100%;height:100%;object-fit:cover}
+.fc__b{display:flex;flex-direction:column;gap:10px;flex:1;padding:20px 22px 22px}
+.fc__t{font-size:19px;font-weight:700;line-height:1.2;text-transform:uppercase;color:var(--teal-dark)}
+.fc__m{font-size:14.5px;color:var(--ink-mid)}
+.fc__go{margin-top:auto;padding-top:6px;font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--teal-dark)}
+.fsrc{margin:22px 0 0;font-size:14px;color:var(--ink-mid)}
+@media (max-width:980px){ .fgrid{grid-template-columns:repeat(2,minmax(0,1fr))} .hist__head{grid-template-columns:1fr} }
+@media (max-width:600px){ .fgrid{grid-template-columns:1fr} }
 </style>
 </head>
 <body>
@@ -245,9 +285,9 @@ a:hover .arrow{transform:translateX(4px)}
   <div class="pill">
     <img class="pill__logo" src="../images/logo-festin.png" alt="Festin">
     <ul class="pill__links">
-      <li><a href="#insertion"><span class="dot" style="background:var(--teal)"></span>Insertion</a></li>
-      <li><a href="#pro" class="is-pro">Professionnels</a></li>
-      <li><a href="#projets">Nos projets</a></li>
+      <li><a href="#publics"><span class="dot" style="background:var(--teal)"></span>Insertion</a></li>
+      <li><a href="#publics" class="is-pro">Professionnels</a></li>
+      <li><a href="#association">Nos projets</a></li>
       <li><a href="#association">L'association</a></li>
     </ul>
     <span class="pill__sep"></span>
@@ -256,7 +296,7 @@ a:hover .arrow{transform:translateX(4px)}
   </div>
 </nav>
 
-<!-- 1 · HERO -->
+<!-- 1 · HERO : Festin, en une phrase ; les deux publics en deux boutons -->
 <header class="hero on-dark">
   <div class="wrap">
     <div class="hero__grid">
@@ -264,65 +304,28 @@ a:hover .arrow{transform:translateX(4px)}
         <span class="kick">Association d'intérêt général · depuis 1987</span>
         <h1>Former les personnes, <em>faire avancer les cuisines.</em></h1>
         <p class="hero__sig">Le goût d'avancer ensemble</p>
-        <p class="lede">Depuis près de quarante ans, Festin forme aux métiers de la cuisine des personnes en insertion et les suit jusqu'au contrat. Avec le programme Restaure, nous formons aussi les équipes des restaurants : prévention des violences, management, recrutement.</p>
+        <p class="lede">Depuis près de quarante ans, nous formons des personnes aux métiers de la cuisine et nous accompagnons les restaurants qui recrutent et forment leurs équipes.</p>
+        <div class="hero__cta">
+          <a class="btn btn--light" href="#publics">Orienter une personne <span class="arrow">→</span></a>
+          <a class="btn btn--gold" href="#publics">Former mes équipes <span class="arrow">→</span></a>
+        </div>
+        <p class="door__soutien">Vous financez ou soutenez nos actions ? <a href="#soutenir">Devenir partenaire <span class="arrow">→</span></a></p>
       </div>
-    <div class="doors">
-      <section class="door door--ins" aria-labelledby="door-ins">
-        <span class="door__who"><span class="door__ic" aria-hidden="true">↗</span>Vous accompagnez une personne vers l'emploi</span>
-        <h2 id="door-ins">Nos formations <em>pour l'insertion</em></h2>
-        <p class="door__for">Conseillères et conseillers France Travail, missions locales, travailleurs sociaux, structures d'accueil.</p>
-        <ul>
-          <li><a href="#insertion">Les parcours diplômants et gratuits <span class="arrow">→</span></a></li>
-          <li><a href="#insertion">Le calendrier des prochaines promotions <span class="arrow">→</span></a></li>
-          <li><a href="#insertion">Orienter une candidate ou un candidat <span class="arrow">→</span></a></li>
-        </ul>
-      </section>
-      <section class="door door--pro" aria-labelledby="door-pro">
-        <span class="door__who"><span class="door__ic" aria-hidden="true">✦</span>Vous dirigez une cuisine ou une équipe</span>
-        <h2 id="door-pro">Former vos équipes <em>avec le programme Restaure</em></h2>
-        <p class="door__for">Restaurateurs, cheffes et chefs, responsables RH, groupes et collectivités.</p>
-        <ul>
-          <li><a href="#pro">Les formations pour vos équipes et vos managers <span class="arrow">→</span></a></li>
-          <li><a href="#pro">Prévenir les violences en cuisine <span class="arrow">→</span></a></li>
-          <li><a href="#pro">Recruter une personne formée <span class="arrow">→</span></a></li>
-        </ul>
-      </section>
+      <figure class="hero__photo" style="margin:0">
+        <img src="../images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-40.jpg" alt="Une promotion de Des Étoiles et des Femmes en tabliers violets">
+      </figure>
     </div>
-    </div>
-    <p class="door__soutien">Vous financez ou soutenez nos actions ? <a href="#soutenir">Devenir partenaire <span class="arrow">→</span></a></p>
-    <p class="note" data-n="1"><b>Le problème réglé ici :</b> le premier écran ne disait qu'« insertion ». Le titre porte maintenant les deux métiers de Festin, et deux portes de même poids s'ouvrent avant tout défilement. On y entre <b>par ce qu'on fait</b> (accompagner une personne, diriger une équipe), pas par un jargon. La porte des professionnels est en or : c'est le public à faire émerger.</p>
+    <p class="note" data-n="1"><b>Festin parle en son nom.</b> Une phrase, les deux métiers, sans nommer de projet. Les deux publics apparaissent dès le premier écran par deux boutons, sans alourdir le haut de page ; c'est la section suivante qui les développe.</p>
   </div>
 </header>
 
 <!-- 2 · STATUTS -->
 <div class="band" aria-label="Statuts de l'association">
-  <ul><li>Association loi 1901</li><li>D'intérêt général, agréée ESUS</li><li>Depuis 1987</li><li>14 territoires</li><li>Organisme de formation certifié Qualiopi</li></ul>
+  <ul><li>Association loi 1901</li><li>D'intérêt général, agréée ESUS</li><li>Depuis 1987</li><li>14 territoires</li><li>Social et solidaire</li></ul>
 </div>
 
-<!-- 3 · UN ACTEUR DU SECTEUR -->
-<section class="sec" id="association" aria-labelledby="story-t">
-  <div class="wrap story">
-    <div>
-      <h2 id="story-t">Près de quarante ans <em>dans les cuisines.</em></h2>
-      <p class="note" data-n="2"><b>Le récit :</b> Festin n'est pas présenté comme une association qui « aide », mais comme un acteur qui connaît le métier de l'intérieur. C'est ce qui rend crédible la formation des professionnels.</p>
-    </div>
-    <div>
-      <p>Festin est né dans une cuisine. En 1993, La Table de Cana ouvre à Marseille : un traiteur où des salariés en insertion apprennent le métier en travaillant, dans les conditions d'une vraie entreprise.</p>
-      <p>Depuis, l'association forme, recrute et accompagne aux côtés des chefs, jusque dans la prison des Baumettes. En 2024, cette connaissance du secteur donne naissance au programme Restaure. Aujourd'hui, c'est par Restaure que Festin forme les équipes des établissements : pour faire reculer les violences en cuisine, manager autrement et recruter plus largement.</p>
-      <ul class="dates">
-        <li><b>1987</b><span>Création de l'association</span></li>
-        <li><b>1993</b><span>La Table de Cana</span></li>
-        <li><b>2015</b><span>Des Étoiles et des Femmes</span></li>
-        <li><b>2022</b><span>Les Beaux Mets, aux Baumettes</span></li>
-        <li><b>2024</b><span>Le programme Restaure</span></li>
-        <li><b>2026</b><span>L'Académie Festin</span></li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- 4 · DEUX PUBLICS -->
-<section class="sec sec--cream" id="insertion" aria-labelledby="duo-t">
+<!-- 3 · DEUX PUBLICS, remontée juste sous le hero -->
+<section class="sec sec--cream" id="publics" aria-labelledby="duo-t">
   <div class="wrap">
     <div class="head">
       <h2 id="duo-t">Deux publics, <em>un même métier.</em></h2>
@@ -332,107 +335,94 @@ a:hover .arrow{transform:translateX(4px)}
       <article class="side side--ins">
         <div class="side__img"><img src="../images/photo-tabliers-violets.jpg" alt="Des stagiaires en cuisine"></div>
         <div class="side__body">
-          <span class="side__tag">Pour les personnes en insertion</span>
+          <span class="side__tag">Vous accompagnez une personne vers l'emploi</span>
           <h3>Un métier, <em>un diplôme, un contrat.</em></h3>
-          <p>Des parcours gratuits, avec des stages chez des chefs et un suivi jusqu'au premier contrat.</p>
+          <p>Pour les conseillères et conseillers France Travail, les missions locales, les travailleurs sociaux : des parcours gratuits, avec des stages chez des chefs et un suivi jusqu'au premier contrat.</p>
           <dl>
             <div><dt>Se former</dt><dd>CAP cuisine ou titre de commis de cuisine, avec Des Étoiles et des Femmes (13 antennes) et Tournesol.</dd></div>
             <div><dt>Travailler</dt><dd>Un emploi en insertion aux Beaux Mets ou à La Table de Cana.</dd></div>
             <div><dt>Être suivi</dt><dd>Logement, papiers, garde d'enfants, recherche de poste : un suivi individuel.</dd></div>
           </dl>
           <p class="side__proof"><b>83 %</b> de sorties en emploi ou en formation en 2025, tous dispositifs.</p>
-          <a class="btn btn--teal" href="#insertion">Orienter une personne <span class="arrow">→</span></a>
+          <a class="btn btn--teal" href="../#/accompagnement/insertion">Orienter une personne <span class="arrow">→</span></a>
         </div>
       </article>
-      <article class="side side--pro" id="pro-duo">
+      <article class="side side--pro">
         <div class="side__img"><img src="../images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg" alt="Soirée de lancement du programme Restaure"></div>
         <div class="side__body">
-          <span class="side__tag">Pour les professionnels de la restauration</span>
+          <span class="side__tag">Vous dirigez une cuisine ou une équipe</span>
           <h3>Recruter, former, <em>garder ses équipes.</em></h3>
-          <p>Avec le programme Restaure, un appui RH et formation pensé par des gens de cuisine, pour les établissements qui veulent recruter autrement et travailler mieux.</p>
+          <p>Pour les restaurateurs, les cheffes et chefs, les responsables RH : recruter des personnes formées et former vos équipes, avec des gens de cuisine.</p>
           <dl>
-            <div><dt>Former</dt><dd>Les formations du programme Restaure : prévention des violences sexistes et sexuelles, management juste et inclusif.</dd></div>
+            <div><dt>Former</dt><dd>Prévention des violences sexistes et sexuelles, management juste et inclusif.</dd></div>
             <div><dt>Recruter</dt><dd>Stagiaires, Book de l'emploi, préparation à l'emploi financée par France Travail (POEI).</dd></div>
-            <div><dt>S'engager</dt><dd>Signer le manifeste Restaure (700 signataires), rejoindre un groupe de travail (35 structures engagées).</dd></div>
+            <div><dt>S'engager</dt><dd>Signer le manifeste du programme Restaure (700 signataires), rejoindre un groupe de travail.</dd></div>
           </dl>
-          <p class="side__proof">Formations certifiées Qualiopi <b>[À CONFIRMER : portées par Restaure ou par l'Académie Festin]</b>. Prise en charge par votre OPCO possible.</p>
-          <a class="btn btn--gold" href="#pro">Travailler avec Festin <span class="arrow">→</span></a>
+          <p class="side__proof">Formations certifiées Qualiopi. Prise en charge par votre OPCO possible.</p>
+          <a class="btn btn--gold" href="../#/accompagnement/professionnels">Travailler avec Festin <span class="arrow">→</span></a>
         </div>
       </article>
     </div>
-    <p class="note" data-n="3"><b>Même poids visuel pour les deux publics.</b> Chaque colonne répond aux trois mêmes questions (quoi, pour qui, avec quelle preuve) et finit par une seule action. Le mot « RH » apparaît enfin, avec des faits.</p>
+    <p class="note" data-n="2"><b>Remontée juste sous le haut de page.</b> C'est ici que chaque public se reconnaît, avant de lire l'histoire de Festin. Les deux colonnes ont le même poids et répondent aux mêmes questions ; l'étiquette nomme le visiteur par ce qu'il fait.</p>
   </div>
 </section>
 
-<!-- 5 · FORMATIONS POUR LES ÉQUIPES : la mise en avant -->
-<section class="sec pro on-dark" id="pro" aria-labelledby="pro-t">
-  <div class="wrap">
-    <span class="kick" style="display:flex;align-items:center;gap:14px"><img src="../images/logo projets/logo- restaure.png" alt="Le programme Restaure" style="height:40px;padding:6px 10px;border-radius:10px;background:#fff"> Les formations du programme Restaure</span>
-    <div class="head">
-      <h2 id="pro-t">Former vos équipes, <em>avec le programme Restaure.</em></h2>
-      <p class="lede">Né en 2024 pour faire reculer les violences en cuisine, Restaure forme aujourd'hui les équipes de la restauration pour Festin. Des formations courtes, en présentiel, dans vos murs ou avec d'autres établissements, construites à partir de situations réelles de cuisine et de salle.</p>
-    </div>
-    <div class="fcards">
-      <a class="fcard" href="#pro">
-        <div class="fcard__img"><img src="../images/photo-service-restaurant.jpg" alt=""></div>
-        <div class="fcard__body">
-          <span class="fcard__cat">Prévenir</span>
-          <h3>Prévention des violences sexistes et sexuelles en restauration</h3>
-          <p>Le cadre légal, des cas tirés de situations réelles, et un protocole de signalement à mettre en place.</p>
-          <ul><li>3 h ou 1 jour</li><li>Inter ou intra</li><li>Toute l'équipe</li></ul>
-          <span class="fcard__go">Voir la formation <span class="arrow">→</span></span>
-        </div>
-      </a>
-      <a class="fcard" href="#pro">
-        <div class="fcard__img"><img src="../images/photo-cuisine-action.jpg" alt=""></div>
-        <div class="fcard__body">
-          <span class="fcard__cat">Manager</span>
-          <h3>Management juste &amp; inclusif</h3>
-          <p>Recruter au-delà des CV, animer une équipe sans violence, fixer un cadre clair. Vous repartez avec un plan d'action.</p>
-          <ul><li>2 jours</li><li>Chefs, managers, RH</li><li>OPCO et FNE</li></ul>
-          <span class="fcard__go">Voir la formation <span class="arrow">→</span></span>
-        </div>
-      </a>
-      <a class="fcard" href="#pro">
-        <div class="fcard__img"><img src="../images/beauxmets-images/LBM_cdutrey_071122-7264.jpg" alt=""></div>
-        <div class="fcard__body">
-          <span class="fcard__cat">Recruter</span>
-          <h3>Recruter une personne formée à votre cuisine</h3>
-          <p>La préparation opérationnelle à l'emploi (POEI), financée par France Travail : immersion, deux stages chez vous, puis un CDD de quatre mois minimum.</p>
-          <ul><li>Financée</li><li>Démarches avec Festin</li></ul>
-          <span class="fcard__go">Comment ça marche <span class="arrow">→</span></span>
-        </div>
-      </a>
-    </div>
-    <div class="pro__foot">
-      <div class="pro__trust"><img src="../images/logo-qualiopi.png" alt="Qualiopi, processus certifié"> <span>Certifié Qualiopi au titre des actions de formation [À CONFIRMER : quelle entité] · prise en charge OPCO possible</span></div>
-      <a class="btn btn--gold" href="#pro">Toutes les formations Restaure <span class="arrow">→</span></a>
-    </div>
-    <blockquote class="pro__quote"><p>« Sami s'est très vite intégré à l'équipe. »</p><cite>Chef Davin, Intercontinental Marseille, a recruté un commis formé aux Beaux Mets</cite></blockquote>
-    <p class="note" data-n="4"><b>La section qui manquait au site.</b> Aujourd'hui les formations pros sont à trois clics (Recruter, puis bas de page) et rangées sous l'Académie. Ici elles ont leur propre bloc, <b>signé Restaure</b>, en teal profond, juste après le choix du public. Restaure passe du statut de mouvement à celui de porteur des formations pros. Les intitulés du catalogue sont gardés tels quels.</p>
+<!-- 4 · LE CONTEXTE DE FESTIN : frise des projets, cartes cliquables -->
+<section class="sec hist on-dark" id="association" aria-labelledby="story-t">
+  <div class="wrap hist__head">
+    <h2 id="story-t">Près de quarante ans <em>dans les cuisines.</em></h2>
+    <p class="lede">Festin est né dans une cuisine, en 1987. Depuis, chaque projet est venu d'un besoin rencontré sur le terrain, aux côtés des chefs et des restaurants.</p>
   </div>
+  <ol class="hist__track" tabindex="0" aria-label="Les projets de Festin, de 1993 à 2026">
+    <li><a class="jal" href="../#/projets/la-table-de-cana" style="--bg:var(--gold);--fg:var(--ink)">
+      <span class="jal__y">1993</span><span class="jal__t">La Table de Cana</span><span class="jal__d">Le premier projet : un traiteur où des salariés en insertion apprennent la cuisine en travaillant.</span>
+      <span class="jal__go">Découvrir <span class="arrow">→</span></span>
+      <span class="jal__img"><img src="../images/latable de cana/tabledecana_cdutrey_160124-4393.jpg" alt=""></span></a></li>
+    <li><a class="jal" href="../#/projets/des-etoiles-et-des-femmes" style="--bg:var(--coral-ink);--fg:#fff">
+      <span class="jal__y">2015</span><span class="jal__t">Des Étoiles et des Femmes</span><span class="jal__d">Des femmes se forment à la cuisine avec des chefs. Le programme compte aujourd'hui 13 antennes.</span>
+      <span class="jal__go">Découvrir <span class="arrow">→</span></span>
+      <span class="jal__img"><img src="../images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg" alt=""></span></a></li>
+    <li><a class="jal" href="../#/projets/les-beaux-mets" style="--bg:var(--teal);--fg:#fff">
+      <span class="jal__y">2022</span><span class="jal__t">Les Beaux Mets</span><span class="jal__d">Un restaurant ouvert au public dans la prison des Baumettes, à Marseille.</span>
+      <span class="jal__go">Découvrir <span class="arrow">→</span></span>
+      <span class="jal__img"><img src="../images/beauxmets-images/LBM_cdutrey_071122-7264.jpg" alt=""></span></a></li>
+    <li><a class="jal" href="../#/projets/restaure" style="--bg:var(--violet-ink);--fg:#fff">
+      <span class="jal__y">2024</span><span class="jal__t">Le programme Restaure</span><span class="jal__d">Contre les violences en cuisine, et pour former les équipes de la restauration.</span>
+      <span class="jal__go">Découvrir <span class="arrow">→</span></span>
+      <span class="jal__img"><img src="../images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg" alt=""></span></a></li>
+    <li><a class="jal" href="../#/projets/tournesol" style="--bg:var(--gold);--fg:var(--ink)">
+      <span class="jal__y">2025</span><span class="jal__t">Tournesol</span><span class="jal__d">Festin porte la formation Tournesol avec Refugee Food : cinq mois pour préparer le titre de commis de cuisine.</span>
+      <span class="jal__go">Découvrir <span class="arrow">→</span></span>
+      <span class="jal__img"><img src="../images/photo-rouleaux.jpg" alt=""></span></a></li>
+    <li><a class="jal" href="../#/academie" style="--bg:var(--off-white);--fg:var(--ink)">
+      <span class="jal__y">2026</span><span class="jal__t">L'Académie Festin</span><span class="jal__d">Festin devient organisme de formation.</span>
+      <span class="jal__go">Découvrir <span class="arrow">→</span></span>
+      <span class="jal__img"><img src="../images/photo-cuisine-formation.jpg" alt=""></span></a></li>
+  </ol>
+  <div class="wrap"><p class="note" data-n="3"><b>La frise de la page Association, en version projets.</b> Chaque carte mène à la page du projet. Elle remplace la liste des missions de l'accueil actuel : on raconte Festin comme un acteur du secteur, date après date, et on y trouve les six projets. Sur le site, elle défilera à l'horizontale comme sur la page Association ; ici elle se fait glisser.</p></div>
 </section>
 
-<!-- 6 · PROJETS (compact) -->
-<section class="sec sec--tint" id="projets" aria-labelledby="proj-t">
+<!-- 5 · TOUTES NOS FORMATIONS, avec leur public -->
+<section class="sec" id="formations" aria-labelledby="form-t">
   <div class="wrap">
     <div class="head">
-      <h2 id="proj-t">Six projets, <em>trois missions.</em></h2>
-      <p class="lede">Former, accompagner jusqu'à l'emploi, changer les cuisines : chaque projet de l'écosystème Festin sert l'une de ces missions.</p>
+      <h2 id="form-t">Toutes nos <em>formations.</em></h2>
+      <p class="lede">Des parcours diplômants pour les personnes en insertion, et des formations courtes pour les professionnels de la restauration.</p>
     </div>
-    <div class="proj">
-      <a href="#projets"><div class="proj__img"><img src="../images/photo-tabliers-violets.jpg" alt=""></div><div class="proj__b"><span class="proj__m m-f">Former</span><span class="proj__t">Des Étoiles et des Femmes</span></div></a>
-      <a href="#projets"><div class="proj__img"><img src="../images/photo-rouleaux.jpg" alt=""></div><div class="proj__b"><span class="proj__m m-f">Former</span><span class="proj__t">Tournesol</span></div></a>
-      <a href="#projets"><div class="proj__img"><img src="../images/photo-cuisine-formation.jpg" alt=""></div><div class="proj__b"><span class="proj__m m-f">Former</span><span class="proj__t">Académie Festin</span></div></a>
-      <a href="#projets"><div class="proj__img"><img src="../images/beauxmets-images/LBM_cdutrey_071122-7264.jpg" alt=""></div><div class="proj__b"><span class="proj__m m-a">Accompagner</span><span class="proj__t">Les Beaux Mets</span></div></a>
-      <a href="#projets"><div class="proj__img"><img src="../images/latable de cana/tabledecana_cdutrey_160124-4393.jpg" alt=""></div><div class="proj__b"><span class="proj__m m-a">Accompagner</span><span class="proj__t">La Table de Cana</span></div></a>
-      <a href="#projets"><div class="proj__img"><img src="../images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00032.jpg" alt=""></div><div class="proj__b"><span class="proj__m m-c">Former les pros</span><span class="proj__t">Le programme Restaure</span></div></a>
+    <div class="ftags" aria-hidden="true"><span class="ftag ftag--all">Toutes (5)</span><span class="ftag ftag--ins">Personnes en insertion (3)</span><span class="ftag ftag--pro">Professionnels (2)</span></div>
+    <div class="fgrid">
+      <a class="fc" href="../#/formations/cap"><span class="fc__img"><img src="../images/photo-patisserie.jpg" alt=""></span><span class="fc__b"><span class="ftag ftag--ins">Personnes en insertion</span><span class="fc__t">Des Étoiles et des Femmes, CAP</span><span class="fc__m">11 mois · gratuit · femmes majeures</span><span class="fc__go">Voir la formation <span class="arrow">→</span></span></span></a>
+      <a class="fc" href="../#/formations/tfp"><span class="fc__img"><img src="../images/photo-tabliers-violets.jpg" alt=""></span><span class="fc__b"><span class="ftag ftag--ins">Personnes en insertion</span><span class="fc__t">Des Étoiles et des Femmes, TFP</span><span class="fc__m">4 mois · gratuit · femmes majeures</span><span class="fc__go">Voir la formation <span class="arrow">→</span></span></span></a>
+      <a class="fc" href="../#/formations/tournesol"><span class="fc__img"><img src="../images/photo-rouleaux.jpg" alt=""></span><span class="fc__b"><span class="ftag ftag--ins">Personnes en insertion</span><span class="fc__t">Tournesol</span><span class="fc__m">5 mois · gratuit · personnes réfugiées ou primo-arrivantes</span><span class="fc__go">Voir la formation <span class="arrow">→</span></span></span></a>
+      <a class="fc" href="../#/formations/vss"><span class="fc__img"><img src="../images/photo-service-restaurant.jpg" alt=""></span><span class="fc__b"><span class="ftag ftag--pro">Professionnels</span><span class="fc__t">Prévention des violences sexistes et sexuelles en restauration</span><span class="fc__m">3 h ou 1 jour · inter ou intra · toute l'équipe</span><span class="fc__go">Voir la formation <span class="arrow">→</span></span></span></a>
+      <a class="fc" href="../#/formations/management"><span class="fc__img"><img src="../images/photo-cuisine-action.jpg" alt=""></span><span class="fc__b"><span class="ftag ftag--pro">Professionnels</span><span class="fc__t">Management juste &amp; inclusif</span><span class="fc__m">2 jours · chefs, managers, RH</span><span class="fc__go">Voir la formation <span class="arrow">→</span></span></span></a>
     </div>
-    <p class="note" data-n="5"><b>Les projets restent, en plus court.</b> Restaure change d'étiquette : « Former les pros » au lieu de « Changer les cuisines » (à trancher, voir mes recommandations). La grande liste à fil de l'accueil actuel passe en une rangée de cartes ; le détail vit sur « Nos projets ». On gagne un écran et demi pour le public pro, sans rien retirer au site.</p>
+    <p class="fsrc">Les formations pour les professionnels sont portées par le programme Restaure, certifié Qualiopi ; prise en charge par votre OPCO possible.</p>
+    <p class="note" data-n="4"><b>Une seule vitrine pour toutes les formations</b>, avec une étiquette par public (teal pour l'insertion, or pour les professionnels) et les filtres du catalogue. Le détail des formations Restaure reste sur leur page. Les intitulés du catalogue sont gardés tels quels.</p>
   </div>
 </section>
 
-<!-- 7 · CHIFFRES -->
+<!-- 6 · CHIFFRES -->
 <section class="sec chiffres on-dark" aria-labelledby="ch-t">
   <div class="wrap">
     <h2 id="ch-t">Ce que 2025 <em>a donné</em></h2>
@@ -446,7 +436,7 @@ a:hover .arrow{transform:translateX(4px)}
   </div>
 </section>
 
-<!-- 8 · PAROLE DE LA DIRECTION, PRESSE -->
+<!-- 7 · PAROLE DE LA DIRECTION, PRESSE -->
 <section class="sec sec--cream" aria-labelledby="press-t">
   <div class="wrap press">
     <div>
@@ -459,19 +449,19 @@ a:hover .arrow{transform:translateX(4px)}
       <ul class="media"><li>TF1</li><li>France 2</li><li>M6</li><li>France Inter</li><li>Le Monde</li><li>Libération</li><li>Les Échos</li><li>El País</li></ul>
     </div>
   </div>
-  <div class="wrap"><p class="note" data-n="6"><b>Une parole sur le secteur, pas sur l'association.</b> La phrase du directeur dans Le Monde place Festin dans le débat sur la restauration. Elle remplace les témoignages retirés de l'accueil.</p></div>
+  <div class="wrap"><p class="note" data-n="5"><b>Une parole sur le secteur, pas sur l'association.</b> La phrase du directeur dans Le Monde place Festin dans le débat sur la restauration. Elle remplace les témoignages retirés de l'accueil.</p></div>
 </section>
 
-<!-- 9 · TROIS PORTES -->
+<!-- 8 · TROIS PORTES -->
 <section class="sec" id="soutenir" aria-labelledby="portes-t">
   <div class="wrap">
     <div class="head"><h2 id="portes-t">Par où <em>commencer ?</em></h2><p class="lede">Trois façons de travailler avec nous, selon ce que vous faites.</p></div>
     <div class="portes">
-      <div class="porte"><span class="porte__who">Vous accompagnez une personne</span><h3>Orienter vers une formation</h3><p>Les parcours, les conditions d'entrée, les dates des prochaines promotions et la personne à contacter.</p><a class="btn btn--teal" href="#insertion">Orienter une personne <span class="arrow">→</span></a></div>
-      <div class="porte"><span class="porte__who">Vous dirigez une équipe</span><h3>Former et recruter</h3><p>Les formations du programme Restaure pour vos équipes, et le recrutement de personnes formées dans nos parcours.</p><a class="btn btn--gold" href="#pro">Travailler avec Festin <span class="arrow">→</span></a></div>
+      <div class="porte"><span class="porte__who">Vous accompagnez une personne</span><h3>Orienter vers une formation</h3><p>Les parcours, les conditions d'entrée, les dates des prochaines promotions et la personne à contacter.</p><a class="btn btn--teal" href="#publics">Orienter une personne <span class="arrow">→</span></a></div>
+      <div class="porte"><span class="porte__who">Vous dirigez une équipe</span><h3>Former et recruter</h3><p>Les formations du programme Restaure pour vos équipes, et le recrutement de personnes formées dans nos parcours.</p><a class="btn btn--gold" href="#publics">Travailler avec Festin <span class="arrow">→</span></a></div>
       <div class="porte"><span class="porte__who">Vous soutenez nos actions</span><h3>Devenir partenaire</h3><p>Mécénat, soutien d'une promotion, partenariat institutionnel, don.</p><a class="btn btn--ink" href="#association">Soutenir Festin <span class="arrow">→</span></a></div>
     </div>
-    <p class="note" data-n="7"><b>Le troisième public est nommé.</b> Financeurs, fondations et institutions ont leur porte. Le don reste dans la pastille pour le grand public.</p>
+    <p class="note" data-n="6"><b>Le troisième public est nommé.</b> Financeurs, fondations et institutions ont leur porte. Le don reste dans la pastille pour le grand public.</p>
   </div>
 </section>
 
@@ -479,7 +469,7 @@ a:hover .arrow{transform:translateX(4px)}
   <div class="wrap foot__grid">
     <div><img src="../images/logo-festin-jaune.png" alt="Festin" style="width:90px;margin-bottom:14px"><p style="margin:0">Festin est une association loi 1901, à but non lucratif et d'intérêt général, agréée ESUS. Depuis Marseille, elle forme des personnes aux métiers de la cuisine et accompagne les restaurants.</p></div>
     <div><h4>Insertion</h4><ul><li>Nos parcours</li><li>Calendrier des promotions</li><li>Orienter une personne</li></ul></div>
-    <div><h4>Professionnels</h4><ul><li>Les formations Restaure</li><li>Recruter</li><li>Accompagnement RH</li><li>Le manifeste Restaure</li></ul></div>
+    <div><h4>Professionnels</h4><ul><li>Les formations Restaure</li><li>Recruter</li><li>Le manifeste Restaure</li></ul></div>
     <div><h4>Nos projets</h4><ul><li>Des Étoiles et des Femmes</li><li>Tournesol</li><li>Académie Festin</li><li>Les Beaux Mets</li><li>La Table de Cana</li><li>Le programme Restaure</li></ul></div>
     <div><h4>L'association</h4><ul><li>Qui sommes-nous</li><li>Notre impact</li><li>Actualités et presse</li><li>Devenir partenaire</li><li>Nous écrire</li></ul></div>
   </div>
@@ -494,27 +484,26 @@ a:hover .arrow{transform:translateX(4px)}
         <div class="panel__col">
           <p class="panel__h">Insertion</p><p class="panel__for">Pour orienter une personne vers l'emploi</p>
           <ul>
-            <li><a href="#insertion"><span class="ic ic--g">✎</span><span><b>Nos parcours de formation</b><small>Diplômants, gratuits, avec stages</small></span></a></li>
-            <li><a href="#insertion"><span class="ic ic--g">◷</span><span><b>Calendrier des promotions</b><small>Dates, lieux, conditions d'entrée</small></span></a></li>
-            <li><a href="#insertion"><span class="ic ic--g">↗</span><span><b>Orienter une personne</b><small>Le contact de chaque projet</small></span></a></li>
+            <li><a href="#publics"><span class="ic ic--g">✎</span><span><b>Nos parcours de formation</b><small>Diplômants, gratuits, avec stages</small></span></a></li>
+            <li><a href="#publics"><span class="ic ic--g">◷</span><span><b>Calendrier des promotions</b><small>Dates, lieux, conditions d'entrée</small></span></a></li>
+            <li><a href="#publics"><span class="ic ic--g">↗</span><span><b>Orienter une personne</b><small>Le contact de chaque projet</small></span></a></li>
           </ul>
         </div>
         <div class="panel__col is-pro">
           <p class="panel__h">Professionnels</p><p class="panel__for">Pour les restaurants et leurs équipes</p>
           <ul>
-            <li><a href="#pro"><span class="ic ic--c">✦</span><span><b>Former vos équipes</b><small>Les formations du programme Restaure</small></span></a></li>
-            <li><a href="#pro"><span class="ic ic--c">◎</span><span><b>Recruter une personne formée</b><small>Stages, Book de l'emploi, POEI</small></span></a></li>
-            <li><a href="#pro"><span class="ic ic--c">☰</span><span><b>Accompagnement RH</b><small>Recruter, intégrer, fidéliser</small></span></a></li>
-            <li><a href="#pro"><span class="ic ic--c">✊</span><span><b>S'engager avec Restaure</b><small>Le manifeste, les groupes de travail</small></span></a></li>
+            <li><a href="#publics"><span class="ic ic--c">✦</span><span><b>Former vos équipes</b><small>Les formations du programme Restaure</small></span></a></li>
+            <li><a href="#publics"><span class="ic ic--c">◎</span><span><b>Recruter une personne formée</b><small>Stages, Book de l'emploi, POEI</small></span></a></li>
+                        <li><a href="#publics"><span class="ic ic--c">✊</span><span><b>S'engager avec Restaure</b><small>Le manifeste, les groupes de travail</small></span></a></li>
           </ul>
         </div>
         <div class="panel__col">
           <p class="panel__h">Nos projets</p><p class="panel__for">Six projets, trois missions</p>
           <ul>
-            <li><a href="#projets"><span class="ic ic--t">★</span><span><b>Des Étoiles et des Femmes</b><small>Former</small></span></a></li>
-            <li><a href="#projets"><span class="ic ic--t">☀</span><span><b>Tournesol</b><small>Former</small></span></a></li>
-            <li><a href="#projets"><span class="ic ic--t">⌂</span><span><b>Les Beaux Mets · La Table de Cana</b><small>Accompagner jusqu'à l'emploi</small></span></a></li>
-            <li><a href="#projets"><span class="ic ic--t">▦</span><span><b>Tous les projets</b><small>Avec l'Académie Festin et Restaure</small></span></a></li>
+            <li><a href="#association"><span class="ic ic--t">★</span><span><b>Des Étoiles et des Femmes</b><small>Former</small></span></a></li>
+            <li><a href="#association"><span class="ic ic--t">☀</span><span><b>Tournesol</b><small>Former</small></span></a></li>
+            <li><a href="#association"><span class="ic ic--t">⌂</span><span><b>Les Beaux Mets · La Table de Cana</b><small>Accompagner jusqu'à l'emploi</small></span></a></li>
+            <li><a href="#association"><span class="ic ic--t">▦</span><span><b>Tous les projets</b><small>Avec l'Académie Festin et Restaure</small></span></a></li>
           </ul>
         </div>
         <div class="panel__col">
@@ -529,7 +518,7 @@ a:hover .arrow{transform:translateX(4px)}
       </div>
       <div class="panel__foot"><a class="pill__don" href="#soutenir">Faire un don à Festin</a><span style="font-size:13px;color:rgba(254,252,248,.7)">Association loi 1901, d'intérêt général, agréée ESUS.</span></div>
     </div>
-    <p class="note" data-n="8"><b>Arborescence par public, pas par projet.</b> « Se former » et « Recruter » laissent place à « Insertion » et « Professionnels » : chacun se reconnaît au premier mot. La colonne Professionnels est teintée or, comme la porte de l'accueil. Dans le site, les icônes seront celles du menu actuel (Lucide) ; ici, des signes simples les représentent.</p>
+    <p class="note" data-n="7"><b>Arborescence par public, pas par projet.</b> « Se former » et « Recruter » laissent place à « Insertion » et « Professionnels » : chacun se reconnaît au premier mot. La colonne Professionnels est teintée or, comme la porte de l'accueil. Dans le site, les icônes seront celles du menu actuel (Lucide) ; ici, des signes simples les représentent.</p>
   </div>
 </section>
 
