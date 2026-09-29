@@ -154,7 +154,7 @@ function AccompagnementProsPage() {
       <section className="g-sec g-sec--white" aria-labelledby="pros-form-t">
         <div className="wrap">
           <window.GHead id="pros-form-t" split title="Former vos équipes," accent="avec le programme Restaure."
-            lede="Des formations courtes, en présentiel, dans vos murs ou avec d'autres établissements, construites à partir de situations réelles de cuisine et de salle. Le programme Restaure est certifié Qualiopi ; une prise en charge par votre OPCO est possible." />
+            lede="Des formations courtes, en présentiel, dans vos murs ou avec d'autres établissements, construites à partir de situations réelles de cuisine et de salle. Elles sont portées par le programme Restaure et font partie du catalogue de l'Académie Festin, certifiée Qualiopi ; une prise en charge par votre OPCO est possible." />
           <div className="formations__grid">
             {FCL && formationsPros.map((f) => <FCL key={f.id} f={f} noPrice />)}
           </div>
@@ -205,7 +205,7 @@ function AccompagnementProsPage() {
 
       <window.Faq id="faq-pros" tone="white" title="Vos" accent="questions" items={[
         { q: "Qu'est-ce que la POEI ?", a: "La préparation opérationnelle à l'emploi individuelle est financée par France Travail. Elle vous permet de recruter une personne formée à votre cuisine : immersion, deux stages chez vous, puis un CDD de quatre mois minimum. Festin s'occupe des démarches avec vous." },
-        { q: "Qui porte les formations pour les professionnels ?", a: "Le programme Restaure, certifié Qualiopi. Les formations ont lieu en inter (avec d'autres établissements) ou en intra (dans vos murs). Une prise en charge par votre OPCO est possible ; chaque fiche donne le tarif." },
+        { q: "Qui porte les formations pour les professionnels ?", a: "Le programme Restaure. Elles font partie du catalogue de l'Académie Festin, certifiée Qualiopi. Les formations ont lieu en inter (avec d'autres établissements) ou en intra (dans vos murs). Une prise en charge par votre OPCO est possible ; chaque fiche donne le tarif." },
         { q: "Comment accueillir un stagiaire ?", a: "Écrivez-nous. Nous vous présentons une personne formée par Des Étoiles et des Femmes ou Tournesol ; un membre de votre équipe la suit en binôme, et Festin reste en appui pendant tout le stage." },
         { q: "Comment rejoindre le programme Restaure ?", a: "Vous pouvez signer le manifeste, rejoindre un groupe de travail ou venir aux tables rondes et aux Toast. Tout est sur la page du programme Restaure." },
       ]} />

@@ -625,6 +625,7 @@ window.FESTIN_DATA = {
     {
       id: "vss",
       cat: "Professionnels",
+      porteur: "Portée par le programme Restaure",
       audienceKey: "pros",
       title: "Prévention des violences sexistes et sexuelles en restauration",
       desc: "Identifier, prévenir et agir contre les violences sexistes et sexuelles en milieu professionnel.",
@@ -650,6 +651,7 @@ window.FESTIN_DATA = {
     {
       id: "management",
       cat: "Professionnels",
+      porteur: "Portée par le programme Restaure",
       audienceKey: "pros",
       title: "Management juste & inclusif",
       desc: "Recruter, fidéliser et manager autrement. Construire un environnement de travail respectueux.",
@@ -1260,18 +1262,16 @@ Object.assign(window.FESTIN_DATA.home, {
 // ============================================================
 window.FESTIN_DATA.arbo = [
   { key: "insertion", label: "Insertion", href: "#/accompagnement/insertion",
-    match: ["#/accompagnement/insertion", "#/formations", "#/academie"],
+    match: ["#/accompagnement/insertion", "#/academie", "#/formations"],
     links: [
       { ic: "compass", c: "#7FC4CB", label: "Orienter une personne", d: "Parcours, conditions d'entrée, calendrier", href: "#/accompagnement/insertion" },
-      { ic: "graduation-cap", c: "#7FC4CB", label: "Toutes nos formations", d: "Pour les personnes en insertion et les professionnels", href: "#/formations" },
-      { ic: "school", c: "#7FC4CB", label: "L'Académie Festin", d: "Notre organisme de formation", href: "#/academie" },
+      { ic: "graduation-cap", c: "#7FC4CB", label: "L'Académie Festin", d: "Toutes nos formations : parcours d'insertion et formations pro", href: "#/academie" },
     ] },
   { key: "pros", label: "Professionnels", href: "#/accompagnement/professionnels",
     match: ["#/accompagnement/professionnels", "#/formations/vss", "#/formations/management"],
     links: [
       { ic: "briefcase", c: "#FFC100", label: "Former et recruter", d: "Tout ce que Festin fait avec les restaurants", href: "#/accompagnement/professionnels" },
-      { ic: "shield-check", c: "#FFC100", label: "Prévention des violences sexistes et sexuelles", d: "Formation du programme Restaure", href: "#/formations/vss" },
-      { ic: "users", c: "#FFC100", label: "Management juste & inclusif", d: "Formation du programme Restaure", href: "#/formations/management" },
+      { ic: "shield-check", c: "#FFC100", label: "Nos formations pro", d: "Portées par le programme Restaure", href: "#/formations" },
       { ic: "megaphone", c: "#FFC100", label: "Le programme Restaure", d: "Le manifeste, les groupes de travail", href: "#/projets/restaure" },
     ] },
   { key: "projets", label: "Nos projets", href: "#/projets",
@@ -1457,7 +1457,7 @@ window.FESTIN_DATA.projetPages = {
     heroImg: "images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg", heroAlt: "Soirée de lancement du programme Restaure", heroCredit: "Photo : Caroline Dutrey",
     heroCta: { label: "Signer le manifeste", href: "https://www.mouvement-restaure.com", external: true }, heroLien: { label: "Rejoindre un groupe de travail", to: "portes" },
     bref: { title: "Des cuisines où l'on travaille", accent: "en sécurité.",
-      text: "Un programme national né en 2024. Restaurateurs, chefs et associations y travaillent ensemble pour prévenir les violences en cuisine et changer les pratiques de management." },
+      text: "Un programme national né en 2024. Restaurateurs, chefs et associations y travaillent ensemble pour prévenir les violences en cuisine et changer les pratiques de management. Il porte aussi les formations pro de Festin, pour les équipes de la restauration." },
     video: { link: "https://www.instagram.com/reel/DJ9kq6iIb5j/", linkLabel: "Voir la vidéo sur Instagram", poster: "images/restaure : formation pro/FESTIN_TOAST_12 FEVRIER_FEED-25.jpg" },
     preuves: [
       "<b>35 structures</b> de la restauration sont engagées, et le manifeste compte <b>700 signataires</b>.",
@@ -1472,7 +1472,7 @@ window.FESTIN_DATA.projetPages = {
         pts: ["Signez le manifeste, rejoignez un groupe de travail ou venez à un Toast.", "35 structures sont déjà membres."],
         cta: "Signer le manifeste", href: "https://www.mouvement-restaure.com", external: true, img: "images/restaure : formation pro/FESTIN_TOAST_12 FEVRIER_FEED-25.jpg" },
       { tag: "Vous managez une équipe", title: "Former vos managers",
-        pts: ["Prévention des violences sexistes et sexuelles, en trois heures ou une journée.", "Management juste, en deux jours. Par l'Académie Festin, certifiée Qualiopi."],
+        pts: ["Prévention des violences sexistes et sexuelles, en trois heures ou une journée.", "Management juste, en deux jours. Au catalogue de l'Académie Festin, certifiée Qualiopi."],
         cta: "Voir les formations", href: "#/academie", img: "images/restaure : formation pro/IMG_2950.JPG" },
     ],
     soutien: { title: "Ils pilotent", accent: "Restaure",
@@ -1592,7 +1592,7 @@ Object.assign(window.FESTIN_DATA.home, {
           { dt: "Recruter", dd: "Stagiaires, Book de l'emploi, préparation à l'emploi financée par France Travail (POEI)." },
           { dt: "S'engager", dd: "Signer le manifeste du programme Restaure (700 signataires), rejoindre un groupe de travail." },
         ],
-        preuve: "Formations du programme Restaure, certifié Qualiopi. Prise en charge par votre OPCO possible.",
+        preuve: "Formations portées par le programme Restaure, au catalogue de l'Académie Festin, certifiée Qualiopi. Prise en charge par votre OPCO possible.",
         cta: { label: "Travailler avec Festin", href: "#/accompagnement/professionnels" } },
     ],
   },

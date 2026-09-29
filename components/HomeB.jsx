@@ -164,8 +164,8 @@ function HomeB() {
         lede={H.jalons.lede} word="PROJETS" label="Les projets de Festin, de 1993 à 2026" />
 
       {/* 5 · TOUTES NOS FORMATIONS — une étiquette par public */}
-      <window.AcaCatalogue id="formations" title="Toutes nos" accent="formations." tone="white"
-        src="Les formations pour les professionnels sont portées par le programme Restaure, certifié Qualiopi ; une prise en charge par votre OPCO est possible." />
+      <window.AcaCatalogue id="formations" title="Toutes nos" accent="formations." tone="white" lien
+        src="L'Académie Festin est certifiée Qualiopi. Les formations pro sont portées par le programme Restaure ; une prise en charge par votre OPCO est possible." />
 
       {/* 6 · CE QUE 2025 A DONNÉ — les quatre chiffres clés, en couleur, sur fond sombre */}
       <section className="ac-chiffres on-dark" id="chiffres" aria-labelledby="ac-chiffres-t">

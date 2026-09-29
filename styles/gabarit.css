@@ -360,3 +360,4 @@
   .or-row{grid-template-columns:1fr;gap:10px;padding:20px 0}
   .or-k{display:block;margin-bottom:2px}
 }
+.formation-card__porteur{display:block;margin:-2px 0 6px;font-size:14px;font-weight:600;color:var(--gold-ink)}
