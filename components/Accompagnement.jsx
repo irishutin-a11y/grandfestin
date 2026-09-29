@@ -61,7 +61,7 @@ function AccompagnementInsertionPage() {
       <section className="g-sec g-sec--white" id="parcours-choix" aria-labelledby="ins-par-t">
         <div className="wrap">
           <window.GHead id="ins-par-t" split title="Quel parcours," accent="pour qui ?"
-            lede="Quatre projets de Festin forment et emploient des personnes qui cherchent un métier. Que vous cherchiez pour vous-même ou que vous accompagniez quelqu'un, voici à qui s'adresse chaque parcours et comment y entrer." />
+            lede="Vous cherchez pour vous-même, ou vous accompagnez quelqu'un : voici à qui s'adresse chaque parcours, et comment y entrer." />
           <ul className="or-cards">
             {D.orienter.map((o) => {
               const p = D.projets.find((x) => x.id === o.id) || {};
@@ -88,6 +88,7 @@ function AccompagnementInsertionPage() {
               );
             })}
           </ul>
+          <p className="g-src">Les Beaux Mets, le restaurant de la prison des Baumettes, ne reçoit pas de candidatures : on y réserve une table, et les restaurants peuvent y recruter un ancien commis. <a href="#/projets/les-beaux-mets">Découvrir Les Beaux Mets →</a></p>
         </div>
       </section>
 
@@ -113,7 +114,7 @@ function AccompagnementInsertionPage() {
       <window.Faq id="faq-ins" title="Vos" accent="questions" items={[
         { q: "La formation est-elle payante ?", a: "Non. Tous nos parcours sont gratuits. Selon votre situation, vous pouvez percevoir une indemnité ou une rémunération pendant la formation." },
         { q: "Quand commencent les prochaines sessions ?", a: "Chaque antenne a son propre calendrier. Le site de chaque projet donne les dates des prochaines sessions." },
-        { q: "Quel parcours est fait pour moi ?", a: "Des Étoiles et des Femmes accueille des femmes. Tournesol accueille des personnes réfugiées ou primo-arrivantes. Les Beaux Mets recrute des personnes détenues aux Baumettes. La Table de Cana emploie des salariés en insertion à Marseille. Écrivez-nous : nous vous orientons." },
+        { q: "Quel parcours est fait pour moi ?", a: "Des Étoiles et des Femmes accueille des femmes. Tournesol accueille des personnes réfugiées ou primo-arrivantes. La Table de Cana emploie des salariés en insertion à Marseille. Écrivez-nous : nous vous orientons." },
         { q: "Qui m'aide pendant la formation ?", a: "Une personne de l'équipe vous suit du premier entretien jusqu'à l'emploi : transport, garde d'enfants, logement, cours de français, recherche de poste." },
         { q: "Et après la formation ?", a: "En mai et juin, nous préparons avec vous la recherche de poste et nous vous mettons en relation avec des restaurants qui recrutent." },
       ]} />

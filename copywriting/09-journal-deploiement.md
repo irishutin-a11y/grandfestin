@@ -120,3 +120,10 @@ Maquette validée : `maquettes/home-double-cible.html`. Intégration en cinq ét
 - **Insertion** : une seule section « Quel parcours, pour qui ? » (pour qui, le parcours, pour entrer, « Plus d'informations » vers le site du projet) ; plus aucune date de session sur le site (chaque antenne a son calendrier).
 - **Professionnels** : section « S'engager avec le programme Restaure » retirée ; frise POEI sans dates. Le manifeste n'est plus proposé ailleurs que sur la page Restaure, comme un fait.
 - **Association** : « Six projets, trois missions » retiré ; frise : nom avant la date ; valeurs en trois mots ; édito et partenaires côte à côte.
+
+## Relecture du 30/09/2026
+
+- **Typographie** : espace insécable automatique avant « : ; ? ! % » et après « (App.jsx, sur tout le texte affiché) ; titres équilibrés (text-wrap).
+- **Contact** : champ « Vous êtes » (prescripteur, professionnel, partenaire, personne en recherche, presse, autre), motif « Former mes équipes » ajouté ; le profil part dans le message.
+- **Projets et formations** : Les Beaux Mets retiré des parcours d'insertion (on y réserve, on y recrute un ancien commis, on n'y candidate pas) ; La Table de Cana reste (orientation possible).
+- **Texte** : tirets cadratins retirés des textes affichés ; descriptions des formations réécrites en phrases ; heures écrites « 600 h » ; fonctions en minuscules (le chef, le second, le maître d'hôtel) ; « convives servis » ; blocs Soutenir recentrés sur le don ; « Management juste & inclusif » en entier ; « Toutes nos formations » au lieu de « Le catalogue 2026 ». « Devis » autorisé (traiteur, formations).

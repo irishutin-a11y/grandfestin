@@ -43,7 +43,10 @@ function Contact() {
   const [etat, setEtat] = React.useState('saisie'); // 'saisie' | 'ouvert'
   const [err, setErr] = React.useState({});
   const [dest, setDest] = React.useState(c.email);
+  // qui écrit : l'équipe sait tout de suite à qui transmettre (retours du 30/09/2026)
+  const profils = ["Je suis prescripteur (conseiller, travailleur social)", 'Je suis un professionnel de la restauration', 'Je suis partenaire ou financeur', 'Je cherche une formation ou un emploi', 'Je suis journaliste', 'Autre'];
   const motifs = [
+    { value: 'Former mes équipes', label: 'Former mes équipes', icon: 'shield-check' },
     { value: 'Recruter ou accueillir un stagiaire', label: 'Recruter, accueillir un stagiaire', icon: 'handshake' },
     { value: 'Se former', label: 'Se former', icon: 'graduation-cap' },
     { value: 'Mécénat ou partenariat', label: 'Mécénat ou partenariat', icon: 'users', to: 'partenariat@grandfestin.com' },
@@ -66,6 +69,7 @@ function Contact() {
       '',
       '---',
       'De : ' + v('prenom') + ' ' + v('nom') + ' <' + v('email') + '>',
+      v('profil') && 'Profil : ' + v('profil'),
       v('organisation') && 'Organisation : ' + v('organisation'),
       v('formation') && 'Formation concernée : ' + v('formation'),
     ].filter((x) => x !== false && x !== '').join('\n');
@@ -105,6 +109,12 @@ function Contact() {
               </div>
               <div className="field"><label htmlFor="c-email">E-mail <span aria-hidden="true">*</span></label><input id="c-email" name="email" type="email" autoComplete="email" inputMode="email" required {...fe('email')} />{err.email && <p className="field__err" id="err-email">{err.email}</p>}</div>
               <div className="field"><label htmlFor="c-org">Organisation</label><input id="c-org" name="organisation" autoComplete="organization" /></div>
+              <div className="field"><label htmlFor="c-profil">Vous êtes</label>
+                <select id="c-profil" name="profil" defaultValue="">
+                  <option value="" disabled>Choisissez</option>
+                  {profils.map((o) => <option key={o} value={o}>{o}</option>)}
+                </select>
+              </div>
               <fieldset className="field motif-group">
                 <legend>Motif de votre demande</legend>
                 {motifs.map((o, i) => (

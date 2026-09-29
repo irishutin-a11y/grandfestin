@@ -73,7 +73,7 @@ function App() {
     const D = window.FESTIN_DATA, base = 'Festin';
     const proj = route.name === 'projet' ? D.projets.find(x => x.id === route.id) : null;
     const titles = {
-      home: 'Festin — Former en cuisine, jusqu’à l’emploi',
+      home: 'Festin : former les personnes, faire avancer les cuisines',
       about: 'Qui sommes-nous | ' + base, projets: 'Nos projets | ' + base, formation: 'Formation | ' + base,
       academie: "L'Académie Festin | " + base, impact: 'Notre impact | ' + base, actualites: 'Actualités et presse | ' + base,
       contact: 'Contact | ' + base, 'accomp-insertion': 'Insertion : apprendre un métier de cuisine | ' + base,
@@ -112,6 +112,31 @@ function App() {
     </div>
   );
 }
+
+// Typographie française, appliquée à tout le texte affiché (retours du 30/09/2026) :
+// espace insécable avant : ; ? ! % » et après «, pour qu'aucun signe ne tombe seul en début de ligne.
+(function () {
+  const RX = / ([:;?!%»])/g, RX2 = /« /g;
+  const fix = (n) => {
+    if (n.nodeType === 3) {
+      const v = n.nodeValue, w = v.replace(RX, '\u00a0$1').replace(RX2, '«\u00a0');
+      if (w !== v) n.nodeValue = w;
+      return;
+    }
+    if (n.nodeType !== 1 || /^(SCRIPT|STYLE|TEXTAREA|INPUT|CODE)$/.test(n.nodeName)) return;
+    for (let c = n.firstChild; c; c = c.nextSibling) fix(c);
+  };
+  const start = () => {
+    const root = document.getElementById('root');
+    if (!root) return;
+    fix(root);
+    new MutationObserver((ms) => ms.forEach((m) => {
+      if (m.type === 'characterData') fix(m.target);
+      else m.addedNodes.forEach(fix);
+    })).observe(root, { childList: true, subtree: true, characterData: true });
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
+})();
 
 if (!window.location.hash) window.location.hash = '#/';
 const root = ReactDOM.createRoot(document.getElementById('root'));

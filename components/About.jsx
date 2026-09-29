@@ -264,7 +264,7 @@ function MotDirecteur() {
         qu'un slogan. C'est une méthode, une exigence, une responsabilité.</p>
         <footer className="ab-mot__sig">
           <strong>Jérôme Schatzman, Armand Hurault, Marine Vever</strong>
-          <span>Président, directeur général et directrice adjointe de Festin — édito du rapport d'activité 2025</span>
+          <span>Président, directeur général et directrice adjointe de Festin, édito du rapport d'activité 2025</span>
         </footer>
       </blockquote>
     </div>

@@ -27,7 +27,7 @@ Le design system Claude Design (zip) contient d'anciennes versions des composant
 - « Écosystème Festin », jamais « Groupe Festin ». Chaque projet est rattaché à Festin sur sa page.
 - Caractère non lucratif et d'intérêt général lisible dès l'accueil, dans le texte.
 - Statut ESUS précisé chaque fois qu'une filiale est mentionnée (entités concernées à confirmer, voir plus bas).
-- Aucun investisseur, aucun montage capitalistique, aucun vocabulaire lucratif sur une page grand public. Page restaurateurs : partenariat et insertion, jamais « offre », « prestation », « client », « devis », « solution ».
+- Aucun investisseur, aucun montage capitalistique, aucun vocabulaire lucratif sur une page grand public. Page restaurateurs : partenariat et insertion, jamais « offre », « prestation », « client », « solution ». « Devis » est autorisé (traiteur, formations), décision du 30/09/2026.
 - Pas de point médian. Pas de superlatif. Chiffres sourcés et datés.
 - Restaure s'écrit « le programme Restaure » (restructuration en cours).
 - Projets non acquis jamais au présent : « CAP vers l'Emploi », futur lieu près du Vieux-Port, Sadi Carnot.

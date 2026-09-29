@@ -30,8 +30,8 @@ function FormationCardLink({ f, wide, noPrice }) {
         <p className="formation-card__desc">{f.desc}</p>
         <div className="formation-card__chips">
           <span className="chip"><i data-lucide="clock" style={{width:12,height:12}}/> {f.duration}</span>
-          <span className="chip"><i data-lucide="map-pin" style={{width:12,height:12}}/> {f.format.split('—')[0].trim()}</span>
-          {!noPrice && <span className="chip"><i data-lucide="euro" style={{width:12,height:12}}/> {f.price.split('—')[0].trim()}</span>}
+          <span className="chip"><i data-lucide="map-pin" style={{width:12,height:12}}/> {f.format.split(',')[0].trim()}</span>
+          {!noPrice && <span className="chip"><i data-lucide="euro" style={{width:12,height:12}}/> {f.price.split(',')[0].trim()}</span>}
         </div>
         <div className="formation-card__bottom">
           <span className="lnk">Voir le détail <i data-lucide="arrow-right" style={{width:14,height:14}}/></span>
@@ -213,8 +213,8 @@ function NotFoundPage() {
         proof="Elle a peut-être changé d'adresse. Reprenez depuis l'accueil, ou allez directement à ce que vous cherchez.">
         <div className="nf__links">
           <a className="btnb btnb--teal" href="#/">Retour à l'accueil</a>
-          <a className="nf__lnk" href="#/accompagnement/insertion">Les formations</a>
-          <a className="nf__lnk" href="#/accompagnement/professionnels">Recruter avec Festin</a>
+          <a className="nf__lnk" href="#/academie">Nos formations</a>
+          <a className="nf__lnk" href="#/accompagnement/professionnels">Former et recruter</a>
           <a className="nf__lnk" href="#/contact">Nous écrire</a>
         </div>
       </window.HeroPage>
@@ -454,7 +454,7 @@ function AcademiePage() {
 
 // Catalogue complet de l'Académie (l'ancienne page « Formations » y est fusionnée :
 // une page, un nom). #/formations mène ici, au catalogue.
-function AcaCatalogue({ id = 'catalogue', title = 'Le catalogue', accent = '2026.', tone = 'cream', src, lien }) {
+function AcaCatalogue({ id = 'catalogue', title = 'Toutes nos', accent = 'formations.', tone = 'cream', src, lien }) {
   const D = window.FESTIN_DATA;
   const items = D.formations;
   const [filtre, setFiltre] = React.useState('all');
