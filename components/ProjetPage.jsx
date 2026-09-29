@@ -145,6 +145,7 @@ function ProjetPage({ id }) {
             <p className="g-lede g-reveal">{cfg.bref.text}</p>
             <a className="lnk g-bref__site g-reveal" href={p.siteUrl} target="_blank" rel="noopener noreferrer">Le site du projet : {p.siteName} <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (nouvel onglet)</span></a>
             <window.PresseLigne filtres={p.presseFilter || []} />
+            {cfg.orientable && <p className="g-src">Vous accompagnez une personne vers l'emploi ? Les conditions d'entrée sont sur la <a href="#/accompagnement/insertion">page Insertion</a>.</p>}
           </div>
           <div className="g-bref__media g-reveal">
             {cfg.video ? <window.GVideo v={cfg.video} label={p.shortTitle} />
@@ -157,6 +158,19 @@ function ProjetPage({ id }) {
           <window.Compteurs stats={p.stats || []} source={cfg.source} />
         </div>
       </section>
+
+      {/* PROGRAMME POUR LE SECTEUR — ses formations à la place d'un parcours (nature « programme ») */}
+      {cfg.nature === 'programme' && (
+        <section className="g-sec g-sec--cream" aria-labelledby="prog-form-t">
+          <div className="wrap">
+            <window.GHead id="prog-form-t" split title="Former vos équipes," accent="avec le programme."
+              lede="Des formations courtes, en présentiel, dans vos murs ou avec d'autres établissements. Elles font partie du catalogue de l'Académie Festin, certifiée Qualiopi ; une prise en charge par votre OPCO est possible." />
+            <div className="formations__grid">
+              {window.FormationCardLink && (D.formations || []).filter((f) => f.porteur).map((f) => <window.FormationCardLink key={f.id} f={f} noPrice />)}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* PARCOURS — frise partagée avec l'accueil */}
       {steps.length > 0 && (

@@ -383,3 +383,15 @@ main > div > section:last-of-type:is(.g-sec--cream,.g-sec--gold,.g-sec--tint,.is
 @media (max-width:900px){ .or-cards{grid-template-columns:1fr} }
 @media (max-width:420px){ .or-card dl div{grid-template-columns:1fr;gap:4px} }
 @media (min-width:1100px){ .or-cards{grid-template-columns:repeat(3,minmax(0,1fr))} }
+/* Appel final en carte (retours du 30/09/2026) : fond de page blanc, la carte porte la couleur (aplat or,
+   texte encre : règle de l'or) ; elle répond au pied de page, lui aussi en carte, et casse la suite de sections plates. */
+.g-appel{position:relative;overflow:hidden;background:var(--gold);color:var(--ink);border-radius:clamp(22px,2.4vw,32px);
+  padding:clamp(32px,5vw,72px);align-items:center}
+.g-appel::after{content:'';position:absolute;right:-10%;top:-45%;width:46%;aspect-ratio:1;border-radius:50%;background:var(--gold-secondary,#E8A825);opacity:.55;pointer-events:none}
+.g-appel > *{position:relative;z-index:1}
+.g-appel .g-h2{color:var(--ink)}
+.g-appel .g-h2 em{color:var(--teal-dark)}
+.g-appel .g-lede{color:var(--ink)}
+.g-appel__q p{color:var(--ink)!important}
+.g-appel__q footer{color:rgba(13,43,48,.78)!important}
+main > div > section:last-of-type:has(.g-appel){border-top:0!important}

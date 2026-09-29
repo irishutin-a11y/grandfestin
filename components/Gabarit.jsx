@@ -292,14 +292,14 @@ function MissionsNav({ currentId, title = 'Les projets', accent = 'de Festin', t
 function Appel({ id = 'appel', title, accent, text, cta, quote, tone = 'gold' }) {
   return (
     <section className={'g-sec g-sec--' + tone} id={id} aria-labelledby={id + '-t'}>
-      <div className="wrap g-appel">
+      <div className="wrap"><div className="g-appel">
         <h2 className="g-h2 g-reveal" id={id + '-t'}>{title}{accent && <> <em>{accent}</em></>}</h2>
         <div className="g-appel__txt g-reveal">
           {quote && <blockquote className="g-appel__q"><p>« {quote.text} »</p><footer>{quote.who}</footer></blockquote>}
           <p className="g-lede">{text}</p>
           {cta && <div className="g-actions"><GLink l={cta} className="btnb btnb--teal">{cta.label} <span className="arrow" aria-hidden="true">→</span></GLink></div>}
         </div>
-      </div>
+      </div></div>
     </section>
   );
 }
