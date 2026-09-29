@@ -50,9 +50,9 @@ function CeQuOnEst() {
 
 // ---------- 3. HISTOIRE — la frise partagée (même grammaire que l'accueil et les projets) ----------
 // Frise chronologique en couleur, épinglée au bureau (rétablie d'après les retours du 25/09/2026)
-function Histoire() {
-  const root = useRef(null), track = useRef(null), word = useRef(null);
-  const jalons = window.FESTIN_DATA.about.jalons;
+// Partagée avec l'accueil (window.JalonsCouleur) : sur l'accueil, chaque carte mène à un projet.
+function JalonsCouleur({ jalons, title, em, lede, word = 'HISTOIRE', label, id }) {
+  const root = useRef(null), track = useRef(null), wordRef = useRef(null);
   useEffect(() => {
     if (!window.gsap || !window.ScrollTrigger) return;
     const { gsap } = window;
@@ -63,26 +63,28 @@ function Histoire() {
       const dist = () => Math.max(0, track.current.scrollWidth - window.innerWidth + 48);
       gsap.to(track.current, { x: () => -dist(), ease: 'none',
         scrollTrigger: { trigger: el, start: 'top top', end: () => '+=' + dist(), pin: true, scrub: .6, anticipatePin: 1, invalidateOnRefresh: true } });
-      gsap.to(word.current, { x: () => -dist() * .35, ease: 'none',
+      gsap.to(wordRef.current, { x: () => -dist() * .35, ease: 'none',
         scrollTrigger: { trigger: el, start: 'top top', end: () => '+=' + dist(), scrub: true, invalidateOnRefresh: true } });
       return () => el.classList.remove('is-pinned');
     });
     return () => mm.revert();
   }, []);
   return (
-    <section className="ab-hist ab-sec--dark" ref={root}>
-      <div className="ab-hist__word" ref={word} aria-hidden="true">HISTOIRE</div>
+    <section className="ab-hist ab-sec--dark on-dark" id={id} ref={root}>
+      <div className="ab-hist__word" ref={wordRef} aria-hidden="true">{word}</div>
       <div className="container ab-hist__head">
-        <Title em="1987.">L'insertion par la cuisine depuis</Title>
+        <Title em={em}>{title}</Title>
+        {lede && <p className="ab-hist__lede">{lede}</p>}
       </div>
       <div className="ab-hist__viewport">
-        <ol className="ab-hist__track" ref={track} tabIndex={0} aria-label="Les dates de Festin, de 1987 à 2026">
+        <ol className="ab-hist__track" ref={track} tabIndex={0} aria-label={label}>
           {jalons.map((j, i) => (
-            <li key={i} className={'ab-jalon' + (j.dark ? ' is-dark-text' : '')} style={{ background: j.color }}>
+            <li key={i} className={'ab-jalon' + (j.dark ? ' is-dark-text' : '') + (j.href ? ' is-link' : '')} style={{ background: j.color }}>
               <span className="ab-jalon__year">{j.year}</span>
               <div className="ab-jalon__body">
-                <h3>{j.title}</h3>
+                <h3>{j.href ? <a className="ab-jalon__lnk" href={j.href}>{j.title}</a> : j.title}</h3>
                 <p>{j.desc}</p>
+                {j.href && <span className="ab-jalon__go" aria-hidden="true">Découvrir <span className="arrow">→</span></span>}
               </div>
               {j.photo && <span className="ab-jalon__img"><window.Picture src={j.photo} alt="" sizes="(max-width: 899px) 60vw, 30vw" /></span>}
             </li>
@@ -91,6 +93,12 @@ function Histoire() {
       </div>
     </section>
   );
+}
+window.JalonsCouleur = JalonsCouleur;
+
+function Histoire() {
+  return <JalonsCouleur jalons={window.FESTIN_DATA.about.jalons} title="L'insertion par la cuisine depuis" em="1987."
+    label="Les dates de Festin, de 1987 à 2026" />;
 }
 
 // ---------- 4. ÉQUIPE — carrousel draggable groupé par pôle ----------

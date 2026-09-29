@@ -270,3 +270,16 @@
 .ab-title--hero{font-size:min(var(--fs-display), 11.5vw)}
 /* Rythme vertical unique (reprise) */
 .ab-sec, .ab-mot, .ab-engage { padding-top: var(--section); padding-bottom: var(--section); }
+/* Frise partagée avec l'accueil (JalonsCouleur) : cartes cliquables, chapeau */
+.ab-hist{--pad-x:var(--gutter,24px)}
+.ab-hist__lede{margin:14px 0 0;max-width:60ch;font-size:clamp(17px,1rem + .3vw,20px);line-height:1.55;color:rgba(254,252,248,.86)}
+.ab-jalon.is-link{transition:transform .3s var(--ease-out)}
+.ab-jalon.is-link:hover{transform:translateY(-6px)}
+.ab-jalon__lnk{color:inherit}
+.ab-jalon__lnk::after{content:'';position:absolute;inset:0;z-index:1}
+.ab-jalon__lnk:focus-visible{outline:none}
+.ab-jalon.is-link:has(.ab-jalon__lnk:focus-visible){outline:3px solid var(--gold);outline-offset:3px}
+.ab-jalon__go{display:inline-block;margin-top:12px;font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.ab-jalon h3,.ab-jalon p,.ab-jalon__year,.ab-jalon__go{color:inherit}
+.ab-jalon{color:var(--off-white)}
+.ab-jalon.is-dark-text{color:var(--ink)}

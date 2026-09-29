@@ -339,3 +339,8 @@
 .aca-besoin__c span{font-size:15px;line-height:1.45;color:rgba(254,252,248,.82)}
 .aca-besoin__src{margin:var(--sp-5) 0 0;font-size:14px;color:rgba(254,252,248,.7)}
 @media (max-width:767px){ .aca-besoin__grid{grid-template-columns:1fr} }
+/* Étiquette de public sur les cartes de formation (teal : insertion ; or : professionnels) */
+.ftag{display:inline-flex;align-self:flex-start;padding:5px 12px;border-radius:999px;font-size:13px;font-weight:700;line-height:1.2}
+.ftag--ins{background:var(--teal);color:var(--off-white)}
+.ftag--pro{background:var(--gold);color:var(--ink)}
+.formation-card__body .ftag{margin-bottom:4px}

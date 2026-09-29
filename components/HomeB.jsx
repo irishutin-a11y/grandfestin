@@ -8,6 +8,7 @@ const IMG = (p) => (/%[0-9A-Fa-f]{2}/.test(p) ? p : encodeURI(p));
 
 function HomeB() {
   const rootRef = useRef(null);
+  window.useGReveal(rootRef); // briques communes (catalogue) : même apparition qu'ailleurs
 
   useEffect(() => {
     const root = rootRef.current;
@@ -96,10 +97,12 @@ function HomeB() {
             </h1>
             <p className="ac-hero__sig">{H.hero.signature}</p>
             {H.hero.lede && <p className="ac-hero__lede">{H.hero.lede}</p>}
+            {/* les deux publics dès le premier écran */}
             <div className="ac-hero__cta">
-              <a className="btnb btnb--gold" href={H.hero.ctaPrimary.href}>{H.hero.ctaPrimary.label} <span className="arrow" aria-hidden="true">→</span></a>
-              <a className="ac-hero__lnk" href={H.hero.ctaSecondary.href}>{H.hero.ctaSecondary.label} <span className="arrow" aria-hidden="true">→</span></a>
+              <a className="btnb btnb--light" href={H.hero.ctaPrimary.href}>{H.hero.ctaPrimary.label} <span className="arrow" aria-hidden="true">→</span></a>
+              <a className="btnb btnb--gold" href={H.hero.ctaSecondary.href}>{H.hero.ctaSecondary.label} <span className="arrow" aria-hidden="true">→</span></a>
             </div>
+            {H.hero.soutien && <p className="ac-hero__soutien">{H.hero.soutien.text} <a href={H.hero.soutien.href}>{H.hero.soutien.label} <span className="arrow" aria-hidden="true">→</span></a></p>}
           </div>
         </div>
         <figure className="ac-hero__media">
@@ -131,22 +134,40 @@ function HomeB() {
         </div>
       </section>
 
-      {/* 3 · TROIS MISSIONS, SIX PROJETS — un seul rangement pour tout le site */}
-      <section className="ac-mis" id="missions" aria-labelledby="ac-mis-t">
+      {/* 3 · DEUX PUBLICS — chaque visiteur se reconnaît avant de lire l'histoire */}
+      <section className="ac-pub" id="publics" aria-labelledby="ac-pub-t">
         <div className="wrap">
-          <div className="ac-mis__head reveal">
-            <h2 className="ac-h2" id="ac-mis-t">{H.missions.title} <em>{H.missions.titleAccent}</em></h2>
-            <p className="ac-lede">{H.missions.lede}</p>
+          <div className="ac-pub__head reveal">
+            <h2 className="ac-h2" id="ac-pub-t">{H.publics.title} <em>{H.publics.titleAccent}</em></h2>
+            <p className="ac-lede">{H.publics.lede}</p>
           </div>
-          <window.MissionsListe />
+          <div className="ac-pub__grid">
+            {H.publics.cols.map((c) => (
+              <article className={'ac-side ac-side--' + c.key + ' reveal'} key={c.key}>
+                <div className="ac-side__img"><window.Picture src={c.img} alt={c.imgAlt} sizes="(max-width: 900px) 100vw, 46vw" /></div>
+                <div className="ac-side__body">
+                  <span className="ac-side__tag">{c.tag}</span>
+                  <h3 className="ac-side__t">{c.title} <em>{c.titleAccent}</em></h3>
+                  <p>{c.text}</p>
+                  <dl>{c.lignes.map((l) => <div key={l.dt}><dt>{l.dt}</dt><dd>{l.dd}</dd></div>)}</dl>
+                  <p className="ac-side__proof" dangerouslySetInnerHTML={{ __html: c.preuve }} />
+                  <a className={'btnb ' + (c.key === 'pro' ? 'btnb--gold' : 'btnb--teal')} href={c.cta.href}>{c.cta.label} <span className="arrow" aria-hidden="true">→</span></a>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* 4 · LE PARCOURS — une promotion, de septembre à juin */}
-      <window.Frise id="parcours" tone="tint" title={H.frise.title} accent={H.frise.titleAccent} lede={H.frise.lede}
-        steps={H.frise.steps} rail={H.frise.rail} cta={H.frise.cta} />
+      {/* 4 · PRÈS DE QUARANTE ANS — la frise des projets, chaque carte mène à sa page */}
+      <window.JalonsCouleur id="histoire" jalons={H.jalons.items} title={H.jalons.title} em={H.jalons.titleAccent}
+        lede={H.jalons.lede} word="PROJETS" label="Les projets de Festin, de 1993 à 2026" />
 
-      {/* 5 · CE QUE 2025 A DONNÉ — les quatre chiffres clés, en couleur, sur fond sombre */}
+      {/* 5 · TOUTES NOS FORMATIONS — une étiquette par public */}
+      <window.AcaCatalogue id="formations" title="Toutes nos" accent="formations." tone="white"
+        src="Les formations pour les professionnels sont portées par le programme Restaure, certifié Qualiopi ; une prise en charge par votre OPCO est possible." />
+
+      {/* 6 · CE QUE 2025 A DONNÉ — les quatre chiffres clés, en couleur, sur fond sombre */}
       <section className="ac-chiffres on-dark" id="chiffres" aria-labelledby="ac-chiffres-t">
         <div className="wrap">
           <h2 className="ac-h2 reveal" id="ac-chiffres-t">{H.impact.title} <em>{H.impact.titleAccent}</em></h2>
@@ -165,7 +186,17 @@ function HomeB() {
         </div>
       </section>
 
-      {/* 6 · PAR OÙ COMMENCER — les parcours se séparent après les chiffres */}
+      {/* 7 · LA PAROLE DE LA DIRECTION */}
+      <section className="g-sec g-sec--cream pj-intro" aria-label="Le mot de la direction">
+        <div className="wrap">
+          <figure className="pj-intro__fig reveal">
+            <blockquote className="pj-intro__q"><p>{H.citationEdito.text}</p></blockquote>
+            <figcaption className="pj-intro__sig"><strong>{H.citationEdito.auteur}</strong><span>{H.citationEdito.role}</span></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      {/* 8 · PAR OÙ COMMENCER — les parcours se séparent après les chiffres */}
       <section className="ac-portes" id="portes" aria-labelledby="ac-portes-t">
         <div className="wrap">
           <h2 className="ac-h2 reveal" id="ac-portes-t">{H.portes.title} <em>{H.portes.titleAccent}</em></h2>
