@@ -77,7 +77,7 @@ function App() {
       about: 'Qui sommes-nous | ' + base, projets: 'Nos projets | ' + base, formation: 'Formation | ' + base,
       academie: "L'Académie Festin | " + base, impact: 'Notre impact | ' + base, actualites: 'Actualités et presse | ' + base,
       contact: 'Contact | ' + base, 'accomp-insertion': 'Apprendre un métier de cuisine | ' + base,
-      'accomp-pros': 'Recruter avec Festin | ' + base,
+      'accomp-pros': 'Professionnels : former et recruter | ' + base,
     };
     document.title = proj ? proj.shortTitle + ' | ' + base : (titles[route.name] || 'Page introuvable | ' + base);
     const md = document.querySelector('meta[name="description"]');

@@ -116,26 +116,38 @@ function AccompagnementProsPage() {
   const FCL = window.FormationCardLink;
   return (
     <div className="gpage acc" ref={root} data-screen-label="Accompagnement — Professionnels">
-      <AccHero tone="teal" crumb="Recruter" kicker="Vous êtes du secteur"
-        title="Recruter des commis formés," em="avec Festin."
-        lede="Nous vous présentons des candidats formés dans nos parcours ; leur préparation à l'emploi peut être financée par France Travail. Nous formons aussi vos équipes contre les violences en cuisine et au management."
+      <AccHero tone="teal" crumb="Professionnels" kicker="Vous dirigez une cuisine ou une équipe"
+        title="Former et recruter," em="avec Festin."
+        lede="Avec le programme Restaure, nous formons vos équipes à prévenir les violences en cuisine et à manager autrement. Nous vous présentons aussi des personnes formées dans nos parcours, prêtes à rejoindre votre brigade."
         img="images/beauxmets-images/LBM_cdutrey_071122-7264.jpg" imgAlt="La cuisine des Beaux Mets pendant le service"
-        cta={{ label: "Demander le Book de l'emploi", href: '#/contact' }} lien={{ label: 'Recruter avec France Travail', to: 'poei' }} />
+        cta={{ label: 'Demander une formation', href: '#/contact' }} lien={{ label: "Recevoir le Book de l'emploi", to: 'pros-appel' }} />
 
-      <section className="g-sec g-sec--white" aria-labelledby="pros-offre-t">
+      {/* 1 · FORMER — les formations du programme Restaure, en tête */}
+      <section className="g-sec g-sec--white" aria-labelledby="pros-form-t">
         <div className="wrap">
-          <window.GHead id="pros-offre-t" split title="Ce que nous faisons" accent="avec vous."
-            lede="Trois façons de travailler avec Festin, du stage à la formation de vos managers." />
+          <window.GHead id="pros-form-t" split title="Former vos équipes," accent="avec le programme Restaure."
+            lede="Des formations courtes, en présentiel, dans vos murs ou avec d'autres établissements, construites à partir de situations réelles de cuisine et de salle. Le programme Restaure est certifié Qualiopi ; une prise en charge par votre OPCO est possible." />
+          <div className="formations__grid">
+            {FCL && formationsPros.map((f) => <FCL key={f.id} f={f} noPrice />)}
+          </div>
+          <p className="g-src"><a href={D.catalogPdf} target="_blank" rel="noopener noreferrer">Télécharger le catalogue complet (PDF)<span className="sr-only"> (nouvel onglet)</span></a></p>
+        </div>
+      </section>
+
+      {/* 2 · RECRUTER — des personnes formées dans nos parcours */}
+      <section className="g-sec g-sec--cream" aria-labelledby="pros-rec-t">
+        <div className="wrap">
+          <window.GHead id="pros-rec-t" split title="Recruter une personne" accent="formée."
+            lede="Des personnes formées dans nos parcours cherchent un poste en cuisine. Trois façons de les rencontrer." />
           <window.Cartes items={[
             { color: 'var(--teal)', title: 'Accueillir un stagiaire',
-              desc: "Une personne formée par Des Étoiles et des Femmes ou Tournesol rejoint votre brigade. Un membre de votre équipe la suit en binôme, et Festin reste en appui pendant tout le stage. Si la rencontre fonctionne, vous recrutez.",
-              link: { label: 'Recruter avec France Travail', to: 'poei' } },
-            { color: 'var(--coral-ink)', title: 'Prévenir les violences',
-              desc: "Une formation de trois heures ou d'une journée, pensée pour la cuisine et la salle : le cadre légal, des cas tirés de situations réelles, et un protocole de signalement à mettre en place.",
-              link: { label: 'La formation', href: '#/formations/vss' } },
-            { color: 'var(--gold-ink)', title: 'Manager juste',
-              desc: "Deux jours pour apprendre à garder une équipe : posture de manager, recrutement, droit à l'erreur. Vous repartez avec un plan d'action pour votre établissement.",
-              link: { label: 'La formation', href: '#/formations/management' } },
+              desc: "Une personne en formation rejoint votre brigade. Un membre de votre équipe la suit en binôme, et Festin reste en appui pendant tout le stage. Si la rencontre fonctionne, vous recrutez." },
+            { color: 'var(--gold-ink)', title: "Le Book de l'emploi",
+              desc: "Les personnes diplômées de nos parcours qui cherchent un poste. Nous vous l'envoyons sur demande, sous 48 h ouvrées.",
+              link: { label: "Recevoir le Book de l'emploi", to: 'pros-appel' } },
+            { color: 'var(--coral-ink)', title: 'La préparation à l\'emploi (POEI)',
+              desc: "Financée par France Travail : une personne se forme à votre cuisine, puis vous la recrutez. Festin s'occupe des démarches avec vous.",
+              link: { label: 'Les étapes', to: 'poei' } },
           ]} />
         </div>
       </section>
@@ -148,24 +160,13 @@ function AccompagnementProsPage() {
           { when: "À partir d'avril 2027", tab: 'Recruter', title: 'Une prise de poste', text: "Si l'expérience est concluante : un CDD de quatre mois minimum.", stat: '4 mois', statL: 'de CDD au minimum' },
         ]} />
 
-      <section className="g-sec g-sec--white" aria-labelledby="pros-form-t">
-        <div className="wrap">
-          <window.GHead id="pros-form-t" split title="Des formations pour" accent="vos équipes."
-            lede="Inter ou intra, en présentiel, par l'Académie Festin, organisme de formation certifié Qualiopi. Une prise en charge par votre OPCO est possible." />
-          <div className="formations__grid">
-            {FCL && formationsPros.map((f) => <FCL key={f.id} f={f} noPrice />)}
-          </div>
-          <p className="g-src"><a href={D.catalogPdf} target="_blank" rel="noopener noreferrer">Télécharger le catalogue complet (PDF)<span className="sr-only"> (nouvel onglet)</span></a></p>
-        </div>
-      </section>
-
+      {/* 3 · S'ENGAGER — le programme Restaure */}
       <section className="g-sec g-sec--cream" aria-labelledby="pros-restaure-t">
         <div className="wrap g-bref">
           <div className="g-bref__txt">
-            <span className="g-tag g-reveal" style={{ '--pc': '#5B6E1E' }}><span className="g-tag__dot" aria-hidden="true" />Changer les cuisines</span>
-            <h2 className="g-h2 g-reveal" id="pros-restaure-t">Rejoindre <em>le programme Restaure.</em></h2>
-            <p className="g-lede g-reveal">Restaure réunit 35 structures et 700 signataires de son manifeste contre les violences en cuisine. Vous pouvez signer le manifeste, rejoindre un groupe de travail ou venir aux tables rondes. Aux Toast, organisés avec La Communauté Ecotable, des restaurateurs racontent ce qu'ils ont changé chez eux.</p>
-            <a className="lnk g-bref__site g-reveal" href="#/projets/restaure">Découvrir Restaure <span className="arrow" aria-hidden="true">→</span></a>
+            <h2 className="g-h2 g-reveal" id="pros-restaure-t">S'engager avec <em>le programme Restaure.</em></h2>
+            <p className="g-lede g-reveal">Restaure réunit 35 structures et 700 signataires de son manifeste contre les violences en cuisine. Au-delà des formations, vous pouvez signer le manifeste, rejoindre un groupe de travail ou venir aux tables rondes. Aux Toast, organisés avec La Communauté Ecotable, des restaurateurs racontent ce qu'ils ont changé chez eux.</p>
+            <a className="lnk g-bref__site g-reveal" href="#/projets/restaure">Découvrir le programme Restaure <span className="arrow" aria-hidden="true">→</span></a>
           </div>
           <figure className="g-photo g-reveal">
             <window.Picture src="images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg" alt="Soirée de lancement du programme Restaure" sizes="(max-width: 900px) 100vw, 44vw" />
@@ -176,7 +177,7 @@ function AccompagnementProsPage() {
 
       <window.Faq id="faq-pros" tone="white" title="Vos" accent="questions" items={[
         { q: "Qu'est-ce que la POEI ?", a: "La préparation opérationnelle à l'emploi individuelle est financée par France Travail. Elle vous permet de recruter une personne formée à votre cuisine : immersion, deux stages chez vous, puis un CDD de quatre mois minimum. Festin s'occupe des démarches avec vous." },
-        { q: "Nos formations sont-elles prises en charge ?", a: "L'Académie Festin est certifiée Qualiopi. Une prise en charge par votre OPCO est possible, en inter ou en intra." },
+        { q: "Qui porte les formations pour les professionnels ?", a: "Le programme Restaure, certifié Qualiopi. Les formations ont lieu en inter (avec d'autres établissements) ou en intra (dans vos murs). Une prise en charge par votre OPCO est possible ; chaque fiche donne le tarif." },
         { q: "Comment accueillir un stagiaire ?", a: "Écrivez-nous. Nous vous présentons une personne formée par Des Étoiles et des Femmes ou Tournesol ; un membre de votre équipe la suit en binôme, et Festin reste en appui pendant tout le stage." },
         { q: "Comment rejoindre le programme Restaure ?", a: "Vous pouvez signer le manifeste, rejoindre un groupe de travail ou venir aux tables rondes et aux Toast. Tout est sur la page du programme Restaure." },
       ]} />
