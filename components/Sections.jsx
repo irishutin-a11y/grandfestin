@@ -405,7 +405,7 @@ function HeroPage({ tone = 'teal', kicker, title, accent, proof, note, img, imgA
           {logo && !img && <span className="hp__logo"><img src={URI(logo)} alt={logoAlt} /></span>}
           {kicker && <span className="kicker hp__kicker">{kicker}</span>}
           <h1 className="hp__t">{title} {accent && <em>{accent}</em>}</h1>
-          {proof && <p className="hp__proof">{proof}</p>}
+          {/* pas de sous-titre dans les heros (retours du 30/09/2026) : un titre, un bouton */}
           {children && <div className="hp__more">{children}</div>}
           {note && <p className="hp__note">{note}</p>}
         </div>

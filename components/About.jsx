@@ -22,7 +22,9 @@ function AboutHero() {
   return (
     <window.HeroPage tone="deep" kicker="L'association Festin" title="Former, inclure," accent="transformer."
       img={HERO_IMG} imgAlt="Une promotion de Des Étoiles et des Femmes réunie en tenue de cuisine"
-      crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Qui sommes-nous' }]} />
+      crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Qui sommes-nous' }]}>
+        <div className="g-herocta"><a className="btnb btnb--gold" href="#/contact">Nous écrire <span className="arrow" aria-hidden="true">→</span></a></div>
+      </window.HeroPage>
   );
 }
 
@@ -80,7 +82,10 @@ function JalonsCouleur({ jalons, title, em, lede, word = 'HISTOIRE', label, id }
         <ol className="ab-hist__track" ref={track} tabIndex={0} aria-label={label}>
           {jalons.map((j, i) => (
             <li key={i} className={'ab-jalon' + (j.dark ? ' is-dark-text' : '') + (j.href ? ' is-link' : '')} style={{ background: j.color }}>
-              <span className="ab-jalon__year">{j.year}</span>
+              <div className="ab-jalon__top">
+                <span className="ab-jalon__year">{j.year}</span>
+                {j.logo && <span className="ab-jalon__logo"><img src={encodeURI(decodeURI(j.logo))} alt="" loading="lazy" /></span>}
+              </div>
               <div className="ab-jalon__body">
                 <h3>{j.href ? <a className="ab-jalon__lnk" href={j.href}>{j.title}</a> : j.title}</h3>
                 <p>{j.desc}</p>
@@ -193,7 +198,15 @@ function Valeurs() {
     <section className="g-sec g-sec--white" aria-labelledby="valeurs-t">
       <div className="container">
         <window.GHead id="valeurs-t" title="Ce qui guide" accent="nos choix." />
-        <window.Cartes items={valeurs.map((v, i) => ({ title: v.title, desc: v.desc, color: couleurs[i % 3] }))} />
+        <ol className="ab-valeurs">
+          {valeurs.map((v, i) => (
+            <li className="ab-valeurs__i g-reveal" key={v.title} style={{ '--vc': couleurs[i % 3] }}>
+              <span className="ab-valeurs__n" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+              <h3 className="ab-valeurs__t">{v.title}</h3>
+              <p>{v.desc}</p>
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   );
@@ -201,6 +214,24 @@ function Valeurs() {
 
 // ---------- 6. PARTENAIRES — une grille fixe : 7 logos n'ont pas besoin de défiler ----------
 const ABOUT_LOGOS = window.FESTIN_DATA.about.partenaires;
+// L'édito à gauche, les partenaires à droite (retours du 30/09/2026)
+function EditoPartenaires() {
+  return (
+    <section className="g-sec g-sec--cream ab-edp" aria-label="Le mot de la direction et nos partenaires">
+      <div className="container ab-edp__grid">
+        <div className="ab-edp__edito">
+          <MotDirecteur />
+        </div>
+        <div className="ab-edp__logos">
+          <h2 className="ab-logos__t" id="partenaires-t">Ils travaillent avec nous</h2>
+          <ul className="ab-logos__grid">
+            {ABOUT_LOGOS.map((l) => <li key={l.src}><img src={src(l.src)} alt={l.alt} loading="lazy" /></li>)}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
 function Partenaires() {
   return (
     <section className="g-sec g-sec--cream g-sec--tight" aria-labelledby="partenaires-t">
@@ -287,12 +318,10 @@ function AboutPage() {
     <div className="about gpage" ref={root} data-screen-label="04 Qui sommes-nous">
       <AboutHero />
       <CeQuOnEst />
-      <window.MissionsNav title="Six projets," accent="trois missions." tone="white" />
       <Histoire />
       <Equipe />
       <Valeurs />
-      <Partenaires />
-      <MotDirecteur />
+      <EditoPartenaires />
     </div>
   );
 }

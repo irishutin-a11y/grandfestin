@@ -35,7 +35,7 @@ function AccompagnementInsertionPage() {
       text: "Une immersion courte valide votre projet. Nous vous présentons ensuite l'établissement qui vous accueillera.",
       img: 'images/images-def/HOTELERIE-035.jpg' },
     { when: 'Novembre et décembre', tab: 'Commencer', title: 'Entrée en formation',
-      text: 'Les promotions démarrent et le suivi individuel commence. En 2026 : le 9 novembre pour Des Étoiles et des Femmes, le 30 novembre pour Tournesol.',
+      text: 'La promotion démarre et le suivi individuel commence.',
       img: 'images/photo-patisserie.jpg' },
     { when: 'Janvier à mars', tab: 'Se former', title: 'Cours, stages et suivi',
       text: 'Les cours alternent avec les stages en brigade et les rendez-vous de suivi.',
@@ -53,32 +53,41 @@ function AccompagnementInsertionPage() {
         title="Apprendre un métier de cuisine," em="gratuitement."
         lede="Vous préparez un diplôme reconnu, vous faites vos stages en restaurant, et une personne de l'équipe vous suit jusqu'à l'emploi."
         img="images/photo-tabliers-violets.jpg" imgAlt="Des apprenties de Des Étoiles et des Femmes en cuisine"
-        cta={{ label: 'Vérifier mon éligibilité', href: '#/contact' }} lien={{ label: 'Vous accompagnez une personne ?', to: 'orienter' }} />
+        cta={{ label: 'Vérifier mon éligibilité', href: '#/contact' }} lien={{ label: 'Quel parcours, pour qui ?', to: 'parcours-choix' }} />
 
-      {/* POUR LES PRESCRIPTEURS — publics, conditions, dates, contact de chaque parcours */}
-      <section className="g-sec g-sec--white" id="orienter" aria-labelledby="ins-or-t">
+      {/* LES PARCOURS — une seule section pour tous les publics (retours du 30/09/2026) :
+          pour qui, ce que c'est, comment entrer, et le site du projet. Pas de dates : chaque
+          antenne a son calendrier, donné sur le site du projet. */}
+      <section className="g-sec g-sec--white" id="parcours-choix" aria-labelledby="ins-par-t">
         <div className="wrap">
-          <window.GHead id="ins-or-t" split title={"Vous accompagnez une personne\u00a0?"} accent="Orientez-la."
-            lede="Conseillères et conseillers France Travail, missions locales, travailleurs sociaux, structures d'accueil : voici, parcours par parcours, à qui il s'adresse, les conditions d'entrée, les prochaines dates et la personne à contacter." />
-          <div className="or-table" role="table" aria-label="Les parcours, leurs conditions et leur contact">
-            <div className="or-row or-row--head" role="row">
-              <span role="columnheader">Parcours</span><span role="columnheader">Pour qui</span><span role="columnheader">Conditions et durée</span><span role="columnheader">Prochaine session</span><span role="columnheader">Contact</span>
-            </div>
-            {D.orienter.map((o, i) => {
+          <window.GHead id="ins-par-t" split title="Quel parcours," accent="pour qui ?"
+            lede="Quatre projets de Festin forment et emploient des personnes qui cherchent un métier. Que vous cherchiez pour vous-même ou que vous accompagniez quelqu'un, voici à qui s'adresse chaque parcours et comment y entrer." />
+          <ul className="or-cards">
+            {D.orienter.map((o) => {
               const p = D.projets.find((x) => x.id === o.id) || {};
-              const manque = (t) => (window.FESTIN_SHOW_PLACEHOLDERS ? <span className="is-placeholder or-miss">[À COMPLÉTER : {t}]</span> : null);
+              const c = (D.home.missions.items.flatMap((m) => m.projets).find((x) => x.id === o.id)) || {};
               return (
-                <div className="or-row g-reveal" role="row" key={i}>
-                  <span role="cell" className="or-parc"><b>{o.parcours}</b><a className="lnk" href={'#/projets/' + o.id}>La page du projet <span className="arrow" aria-hidden="true">→</span></a></span>
-                  <span role="cell"><i className="or-k">Pour qui</i>{o.pour}</span>
-                  <span role="cell"><i className="or-k">Conditions et durée</i>{o.conditions || manque("conditions d'entrée")}<br />{o.duree}</span>
-                  <span role="cell"><i className="or-k">Prochaine session</i>{o.dates || manque('dates')}</span>
-                  <span role="cell"><i className="or-k">Contact</i>{o.contact ? <a href={'mailto:' + o.contact}>{o.contact}</a> : (manque('adresse du projet') || <a href={'mailto:' + D.contact.email + '?subject=' + encodeURIComponent('Orientation : ' + p.shortTitle)}>{D.contact.email}</a>)}
-                    {p.siteUrl && <a className="or-site" href={p.siteUrl} target="_blank" rel="noopener noreferrer">{p.siteName} ↗<span className="sr-only"> (nouvel onglet)</span></a>}</span>
-                </div>
+                <li className="or-card g-reveal" key={o.id}>
+                  <div className="or-card__img">
+                    <window.Picture src={c.img} alt="" sizes="(max-width: 900px) 100vw, 44vw" />
+                    {p.logo && <span className="or-card__logo"><img src={encodeURI(decodeURI(p.logo))} alt="" loading="lazy" /></span>}
+                  </div>
+                  <div className="or-card__b">
+                    <h3 className="or-card__t">{p.shortTitle}</h3>
+                    <dl>
+                      <div><dt>Pour qui</dt><dd>{o.pour}</dd></div>
+                      <div><dt>Le parcours</dt><dd>{o.quoi}</dd></div>
+                      <div><dt>Pour entrer</dt><dd>{o.conditions || (window.FESTIN_SHOW_PLACEHOLDERS ? <span className="is-placeholder or-miss">[À COMPLÉTER : conditions d'entrée]</span> : "Le site du projet donne les conditions d'entrée.")}</dd></div>
+                    </dl>
+                    <div className="or-card__cta">
+                      {p.siteUrl && <a className="btnb btnb--teal" href={p.siteUrl} target="_blank" rel="noopener noreferrer">Plus d'informations <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (site du projet, nouvel onglet)</span></a>}
+                      <a className="lnk" href={'#/projets/' + o.id}>La page du projet <span className="arrow" aria-hidden="true">→</span></a>
+                    </div>
+                  </div>
+                </li>
               );
             })}
-          </div>
+          </ul>
         </div>
       </section>
 
@@ -96,23 +105,6 @@ function AccompagnementInsertionPage() {
         </div>
       </section>
 
-      <section className="g-sec g-sec--white" id="parcours-choix" aria-labelledby="ins-choix-t">
-        <div className="wrap">
-          <window.GHead id="ins-choix-t" split title="Le parcours qui vous" accent="correspond."
-            lede="Quatre projets de Festin forment et emploient des personnes qui cherchent un métier. Chacun s'adresse à un public précis." />
-          <window.ProjetsParMission groupes={[
-            { mission: 'Se former', projets: [
-              { id: 'des-etoiles-et-des-femmes', pour: 'Pour les femmes majeures', quoi: 'CAP cuisine ou titre de commis de cuisine, avec des stages en restaurant gastronomique, dans 13 villes.' },
-              { id: 'tournesol', pour: 'Pour les personnes réfugiées ou primo-arrivantes', quoi: 'Cinq mois pour le titre de commis de cuisine et le DCL, à Marseille. France Travail rémunère les stagiaires.' },
-            ] },
-            { mission: 'Travailler en brigade', projets: [
-              { id: 'les-beaux-mets', pour: 'Pour les personnes détenues aux Baumettes', quoi: 'Un poste en brigade dans le restaurant de la prison, et un suivi jusqu’à six mois après la sortie.' },
-              { id: 'la-table-de-cana', pour: 'Pour les salariés en insertion, à Marseille', quoi: 'Un emploi au traiteur, avec une formation en cuisine, puis un poste chez un partenaire.' },
-            ] },
-          ]} />
-        </div>
-      </section>
-
       <window.Frise id="calendrier" tone="tint" title="Une promotion," accent="mois par mois."
         lede="Le déroulé d'une année pour Des Étoiles et des Femmes et Tournesol. Les dates exactes changent d'une session à l'autre."
         steps={calendrier}
@@ -120,14 +112,14 @@ function AccompagnementInsertionPage() {
 
       <window.Faq id="faq-ins" title="Vos" accent="questions" items={[
         { q: "La formation est-elle payante ?", a: "Non. Tous nos parcours sont gratuits. Selon votre situation, vous pouvez percevoir une indemnité ou une rémunération pendant la formation." },
-        { q: "Quand commencent les prochaines sessions ?", a: "Des Étoiles et des Femmes (titre à finalité professionnelle de commis de cuisine) : du 9 novembre 2026 au 13 avril 2027. Tournesol : du 30 novembre 2026 au 22 avril 2027." },
+        { q: "Quand commencent les prochaines sessions ?", a: "Chaque antenne a son propre calendrier. Le site de chaque projet donne les dates des prochaines sessions." },
         { q: "Quel parcours est fait pour moi ?", a: "Des Étoiles et des Femmes accueille des femmes. Tournesol accueille des personnes réfugiées ou primo-arrivantes. Les Beaux Mets recrute des personnes détenues aux Baumettes. La Table de Cana emploie des salariés en insertion à Marseille. Écrivez-nous : nous vous orientons." },
         { q: "Qui m'aide pendant la formation ?", a: "Une personne de l'équipe vous suit du premier entretien jusqu'à l'emploi : transport, garde d'enfants, logement, cours de français, recherche de poste." },
         { q: "Et après la formation ?", a: "En mai et juin, nous préparons avec vous la recherche de poste et nous vous mettons en relation avec des restaurants qui recrutent." },
       ]} />
 
       <window.Appel id="ins-appel" title="Vérifier si le parcours" accent="est fait pour vous."
-        text="Écrivez-nous : nous vérifions ensemble votre éligibilité, puis nous vous invitons à une réunion d'information. Prochaines sessions : Des Étoiles et des Femmes du 9 novembre 2026 au 13 avril 2027, Tournesol du 30 novembre 2026 au 22 avril 2027."
+        text="Écrivez-nous : nous vérifions ensemble votre éligibilité, puis nous vous invitons à une réunion d'information."
         cta={{ label: 'Vérifier mon éligibilité', href: '#/contact' }} />
     </div>
   );
@@ -183,31 +175,15 @@ function AccompagnementProsPage() {
       <window.Frise id="poei" tone="tint" statique title="Accueillir un candidat," accent="étape par étape."
         lede="La préparation opérationnelle à l'emploi individuelle (POEI) est financée par France Travail. Elle vous permet de recruter une personne formée à votre cuisine. Festin s'occupe des démarches avec vous."
         steps={[
-          { when: 'Automne 2026', tab: 'Rencontrer', title: 'Des candidats présentés', text: "Nous présentons des candidats qui correspondent à vos besoins. Des journées d'immersion en cuisine valident le profil." },
-          { when: 'Janvier et mars 2027', tab: 'Former', title: 'Deux stages chez vous', text: 'Deux semaines en janvier, trois semaines en mars, dans votre établissement.' },
-          { when: "À partir d'avril 2027", tab: 'Recruter', title: 'Une prise de poste', text: "Si l'expérience est concluante : un CDD de quatre mois minimum.", stat: '4 mois', statL: 'de CDD au minimum' },
+          { tab: 'Rencontrer', title: 'Des candidats présentés', text: "Nous présentons des candidats qui correspondent à vos besoins. Des journées d'immersion en cuisine valident le profil." },
+          { tab: 'Former', title: 'Deux stages chez vous', text: 'Deux semaines, puis trois semaines, dans votre établissement.' },
+          { tab: 'Recruter', title: 'Une prise de poste', text: "Si l'expérience est concluante : un CDD de quatre mois minimum.", stat: '4 mois', statL: 'de CDD au minimum' },
         ]} />
-
-      {/* 3 · S'ENGAGER — le programme Restaure */}
-      <section className="g-sec g-sec--cream" aria-labelledby="pros-restaure-t">
-        <div className="wrap g-bref">
-          <div className="g-bref__txt">
-            <h2 className="g-h2 g-reveal" id="pros-restaure-t">S'engager avec <em>le programme Restaure.</em></h2>
-            <p className="g-lede g-reveal">Restaure réunit 35 structures et 700 signataires de son manifeste contre les violences en cuisine. Au-delà des formations, vous pouvez signer le manifeste, rejoindre un groupe de travail ou venir aux tables rondes. Aux Toast, organisés avec La Communauté Ecotable, des restaurateurs racontent ce qu'ils ont changé chez eux.</p>
-            <a className="lnk g-bref__site g-reveal" href="#/projets/restaure">Découvrir le programme Restaure <span className="arrow" aria-hidden="true">→</span></a>
-          </div>
-          <figure className="g-photo g-reveal">
-            <window.Picture src="images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg" alt="Soirée de lancement du programme Restaure" sizes="(max-width: 900px) 100vw, 44vw" />
-            <figcaption className="g-cap">Photo : Caroline Dutrey</figcaption>
-          </figure>
-        </div>
-      </section>
 
       <window.Faq id="faq-pros" tone="white" title="Vos" accent="questions" items={[
         { q: "Qu'est-ce que la POEI ?", a: "La préparation opérationnelle à l'emploi individuelle est financée par France Travail. Elle vous permet de recruter une personne formée à votre cuisine : immersion, deux stages chez vous, puis un CDD de quatre mois minimum. Festin s'occupe des démarches avec vous." },
         { q: "Qui porte les formations pour les professionnels ?", a: "Le programme Restaure. Elles font partie du catalogue de l'Académie Festin, certifiée Qualiopi. Les formations ont lieu en inter (avec d'autres établissements) ou en intra (dans vos murs). Une prise en charge par votre OPCO est possible ; chaque fiche donne le tarif." },
         { q: "Comment accueillir un stagiaire ?", a: "Écrivez-nous. Nous vous présentons une personne formée par Des Étoiles et des Femmes ou Tournesol ; un membre de votre équipe la suit en binôme, et Festin reste en appui pendant tout le stage." },
-        { q: "Comment rejoindre le programme Restaure ?", a: "Vous pouvez signer le manifeste, rejoindre un groupe de travail ou venir aux tables rondes et aux Toast. Tout est sur la page du programme Restaure." },
       ]} />
 
       <window.Appel id="pros-appel" title="Recevoir le" accent="Book de l'emploi."

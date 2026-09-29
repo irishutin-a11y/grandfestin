@@ -1131,7 +1131,6 @@ Object.assign(window.FESTIN_DATA.home, {
     kicker: "Association d'intérêt général, depuis 1987",
     title: "Former les personnes,", titleAccent: "faire avancer les cuisines.",
     signature: "Le goût d'avancer ensemble",
-    lede: "Depuis près de quarante ans, nous formons des personnes aux métiers de la cuisine et nous accompagnons les restaurants qui recrutent et forment leurs équipes.",
     ctaPrimary: { label: "Orienter une personne", href: "#/accompagnement/insertion" },
     ctaSecondary: { label: "Former mes équipes", href: "#/accompagnement/professionnels" },
     soutien: { text: "Vous financez ou soutenez nos actions ?", label: "Devenir partenaire", href: "#/contact" },
@@ -1272,7 +1271,7 @@ window.FESTIN_DATA.arbo = [
     links: [
       { ic: "briefcase", c: "#FFC100", label: "Former et recruter", d: "Tout ce que Festin fait avec les restaurants", href: "#/accompagnement/professionnels" },
       { ic: "shield-check", c: "#FFC100", label: "Nos formations pro", d: "Portées par le programme Restaure", href: "#/formations" },
-      { ic: "megaphone", c: "#FFC100", label: "Le programme Restaure", d: "Le manifeste, les groupes de travail", href: "#/projets/restaure" },
+      { ic: "megaphone", c: "#FFC100", label: "Le programme Restaure", d: "Prévenir les violences en cuisine", href: "#/projets/restaure" },
     ] },
   { key: "projets", label: "Nos projets", href: "#/projets",
     match: ["#/projets"],
@@ -1332,7 +1331,7 @@ window.FESTIN_DATA.projetPages = {
     temoignages: { title: "Elles racontent", accent: "leur parcours." },
     portes: [
       { tag: "Vous êtes une femme et vous cherchez un métier", title: "Rejoindre une promotion",
-        pts: ["Un diplôme reconnu : CAP cuisine ou titre de commis de cuisine.", "Des stages dans des restaurants gastronomiques.", "Prochaine session du titre : du 9 novembre 2026 au 13 avril 2027."],
+        pts: ["Un diplôme reconnu : CAP cuisine ou titre de commis de cuisine.", "Des stages dans des restaurants gastronomiques.", "Un suivi individuel jusqu'à l'emploi."],
         cta: "Candidater sur le site du réseau", href: "https://www.desetoilesetdesfemmes.org", external: true, img: "images/photo-tabliers-violets.jpg" },
       { tag: "Vous êtes restaurateur", title: "Accueillir une stagiaire",
         pts: ["Une stagiaire rejoint votre brigade pour 155 à 490 heures.", "Un membre de votre équipe la suit en binôme ; Festin reste votre interlocuteur.", "Vous la voyez travailler avant de recruter."],
@@ -1368,7 +1367,7 @@ window.FESTIN_DATA.projetPages = {
     temoignages: { title: "Paroles", accent: "d'anciens stagiaires." },
     portes: [
       { tag: "Vous accompagnez une personne réfugiée", title: "Orienter une personne vers Tournesol",
-        pts: ["La formation s'adresse aux personnes réfugiées ou primo-arrivantes autorisées à travailler en France.", "Prochaine session : du 30 novembre 2026 au 22 avril 2027."],
+        pts: ["La formation s'adresse aux personnes réfugiées ou primo-arrivantes autorisées à travailler en France.", "Une formation gratuite, rémunérée par France Travail."],
         cta: "Nous écrire", href: "#/contact", img: "images/tournesol:formation/festin_tournesol_cdutrey_0124-3645.jpg" },
       { tag: "Vous êtes du secteur", title: "Accueillir un stagiaire",
         pts: ["150 heures de stage en restaurant pendant la formation (promotion 2025-2026).", "Des commis formés, avec Refugee Food, pour les restaurants qui recrutent."],
@@ -1455,7 +1454,7 @@ window.FESTIN_DATA.projetPages = {
   "restaure": {
     kicker: "Depuis 2024 · programme national",
     heroImg: "images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg", heroAlt: "Soirée de lancement du programme Restaure", heroCredit: "Photo : Caroline Dutrey",
-    heroCta: { label: "Signer le manifeste", href: "https://www.mouvement-restaure.com", external: true }, heroLien: { label: "Rejoindre un groupe de travail", to: "portes" },
+    heroCta: { label: "Nos formations pro", href: "#/formations" }, heroLien: { label: "Le site du programme", href: "https://www.mouvement-restaure.com", external: true },
     bref: { title: "Des cuisines où l'on travaille", accent: "en sécurité.",
       text: "Un programme national né en 2024. Restaurateurs, chefs et associations y travaillent ensemble pour prévenir les violences en cuisine et changer les pratiques de management. Il porte aussi les formations pro de Festin, pour les équipes de la restauration." },
     video: { link: "https://www.instagram.com/reel/DJ9kq6iIb5j/", linkLabel: "Voir la vidéo sur Instagram", poster: "images/restaure : formation pro/FESTIN_TOAST_12 FEVRIER_FEED-25.jpg" },
@@ -1468,9 +1467,9 @@ window.FESTIN_DATA.projetPages = {
     blocs: ["verbatims"],
     temoignages: { title: "Pourquoi un chef", accent: "s'y engage." },
     portes: [
-      { tag: "Vous êtes restaurateur ou chef", title: "Rejoindre Restaure",
-        pts: ["Signez le manifeste, rejoignez un groupe de travail ou venez à un Toast.", "35 structures sont déjà membres."],
-        cta: "Signer le manifeste", href: "https://www.mouvement-restaure.com", external: true, img: "images/restaure : formation pro/FESTIN_TOAST_12 FEVRIER_FEED-25.jpg" },
+      { tag: "Vous êtes restaurateur ou chef", title: "Le programme Restaure",
+        pts: ["Un manifeste signé par 700 professionnels et structures.", "35 structures engagées contre les violences en cuisine."],
+        cta: "Le site du programme", href: "https://www.mouvement-restaure.com", external: true, img: "images/restaure : formation pro/FESTIN_TOAST_12 FEVRIER_FEED-25.jpg" },
       { tag: "Vous managez une équipe", title: "Former vos managers",
         pts: ["Prévention des violences sexistes et sexuelles, en trois heures ou une journée.", "Management juste, en deux jours. Au catalogue de l'Académie Festin, certifiée Qualiopi."],
         cta: "Voir les formations", href: "#/academie", img: "images/restaure : formation pro/IMG_2950.JPG" },
@@ -1578,7 +1577,7 @@ window.ACADEMIE_DATA = window.FESTIN_DATA;
 Object.assign(window.FESTIN_DATA.home, {
   publics: {
     title: "Deux publics,", titleAccent: "un même métier.",
-    lede: "Les personnes que nous formons et les établissements qui les recrutent avancent ensemble : l'un ne va pas sans l'autre.",
+    lede: "Depuis près de quarante ans, nous formons des personnes aux métiers de la cuisine et nous accompagnons les restaurants qui recrutent et forment leurs équipes.",
     cols: [
       { key: "ins", tag: "Vous accompagnez une personne vers l'emploi", title: "Un métier,", titleAccent: "un diplôme, un contrat.",
         text: "Pour les conseillères et conseillers France Travail, les missions locales, les travailleurs sociaux : des parcours gratuits, avec des stages chez des chefs et un suivi jusqu'au premier contrat.",
@@ -1596,7 +1595,6 @@ Object.assign(window.FESTIN_DATA.home, {
         lignes: [
           { dt: "Former", dd: "Prévention des violences sexistes et sexuelles, management juste et inclusif." },
           { dt: "Recruter", dd: "Stagiaires, Book de l'emploi, préparation à l'emploi financée par France Travail (POEI)." },
-          { dt: "S'engager", dd: "Signer le manifeste du programme Restaure (700 signataires), rejoindre un groupe de travail." },
         ],
         preuve: "Formations portées par le programme Restaure, au catalogue de l'Académie Festin, certifiée Qualiopi. Prise en charge par votre OPCO possible.",
         cta: { label: "Travailler avec Festin", href: "#/accompagnement/professionnels" } },
@@ -1628,9 +1626,8 @@ Object.assign(window.FESTIN_DATA.home, {
 //  = [À COMPLÉTER] (adresse par projet à fournir par l'association).
 // ============================================================
 window.FESTIN_DATA.orienter = [
-  { id: "des-etoiles-et-des-femmes", parcours: "Des Étoiles et des Femmes, titre de commis de cuisine", pour: "Femmes majeures", conditions: "Niveau de français B1 minimum", duree: "4 mois, gratuit", dates: "Du 9 novembre 2026 au 13 avril 2027", contact: null },
-  { id: "des-etoiles-et-des-femmes", parcours: "Des Étoiles et des Femmes, CAP cuisine", pour: "Femmes majeures", conditions: "Niveau de français B2 minimum", duree: "11 mois, gratuit", dates: null, contact: null },
-  { id: "tournesol", parcours: "Tournesol, titre de commis de cuisine et DCL", pour: "Personnes réfugiées ou primo-arrivantes, majeures, autorisées à travailler en France", conditions: "Niveau de français A2 minimum", duree: "5 mois, gratuit et rémunéré par France Travail", dates: "Du 30 novembre 2026 au 22 avril 2027", contact: null },
-  { id: "les-beaux-mets", parcours: "Les Beaux Mets, emploi en brigade", pour: "Personnes détenues au centre pénitentiaire des Baumettes", conditions: null, duree: "Suivi jusqu'à six mois après la sortie", dates: null, contact: null },
-  { id: "la-table-de-cana", parcours: "La Table de Cana, emploi en insertion", pour: "Salariés en insertion, à Marseille", conditions: null, duree: "Un emploi au traiteur, avec une formation en cuisine", dates: null, contact: null },
+  { id: "des-etoiles-et-des-femmes", pour: "Des femmes majeures", quoi: "Le titre de commis de cuisine en 4 mois, ou le CAP cuisine en 11 mois, avec des stages en restaurant gastronomique, dans 13 villes.", conditions: "Français B1 pour le titre de commis, B2 pour le CAP. Formation gratuite." },
+  { id: "tournesol", pour: "Des personnes réfugiées ou primo-arrivantes, majeures, autorisées à travailler en France", quoi: "Cinq mois pour le titre de commis de cuisine et le DCL, un diplôme de français, à Marseille.", conditions: "Français A2 minimum. Formation gratuite, rémunérée par France Travail." },
+  { id: "les-beaux-mets", pour: "Des personnes détenues au centre pénitentiaire des Baumettes", quoi: "Un poste en brigade dans le restaurant de la prison, et un suivi jusqu'à six mois après la sortie.", conditions: null },
+  { id: "la-table-de-cana", pour: "Des salariés en insertion, à Marseille", quoi: "Un emploi au traiteur, avec une formation en cuisine, puis un poste chez un partenaire.", conditions: null },
 ];

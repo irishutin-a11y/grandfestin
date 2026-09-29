@@ -3,10 +3,10 @@
 
 // En-tête des pages Formations, fiche formation et Académie : rendu par le hero
 // partagé des pages intérieures (Sections.jsx, HeroPage), pour une seule grammaire.
-function PageHeader({ eyebrow, title, accent, subtitle, breadcrumb, image, imageAlt = '' }) {
+function PageHeader({ eyebrow, title, accent, subtitle, breadcrumb, image, imageAlt = '', children }) {
   return (
     <window.HeroPage tone="teal" kicker={eyebrow} title={title} accent={accent} proof={subtitle}
-      img={image} imgAlt={imageAlt} crumb={breadcrumb || []} />
+      img={image} imgAlt={imageAlt} crumb={breadcrumb || []}>{children}</window.HeroPage>
   );
 }
 
@@ -58,7 +58,16 @@ function FormationDetailPage({ id }) {
           {label:"L'Académie Festin",href:'#/academie'},
           {label:f.title}
         ]}
-      />
+      >
+        {(() => {
+          // plus d'informations : le site du projet pour les parcours, le contact pour les formations pro
+          const site = { tfp: 'des-etoiles-et-des-femmes', cap: 'des-etoiles-et-des-femmes', tournesol: 'tournesol' }[f.id];
+          const p = site && window.FESTIN_DATA.projets.find((x) => x.id === site);
+          return <div className="g-herocta">{p
+            ? <a className="btnb btnb--gold" href={p.siteUrl} target="_blank" rel="noopener noreferrer">Plus d'informations <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (site du projet, nouvel onglet)</span></a>
+            : <a className="btnb btnb--gold" href="#/contact">Plus d'informations <span className="arrow" aria-hidden="true">→</span></a>}</div>;
+        })()}
+      </PageHeader>
       <section style={{padding:'var(--s-8) 0',background:'var(--off-white)'}}>
         <div className="container">
           <div className="detail-grid">
@@ -271,7 +280,9 @@ function ImpactPage() {
     <div className="pageImpact" ref={rootRef} data-screen-label="Impact">
       <window.HeroPage tone="deep" kicker={I.hero.kicker} title={I.hero.title} accent={I.hero.titleAccent} proof={I.hero.proof}
         img={I.hero.img} imgAlt={I.hero.imgAlt}
-        crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Notre impact' }]} />
+        crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Notre impact' }]}>
+        <div className="g-herocta"><window.GLink l={{ to: 'rapports' }} className="btnb btnb--gold">Nos rapports d'activité <span className="arrow" aria-hidden="true">↓</span></window.GLink></div>
+      </window.HeroPage>
 
       {/* Série annuelle : deux graphiques, jamais un double axe */}
       <section className="isec isec--white" aria-labelledby="imp-serie">
@@ -336,7 +347,7 @@ function ImpactPage() {
       </section>
 
       {/* Tous les rapports d'activité */}
-      <section className="isec isec--cream" aria-labelledby="imp-rapports">
+      <section className="isec isec--cream" id="rapports" aria-labelledby="imp-rapports">
         <div className="wrap">
           <h2 className="isec__h reveal" id="imp-rapports">Tous nos rapports <em>d'activité</em></h2>
           <ul className="irapports">
@@ -502,7 +513,9 @@ function ActualitesPage() {
     <div className="pageActu" data-screen-label="Actualités">
       <window.HeroPage tone="gold" kicker="Actualités" title="Les temps forts," accent="et la presse."
         proof="Le Grand Festin, les masterclass, les rencontres de Restaure : les moments de l'année en images. Puis les articles, reportages et podcasts sur nos projets."
-        crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Actualités' }]} />
+        crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Actualités' }]}>
+        <div className="g-herocta"><window.GLink l={{ to: 'espace-presse' }} className="btnb btnb--teal">Espace presse <span className="arrow" aria-hidden="true">↓</span></window.GLink></div>
+      </window.HeroPage>
 
       <window.TempsForts items={D.tempsForts || []} />
 
@@ -536,7 +549,7 @@ function ActualitesPage() {
       </section>
 
       {/* Espace presse : famille or pâle (plus d'aplat sombre dans le corps de page) */}
-      <section className="isec isec--gold apkit-sec" aria-labelledby="actu-kit">
+      <section className="isec isec--gold apkit-sec" id="espace-presse" aria-labelledby="actu-kit">
         <div className="wrap apkit">
           <div>
             <h2 className="isec__h" id="actu-kit">Espace <em>presse</em></h2>

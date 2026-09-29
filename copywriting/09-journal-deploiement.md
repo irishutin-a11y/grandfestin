@@ -111,3 +111,12 @@ Maquette validée : `maquettes/home-double-cible.html`. Intégration en cinq ét
 3. **Insertion** : bloc « Vous accompagnez une personne ? Orientez-la. » (tableau des parcours, conditions, dates, contact, site) ; le parcours adressé aux personnes est gardé. En [À COMPLÉTER] : adresse de chaque projet, conditions et dates des Beaux Mets et de La Table de Cana, dates du CAP.
 4. **Formations** : une seule page, L'Académie Festin, catalogue en tête ; filtres Parcours d'insertion / Formations pro ; « Portée par le programme Restaure » sur les deux formations pro. Qualiopi : l'Académie seulement.
 5. **Association** : frise recentrée sur l'association (création, projets fondateurs, distinctions de 2019 à 2023, délégations de service public 2024, dix ans de Des Étoiles et des Femmes, Académie).
+
+## Retours du 30/09/2026 (site entier)
+
+- **Heros** : plus de sous-titre sur aucune page ; un titre et un bouton (Association : Nous écrire ; Impact : Nos rapports d'activité ; Actualités : Espace presse ; Nos projets : Voir les projets ; fiche formation : Plus d'informations, vers le site du projet ou Contact).
+- **Accueil** : photo du hero en pleine largeur ; la phrase « Depuis près de quarante ans… » devient le chapeau de « Deux publics, un même métier » ; frise des projets avec logo, le nom avant la date.
+- **Fin de page** : la dernière section et le cadre du pied de page ont le fond de la page (plus de bande crème).
+- **Insertion** : une seule section « Quel parcours, pour qui ? » (pour qui, le parcours, pour entrer, « Plus d'informations » vers le site du projet) ; plus aucune date de session sur le site (chaque antenne a son calendrier).
+- **Professionnels** : section « S'engager avec le programme Restaure » retirée ; frise POEI sans dates. Le manifeste n'est plus proposé ailleurs que sur la page Restaure, comme un fait.
+- **Association** : « Six projets, trois missions » retiré ; frise : nom avant la date ; valeurs en trois mots ; édito et partenaires côte à côte.

@@ -283,3 +283,26 @@
 .ab-jalon h3,.ab-jalon p,.ab-jalon__year,.ab-jalon__go{color:inherit}
 .ab-jalon{color:var(--off-white)}
 .ab-jalon.is-dark-text{color:var(--ink)}
+/* Hiérarchie de la frise (retours du 30/09/2026) : le nom d'abord, la date en repère */
+.ab-jalon__top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.ab-jalon .ab-jalon__year{font-size:clamp(22px,1rem + .8vw,30px);letter-spacing:-.01em;opacity:.85}
+.ab-jalon h3{font-size:clamp(24px,1.1rem + 1.2vw,34px)!important;line-height:1.05!important;margin:10px 0 10px!important}
+.ab-jalon p{font-size:16px!important;max-width:36ch}
+.ab-jalon__logo{display:grid;place-items:center;height:56px;min-width:56px;padding:8px 12px;border-radius:14px;background:#fff}
+.ab-jalon__logo img{max-height:40px;max-width:120px;width:auto;height:auto;object-fit:contain}
+.ab-hist .ab-hist__head{max-width:none!important;margin:0!important;padding-left:var(--pad-x)!important;padding-right:var(--pad-x)!important}
+/* Valeurs : trois mots en grand, une couleur chacun (retours du 30/09/2026) */
+.ab-valeurs{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,3vw,48px)}
+.ab-valeurs__i{display:grid;gap:12px;align-content:start;padding-top:22px;border-top:3px solid var(--vc)}
+.ab-valeurs__n{font-size:15px;font-weight:700;color:var(--vc)}
+.ab-valeurs__t{margin:0;font-size:clamp(30px,1.4rem + 1.6vw,48px);font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:-.01em;color:var(--vc)}
+.ab-valeurs__i p{margin:0;font-size:17px;line-height:1.6;color:var(--ink-mid);max-width:38ch}
+@media (max-width:900px){ .ab-valeurs{grid-template-columns:1fr} }
+/* Édito et partenaires côte à côte */
+.ab-edp__grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);align-items:start}
+.ab-edp .ab-mot{background:none;padding:0}
+.ab-edp .ab-mot__in{max-width:none;padding:0;width:auto}
+.ab-edp__logos .ab-logos__t{text-align:left;margin-top:0}
+.ab-edp__logos .ab-logos__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 24px;justify-items:start}
+.ab-edp__logos .ab-logos__grid li{display:flex;align-items:center;height:72px;padding:0 4px}
+@media (max-width:900px){ .ab-edp__grid{grid-template-columns:1fr} }

@@ -361,3 +361,24 @@
   .or-k{display:block;margin-bottom:2px}
 }
 .formation-card__porteur{display:block;margin:-2px 0 6px;font-size:14px;font-weight:600;color:var(--gold-ink)}
+/* Fin de page (retours du 30/09/2026) : la dernière section et le cadre du pied de page
+   ont le fond de la page ; plus de bande crème entre le contenu et le pied sombre. */
+.footer-outer{background:var(--off-white)!important}
+main > div > section:last-of-type:is(.g-sec--cream,.g-sec--gold,.g-sec--tint,.isec--cream,.isec--gold,.ab-mot,.ac-portes){background:var(--off-white)!important}
+main > div > section:last-of-type:is(.g-sec--cream,.g-sec--gold,.g-sec--tint,.isec--cream,.isec--gold,.ab-mot,.ac-portes){border-top:1px solid var(--line)}
+/* Insertion : une carte par parcours (retours du 30/09/2026) */
+.or-cards{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.or-card{display:flex;flex-direction:column;border-radius:24px;overflow:hidden;background:var(--off-white);border:1px solid var(--line-strong)}
+.or-card__img{position:relative;aspect-ratio:16/8;overflow:hidden;background:var(--teal-tint)}
+.or-card__img picture,.or-card__img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.or-card__logo{position:absolute;left:16px;bottom:16px;display:grid;place-items:center;height:52px;min-width:52px;padding:6px 12px;border-radius:12px;background:#fff}
+.or-card__logo img{position:static;max-height:38px;max-width:120px;width:auto;height:auto;object-fit:contain}
+.or-card__b{display:flex;flex-direction:column;gap:16px;flex:1;padding:var(--sp-6) clamp(22px,2.4vw,30px) clamp(22px,2.4vw,30px)}
+.or-card__t{margin:0;font-size:var(--fs-h3);font-weight:700;text-transform:uppercase;line-height:1.05;color:var(--teal-dark)}
+.or-card dl{margin:0}
+.or-card dl div{display:grid;grid-template-columns:120px minmax(0,1fr);gap:12px;padding:12px 0;border-top:1px solid var(--line)}
+.or-card dt{font-weight:700;color:var(--ink)}
+.or-card dd{margin:0;color:var(--ink-mid);line-height:1.5}
+.or-card__cta{margin-top:auto;display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;padding-top:6px}
+@media (max-width:900px){ .or-cards{grid-template-columns:1fr} }
+@media (max-width:420px){ .or-card dl div{grid-template-columns:1fr;gap:4px} }

@@ -39,7 +39,7 @@ function HomeB() {
       gsap.timeline({ defaults: { ease: M.ease, duration: M.dur.title } })
         .from('.ac-hero__t .ln > span', { yPercent: 105, stagger: 0.12 }, 0.15)
         .from('.ac-hero__kicker, .ac-hero__sig, .ac-hero__lede, .ac-hero__cta', { y: M.y, autoAlpha: 0, stagger: M.stagger }, 0.45)
-        .from('.ac-hero__media', { clipPath: 'inset(8% 0% 8% 18% round 48px)', duration: 1.4 }, 0.1)
+        .from('.ac-hero__media', { autoAlpha: 0, duration: 1.2 }, 0.05)
         .from('.ac-hero__media img', { scale: 1.12, duration: 1.8 }, 0.1);
       gsap.to('.ac-hero__media img', { yPercent: 6, ease: 'none', scrollTrigger: { trigger: '.ac-hero', start: 'top top', end: 'bottom top', scrub: true } });
 
@@ -160,7 +160,7 @@ function HomeB() {
       </section>
 
       {/* 4 · PRÈS DE QUARANTE ANS — la frise des projets, chaque carte mène à sa page */}
-      <window.JalonsCouleur id="histoire" jalons={H.jalons.items} title={H.jalons.title} em={H.jalons.titleAccent}
+      <window.JalonsCouleur id="histoire" jalons={H.jalons.items.map((j) => { const p = D.projets.find((x) => j.href === '#/projets/' + x.id); return { ...j, logo: j.logo || (p && p.logo) || (j.href === '#/academie' ? 'images/logo-academie-festin.png' : null) }; })} title={H.jalons.title} em={H.jalons.titleAccent}
         lede={H.jalons.lede} word="PROJETS" label="Les projets de Festin, de 1993 à 2026" />
 
       {/* 5 · TOUTES NOS FORMATIONS — une étiquette par public */}
@@ -296,8 +296,10 @@ function ProjetsIndexPage() {
     <div className="gpage" ref={root} data-screen-label="Nos projets">
       <window.HeroPage tone="teal" kicker="Six projets, trois missions" title="Nos" accent="projets"
         proof={H.missions.ledeProjets}
-        crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Nos projets' }]} />
-      <section className="g-sec g-sec--white pj-gal" aria-labelledby="pj-gal-t">
+        crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Nos projets' }]}>
+        <div className="g-herocta"><window.GLink l={{ to: 'pj-gal' }} className="btnb btnb--gold">Voir les projets <span className="arrow" aria-hidden="true">↓</span></window.GLink></div>
+      </window.HeroPage>
+      <section className="g-sec g-sec--white pj-gal" id="pj-gal" aria-labelledby="pj-gal-t">
         <div className="wrap">
           <h2 className="sr-only" id="pj-gal-t">Les projets</h2>
           <div className="filters" role="group" aria-label="Filtrer par mission">
