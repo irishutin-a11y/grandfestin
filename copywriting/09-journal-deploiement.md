@@ -102,3 +102,12 @@ Galeries de fin de page (bandeau de photos, avec bouton pause) sur les cinq page
 | Association | Frise | Ancienne frise chronologique en couleur, épinglée au bureau (1987 en teal pour se détacher du fond ; 2015 en corail foncé, texte blanc, pour le contraste) |
 | Pages projet | Compteurs | Quatre compteurs en aplats alternés sous « en bref » (les phrases de preuve sont retirées pour ne pas répéter les chiffres ; « 2 M+ » s'affiche en entier, l'ancienne version montrait « 2+ ») |
 | Académie | « Un secteur qui recrute » | Ancien bloc sombre à trois chiffres |
+
+## Double public (29/09/2026)
+
+Maquette validée : `maquettes/home-double-cible.html`. Intégration en cinq étapes.
+1. **Accueil et menu** : hero « Former les personnes, faire avancer les cuisines. », boutons « Orienter une personne » / « Former mes équipes » ; « Deux publics, un même métier » ; frise des projets cliquable ; « Toutes nos formations » ; citation de l'édito 2025 (« L'excellence et la solidarité ne sont pas des mondes séparés. ») ; portes réécrites. Menu : Insertion · Professionnels · Nos projets · L'association. Retirés de l'accueil : liste des missions, frise « Une année pour changer de métier » (restent sur Nos projets et Insertion).
+2. **Professionnels** : former (formations du programme Restaure) · recruter (stagiaire, Book de l'emploi, POEI) · s'engager (Restaure). Appel principal « Demander une formation ». Tarifs sur les fiches seulement.
+3. **Insertion** : bloc « Vous accompagnez une personne ? Orientez-la. » (tableau des parcours, conditions, dates, contact, site) ; le parcours adressé aux personnes est gardé. En [À COMPLÉTER] : adresse de chaque projet, conditions et dates des Beaux Mets et de La Table de Cana, dates du CAP.
+4. **Formations** : une seule page, L'Académie Festin, catalogue en tête ; filtres Parcours d'insertion / Formations pro ; « Portée par le programme Restaure » sur les deux formations pro. Qualiopi : l'Académie seulement.
+5. **Association** : frise recentrée sur l'association (création, projets fondateurs, distinctions de 2019 à 2023, délégations de service public 2024, dix ans de Des Étoiles et des Femmes, Académie).
