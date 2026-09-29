@@ -1615,3 +1615,16 @@ Object.assign(window.FESTIN_DATA.home, {
     role: "Président, directeur général et directrice adjointe de Festin, édito du rapport d'activité 2025",
   },
 });
+
+// ============================================================
+//  INSERTION — bloc pour les prescripteurs (29/09/2026).
+//  Conditions tirées de FESTIN_DATA.formations ; contact : null
+//  = [À COMPLÉTER] (adresse par projet à fournir par l'association).
+// ============================================================
+window.FESTIN_DATA.orienter = [
+  { id: "des-etoiles-et-des-femmes", parcours: "Des Étoiles et des Femmes, titre de commis de cuisine", pour: "Femmes majeures", conditions: "Niveau de français B1 minimum", duree: "4 mois, gratuit", dates: "Du 9 novembre 2026 au 13 avril 2027", contact: null },
+  { id: "des-etoiles-et-des-femmes", parcours: "Des Étoiles et des Femmes, CAP cuisine", pour: "Femmes majeures", conditions: "Niveau de français B2 minimum", duree: "11 mois, gratuit", dates: null, contact: null },
+  { id: "tournesol", parcours: "Tournesol, titre de commis de cuisine et DCL", pour: "Personnes réfugiées ou primo-arrivantes, majeures, autorisées à travailler en France", conditions: "Niveau de français A2 minimum", duree: "5 mois, gratuit et rémunéré par France Travail", dates: "Du 30 novembre 2026 au 22 avril 2027", contact: null },
+  { id: "les-beaux-mets", parcours: "Les Beaux Mets, emploi en brigade", pour: "Personnes détenues au centre pénitentiaire des Baumettes", conditions: null, duree: "Suivi jusqu'à six mois après la sortie", dates: null, contact: null },
+  { id: "la-table-de-cana", parcours: "La Table de Cana, emploi en insertion", pour: "Salariés en insertion, à Marseille", conditions: null, duree: "Un emploi au traiteur, avec une formation en cuisine", dates: null, contact: null },
+];

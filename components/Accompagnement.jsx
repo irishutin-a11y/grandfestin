@@ -26,6 +26,7 @@ function AccHero({ tone, kicker, title, em, lede, img, imgAlt, crumb, cta, lien 
 function AccompagnementInsertionPage() {
   const root = useRef(null);
   window.useGReveal(root);
+  const D = window.FESTIN_DATA;
   const calendrier = [
     { when: 'Septembre', tab: 'Candidater', title: 'Entretiens et atelier de préparation',
       text: "Vous rencontrez l'équipe en entretien, puis un atelier collectif vous prépare à rencontrer les restaurants.",
@@ -48,13 +49,40 @@ function AccompagnementInsertionPage() {
   ];
   return (
     <div className="gpage acc" ref={root} data-screen-label="Accompagnement — Insertion">
-      <AccHero tone="gold" crumb="Se former" kicker="Vous cherchez un métier"
+      <AccHero tone="gold" crumb="Insertion" kicker="Vous cherchez un métier"
         title="Apprendre un métier de cuisine," em="gratuitement."
         lede="Vous préparez un diplôme reconnu, vous faites vos stages en restaurant, et une personne de l'équipe vous suit jusqu'à l'emploi."
         img="images/photo-tabliers-violets.jpg" imgAlt="Des apprenties de Des Étoiles et des Femmes en cuisine"
-        cta={{ label: 'Vérifier mon éligibilité', href: '#/contact' }} lien={{ label: 'Choisir mon parcours', to: 'parcours-choix' }} />
+        cta={{ label: 'Vérifier mon éligibilité', href: '#/contact' }} lien={{ label: 'Vous accompagnez une personne ?', to: 'orienter' }} />
 
-      <section className="g-sec g-sec--white" aria-labelledby="ins-bref-t">
+      {/* POUR LES PRESCRIPTEURS — publics, conditions, dates, contact de chaque parcours */}
+      <section className="g-sec g-sec--white" id="orienter" aria-labelledby="ins-or-t">
+        <div className="wrap">
+          <window.GHead id="ins-or-t" split title={"Vous accompagnez une personne\u00a0?"} accent="Orientez-la."
+            lede="Conseillères et conseillers France Travail, missions locales, travailleurs sociaux, structures d'accueil : voici, parcours par parcours, à qui il s'adresse, les conditions d'entrée, les prochaines dates et la personne à contacter." />
+          <div className="or-table" role="table" aria-label="Les parcours, leurs conditions et leur contact">
+            <div className="or-row or-row--head" role="row">
+              <span role="columnheader">Parcours</span><span role="columnheader">Pour qui</span><span role="columnheader">Conditions et durée</span><span role="columnheader">Prochaine session</span><span role="columnheader">Contact</span>
+            </div>
+            {D.orienter.map((o, i) => {
+              const p = D.projets.find((x) => x.id === o.id) || {};
+              const manque = (t) => (window.FESTIN_SHOW_PLACEHOLDERS ? <span className="is-placeholder or-miss">[À COMPLÉTER : {t}]</span> : null);
+              return (
+                <div className="or-row g-reveal" role="row" key={i}>
+                  <span role="cell" className="or-parc"><b>{o.parcours}</b><a className="lnk" href={'#/projets/' + o.id}>La page du projet <span className="arrow" aria-hidden="true">→</span></a></span>
+                  <span role="cell"><i className="or-k">Pour qui</i>{o.pour}</span>
+                  <span role="cell"><i className="or-k">Conditions et durée</i>{o.conditions || manque("conditions d'entrée")}<br />{o.duree}</span>
+                  <span role="cell"><i className="or-k">Prochaine session</i>{o.dates || manque('dates')}</span>
+                  <span role="cell"><i className="or-k">Contact</i>{o.contact ? <a href={'mailto:' + o.contact}>{o.contact}</a> : (manque('adresse du projet') || <a href={'mailto:' + D.contact.email + '?subject=' + encodeURIComponent('Orientation : ' + p.shortTitle)}>{D.contact.email}</a>)}
+                    {p.siteUrl && <a className="or-site" href={p.siteUrl} target="_blank" rel="noopener noreferrer">{p.siteName} ↗<span className="sr-only"> (nouvel onglet)</span></a>}</span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="g-sec g-sec--cream" aria-labelledby="ins-bref-t">
         <div className="wrap g-bref">
           <div className="g-bref__txt">
             <h2 className="g-h2 g-reveal" id="ins-bref-t">Un diplôme, et quelqu'un <em>à vos côtés.</em></h2>
@@ -68,7 +96,7 @@ function AccompagnementInsertionPage() {
         </div>
       </section>
 
-      <section className="g-sec g-sec--cream" id="parcours-choix" aria-labelledby="ins-choix-t">
+      <section className="g-sec g-sec--white" id="parcours-choix" aria-labelledby="ins-choix-t">
         <div className="wrap">
           <window.GHead id="ins-choix-t" split title="Le parcours qui vous" accent="correspond."
             lede="Quatre projets de Festin forment et emploient des personnes qui cherchent un métier. Chacun s'adresse à un public précis." />

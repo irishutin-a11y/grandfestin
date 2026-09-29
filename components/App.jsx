@@ -76,7 +76,7 @@ function App() {
       home: 'Festin — Former en cuisine, jusqu’à l’emploi',
       about: 'Qui sommes-nous | ' + base, projets: 'Nos projets | ' + base, formation: 'Formation | ' + base,
       academie: "L'Académie Festin | " + base, impact: 'Notre impact | ' + base, actualites: 'Actualités et presse | ' + base,
-      contact: 'Contact | ' + base, 'accomp-insertion': 'Apprendre un métier de cuisine | ' + base,
+      contact: 'Contact | ' + base, 'accomp-insertion': 'Insertion : apprendre un métier de cuisine | ' + base,
       'accomp-pros': 'Professionnels : former et recruter | ' + base,
     };
     document.title = proj ? proj.shortTitle + ' | ' + base : (titles[route.name] || 'Page introuvable | ' + base);

@@ -344,3 +344,19 @@
 .ftag--ins{background:var(--teal);color:var(--off-white)}
 .ftag--pro{background:var(--gold);color:var(--ink)}
 .formation-card__body .ftag{margin-bottom:4px}
+/* Insertion : tableau pour les prescripteurs (cartes sur téléphone) */
+.or-table{display:grid;border-top:2px solid var(--teal)}
+.or-row{display:grid;grid-template-columns:1.4fr 1.2fr 1.3fr 1fr 1.2fr;gap:18px;padding:18px 0;border-bottom:1px solid var(--line-strong);font-size:15px;line-height:1.5;color:var(--ink-mid)}
+.or-row--head{padding:12px 0;font-size:14px;font-weight:700;color:var(--teal-dark)}
+.or-parc{display:grid;gap:6px;align-content:start}
+.or-parc b{color:var(--ink);font-size:16px;line-height:1.3}
+.or-parc .lnk{font-size:13px}
+.or-k{display:none;font-style:normal;font-weight:700;color:var(--ink);font-size:13px}
+.or-site{display:inline-block;margin-top:6px;color:var(--teal-dark);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.or-row a[href^="mailto"]{color:var(--teal-dark);font-weight:700;overflow-wrap:anywhere}
+.or-miss{display:inline-block;padding:2px 8px;border:1.5px dashed var(--teal-tint-2);border-radius:8px;font-size:13px;color:var(--ink-soft)}
+@media (max-width:900px){
+  .or-row--head{display:none}
+  .or-row{grid-template-columns:1fr;gap:10px;padding:20px 0}
+  .or-k{display:block;margin-bottom:2px}
+}
