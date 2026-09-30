@@ -84,7 +84,7 @@ function Ligne({ o, id }) {
   const [open, setOpen] = useState(false);
   const pid = id + '-etapes';
   return (
-    <li className={'ar-ligne ar-ligne--' + (o.tone || 'teal') + ' g-reveal'}>
+    <li className={'ar-ligne ar-ligne--' + (o.tone || 'teal') + ((o.links || []).length + (o.link ? 1 : 0) + (o.etapes ? 1 : 0) > 1 ? ' ar-ligne--multi' : '') + ' g-reveal'}>
       <div className="ar-ligne__main">
         <h3 className="ar-ligne__t">{o.title}</h3>
         {o.text && <p>{o.text}</p>}
@@ -92,6 +92,7 @@ function Ligne({ o, id }) {
       <Tags tags={o.tags} />
       <div className="ar-ligne__act">
         <Lnk l={o.link} />
+        {(o.links || []).map((l) => <Lnk key={l.href} l={l} />)}
         {o.etapes && <button type="button" className="ar-lnk ar-lnk--btn" aria-expanded={open} aria-controls={pid} onClick={() => setOpen(!open)}>
           {open ? 'Masquer les étapes' : 'Voir les ' + o.etapes.length + ' étapes'} <span className="ar-lnk__ic" aria-hidden="true" /></button>}
       </div>

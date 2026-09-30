@@ -161,20 +161,23 @@ function ProjetPage({ id }) {
 
       {/* PROGRAMME POUR LE SECTEUR — ses formations à la place d'un parcours (nature « programme ») */}
       {cfg.nature === 'programme' && (
-        <section className="g-sec g-sec--cream" aria-labelledby="prog-form-t">
+        <section className="g-sec g-sec--white" aria-labelledby="prog-form-t">
           <div className="wrap">
-            <window.GHead id="prog-form-t" split title="Former vos équipes," accent="avec le programme."
-              lede="Des formations courtes, en présentiel, dans vos murs ou avec d'autres établissements. Elles font partie du catalogue de l'Académie Festin, certifiée Qualiopi ; une prise en charge par votre OPCO est possible." />
-            <div className="formations__grid">
-              {window.FormationCardLink && (D.formations || []).filter((f) => f.porteur).map((f) => <window.FormationCardLink key={f.id} f={f} noPrice />)}
-            </div>
+            <window.BlocEncarte id="prog-form-t" title="Former vos équipes," accent="avec le programme."
+              lede="Des formations courtes, en présentiel, dans vos murs ou avec d'autres établissements."
+              tags={[['Catalogue', 'Académie Festin, certifiée Qualiopi'], ['Financement', 'OPCO possible']]}>
+              <window.Accordeon id="prog-f" items={(D.formations || []).filter((f) => f.porteur).map((f) => ({
+                q: f.title, a: f.desc, tags: [['Durée', f.duration], ['Pour', f.publicLabel]],
+                link: { label: 'La fiche de la formation', href: '#/formations/' + f.id } }))} />
+              <a className="btnb btnb--gold ar-bloc__cta" href="#/contact">Demander une formation <span className="arrow" aria-hidden="true">→</span></a>
+            </window.BlocEncarte>
           </div>
         </section>
       )}
 
       {/* PARCOURS — frise partagée avec l'accueil */}
       {steps.length > 0 && (
-        <window.Frise id="parcours" tone="tint" title={cfg.frise.title} accent={cfg.frise.accent} lede={cfg.frise.lede}
+        <window.Frise id="parcours" tone="tint" encart title={cfg.frise.title} accent={cfg.frise.accent} lede={cfg.frise.lede}
           steps={steps} rail={rail} />
       )}
 
@@ -184,7 +187,7 @@ function ProjetPage({ id }) {
 
       {/* TÉMOIGNAGES — une grande citation à la fois */}
       {temoins.length > 0 && (
-        <section className="g-sec g-sec--white" aria-labelledby="temoins-t">
+        <section className="g-sec ar-sec--deep on-dark gp-temoins" aria-labelledby="temoins-t">
           <div className="wrap">
             <window.GHead id="temoins-t" title={cfg.temoignages.title} accent={cfg.temoignages.accent} />
             <window.TestiCarousel label={'Témoignages, ' + p.shortTitle} items={temoins} />
