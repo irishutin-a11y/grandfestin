@@ -152,7 +152,7 @@ function Footer() {
   // empilés ne s'accordaient pas). Absent là où la page a son propre appel final.
   const hash = useRoute();
   // pages qui finissent déjà par leurs propres portes : accueil, projets, accompagnement, contact
-  const sansFin = ['#/', '#/contact', '#/academie', '#/maquette/academie', '#/formations', '#/accompagnement/insertion', '#/accompagnement/professionnels'].includes(hash) || hash.indexOf('#/projets/') === 0;
+  const sansFin = ['#/', '#/contact', '#/academie', '#/formations', '#/accompagnement/insertion', '#/accompagnement/professionnels'].includes(hash) || hash.indexOf('#/projets/') === 0;
   return (
     <div className="footer-outer">
       <footer className="footer">

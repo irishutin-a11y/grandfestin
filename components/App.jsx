@@ -14,7 +14,6 @@ function parseRoute(hash) {
   if (parts[0] === 'accompagnement' && parts[1] === 'insertion') return { name: 'accomp-insertion' };
   if (parts[0] === 'accompagnement' && parts[1] === 'professionnels') return { name: 'accomp-pros' };
   if (parts[0] === 'academie') return { name: 'academie' };
-  if (parts[0] === 'maquette' && parts[1] === 'academie') return { name: 'maquette-academie' };
   if (parts[0] === 'actualites') return { name: 'actualites' };
   if (parts[0] === 'impact') return { name: 'impact' };
   if (parts[0] === 'about') return { name: 'about' };
@@ -76,7 +75,7 @@ function App() {
     const titles = {
       home: 'Festin : former les personnes, faire avancer les cuisines',
       about: 'Qui sommes-nous | ' + base, projets: 'Nos projets | ' + base, formation: 'Formation | ' + base,
-      academie: "L'Académie Festin | " + base, 'maquette-academie': "Maquette, L'Académie Festin | " + base, impact: 'Notre impact | ' + base, actualites: 'Actualités et presse | ' + base,
+      academie: "L'Académie Festin | " + base, impact: 'Notre impact | ' + base, actualites: 'Actualités et presse | ' + base,
       contact: 'Contact | ' + base, 'accomp-insertion': 'Insertion : apprendre un métier de cuisine | ' + base,
       'accomp-pros': 'Professionnels : former et recruter | ' + base,
     };
@@ -97,7 +96,6 @@ function App() {
     case 'accomp-insertion':  page = <AccompagnementInsertionPage />; break;
     case 'accomp-pros':       page = <AccompagnementProsPage />; break;
     case 'academie':          page = <AcademiePage />; break;
-    case 'maquette-academie': page = <window.AcademieMaquette />; break;
     case 'actualites':         page = <ActualitesPage />; break;
     case 'impact':            page = <ImpactPage />; break;
     case 'about':             page = <AboutPage />; break;
