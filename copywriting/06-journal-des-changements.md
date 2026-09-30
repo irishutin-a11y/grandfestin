@@ -33,7 +33,7 @@ Tout est commité sur la branche `feature/about-page-redesign`, sans push. Aucun
 - Portraits de l'équipe (13 cartes) et de Marc Balthazard, Nissa Boudhabhay, Virginie Leconte. Les originaux 3 : 4 ne sont pas fournis.
 - Témoignages d'une entreprise partenaire et d'un financeur (accueil), témoignage de Julia Sedefdjian.
 - Crédits photo : seuls ceux des photos du Refugee Food Festival sont affichés. Les autres photos n'ont pas de crédit.
-- Marion Binachon et Fanny Bouvier (intitulés à donner).
+- Fanny Bouvier (intitulé à donner). Marion Binachon : chargée de commercialisation et de marketing, Les Beaux Mets (30/09/2026).
 - Non utilisés : la photo « directeurs-portrait » (identités non confirmées) et les originaux `101_12xx`.
 - Non implémenté (décision) : audit des liens de presse, adresses réelles à la place du routeur par hash, kit de communication.
 - À vérifier de ton côté : le titre visé par le parcours court (« Commis de cuisine » retenu dans les textes du catalogue ; la donnée `Cuisinier` subsiste peut-être dans des pages non ouvertes), l'accord des 12 chefs pour l'affichage de leurs noms, et le SIRET affiché en pied de page.

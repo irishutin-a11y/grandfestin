@@ -1487,22 +1487,23 @@ window.FESTIN_DATA.about = {
   poles: [
     { key: "direction", label: "Direction et gestion", color: "#1D6B78", members: [
       { name: "Armand Hurault", role: "Directeur général", photo: null },
-      { name: "Marine Vever",   role: "Directrice adjointe", photo: null },
+      { name: "Marine Vever",   role: "Directrice adjointe", photo: "images/equipe/marine.jpg" },
       { name: "Marie Plé",      role: "Assistante de gestion", photo: null },
     ]},
     { key: "com", label: "Communication et communauté", color: "#9A5BA8", members: [
       { name: "Iris Liberty",      role: "Chargée d'animation de communauté, programme Restaure", photo: null },
-      { name: "Iris Hutin",        role: "Chargée de projet Communication", photo: null },
+      { name: "Iris Hutin",        role: "Chargée de projet Communication", photo: "images/equipe/iris-hutin.jpg" },
       { name: "Matthieu Donsimoni", role: "Chargé de communication en alternance", photo: null },
     ]},
     { key: "formation", label: "Formation et emploi", color: "#E8A825", members: [
-      { name: "Florence Armitano", role: "Responsable du pôle Formation", photo: null },
-      { name: "Mélanie Gambert",   role: "Coordinatrice réseau Des Étoiles et des Femmes", photo: null },
+      { name: "Florence Armitano", role: "Responsable du pôle Formation", photo: "images/equipe/florence.jpg" },
+      { name: "Mélanie Gambert",   role: "Coordinatrice réseau Des Étoiles et des Femmes", photo: "images/equipe/melanie.jpg" },
       { name: "Karima Hellou",     role: "Responsable Emploi et Inclusion, Des Étoiles et des Femmes", photo: null },
       { name: "Lucie Gueydon",     role: "Chargée de projet formation, Estello Formation", photo: null },
     ]},
     { key: "cuisine", label: "Les Beaux Mets", color: "#E4572E", members: [
       { name: "Camille Lafon",    role: "Direction du restaurant Les Beaux Mets", photo: null, avatar: "images/equipe/bm-lafon.png" },
+      { name: "Marion Binachon",  role: "Chargée de commercialisation et de marketing, Les Beaux Mets", photo: "images/equipe/marion.jpg" },
       { name: "Valentin Majan",   role: "Chef de cuisine", photo: null, avatar: "images/equipe/bm-majan.png" },
       { name: "Boris Ruel",       role: "Second de cuisine", photo: null, avatar: "images/equipe/bm-ruel.png" },
       { name: "Marc Balthazard",  role: "Maître d'hôtel", photo: null },
