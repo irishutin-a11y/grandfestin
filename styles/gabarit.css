@@ -244,9 +244,7 @@
    REVUE D'INTERFACE DU 25/09/2026 — corrections
    ============================================================ */
 /* Pied de page : même arborescence que la pastille (4 rubriques) */
-.footer__grid{grid-template-columns:1.4fr repeat(3,minmax(0,1fr))!important}
-.footer__rubs{list-style:none;margin:0;padding:0;display:grid;gap:var(--sp-5)}
-.footer .footer__rubs .footer__h{margin:0}
+.footer__grid{grid-template-columns:1.4fr repeat(4,minmax(0,1fr))!important}
 .footer__h a{color:inherit}
 .footer__h a:hover{text-decoration:underline;text-underline-offset:4px}
 .footer__contact{margin-top:var(--sp-4)!important}
@@ -256,10 +254,10 @@
 @media (min-width:1000px) and (max-width:1149px){ .navpill__links a{padding:0 9px;font-size:12px;letter-spacing:.05em} }
 .navpill__links a[aria-current="location"]{background:var(--teal-tint);color:var(--teal-dark)}
 /* Menu : quatre colonnes, la rubrique courante marquée */
-.optA-grid--publics{grid-template-columns:repeat(5,minmax(0,1fr))}
+.optA-grid--publics{grid-template-columns:repeat(4,minmax(0,1fr))}
 .optA-panel{width:min(1120px,94vw)}
 .optA-col.is-here .optA-h::after{content:' · vous êtes ici';color:rgba(254,252,248,.7);letter-spacing:.04em;text-transform:none;font-weight:600}
-@media (max-width:1023px){ .optA-grid--publics{grid-template-columns:repeat(3,minmax(0,1fr))} }
+@media (max-width:1023px){ .optA-grid--publics{grid-template-columns:repeat(2,minmax(0,1fr))} }
 @media (max-width:640px){ .optA-grid--publics{grid-template-columns:1fr} }
 /* Sphère des chefs : pas de texte estompé à l'arrière (contraste) */
 .isph__node.is-back .isph__name b,.isph__node.is-back .isph__name span{visibility:hidden}

@@ -150,14 +150,6 @@
 .ar-etapes li::before { background: var(--ar-c, var(--coral-ink)); }
 .ar-bloc--deep { background: var(--teal-dark); }
 
-/* ---------- Pages projet (30/09/2026) ---------- */
-/* Parcours : la frise devient un bloc encarté (fond teinté, marges visibles) */
-.frise--encart { background: var(--off-white); padding: var(--sp-5) 0; }
-.frise--encart .frise__inner { margin: 0 var(--pad); border-radius: 24px; background: var(--teal-tint); overflow: hidden; }
-/* Témoignages : la citation posée sur fond sombre */
-.gp-temoins { background: var(--teal-deep); color: var(--ink-on-dark); }
-.gp-temoins .tq__media { background: rgba(255,255,255,.08); }
-.gp-temoins .tq__nav { border-top-color: rgba(255,255,255,.2); }
 /* Autres projets : lignes typées compactes, une par mission */
 .ar-ligne--deep { --ar-c: var(--teal-dark); background: color-mix(in srgb, var(--teal-dark) 10%, var(--off-white)); }
 .ar-ligne--deep .ar-lnk { color: var(--teal-dark); }
@@ -168,9 +160,6 @@
 .ar-lignes--compact .ar-ligne__t { margin: 0; }
 @media (max-width: 720px) { .ar-lignes--compact .ar-ligne { grid-template-columns: 1fr; grid-template-areas: "main" "tags"; } }
 .ar-lignes--compact .ar-ligne__projets { grid-area: tags; }
-.gp-temoins :is(h2, h3) { color: #fff; }
-.gp-temoins h2 em { color: var(--gold-light); }
 /* ligne à plusieurs actions : les actions passent sous le texte */
 .ar-ligne--multi { grid-template-columns: 1fr; grid-template-areas: "main" "tags" "act"; }
 .ar-ligne--multi .ar-ligne__act { display: flex; flex-wrap: wrap; gap: 0 var(--sp-6); }
-.gp-temoins .tq__ini { color: var(--gold-light); }

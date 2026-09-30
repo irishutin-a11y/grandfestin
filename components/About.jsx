@@ -37,7 +37,7 @@ function CeQuOnEst() {
           <Title em="un métier" after={null}>
             Des cuisines où l'on <span className="ab-thumb"><img src={src('images/photo-cuisine-action.jpg')} alt="" loading="lazy" /></span> apprend
           </Title>
-          <p className="ab-body">Créée à Marseille en 1987, l'association porte six projets, au service de trois missions : former, accompagner jusqu'à l'emploi, changer les cuisines. Association loi 1901, d'intérêt général, agréée ESUS.</p>
+          <p className="ab-body">L'association est créée en 1987. Son premier projet, La Table de Cana, ouvre à Marseille en 1993 : un traiteur où des salariés en insertion apprennent la cuisine en travaillant. Festin porte aujourd'hui six projets, qui servent trois missions : former, accompagner jusqu'à l'emploi, changer les cuisines. Tous relèvent d'une association loi 1901, à but non lucratif et d'intérêt général, agréée ESUS.</p>
           <window.Preuves lignes={["En 2025, nous avons accompagné <b>441 personnes</b> dans <b>14 territoires</b> ; <b>83 %</b> sont sorties en emploi ou en formation."]}
             source="Source : rapport d'activité Festin 2025, tous projets confondus." />
           <a className="lnk ab-lnk" href="#/impact">Tous nos chiffres depuis 2022 <span className="arrow" aria-hidden="true">→</span></a>
@@ -165,7 +165,7 @@ function Equipe() {
                              : window.FESTIN_SHOW_PLACEHOLDERS
                                ? <span className="ab-member__ph is-placeholder">[PHOTO MANQUANTE : portrait de {m.name}, buste, vertical]</span>
                                : <span className="ab-member__ph ab-member__ph--ini" aria-hidden="true">{m.name.split(' ').map(w => w[0]).slice(0, 2).join('')}</span>}
-                    <span className="ab-member__role">{m.role}</span>
+                    <span className="ab-member__role"><span>{p.label}</span>{m.role}</span>
                   </span>
                   <span className="ab-member__name">{m.name}</span>
                 </button>
@@ -190,16 +190,23 @@ function Equipe() {
   );
 }
 
-// ---------- 5. VALEURS — bloc encarté à accordéon (archétype 2), sans numéros ----------
+// ---------- 5. VALEURS — cartes claires numérotées ----------
 function Valeurs() {
   const valeurs = window.FESTIN_DATA.about.valeurs;
+  const couleurs = ['var(--gold-ink)', 'var(--coral-ink)', 'var(--violet-ink)'];
   return (
     <section className="g-sec g-sec--white" aria-labelledby="valeurs-t">
-      <div className="wrap">
-        <window.BlocEncarte id="valeurs-t" title="Ce qui guide" accent="nos choix."
->
-          <window.Accordeon id="valeurs" items={valeurs.map((v) => ({ q: v.title, a: v.desc }))} />
-        </window.BlocEncarte>
+      <div className="container">
+        <window.GHead id="valeurs-t" title="Ce qui guide" accent="nos choix." />
+        <ol className="ab-valeurs">
+          {valeurs.map((v, i) => (
+            <li className="ab-valeurs__i g-reveal" key={v.title} style={{ '--vc': couleurs[i % 3] }}>
+              <span className="ab-valeurs__n" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+              <h3 className="ab-valeurs__t">{v.title}</h3>
+              <p>{v.desc}</p>
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   );
@@ -228,7 +235,7 @@ const SPHERE_PARTENAIRES = (() => {
 // L'édito à gauche, les partenaires à droite (retours du 30/09/2026)
 function EditoPartenaires() {
   return (
-    <section className="g-sec g-sec--white ab-edp" aria-label="Le mot de la direction et nos partenaires">
+    <section className="g-sec g-sec--cream ab-edp" aria-label="Le mot de la direction et nos partenaires">
       <div className="container ab-edp__grid">
         <div className="ab-edp__edito">
           <MotDirecteur />
@@ -265,6 +272,10 @@ function MotDirecteur() {
         Mieux&nbsp;: elle en est souvent la condition de réussite. […] En cuisine comme ailleurs,
         viser haut n'exclut pas&nbsp;: cela élève. Cela redonne confiance, structure les parcours,
         ouvre des perspectives professionnelles solides et reconnues.</p>
+        <p>La construction collective n'est pas un coût, c'est un levier. Un levier puissant contre
+        la concurrence stérile, contre la dispersion des énergies, contre l'isolement des initiatives.
+        Le collectif permet de mutualiser, d'apprendre, d'amplifier. Il permet surtout de durer
+        et de transformer en profondeur.</p>
         <p>C'est pour cela que «&nbsp;Le Goût d'avancer ensemble&nbsp;», pour Festin, n'est pas
         qu'un slogan. C'est une méthode, une exigence, une responsabilité.</p>
         <footer className="ab-mot__sig">
@@ -324,8 +335,8 @@ function AboutPage() {
       <AboutHero />
       <CeQuOnEst />
       <Histoire />
-      <Valeurs />
       <Equipe />
+      <Valeurs />
       <EditoPartenaires />
     </div>
   );

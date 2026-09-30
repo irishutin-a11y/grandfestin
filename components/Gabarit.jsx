@@ -256,40 +256,6 @@ function MissionsNav({ currentId, title = 'Les projets', accent = 'de Festin', t
   const D = window.FESTIN_DATA;
   const items = (D.home.missions || {}).items || [];
   const byId = (id) => D.projets.find((p) => p.id === id) || {};
-  // Version courte (fin des pages projet) : une ligne typée par mission, sans numéro
-  // (des missions ne sont pas des étapes) ; archétype « lignes typées ».
-  if (compact) {
-    const TEINTE = { former: 'gold', accompagner: 'teal', changer: 'deep' };
-    return (
-      <section className={'g-sec g-sec--' + tone} aria-labelledby="missions-nav-t">
-        <div className="wrap ar-split">
-          <div className="ar-split__head"><h2 className="ar-h2" id="missions-nav-t">{title} <em>{accent}</em></h2></div>
-          <ul className="ar-lignes ar-lignes--compact">
-            {items.map((m) => (
-              <li key={m.key} className={'ar-ligne ar-ligne--' + (TEINTE[m.key] || 'teal') + ' g-reveal'}>
-                <div className="ar-ligne__main">
-                  <h3 className="ar-ligne__t">{m.title}{m.titleAccent && <> {m.titleAccent}</>}</h3>
-                </div>
-                <ul className="ar-ligne__projets">
-                  {m.projets.map((pr) => {
-                    const p = byId(pr.id);
-                    const here = pr.id === currentId;
-                    return (
-                      <li key={pr.id}>
-                        {here
-                          ? <span className="is-here" aria-current="page">{pr.name || p.shortTitle} <small>Vous êtes ici</small></span>
-                          : <a className="ar-lnk" href={pr.href || '#/projets/' + pr.id}>{pr.name || p.shortTitle} <span className="arrow" aria-hidden="true">→</span></a>}
-                      </li>
-                    );
-                  })}
-                </ul>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-    );
-  }
   return (
     <section className={'g-sec g-sec--' + tone + ' g-sec--tight'} aria-labelledby="missions-nav-t">
       <div className="wrap">
@@ -297,6 +263,7 @@ function MissionsNav({ currentId, title = 'Les projets', accent = 'de Festin', t
         <div className={'g-mnav' + (compact ? ' g-mnav--compact' : '')}>
           {items.map((m, i) => (
             <div className={'g-mnav__col g-reveal' + (m.projets.some((p) => p.id === currentId) ? ' is-here' : '')} key={m.key}>
+              <span className="g-mnav__n" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
               <h3 className="g-mnav__t">{m.title}{m.titleAccent && <> <em>{m.titleAccent}</em></>}</h3>
               <ul>
                 {m.projets.map((pr) => {

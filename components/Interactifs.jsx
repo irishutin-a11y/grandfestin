@@ -316,7 +316,7 @@ window.TempsForts = TempsForts;
 // missing (ou cadres de chantier masqués), la carte est en texte seul.
 // rail : { tab, title, text } (ce qui court sous toutes les étapes)
 // ---------------------------------------------------------------------------
-function Frise({ id = 'frise', title, accent, lede, steps = [], rail, cta, tone = 'tint', statique = false, encart = false }) {
+function Frise({ id = 'frise', title, accent, lede, steps = [], rail, cta, tone = 'tint', statique = false }) {
   const { useRef, useEffect } = React;
   const rootRef = useRef(null);
 
@@ -383,7 +383,7 @@ function Frise({ id = 'frise', title, accent, lede, steps = [], rail, cta, tone 
   }, []);
 
   return (
-    <section className={'frise frise--' + tone + (statique ? ' frise--static' : '') + (encart ? ' frise--encart' : '')} id={id} ref={rootRef} aria-labelledby={id + '-t'}>
+    <section className={'frise frise--' + tone + (statique ? ' frise--static' : '')} id={id} ref={rootRef} aria-labelledby={id + '-t'}>
       <div className="frise__inner">
         <div className="wrap frise__head">
           <h2 className="frise__h" id={id + '-t'}>{title}{accent && <> <em>{accent}</em></>}</h2>

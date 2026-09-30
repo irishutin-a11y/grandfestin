@@ -33,7 +33,9 @@ Aujourd'hui : **Insertion** (Orienter une personne, L'Académie Festin) · **Pro
 
 Rien n'est implémenté : à trancher.
 
-## 3. Mis en œuvre le 30/09/2026 (branche `maquette-pros`)
+## 3. Essayé puis annulé le 30/09/2026 (branche `maquette-pros`)
+
+> **Annulé à la demande de l'utilisatrice** : on ne garde que la page Professionnels. L'arborescence, les pages projet, Insertion et Association sont revenues à leur état antérieur, à deux exceptions près, conservées : dans la frise de l'Association, les délégations de service public (2024) et la sous-traitance du Greta (2025) sont retirées. Ce qui suit décrit l'essai, pour mémoire.
 
 **Arborescence : option B appliquée.** Le menu a maintenant cinq entrées : Insertion · Professionnels · Formations · Nos projets · L'association.
 - Chaque page n'a qu'une place.

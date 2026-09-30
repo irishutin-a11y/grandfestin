@@ -23,42 +23,28 @@ function AccHero({ tone, kicker, title, em, lede, img, imgAlt, crumb, cta, lien 
 // =====================================================================
 // APPRENDRE UN MÉTIER (personnes qui cherchent un métier)
 // =====================================================================
-// Teinte de chaque parcours (lignes typées) et étapes dépliables, reprises de FESTIN_DATA.projets[].parcours
-const TEINTE_PARCOURS = { 'des-etoiles-et-des-femmes': 'coral', tournesol: 'gold', 'la-table-de-cana': 'teal' };
-const ETAPES_PARCOURS = {
-  'des-etoiles-et-des-femmes': [
-    ['Pratiquer', 'Des stages en brigade, dans des restaurants partenaires.'],
-    ['Travailler', 'Préparation aux entretiens, mise en relation avec les restaurants, suivi après la formation.'],
-  ],
-  tournesol: [
-    ['Le français', 'Des cours de français appliqués à la cuisine.'],
-    ['La technique', 'La formation de commis de cuisine, avec AFC Groupe.'],
-    ['Le stage', 'Un stage chez Compass Group, rémunéré par France Travail.'],
-  ],
-};
-
 function AccompagnementInsertionPage() {
   const root = useRef(null);
   window.useGReveal(root);
   const D = window.FESTIN_DATA;
   const calendrier = [
     { when: 'Septembre', tab: 'Candidater', title: 'Entretiens et atelier de préparation',
-      text: "Un entretien, puis un atelier qui vous prépare à rencontrer les restaurants.",
-      img: 'images/photo-micro-temoignage.jpg' },
+      text: "Vous rencontrez l'équipe en entretien, puis un atelier collectif vous prépare à rencontrer les restaurants.",
+      stat: 'Gratuit', statL: 'pour les personnes formées', img: 'images/photo-micro-temoignage.jpg' },
     { when: 'Octobre', tab: 'Rencontrer', title: 'Une immersion en restaurant',
-      text: "Une immersion courte valide votre projet.",
+      text: "Une immersion courte valide votre projet. Nous vous présentons ensuite l'établissement qui vous accueillera.",
       img: 'images/images-def/HOTELERIE-035.jpg' },
     { when: 'Novembre et décembre', tab: 'Commencer', title: 'Entrée en formation',
-      text: 'La promotion démarre, le suivi individuel commence.',
+      text: 'La promotion démarre et le suivi individuel commence.',
       img: 'images/photo-patisserie.jpg' },
     { when: 'Janvier à mars', tab: 'Se former', title: 'Cours, stages et suivi',
-      text: 'Des cours, des stages en brigade, des rendez-vous de suivi.',
+      text: 'Les cours alternent avec les stages en brigade et les rendez-vous de suivi.',
       img: 'images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg' },
     { when: 'Avril', tab: 'Le diplôme', title: 'Examens et fin de formation',
-      text: 'Le CAP cuisine ou le titre de commis (et le DCL pour Tournesol).',
+      text: 'Vous passez le CAP cuisine ou le titre de commis de cuisine (et le DCL pour Tournesol).',
       stat: '91 %', statL: 'de réussite aux diplômes en 2025, Des Étoiles et des Femmes', img: 'images/photo-applaudissements.jpg' },
     { when: 'Mai et juin', tab: 'Travailler', title: "La recherche de poste",
-      text: 'Nous vous présentons aux restaurants qui recrutent.',
+      text: 'Nous cherchons le poste avec vous et nous vous présentons aux restaurants qui recrutent.',
       img: 'images/photo-service-restaurant.jpg' },
   ];
   return (
@@ -69,40 +55,48 @@ function AccompagnementInsertionPage() {
         img="images/photo-tabliers-violets.jpg" imgAlt="Des apprenties de Des Étoiles et des Femmes en cuisine"
         cta={{ label: 'Vérifier mon éligibilité', href: '#/contact' }} lien={{ label: 'Quel parcours, pour qui ?', to: 'parcours-choix' }} />
 
-      {/* LES PARCOURS — lignes typées (options au choix, sans numéros) ; le parcours
-          se déplie sous chaque ligne (étapes numérotées : un ordre imposé). */}
-      <section className="g-sec g-sec--cream" id="parcours-choix" aria-labelledby="ins-par-t">
-        <div className="wrap ar-split">
-          <div className="ar-split__head">
-            <h2 className="ar-h2" id="ins-par-t">Quel parcours, <em>pour qui ?</em></h2>
-            <p className="ar-split__p">Trois parcours, au choix.</p>
-          </div>
-          <div>
-            <window.LignesTypees id="ins-par" items={D.orienter.map((o) => {
+      {/* LES PARCOURS — une seule section pour tous les publics (retours du 30/09/2026) :
+          pour qui, ce que c'est, comment entrer, et le site du projet. Pas de dates : chaque
+          antenne a son calendrier, donné sur le site du projet. */}
+      <section className="g-sec g-sec--white" id="parcours-choix" aria-labelledby="ins-par-t">
+        <div className="wrap">
+          <window.GHead id="ins-par-t" split title="Quel parcours," accent="pour qui ?"
+            lede="Vous cherchez pour vous-même, ou vous accompagnez quelqu'un : voici à qui s'adresse chaque parcours, et comment y entrer." />
+          <ul className="or-cards">
+            {D.orienter.map((o) => {
               const p = D.projets.find((x) => x.id === o.id) || {};
-              return {
-                tone: TEINTE_PARCOURS[o.id] || 'teal', title: p.shortTitle, text: o.quoi,
-                tags: [['Pour qui', o.pour], ['Pour entrer', o.conditions || (window.FESTIN_SHOW_PLACEHOLDERS ? "[À COMPLÉTER : conditions d'entrée]" : 'Sur le site du projet')]],
-                links: [p.siteUrl && { label: "Plus d'informations", href: p.siteUrl }, { label: 'La page du projet', href: '#/projets/' + o.id }].filter(Boolean),
-                etapes: ETAPES_PARCOURS[o.id],
-              };
-            })} />
-            <p className="g-src">Les Beaux Mets, restaurant de la prison des Baumettes, ne reçoit pas de candidatures. <a href="#/projets/les-beaux-mets">Découvrir Les Beaux Mets →</a></p>
-          </div>
+              const c = (D.home.missions.items.flatMap((m) => m.projets).find((x) => x.id === o.id)) || {};
+              return (
+                <li className="or-card g-reveal" key={o.id}>
+                  <div className="or-card__img">
+                    <window.Picture src={c.img} alt="" sizes="(max-width: 900px) 100vw, 44vw" />
+                    {p.logo && <span className="or-card__logo"><img src={encodeURI(decodeURI(p.logo))} alt="" loading="lazy" /></span>}
+                  </div>
+                  <div className="or-card__b">
+                    <h3 className="or-card__t">{p.shortTitle}</h3>
+                    <dl>
+                      <div><dt>Pour qui</dt><dd>{o.pour}</dd></div>
+                      <div><dt>Le parcours</dt><dd>{o.quoi}</dd></div>
+                      <div><dt>Pour entrer</dt><dd>{o.conditions || (window.FESTIN_SHOW_PLACEHOLDERS ? <span className="is-placeholder or-miss">[À COMPLÉTER : conditions d'entrée]</span> : "Le site du projet donne les conditions d'entrée.")}</dd></div>
+                    </dl>
+                    <div className="or-card__cta">
+                      {p.siteUrl && <a className="btnb btnb--teal" href={p.siteUrl} target="_blank" rel="noopener noreferrer">Plus d'informations <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (site du projet, nouvel onglet)</span></a>}
+                      <a className="lnk" href={'#/projets/' + o.id}>La page du projet <span className="arrow" aria-hidden="true">→</span></a>
+                    </div>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+          <p className="g-src">Les Beaux Mets, le restaurant de la prison des Baumettes, ne reçoit pas de candidatures : on y réserve une table, et les restaurants peuvent y recruter un ancien commis. <a href="#/projets/les-beaux-mets">Découvrir Les Beaux Mets →</a></p>
         </div>
       </section>
 
-      {/* LE CALENDRIER — frise en bloc encarté */}
-      <window.Frise id="calendrier" tone="tint" encart title="Une promotion," accent="mois par mois."
-        lede="Une année type pour Des Étoiles et des Femmes et Tournesol. Chaque antenne a son calendrier : le site du projet donne les dates."
-        steps={calendrier} />
-
-      {/* EN BREF — split : le diplôme, l'accompagnement, deux preuves */}
       <section className="g-sec g-sec--cream" aria-labelledby="ins-bref-t">
         <div className="wrap g-bref">
           <div className="g-bref__txt">
             <h2 className="g-h2 g-reveal" id="ins-bref-t">Un diplôme, et quelqu'un <em>à vos côtés.</em></h2>
-            <p className="g-lede g-reveal">Une personne de l'équipe vous suit jusqu'à l'emploi : transport, garde d'enfants, logement, cours de français.</p>
+            <p className="g-lede g-reveal">Chaque parcours prépare un diplôme reconnu et comprend des stages en restaurant. Pendant toute la formation, une personne de l'équipe vous aide pour ce qui peut vous empêcher d'avancer : transport, garde d'enfants, logement, cours de français.</p>
             <window.Preuves lignes={[
               'Tous nos parcours sont <b>gratuits</b>. Selon votre situation, vous pouvez percevoir une indemnité ou une rémunération.',
               'En 2025, <b>83 %</b> des personnes que nous avons accompagnées sont sorties en emploi ou en formation.',
@@ -112,8 +106,21 @@ function AccompagnementInsertionPage() {
         </div>
       </section>
 
+      <window.Frise id="calendrier" tone="tint" title="Une promotion," accent="mois par mois."
+        lede="Le déroulé d'une année pour Des Étoiles et des Femmes et Tournesol. Les dates exactes changent d'une session à l'autre."
+        steps={calendrier}
+        rail={{ tab: "Toute l'année", title: 'Un suivi individuel', text: 'Transport, garde d’enfants, logement, papiers, cours de français : une personne de l’équipe vous suit jusqu’à l’emploi.' }} />
+
+      <window.Faq id="faq-ins" title="Vos" accent="questions" items={[
+        { q: "La formation est-elle payante ?", a: "Non. Tous nos parcours sont gratuits. Selon votre situation, vous pouvez percevoir une indemnité ou une rémunération pendant la formation." },
+        { q: "Quand commencent les prochaines sessions ?", a: "Chaque antenne a son propre calendrier. Le site de chaque projet donne les dates des prochaines sessions." },
+        { q: "Quel parcours est fait pour moi ?", a: "Des Étoiles et des Femmes accueille des femmes. Tournesol accueille des personnes réfugiées ou primo-arrivantes. La Table de Cana emploie des salariés en insertion à Marseille. Écrivez-nous : nous vous orientons." },
+        { q: "Qui m'aide pendant la formation ?", a: "Une personne de l'équipe vous suit du premier entretien jusqu'à l'emploi : transport, garde d'enfants, logement, cours de français, recherche de poste." },
+        { q: "Et après la formation ?", a: "En mai et juin, nous préparons avec vous la recherche de poste et nous vous mettons en relation avec des restaurants qui recrutent." },
+      ]} />
+
       <window.Appel id="ins-appel" title="Vérifier si le parcours" accent="est fait pour vous."
-        text="Écrivez-nous : nous vérifions ensemble votre éligibilité."
+        text="Écrivez-nous : nous vérifions ensemble votre éligibilité, puis nous vous invitons à une réunion d'information."
         cta={{ label: 'Vérifier mon éligibilité', href: '#/contact' }} />
     </div>
   );
