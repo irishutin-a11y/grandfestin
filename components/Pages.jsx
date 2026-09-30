@@ -3,10 +3,10 @@
 
 // En-tête des pages Formations, fiche formation et Académie : rendu par le hero
 // partagé des pages intérieures (Sections.jsx, HeroPage), pour une seule grammaire.
-function PageHeader({ eyebrow, title, accent, subtitle, breadcrumb, image, imageAlt = '', children }) {
+function PageHeader({ eyebrow, title, accent, subtitle, breadcrumb, image, imageAlt = '', center, children }) {
   return (
     <window.HeroPage tone="teal" kicker={eyebrow} title={title} accent={accent} proof={subtitle}
-      img={image} imgAlt={imageAlt} crumb={breadcrumb || []}>{children}</window.HeroPage>
+      img={image} imgAlt={imageAlt} crumb={breadcrumb || []} center={center}>{children}</window.HeroPage>
   );
 }
 
@@ -48,7 +48,7 @@ function FormationDetailPage({ id }) {
   if (!f) return <NotFoundPage />;
   return (
     <div data-screen-label={`03 Formation — ${f.title}`}>
-      <PageHeader
+      <PageHeader center
         eyebrow={(f.cat === 'Professionnels' ? 'Formation pro' : "Parcours d'insertion") + (f.porteur ? ' · ' + f.porteur : '')}
         title={f.title.split('—')[0].trim()}
         accent={f.title.includes('—') ? '— ' + f.title.split('—')[1].trim() : null}

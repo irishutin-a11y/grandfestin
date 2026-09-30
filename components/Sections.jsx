@@ -387,7 +387,7 @@ window.FinDePage = FinDePage;
 // (la seule de la page), un titre-phrase, une preuve, une photo facultative.
 // tone : 'teal' | 'deep' | 'gold'
 // ---------------------------------------------------------------------------
-function HeroPage({ tone = 'teal', kicker, title, accent, proof, note, img, imgAlt = '', crumb = [], logo, logoAlt = '', children }) {
+function HeroPage({ tone = 'teal', kicker, title, accent, proof, note, img, imgAlt = '', crumb = [], logo, logoAlt = '', center = false, children }) {
   const ref = React.useRef(null);
   React.useEffect(() => {
     const g = window.gsap, el = ref.current;
@@ -401,7 +401,7 @@ function HeroPage({ tone = 'teal', kicker, title, accent, proof, note, img, imgA
     return () => tl.kill();
   }, []);
   return (
-    <header className={'hp hp--' + tone + (img ? ' hp--img' : '') + (tone === 'gold' ? '' : ' on-dark')} ref={ref}>
+    <header className={'hp hp--' + tone + (img ? ' hp--img' : '') + (center ? ' hp--center' : '') + (tone === 'gold' ? '' : ' on-dark')} ref={ref}>
       <window.Trait className="hp__trait" width={160} />
       <div className="wrap hp__grid">
         <div className="hp__txt">
