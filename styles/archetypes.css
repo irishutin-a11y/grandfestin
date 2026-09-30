@@ -173,3 +173,4 @@
 /* ligne à plusieurs actions : les actions passent sous le texte */
 .ar-ligne--multi { grid-template-columns: 1fr; grid-template-areas: "main" "tags" "act"; }
 .ar-ligne--multi .ar-ligne__act { display: flex; flex-wrap: wrap; gap: 0 var(--sp-6); }
+.gp-temoins .tq__ini { color: var(--gold-light); }
