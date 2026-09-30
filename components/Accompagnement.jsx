@@ -225,7 +225,7 @@ function AccompagnementProsPage() {
 
       {/* 5 · CARTE FLOTTANTE — un témoignage sur fond sombre */}
       <window.CarteFlottante label="Témoignage d'un chef"
-        media={<window.PhotoMissing subject="le chef Davin et Sami en cuisine" cadrage="plan taille" orientation="vertical" ratio="4/5" />}
+        media={<window.Picture src="images/pros/davin-sami.jpg" alt="Le chef Davin et Sami en cuisine, à l'Intercontinental Marseille" sizes="(max-width: 720px) 100vw, 420px" />}
         quote="Sami s'est très vite intégré à l'équipe."
         who="Chef Davin, Intercontinental Marseille, a recruté un commis formé aux Beaux Mets."
         cta={{ label: 'Nous écrire', href: '#/contact' }} />

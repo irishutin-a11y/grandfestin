@@ -99,7 +99,7 @@
 .ar-carte__q { margin: 0; }
 .ar-carte__q p { margin: 0; font-size: var(--fs-h2); line-height: 1.12; font-style: italic; font-weight: var(--fw-light); text-wrap: balance; }
 .ar-carte figcaption { font-size: var(--fs-small); color: var(--ink-soft); }
-.ar-carte:not(:has(.ph-photo)) { grid-template-columns: 1fr; max-width: 820px; }
+.ar-carte:not(:has(.ar-carte__media > *)) { grid-template-columns: 1fr; max-width: 820px; }
 
 /* ---------- 6 · TITRE EN CHEVAUCHEMENT ---------- */
 .ar-eng { position: relative; background: var(--off-white); padding: 0 0 var(--section); }
@@ -180,3 +180,6 @@
 @media (max-width: 720px) { .ar-fcards { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { .ar-fcard a, .ar-fcard__img img { transition: none; } .ar-fcard a:hover { transform: none; } .ar-fcard a:hover .ar-fcard__img img { transform: none; } }
 .ar-bloc .ar-fcard .ar-tags li span { color: var(--ink-soft); opacity: 1; }
+.ar-carte__media picture, .ar-carte__media img { display: block; width: 100%; height: 100%; }
+.ar-carte__media img { object-fit: cover; object-position: 50% 30%; aspect-ratio: 4 / 5; }
+@media (max-width: 720px) { .ar-carte__media img { aspect-ratio: 4 / 3; } }
