@@ -89,7 +89,8 @@ function HoverImageList({ items = [], label }) {
 // (initiales + nom), pour une personne dont la photo n'est pas encore fournie.
 // Répartition : spirale de Fibonacci (espacement régulier sur la sphère).
 // ---------------------------------------------------------------------------
-function ImgSphere({ images = [], size: maxSize = 520, radius, autoSpeed = 0.18, label = 'Galerie en sphère' }) {
+// logos : mode partenaires (logo contenu sur fond blanc, nom seul sans initiales, pas d'agrandissement).
+function ImgSphere({ images = [], size: maxSize = 520, radius, autoSpeed = 0.18, label = 'Galerie en sphère', logos = false }) {
   const { useRef, useState, useEffect, useMemo } = React;
   const wrapRef = useRef(null);
   const stageRef = useRef(null);
@@ -190,9 +191,15 @@ function ImgSphere({ images = [], size: maxSize = 520, radius, autoSpeed = 0.18,
   const initials = (n = '') => n.split(/[\s-]+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
 
   return (
-    <div className="isph" ref={wrapRef} style={{ '--isph-size': size + 'px', '--isph-tile': tile + 'px' }}>
+    <div className={'isph' + (logos ? ' isph--logos' : '')} ref={wrapRef} style={{ '--isph-size': size + 'px', '--isph-tile': tile + 'px' }}>
       <div className="isph__stage" ref={stageRef} role="group" aria-label={label + ' — faites glisser pour tourner'}>
-        {images.map((im, i) => (
+        {logos && images.map((im, i) => (
+          <span key={i} className={'isph__node' + (im.src ? '' : ' isph__node--txt')} role="img" aria-label={im.alt || im.name}
+            ref={(el) => (nodes.current[i] = el)}>
+            {im.src ? <img src={URIx(im.src)} alt="" loading="lazy" draggable="false" /> : <span className="isph__name"><span>{im.name}</span></span>}
+          </span>
+        ))}
+        {!logos && images.map((im, i) => (
           <button key={i} type="button" className="isph__node"
             ref={(el) => (nodes.current[i] = el)}
             aria-label={'Agrandir : ' + (im.title || im.alt || 'image ' + (i + 1))}

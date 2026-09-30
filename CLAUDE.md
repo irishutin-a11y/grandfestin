@@ -42,7 +42,7 @@ Tics à rationner (une fois par page au plus, jamais en titre, toujours suivis d
 ## Décisions de refonte (23/09/2026)
 - Pages « Restaurateurs » = **acteurs du secteur** (pas que des restaurateurs) ; pas de page Partenaires. Pages Restaurateurs et Insertion refondues sur le modèle de la page Association (référence DA du site).
 - Témoignages : carrousel défilant **sans dégradé**, standard sur toutes les pages projet ; cadres vides si pas assez de témoignages.
-- Sphère d'images (ImgSphere) : **seulement sur Des Étoiles et des Femmes**, bloc Soutenir ; les logos partenaires quittent ce bloc. Photos des chefs à venir.
+- Sphère d'images (ImgSphere) : sur Des Étoiles et des Femmes (bloc Soutenir, les chefs) et, depuis le 30/09/2026, sur l'Association pour les partenaires (mode `logos` : logos fournis + partenaires cités sur les pages projet). Photos des chefs à venir.
 - Antennes : liste à survol (HoverImageList) avec les photos d'antenne du formulaire Drive en attendant les logos.
 
 ## Reprise du 24/09/2026 (branche `reprise-design`) — conventions à respecter

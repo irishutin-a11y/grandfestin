@@ -214,6 +214,23 @@ function Valeurs() {
 
 // ---------- 6. PARTENAIRES — une grille fixe : 7 logos n'ont pas besoin de défiler ----------
 const ABOUT_LOGOS = window.FESTIN_DATA.about.partenaires;
+// Sphère des partenaires : les logos fournis, puis les partenaires cités sur les pages projet (nom seul, sans doublon).
+const SPHERE_PARTENAIRES = (() => {
+  const vus = new Set(ABOUT_LOGOS.map((l) => l.alt.toLowerCase()));
+  const noms = [];
+  window.FESTIN_DATA.projets.forEach((p) => (p.partenaires || []).forEach((n) => {
+    const k = n.toLowerCase().replace(/ group$/, '');
+    if ([...vus].some((v) => v === k || v.startsWith(k + ' ') || k.startsWith(v + ' '))) return;
+    vus.add(k); noms.push({ name: n });
+  }));
+  // logos et noms alternés, pour que les logos se répartissent sur toute la sphère
+  const logos = ABOUT_LOGOS.map((l) => ({ src: src(l.src), alt: l.alt }));
+  const out = [], n = logos.length + noms.length;
+  for (let i = 0, a = 0, b = 0; i < n; i++) {
+    if (a < logos.length && (b >= noms.length || a / logos.length <= b / noms.length)) out.push(logos[a++]); else out.push(noms[b++]);
+  }
+  return out;
+})();
 // L'édito à gauche, les partenaires à droite (retours du 30/09/2026)
 function EditoPartenaires() {
   return (
@@ -224,9 +241,7 @@ function EditoPartenaires() {
         </div>
         <div className="ab-edp__logos">
           <h2 className="ab-logos__t" id="partenaires-t">Ils travaillent avec nous</h2>
-          <ul className="ab-logos__grid">
-            {ABOUT_LOGOS.map((l) => <li key={l.src}><img src={src(l.src)} alt={l.alt} loading="lazy" /></li>)}
-          </ul>
+          <window.ImgSphere logos size={460} autoSpeed={0.22} label="Nos partenaires" images={SPHERE_PARTENAIRES} />
         </div>
       </div>
     </section>

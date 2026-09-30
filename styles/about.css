@@ -306,3 +306,13 @@
 .ab-edp__logos .ab-logos__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 24px;justify-items:start}
 .ab-edp__logos .ab-logos__grid li{display:flex;align-items:center;height:72px;padding:0 4px}
 @media (max-width:900px){ .ab-edp__grid{grid-template-columns:1fr} }
+
+/* Sphère des partenaires (30/09/2026) */
+.ab-edp__logos{position:sticky;top:120px}
+.isph--logos .isph__node{background:#fff;box-shadow:0 8px 20px rgba(10,45,51,.16)}
+.isph--logos .isph__node img{object-fit:contain;padding:13%}
+.isph--logos .isph__node--txt{background:var(--teal)}
+.isph--logos .isph__name{padding:12%}
+.isph--logos .isph__name span{font-size:calc(var(--isph-tile) * .1);line-height:1.15;text-wrap:balance}
+.isph--logos .isph__node.is-back .isph__name span{visibility:hidden}
+@media (max-width:900px){ .ab-edp__logos{position:static} }
