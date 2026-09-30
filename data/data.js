@@ -1544,6 +1544,7 @@ window.FESTIN_DATA.about = {
     { src: "images/partners/sofitel.jpg",             alt: "Sofitel Hotels & Resorts" },
     { src: "images/partners/france-travail.png",      alt: "France Travail" },
     { src: "images/partners/yes-we-camp.png",         alt: "Yes We Camp" },
+    { src: "images/partners/intercontinental.png",    alt: "InterContinental Marseille" },
   ],
   // Partenaires du réseau Des Étoiles et des Femmes (dossier Drive « Partenaires », 30/09/2026).
   // Affichés dans la sphère des partenaires de l'Association ; sans logo tant que les fichiers ne sont pas dans images/partners/.

@@ -112,7 +112,7 @@ function LignesTypees({ id, items = [] }) {
 }
 
 // Carte flottante : un contenu posé sur fond sombre (témoignage, citation).
-function CarteFlottante({ media, quote, who, cta, label }) {
+function CarteFlottante({ media, quote, who, logo, cta, label }) {
   return (
     <section className="ar-sec ar-sec--deep on-dark" aria-label={label}>
       <div className="wrap">
@@ -121,6 +121,7 @@ function CarteFlottante({ media, quote, who, cta, label }) {
           <div className="ar-carte__txt">
             <blockquote className="ar-carte__q"><p>« {quote} »</p></blockquote>
             {who && <figcaption>{who}</figcaption>}
+            {logo && <img className="ar-carte__logo" src={encodeURI(logo.src)} alt={logo.alt} loading="lazy" />}
             {cta && <a className="btnb btnb--teal" href={cta.href}>{cta.label} <span className="arrow" aria-hidden="true">→</span></a>}
           </div>
         </figure>

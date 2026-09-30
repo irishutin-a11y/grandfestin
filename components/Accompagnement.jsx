@@ -228,6 +228,7 @@ function AccompagnementProsPage() {
         media={<window.Picture src="images/pros/davin-sami.jpg" alt="Le chef Davin et Sami en cuisine, à l'Intercontinental Marseille" sizes="(max-width: 720px) 100vw, 420px" />}
         quote="Sami s'est très vite intégré à l'équipe."
         who="Chef Davin, Intercontinental Marseille, a recruté un commis formé aux Beaux Mets."
+        logo={{ src: "images/partners/intercontinental.png", alt: "InterContinental Marseille" }}
         cta={{ label: 'Nous écrire', href: '#/contact' }} />
 
       {/* 6 · TITRE EN CHEVAUCHEMENT — fin de page */}
