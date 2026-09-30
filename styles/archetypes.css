@@ -163,3 +163,20 @@
 /* ligne à plusieurs actions : les actions passent sous le texte */
 .ar-ligne--multi { grid-template-columns: 1fr; grid-template-areas: "main" "tags" "act"; }
 .ar-ligne--multi .ar-ligne__act { display: flex; flex-wrap: wrap; gap: 0 var(--sp-6); }
+
+/* Formations en cartes visibles dans le bloc encarté (retour du 30/09/2026 : l'accordéon cachait l'essentiel) */
+.ar-fcards { list-style: none; margin: 0; padding: 0; width: 100%; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-5); }
+.ar-fcard a { display: flex; flex-direction: column; height: 100%; border-radius: 18px; overflow: hidden; background: var(--off-white); color: var(--ink); text-decoration: none; box-shadow: 0 12px 30px rgba(6, 33, 31, .25); transition: transform var(--dur-2) var(--ease-quart), box-shadow var(--dur-2) var(--ease-quart); }
+.ar-fcard a:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(6, 33, 31, .32); }
+.ar-fcard a:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+.ar-fcard__img { display: block; aspect-ratio: 16 / 10; overflow: hidden; background: var(--teal-tint); }
+.ar-fcard__img img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--dur-3) var(--ease-out); }
+.ar-fcard a:hover .ar-fcard__img img { transform: scale(1.04); }
+.ar-fcard__b { display: flex; flex-direction: column; gap: var(--sp-4); flex: 1; padding: var(--sp-5); }
+.ar-fcard__t { margin: 0; font-size: var(--fs-h3); line-height: var(--lh-snug); font-weight: var(--fw-bold); color: var(--ink) !important; text-wrap: balance; }
+.ar-fcard__p { color: var(--ink-mid); line-height: 1.5; }
+.ar-fcard .ar-tags { padding-top: var(--sp-4); border-top: 1px solid var(--line-strong); }
+.ar-fcard__lnk { margin-top: auto; display: inline-flex; gap: 8px; font-size: var(--fs-small); font-weight: var(--fw-bold); letter-spacing: .06em; text-transform: uppercase; color: var(--teal-dark); text-decoration: underline; text-underline-offset: 5px; }
+@media (max-width: 720px) { .ar-fcards { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .ar-fcard a, .ar-fcard__img img { transition: none; } .ar-fcard a:hover { transform: none; } .ar-fcard a:hover .ar-fcard__img img { transform: none; } }
+.ar-bloc .ar-fcard .ar-tags li span { color: var(--ink-soft); opacity: 1; }

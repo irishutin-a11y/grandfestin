@@ -168,12 +168,24 @@ function AccompagnementProsPage() {
           <window.BlocEncarte id="pros-former-t" title="Former" accent="vos équipes."
             lede="Deux formations courtes, en présentiel, dans vos murs ou avec d'autres établissements."
             tags={[['Portées par', 'le programme Restaure'], ['Catalogue', 'Académie Festin, certifiée Qualiopi'], ['Financement', 'OPCO possible']]}>
-            <window.Accordeon id="pros-f" items={[
-              { q: F('vss').title, a: "Reconnaître les violences en cuisine et en salle, les prévenir, réagir à un signalement.",
-                tags: [['Durée', '3 h ou 1 jour'], ['Pour', "Toute l'équipe"]], link: { label: 'La fiche de la formation', href: '#/formations/vss' } },
-              { q: F('management').title, a: "Recruter plus largement, garder son équipe, l'encadrer sans violence.",
-                tags: [['Durée', '1 jour et 2 demi-journées'], ['Pour', 'Chefs, managers, RH']], link: { label: 'La fiche de la formation', href: '#/formations/management' } },
-            ]} />
+            <ul className="ar-fcards">
+              {[
+                { f: F('vss'), a: 'Reconnaître les violences en cuisine et en salle, les prévenir, réagir à un signalement.', tags: [['Durée', '3 h ou 1 jour'], ['Pour', "Toute l'équipe"]] },
+                { f: F('management'), a: "Recruter plus largement, garder son équipe, l'encadrer sans violence.", tags: [['Durée', '1 jour et 2 demi-journées'], ['Pour', 'Chefs, managers, RH']] },
+              ].map(({ f, a, tags }) => (
+                <li className="ar-fcard" key={f.id}>
+                  <a href={'#/formations/' + f.id}>
+                    <span className="ar-fcard__img"><window.Picture src={f.img} alt="" sizes="(max-width: 720px) 100vw, 28vw" /></span>
+                    <span className="ar-fcard__b">
+                      <h3 className="ar-fcard__t">{f.title}</h3>
+                      <span className="ar-fcard__p">{a}</span>
+                      <window.ArTags tags={tags} />
+                      <span className="ar-fcard__lnk">Voir le programme <span className="arrow" aria-hidden="true">→</span></span>
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
             <a className="btnb btnb--gold ar-bloc__cta" href="#/contact">Demander une formation <span className="arrow" aria-hidden="true">→</span></a>
           </window.BlocEncarte>
         </div>
