@@ -90,7 +90,7 @@ function HoverImageList({ items = [], label }) {
 // Répartition : spirale de Fibonacci (espacement régulier sur la sphère).
 // ---------------------------------------------------------------------------
 // logos : mode partenaires (logo contenu sur fond blanc, nom seul sans initiales, pas d'agrandissement).
-function ImgSphere({ images = [], size: maxSize = 520, radius, autoSpeed = 0.18, label = 'Galerie en sphère', logos = false }) {
+function ImgSphere({ images = [], size: maxSize = 520, radius, autoSpeed = 0.18, label = 'Galerie en sphère', logos = false, tileRatio = 0.2, radiusRatio = 0.38 }) {
   const { useRef, useState, useEffect, useMemo } = React;
   const wrapRef = useRef(null);
   const stageRef = useRef(null);
@@ -108,7 +108,7 @@ function ImgSphere({ images = [], size: maxSize = 520, radius, autoSpeed = 0.18,
   }, [maxSize]);
   const nodes = useRef([]);
   const [open, setOpen] = useState(null);
-  const R = radius || size * 0.38;
+  const R = radius || size * radiusRatio;
 
   const pts = useMemo(() => {
     const n = images.length, out = [];
@@ -187,7 +187,7 @@ function ImgSphere({ images = [], size: maxSize = 520, radius, autoSpeed = 0.18,
   }, [open]);
 
   const URIx = (p) => (/%[0-9A-Fa-f]{2}/.test(p) ? p : encodeURI(p));
-  const tile = Math.round(size * 0.2);
+  const tile = Math.round(size * tileRatio);
   const initials = (n = '') => n.split(/[\s-]+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
 
   return (

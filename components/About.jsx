@@ -218,7 +218,8 @@ const ABOUT_LOGOS = window.FESTIN_DATA.about.partenaires;
 const SPHERE_PARTENAIRES = (() => {
   const vus = new Set(ABOUT_LOGOS.map((l) => l.alt.toLowerCase()));
   const noms = [];
-  window.FESTIN_DATA.projets.forEach((p) => (p.partenaires || []).forEach((n) => {
+  const def = window.FESTIN_DATA.about.partenairesDEF || [];
+  [def].concat(window.FESTIN_DATA.projets.map((p) => p.partenaires || [])).forEach((liste) => liste.forEach((n) => {
     const k = n.toLowerCase().replace(/ group$/, '');
     if ([...vus].some((v) => v === k || v.startsWith(k + ' ') || k.startsWith(v + ' '))) return;
     vus.add(k); noms.push({ name: n });
@@ -241,7 +242,7 @@ function EditoPartenaires() {
         </div>
         <div className="ab-edp__logos">
           <h2 className="ab-logos__t" id="partenaires-t">Ils travaillent avec nous</h2>
-          <window.ImgSphere logos size={460} autoSpeed={0.22} label="Nos partenaires" images={SPHERE_PARTENAIRES} />
+          <window.ImgSphere logos size={480} tileRatio={0.155} radiusRatio={0.42} autoSpeed={0.22} label="Nos partenaires" images={SPHERE_PARTENAIRES} />
         </div>
       </div>
     </section>
