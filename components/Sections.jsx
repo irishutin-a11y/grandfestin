@@ -175,7 +175,15 @@ function Footer() {
               <p className="footer__contact"><a href={`mailto:${data.contact.email}`}>{data.contact.email}</a><br />{data.contact.address}</p>
             </div>
             {/* Même arborescence que la pastille et le menu (FESTIN_DATA.arbo) */}
-            {data.arbo.map((r) => (
+            {/* Rubriques sans sous-pages (option B) : réunies dans une colonne */}
+            <div>
+              <ul className="footer__rubs">
+                {data.arbo.filter((r) => !r.links.some((l) => l.href !== r.href)).map((r) => (
+                  <li key={r.key}><h2 className="footer__h"><a href={r.href}>{r.label}</a></h2></li>
+                ))}
+              </ul>
+            </div>
+            {data.arbo.filter((r) => r.links.some((l) => l.href !== r.href)).map((r) => (
               <div key={r.key}>
                 <h2 className="footer__h"><a href={r.href}>{r.label}</a></h2>
                 <ul>

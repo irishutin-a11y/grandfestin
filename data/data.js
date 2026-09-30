@@ -1260,18 +1260,23 @@ Object.assign(window.FESTIN_DATA.home, {
 //  match : préfixes d'adresse qui allument la rubrique.
 // ============================================================
 window.FESTIN_DATA.arbo = [
+  // Option B (30/09/2026, ALLER-PLUS-LOIN.md) : cinq entrées, zéro doublon.
+  // Chaque page n'a qu'une place dans le menu ; les formations (Académie)
+  // deviennent une entrée commune aux deux publics.
   { key: "insertion", label: "Insertion", href: "#/accompagnement/insertion",
-    match: ["#/accompagnement/insertion", "#/academie", "#/formations"],
+    match: ["#/accompagnement/insertion"],
     links: [
-      { ic: "compass", c: "#7FC4CB", label: "Orienter une personne", d: "Parcours, conditions d'entrée, calendrier", href: "#/accompagnement/insertion" },
-      { ic: "graduation-cap", c: "#7FC4CB", label: "L'Académie Festin", d: "Toutes nos formations : parcours d'insertion et formations pro", href: "#/academie" },
+      { ic: "compass", c: "#7FC4CB", label: "Orienter une personne", d: "Parcours, conditions d'entrée, contacts", href: "#/accompagnement/insertion" },
     ] },
   { key: "pros", label: "Professionnels", href: "#/accompagnement/professionnels",
-    match: ["#/accompagnement/professionnels", "#/formations/vss", "#/formations/management"],
+    match: ["#/accompagnement/professionnels"],
     links: [
-      { ic: "briefcase", c: "#FFC100", label: "Former et recruter", d: "Tout ce que Festin fait avec les restaurants", href: "#/accompagnement/professionnels" },
-      { ic: "shield-check", c: "#FFC100", label: "Nos formations pro", d: "Portées par le programme Restaure", href: "#/formations" },
-      { ic: "megaphone", c: "#FFC100", label: "Le programme Restaure", d: "Prévenir les violences en cuisine", href: "#/projets/restaure" },
+      { ic: "briefcase", c: "#FFC100", label: "Former et recruter", d: "Former vos équipes, recruter une personne formée", href: "#/accompagnement/professionnels" },
+    ] },
+  { key: "formations", label: "Formations", href: "#/academie",
+    match: ["#/academie", "#/formations"],
+    links: [
+      { ic: "graduation-cap", c: "#9FD3A8", label: "L'Académie Festin", d: "Parcours d'insertion et formations pro", href: "#/academie" },
     ] },
   { key: "projets", label: "Nos projets", href: "#/projets",
     match: ["#/projets"],
@@ -1281,6 +1286,7 @@ window.FESTIN_DATA.arbo = [
       { ic: "sun", c: "#EC8669", label: "Tournesol", d: "Former", href: "#/projets/tournesol" },
       { ic: "utensils", c: "#EC8669", label: "Les Beaux Mets", d: "Accompagner jusqu'à l'emploi", href: "#/projets/les-beaux-mets" },
       { ic: "soup", c: "#EC8669", label: "La Table de Cana", d: "Accompagner jusqu'à l'emploi", href: "#/projets/la-table-de-cana" },
+      { ic: "megaphone", c: "#EC8669", label: "Le programme Restaure", d: "Changer les cuisines", href: "#/projets/restaure" },
     ] },
   { key: "association", label: "L'association", href: "#/about",
     match: ["#/about", "#/impact", "#/actualites", "#/contact"],

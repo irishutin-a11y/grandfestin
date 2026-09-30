@@ -138,169 +138,90 @@ function AccompagnementInsertionPage() {
 // Signalétique : les numéros sont réservés aux étapes dans un ordre imposé
 // (POEI) ; les options au choix n'en portent jamais.
 // =====================================================================
-function ProsAccordeon({ id, items }) {
-  const [open, setOpen] = React.useState(-1);
-  return (
-    <ul className="pr-acc">
-      {items.map((it, i) => {
-        const on = open === i;
-        return (
-          <li key={i} className={'pr-acc__it' + (on ? ' is-open' : '')}>
-            <h3 className="pr-acc__q">
-              <button type="button" id={id + '-q' + i} aria-expanded={on} aria-controls={id + '-a' + i} onClick={() => setOpen(on ? -1 : i)}>
-                <span>{it.q}</span><span className="pr-acc__ic" aria-hidden="true" />
-              </button>
-            </h3>
-            <div className="pr-acc__a" id={id + '-a' + i} role="region" aria-labelledby={id + '-q' + i} hidden={!on}>
-              {it.tags && <ul className="pr-tags">{it.tags.map((t) => <li key={t[0]}><span>{t[0]}</span>{t[1]}</li>)}</ul>}
-              <p>{it.a}</p>
-              {it.link && <a className="pr-lnk" href={it.link.href}>{it.link.label} <span className="arrow" aria-hidden="true">→</span></a>}
-            </div>
-          </li>
-        );
-      })}
-    </ul>
-  );
-}
-
 function AccompagnementProsPage() {
   const root = useRef(null);
   window.useGReveal(root);
   const D = window.FESTIN_DATA;
   const F = (id) => D.formations.find((f) => f.id === id) || {};
-  const [poei, setPoei] = React.useState(false);
-  const bande = ['Des Étoiles et des Femmes', 'Tournesol', 'La Table de Cana', 'Les Beaux Mets', 'le programme Restaure', "l'Académie Festin"];
-  const options = [
-    { tone: 'teal', title: 'Accueillir un stagiaire',
-      text: "Une personne formée par Des Étoiles et des Femmes ou Tournesol rejoint votre brigade, suivie en binôme par un membre de votre équipe.",
-      tags: [['Moment', 'Pendant sa formation'], ['Festin', 'En appui tout le stage']],
-      link: { label: 'Proposer un stage', href: '#/contact' } },
-    { tone: 'gold', title: "Le Book de l'emploi",
-      text: 'Les personnes diplômées de nos parcours qui cherchent un poste.',
-      tags: [['Envoi', 'Sous 48 h ouvrées'], ['Format', 'Sur demande']],
-      link: { label: 'Recevoir le Book', href: '#/contact' } },
-    { tone: 'coral', title: "La préparation opérationnelle à l'emploi (POEI)",
-      text: 'La personne se forme dans votre cuisine avant son embauche. Festin fait les démarches avec vous.',
-      tags: [['Financement', 'France Travail'], ['Contrat', 'CDD de 4 mois minimum']],
-      poei: true },
-  ];
-  const etapes = [
-    ['Rencontrer', "Nous présentons des candidats. Des journées d'immersion valident le profil."],
-    ['Former', 'Deux stages dans votre établissement : deux semaines, puis trois.'],
-    ['Recruter', "Si l'expérience est concluante : un CDD de quatre mois minimum."],
-  ];
-  const go = (id) => (e) => { e.preventDefault(); window.festinScrollTo ? window.festinScrollTo(id) : document.getElementById(id).scrollIntoView(); };
+  const go = (id) => (e) => { e.preventDefault(); window.festinScrollTo(id); };
   return (
-    <div className="gpage pr" ref={root} data-screen-label="Professionnels">
+    <div className="gpage ar-page" ref={root} data-screen-label="Professionnels">
 
-      {/* A · PLEIN CADRE — photo pleine largeur, texte en surimpression (fond sombre) */}
-      <header className="pr-hero on-dark">
-        <window.Picture className="pr-hero__img" src="images/beauxmets-images/LBM_cdutrey_071122-7264.jpg" alt="" loading="eager" fetchPriority="high" />
-        <div className="wrap pr-hero__in">
-          <nav className="hp__crumb pr-hero__crumb" aria-label="Fil d'Ariane"><a href="#/">Accueil</a> <span aria-hidden="true">/</span> <span aria-current="page">Professionnels</span></nav>
-          <p className="pr-eyebrow">Professionnels de la restauration</p>
-          <h1 className="pr-hero__t">Former et recruter, <em>avec Festin.</em></h1>
-          <p className="pr-hero__p">Des formations pour vos équipes, des personnes formées pour votre brigade.</p>
-          <div className="pr-hero__cta">
+      {/* 1 · PLEIN CADRE — photo pleine largeur, texte en surimpression (fond sombre) */}
+      <header className="ar-hero on-dark">
+        <window.Picture className="ar-hero__img" src="images/beauxmets-images/LBM_cdutrey_071122-7264.jpg" alt="" loading="eager" fetchPriority="high" />
+        <div className="wrap ar-hero__in">
+          <nav className="hp__crumb ar-hero__crumb" aria-label="Fil d'Ariane"><a href="#/">Accueil</a> <span aria-hidden="true">/</span> <span aria-current="page">Professionnels</span></nav>
+          <p className="ar-eyebrow">Professionnels de la restauration</p>
+          <h1 className="ar-hero__t">Former et recruter, <em>avec Festin.</em></h1>
+          <p className="ar-hero__p">Des formations pour vos équipes, des personnes formées pour votre brigade.</p>
+          <div className="ar-hero__cta">
             <a className="btnb btnb--gold" href="#pros-former" onClick={go('pros-former')}>Former vos équipes <span className="arrow" aria-hidden="true">↓</span></a>
             <a className="btnb btnb--light" href="#pros-recruter" onClick={go('pros-recruter')}>Recruter <span className="arrow" aria-hidden="true">↓</span></a>
           </div>
         </div>
       </header>
 
-      {/* B · BLOC ENCARTÉ À ACCORDÉON — un bloc teal, marges visibles, le détail replié */}
-      <section className="pr-sec pr-sec--white" id="pros-former" aria-labelledby="pros-former-t">
+      {/* 2 · BLOC ENCARTÉ À ACCORDÉON */}
+      <section className="ar-sec ar-sec--white" id="pros-former" aria-labelledby="pros-former-t">
         <div className="wrap">
-          <div className="pr-bloc on-dark g-reveal">
-            <div className="pr-bloc__head">
-              <h2 className="pr-h2" id="pros-former-t">Former <em>vos équipes.</em></h2>
-              <p className="pr-bloc__p">Deux formations courtes, en présentiel, dans vos murs ou avec d'autres établissements.</p>
-              <ul className="pr-tags pr-tags--row">
-                <li><span>Portées par</span>le programme Restaure</li>
-                <li><span>Catalogue</span>Académie Festin, certifiée Qualiopi</li>
-                <li><span>Financement</span>OPCO possible</li>
-              </ul>
-            </div>
-            <div className="pr-bloc__body">
-              <ProsAccordeon id="pros-f" items={[
-                { q: F('vss').title, a: "Reconnaître les violences en cuisine et en salle, les prévenir, réagir à un signalement.",
-                  tags: [['Durée', '3 h ou 1 jour'], ['Pour', 'Toute l\'équipe']], link: { label: 'La fiche de la formation', href: '#/formations/vss' } },
-                { q: F('management').title, a: "Recruter plus largement, garder son équipe, l'encadrer sans violence.",
-                  tags: [['Durée', '1 jour et 2 demi-journées'], ['Pour', 'Chefs, managers, RH']], link: { label: 'La fiche de la formation', href: '#/formations/management' } },
-              ]} />
-              <a className="btnb btnb--gold pr-bloc__cta" href="#/contact">Demander une formation <span className="arrow" aria-hidden="true">→</span></a>
-            </div>
+          <window.BlocEncarte id="pros-former-t" title="Former" accent="vos équipes."
+            lede="Deux formations courtes, en présentiel, dans vos murs ou avec d'autres établissements."
+            tags={[['Portées par', 'le programme Restaure'], ['Catalogue', 'Académie Festin, certifiée Qualiopi'], ['Financement', 'OPCO possible']]}>
+            <window.Accordeon id="pros-f" items={[
+              { q: F('vss').title, a: "Reconnaître les violences en cuisine et en salle, les prévenir, réagir à un signalement.",
+                tags: [['Durée', '3 h ou 1 jour'], ['Pour', "Toute l'équipe"]], link: { label: 'La fiche de la formation', href: '#/formations/vss' } },
+              { q: F('management').title, a: "Recruter plus largement, garder son équipe, l'encadrer sans violence.",
+                tags: [['Durée', '1 jour et 2 demi-journées'], ['Pour', 'Chefs, managers, RH']], link: { label: 'La fiche de la formation', href: '#/formations/management' } },
+            ]} />
+            <a className="btnb btnb--gold ar-bloc__cta" href="#/contact">Demander une formation <span className="arrow" aria-hidden="true">→</span></a>
+          </window.BlocEncarte>
+        </div>
+      </section>
+
+      {/* 3 · BANDE DÉFILANTE — l'écosystème d'où viennent les personnes */}
+      <window.BandeDefilante label="Les projets de Festin" items={['Des Étoiles et des Femmes', 'Tournesol', 'La Table de Cana', 'Les Beaux Mets', 'le programme Restaure', "l'Académie Festin"]} />
+
+      {/* 4 · LIGNES TYPÉES — options au choix, sans numéros ; la POEI se déplie sous sa ligne */}
+      <section className="ar-sec ar-sec--cream" id="pros-recruter" aria-labelledby="pros-rec-t">
+        <div className="wrap ar-split">
+          <div className="ar-split__head">
+            <h2 className="ar-h2" id="pros-rec-t">Recruter <em>une personne formée.</em></h2>
+            <p className="ar-split__p">Trois possibilités, au choix.</p>
           </div>
+          <window.LignesTypees id="pros-rec" items={[
+            { tone: 'teal', title: 'Accueillir un stagiaire',
+              text: "Une personne formée par Des Étoiles et des Femmes ou Tournesol rejoint votre brigade, suivie en binôme par un membre de votre équipe.",
+              tags: [['Moment', 'Pendant sa formation'], ['Festin', 'En appui tout le stage']],
+              link: { label: 'Proposer un stage', href: '#/contact' } },
+            { tone: 'gold', title: "Le Book de l'emploi",
+              text: 'Les personnes diplômées de nos parcours qui cherchent un poste.',
+              tags: [['Envoi', 'Sous 48 h ouvrées'], ['Format', 'Sur demande']],
+              link: { label: 'Recevoir le Book', href: '#/contact' } },
+            { tone: 'coral', title: "La préparation opérationnelle à l'emploi (POEI)",
+              text: 'La personne se forme dans votre cuisine avant son embauche. Festin fait les démarches avec vous.',
+              tags: [['Financement', 'France Travail'], ['Contrat', 'CDD de 4 mois minimum']],
+              etapes: [
+                ['Rencontrer', "Nous présentons des candidats. Des journées d'immersion valident le profil."],
+                ['Former', 'Deux stages dans votre établissement : deux semaines, puis trois.'],
+                ['Recruter', "Si l'expérience est concluante : un CDD de quatre mois minimum."],
+              ],
+              etapesLien: { label: 'Préparer une embauche', href: '#/contact' } },
+          ]} />
         </div>
       </section>
 
-      {/* C · BANDE DÉFILANTE — respiration, aplat or : l'écosystème d'où viennent les personnes */}
-      <section className="pr-bande" aria-label="Les projets de Festin" data-marquee>
-        <ul className="pr-bande__l">
-          {bande.concat(bande, bande).map((t, i) => <li key={i} aria-hidden={i >= bande.length ? true : undefined}>{t}</li>)}
-        </ul>
-        <window.MarqueePause label="des projets" />
-      </section>
+      {/* 5 · CARTE FLOTTANTE — un témoignage sur fond sombre */}
+      <window.CarteFlottante label="Témoignage d'un chef"
+        media={<window.PhotoMissing subject="le chef Davin et Sami en cuisine" cadrage="plan taille" orientation="vertical" ratio="4/5" />}
+        quote="Sami s'est très vite intégré à l'équipe."
+        who="Chef Davin, Intercontinental Marseille, a recruté un commis formé aux Beaux Mets."
+        cta={{ label: 'Nous écrire', href: '#/contact' }} />
 
-      {/* D · LIGNES TYPÉES — options au choix : pas de numéros, une couleur et des micro-étiquettes par ligne */}
-      <section className="pr-sec pr-sec--cream" id="pros-recruter" aria-labelledby="pros-rec-t">
-        <div className="wrap pr-split">
-          <div className="pr-split__head">
-            <h2 className="pr-h2" id="pros-rec-t">Recruter <em>une personne formée.</em></h2>
-            <p className="pr-split__p">Trois possibilités, au choix.</p>
-          </div>
-          <ul className="pr-lignes">
-            {options.map((o) => (
-              <li key={o.title} className={'pr-ligne pr-ligne--' + o.tone + ' g-reveal'}>
-                <div className="pr-ligne__main">
-                  <h3 className="pr-ligne__t">{o.title}</h3>
-                  <p>{o.text}</p>
-                </div>
-                <ul className="pr-tags">{o.tags.map((t) => <li key={t[0]}><span>{t[0]}</span>{t[1]}</li>)}</ul>
-                <div className="pr-ligne__act">
-                  {o.link && <a className="pr-lnk" href={o.link.href}>{o.link.label} <span className="arrow" aria-hidden="true">→</span></a>}
-                  {o.poei && <button type="button" className="pr-lnk pr-lnk--btn" aria-expanded={poei} aria-controls="pros-poei" onClick={() => setPoei(!poei)}>
-                    {poei ? 'Masquer les étapes' : 'Voir les 3 étapes'} <span className="pr-lnk__ic" aria-hidden="true" /></button>}
-                </div>
-                {o.poei && (
-                  <div className="pr-poei" id="pros-poei" hidden={!poei}>
-                    <ol className="pr-etapes">
-                      {etapes.map(([t, x]) => <li key={t}><strong>{t}</strong><span>{x}</span></li>)}
-                    </ol>
-                    <a className="pr-lnk" href="#/contact">Préparer une embauche <span className="arrow" aria-hidden="true">→</span></a>
-                  </div>
-                )}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* E · CARTE FLOTTANTE — un témoignage posé sur fond sombre */}
-      <section className="pr-sec pr-sec--deep on-dark" aria-label="Témoignage d'un chef">
-        <div className="wrap">
-          <figure className="pr-carte g-reveal">
-            <div className="pr-carte__media">
-              <window.PhotoMissing subject="le chef Davin et Sami en cuisine" cadrage="plan taille" orientation="vertical" ratio="4/5" />
-            </div>
-            <div className="pr-carte__txt">
-              <blockquote className="pr-carte__q"><p>« Sami s'est très vite intégré à l'équipe. »</p></blockquote>
-              <figcaption>Chef Davin, Intercontinental Marseille, a recruté un commis formé aux Beaux Mets.</figcaption>
-              <a className="btnb btnb--teal" href="#/contact">Nous écrire <span className="arrow" aria-hidden="true">→</span></a>
-            </div>
-          </figure>
-        </div>
-      </section>
-
-      {/* F · TITRE EN CHEVAUCHEMENT — le mot déborde sur le bloc blanc qui clôt la page */}
-      <section className="pr-eng" aria-labelledby="pros-eng-t">
-        <p className="pr-eng__mot" aria-hidden="true">S'engager</p>
-        <div className="wrap pr-eng__in">
-          <h2 className="pr-eng__t" id="pros-eng-t">S'engager avec Festin</h2>
-          <p>Soutenir un projet comme mécène, ou participer au prochain Grand Festin.</p>
-          <a className="pr-lnk" href="#/contact">Nous écrire <span className="arrow" aria-hidden="true">→</span></a>
-        </div>
-      </section>
+      {/* 6 · TITRE EN CHEVAUCHEMENT — fin de page */}
+      <window.TitreChevauche id="pros-eng-t" mot="S'engager" title="S'engager avec Festin"
+        text="Soutenir un projet comme mécène, ou participer au prochain Grand Festin."
+        link={{ label: 'Nous écrire', href: '#/contact' }} />
     </div>
   );
 }
