@@ -1524,22 +1524,22 @@ window.FESTIN_DATA.about = {
   // Frise de la page Association, recentrée sur l'association (29/09/2026) ;
   // la frise des projets est sur l'accueil. Distinctions : voir .about distinctions ci-dessous.
   jalons: [
-    { year: "1987", title: "Création de l'association", desc: "L'association Festin est créée à Marseille, pour l'insertion par la cuisine.", color: "#217078", dark: false, photo: null },
-    { year: "1993", title: "Un premier projet", desc: "La Table de Cana ouvre : un traiteur où des salariés en insertion apprennent le métier en travaillant.", color: "#E8A825", dark: true, photo: "images/latable de cana/tabledecana_cdutrey_160124-5010.jpg" },
-    { year: "2015", title: "Former avec des chefs", desc: "Naissance de Des Étoiles et des Femmes. Le programme compte aujourd'hui 13 antennes.", color: "#C2421C", dark: false, photo: "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg" },
-    { year: "2019", title: "La France s'engage", desc: "Des Étoiles et des Femmes, lauréat de La France s'engage.", color: "#FEFCF8", dark: true, photo: null },
+    { year: "1987", title: "Création de l'association", desc: "À Marseille, pour l'insertion par la cuisine.", color: "#217078", dark: false, photo: null },
+    { year: "1993", title: "Un premier projet", desc: "La Table de Cana ouvre : un traiteur d'insertion.", color: "#E8A825", dark: true, photo: "images/latable de cana/tabledecana_cdutrey_160124-5010.jpg" },
+    { year: "2015", title: "Former avec des chefs", desc: "Naissance de Des Étoiles et des Femmes, aujourd'hui 13 antennes.", color: "#C2421C", dark: false, photo: "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg" },
+    { year: "2019", title: "La France s'engage", desc: "Lauréat pour Des Étoiles et des Femmes.", color: "#FEFCF8", dark: true, photo: null },
     { year: "2020", title: "Le Plan d'investissement dans les compétences", desc: "Sélection au PIC, ministère du Travail.", color: "#7E4590", dark: false, photo: null },
-    { year: "2022", title: "Fondation des Femmes, et Les Beaux Mets", desc: "Une distinction pour l'accompagnement des femmes vers l'autonomie. Les Beaux Mets ouvre aux Baumettes.", color: "#1D6B78", dark: false, photo: "images/beauxmets-images/LBM_cdutrey_071122-7922.jpg" },
-    { year: "2023", title: "Acteurs clés de changement", desc: "Lauréat de la Fondation de France. Les Beaux Mets reçoit le prix Futur(e)s Food au Sirha.", color: "#FFC100", dark: true, photo: null },
-    { year: "2024", title: "Le programme Restaure", desc: "Lancement du programme national contre les violences en cuisine. Délégations de service public du ministère du Travail en Île-de-France et Hauts-de-France.", color: "#9A5BA8", dark: false, photo: "images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg" },
-    { year: "2025", title: "Dix ans de Des Étoiles et des Femmes", desc: "Le Grand Festin réunit plus de 600 convives sur le Vieux-Port. Festin devient sous-traitant du Greta, Région Sud.", color: "#C2421C", dark: false, photo: null },
+    { year: "2022", title: "Fondation des Femmes, et Les Beaux Mets", desc: "Distinction de la Fondation des Femmes. Les Beaux Mets ouvre aux Baumettes.", color: "#1D6B78", dark: false, photo: "images/beauxmets-images/LBM_cdutrey_071122-7922.jpg" },
+    { year: "2023", title: "Acteurs clés de changement", desc: "Lauréat de la Fondation de France. Prix Futur(e)s Food au Sirha pour Les Beaux Mets.", color: "#FFC100", dark: true, photo: null },
+    { year: "2024", title: "Le programme Restaure", desc: "Lancement du programme national contre les violences en cuisine.", color: "#9A5BA8", dark: false, photo: "images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg" },
+    { year: "2025", title: "Dix ans de Des Étoiles et des Femmes", desc: "Plus de 600 convives au Grand Festin, sur le Vieux-Port.", color: "#C2421C", dark: false, photo: null },
     { year: "2026", title: "L'Académie Festin", desc: "Festin devient organisme de formation, certifié Qualiopi.", color: "#F5C84A", dark: true, photo: "images/photo-cuisine-formation.jpg" },
   ],
 
   valeurs: [
-    { title: "Non-lucrativité", color: "#E8A825", dark: true,  desc: "Festin est une association loi 1901, à but non lucratif et d'intérêt général, agréée ESUS. Chaque euro sert le projet associatif." },
-    { title: "Excellence",      color: "#E4572E", dark: true,  desc: "Aux Beaux Mets, le chef forme les commis à la cuisine bistronomique et le maître d'hôtel forme l'équipe de salle. Les commis apprennent sur un vrai service, face à des convives." },
-    { title: "Collectif",       color: "#9A5BA8", dark: false, desc: "Aucun projet Festin ne se fait seul. Chefs, restaurateurs, entreprises, fondations et pouvoirs publics avancent avec nous." },
+    { title: "Non-lucrativité", color: "#E8A825", dark: true,  desc: "Chaque euro sert le projet associatif." },
+    { title: "Excellence",      color: "#E4572E", dark: true,  desc: "Aux Beaux Mets, les commis apprennent sur un vrai service, face à des convives." },
+    { title: "Collectif",       color: "#9A5BA8", dark: false, desc: "Chefs, restaurateurs, entreprises, fondations et pouvoirs publics avancent avec nous." },
   ],
   // Partenaires institutionnels affichés (logos dans images/partners/)
   partenaires: [
