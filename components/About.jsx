@@ -20,7 +20,7 @@ const HERO_IMG = 'images/photo-promo-groupe.jpg';
 function AboutHero() {
   // Même hero que toutes les pages intérieures (Sections.jsx, HeroPage). Sans sous-titre (retour PIT).
   return (
-    <window.HeroPage tone="deep" kicker="L'association Festin" title="Former, inclure," accent="transformer."
+    <window.HeroPage tone="deep" kicker="Festin" title="Former, inclure," accent="transformer."
       img={HERO_IMG} imgAlt="Une promotion de Des Étoiles et des Femmes réunie en tenue de cuisine"
       crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Qui sommes-nous' }]}>
         <div className="g-herocta"><a className="btnb btnb--gold" href="#/contact">Nous écrire <span className="arrow" aria-hidden="true">→</span></a></div>
@@ -37,7 +37,7 @@ function CeQuOnEst() {
           <Title em="un métier" after={null}>
             Des cuisines où l'on <span className="ab-thumb"><img src={src('images/photo-cuisine-action.jpg')} alt="" loading="lazy" /></span> apprend
           </Title>
-          <p className="ab-body">L'association est créée en 1987. Son premier projet, La Table de Cana, ouvre à Marseille en 1993 : un traiteur où des salariés en insertion apprennent la cuisine en travaillant. Festin porte aujourd'hui six projets, qui servent trois missions : former, accompagner jusqu'à l'emploi, changer les cuisines. Tous relèvent d'une association loi 1901, à but non lucratif et d'intérêt général, agréée ESUS.</p>
+          <p className="ab-body">Festin naît à Marseille en 1987. Son premier projet, La Table de Cana, ouvre en 1993 : un traiteur où des salariés en insertion apprennent la cuisine en travaillant. Festin porte aujourd'hui cinq projets, qui servent trois missions : former, accompagner jusqu'à l'emploi, changer les cuisines.</p>
           <window.Preuves lignes={["En 2025, nous avons accompagné <b>441 personnes</b> dans <b>14 territoires</b> ; <b>83 %</b> sont sorties en emploi ou en formation."]}
             source="Source : rapport d'activité Festin 2025, tous projets confondus." />
           <a className="lnk ab-lnk" href="#/impact">Tous nos chiffres depuis 2022 <span className="arrow" aria-hidden="true">→</span></a>
@@ -45,6 +45,23 @@ function CeQuOnEst() {
         <figure className="ab-split__photo ab-reveal">
           <window.Picture src='images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg' alt="Grandes tablées du premier Grand Festin, à Arles, en 2024" sizes="(max-width: 899px) 100vw, 60vw" />
         </figure>
+      </div>
+    </section>
+  );
+}
+
+// ---------- 2 bis. PROJET SOCIAL — le portage associatif, dit une fois (retours du 01/10/2026) ----------
+function ProjetSocial() {
+  return (
+    <section className="g-sec g-sec--gold" aria-labelledby="social-t">
+      <div className="wrap">
+        <window.GHead id="social-t" split title="Un projet social," accent="à but non lucratif."
+          lede="Le restaurant, le traiteur, les formations : toutes nos activités sont des supports d'insertion, menées dans l'intérêt général." />
+        <window.Cartes items={[
+          { color: 'var(--teal)', title: "Des supports d'insertion", desc: "Chaque activité existe pour former des personnes et les mener jusqu'à l'emploi." },
+          { color: 'var(--gold-ink)', title: 'Portées par une association', desc: "Tout est porté par une association loi 1901, d'intérêt général, agréée ESUS." },
+          { color: 'var(--coral-ink)', title: "Au service de l'insertion", desc: "Les bénéfices servent à l'insertion des personnes que nous accompagnons." },
+        ]} />
       </div>
     </section>
   );
@@ -334,6 +351,7 @@ function AboutPage() {
     <div className="about gpage" ref={root} data-screen-label="04 Qui sommes-nous">
       <AboutHero />
       <CeQuOnEst />
+      <ProjetSocial />
       <Histoire />
       <Equipe />
       <Valeurs />

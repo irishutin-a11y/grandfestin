@@ -113,7 +113,7 @@ function ProjetPage({ id }) {
   if (!p || !cfg) return <window.NotFoundPage />;
   const m = window.missionDe(id);
   const missionLabel = m ? m.title + (m.titleAccent ? ' ' + m.titleAccent : '') : '';
-  const tone = (m && TON[m.key]) || 'teal';
+  const tone = (m && TON[m.key]) || (cfg.programmeDe ? 'gold' : 'teal');
   const byTab = (t) => (p.parcours || []).find((x) => x.tab === t) || {};
   const steps = cfg.frise ? cfg.frise.steps.map((s) => (s.from ? { ...byTab(s.from), ...s } : s)) : [];
   const rail = cfg.frise && cfg.frise.rail ? { ...byTab(cfg.frise.rail.from), tab: cfg.frise.rail.tab } : null;
@@ -129,7 +129,7 @@ function ProjetPage({ id }) {
 
       <window.HeroPage tone={tone} kicker={cfg.kicker} title={p.title} accent={p.accent} proof={p.projetPhrase}
         img={cfg.heroImg} imgAlt={cfg.heroAlt} logo={p.logo} logoAlt={'Logo ' + p.shortTitle} note={cfg.heroCredit}
-        crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Nos projets', href: '#/projets' }, { label: p.shortTitle }]}>
+        crumb={[{ label: 'Accueil', href: '#/' }, cfg.programmeDe || { label: 'Nos projets', href: '#/projets' }, { label: p.shortTitle }]}>
         <div className="g-herocta">
           <window.GLink l={cfg.heroCta} className={'btnb ' + (tone === 'gold' ? 'btnb--teal' : 'btnb--gold')}>{cfg.heroCta.label} <span className="arrow" aria-hidden="true">{cfg.heroCta.external ? '↗' : '→'}</span></window.GLink>
           {cfg.heroLien && <window.GLink l={cfg.heroLien} className="g-herolnk">{cfg.heroLien.label} <span className="arrow" aria-hidden="true">{cfg.heroLien.external ? '↗' : '→'}</span></window.GLink>}
@@ -140,7 +140,7 @@ function ProjetPage({ id }) {
       <section className="g-sec g-sec--white" aria-labelledby="bref-t">
         <div className="wrap g-bref">
           <div className="g-bref__txt">
-            <span className="g-tag g-reveal"><span className="g-tag__dot" aria-hidden="true" />Un projet de l'association Festin · {missionLabel}</span>
+            <span className="g-tag g-reveal"><span className="g-tag__dot" aria-hidden="true" />{cfg.programmeDe ? 'Un programme de ' + cfg.programmeDe.label.replace(/^L'/, "l'") : 'Un projet de Festin · ' + missionLabel}</span>
             <h2 className="g-h2 g-reveal" id="bref-t">{cfg.bref.title} <em>{cfg.bref.accent}</em></h2>
             <p className="g-lede g-reveal">{cfg.bref.text}</p>
             <a className="lnk g-bref__site g-reveal" href={p.siteUrl} target="_blank" rel="noopener noreferrer">Le site du projet : {p.siteName} <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (nouvel onglet)</span></a>
@@ -164,7 +164,7 @@ function ProjetPage({ id }) {
         <section className="g-sec g-sec--cream" aria-labelledby="prog-form-t">
           <div className="wrap">
             <window.GHead id="prog-form-t" split title="Former vos équipes," accent="avec le programme."
-              lede="Des formations courtes, en présentiel, dans vos murs ou avec d'autres établissements. Elles font partie du catalogue de l'Académie Festin, certifiée Qualiopi ; une prise en charge par votre OPCO est possible." />
+              lede="Des formations courtes, en présentiel, dans vos murs ou avec d'autres établissements, proposées par le programme Restaure." />
             <div className="formations__grid">
               {window.FormationCardLink && (D.formations || []).filter((f) => f.porteur).map((f) => <window.FormationCardLink key={f.id} f={f} noPrice />)}
             </div>

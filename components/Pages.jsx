@@ -135,13 +135,13 @@ function FormationDetailPage({ id }) {
                   </a>
                 )}
               </div>
-              <div className="qualiopi-side">
+              {f.audienceKey !== 'pros' && <div className="qualiopi-side">
                 <img src={window.FESTIN_DATA.brand.qualiopi} alt="Logo Qualiopi" className="qualiopi-side__logo" loading="lazy" onError={(e)=>{e.currentTarget.style.display='none';}}/>
                 <div>
                   <div className="qualiopi-side__t">Certifié Qualiopi</div>
                   <div className="qualiopi-side__d">Au titre des actions de formation</div>
                 </div>
-              </div>
+              </div>}
             </aside>
           </div>
         </div>
@@ -391,7 +391,7 @@ function ImpactPage() {
       {/* 5 · Prix, labels et marchés : frise par année */}
       <section className="isec isec--white" aria-labelledby="imp-prix">
         <div className="wrap">
-          <h2 className="isec__h reveal" id="imp-prix">Prix, labels <em>et marchés</em></h2>
+          <h2 className="isec__h reveal" id="imp-prix">Prix <em>et labels</em></h2>
           <ol className="imp-prix">
             {Object.keys(annees).sort((a, b) => b - a).map((y) => (
               <li className="imp-prix__an reveal" key={y}>
@@ -417,7 +417,7 @@ function AcademiePage() {
   const D = window.FESTIN_DATA;
   return (
     <div className="gpage" ref={root} data-screen-label="Académie Festin" style={{ '--pc': 'var(--gold-ink)' }}>
-      <window.HeroPage tone="gold" kicker="Organisme de formation certifié Qualiopi"
+      <window.HeroPage tone="gold" kicker="Portée par Estello Formation, certifiée Qualiopi"
         title="L'Académie" accent="Festin"
         proof="Toutes nos formations au même endroit : des parcours d'insertion diplômants pour apprendre un métier, et des formations pro pour les équipes de la restauration, portées par le programme Restaure."
         img="images/photo-cuisine-formation.jpg" imgAlt="Séance de formation en cuisine"
@@ -428,14 +428,14 @@ function AcademiePage() {
         </div>
       </window.HeroPage>
 
-      <AcaCatalogue tone="white" />
+      <AcaCatalogue tone="white" seulInsertion title="Nos parcours" accent="d'insertion." src="L'Académie Festin est portée par Estello Formation, organisme de formation certifié Qualiopi. Les formations pour les équipes en poste sont proposées par le programme Restaure." />
 
       <section className="g-sec g-sec--cream" aria-labelledby="aca-bref-t">
         <div className="wrap g-bref">
           <div className="g-bref__txt">
-            <span className="g-tag g-reveal"><span className="g-tag__dot" aria-hidden="true" />Un projet de l'association Festin · Former</span>
+            <span className="g-tag g-reveal"><span className="g-tag__dot" aria-hidden="true" />Un projet de Festin · Former</span>
             <h2 className="g-h2 g-reveal" id="aca-bref-t">Former sur le terrain, <em>avec un diplôme.</em></h2>
-            <p className="g-lede g-reveal">Festin forme sur le terrain depuis 1987. En 2026, l'association en fait un organisme de formation, l'Académie Festin, co-portée avec Estello Formation. Ses parcours tiennent à trois choses : l'exigence de la cuisine, le suivi social des personnes formées, la connaissance du secteur.</p>
+            <p className="g-lede g-reveal">Festin forme sur le terrain depuis 1987. En 2026, elle lance l'Académie Festin, portée par Estello Formation, organisme de formation certifié Qualiopi. Tournesol en est l'un des programmes. Ses parcours tiennent à trois choses : l'exigence de la cuisine, le suivi social des personnes formées, la connaissance du secteur.</p>
             <div className="aca-qualiopi g-reveal">
               <img src={D.brand.qualiopi} alt="Logo Qualiopi" loading="lazy" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
               <span>Certifiée Qualiopi<br /><b>au titre des actions de formation</b></span>
@@ -472,7 +472,7 @@ function AcademiePage() {
           pts: ['CAP cuisine ou titre de commis de cuisine, avec des stages en restaurant.', 'Un suivi individuel jusqu’à l’emploi.'],
           cta: 'Voir les parcours', href: '#/accompagnement/insertion', img: 'images/photo-tabliers-violets.jpg' },
         { tag: 'Vous êtes du secteur', title: 'Une formation pour vos équipes',
-          pts: ['Management juste, prévention des violences sexistes et sexuelles, recrutement inclusif.', 'Inter ou intra ; prise en charge OPCO possible.'],
+          pts: ['Management juste, prévention des violences sexistes et sexuelles.', 'Des formations proposées par le programme Restaure.'],
           cta: 'Former et recruter', href: '#/accompagnement/professionnels', img: 'images/photo-cuisine-action.jpg' },
       ]} />
 
@@ -483,9 +483,10 @@ function AcademiePage() {
 
 // Catalogue complet de l'Académie (l'ancienne page « Formations » y est fusionnée :
 // une page, un nom). #/formations mène ici, au catalogue.
-function AcaCatalogue({ id = 'catalogue', title = 'Toutes nos', accent = 'formations.', tone = 'cream', src, lien }) {
+function AcaCatalogue({ id = 'catalogue', title = 'Toutes nos', accent = 'formations.', tone = 'cream', src, lien, seulInsertion = false }) {
   const D = window.FESTIN_DATA;
-  const items = D.formations;
+  // formations pro : marque Restaure, hors Académie (retours du 01/10/2026)
+  const items = seulInsertion ? D.formations.filter((f) => f.cat === 'Insertion') : D.formations;
   const [filtre, setFiltre] = React.useState('all');
   const n = (c) => items.filter((f) => f.cat === c).length;
   const vus = filtre === 'all' ? items : items.filter((f) => f.cat === filtre);
@@ -503,7 +504,7 @@ function AcaCatalogue({ id = 'catalogue', title = 'Toutes nos', accent = 'format
         <div className="formations__grid">
           {vus.map((f) => <FormationCardLink key={f.id} f={f} />)}
         </div>
-        <p className="g-src">{src || "L'Académie Festin, certifiée Qualiopi, est co-portée avec Estello Formation, organisme spécialisé dans les métiers de l'hôtellerie-restauration. Les formations pro sont portées par le programme Restaure ; une prise en charge par votre OPCO est possible."}{lien && <> <a href="#/academie">L'Académie Festin <span aria-hidden="true">→</span></a></>}</p>
+        <p className="g-src">{src || "L'Académie Festin est portée par Estello Formation, organisme de formation certifié Qualiopi. Les formations pro sont proposées par le programme Restaure."}{lien && <> <a href="#/academie">L'Académie Festin <span aria-hidden="true">→</span></a></>}</p>
       </div>
     </section>
   );

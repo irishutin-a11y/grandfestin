@@ -7,6 +7,7 @@ function parseRoute(hash) {
   if (parts[0] === 'formations' && parts[1]) return { name: 'formation', id: parts[1] };
   // le catalogue vit dans la page Académie (une page, un nom) : #/formations y mène, au bon endroit
   if (parts[0] === 'formations') return { name: 'academie', ancre: 'catalogue' };
+  if (parts[0] === 'projets' && parts[1] === 'lieux') return { name: 'projets', ancre: 'lieux' };
   if (parts[0] === 'projets' && parts[1]) return { name: 'projet', id: parts[1] };
   if (parts[0] === 'projets') return { name: 'projets' };
   // Sadi Carnot : pas de page tant que le projet n'est pas acquis (arbitrage 8B) ; l'ancienne adresse mène à l'accueil
@@ -99,7 +100,7 @@ function App() {
     case 'actualites':         page = <ActualitesPage />; break;
     case 'impact':            page = <ImpactPage />; break;
     case 'about':             page = <AboutPage />; break;
-    case 'contact':           page = <ContactPage />; break;
+    case 'contact':           page = <ContactPage key={hash} />; break;
     default:                  page = <NotFoundPage />;
   }
 

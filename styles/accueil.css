@@ -16,7 +16,7 @@
 .navpill__links a:hover{background:var(--teal-tint);color:var(--teal-dark)}
 .navpill__links a[aria-current="page"]{background:var(--teal-tint);color:var(--teal-dark);
   text-decoration:underline;text-decoration-color:var(--teal);text-decoration-thickness:2px;text-underline-offset:5px}
-@media (min-width:1000px){ .navpill__links{display:flex} }
+@media (min-width:1200px){ .navpill__links{display:flex} }
 
 .optA-grid--publics{grid-template-columns:repeat(3,minmax(0,1fr))}
 .optA-h{margin:0 0 14px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-light)}

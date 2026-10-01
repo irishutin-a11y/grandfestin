@@ -69,7 +69,7 @@ function AccompagnementInsertionPage() {
               return (
                 <li className="or-card g-reveal" key={o.id}>
                   <div className="or-card__img">
-                    <window.Picture src={c.img} alt="" sizes="(max-width: 900px) 100vw, 44vw" />
+                    <window.Picture src={c.img || (D.projetPages[o.id] || {}).heroImg} alt="" sizes="(max-width: 900px) 100vw, 44vw" />
                     {p.logo && <span className="or-card__logo"><img src={encodeURI(decodeURI(p.logo))} alt="" loading="lazy" /></span>}
                   </div>
                   <div className="or-card__b">
@@ -167,7 +167,7 @@ function AccompagnementProsPage() {
         <div className="wrap">
           <window.BlocEncarte id="pros-former-t" title="Former" accent="vos équipes."
             lede="Deux formations courtes, en présentiel, dans vos murs ou avec d'autres établissements."
-            tags={[['Portées par', 'le programme Restaure'], ['Catalogue', 'Académie Festin, certifiée Qualiopi'], ['Financement', 'OPCO possible']]}>
+            tags={[['Proposées par', 'le programme Restaure'], ['Format', 'Inter ou intra']]}>
             <ul className="ar-fcards">
               {[
                 { f: F('vss'), a: 'Reconnaître les violences en cuisine et en salle, les prévenir, réagir à un signalement.', tags: [['Durée', '3 h ou 1 jour'], ['Pour', "Toute l'équipe"]] },

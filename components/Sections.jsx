@@ -52,7 +52,12 @@ function Contact() {
     { value: 'Mécénat ou partenariat', label: 'Mécénat ou partenariat', icon: 'users', to: 'partenariat@grandfestin.com' },
     { value: 'Presse', label: 'Presse', icon: 'newspaper' },
     { value: 'Orienter une personne', label: 'Orienter une personne', icon: 'hand-coins' },
+    { value: 'Devis traiteur, La Table de Cana Marseille', label: 'Devis traiteur', icon: 'soup', slug: 'devis-traiteur' },
+    { value: 'Privatiser Les Beaux Mets', label: 'Privatiser Les Beaux Mets', icon: 'utensils', slug: 'privatisation' },
   ];
+  // motif présélectionné par l'adresse : #/contact/devis-traiteur, #/contact/privatisation
+  const slug = (window.location.hash.split('/')[2] || '');
+  const iDefaut = Math.max(0, motifs.findIndex((m) => m.slug && m.slug === slug));
   const onSubmit = (e) => {
     e.preventDefault();
     const f = e.currentTarget, v = (n) => (f.elements[n] && f.elements[n].value || '').trim();
@@ -119,7 +124,7 @@ function Contact() {
                 <legend>Motif de votre demande</legend>
                 {motifs.map((o, i) => (
                   <label key={o.value} className="motif-pill">
-                    <input type="radio" name="motif" value={o.value} defaultChecked={i === 0} />
+                    <input type="radio" name="motif" value={o.value} defaultChecked={i === iDefaut} />
                     <span className="motif-pill__inner"><i data-lucide={o.icon} style={{ width: 18, height: 18 }} aria-hidden="true" /><span>{o.label}</span></span>
                   </label>
                 ))}
@@ -199,7 +204,7 @@ function Footer() {
               </a>
             </div>
             <span>{data.contact.legalMention}</span>
-            <span>NDA {data.contact.nda} · Académie Festin, organisme de formation certifié Qualiopi</span>
+            <span>NDA {data.contact.nda} · Académie Festin, portée par Estello Formation, organisme de formation certifié Qualiopi</span>
           </div>
         </div>
       </footer>

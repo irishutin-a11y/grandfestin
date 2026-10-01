@@ -66,6 +66,16 @@ Tics à rationner (une fois par page au plus, jamais en titre, toujours suivis d
 - **Archétypes de mise en page (30/09/2026)** : `components/Archetypes.jsx` + `styles/archetypes.css` (préfixe `ar-`) : plein cadre, bloc encarté à accordéon, bande défilante, lignes typées, carte flottante, titre en chevauchement. **Utilisés sur la page Professionnels seulement** : le déploiement sur Insertion, Association et pages projet a été essayé puis écarté le 30/09/2026 (retour de l'utilisatrice). Sur cette page : deux sections voisines ne partagent jamais un archétype ; une signalétique = un sens (numéros réservés aux étapes dans un ordre imposé) ; un dispositif utilisé une seule fois n'en est pas un.
 - Chiffres clés complets sur l'accueil et Impact seulement ; ailleurs, une phrase sourcée et un lien vers Impact.
 
+## Retours de la direction (01/10/2026) — tranché
+- **On parle de « Festin »**, pas de « l'association » (ni « groupe ») dans les titres, le menu et les étiquettes. Le portage associatif est dit **une fois**, dans le bloc « Un projet social, à but non lucratif » de la page Qui sommes-nous : toutes les activités sont des supports d'insertion, menées dans l'intérêt général, portées par une association loi 1901 agréée ESUS ; les bénéfices servent l'insertion des personnes accompagnées. Les mentions légales gardent « association ».
+- **Tournesol n'est pas un projet** : c'est un programme de l'Académie Festin. Il sort de « Nos projets », des missions et du menu ; sa page `#/projets/tournesol` reste, présentée comme « Un programme de l'Académie Festin » (fil d'Ariane vers l'Académie, `projetPages.tournesol.programmeDe`). Festin compte **cinq projets**.
+- **Formations pro = marque Restaure**, plus l'Académie : ni Qualiopi ni OPCO sur ces formations. L'Académie ne présente que les parcours d'insertion (`AcaCatalogue seulInsertion`).
+- Formule obligatoire : **« Académie Festin, portée par Estello Formation, organisme de formation certifié Qualiopi »**.
+- **Menu par besoin** : « Se former ou orienter » · « Recruter et former vos équipes » · « Nos lieux et projets » · « Qui sommes-nous » (liens de la pastille visibles à partir de 1200 px).
+- **Nos lieux** (`FESTIN_DATA.lieux`, `#/projets/lieux`) : Mourepiane (La Table de Cana Marseille), prison des Baumettes (Les Beaux Mets), Sadi Carnot (au futur, non acquis), le reste de la France (13 antennes de Des Étoiles et des Femmes).
+- **« La Table de Cana Marseille »** comme nom court. Demandes par le formulaire Contact, motif présélectionné par l'adresse : `#/contact/devis-traiteur` (La Table de Cana Marseille), `#/contact/privatisation` (Les Beaux Mets).
+- Impact : « Prix et labels » sans les marchés (Greta, délégations de service public retirés de la frise ; ils restent dans le résumé du rapport 2024).
+
 ## Faits tranchés
 - Chiffres 2025 : **441 personnes accompagnées, 83 % de sorties en emploi ou formation, 14 territoires**. Référence : `ressources/documents/rapport-activite-2025/rapport-activite-2025_v441-83_REFERENCE.pdf`. La version 453 / 72 % est une ancienne version ; les documents qui la citent (deck financeurs, kit de communication) sont à mettre à jour.
 - **Association fondée en 1987** (arbitré le 23/09/2026, source LinkedIn officiel). La formule « plus de trente ans » est donc à remplacer par « depuis 1987 » ou « près de quarante ans ».
@@ -73,7 +83,7 @@ Tics à rationner (une fois par page au plus, jamais en titre, toujours suivis d
 - **Des Étoiles et des Femmes : 13 antennes** (le Pays Basque a fermé — ne plus le citer). Festin : 14 territoires d'intervention, tous dispositifs confondus.
 - **Taux, toujours avec leur périmètre** : 73 % de sorties positives (Des Étoiles et des Femmes seul, 2025) · 83 % de sorties en emploi ou formation (Festin tous dispositifs, 2025) · 84 % de sorties positives (La Table de Cana, 2024). Réussite aux diplômes : 91 % (2025).
 - Grand Festin du 3 octobre 2025 : **plus de 600 convives**, plus de 100 bénévoles, 14 brigades.
-- Statuts : ESUS = l'association ; Qualiopi = **Académie Festin seulement** ; les formations pro (violences sexistes et sexuelles, management juste & inclusif) sont **portées par le programme Restaure** (mention sur carte et fiche), au catalogue de l'Académie. Pas d'accompagnement RH au-delà du recrutement et des formations (ne pas l'écrire) ; SIRET `379 756 026 00074`, NDA `93132168513`, RNA `W133012740`.
+- Statuts : ESUS = l'association ; Qualiopi = **Académie Festin seulement** (portée par Estello Formation) ; les formations pro (violences sexistes et sexuelles, management juste & inclusif) sont **proposées par le programme Restaure**, hors Académie, sans Qualiopi ni OPCO (01/10/2026). Pas d'accompagnement RH au-delà du recrutement et des formations (ne pas l'écrire) ; SIRET `379 756 026 00074`, NDA `93132168513`, RNA `W133012740`.
 - Équipe : Iris Hutin, chargée de projet Communication ; Armand Hurault, directeur général ; Camille Lafon, direction du restaurant Les Beaux Mets. Gouvernance affichée (bureau) : Jérôme Schatzman (président), Guillaume Hermitte (trésorier), Virginie Leconte (secrétaire).
 
 ## Points ouverts

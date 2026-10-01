@@ -165,7 +165,7 @@ function HomeB() {
 
       {/* 5 · TOUTES NOS FORMATIONS — une étiquette par public */}
       <window.AcaCatalogue id="formations" title="Toutes nos" accent="formations." tone="white" lien
-        src="L'Académie Festin est certifiée Qualiopi. Les formations pro sont portées par le programme Restaure ; une prise en charge par votre OPCO est possible." />
+        src="L'Académie Festin est portée par Estello Formation, organisme de formation certifié Qualiopi. Les formations pro sont proposées par le programme Restaure." />
 
       {/* 6 · CE QUE 2025 A DONNÉ — les quatre chiffres clés, en couleur, sur fond sombre */}
       <section className="ac-chiffres on-dark" id="chiffres" aria-labelledby="ac-chiffres-t">
@@ -294,10 +294,10 @@ function ProjetsIndexPage() {
   const nomMission = (m) => m.title + (m.titleAccent ? ' ' + m.titleAccent : '');
   return (
     <div className="gpage" ref={root} data-screen-label="Nos projets">
-      <window.HeroPage tone="teal" kicker="Six projets, trois missions" title="Nos" accent="projets"
+      <window.HeroPage tone="teal" kicker="Cinq projets, trois missions" title="Nos lieux" accent="et projets"
         proof={H.missions.ledeProjets}
         crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Nos projets' }]}>
-        <div className="g-herocta"><window.GLink l={{ to: 'pj-gal' }} className="btnb btnb--gold">Voir les projets <span className="arrow" aria-hidden="true">↓</span></window.GLink></div>
+        <div className="g-herocta"><window.GLink l={{ to: 'pj-gal' }} className="btnb btnb--gold">Voir les projets <span className="arrow" aria-hidden="true">↓</span></window.GLink><window.GLink l={{ to: 'lieux' }} className="g-herolnk">Nos lieux <span className="arrow" aria-hidden="true">↓</span></window.GLink></div>
       </window.HeroPage>
       <section className="g-sec g-sec--white pj-gal" id="pj-gal" aria-labelledby="pj-gal-t">
         <div className="wrap">
@@ -328,9 +328,38 @@ function ProjetsIndexPage() {
                       <span className="pj-card__go">Découvrir <span className="arrow" aria-hidden="true">→</span></span>
                     </span>
                   </a>
+                  {p.siteUrl && <a className="pj-card__site" href={p.siteUrl} target="_blank" rel="noopener noreferrer">Le site de {c.name || p.shortTitle} <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (nouvel onglet)</span></a>}
                 </li>
               );
             })}
+          </ul>
+        </div>
+      </section>
+      {/* NOS LIEUX — la même offre, rangée par lieu (retours du 01/10/2026) */}
+      <section className="g-sec g-sec--cream pj-lieux" id="lieux" aria-labelledby="pj-lieux-t">
+        <div className="wrap">
+          <window.GHead id="pj-lieux-t" split title="Nos" accent="lieux." lede="De Marseille aux 13 villes de Des Étoiles et des Femmes." />
+          <ul className="pj-lieux__grid">
+            {(D.lieux || []).map((l) => (
+              <li key={l.key} className={'pj-lieu g-reveal' + (l.futur ? ' pj-lieu--futur' : '')}>
+                <div className="pj-lieu__img">
+                  {l.img ? <window.Picture src={l.img} alt="" sizes="(max-width: 700px) 100vw, 25vw" /> : <span className="pj-lieu__avenir">À venir</span>}
+                </div>
+                <div className="pj-lieu__b">
+                  <span className="pj-lieu__ville">{l.ville}</span>
+                  <h3 className="pj-lieu__t">{l.lieu}</h3>
+                  <p>{l.text}</p>
+                  {l.actions.length > 0 && (
+                    <div className="pj-lieu__act">
+                      {l.actions.map((a) => {
+                        const ext = /^https?:/.test(a.href);
+                        return <a key={a.href} className="lnk" href={a.href} {...(ext ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{a.label} <span className="arrow" aria-hidden="true">{ext ? '↗' : '→'}</span>{ext && <span className="sr-only"> (nouvel onglet)</span>}</a>;
+                      })}
+                    </div>
+                  )}
+                </div>
+              </li>
+            ))}
           </ul>
         </div>
       </section>
