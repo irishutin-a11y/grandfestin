@@ -1532,7 +1532,7 @@ window.FESTIN_DATA.about = {
 
   valeurs: [
     { title: "Non-lucrativité", color: "#E8A825", dark: true,  desc: "Festin est une association loi 1901, à but non lucratif et d'intérêt général, agréée ESUS. Chaque euro sert le projet associatif." },
-    { title: "Excellence",      color: "#E4572E", dark: true,  desc: "Aux Beaux Mets, le chef forme les commis à la cuisine bistronomique et le maître d'hôtel forme l'équipe de salle. Les commis apprennent sur un vrai service, face à des convives." },
+    { title: "Excellence",      color: "#E4572E", dark: true,  desc: "Des stages chez des chefs, des diplômes reconnus, de vrais services face à des convives : nous formons au niveau que le métier demande. En 2025, 91 % de réussite aux diplômes avec Des Étoiles et des Femmes." },
     { title: "Collectif",       color: "#9A5BA8", dark: false, desc: "Aucun projet Festin ne se fait seul. Chefs, restaurateurs, entreprises, fondations et pouvoirs publics avancent avec nous." },
   ],
   // Partenaires institutionnels affichés (logos dans images/partners/)
@@ -1585,7 +1585,7 @@ Object.assign(window.FESTIN_DATA.home, {
     lede: "Depuis près de quarante ans, nous formons des personnes aux métiers de la cuisine et nous accompagnons les restaurants qui recrutent et forment leurs équipes.",
     cols: [
       { key: "ins", tag: "Vous accompagnez une personne vers l'emploi", title: "Un métier,", titleAccent: "un diplôme, un contrat.",
-        text: "Pour les conseillères et conseillers France Travail, les missions locales, les travailleurs sociaux : des parcours gratuits, avec des stages chez des chefs et un suivi jusqu'au premier contrat.",
+        text: "Des parcours gratuits pour apprendre un métier de cuisine, avec des stages chez des chefs et un suivi jusqu'au premier contrat.",
         img: "images/photo-tabliers-violets.jpg", imgAlt: "Des stagiaires en cuisine",
         lignes: [
           { dt: "Se former", dd: "CAP cuisine ou titre de commis de cuisine, avec Des Étoiles et des Femmes (13 antennes) et Tournesol." },

@@ -184,3 +184,6 @@
 .ar-carte__media img { object-fit: cover; object-position: 50% 30%; aspect-ratio: 4 / 5; }
 @media (max-width: 720px) { .ar-carte__media img { aspect-ratio: 4 / 3; } }
 .ar-carte__logo { display: block; height: 56px; width: auto; max-width: 220px; object-fit: contain; mix-blend-mode: multiply; }
+.ar-carte__media { position: relative; }
+.ar-carte__badge { position: absolute; left: var(--sp-4); bottom: var(--sp-4); display: block; padding: 10px 14px; border-radius: 12px; background: rgba(255, 255, 255, .94); box-shadow: 0 6px 18px rgba(6, 33, 31, .2); }
+.ar-carte__badge img { display: block; height: 40px; width: auto; max-width: 160px; aspect-ratio: auto !important; object-fit: contain; }

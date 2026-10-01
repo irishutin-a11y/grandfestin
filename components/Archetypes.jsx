@@ -117,11 +117,17 @@ function CarteFlottante({ media, quote, who, logo, cta, label }) {
     <section className="ar-sec ar-sec--deep on-dark" aria-label={label}>
       <div className="wrap">
         <figure className="ar-carte g-reveal">
-          {media && <div className="ar-carte__media">{media}</div>}
+          {media && (
+            <div className="ar-carte__media">
+              {media}
+              {/* logo de l'établissement posé dans un coin de la photo (retour du 01/10/2026) */}
+              {logo && <span className="ar-carte__badge"><img src={encodeURI(logo.src)} alt={logo.alt} loading="lazy" /></span>}
+            </div>
+          )}
           <div className="ar-carte__txt">
             <blockquote className="ar-carte__q"><p>« {quote} »</p></blockquote>
             {who && <figcaption>{who}</figcaption>}
-            {logo && <img className="ar-carte__logo" src={encodeURI(logo.src)} alt={logo.alt} loading="lazy" />}
+            {logo && !media && <img className="ar-carte__logo" src={encodeURI(logo.src)} alt={logo.alt} loading="lazy" />}
             {cta && <a className="btnb btnb--teal" href={cta.href}>{cta.label} <span className="arrow" aria-hidden="true">→</span></a>}
           </div>
         </figure>

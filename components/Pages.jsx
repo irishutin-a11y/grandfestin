@@ -228,39 +228,71 @@ function NotFoundPage() {
 // projet, 2025 en une section, tous les rapports, les reconnaissances.
 // Données : FESTIN_DATA.impact (data.js), sources en commentaire.
 
-// Barres verticales, une série, une couleur. Survol et focus : détail.
-// Un tableau (details) donne les mêmes valeurs sans le graphique.
-function ImpactBars({ title, unit = '', items, max, caption }) {
+// ---------- IMPACT, version graphique (retours du 01/10/2026) ----------
+// Mêmes données (FESTIN_DATA.impact), mise en page variée : grands chiffres sur
+// fond sombre avec barres en couleur, anneaux pour l'étude Koreis, cartes par
+// projet, rapports en couvertures, prix en frise par année.
+const IMP_COULEUR = {
+  'des-etoiles-et-des-femmes': '#C2421C', tournesol: '#9A5B0E', 'les-beaux-mets': '#A3543D',
+  'la-table-de-cana': '#7A2E3A', restaure: '#4F6019',
+};
+
+// Série sur quatre ans : le dernier chiffre en très grand, l'évolution en barres
+function ImpSerie({ id, label, items, unit = '', max, tone }) {
   const ref = React.useRef(null);
   React.useEffect(() => {
     const g = window.gsap, el = ref.current;
     if (!g || !el || (window.FESTIN_RM && window.FESTIN_RM())) return;
-    const tw = g.from(el.querySelectorAll('.ibar__fill'), { scaleY: 0, transformOrigin: '50% 100%', duration: 1.1, stagger: 0.1,
+    const tw = g.from(el.querySelectorAll('.imp-serie__fill'), { scaleY: 0, transformOrigin: '50% 100%', duration: 1, stagger: 0.12, ease: 'expo.out',
       scrollTrigger: { trigger: el, start: 'top 80%', once: true } });
     return () => { tw.scrollTrigger && tw.scrollTrigger.kill(); tw.kill(); };
   }, []);
+  const last = items[items.length - 1];
   return (
-    <figure className="ichart" ref={ref}>
-      <figcaption className="ichart__t">{title}</figcaption>
-      <div className="ichart__plot" role="list">
-        {items.map((it) => (
-          <div className="ibar" role="listitem" key={it.label} tabIndex={0} aria-label={it.label + ' : ' + it.value + unit + (it.detail ? '. ' + it.detail : '')}>
-            <span className="ibar__v">{it.value}{unit}</span>
-            <span className="ibar__track"><span className="ibar__fill" style={{ height: (it.value / max * 100) + '%' }} /></span>
-            <span className="ibar__l">{it.label}</span>
-            {it.detail && <span className="ibar__tip" role="tooltip">{it.detail}</span>}
-          </div>
+    <figure className={'imp-serie imp-serie--' + tone} ref={ref} aria-labelledby={id}>
+      <figcaption id={id} className="imp-serie__l">{label}</figcaption>
+      <p className="imp-serie__big"><b>{last.value}{unit}</b><span>en {last.label}</span></p>
+      <div className="imp-serie__plot" aria-hidden="true">
+        {items.map((it, i) => (
+          <span className={'imp-serie__bar' + (i === items.length - 1 ? ' is-last' : '')} key={it.label}>
+            <span className="imp-serie__v">{it.value}{unit}</span>
+            <span className="imp-serie__track"><span className="imp-serie__fill" style={{ height: (it.value / max * 100) + '%' }} /></span>
+            <span className="imp-serie__y">{it.label}</span>
+          </span>
         ))}
       </div>
-      <details className="ichart__table">
+      <details className="imp-serie__table">
         <summary>Voir les données en tableau</summary>
         <table>
-          <thead><tr><th scope="col">Année</th><th scope="col">{title}</th><th scope="col">Détail</th></tr></thead>
+          <thead><tr><th scope="col">Année</th><th scope="col">{label}</th><th scope="col">Détail</th></tr></thead>
           <tbody>{items.map((it) => <tr key={it.label}><th scope="row">{it.label}</th><td>{it.value}{unit}</td><td>{it.detail || '—'}</td></tr>)}</tbody>
         </table>
       </details>
-      {caption && <p className="ichart__cap">{caption}</p>}
     </figure>
+  );
+}
+
+// Anneau de pourcentage (SVG), ou pictogramme « 1 sur 4 »
+function ImpAnneau({ n, t, d }) {
+  const m = /^(\d+)\s*%$/.exec(n);
+  const sur = /^(\d+)\s*sur\s*(\d+)$/.exec(n);
+  const C = 2 * Math.PI * 52;
+  return (
+    <li className="imp-anneau reveal">
+      {m ? (
+        <svg className="imp-anneau__svg" viewBox="0 0 120 120" aria-hidden="true">
+          <circle cx="60" cy="60" r="52" className="imp-anneau__bg" />
+          <circle cx="60" cy="60" r="52" className="imp-anneau__arc" strokeDasharray={(m[1] / 100 * C) + ' ' + C} transform="rotate(-90 60 60)" />
+        </svg>
+      ) : sur ? (
+        <span className="imp-anneau__picto" aria-hidden="true">
+          {Array.from({ length: +sur[2] }).map((_, i) => <i key={i} className={i < +sur[1] ? 'is-on' : ''} />)}
+        </span>
+      ) : null}
+      <span className="imp-anneau__n">{n}</span>
+      <span className="imp-anneau__t">{t}</span>
+      <span className="imp-anneau__d">{d}</span>
+    </li>
   );
 }
 
@@ -276,68 +308,59 @@ function ImpactPage() {
   }, []);
   const byId = (id) => D.projets.find(p => p.id === id) || {};
   const nb = (n) => n.toLocaleString('fr-FR');
+  const annees = {};
+  I.prix.forEach((p) => { (annees[p.year] = annees[p.year] || []).push(p); });
+  const couvertures = ['teal-dark', 'teal', 'gold', 'coral'];
   return (
-    <div className="pageImpact" ref={rootRef} data-screen-label="Impact">
-      <window.HeroPage tone="deep" kicker={I.hero.kicker} title={I.hero.title} accent={I.hero.titleAccent} proof={I.hero.proof}
+    <div className="pageImpact imp2" ref={rootRef} data-screen-label="Impact">
+      <window.HeroPage tone="gold" kicker={I.hero.kicker} title={I.hero.title} accent={I.hero.titleAccent} proof={I.hero.proof}
         img={I.hero.img} imgAlt={I.hero.imgAlt}
         crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Notre impact' }]}>
-        <div className="g-herocta"><window.GLink l={{ to: 'rapports' }} className="btnb btnb--gold">Nos rapports d'activité <span className="arrow" aria-hidden="true">↓</span></window.GLink></div>
+        <div className="g-herocta"><window.GLink l={{ to: 'rapports' }} className="btnb btnb--teal">Nos rapports d'activité <span className="arrow" aria-hidden="true">↓</span></window.GLink></div>
       </window.HeroPage>
 
-      {/* Série annuelle : deux graphiques, jamais un double axe */}
-      <section className="isec isec--white" aria-labelledby="imp-serie">
+      {/* 1 · Les deux chiffres de l'année, en grand, sur fond sombre */}
+      <section className="imp-chiffres on-dark" aria-labelledby="imp-serie">
         <div className="wrap">
           <h2 className="isec__h reveal" id="imp-serie">Quatre ans, <em>mesurés</em></h2>
-          <div className="icharts">
-            <ImpactBars title="Personnes accompagnées vers l'emploi" max={500}
-              items={I.annees.map(a => ({ label: a.year, value: a.personnes, detail: 'Tous dispositifs Festin, rapport d\'activité ' + a.year }))} />
-            <ImpactBars title="Sorties en emploi ou en formation" unit={'\u00a0%'} max={100}
+          <div className="imp-chiffres__grid">
+            <ImpSerie id="imp-s1" tone="gold" label="Personnes accompagnées vers l'emploi" max={500}
+              items={I.annees.map(a => ({ label: a.year, value: a.personnes, detail: "Tous dispositifs Festin, rapport d'activité " + a.year }))} />
+            <ImpSerie id="imp-s2" tone="coral" label="Sorties en emploi ou en formation" unit={' %'} max={100}
               items={I.annees.map(a => ({ label: a.year, value: a.taux, detail: a.emploi ? nb(a.emploi) + ' personnes sur ' + nb(a.sorties) + ' sorties' : 'Effectifs non publiés dans le rapport 2025' }))} />
           </div>
-          <p className="isec__note">{I.serieNote}</p>
-          <div className="imp-2025 reveal">
-            <window.Preuves lignes={["En 2025, <b>441 personnes</b> accompagnées dans <b>14 territoires</b>, et <b>83 %</b> de sorties en emploi ou en formation.",
-              "Avec Des Étoiles et des Femmes, <b>91 %</b> de réussite aux diplômes la même année."]}
-              source="Source : rapport d'activité Festin 2025 ; taux de sortie tous projets confondus, réussite aux diplômes Des Étoiles et des Femmes." />
-            <a className="lnk" href={I.annee2025.lien.href}>{I.annee2025.lien.label} <span className="arrow" aria-hidden="true">→</span></a>
-          </div>
+          <p className="imp-chiffres__note">En 2025 : 14 territoires, et 91 % de réussite aux diplômes avec Des Étoiles et des Femmes. {I.serieNote} Source : rapports d'activité Festin 2022 à 2025.</p>
         </div>
       </section>
 
-      {/* Dans la durée : famille or */}
-      <section className="isec isec--gold" aria-labelledby="imp-duree">
+      {/* 2 · Dans la durée : anneaux */}
+      <section className="isec isec--cream" aria-labelledby="imp-duree">
         <div className="wrap">
           <h2 className="isec__h reveal" id="imp-duree">{I.duree.title} <em>{I.duree.titleAccent}</em></h2>
           <p className="isec__lede reveal">{I.duree.lede}</p>
-          <ul className="ifaits">
-            {I.duree.faits.map((f) => (
-              <li className="ifait reveal" key={f.n}>
-                <span className="ifait__n">{f.n}</span>
-                <span className="ifait__t">{f.t}</span>
-                <span className="ifait__d">{f.d}</span>
-              </li>
-            ))}
-          </ul>
+          <ul className="imp-anneaux">{I.duree.faits.map((f) => <ImpAnneau key={f.n} {...f} />)}</ul>
           <p className="isec__note">{I.duree.source}</p>
         </div>
       </section>
 
-      {/* Un chiffre par projet */}
+      {/* 3 · Un chiffre par projet : cartes */}
       <section className="isec isec--white" aria-labelledby="imp-projets">
         <div className="wrap">
           <h2 className="isec__h reveal" id="imp-projets">Projet <em>par projet</em></h2>
-          <ul className="iprojets">
+          <ul className="imp-projets">
             {I.projets.map((p) => {
               const pr = byId(p.id);
               return (
-                <li key={p.id} className="reveal">
-                  <a className="iprojet" href={'#/projets/' + p.id}>
-                    <span className="iprojet__n">{p.n}</span>
-                    <span className="iprojet__body">
-                      <span className="iprojet__t">{p.t}</span>
-                      <span className="iprojet__d">{p.d}</span>
+                <li key={p.id} className="reveal" style={{ '--pc': IMP_COULEUR[p.id] || 'var(--teal)' }}>
+                  <a className="imp-projet" href={'#/projets/' + p.id}>
+                    <span className="imp-projet__head">
+                      {pr.logo && <span className="imp-projet__logo"><img src={encodeURI(decodeURI(pr.logo))} alt="" loading="lazy" /></span>}
+                      <span className="imp-projet__name">{pr.shortTitle}</span>
                     </span>
-                    <span className="iprojet__name">{pr.shortTitle} <span className="arrow" aria-hidden="true">→</span></span>
+                    <span className="imp-projet__n">{p.n}</span>
+                    <span className="imp-projet__t">{p.t}</span>
+                    <span className="imp-projet__d">{p.d}</span>
+                    <span className="imp-projet__go">Voir le projet <span className="arrow" aria-hidden="true">→</span></span>
                   </a>
                 </li>
               );
@@ -346,17 +369,18 @@ function ImpactPage() {
         </div>
       </section>
 
-      {/* Tous les rapports d'activité */}
+      {/* 4 · Les rapports, en couvertures */}
       <section className="isec isec--cream" id="rapports" aria-labelledby="imp-rapports">
         <div className="wrap">
           <h2 className="isec__h reveal" id="imp-rapports">Tous nos rapports <em>d'activité</em></h2>
-          <ul className="irapports">
-            {I.rapports.map((r) => (
+          <ul className="imp-rapports">
+            {I.rapports.map((r, i) => (
               <li key={r.year} className="reveal">
-                <a className="irapport" href={r.url} target="_blank" rel="noopener noreferrer">
-                  <span className="irapport__y">{r.year}</span>
-                  <span className="irapport__r">{r.resume}</span>
-                  <span className="irapport__dl">Lire le rapport (PDF)<span className="sr-only">, s'ouvre dans un nouvel onglet</span> <span className="arrow" aria-hidden="true">↗</span></span>
+                <a className={'imp-rapport imp-rapport--' + couvertures[i % couvertures.length]} href={r.url} target="_blank" rel="noopener noreferrer">
+                  <span className="imp-rapport__k">Rapport d'activité</span>
+                  <span className="imp-rapport__y">{r.year}</span>
+                  <span className="imp-rapport__r">{r.resume}</span>
+                  <span className="imp-rapport__dl">Lire le rapport (PDF)<span className="sr-only">, s'ouvre dans un nouvel onglet</span> <span className="arrow" aria-hidden="true">↗</span></span>
                 </a>
               </li>
             ))}
@@ -364,13 +388,18 @@ function ImpactPage() {
         </div>
       </section>
 
-      {/* Reconnaissances : frise sobre */}
+      {/* 5 · Prix, labels et marchés : frise par année */}
       <section className="isec isec--white" aria-labelledby="imp-prix">
         <div className="wrap">
           <h2 className="isec__h reveal" id="imp-prix">Prix, labels <em>et marchés</em></h2>
-          <ol className="iprix">
-            {I.prix.map((p, i) => (
-              <li key={i} className="reveal"><span className="iprix__y">{p.year}</span><span className="iprix__t">{p.title}</span><span className="iprix__o">{p.org}</span></li>
+          <ol className="imp-prix">
+            {Object.keys(annees).sort((a, b) => b - a).map((y) => (
+              <li className="imp-prix__an reveal" key={y}>
+                <span className="imp-prix__y">{y}</span>
+                <ul>
+                  {annees[y].map((p, i) => <li key={i}><b>{p.title}</b><span>{p.org}</span></li>)}
+                </ul>
+              </li>
             ))}
           </ol>
         </div>
