@@ -346,3 +346,4 @@
 .apitem__logo{display:grid;place-items:center;width:150px;height:64px;margin-bottom:var(--sp-2);padding:10px 14px;border-radius:12px;background:var(--cream);text-align:center}
 .apitem__logo img{max-width:100%;max-height:40px;object-fit:contain}
 .apitem__logo b{font-size:var(--fs-small);line-height:1.2;color:var(--ink)}
+.apitem__logo:has(img){background:#fff;box-shadow:inset 0 0 0 1px var(--line-strong)}
