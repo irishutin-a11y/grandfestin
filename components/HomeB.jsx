@@ -324,7 +324,7 @@ function ProjetsIndexPage() {
               const logo = c.logo || p.logo;
               return (
                 <li key={c.id}>
-                  <a className={'pj-card pj-card--' + c.mission.key} href={c.href || ('#/projets/' + c.id)}>
+                  <div className={'pj-card pj-card--' + c.mission.key}>
                     <span className="pj-card__img">
                       <window.Picture src={c.img} alt="" sizes="(max-width: 700px) 100vw, 30vw" />
                       {logo && <span className="pj-card__logo"><img src={IMG(logo)} alt="" loading="lazy" /></span>}
@@ -333,10 +333,12 @@ function ProjetsIndexPage() {
                       <span className="pj-card__mis">{nomMission(c.mission)}</span>
                       <span className="pj-card__t">{c.name || p.shortTitle}</span>
                       <span className="pj-card__d">{c.line}</span>
-                      <span className="pj-card__go">Découvrir <span className="arrow" aria-hidden="true">→</span></span>
+                      <span className="pj-card__acts">
+                        <a className="pj-card__go" href={c.href || ('#/projets/' + c.id)}>Découvrir <span className="arrow" aria-hidden="true">→</span><span className="sr-only"> : {c.name || p.shortTitle}</span></a>
+                        {p.siteUrl && <a className="pj-card__site" href={p.siteUrl} target="_blank" rel="noopener noreferrer">{siteDe(c.name || p.shortTitle)} <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (nouvel onglet)</span></a>}
+                      </span>
                     </span>
-                  </a>
-                  {p.siteUrl && <a className="pj-card__site" href={p.siteUrl} target="_blank" rel="noopener noreferrer">{siteDe(c.name || p.shortTitle)} <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (nouvel onglet)</span></a>}
+                  </div>
                 </li>
               );
             })}
