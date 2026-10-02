@@ -389,3 +389,21 @@
   .ac-hero__media{position:absolute!important;height:auto!important;margin:0!important}
   .ac-hero__media::after{background:linear-gradient(180deg,rgba(10,45,51,.35) 0%,rgba(10,45,51,.85) 55%,rgba(10,45,51,.95) 100%)}
 }
+/* Hero centré, deux portes d'entrée (retours du 02/10/2026) : teal = insertion, or = professionnels */
+.ac-hero{justify-content:center}
+.ac-hero__grid{display:flex;justify-content:center}
+.ac-hero__txt{max-width:min(980px,100%)!important;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center}
+.ac-hero__t{font-size:var(--fs-display)}
+.ac-hero__sig{font-size:var(--fs-lede);font-style:normal;font-weight:600;letter-spacing:.02em;text-transform:none}
+.ac-hero__media::after{background:linear-gradient(180deg,rgba(10,45,51,.55) 0%,rgba(10,45,51,.7) 50%,rgba(10,45,51,.85) 100%)!important}
+.ac-portes2{display:grid!important;align-items:stretch;grid-template-columns:repeat(2,minmax(0,330px));gap:var(--sp-4)!important;justify-content:center;margin-top:var(--sp-7)!important}
+.ac-porte2{display:flex;flex-direction:column;align-items:flex-start;gap:6px;padding:18px 22px;border-radius:14px;text-align:left;text-decoration:none;transition:transform var(--dur-2) var(--ease-quart),box-shadow var(--dur-2) var(--ease-quart)}
+.ac-porte2:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(0,0,0,.25)}
+.ac-porte2:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.ac-porte2--ins{background:var(--teal);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.25)}
+.ac-porte2--pro{background:var(--gold);color:var(--ink)}
+.ac-porte2__k{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.9}
+.ac-porte2__l{font-size:var(--fs-h3);font-weight:700;line-height:1.15;white-space:nowrap}
+.ac-porte2{justify-content:space-between}
+@media (max-width:600px){ .ac-portes2{grid-template-columns:1fr} .ac-hero__txt{text-align:left;align-items:flex-start} .ac-portes2{justify-content:stretch;width:100%} }
+@media (prefers-reduced-motion:reduce){ .ac-porte2{transition:none} .ac-porte2:hover{transform:none} }

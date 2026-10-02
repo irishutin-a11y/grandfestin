@@ -32,7 +32,7 @@
 .ar-hero__img, .ar-hero picture { position: absolute; inset: 0; width: 100%; height: 100%; }
 .ar-hero img { width: 100%; height: 100%; object-fit: cover; }
 .ar-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,45,51,.35) 0%, rgba(10,45,51,.2) 35%, rgba(10,45,51,.88) 100%); }
-.ar-hero__in { position: relative; z-index: 1; }
+.ar-hero__in { position: relative; z-index: 1; width: 100%; }
 .ar-hero__crumb { color: var(--ink-on-dark); }
 .ar-hero__t { margin: 0; max-width: 14ch; font-size: var(--fs-display); line-height: var(--lh-display); font-weight: var(--fw-bold); text-transform: uppercase; letter-spacing: var(--tracking-tight); }
 .ar-hero__t em { display: block; font-style: italic; font-weight: var(--fw-light); color: var(--gold-light); }

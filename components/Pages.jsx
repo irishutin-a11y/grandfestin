@@ -322,14 +322,14 @@ function ImpactPage() {
       {/* 1 · Les deux chiffres de l'année, en grand, sur fond sombre */}
       <section className="imp-chiffres on-dark" aria-labelledby="imp-serie">
         <div className="wrap">
-          <h2 className="isec__h reveal" id="imp-serie">Quatre ans, <em>mesurés</em></h2>
+          <h2 className="isec__h reveal" id="imp-serie">Quatre ans <em>d'impact mesuré</em></h2>
           <div className="imp-chiffres__grid">
             <ImpSerie id="imp-s1" tone="gold" label="Personnes accompagnées vers l'emploi" max={500}
               items={I.annees.map(a => ({ label: a.year, value: a.personnes, detail: "Tous dispositifs Festin, rapport d'activité " + a.year }))} />
             <ImpSerie id="imp-s2" tone="coral" label="Sorties en emploi ou en formation" unit={' %'} max={100}
               items={I.annees.map(a => ({ label: a.year, value: a.taux, detail: a.emploi ? nb(a.emploi) + ' personnes sur ' + nb(a.sorties) + ' sorties' : 'Effectifs non publiés dans le rapport 2025' }))} />
           </div>
-          <p className="imp-chiffres__note">En 2025 : 14 territoires, et 91 % de réussite aux diplômes avec Des Étoiles et des Femmes. {I.serieNote} Source : rapports d'activité Festin 2022 à 2025.</p>
+          <p className="imp-chiffres__note">En 2025 : 14 territoires et 91 % de réussite aux diplômes avec Des Étoiles et des Femmes. {I.serieNote} Source : rapports d'activité Festin 2022 à 2025.</p>
         </div>
       </section>
 
@@ -391,7 +391,7 @@ function ImpactPage() {
       {/* 5 · Prix, labels et marchés : frise par année */}
       <section className="isec isec--white" aria-labelledby="imp-prix">
         <div className="wrap">
-          <h2 className="isec__h reveal" id="imp-prix">Prix <em>et labels</em></h2>
+          <h2 className="isec__h reveal" id="imp-prix">Nos <em>reconnaissances</em></h2>
           <ol className="imp-prix">
             {Object.keys(annees).sort((a, b) => b - a).map((y) => (
               <li className="imp-prix__an reveal" key={y}>
@@ -419,7 +419,7 @@ function AcademiePage() {
     <div className="gpage" ref={root} data-screen-label="Académie Festin" style={{ '--pc': 'var(--gold-ink)' }}>
       <window.HeroPage tone="gold" kicker="Portée par Estello Formation, certifiée Qualiopi"
         title="L'Académie" accent="Festin"
-        proof="Toutes nos formations au même endroit : des parcours d'insertion diplômants pour apprendre un métier, et des formations pro pour les équipes de la restauration, portées par le programme Restaure."
+        proof="Toutes nos formations au même endroit : des parcours d'insertion diplômants pour apprendre un métier et des formations pro pour les équipes de la restauration, portées par le programme Restaure."
         img="images/photo-cuisine-formation.jpg" imgAlt="Séance de formation en cuisine"
         crumb={[{ label: 'Accueil', href: '#/' }, { label: "L'Académie Festin" }]}>
         <div className="g-herocta">
@@ -541,7 +541,7 @@ function ActualitesPage() {
   const S = D.stats;
   return (
     <div className="pageActu" data-screen-label="Actualités">
-      <window.HeroPage tone="gold" kicker="Actualités" title="Les temps forts," accent="et la presse."
+      <window.HeroPage tone="gold" kicker="Actualités" title="Les temps forts" accent="et la presse."
         proof="Le Grand Festin, les masterclass, les rencontres de Restaure : les moments de l'année en images. Puis les articles, reportages et podcasts sur nos projets."
         crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Actualités' }]}>
         <div className="g-herocta"><window.GLink l={{ to: 'espace-presse' }} className="btnb btnb--teal">Espace presse <span className="arrow" aria-hidden="true">↓</span></window.GLink></div>
@@ -553,6 +553,14 @@ function ActualitesPage() {
       <section className="isec isec--white" aria-labelledby="actu-presse">
         <div className="wrap">
           <h2 className="isec__h" id="actu-presse">Dans <em>la presse</em></h2>
+          {/* mur des médias (retours du 02/10/2026) : logo si fourni dans images/presse/<slug>.png, sinon le nom */}
+          <ul className="aplogos" aria-label="Les médias qui ont parlé de Festin">
+            {[...new Map(allPresse.map((a) => [a.source.split(' : ')[0].toLowerCase(), a.source.split(' : ')[0]])).values()].map((m) => {
+              const sl = m.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+              const logo = (D.presseLogos || []).includes(sl);
+              return <li key={sl} className={'aplogo' + (logo ? ' has-logo' : '')}>{logo ? <img src={'images/presse/' + sl + '.png'} alt={m} loading="lazy" /> : <span>{m}</span>}</li>;
+            })}
+          </ul>
           <div className="apfilters" role="group" aria-label="Filtrer par projet">
             {dispositifs.map(d => (
               <button key={d} type="button" className={'apfilter' + (filtre === d ? ' is-on' : '')} aria-pressed={filtre === d} onClick={() => setFiltre(d)}>{d}</button>
@@ -583,7 +591,7 @@ function ActualitesPage() {
         <div className="wrap apkit">
           <div>
             <h2 className="isec__h" id="actu-kit">Espace <em>presse</em></h2>
-            <p className="isec__lede">Demandes d'interview, visuels, chiffres : écrivez à <a href="mailto:contact@grandfestin.com">contact@grandfestin.com</a>. Nos rapports d'activité sont sur la <a href="#/impact">page Impact</a>.</p>
+            <p className="isec__lede">Demandes d'interview, visuels, chiffres : écrivez à <a href="mailto:contact@grandfestin.com">contact@grandfestin.com</a>. Retrouvez nos rapports d'activité sur la <a href="#/impact">page Impact</a>.</p>
             <div className="apkit__logos">
               <a className="btnb btnb--teal" href="images/logo-festin.png" download>Logo Festin, couleur</a>
               <a className="lnk" href="images/logo-festin-jaune.png" download>Logo Festin, jaune</a>

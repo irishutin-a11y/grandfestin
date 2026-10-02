@@ -409,3 +409,21 @@ main > div > section:last-of-type:has(.g-appel){border-top:0!important}
 .pj-lieu__act{margin-top:auto;padding-top:var(--sp-3);display:flex;flex-direction:column;align-items:flex-start;gap:2px}
 @media (max-width:1100px){ .pj-lieux__grid{grid-template-columns:repeat(2,minmax(0,1fr))} }
 @media (max-width:600px){ .pj-lieux__grid{grid-template-columns:1fr} }
+/* Compteurs : le chiffre s'adapte à la largeur de sa carte (retours du 02/10/2026, « 400 000 » débordait) */
+.g-compteur{container-type:inline-size;overflow:hidden;min-width:0}
+.g-compteur__n{font-size:min(var(--fs-stat),19cqi)}
+.g-compteurs{position:relative;z-index:0;clear:both}
+/* Insertion : survol or sur les cartes de parcours, galerie automatique (retours du 02/10/2026) */
+.or-card{transition:transform var(--dur-2) var(--ease-quart),box-shadow var(--dur-2) var(--ease-quart),border-color var(--dur-2) var(--ease-quart)}
+.or-card:hover,.or-card:focus-within{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 0 0 3px var(--gold),0 18px 40px rgba(13,43,48,.14)}
+.g-galauto{position:relative;aspect-ratio:4/5;overflow:hidden}
+.g-galauto__it{position:absolute;inset:0;opacity:0;transition:opacity 1s var(--ease-out)}
+.g-galauto__it.is-on{opacity:1}
+.g-galauto__it picture,.g-galauto__it img{display:block;width:100%;height:100%;object-fit:cover}
+.g-galauto__p{position:absolute;right:14px;bottom:14px;z-index:2;min-height:36px;padding:6px 14px;border:0;border-radius:999px;background:rgba(255,255,255,.92);color:var(--ink);font:inherit;font-size:13px;font-weight:700;cursor:pointer}
+.g-galauto__dots{position:absolute;left:16px;bottom:24px;z-index:2;display:flex;gap:6px}
+.g-galauto__dots i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.5)}
+.g-galauto__dots i.is-on{background:var(--gold)}
+@media (prefers-reduced-motion:reduce){ .or-card,.g-galauto__it{transition:none} .or-card:hover{transform:none} }
+.g-carte{margin:var(--sp-7) 0 var(--sp-6);max-width:860px;border-radius:22px;overflow:hidden;box-shadow:var(--sh-md)}
+.g-carte img{display:block;width:100%;height:auto}

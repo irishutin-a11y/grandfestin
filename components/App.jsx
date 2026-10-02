@@ -118,13 +118,20 @@ function App() {
 // espace insécable avant : ; ? ! % » et après «, pour qu'aucun signe ne tombe seul en début de ligne.
 (function () {
   const RX = / ([:;?!%»])/g, RX2 = /« /g;
+  // petits mots attachés au mot suivant : jamais seuls en fin de ligne (retours du 02/10/2026)
+  const PETITS = /(^|[\s\u00a0(«'’])(à|a|au|aux|de|du|des|d’un|d'un|le|la|les|l’|un|une|en|et|ou|dans|par|pour|sur|avec|sans|son|sa|ses|nos|vos|notre|votre|ce|cet|cette|ces|qui|que|où|y|ne|se|il|elle|on|nous|vous|chez|vers|entre|depuis|plus|très|jusqu’à|jusqu'à|près|N°|n°) (?=\S)/gi;
+  // nombres : « 13 antennes », « 600 convives », « 4 mois »
+  const NOMBRE = /(\d) (?=[A-Za-zÀ-ÿ€%])/g;
   const fix = (n) => {
     if (n.nodeType === 3) {
-      const v = n.nodeValue, w = v.replace(RX, '\u00a0$1').replace(RX2, '«\u00a0');
+      const v = n.nodeValue;
+      let w = v.replace(RX, '\u00a0$1').replace(RX2, '«\u00a0').replace(NOMBRE, '$1\u00a0');
+      // deux passes : « à la » puis « la cuisine »
+      w = w.replace(PETITS, '$1$2\u00a0').replace(PETITS, '$1$2\u00a0');
       if (w !== v) n.nodeValue = w;
       return;
     }
-    if (n.nodeType !== 1 || /^(SCRIPT|STYLE|TEXTAREA|INPUT|CODE)$/.test(n.nodeName)) return;
+    if (n.nodeType !== 1 || /^(SCRIPT|STYLE|TEXTAREA|INPUT|CODE|SELECT|OPTION)$/.test(n.nodeName)) return;
     for (let c = n.firstChild; c; c = c.nextSibling) fix(c);
   };
   const start = () => {

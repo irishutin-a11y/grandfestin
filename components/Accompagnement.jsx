@@ -23,6 +23,30 @@ function AccHero({ tone, kicker, title, em, lede, img, imgAlt, crumb, cta, lien 
 // =====================================================================
 // APPRENDRE UN MÉTIER (personnes qui cherchent un métier)
 // =====================================================================
+// Galerie automatique (retours du 02/10/2026) : fondu toutes les 4 s, bouton pause,
+// arrêtée en mouvement réduit (première image seule).
+function GalerieAuto({ images }) {
+  const [i, setI] = React.useState(0);
+  const [pause, setPause] = React.useState(false);
+  const rm = window.FESTIN_RM && window.FESTIN_RM();
+  React.useEffect(() => {
+    if (pause || rm) return;
+    const t = setInterval(() => setI((x) => (x + 1) % images.length), 4000);
+    return () => clearInterval(t);
+  }, [pause, rm, images.length]);
+  return (
+    <figure className="g-photo g-galauto g-reveal" aria-roledescription="carrousel" aria-label="Photos de nos formations">
+      {images.map((im, k) => (
+        <div key={im.src} className={'g-galauto__it' + (k === i ? ' is-on' : '')} aria-hidden={k !== i}>
+          <window.Picture src={im.src} alt={im.alt} sizes="(max-width: 900px) 100vw, 44vw" />
+        </div>
+      ))}
+      {!rm && <button type="button" className="g-galauto__p" onClick={() => setPause(!pause)} aria-pressed={pause}>{pause ? '▶ Lecture' : '❚❚ Pause'}</button>}
+      <span className="g-galauto__dots" aria-hidden="true">{images.map((im, k) => <i key={im.src} className={k === i ? 'is-on' : ''} />)}</span>
+    </figure>
+  );
+}
+
 function AccompagnementInsertionPage() {
   const root = useRef(null);
   window.useGReveal(root);
@@ -51,8 +75,8 @@ function AccompagnementInsertionPage() {
     <div className="gpage acc" ref={root} data-screen-label="Accompagnement — Insertion">
       <AccHero tone="gold" crumb="Insertion" kicker="Vous cherchez un métier"
         title="Apprendre un métier de cuisine," em="gratuitement."
-        lede="Vous préparez un diplôme reconnu, vous faites vos stages en restaurant, et une personne de l'équipe vous suit jusqu'à l'emploi."
-        img="images/photo-tabliers-violets.jpg" imgAlt="Des apprenties de Des Étoiles et des Femmes en cuisine"
+        lede="Vous préparez un diplôme reconnu, vous faites vos stages en restaurant et une personne de l'équipe vous suit jusqu'à l'emploi."
+        img="images/photo-tabliers-violets.jpg" imgAlt="Des apprenties du dispositif Des Étoiles et des Femmes en cuisine"
         cta={{ label: 'Vérifier mon éligibilité', href: '#/contact' }} lien={{ label: 'Quel parcours, pour qui ?', to: 'parcours-choix' }} />
 
       {/* LES PARCOURS — une seule section pour tous les publics (retours du 30/09/2026) :
@@ -61,7 +85,7 @@ function AccompagnementInsertionPage() {
       <section className="g-sec g-sec--white" id="parcours-choix" aria-labelledby="ins-par-t">
         <div className="wrap">
           <window.GHead id="ins-par-t" split title="Quel parcours," accent="pour qui ?"
-            lede="Vous cherchez pour vous-même, ou vous accompagnez quelqu'un : voici à qui s'adresse chaque parcours, et comment y entrer." />
+            lede="Vous cherchez pour vous-même, ou vous accompagnez quelqu'un : voici à qui s'adresse chaque parcours et comment y entrer." />
           <ul className="or-cards">
             {D.orienter.map((o) => {
               const p = D.projets.find((x) => x.id === o.id) || {};
@@ -88,21 +112,27 @@ function AccompagnementInsertionPage() {
               );
             })}
           </ul>
-          <p className="g-src">Les Beaux Mets, le restaurant de la prison des Baumettes, ne reçoit pas de candidatures : on y réserve une table, et les restaurants peuvent y recruter un ancien commis. <a href="#/projets/les-beaux-mets">Découvrir Les Beaux Mets →</a></p>
+          <p className="g-src">Les Beaux Mets, le restaurant de la prison des Baumettes, ne reçoit pas de candidatures : on y réserve une table et les restaurants peuvent y recruter un ancien commis. <a href="#/projets/les-beaux-mets">Découvrir Les Beaux Mets →</a></p>
         </div>
       </section>
 
       <section className="g-sec g-sec--cream" aria-labelledby="ins-bref-t">
         <div className="wrap g-bref">
           <div className="g-bref__txt">
-            <h2 className="g-h2 g-reveal" id="ins-bref-t">Un diplôme, et quelqu'un <em>à vos côtés.</em></h2>
+            <h2 className="g-h2 g-reveal" id="ins-bref-t">Un diplôme et quelqu'un <em>à vos côtés.</em></h2>
             <p className="g-lede g-reveal">Chaque parcours prépare un diplôme reconnu et comprend des stages en restaurant. Pendant toute la formation, une personne de l'équipe vous aide pour ce qui peut vous empêcher d'avancer : transport, garde d'enfants, logement, cours de français.</p>
             <window.Preuves lignes={[
-              'Tous nos parcours sont <b>gratuits</b>. Selon votre situation, vous pouvez percevoir une indemnité ou une rémunération.',
+              'Tous nos parcours sont <b>gratuits</b>*. Selon votre situation, vous pouvez percevoir une indemnité ou une rémunération.',
               'En 2025, <b>83 %</b> des personnes que nous avons accompagnées sont sorties en emploi ou en formation.',
-            ]} source="Source : rapport d'activité Festin 2025, tous projets confondus." />
+            ]} source="* La formation est prise en charge par France Travail et nos partenaires publics. Source : rapport d'activité Festin 2025, tous projets confondus." />
           </div>
-          <figure className="g-photo g-reveal"><window.Picture src="images/photo-apprenante-plats.jpg" alt="Une apprentie présente ses assiettes en fin de service" sizes="(max-width: 900px) 100vw, 44vw" /></figure>
+          <GalerieAuto images={[
+            { src: 'images/photo-apprenante-plats.jpg', alt: 'Une apprentie présente ses assiettes en fin de service' },
+            { src: 'images/photo-cuisine-formation.jpg', alt: 'Séance de formation en cuisine' },
+            { src: 'images/photo-applaudissements.jpg', alt: 'Une promotion applaudit en fin de formation' },
+            { src: 'images/photo-tabliers-violets.jpg', alt: 'Des apprenties du dispositif Des Étoiles et des Femmes en tablier' },
+            { src: 'images/photo-patisserie.jpg', alt: 'Atelier pâtisserie pendant la formation' },
+          ]} />
         </div>
       </section>
 
@@ -199,7 +229,7 @@ function AccompagnementProsPage() {
         <div className="wrap ar-split">
           <div className="ar-split__head">
             <h2 className="ar-h2" id="pros-rec-t">Recruter <em>une personne formée.</em></h2>
-            <p className="ar-split__p">Trois possibilités, au choix.</p>
+            <p className="ar-split__p">Trois possibilités.</p>
           </div>
           <window.LignesTypees id="pros-rec" items={[
             { tone: 'teal', title: 'Accueillir un stagiaire',
@@ -207,11 +237,11 @@ function AccompagnementProsPage() {
               tags: [['Moment', 'Pendant sa formation'], ['Festin', 'En appui tout le stage']],
               link: { label: 'Proposer un stage', href: '#/contact' } },
             { tone: 'gold', title: "Le Book de l'emploi",
-              text: 'Les personnes diplômées de nos parcours qui cherchent un poste.',
-              tags: [['Envoi', 'Sous 48 h ouvrées'], ['Format', 'Sur demande']],
+              text: 'Des commis diplômés de nos parcours, prêts à prendre leur poste.',
+              tags: [['Envoi', 'Sous 48 h ouvrées']],
               link: { label: 'Recevoir le Book', href: '#/contact' } },
             { tone: 'coral', title: "La préparation opérationnelle à l'emploi (POEI)",
-              text: 'La personne se forme dans votre cuisine avant son embauche. Festin fait les démarches avec vous.',
+              text: 'La personne se forme dans votre cuisine avant son embauche. Festin vous accompagne pour finaliser les démarches administratives.',
               tags: [['Financement', 'France Travail'], ['Contrat', 'CDD de 4 mois minimum']],
               etapes: [
                 ['Rencontrer', "Nous présentons des candidats. Des journées d'immersion valident le profil."],

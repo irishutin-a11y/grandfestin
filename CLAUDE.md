@@ -76,6 +76,15 @@ Tics à rationner (une fois par page au plus, jamais en titre, toujours suivis d
 - **« La Table de Cana Marseille »** comme nom court. Demandes par le formulaire Contact, motif présélectionné par l'adresse : `#/contact/devis-traiteur` (La Table de Cana Marseille), `#/contact/privatisation` (Les Beaux Mets).
 - Impact : « Prix et labels » sans les marchés (Greta, délégations de service public retirés de la frise ; ils restent dans le résumé du rapport 2024).
 
+## Retours du 02/10/2026 — tranché
+- **« du dispositif Des Étoiles et des Femmes »**, jamais « de Des Étoiles et des Femmes ». **Pas de virgule avant « et »** (hors témoignages, mot pour mot).
+- Typographie automatique (App.jsx) : espaces insécables après les petits mots (à, de, le, dans, au…) et entre un nombre et son unité, pour éviter les mots orphelins en fin de ligne.
+- Accueil : titre « Le goût d'avancer ensemble » en grand, centré ; « Former les personnes, faire avancer les cuisines. » en sous-titre ; deux portes d'entrée colorées : **teal = insertion, or = professionnels** (code couleur à garder partout).
+- Qui sommes-nous : titre « Près de 40 ans d'insertion par la cuisine. » ; frise propre à cette page (`about.jalons`, `type: projet|reco`) : créations en cartes teal, reconnaissances en étiquettes or.
+- Impact : titre « Mesurer ce qui change, année après année. » ; « Quatre ans d'impact mesuré » ; « Nos reconnaissances ».
+- Presse : mur des médias (`FESTIN_DATA.presseLogos`, fichiers `images/presse/<slug>.png` ; sans fichier, le nom s'affiche).
+- Gratuité des parcours : astérisque « prise en charge par France Travail et nos partenaires publics ».
+
 ## Faits tranchés
 - Chiffres 2025 : **441 personnes accompagnées, 83 % de sorties en emploi ou formation, 14 territoires**. Référence : `ressources/documents/rapport-activite-2025/rapport-activite-2025_v441-83_REFERENCE.pdf`. La version 453 / 72 % est une ancienne version ; les documents qui la citent (deck financeurs, kit de communication) sont à mettre à jour.
 - **Association fondée en 1987** (arbitré le 23/09/2026, source LinkedIn officiel). La formule « plus de trente ans » est donc à remplacer par « depuis 1987 » ou « près de quarante ans ».

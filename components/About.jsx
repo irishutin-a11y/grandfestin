@@ -20,8 +20,8 @@ const HERO_IMG = 'images/photo-promo-groupe.jpg';
 function AboutHero() {
   // Même hero que toutes les pages intérieures (Sections.jsx, HeroPage). Sans sous-titre (retour PIT).
   return (
-    <window.HeroPage tone="deep" kicker="Festin" title="Former, inclure," accent="transformer."
-      img={HERO_IMG} imgAlt="Une promotion de Des Étoiles et des Femmes réunie en tenue de cuisine"
+    <window.HeroPage tone="deep" kicker="Festin" title="Près de 40 ans" accent="d'insertion par la cuisine."
+      img={HERO_IMG} imgAlt="Une promotion du dispositif Des Étoiles et des Femmes réunie en tenue de cuisine"
       crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Qui sommes-nous' }]}>
         <div className="g-herocta"><a className="btnb btnb--gold" href="#/contact">Nous écrire <span className="arrow" aria-hidden="true">→</span></a></div>
       </window.HeroPage>
@@ -35,7 +35,7 @@ function CeQuOnEst() {
       <div className="container ab-split">
         <div className="ab-split__txt ab-reveal">
           <Title em="un métier" after={null}>
-            Des cuisines où l'on <span className="ab-thumb"><img src={src('images/photo-cuisine-action.jpg')} alt="" loading="lazy" /></span> apprend
+            Des cuisines où l'on apprend
           </Title>
           <p className="ab-body">Festin naît à Marseille en 1987. Son premier projet, La Table de Cana, ouvre en 1993 : un traiteur où des salariés en insertion apprennent la cuisine en travaillant. Festin porte aujourd'hui cinq projets, qui servent trois missions : former, accompagner jusqu'à l'emploi, changer les cuisines.</p>
           <window.Preuves lignes={["En 2025, nous avons accompagné <b>441 personnes</b> dans <b>14 territoires</b> ; <b>83 %</b> sont sorties en emploi ou en formation."]}
@@ -119,8 +119,45 @@ function JalonsCouleur({ jalons, title, em, lede, word = 'HISTOIRE', label, id }
 window.JalonsCouleur = JalonsCouleur;
 
 function Histoire() {
-  return <JalonsCouleur jalons={window.FESTIN_DATA.about.jalons} title="L'insertion par la cuisine depuis" em="1987."
-    label="Les dates de Festin, de 1987 à 2026" />;
+  // Frise propre à Qui sommes-nous (retours du 02/10/2026) : une ligne par année,
+  // les créations de projet en grandes cartes, les reconnaissances en étiquettes or.
+  const J = window.FESTIN_DATA.about.jalons;
+  const ans = [...new Set(J.map((j) => j.year))];
+  return (
+    <section className="g-sec g-sec--white ab-fr" aria-labelledby="ab-fr-t">
+      <div className="wrap">
+        <window.GHead id="ab-fr-t" split title="L'insertion par la cuisine" accent="depuis 1987."
+          lede="Les projets que Festin a créés, et les reconnaissances reçues en chemin." />
+        <ul className="ab-fr__leg" aria-hidden="true"><li className="is-p">Création</li><li className="is-r">Reconnaissance</li></ul>
+        <ol className="ab-fr__list">
+          {ans.map((y) => {
+            const items = J.filter((j) => j.year === y);
+            return (
+              <li className="ab-fr__an g-reveal" key={y}>
+                <span className="ab-fr__y">{y}</span>
+                <div className="ab-fr__items">
+                  {items.filter((j) => j.type === 'projet').map((j) => {
+                    const In = (
+                      <>
+                        {j.photo && <span className="ab-fr__img"><window.Picture src={j.photo} alt="" sizes="160px" /></span>}
+                        <span className="ab-fr__b"><span className="ab-fr__k">{j.label || "Création"}</span><b>{j.title}</b><span>{j.desc}</span></span>
+                      </>
+                    );
+                    return j.href
+                      ? <a key={j.title} className="ab-fr__p" href={j.href}>{In}<span className="ab-fr__go" aria-hidden="true">→</span></a>
+                      : <div key={j.title} className="ab-fr__p">{In}</div>;
+                  })}
+                  {items.filter((j) => j.type === 'reco').map((j) => (
+                    <div key={j.title} className="ab-fr__r"><span className="ab-fr__k">Reconnaissance</span><b>{j.title}</b><span>{j.desc}</span></div>
+                  ))}
+                </div>
+              </li>
+            );
+          })}
+        </ol>
+      </div>
+    </section>
+  );
 }
 
 // ---------- 4. ÉQUIPE — carrousel draggable groupé par pôle ----------

@@ -54,6 +54,7 @@ function Contact() {
     { value: 'Orienter une personne', label: 'Orienter une personne', icon: 'hand-coins' },
     { value: 'Devis traiteur, La Table de Cana Marseille', label: 'Devis traiteur', icon: 'soup', slug: 'devis-traiteur' },
     { value: 'Privatiser Les Beaux Mets', label: 'Privatiser Les Beaux Mets', icon: 'utensils', slug: 'privatisation' },
+    { value: 'Autre', label: 'Autre', icon: 'message-circle' },
   ];
   // motif présélectionné par l'adresse : #/contact/devis-traiteur, #/contact/privatisation
   const slug = (window.location.hash.split('/')[2] || '');

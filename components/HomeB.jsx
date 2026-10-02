@@ -91,16 +91,22 @@ function HomeB() {
         <div className="wrap ac-hero__grid">
           <div className="ac-hero__txt">
             <span className="kicker ac-hero__kicker">{H.hero.kicker}</span>
+            {/* retours du 02/10/2026 : la signature en grand, la mission en sous-titre,
+                deux portes d'entrée colorées (teal = insertion, or = professionnels) */}
             <h1 className="ac-hero__t">
-              <span className="ln"><span>{H.hero.title}</span></span>
-              <span className="ln"><span><em>{H.hero.titleAccent}</em></span></span>
+              <span className="ln"><span>Le goût d'avancer</span></span>
+              <span className="ln"><span><em>ensemble.</em></span></span>
             </h1>
-            <p className="ac-hero__sig">{H.hero.signature}</p>
-            {H.hero.lede && <p className="ac-hero__lede">{H.hero.lede}</p>}
-            {/* les deux publics dès le premier écran */}
-            <div className="ac-hero__cta">
-              <a className="btnb btnb--light" href={H.hero.ctaPrimary.href}>{H.hero.ctaPrimary.label} <span className="arrow" aria-hidden="true">→</span></a>
-              <a className="btnb btnb--gold" href={H.hero.ctaSecondary.href}>{H.hero.ctaSecondary.label} <span className="arrow" aria-hidden="true">→</span></a>
+            <p className="ac-hero__sig">{H.hero.title} {H.hero.titleAccent}</p>
+            <div className="ac-hero__cta ac-portes2">
+              <a className="ac-porte2 ac-porte2--ins" href={H.hero.ctaPrimary.href}>
+                <span className="ac-porte2__k">Vous accompagnez une personne</span>
+                <span className="ac-porte2__l">{H.hero.ctaPrimary.label} <span className="arrow" aria-hidden="true">→</span></span>
+              </a>
+              <a className="ac-porte2 ac-porte2--pro" href={H.hero.ctaSecondary.href}>
+                <span className="ac-porte2__k">Vous dirigez une cuisine</span>
+                <span className="ac-porte2__l">{H.hero.ctaSecondary.label} <span className="arrow" aria-hidden="true">→</span></span>
+              </a>
             </div>
             {H.hero.soutien && <p className="ac-hero__soutien">{H.hero.soutien.text} <a href={H.hero.soutien.href}>{H.hero.soutien.label} <span className="arrow" aria-hidden="true">→</span></a></p>}
           </div>
@@ -235,6 +241,8 @@ function HomeB() {
   );
 }
 
+// « Le site des Beaux Mets », « Le site de Restaure » (retours du 02/10/2026)
+const siteDe = (n) => ({ 'Les Beaux Mets': 'Le site des Beaux Mets', 'Le programme Restaure': 'Le site de Restaure', 'Des Étoiles et des Femmes': 'Le site du dispositif Des Étoiles et des Femmes', 'Académie Festin': "Le site de l'Académie Festin" })[n] || 'Le site de ' + n;
 // Trois missions, six projets : la liste partagée par l'accueil et la page « Nos projets »
 function MissionsListe() {
   const D = window.FESTIN_DATA;
@@ -328,7 +336,7 @@ function ProjetsIndexPage() {
                       <span className="pj-card__go">Découvrir <span className="arrow" aria-hidden="true">→</span></span>
                     </span>
                   </a>
-                  {p.siteUrl && <a className="pj-card__site" href={p.siteUrl} target="_blank" rel="noopener noreferrer">Le site de {c.name || p.shortTitle} <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (nouvel onglet)</span></a>}
+                  {p.siteUrl && <a className="pj-card__site" href={p.siteUrl} target="_blank" rel="noopener noreferrer">{siteDe(c.name || p.shortTitle)} <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (nouvel onglet)</span></a>}
                 </li>
               );
             })}
@@ -338,7 +346,7 @@ function ProjetsIndexPage() {
       {/* NOS LIEUX — la même offre, rangée par lieu (retours du 01/10/2026) */}
       <section className="g-sec g-sec--cream pj-lieux" id="lieux" aria-labelledby="pj-lieux-t">
         <div className="wrap">
-          <window.GHead id="pj-lieux-t" split title="Nos" accent="lieux." lede="De Marseille aux 13 villes de Des Étoiles et des Femmes." />
+          <window.GHead id="pj-lieux-t" split title="Nos" accent="lieux." lede="De Marseille aux 13 villes du dispositif Des Étoiles et des Femmes." />
           <ul className="pj-lieux__grid">
             {(D.lieux || []).map((l) => (
               <li key={l.key} className={'pj-lieu g-reveal' + (l.futur ? ' pj-lieu--futur' : '')}>
