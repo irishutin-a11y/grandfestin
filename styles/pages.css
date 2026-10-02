@@ -341,9 +341,8 @@
 @media(max-width:600px){.imp-rapports{grid-template-columns:1fr}.imp-rapport{min-height:0}
   .imp-prix::before{left:11px}.imp-prix__an{grid-template-columns:1fr;gap:var(--sp-3);padding-left:var(--sp-7)}.imp-prix__an::after{left:4px}.imp-prix__an ul{padding-left:0}}
 @media(prefers-reduced-motion:reduce){.imp-projet,.imp-rapport{transition:none}.imp-projet:hover,.imp-rapport:hover{transform:none}}
-/* Mur des médias (retours du 02/10/2026) */
-.aplogos{list-style:none;margin:var(--sp-6) 0 var(--sp-7);padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:var(--sp-3)}
-.aplogo{display:grid;place-items:center;min-height:76px;padding:12px 16px;border-radius:14px;background:var(--cream);text-align:center}
-.aplogo img{max-width:100%;max-height:44px;object-fit:contain;filter:grayscale(1);opacity:.85;transition:filter var(--dur-2),opacity var(--dur-2)}
-.aplogo:hover img{filter:none;opacity:1}
-.aplogo span{font-size:var(--fs-small);font-weight:700;letter-spacing:.02em;color:var(--ink-mid);line-height:1.25}
+/* Logo du média dans chaque ligne d'article (retours du 02/10/2026) ; sans fichier, le nom dans le cadre */
+.apitem{align-items:center}
+.apitem__logo{display:grid;place-items:center;width:150px;height:64px;margin-bottom:var(--sp-2);padding:10px 14px;border-radius:12px;background:var(--cream);text-align:center}
+.apitem__logo img{max-width:100%;max-height:40px;object-fit:contain}
+.apitem__logo b{font-size:var(--fs-small);line-height:1.2;color:var(--ink)}

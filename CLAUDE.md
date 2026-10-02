@@ -82,7 +82,7 @@ Tics à rationner (une fois par page au plus, jamais en titre, toujours suivis d
 - Accueil : titre « Le goût d'avancer ensemble » en grand, centré ; « Former les personnes, faire avancer les cuisines. » en sous-titre ; deux portes d'entrée colorées : **teal = insertion, or = professionnels** (code couleur à garder partout).
 - Qui sommes-nous : titre « Près de 40 ans d'insertion par la cuisine. » ; frise propre à cette page (`about.jalons`, `type: projet|reco`) : créations en cartes teal, reconnaissances en étiquettes or.
 - Impact : titre « Mesurer ce qui change, année après année. » ; « Quatre ans d'impact mesuré » ; « Nos reconnaissances ».
-- Presse : mur des médias (`FESTIN_DATA.presseLogos`, fichiers `images/presse/<slug>.png` ; sans fichier, le nom s'affiche).
+- Presse : logo du média dans chaque ligne d’article (`FESTIN_DATA.presseLogos`, fichiers `images/presse/<slug>.png` ; sans fichier, le nom dans le cadre). Pas de mur de logos séparé.
 - Gratuité des parcours : astérisque « prise en charge par France Travail et nos partenaires publics ».
 
 ## Faits tranchés

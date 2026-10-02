@@ -553,14 +553,6 @@ function ActualitesPage() {
       <section className="isec isec--white" aria-labelledby="actu-presse">
         <div className="wrap">
           <h2 className="isec__h" id="actu-presse">Dans <em>la presse</em></h2>
-          {/* mur des médias (retours du 02/10/2026) : logo si fourni dans images/presse/<slug>.png, sinon le nom */}
-          <ul className="aplogos" aria-label="Les médias qui ont parlé de Festin">
-            {[...new Map(allPresse.map((a) => [a.source.split(' : ')[0].toLowerCase(), a.source.split(' : ')[0]])).values()].map((m) => {
-              const sl = m.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-              const logo = (D.presseLogos || []).includes(sl);
-              return <li key={sl} className={'aplogo' + (logo ? ' has-logo' : '')}>{logo ? <img src={'images/presse/' + sl + '.png'} alt={m} loading="lazy" /> : <span>{m}</span>}</li>;
-            })}
-          </ul>
           <div className="apfilters" role="group" aria-label="Filtrer par projet">
             {dispositifs.map(d => (
               <button key={d} type="button" className={'apfilter' + (filtre === d ? ' is-on' : '')} aria-pressed={filtre === d} onClick={() => setFiltre(d)}>{d}</button>
@@ -571,7 +563,7 @@ function ActualitesPage() {
             {filtered.slice(0, vus).map((a, i) => (
               <li key={a.href || i}>
                 <a className="apitem" href={a.href} target="_blank" rel="noopener noreferrer">
-                  <span className="apitem__meta"><span className="apitem__src">{a.source}</span>{a.date && <span>{fmtDatePresse(a.date)}</span>}{a.type && <span>{a.type}</span>}</span>
+                  <span className="apitem__meta"><span className="apitem__logo">{(() => { const m = a.source.split(' : ')[0]; const sl = m.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''); return (D.presseLogos || []).includes(sl) ? <img src={'images/presse/' + sl + '.png'} alt={m} loading="lazy" /> : <b>{m}</b>; })()}</span>{a.source.includes(' : ') && <span className="apitem__src">{a.source.split(' : ')[1]}</span>}{a.date && <span>{fmtDatePresse(a.date)}</span>}{a.type && <span>{a.type}</span>}</span>
                   <span className="apitem__t">{a.title}<span className="sr-only"> (s'ouvre dans un nouvel onglet)</span></span>
                   <span className="apitem__proj">{a.dispositif} <span className="arrow" aria-hidden="true">↗</span></span>
                 </a>
