@@ -305,9 +305,9 @@ function Appel({ id = 'appel', title, accent, text, cta, quote, tone = 'gold' })
 }
 
 // Cartes claires numérotées (remplacent les aplats colorés en série)
-function Cartes({ items = [] }) {
+function Cartes({ items = [], className = '' }) {
   return (
-    <ol className="g-cards">
+    <ol className={'g-cards' + (className ? ' ' + className : '')}>
       {items.map((c, i) => (
         <li className="g-card g-reveal" key={c.title} style={{ '--c': c.color || 'var(--teal)', transitionDelay: (i * 70) + 'ms' }}>
           <span className="g-card__n" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>

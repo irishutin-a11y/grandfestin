@@ -464,3 +464,10 @@ main > div > section:last-of-type:has(.g-appel){border-top:0!important}
 .formation-card__tags li{color:var(--ink)}
 .or-card__tags{gap:10px 22px}
 .or-card__tags li{color:var(--ink)}
+
+/* Qui sommes-nous, « Un projet social » : trois cartes puis deux, sur six colonnes (retour du 05/10/2026) */
+@media (min-width:900px){
+  .g-cards--3-2{grid-template-columns:repeat(6,minmax(0,1fr))}
+  .g-cards--3-2 > li{grid-column:span 2}
+  .g-cards--3-2 > li:nth-child(n+4){grid-column:span 3}
+}

@@ -57,10 +57,12 @@ function ProjetSocial() {
       <div className="wrap">
         <window.GHead id="social-t" split title="Un projet social," accent="à but non lucratif."
           lede="Le restaurant, le traiteur, les formations : toutes nos activités sont des supports d'insertion, menées dans l'intérêt général." />
-        <window.Cartes items={[
+        {/* Excellence et Collectif rejoignent cette section (retour du 05/10/2026) : trois cartes, puis deux */}
+        <window.Cartes className="g-cards--3-2" items={[
           { color: 'var(--teal)', title: "Des supports d'insertion", desc: "Chaque activité existe pour former des personnes et les mener jusqu'à l'emploi." },
           { color: 'var(--gold-ink)', title: 'Portées par une association', desc: "Tout est porté par une association loi 1901, d'intérêt général, agréée ESUS." },
           { color: 'var(--coral-ink)', title: "Au service de l'insertion", desc: "Les bénéfices servent à l'insertion des personnes que nous accompagnons." },
+          ...window.FESTIN_DATA.about.valeurs.map((v, i) => ({ color: ['var(--violet-ink)', 'var(--teal-dark)'][i % 2], title: v.title, desc: v.desc })),
         ]} />
       </div>
     </section>
@@ -246,26 +248,6 @@ function Equipe() {
 }
 
 // ---------- 5. VALEURS — cartes claires numérotées ----------
-function Valeurs() {
-  const valeurs = window.FESTIN_DATA.about.valeurs;
-  const couleurs = ['var(--gold-ink)', 'var(--coral-ink)', 'var(--violet-ink)'];
-  return (
-    <section className="g-sec g-sec--white" aria-labelledby="valeurs-t">
-      <div className="container">
-        <window.GHead id="valeurs-t" title="Ce qui guide" accent="nos choix." />
-        <ol className="ab-valeurs">
-          {valeurs.map((v, i) => (
-            <li className="ab-valeurs__i g-reveal" key={v.title} style={{ '--vc': couleurs[i % 3] }}>
-              <span className="ab-valeurs__n" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
-              <h3 className="ab-valeurs__t">{v.title}</h3>
-              <p>{v.desc}</p>
-            </li>
-          ))}
-        </ol>
-      </div>
-    </section>
-  );
-}
 
 // ---------- 6. PARTENAIRES — une grille fixe : 7 logos n'ont pas besoin de défiler ----------
 const ABOUT_LOGOS = window.FESTIN_DATA.about.partenaires;
@@ -387,7 +369,6 @@ function AboutPage() {
       <ProjetSocial />
       <Histoire />
       <Equipe />
-      <Valeurs />
       <EditoPartenaires />
     </div>
   );
