@@ -1,6 +1,6 @@
 # Audit par cible, avant finition (05/10/2026)
 
-État audité : `main` = `maquette-pros` au commit `15c7bc5`, servi en local (port 4500). Aucun fichier du site modifié. Production : ce rapport et les captures `captures/<page>-360.jpg` et `captures/<page>-1440.jpg` (18 pages ; les anciennes captures du même nom sont remplacées).
+État audité : `main` = `maquette-pros` au commit `15c7bc5`, servi en local (port 4500). Aucun fichier du site modifié. Production : ce rapport et les captures `captures/<page>-360.jpg` et `captures/<page>-1440.jpg` (17 pages ; les anciennes captures du même nom sont remplacées).
 Mesures par le DOM (Playwright) : tailles rendues, mots, liens, débordements à 360, 768, 1024, 1440 et 1920 px, axe-core WCAG 2.1 AA à 360 et 1440 px, poids des images.
 
 ---
