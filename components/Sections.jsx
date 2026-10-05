@@ -46,17 +46,17 @@ function Contact() {
   // qui écrit : l'équipe sait tout de suite à qui transmettre (retours du 30/09/2026)
   const profils = ["Je suis prescripteur (conseiller, travailleur social)", 'Je suis un professionnel de la restauration', 'Je suis partenaire ou financeur', 'Je cherche une formation ou un emploi', 'Je suis journaliste', 'Autre'];
   const motifs = [
-    { value: 'Former mes équipes', label: 'Former mes équipes', icon: 'shield-check' },
-    { value: 'Recruter ou accueillir un stagiaire', label: 'Recruter, accueillir un stagiaire', icon: 'handshake' },
-    { value: 'Se former', label: 'Se former', icon: 'graduation-cap' },
-    { value: 'Mécénat ou partenariat', label: 'Mécénat ou partenariat', icon: 'users', to: 'partenariat@grandfestin.com' },
-    { value: 'Presse', label: 'Presse', icon: 'newspaper' },
-    { value: 'Orienter une personne', label: 'Orienter une personne', icon: 'hand-coins' },
+    { value: 'Former mes équipes', label: 'Former mes équipes', icon: 'shield-check', slug: 'former' },
+    { value: 'Recruter ou accueillir un stagiaire', label: 'Recruter, accueillir un stagiaire', icon: 'handshake', slug: 'recruter' },
+    { value: 'Se former', label: 'Se former', icon: 'graduation-cap', slug: 'se-former' },
+    { value: 'Mécénat ou partenariat', label: 'Mécénat ou partenariat', icon: 'users', to: 'partenariat@grandfestin.com', slug: 'partenariat' },
+    { value: 'Presse', label: 'Presse', icon: 'newspaper', slug: 'presse' },
+    { value: 'Orienter une personne', label: 'Orienter une personne', icon: 'hand-coins', slug: 'orienter' },
     { value: 'Devis traiteur, La Table de Cana Marseille', label: 'Devis traiteur', icon: 'soup', slug: 'devis-traiteur' },
     { value: 'Privatiser Les Beaux Mets', label: 'Privatiser Les Beaux Mets', icon: 'utensils', slug: 'privatisation' },
     { value: 'Autre', label: 'Autre', icon: 'message-circle' },
   ];
-  // motif présélectionné par l'adresse : #/contact/devis-traiteur, #/contact/privatisation
+  // motif présélectionné par l'adresse : #/contact/<slug> (devis-traiteur, privatisation, former, recruter, se-former, partenariat, presse, orienter)
   const slug = (window.location.hash.split('/')[2] || '');
   const iDefaut = Math.max(0, motifs.findIndex((m) => m.slug && m.slug === slug));
   const onSubmit = (e) => {

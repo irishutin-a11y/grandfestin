@@ -24,7 +24,7 @@ function FormationCardLink({ f, wide, noPrice }) {
     <a className={"formation-card" + (wide ? " wide" : "")} href={`#/formations/${f.id}`}>
       <div className="formation-card__img"><img src={f.img} alt={f.title} loading="lazy"/></div>
       <div className="formation-card__body">
-        <span className={"ftag ftag--" + (f.cat === "Professionnels" ? "pro" : "ins")}>{f.cat === "Professionnels" ? "Formation pro" : "Parcours d'insertion"}</span>
+        <span className={"ftag ftag--" + (f.cat === "Professionnels" ? "pro" : "ins")}>{f.cat === "Professionnels" ? "Formation pro" : "Formation diplômante"}</span>
         {f.porteur && <span className="formation-card__porteur">{f.porteur}</span>}
         <h3>{f.title}</h3>
         <p className="formation-card__desc">{f.desc}</p>
@@ -49,13 +49,13 @@ function FormationDetailPage({ id }) {
   return (
     <div data-screen-label={`03 Formation — ${f.title}`}>
       <PageHeader center
-        eyebrow={(f.cat === 'Professionnels' ? 'Formation pro' : "Parcours d'insertion") + (f.porteur ? ' · ' + f.porteur : '')}
+        eyebrow={(f.cat === 'Professionnels' ? 'Formation pro' : 'Formation diplômante') + (f.porteur ? ' · ' + f.porteur : '')}
         title={f.title.split('—')[0].trim()}
         accent={f.title.includes('—') ? '— ' + f.title.split('—')[1].trim() : null}
         subtitle={f.desc}
         breadcrumb={[
           {label:'Accueil',href:'#/'},
-          {label:"L'Académie Festin",href:'#/academie'},
+          f.cat === 'Professionnels' ? {label:'Le programme Restaure',href:'#/projets/restaure'} : {label:"L'Académie Festin",href:'#/academie'},
           {label:f.title}
         ]}
       >
@@ -65,7 +65,7 @@ function FormationDetailPage({ id }) {
           const p = site && window.FESTIN_DATA.projets.find((x) => x.id === site);
           return <div className="g-herocta">{p
             ? <a className="btnb btnb--gold" href={p.siteUrl} target="_blank" rel="noopener noreferrer">Plus d'informations <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (site du projet, nouvel onglet)</span></a>
-            : <a className="btnb btnb--gold" href="#/contact">Plus d'informations <span className="arrow" aria-hidden="true">→</span></a>}</div>;
+            : <a className="btnb btnb--gold" href="#/contact/former">Plus d'informations <span className="arrow" aria-hidden="true">→</span></a>}</div>;
         })()}
       </PageHeader>
       <section style={{padding:'var(--s-8) 0',background:'var(--off-white)'}}>
@@ -127,7 +127,8 @@ function FormationDetailPage({ id }) {
                     <div><div className="detail-meta__lbl">Public</div><div className="detail-meta__v">{f.publicLabel}</div></div>
                   </div>
                 </div>
-                <a href="#/contact" className="btn btn--gold" style={{width:'100%',justifyContent:'center',marginTop:8}}>Demander un devis <i data-lucide="arrow-right" style={{width:16,height:16}}/></a>
+                {/* parcours gratuits : « Nous contacter », jamais « devis » (RETOURS-AUDIT §2.8) */}
+                <a href={f.cat === 'Professionnels' ? '#/contact/former' : '#/contact/se-former'} className="btn btn--gold" style={{width:'100%',justifyContent:'center',marginTop:8}}>{f.cat === 'Professionnels' ? 'Demander un devis' : 'Nous contacter'} <i data-lucide="arrow-right" style={{width:16,height:16}}/></a>
                 <a href="#/formations" className="btn btn--ghost" style={{width:'100%',justifyContent:'center',marginTop:10}}>Voir les autres formations</a>
                 {f.audienceKey === 'pros' && (
                   <a href={window.FESTIN_DATA.catalogPdf} target="_blank" rel="noopener" className="btn btn--catalog" style={{width:'100%',justifyContent:'center',marginTop:10}}>
@@ -428,22 +429,23 @@ function AcademiePage() {
         </div>
       </window.HeroPage>
 
-      <AcaCatalogue tone="white" seulInsertion title="Nos parcours" accent="d'insertion." src="L'Académie Festin est portée par Estello Formation, organisme de formation certifié Qualiopi. Les formations pour les équipes en poste sont proposées par le programme Restaure." />
+      {/* formations pro remises au catalogue, rattachées visiblement à Restaure (RETOURS-AUDIT §2.4) */}
+      <AcaCatalogue tone="white" title="Toutes nos" accent="formations." src="L'Académie Festin est portée par Estello Formation, organisme de formation certifié Qualiopi. Les formations pro pour les équipes en poste sont portées par le programme Restaure." />
 
       <section className="g-sec g-sec--cream" aria-labelledby="aca-bref-t">
         <div className="wrap g-bref">
           <div className="g-bref__txt">
             <span className="g-tag g-reveal"><span className="g-tag__dot" aria-hidden="true" />Un projet de Festin · Former</span>
             <h2 className="g-h2 g-reveal" id="aca-bref-t">Former sur le terrain, <em>avec un diplôme.</em></h2>
-            <p className="g-lede g-reveal">Festin forme sur le terrain depuis 1987. En 2026, elle lance l'Académie Festin, portée par Estello Formation, organisme de formation certifié Qualiopi. Tournesol en est l'un des programmes. Ses parcours tiennent à trois choses : l'exigence de la cuisine, le suivi social des personnes formées, la connaissance du secteur.</p>
+            <p className="g-lede g-reveal">Festin forme sur le terrain depuis 1987. En 2026, elle lance l'Académie Festin, portée par Estello Formation, organisme de formation certifié Qualiopi. Ses parcours tiennent à trois choses : l'exigence de la cuisine, le suivi social des personnes formées, la connaissance du secteur.</p>
             <div className="aca-qualiopi g-reveal">
               <img src={D.brand.qualiopi} alt="Logo Qualiopi" loading="lazy" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
               <span>Certifiée Qualiopi<br /><b>au titre des actions de formation</b></span>
             </div>
           </div>
           <window.Cartes items={[
-            { color: 'var(--gold-ink)', title: 'Des diplômes reconnus', desc: "CAP cuisine (Éducation nationale), titre à finalité professionnelle de commis de cuisine, DCL (diplôme de compétence en langue)." },
-            { color: 'var(--teal)', title: 'Un format par public', desc: 'Des parcours de quatre à onze mois pour apprendre un métier ; des sessions de trois heures à deux jours pour les équipes en poste.' },
+            { color: 'var(--gold-ink)', title: 'Des diplômes reconnus', desc: "Des formations diplômantes en cuisine et, pour Tournesol, un diplôme de français (DCL)." },
+            { color: 'var(--teal)', title: 'Quatre à onze mois', desc: "Le temps d'apprendre un métier, avec un suivi individuel jusqu'à l'emploi. Les formations courtes pour les équipes en poste sont portées par le programme Restaure." },
             { color: 'var(--coral-ink)', title: 'Des stages en restaurant', desc: 'De 155 à 490 heures de stage, chez des partenaires comme Les Grandes Tables, Sofitel ou Les Bords de Mer.' },
           ]} />
         </div>
@@ -463,20 +465,18 @@ function AcademiePage() {
               <li className="aca-besoin__c g-reveal" key={c.n}><b>{c.n}</b><span>{c.l}</span></li>
             ))}
           </ul>
-          <p className="aca-besoin__src">Source : enquête Besoins en main-d'œuvre, France Travail.</p>
+          <p className="aca-besoin__src">Source : enquête Besoins en main-d'œuvre, France Travail, [À COMPLÉTER : année de l'enquête et date du relevé des offres].</p>
         </div>
       </section>
 
       <window.Portes id="aca-portes" title="À chacun" accent="sa formation." tone="white" portes={[
         { tag: 'Vous cherchez un métier', title: 'Un parcours diplômant, gratuit',
-          pts: ['CAP cuisine ou titre de commis de cuisine, avec des stages en restaurant.', 'Un suivi individuel jusqu’à l’emploi.'],
+          pts: ['Une formation diplômante en cuisine, avec des stages en restaurant.', 'Un suivi individuel jusqu’à l’emploi.'],
           cta: 'Voir les parcours', href: '#/accompagnement/insertion', img: 'images/photo-tabliers-violets.jpg' },
         { tag: 'Vous êtes du secteur', title: 'Une formation pour vos équipes',
-          pts: ['Management juste, prévention des violences sexistes et sexuelles.', 'Des formations proposées par le programme Restaure.'],
+          pts: ['Management juste, prévention des violences sexistes et sexuelles.', 'Des formations portées par le programme Restaure.'],
           cta: 'Former et recruter', href: '#/accompagnement/professionnels', img: 'images/photo-cuisine-action.jpg' },
       ]} />
-
-      <window.MissionsNav currentId="academie" />
     </div>
   );
 }
@@ -490,17 +490,18 @@ function AcaCatalogue({ id = 'catalogue', title = 'Toutes nos', accent = 'format
   const [filtre, setFiltre] = React.useState('all');
   const n = (c) => items.filter((f) => f.cat === c).length;
   const vus = filtre === 'all' ? items : items.filter((f) => f.cat === filtre);
-  const choix = [['all', 'Toutes', items.length], ['Insertion', "Parcours d'insertion", n('Insertion')], ['Professionnels', 'Formations pro', n('Professionnels')]];
+  // un filtre vide n'est jamais proposé (RETOURS-AUDIT §2.4)
+  const choix = [['all', 'Toutes', items.length], ['Insertion', 'Formations diplômantes', n('Insertion')], ['Professionnels', 'Formations pro, programme Restaure', n('Professionnels')]].filter(([k, , c]) => k === 'all' || c > 0);
   return (
     <section className={'g-sec g-sec--' + tone} id={id} aria-labelledby={id + '-t'}>
       <div className="wrap">
         <window.GHead id={id + '-t'} split title={title} accent={accent}
-          lede={n('Insertion') + " parcours d'insertion diplômants et " + n('Professionnels') + ' formations pro pour les équipes de la restauration. Chaque fiche donne la durée, le format, le public et le financement.'} />
-        <div className="filters" role="group" aria-label="Filtrer les formations">
+          lede={[n('Insertion') && n('Insertion') + ' formations diplômantes pour apprendre un métier', n('Professionnels') && n('Professionnels') + ' formations pro pour les équipes de la restauration, portées par le programme Restaure'].filter(Boolean).join(' et ') + '. Chaque fiche donne la durée, le format, le public et le financement.'} />
+        {choix.length > 2 && <div className="filters" role="group" aria-label="Filtrer les formations">
           {choix.map(([k, l, c]) => (
             <button key={k} type="button" className={'filter' + (filtre === k ? ' active' : '')} aria-pressed={filtre === k} onClick={() => setFiltre(k)}>{l} ({c})</button>
           ))}
-        </div>
+        </div>}
         <div className="formations__grid">
           {vus.map((f) => <FormationCardLink key={f.id} f={f} />)}
         </div>

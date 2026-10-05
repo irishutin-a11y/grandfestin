@@ -69,7 +69,16 @@ function BandeDefilante({ items = [], label }) {
   return (
     <section className="ar-bande" aria-label={label} data-marquee>
       <ul className="ar-bande__l">
-        {items.concat(items, items).map((t, i) => <li key={i} aria-hidden={i >= items.length ? true : undefined}>{t}</li>)}
+        {/* un élément = un texte, ou { label, href } pour un lien (RETOURS-AUDIT §2.3) ; seules les
+            entrées de la première série sont focalisables, les copies servent à la boucle */}
+        {items.concat(items, items).map((t, i) => {
+          const copie = i >= items.length;
+          return (
+            <li key={i} aria-hidden={copie ? true : undefined}>
+              {typeof t === 'string' ? t : <a href={t.href} tabIndex={copie ? -1 : undefined}>{t.label}</a>}
+            </li>
+          );
+        })}
       </ul>
       <window.MarqueePause label={label ? label.toLowerCase() : 'le défilement'} />
     </section>

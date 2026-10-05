@@ -63,6 +63,10 @@
 .ar-bande__l li { flex: none; white-space: nowrap; font-size: var(--fs-h3); font-weight: var(--fw-bold); text-transform: uppercase; letter-spacing: .02em; }
 .ar-bande__l li::before { content: ''; display: inline-block; width: 10px; height: 10px; margin: 0 28px 4px; border-radius: 50%; background: var(--teal); vertical-align: middle; }
 .ar-bande.is-paused .ar-bande__l, .ar-bande:hover .ar-bande__l { animation-play-state: paused; }
+.ar-bande__l a { color: inherit; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: .18em; text-decoration-color: color-mix(in srgb, var(--ink) 35%, transparent); }
+.ar-bande__l a:hover { text-decoration-color: currentColor; }
+.ar-bande__l a:focus-visible { outline: 3px solid var(--ink); outline-offset: 4px; border-radius: 4px; }
+.ar-bande:focus-within .ar-bande__l { animation-play-state: paused; }
 .ar-bande .mpause { position: absolute; right: var(--pad); top: 50%; bottom: auto; transform: translateY(-50%); }
 @keyframes prDefile { to { transform: translateX(-33.333%); } }
 

@@ -216,13 +216,19 @@ function AccompagnementProsPage() {
                 </li>
               ))}
             </ul>
-            <a className="btnb btnb--gold ar-bloc__cta" href="#/contact">Demander une formation <span className="arrow" aria-hidden="true">→</span></a>
+            <a className="btnb btnb--gold ar-bloc__cta" href="#/contact/former">Demander une formation <span className="arrow" aria-hidden="true">→</span></a>
           </window.BlocEncarte>
         </div>
       </section>
 
       {/* 3 · BANDE DÉFILANTE — l'écosystème d'où viennent les personnes */}
-      <window.BandeDefilante label="Les projets de Festin" items={['Des Étoiles et des Femmes', 'Tournesol', 'La Table de Cana', 'Les Beaux Mets', 'le programme Restaure', "l'Académie Festin"]} />
+      <window.BandeDefilante label="Les projets de Festin" items={[
+        { label: 'le programme Restaure', href: '#/projets/restaure' },
+        { label: 'Des Étoiles et des Femmes', href: '#/projets/des-etoiles-et-des-femmes' },
+        { label: 'Les Beaux Mets', href: '#/projets/les-beaux-mets' },
+        { label: 'La Table de Cana Marseille', href: '#/projets/la-table-de-cana' },
+        { label: "l'Académie Festin", href: '#/academie' },
+      ]} />
 
       {/* 4 · LIGNES TYPÉES — options au choix, sans numéros ; la POEI se déplie sous sa ligne */}
       <section className="ar-sec ar-sec--cream" id="pros-recruter" aria-labelledby="pros-rec-t">
@@ -235,11 +241,11 @@ function AccompagnementProsPage() {
             { tone: 'teal', title: 'Accueillir un stagiaire',
               text: "Une personne formée par Des Étoiles et des Femmes ou Tournesol rejoint votre brigade, suivie en binôme par un membre de votre équipe.",
               tags: [['Moment', 'Pendant sa formation'], ['Festin', 'En appui tout le stage']],
-              link: { label: 'Proposer un stage', href: '#/contact' } },
+              link: { label: 'Proposer un stage', href: '#/contact/recruter' } },
             { tone: 'gold', title: "Le Book de l'emploi",
               text: 'Des commis diplômés de nos parcours, prêts à prendre leur poste.',
               tags: [['Envoi', 'Sous 48 h ouvrées']],
-              link: { label: 'Recevoir le Book', href: '#/contact' } },
+              link: { label: 'Recevoir le Book', href: '#/contact/recruter' } },
             { tone: 'coral', title: "La préparation opérationnelle à l'emploi (POEI)",
               text: 'La personne se forme dans votre cuisine avant son embauche. Festin vous accompagne pour finaliser les démarches administratives.',
               tags: [['Financement', 'France Travail'], ['Contrat', 'CDD de 4 mois minimum']],
@@ -248,7 +254,7 @@ function AccompagnementProsPage() {
                 ['Former', 'Deux stages dans votre établissement : deux semaines, puis trois.'],
                 ['Recruter', "Si l'expérience est concluante : un CDD de quatre mois minimum."],
               ],
-              etapesLien: { label: 'Préparer une embauche', href: '#/contact' } },
+              etapesLien: { label: 'Préparer une embauche', href: '#/contact/recruter' } },
           ]} />
         </div>
       </section>
@@ -259,12 +265,12 @@ function AccompagnementProsPage() {
         quote="Sami s'est très vite intégré à l'équipe."
         who="Chef Davin, Intercontinental Marseille, a recruté un commis formé aux Beaux Mets."
         logo={{ src: "images/partners/intercontinental.png", alt: "InterContinental Marseille" }}
-        cta={{ label: 'Nous écrire', href: '#/contact' }} />
+        cta={{ label: 'Découvrir Les Beaux Mets', href: '#/projets/les-beaux-mets' }} />
 
       {/* 6 · TITRE EN CHEVAUCHEMENT — fin de page */}
       <window.TitreChevauche id="pros-eng-t" mot="S'engager" title="S'engager avec Festin"
         text="Soutenir un projet comme mécène, ou participer au prochain Grand Festin."
-        link={{ label: 'Nous écrire', href: '#/contact' }} />
+        link={{ label: 'Devenir partenaire Festin', href: '#/contact/partenariat' }} />
     </div>
   );
 }
