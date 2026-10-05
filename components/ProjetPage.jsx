@@ -25,7 +25,7 @@ function BlocReseau({ p }) {
     <section className="g-sec g-sec--cream" aria-labelledby="reseau-t">
       <div className="wrap">
         <window.GHead id="reseau-t" split title="Où se former," accent="en France."
-          lede="Le programme est né à Marseille en 2015. Dans chaque ville, une structure locale le porte, avec son centre de formation et ses restaurants partenaires." />
+          lede="Le dispositif est né à Marseille en 2015. Dans chaque ville, une structure locale le porte, avec son centre de formation et ses restaurants partenaires." />
         {/* carte du réseau (retours du 02/10/2026) */}
         {p.carteAntennes && (
           <figure className="g-carte g-reveal">

@@ -37,7 +37,7 @@ function CeQuOnEst() {
           <Title em="un métier" after={null}>
             Des cuisines où l'on apprend
           </Title>
-          <p className="ab-body">Festin naît à Marseille en 1987. Son premier projet, La Table de Cana, ouvre en 1993 : un traiteur où des salariés en insertion apprennent la cuisine en travaillant. Festin porte aujourd'hui cinq projets, qui servent trois missions : former, accompagner jusqu'à l'emploi, changer les cuisines.</p>
+          <p className="ab-body">L'association naît à Marseille en 1987, sous le nom de Départ ; elle prend le nom de Festin en 2022. Son premier projet, La Table de Cana, ouvre en 1993 : un traiteur où des salariés en insertion apprennent la cuisine en travaillant. Festin porte aujourd'hui cinq projets, qui servent trois missions : former, accompagner jusqu'à l'emploi, changer les cuisines.</p>
           <window.Preuves lignes={["En 2025, nous avons accompagné <b>441 personnes</b> dans <b>14 territoires</b> ; <b>83 %</b> sont sorties en emploi ou en formation."]}
             source="Source : rapport d'activité Festin 2025, tous projets confondus." />
           <a className="lnk ab-lnk" href="#/impact">Tous nos chiffres depuis 2022 <span className="arrow" aria-hidden="true">→</span></a>
