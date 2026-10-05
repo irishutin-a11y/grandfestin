@@ -347,7 +347,7 @@ window.FESTIN_DATA = {
           text: "Chaque commis est suivi individuellement, du recrutement jusqu’à six mois après la sortie de détention : entretiens, stages, ateliers collectifs, projet professionnel. C’est le travail de Nissa Boudhabhay, conseillère en insertion professionnelle.",
           stat: "6 mois", statL: "de suivi après la détention" },
         { tab: "La sortie", title: "Sortir de prison avec un métier",
-          text: "L’objectif : accompagner 40 personnes par an vers un emploi à la sortie. En France, le taux de récidive atteint 42 % (ministère de la Justice). Et la restauration recrute : deux recrutements de cuisiniers sur trois sont jugés difficiles par les employeurs (France Travail, enquête Besoins en main-d’œuvre).",
+          text: "L’objectif : accompagner 40 personnes par an vers un emploi à la sortie. En France, le taux de récidive atteint 42 % (ministère de la Justice, [À COMPLÉTER : année]). Et la restauration recrute : deux recrutements de cuisiniers sur trois sont jugés difficiles par les employeurs (France Travail, enquête Besoins en main-d’œuvre, [À COMPLÉTER : année]).",
           stat: "40", statL: "personnes par an : l’objectif" },
         { tab: "Hors les murs", title: "Le restaurant sort de la prison",
           text: "En 2025, les commis montrent leur travail hors les murs, dans des festivals et au Grand Festin. Trois Cafés Emploi réunissent des entreprises en prison. Le restaurant lance aussi des biscuits à emporter, navettes et croquants, fabriqués par la brigade.",
@@ -1490,7 +1490,7 @@ window.FESTIN_DATA.about = {
   // Frise de Qui sommes-nous (retours du 02/10/2026) : deux familles distinctes,
   // les créations de projet (type "projet") et les reconnaissances (type "reco").
   jalons: [
-    { year: "1987", type: "projet", title: "Naissance de l'association", desc: "À Marseille, pour l'insertion par la cuisine.", photo: null },
+    { year: "1987", type: "projet", title: "Naissance de Festin", desc: "À Marseille, pour l'insertion par la cuisine.", photo: null },
     { year: "1993", type: "projet", title: "La Table de Cana", desc: "Le premier projet : un traiteur où des salariés en insertion apprennent le métier.", photo: "images/latable de cana/tabledecana_cdutrey_160124-4393.jpg", href: "#/projets/la-table-de-cana" },
     { year: "2015", type: "projet", title: "Des Étoiles et des Femmes", desc: "Des femmes formées avec des chefs, aujourd'hui dans 13 antennes.", photo: "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg", href: "#/projets/des-etoiles-et-des-femmes" },
     { year: "2019", type: "reco", title: "La France s'engage", desc: "Lauréat, pour le dispositif Des Étoiles et des Femmes." },
