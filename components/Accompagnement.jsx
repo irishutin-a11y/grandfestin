@@ -85,7 +85,10 @@ function AccompagnementInsertionPage() {
                     </dl>
                     <div className="or-card__cta">
                       {p.siteUrl && <a className="btnb btnb--teal" href={p.siteUrl} target="_blank" rel="noopener noreferrer">Plus d'informations <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (site du projet, nouvel onglet)</span></a>}
-                      <a className="lnk" href={'#/projets/' + o.id}>La page du projet <span className="arrow" aria-hidden="true">→</span></a>
+                      {/* Tournesol est une formation : sa fiche, pas une page projet (RETOURS-AUDIT, question 4) */}
+                      {o.id === 'tournesol'
+                        ? <a className="lnk" href="#/formations/tournesol">La fiche de la formation <span className="arrow" aria-hidden="true">→</span></a>
+                        : <a className="lnk" href={'#/projets/' + o.id}>La page du projet <span className="arrow" aria-hidden="true">→</span></a>}
                     </div>
                   </div>
                 </li>

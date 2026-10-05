@@ -4,7 +4,11 @@ function parseRoute(hash) {
   const h = (hash || '').replace(/^#\/?/, '').replace(/\/$/, '');
   if (!h) return { name: 'home' };
   const parts = h.split('/');
-  if (parts[0] === 'formations' && parts[1]) return { name: 'formation', id: parts[1] };
+  // anciennes adresses (RETOURS-AUDIT, questions 4 et 5) : une seule fiche pour le dispositif
+  // Des Étoiles et des Femmes ; Tournesol est une formation, plus une page projet
+  const ALIAS = { tfp: 'des-etoiles-et-des-femmes', cap: 'des-etoiles-et-des-femmes' };
+  if (parts[0] === 'formations' && parts[1]) return { name: 'formation', id: ALIAS[parts[1]] || parts[1] };
+  if (parts[0] === 'projets' && parts[1] === 'tournesol') return { name: 'formation', id: 'tournesol' };
   // le catalogue vit dans la page Académie (une page, un nom) : #/formations y mène, au bon endroit
   if (parts[0] === 'formations') return { name: 'academie', ancre: 'catalogue' };
   if (parts[0] === 'projets' && parts[1] === 'lieux') return { name: 'projets', ancre: 'lieux' };
@@ -16,7 +20,7 @@ function parseRoute(hash) {
   if (parts[0] === 'accompagnement' && parts[1] === 'professionnels') return { name: 'accomp-pros' };
   if (parts[0] === 'academie') return { name: 'academie' };
   if (parts[0] === 'actualites') return { name: 'actualites' };
-  if (parts[0] === 'impact') return { name: 'impact' };
+  if (parts[0] === 'impact') return { name: 'impact', ancre: parts[1] === 'soutenir' ? 's-engager' : undefined };
   if (parts[0] === 'about') return { name: 'about' };
   if (parts[0] === 'contact') return { name: 'contact' };
   return { name: '404' };

@@ -148,8 +148,7 @@ function Contact() {
                   <option value="">Je ne sais pas encore</option>
                   <option>Prévention des violences sexistes et sexuelles</option>
                   <option>Management juste et inclusif</option>
-                  <option>Des Étoiles et des Femmes, titre de commis de cuisine</option>
-                  <option>Des Étoiles et des Femmes, CAP cuisine</option>
+                  <option>Des Étoiles et des Femmes, formation diplômante</option>
                   <option>Tournesol</option>
                 </select>
               </div>

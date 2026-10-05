@@ -61,7 +61,7 @@ function FormationDetailPage({ id }) {
       >
         {(() => {
           // plus d'informations : le site du projet pour les parcours, le contact pour les formations pro
-          const site = { tfp: 'des-etoiles-et-des-femmes', cap: 'des-etoiles-et-des-femmes', tournesol: 'tournesol' }[f.id];
+          const site = { 'des-etoiles-et-des-femmes': 'des-etoiles-et-des-femmes', tournesol: 'tournesol' }[f.id];
           const p = site && window.FESTIN_DATA.projets.find((x) => x.id === site);
           return <div className="g-herocta">{p
             ? <a className="btnb btnb--gold" href={p.siteUrl} target="_blank" rel="noopener noreferrer">Plus d'informations <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (site du projet, nouvel onglet)</span></a>
@@ -101,6 +101,38 @@ function FormationDetailPage({ id }) {
                   <i data-lucide="external-link" style={{width:20,height:20,flexShrink:0,color:'var(--gold-ink)'}}/>
                 </a>
               )}
+              {/* formation rattachée à un projet (Tournesol) : ses chiffres et ses témoignages, mot pour mot (RETOURS-AUDIT, question 4) */}
+              {(() => {
+                const pj = f.projet && window.FESTIN_DATA.projets.find((x) => x.id === f.projet);
+                if (!pj) return null;
+                const B = pj.bilan;
+                const recul = B ? B.items.filter((it) => /un an après/.test(it.label)) : [];
+                const temoins = (pj.temoignages || []).filter((t) => !t.placeholder && (t.citation || t.extrait)).map((t) => ({
+                  name: t.prenom, meta: t.role || [t.ville, t.promo].filter(Boolean).join(' · '), quote: t.extrait || t.citation, photo: t.photo,
+                }));
+                return (
+                  <>
+                    {B && (
+                      <div className="detail-section">
+                        <span className="eyebrow">{B.eyebrow}</span>
+                        <h2 className="h3" style={{marginTop:8,marginBottom:18}}>{B.title}</h2>
+                        <ul className="fd-bilan">
+                          {B.items.filter((it) => !/un an après/.test(it.label)).map((it) => <li key={it.label}><b>{it.value}</b><span>{it.label}</span></li>)}
+                        </ul>
+                        {recul.map((it) => <p className="fd-bilan__recul" key={it.label}><b>{it.value}</b> {it.label}.</p>)}
+                        <p className="fd-bilan__src">{B.source}</p>
+                      </div>
+                    )}
+                    {temoins.length > 0 && (
+                      <div className="detail-section">
+                        <span className="eyebrow">Témoignages</span>
+                        <h2 className="h3" style={{marginTop:8,marginBottom:18}}>Paroles d'anciens stagiaires</h2>
+                        <window.TestiCarousel label={'Témoignages, ' + f.title} items={temoins} />
+                      </div>
+                    )}
+                  </>
+                );
+              })()}
               <div className="access-note" style={{marginTop:24}}>
                 <i data-lucide="accessibility" style={{width:20,height:20}}/>
                 <div><b>Accessibilité :</b> nos formations sont accessibles aux personnes en situation de handicap. Contactez notre référente handicap pour étudier les aménagements possibles.</div>
