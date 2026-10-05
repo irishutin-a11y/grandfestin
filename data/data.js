@@ -1248,10 +1248,10 @@ Object.assign(window.FESTIN_DATA.home, {
 //  match : préfixes d'adresse qui allument la rubrique.
 // ============================================================
 window.FESTIN_DATA.arbo = [
-  { key: "insertion", label: "Se former ou orienter", href: "#/accompagnement/insertion",
-    match: ["#/accompagnement/insertion", "#/academie", "#/formations"],
+  { key: "insertion", label: "Se former", href: "#/accompagnement/insertion",
+    match: ["#/accompagnement/insertion", "#/academie", "#/formations", "#/projets/tournesol"],
     links: [
-      { ic: "compass", c: "#7FC4CB", label: "Orienter une personne", d: "Parcours, conditions d'entrée, calendrier", href: "#/accompagnement/insertion" },
+      { ic: "compass", c: "#7FC4CB", label: "Apprendre un métier de cuisine", d: "Les formations gratuites, pour qui, comment entrer", href: "#/accompagnement/insertion" },
       { ic: "graduation-cap", c: "#7FC4CB", label: "L'Académie Festin", d: "Nos formations diplômantes", href: "#/academie" },
     ] },
   { key: "pros", label: "Recruter et former vos équipes", href: "#/accompagnement/professionnels",
@@ -1268,6 +1268,8 @@ window.FESTIN_DATA.arbo = [
       { ic: "star", c: "#EC8669", label: "Des Étoiles et des Femmes", d: "Former", href: "#/projets/des-etoiles-et-des-femmes" },
       { ic: "utensils", c: "#EC8669", label: "Les Beaux Mets", d: "Accompagner jusqu'à l'emploi", href: "#/projets/les-beaux-mets" },
       { ic: "soup", c: "#EC8669", label: "La Table de Cana Marseille", d: "Accompagner jusqu'à l'emploi", href: "#/projets/la-table-de-cana" },
+      { ic: "megaphone", c: "#EC8669", label: "Le programme Restaure", d: "Changer les cuisines", href: "#/projets/restaure" },
+      { ic: "graduation-cap", c: "#EC8669", label: "L'Académie Festin", d: "Former", href: "#/academie" },
     ] },
   { key: "association", label: "Qui sommes-nous", href: "#/about",
     match: ["#/about", "#/impact", "#/actualites", "#/contact"],
