@@ -51,33 +51,13 @@ function AccompagnementInsertionPage() {
   const root = useRef(null);
   window.useGReveal(root);
   const D = window.FESTIN_DATA;
-  const calendrier = [
-    { when: 'Septembre', tab: 'Candidater', title: 'Entretiens et atelier de préparation',
-      text: "Vous rencontrez l'équipe en entretien, puis un atelier collectif vous prépare à rencontrer les restaurants.",
-      stat: 'Gratuit', statL: 'pour les personnes formées', img: 'images/photo-micro-temoignage.jpg' },
-    { when: 'Octobre', tab: 'Rencontrer', title: 'Une immersion en restaurant',
-      text: "Une immersion courte valide votre projet. Nous vous présentons ensuite l'établissement qui vous accueillera.",
-      img: 'images/images-def/HOTELERIE-035.jpg' },
-    { when: 'Novembre et décembre', tab: 'Commencer', title: 'Entrée en formation',
-      text: 'La promotion démarre et le suivi individuel commence.',
-      img: 'images/photo-patisserie.jpg' },
-    { when: 'Janvier à mars', tab: 'Se former', title: 'Cours, stages et suivi',
-      text: 'Les cours alternent avec les stages en brigade et les rendez-vous de suivi.',
-      img: 'images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg' },
-    { when: 'Avril', tab: 'Le diplôme', title: 'Examens et fin de formation',
-      text: 'Vous passez le CAP cuisine ou le titre de commis de cuisine (et le DCL pour Tournesol).',
-      stat: '91 %', statL: 'de réussite aux diplômes en 2025, Des Étoiles et des Femmes', img: 'images/photo-applaudissements.jpg' },
-    { when: 'Mai et juin', tab: 'Travailler', title: "La recherche de poste",
-      text: 'Nous cherchons le poste avec vous et nous vous présentons aux restaurants qui recrutent.',
-      img: 'images/photo-service-restaurant.jpg' },
-  ];
   return (
     <div className="gpage acc" ref={root} data-screen-label="Accompagnement — Insertion">
       <AccHero tone="gold" crumb="Insertion" kicker="Vous cherchez un métier"
         title="Apprendre un métier de cuisine," em="gratuitement."
         lede="Vous préparez un diplôme reconnu, vous faites vos stages en restaurant et une personne de l'équipe vous suit jusqu'à l'emploi."
         img="images/photo-tabliers-violets.jpg" imgAlt="Des apprenties du dispositif Des Étoiles et des Femmes en cuisine"
-        cta={{ label: 'Vérifier mon éligibilité', href: '#/contact' }} lien={{ label: 'Quel parcours, pour qui ?', to: 'parcours-choix' }} />
+        cta={{ label: 'Vérifier mon éligibilité', href: '#/contact/se-former' }} lien={{ label: 'Quel parcours, pour qui ?', to: 'parcours-choix' }} />
 
       {/* LES PARCOURS — une seule section pour tous les publics (retours du 30/09/2026) :
           pour qui, ce que c'est, comment entrer, et le site du projet. Pas de dates : chaque
@@ -123,8 +103,7 @@ function AccompagnementInsertionPage() {
             <p className="g-lede g-reveal">Chaque parcours prépare un diplôme reconnu et comprend des stages en restaurant. Pendant toute la formation, une personne de l'équipe vous aide pour ce qui peut vous empêcher d'avancer : transport, garde d'enfants, logement, cours de français.</p>
             <window.Preuves lignes={[
               'Tous nos parcours sont <b>gratuits</b>*. Selon votre situation, vous pouvez percevoir une indemnité ou une rémunération.',
-              'En 2025, <b>83 %</b> des personnes que nous avons accompagnées sont sorties en emploi ou en formation.',
-            ]} source="* La formation est prise en charge par France Travail et nos partenaires publics. Source : rapport d'activité Festin 2025, tous projets confondus." />
+            ]} source="* La formation est prise en charge par France Travail et nos partenaires publics." />
           </div>
           <GalerieAuto images={[
             { src: 'images/photo-apprenante-plats.jpg', alt: 'Une apprentie présente ses assiettes en fin de service' },
@@ -136,22 +115,18 @@ function AccompagnementInsertionPage() {
         </div>
       </section>
 
-      <window.Frise id="calendrier" tone="tint" title="Une promotion," accent="mois par mois."
-        lede="Le déroulé d'une année pour Des Étoiles et des Femmes et Tournesol. Les dates exactes changent d'une session à l'autre."
-        steps={calendrier}
-        rail={{ tab: "Toute l'année", title: 'Un suivi individuel', text: 'Transport, garde d’enfants, logement, papiers, cours de français : une personne de l’équipe vous suit jusqu’à l’emploi.' }} />
-
+      {/* frise du calendrier retirée (RETOURS-AUDIT §2.10) : chaque parcours a ses dates, données par son site */}
       <window.Faq id="faq-ins" title="Vos" accent="questions" items={[
         { q: "La formation est-elle payante ?", a: "Non. Tous nos parcours sont gratuits. Selon votre situation, vous pouvez percevoir une indemnité ou une rémunération pendant la formation." },
         { q: "Quand commencent les prochaines sessions ?", a: "Chaque antenne a son propre calendrier. Le site de chaque projet donne les dates des prochaines sessions." },
         { q: "Quel parcours est fait pour moi ?", a: "Des Étoiles et des Femmes accueille des femmes. Tournesol accueille des personnes réfugiées ou primo-arrivantes. La Table de Cana emploie des salariés en insertion à Marseille. Écrivez-nous : nous vous orientons." },
         { q: "Qui m'aide pendant la formation ?", a: "Une personne de l'équipe vous suit du premier entretien jusqu'à l'emploi : transport, garde d'enfants, logement, cours de français, recherche de poste." },
-        { q: "Et après la formation ?", a: "En mai et juin, nous préparons avec vous la recherche de poste et nous vous mettons en relation avec des restaurants qui recrutent." },
+        { q: "Et après la formation ?", a: "Nous préparons avec vous la recherche de poste et nous vous mettons en relation avec des restaurants qui recrutent." },
       ]} />
 
       <window.Appel id="ins-appel" title="Vérifier si le parcours" accent="est fait pour vous."
         text="Écrivez-nous : nous vérifions ensemble votre éligibilité, puis nous vous invitons à une réunion d'information."
-        cta={{ label: 'Vérifier mon éligibilité', href: '#/contact' }} />
+        cta={{ label: 'Vérifier mon éligibilité', href: '#/contact/se-former' }} />
     </div>
   );
 }

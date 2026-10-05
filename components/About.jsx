@@ -38,7 +38,7 @@ function CeQuOnEst() {
             Des cuisines où l'on apprend
           </Title>
           <p className="ab-body">L'association naît à Marseille en 1987, sous le nom de Départ ; elle prend le nom de Festin en 2022. Son premier projet, La Table de Cana, ouvre en 1993 : un traiteur où des salariés en insertion apprennent la cuisine en travaillant. Festin porte aujourd'hui cinq projets, qui servent trois missions : former, accompagner jusqu'à l'emploi, changer les cuisines.</p>
-          <window.Preuves lignes={["En 2025, nous avons accompagné <b>441 personnes</b> dans <b>14 territoires</b> ; <b>83 %</b> sont sorties en emploi ou en formation."]}
+          <window.Preuves lignes={["En 2025, nous avons accompagné <b>441 personnes</b> dans <b>14 territoires</b>."]}
             source="Source : rapport d'activité Festin 2025, tous projets confondus." />
           <a className="lnk ab-lnk" href="#/impact">Tous nos chiffres depuis 2022 <span className="arrow" aria-hidden="true">→</span></a>
         </div>
@@ -326,12 +326,7 @@ function MotDirecteur() {
         Mieux&nbsp;: elle en est souvent la condition de réussite. […] En cuisine comme ailleurs,
         viser haut n'exclut pas&nbsp;: cela élève. Cela redonne confiance, structure les parcours,
         ouvre des perspectives professionnelles solides et reconnues.</p>
-        <p>La construction collective n'est pas un coût, c'est un levier. Un levier puissant contre
-        la concurrence stérile, contre la dispersion des énergies, contre l'isolement des initiatives.
-        Le collectif permet de mutualiser, d'apprendre, d'amplifier. Il permet surtout de durer
-        et de transformer en profondeur.</p>
-        <p>C'est pour cela que «&nbsp;Le Goût d'avancer ensemble&nbsp;», pour Festin, n'est pas
-        qu'un slogan. C'est une méthode, une exigence, une responsabilité.</p>
+        {/* 2e et 3e paragraphes retirés (RETOURS-AUDIT §2.10) ; le reste est mot pour mot */}
         <footer className="ab-mot__sig">
           <strong>Jérôme Schatzman, Armand Hurault, Marine Vever</strong>
           <span>Président, directeur général et directrice adjointe de Festin, édito du rapport d'activité 2025</span>

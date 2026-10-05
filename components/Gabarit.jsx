@@ -155,7 +155,7 @@ function Portes({ id = 'portes', title = 'Par où', accent = 'commencer ?', port
                 <span className="ac-porte__tag">{c.tag}</span>
               </span>
               <span className="ac-porte__t">{c.title}</span>
-              <ul className="ac-porte__pts">{c.pts.map((pt) => <li key={pt}>{pt}</li>)}</ul>
+              {c.pts && c.pts.length > 0 && <ul className="ac-porte__pts">{c.pts.map((pt) => <li key={pt}>{pt}</li>)}</ul>}
               <span className="lnk ac-porte__go">{c.cta} <span className="arrow" aria-hidden="true">{(c.external || /^https?:/.test(c.href || '')) ? '↗' : '→'}</span></span>
             </GLink>
           ))}
@@ -274,7 +274,7 @@ function MissionsNav({ currentId, title = 'Les projets', accent = 'de Festin', t
                     <li key={pr.id}>
                       <a href={pr.href || '#/projets/' + pr.id} aria-current={here ? 'page' : undefined} className={here ? 'is-here' : ''}>
                         {logo && <span className="g-mnav__logo"><img src={URI(logo)} alt="" loading="lazy" /></span>}
-                        <span><b>{pr.name || p.shortTitle}</b>{here ? <small>Vous êtes ici</small> : <small>{pr.line}</small>}</span>
+                        <span><b>{pr.name || p.shortTitle}</b>{here ? <small>Vous êtes ici</small> : !compact && <small>{pr.line}</small>}</span>
                       </a>
                     </li>
                   );

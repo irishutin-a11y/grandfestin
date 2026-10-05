@@ -294,7 +294,7 @@ function TestiCarousel({ items = [], label = 'Témoignages' }) {
   const pad = (k) => String(k + 1).padStart(2, '0');
   const ini = (t.name || '?').trim().split(/\s+/).map((w) => w[0]).slice(0, 2).join('');
   return (
-    <div className="tq" role="group" aria-roledescription="carrousel" aria-label={label} tabIndex={n > 1 ? 0 : undefined}
+    <div className="tq" role={n > 1 ? 'group' : undefined} aria-roledescription={n > 1 ? 'carrousel' : undefined} aria-label={n > 1 ? label : undefined} tabIndex={n > 1 ? 0 : undefined}
       onKeyDown={(e) => { if (e.key === 'ArrowRight') { e.preventDefault(); go(1); } if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); } }}>
       <div className="tq__body" ref={qRef}>
         <div className="tq__media" aria-hidden="true">

@@ -165,6 +165,9 @@ function ProjetPage({ id }) {
         </div>
       </section>
 
+      {/* VERBATIMS — le texte le plus fort du site, remonté juste après « en bref » (RETOURS-AUDIT §2.12) */}
+      {blocs.includes('verbatims') && <BlocVerbatims />}
+
       {/* PROGRAMME POUR LE SECTEUR — ses formations à la place d'un parcours (nature « programme ») */}
       {cfg.nature === 'programme' && (
         <section className="g-sec g-sec--cream" aria-labelledby="prog-form-t">
@@ -186,7 +189,6 @@ function ProjetPage({ id }) {
 
       {blocs.includes('reseau') && p.antennes && <BlocReseau p={p} />}
       {blocs.includes('genese') && cfg.genese && <BlocGenese cfg={cfg} />}
-      {blocs.includes('verbatims') && <BlocVerbatims />}
 
       {/* TÉMOIGNAGES — une grande citation à la fois */}
       {temoins.length > 0 && (
@@ -200,7 +202,7 @@ function ProjetPage({ id }) {
 
       {blocs.includes('chefs') && <BlocChefs p={p} cfg={cfg} />}
 
-      <window.Portes portes={cfg.portes} tone="cream"
+      <window.Portes portes={cfg.portes} tone="cream" {...(cfg.portesTitre || {})}
         agir={blocs.includes('chefs') ? null : { title: 'Soutenir', accent: p.shortTitle, text: cfg.soutien && cfg.soutien.text, don: cfg.soutien && cfg.soutien.don, site: { href: p.siteUrl, label: 'Le site du projet' } }} />
 
       <window.Galerie images={galerie} label={'Galerie photo, ' + p.shortTitle} />
