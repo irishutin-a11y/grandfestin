@@ -713,7 +713,7 @@ window.FESTIN_DATA = {
       dureeCourte: "5 mois",
       projet: "tournesol",
       desc: "Cinq mois pour une formation diplômante en cuisine et un diplôme de français, pour des personnes réfugiées ou primo-arrivantes.",
-      img: "images/photo-rouleaux.jpg",
+      img: "images/tournesol:formation/festin_tournesol_cdutrey_0124-3645.jpg",
       duration: "5 mois, 600 h (252 h de cuisine, 155 h de stage, 154 h de français, 39 h de compétences transverses)",
       format: "Corot Formations (13014)",
       price: "Gratuit",
@@ -1063,7 +1063,7 @@ window.FESTIN_DATA.home = {
       { id:"les-beaux-mets",           blurb:"Le premier restaurant en prison ouvert au public en France. Aux Baumettes, à Marseille.", insertion:"Des personnes détenues apprennent la cuisine et le service, en brigade, sur un vrai service.", secteur:"Un restaurant bistronomique ouvert au public, aux Baumettes.", stat:"119 personnes employées depuis 2022", img:"images/beauxmets-images/LBM_cdutrey_071122-7264.jpg" },
       { id:"la-table-de-cana",         blurb:"Traiteur et restauration collective en insertion, à Marseille.", insertion:"Des salariés en insertion se forment au traiteur et à la restauration collective.", secteur:"Un traiteur et une cuisine collective pour les entreprises et les collectivités marseillaises.", stat:"89 % de sorties positives en 2025", img:"images/latable de cana/tabledecana_cdutrey_160124-4393.jpg" },
       { id:"restaure",                 blurb:"Un programme national. Il prévient les violences en cuisine et change les pratiques du secteur.", insertion:"Des cuisines plus sûres pour celles et ceux qui y travaillent.", secteur:"Des formations et des outils pour prévenir les violences et former les managers.", stat:"700 signataires du manifeste", img:"images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00032.jpg" },
-      { id:"tournesol",                blurb:"Cinq mois de formation diplômante pour des personnes réfugiées ou primo-arrivantes.", insertion:"Des personnes réfugiées ou primo-arrivantes préparent en cinq mois le titre de commis de cuisine.", secteur:"Des commis formés, avec Refugee Food, pour les restaurants qui recrutent.", stat:"86 % d'insertion un an après", img:"images/photo-rouleaux.jpg" }
+      { id:"tournesol",                blurb:"Cinq mois de formation diplômante pour des personnes réfugiées ou primo-arrivantes.", insertion:"Des personnes réfugiées ou primo-arrivantes préparent en cinq mois le titre de commis de cuisine.", secteur:"Des commis formés, avec Refugee Food, pour les restaurants qui recrutent.", stat:"86 % d'insertion un an après", img:"images/tournesol:formation/festin_tournesol_cdutrey_0124-3645.jpg" }
     ],
     avenir: { title:"Sadi Carnot", eyebrow:"En préparation", text:"Un futur restaurant d'insertion à Marseille. Nous en présenterons le projet quand il sera acquis." },
     explore: { title:"Festin", text:"Créée en 1987. Cinq projets, 14 territoires, 441 personnes accompagnées en 2025.", cta:"Lire notre histoire", href:"#/about" }
@@ -1116,8 +1116,8 @@ Object.assign(window.FESTIN_DATA.home, {
     ctaPrimary: { k: "Vous cherchez un métier", label: "Apprendre un métier de cuisine", href: "#/accompagnement/insertion" },
     ctaSecondary: { k: "Vous dirigez une cuisine", label: "Former mes équipes", href: "#/accompagnement/professionnels" },
     soutien: { text: "Vous financez ou soutenez nos actions ?", label: "Devenir partenaire", href: "#/impact/soutenir" },
-    img: "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-40.jpg",
-    imgAlt: "Une promotion du dispositif Des Étoiles et des Femmes en tabliers violets, en plein air",
+    img: "images/beauxmets-images/LBM_masterclass_chloeCharles_cdutrey_030325-7893.jpg",
+    imgAlt: "Une brigade en cuisine, de dos, bras dessus bras dessous",
   },
   // Ligne de confiance : statuts, puis les médias nationaux (liens vers les articles de .presse)
   confiance: {
@@ -1275,7 +1275,7 @@ window.FESTIN_DATA.lieux = [
     actions: [{ label: "Demander un devis traiteur", href: "#/contact/devis-traiteur" }, { label: "La page du projet", href: "#/projets/la-table-de-cana" }] },
   { key: "baumettes", lieu: "Prison des Baumettes", ville: "Marseille", projet: "les-beaux-mets",
     text: "Les Beaux Mets : un restaurant ouvert au public, dans la prison, cuisiné et servi par des personnes détenues.",
-    img: "images/beauxmets-images/lbm-gallery-salle.jpg",
+    img: "images/beauxmets-images/LBM_carte-ete24_caroline_dutrey-3385.jpg",
     actions: [{ label: "Privatiser le restaurant", href: "#/contact/privatisation" }, { label: "Réserver une table", href: "https://www.lesbeauxmets-marseille.fr" }] },
   { key: "sadi-carnot", lieu: "Sadi Carnot", ville: "Marseille, près du Vieux-Port", futur: true,
     text: "Un futur lieu de Festin, en préparation. Nous le présenterons quand le projet sera acquis.",
@@ -1366,7 +1366,7 @@ window.FESTIN_DATA.projetPages = {
         { from: "La brigade", img: "images/beauxmets-images/lbm-gallery-service.jpg" },
         { from: "Les masterclass", img: "images/beauxmets-images/lbm-masterclass-brigade-plating.jpg" },
         { from: "Hors les murs", img: "images/beauxmets-images/lbm-gallery-cocktail.jpg" },
-        { from: "L’accompagnement", img: "images/beauxmets-images/LBM_cdutrey_071122-7922.jpg" },
+        { from: "L’accompagnement", img: "images/beauxmets-images/lbm-maitre-hotel-commis.jpg" },
         { from: "La sortie" },
       ] },
     blocs: [],
@@ -1375,7 +1375,7 @@ window.FESTIN_DATA.projetPages = {
     portes: [
       { tag: "Vous voulez déjeuner", title: "Réserver une table aux Beaux Mets",
         pts: ["Une carte bistronomique, cuisinée et servie par la brigade.", "Chaque service fait travailler la brigade devant de vrais convives."],
-        cta: "Réserver", href: "https://www.lesbeauxmets-marseille.fr", external: true, img: "images/beauxmets-images/lbm-gallery-salle.jpg" },
+        cta: "Réserver", href: "https://www.lesbeauxmets-marseille.fr", external: true, img: "images/beauxmets-images/LBM_cdutrey_cartehiver23_181223-2616.jpg" },
       { tag: "Vous dirigez une cuisine", title: "Recruter un commis formé",
         pts: ["Des commis formés en brigade par un chef et un second.", "Un suivi jusqu'à six mois après la sortie de détention."],
         cta: "Recruter avec Festin", href: "#/accompagnement/professionnels", img: "images/beauxmets-images/lbm-gallery-masterclass.jpg" },
@@ -1446,7 +1446,7 @@ window.FESTIN_DATA.projetPages = {
     ],
     soutien: { title: "Ils pilotent", accent: "Restaure",
       text: "Quatre structures pilotent le programme : Yes We Camp, Les Petites Cantines, La Communauté Ecotable et Festin. Votre don finance ses actions de prévention." },
-    galerie: ["images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg", "images/restaure : formation pro/FESTIN_TOAST_12 FEVRIER_FEED-25.jpg", "images/restaure : formation pro/IMG_2950.JPG", "images/restaure : formation pro/TASTING_RFF_CLOSING-FEED-34 (1).JPG", "images/restaure : formation pro/WhatsApp Image 2025-12-09 at 08.53.58.jpg"],
+    galerie: ["images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg", "images/restaure : formation pro/FESTIN_TOAST_12 FEVRIER_FEED-25.jpg", "images/restaure : formation pro/IMG_2950.JPG", "images/restaure : formation pro/TASTING_RFF_CLOSING-FEED-34 (1).JPG", "images/restaure : formation pro/WhatsApp Image 2025-12-09 at 08.53.58.jpg", "images/restaure : formation pro/toast-affiche-restaure.jpg", "images/restaure : formation pro/toast-regie.jpg"],
   },
 };
 

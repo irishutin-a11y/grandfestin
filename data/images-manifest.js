@@ -330,5 +330,75 @@ window.FESTIN_IMG = {
 800,
 1600
 ]
+},
+"beauxmets-images/LBM_masterclass_chloeCharles_cdutrey_030325-7893.jpg": {
+"avif": [
+800,
+1600
+],
+"w": [
+800,
+1600
+]
+},
+"beauxmets-images/LBM_carte-ete24_caroline_dutrey-3385.jpg": {
+"avif": [
+800,
+1600
+],
+"w": [
+800,
+1600
+]
+},
+"beauxmets-images/LBM_cdutrey_cartehiver23_181223-2616.jpg": {
+"avif": [
+800,
+1600
+],
+"w": [
+800,
+1600
+]
+},
+"beauxmets-images/lbm-maitre-hotel-commis.jpg": {
+"avif": [
+800,
+1600
+],
+"w": [
+800,
+1600
+]
+},
+"restaure : formation pro/toast-affiche-restaure.jpg": {
+"avif": [
+800,
+1600
+],
+"w": [
+800,
+1600
+]
+},
+"restaure : formation pro/toast-regie.jpg": {
+"avif": [
+800,
+1600
+],
+"w": [
+800,
+1600
+]
+},
+"photo-dressage-dessert.jpg": {
+"avif": [
+800,
+1600
+],
+"w": [
+800,
+1600
+]
 }
 };

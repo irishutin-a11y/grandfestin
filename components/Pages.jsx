@@ -496,7 +496,7 @@ function AcademiePage() {
       <window.HeroPage tone="teal" kicker="Portée par Estello Formation, certifiée Qualiopi"
         title="L'Académie" accent="Festin"
         proof="Toutes nos formations au même endroit : des parcours d'insertion diplômants pour apprendre un métier et des formations pro pour les équipes de la restauration, portées par le programme Restaure."
-        img="images/photo-cuisine-formation.jpg" imgAlt="Séance de formation en cuisine"
+        img="images/photo-dressage-dessert.jpg" imgAlt="Un dressage à l'assiette, en cuisine"
         crumb={[{ label: 'Accueil', href: '#/' }, { label: "L'Académie Festin" }]}>
         <div className="g-herocta">
           <window.GLink l={{ to: 'catalogue' }} className="btnb btnb--light">Voir le catalogue <span className="arrow" aria-hidden="true">↓</span></window.GLink>
