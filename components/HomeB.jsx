@@ -100,11 +100,11 @@ function HomeB() {
             <p className="ac-hero__sig">{H.hero.title} {H.hero.titleAccent}</p>
             <div className="ac-hero__cta ac-portes2">
               <a className="ac-porte2 ac-porte2--ins" href={H.hero.ctaPrimary.href}>
-                <span className="ac-porte2__k">Vous accompagnez une personne</span>
+                <span className="ac-porte2__k">{H.hero.ctaPrimary.k}</span>
                 <span className="ac-porte2__l">{H.hero.ctaPrimary.label} <span className="arrow" aria-hidden="true">→</span></span>
               </a>
               <a className="ac-porte2 ac-porte2--pro" href={H.hero.ctaSecondary.href}>
-                <span className="ac-porte2__k">Vous dirigez une cuisine</span>
+                <span className="ac-porte2__k">{H.hero.ctaSecondary.k}</span>
                 <span className="ac-porte2__l">{H.hero.ctaSecondary.label} <span className="arrow" aria-hidden="true">→</span></span>
               </a>
             </div>
@@ -169,9 +169,8 @@ function HomeB() {
       <window.JalonsCouleur id="histoire" jalons={H.jalons.items.map((j) => { const p = D.projets.find((x) => j.href === '#/projets/' + x.id); return { ...j, logo: j.logo || (p && p.logo) || (j.href === '#/academie' ? 'images/logo-academie-festin.png' : null) }; })} title={H.jalons.title} em={H.jalons.titleAccent}
         lede={H.jalons.lede} word="PROJETS" label="Les projets de Festin, de 1993 à 2026" />
 
-      {/* 5 · TOUTES NOS FORMATIONS — une étiquette par public */}
-      <window.AcaCatalogue id="formations" title="Toutes nos" accent="formations." tone="white" lien
-        src="L'Académie Festin est portée par Estello Formation, organisme de formation certifié Qualiopi. Les formations pro sont proposées par le programme Restaure." />
+      {/* 5 · Le catalogue complet est sur l'Académie et la page Pros (RETOURS-AUDIT §2.10) :
+          l'accueil ne le double plus, ni ses tarifs (§2.1). */}
 
       {/* 6 · CE QUE 2025 A DONNÉ — les quatre chiffres clés, en couleur, sur fond sombre */}
       <section className="ac-chiffres on-dark" id="chiffres" aria-labelledby="ac-chiffres-t">
@@ -192,17 +191,7 @@ function HomeB() {
         </div>
       </section>
 
-      {/* 7 · LA PAROLE DE LA DIRECTION */}
-      <section className="g-sec g-sec--cream pj-intro" aria-label="Le mot de la direction">
-        <div className="wrap">
-          <figure className="pj-intro__fig reveal">
-            <blockquote className="pj-intro__q"><p>{H.citationEdito.text}</p></blockquote>
-            <figcaption className="pj-intro__sig"><strong>{H.citationEdito.auteur}</strong><span>{H.citationEdito.role}</span></figcaption>
-          </figure>
-        </div>
-      </section>
-
-      {/* 8 · PAR OÙ COMMENCER — les parcours se séparent après les chiffres */}
+      {/* 8 · CHOISIR SON ENTRÉE — les parcours se séparent après les chiffres */}
       <section className="ac-portes" id="portes" aria-labelledby="ac-portes-t">
         <div className="wrap">
           <h2 className="ac-h2 reveal" id="ac-portes-t">{H.portes.title} <em>{H.portes.titleAccent}</em></h2>
@@ -214,7 +203,7 @@ function HomeB() {
                   <span className="ac-porte__tag">{c.tag}</span>
                 </span>
                 <span className="ac-porte__t">{c.title}</span>
-                <ul className="ac-porte__pts">{c.pts.map((pt) => <li key={pt}>{pt}</li>)}</ul>
+                {c.pts && <ul className="ac-porte__pts">{c.pts.map((pt) => <li key={pt}>{pt}</li>)}</ul>}
                 <span className="lnk ac-porte__go">{c.cta} <span className="arrow" aria-hidden="true">→</span></span>
               </a>
             ))}

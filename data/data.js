@@ -1130,8 +1130,8 @@ Object.assign(window.FESTIN_DATA.home, {
     kicker: "Association d'intérêt général, depuis 1987",
     title: "Former les personnes,", titleAccent: "faire avancer les cuisines.",
     signature: "Le goût d'avancer ensemble",
-    ctaPrimary: { label: "Orienter une personne", href: "#/accompagnement/insertion" },
-    ctaSecondary: { label: "Former mes équipes", href: "#/accompagnement/professionnels" },
+    ctaPrimary: { k: "Vous cherchez un métier", label: "Apprendre un métier de cuisine", href: "#/accompagnement/insertion" },
+    ctaSecondary: { k: "Vous dirigez une cuisine", label: "Former mes équipes", href: "#/accompagnement/professionnels" },
     soutien: { text: "Vous financez ou soutenez nos actions ?", label: "Devenir partenaire", href: "#/contact" },
     img: "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-40.jpg",
     imgAlt: "Une promotion du dispositif Des Étoiles et des Femmes en tabliers violets, en plein air",
@@ -1221,21 +1221,11 @@ Object.assign(window.FESTIN_DATA.home, {
     lien: { label: "Voir notre impact", href: "#/impact" },
   },
   portes: {
-    title: "Par où", titleAccent: "commencer ?",
+    title: "Choisir", titleAccent: "votre entrée.",
     cards: [
-      { tag: "Vous accompagnez une personne", title: "Orienter vers une formation",
-        pts: [
-          "Des parcours gratuits : CAP cuisine ou titre à finalité professionnelle de commis de cuisine.",
-          "Des stages en restaurant et un suivi jusqu'à l'emploi.",
-          "Des parcours pour les femmes et pour les personnes réfugiées ou primo-arrivantes.",
-        ],
-        cta: "Orienter une personne", href: "#/accompagnement/insertion", img: "images/photo-tabliers-violets.jpg" },
+      { tag: "Vous cherchez un métier", title: "Apprendre un métier de cuisine",
+        cta: "Voir les formations", href: "#/accompagnement/insertion", img: "images/photo-tabliers-violets.jpg" },
       { tag: "Vous dirigez une équipe", title: "Former et recruter",
-        pts: [
-          "Des formations courtes, avec le programme Restaure : violences en cuisine, management juste et inclusif.",
-          "Des stagiaires en parcours d'insertion, dans votre brigade.",
-          "Des candidats présentés par Festin, avec une préparation à l'emploi financée par France Travail.",
-        ],
         cta: "Travailler avec Festin", href: "#/accompagnement/professionnels", img: "images/photo-cuisine-action.jpg" },
     ],
     agir: {
@@ -1553,7 +1543,7 @@ window.FESTIN_DATA.about = {
     { year: "2024", type: "projet", title: "Le programme Restaure", desc: "Un programme national contre les violences en cuisine.", photo: "images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg", href: "#/projets/restaure" },
     { year: "2025", type: "projet", label: "Temps fort", title: "Dix ans du dispositif Des Étoiles et des Femmes", desc: "Plus de 600 convives au Grand Festin, sur le Vieux-Port.", photo: null },
     { year: "2025", type: "reco", title: "Label LUCIE Progress", desc: "848 sur 1 000 pour La Table de Cana Marseille." },
-    { year: "2026", type: "projet", title: "L'Académie Festin", desc: "Portée par Estello Formation, organisme de formation certifié Qualiopi. Avec le programme Tournesol.", photo: "images/photo-cuisine-formation.jpg", href: "#/academie" },
+    { year: "2026", type: "projet", title: "L'Académie Festin", desc: "Festin devient organisme de formation en partenariat avec Estello Formation, organisme certifié Qualiopi.", photo: "images/photo-cuisine-formation.jpg", href: "#/academie" },
   ],
 
   valeurs: [
@@ -1610,16 +1600,16 @@ Object.assign(window.FESTIN_DATA.home, {
     title: "Deux publics,", titleAccent: "un même métier.",
     lede: "Depuis près de quarante ans, nous formons des personnes aux métiers de la cuisine et nous accompagnons les restaurants qui recrutent et forment leurs équipes.",
     cols: [
-      { key: "ins", tag: "Vous accompagnez une personne vers l'emploi", title: "Un métier,", titleAccent: "un diplôme, un contrat.",
+      { key: "ins", tag: "Vous cherchez un métier", title: "Un métier,", titleAccent: "un diplôme, un contrat.",
         text: "Des parcours gratuits pour apprendre un métier de cuisine, avec des stages chez des chefs et un suivi jusqu'au premier contrat.",
         img: "images/photo-tabliers-violets.jpg", imgAlt: "Des stagiaires en cuisine",
         lignes: [
-          { dt: "Se former", dd: "CAP cuisine ou titre de commis de cuisine, avec Des Étoiles et des Femmes (13 antennes) et Tournesol." },
-          { dt: "Travailler", dd: "Un emploi en insertion à La Table de Cana, traiteur à Marseille." },
+          { dt: "Se former", dd: "Une formation diplômante en cuisine, avec Des Étoiles et des Femmes (13 antennes) ou la formation Tournesol, à Marseille." },
+          { dt: "Travailler", dd: "Un emploi en insertion à La Table de Cana Marseille, traiteur." },
           { dt: "Être suivi", dd: "Logement, papiers, garde d'enfants, recherche de poste : un suivi individuel." },
         ],
-        preuve: "<b>83 %</b> de sorties en emploi ou en formation en 2025, tous dispositifs.",
-        cta: { label: "Orienter une personne", href: "#/accompagnement/insertion" } },
+        preuve: "Des formations <b>gratuites</b>, prises en charge par France Travail et nos partenaires publics.",
+        cta: { label: "Apprendre un métier de cuisine", href: "#/accompagnement/insertion" } },
       { key: "pro", tag: "Vous dirigez une cuisine ou une équipe", title: "Recruter, former,", titleAccent: "garder ses équipes.",
         text: "Pour les restaurateurs, les cheffes et chefs, les responsables RH : recruter des personnes formées et former vos équipes, avec des gens de cuisine.",
         img: "images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg", imgAlt: "Soirée de lancement du programme Restaure",
@@ -1637,11 +1627,10 @@ Object.assign(window.FESTIN_DATA.home, {
     lede: "Festin est né dans une cuisine, en 1987. Depuis, chaque projet est né d'un besoin rencontré sur le terrain, aux côtés des chefs et des restaurants.",
     items: [
       { year: "1993", title: "La Table de Cana", desc: "Le premier projet : un traiteur où des salariés en insertion apprennent la cuisine en travaillant.", color: "#E8A825", dark: true, photo: "images/latable de cana/tabledecana_cdutrey_160124-4393.jpg", href: "#/projets/la-table-de-cana" },
-      { year: "2015", title: "Des Étoiles et des Femmes", desc: "Des femmes se forment à la cuisine avec des chefs. Le programme compte aujourd'hui 13 antennes.", color: "#C2421C", dark: false, photo: "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg", href: "#/projets/des-etoiles-et-des-femmes" },
+      { year: "2015", title: "Des Étoiles et des Femmes", desc: "Des femmes se forment à la cuisine avec des chefs. Le dispositif compte aujourd'hui 13 antennes.", color: "#C2421C", dark: false, photo: "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg", href: "#/projets/des-etoiles-et-des-femmes" },
       { year: "2022", title: "Les Beaux Mets", desc: "Un restaurant ouvert au public dans la prison des Baumettes, à Marseille.", color: "#217078", dark: false, photo: "images/beauxmets-images/LBM_cdutrey_071122-7264.jpg", href: "#/projets/les-beaux-mets" },
       { year: "2024", title: "Le programme Restaure", desc: "Contre les violences en cuisine et pour former les équipes de la restauration.", color: "#7E4590", dark: false, photo: "images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg", href: "#/projets/restaure" },
-      { year: "2025", title: "Tournesol", desc: "Festin porte la formation Tournesol avec Refugee Food : cinq mois pour préparer le titre de commis de cuisine.", color: "#FFC100", dark: true, photo: "images/photo-rouleaux.jpg", href: "#/projets/tournesol" },
-      { year: "2026", title: "L'Académie Festin", desc: "Festin devient organisme de formation.", color: "#FEFCF8", dark: true, photo: "images/photo-cuisine-formation.jpg", href: "#/academie" },
+      { year: "2026", title: "L'Académie Festin", desc: "Festin devient organisme de formation en partenariat avec Estello Formation, organisme certifié Qualiopi.", color: "#FEFCF8", dark: true, photo: "images/photo-cuisine-formation.jpg", href: "#/academie" },
     ],
   },
   citationEdito: {
