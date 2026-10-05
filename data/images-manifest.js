@@ -400,5 +400,6 @@ window.FESTIN_IMG = {
 800,
 1600
 ]
-}
+},
+"images-def/grand-festin-2025-brigades.jpg": {"avif": [800, 1600], "w": [800, 1600]}
 };
