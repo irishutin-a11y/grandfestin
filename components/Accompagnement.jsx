@@ -59,6 +59,18 @@ function AccompagnementInsertionPage() {
         img="images/photo-tabliers-violets.jpg" imgAlt="Des apprenties du dispositif Des Étoiles et des Femmes en cuisine"
         cta={{ label: 'Vérifier mon éligibilité', href: '#/contact/se-former' }} lien={{ label: 'Quel parcours, pour qui ?', to: 'parcours-choix' }} />
 
+      {/* PRESCRIPTEURS — un bloc court, puis tout le reste s'adresse à la personne
+          (RETOURS-AUDIT, question 1 : réponse A) */}
+      <section className="g-sec g-sec--cream g-sec--tight ins-presc" aria-labelledby="ins-presc-t">
+        <div className="wrap ins-presc__in">
+          <div className="ins-presc__txt">
+            <h2 className="ins-presc__t" id="ins-presc-t">Vous orientez une personne&nbsp;?</h2>
+            <p>Les critères d'entrée de chaque formation sont ci-dessous, dans « Pour qui » et « Pour entrer ». Pour une prescription, écrivez-nous : nous répondons sous 48&nbsp;h ouvrées.</p>
+          </div>
+          <a className="btnb btnb--teal ins-presc__cta" href="#/contact/orienter">Orienter une personne <span className="arrow" aria-hidden="true">→</span></a>
+        </div>
+      </section>
+
       {/* LES PARCOURS — une seule section pour tous les publics (retours du 30/09/2026) :
           pour qui, ce que c'est, comment entrer, et le site du projet. Pas de dates : chaque
           antenne a son calendrier, donné sur le site du projet. */}
@@ -73,7 +85,7 @@ function AccompagnementInsertionPage() {
               return (
                 <li className="or-card g-reveal" key={o.id}>
                   <div className="or-card__img">
-                    <window.Picture src={c.img || (D.projetPages[o.id] || {}).heroImg} alt="" sizes="(max-width: 900px) 100vw, 44vw" />
+                    <window.Picture src={o.img || c.img || (D.projetPages[o.id] || {}).heroImg} alt="" sizes="(max-width: 900px) 100vw, 44vw" />
                     {p.logo && <span className="or-card__logo"><img src={encodeURI(decodeURI(p.logo))} alt="" loading="lazy" /></span>}
                   </div>
                   <div className="or-card__b">

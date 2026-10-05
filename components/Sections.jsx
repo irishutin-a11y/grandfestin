@@ -40,6 +40,7 @@ function Picture({ src, alt = '', sizes = '100vw', className, imgClassName, styl
 // Libellés liés, autocomplete, erreurs annoncées (aria-invalid + message).
 function Contact() {
   const c = window.FESTIN_DATA.contact;
+  const E = window.FESTIN_DATA.emails || {};
   const [etat, setEtat] = React.useState('saisie'); // 'saisie' | 'ouvert'
   const [err, setErr] = React.useState({});
   const [dest, setDest] = React.useState(c.email);
@@ -48,17 +49,19 @@ function Contact() {
   // qui écrit : l'équipe sait tout de suite à qui transmettre (retours du 30/09/2026)
   const profils = ["Je suis prescripteur (conseiller, travailleur social)", 'Je suis un professionnel de la restauration', 'Je suis partenaire ou financeur', 'Je cherche une formation ou un emploi', 'Je suis journaliste', 'Autre'];
   const motifs = [
-    { value: 'Former mes équipes', label: 'Former mes équipes', icon: 'shield-check', slug: 'former' },
-    { value: 'Recruter ou accueillir un stagiaire', label: 'Recruter, accueillir un stagiaire', icon: 'handshake', slug: 'recruter' },
-    { value: 'Se former', label: 'Se former', icon: 'graduation-cap', slug: 'se-former' },
-    { value: 'Mécénat ou partenariat', label: 'Mécénat ou partenariat', icon: 'users', to: 'partenariat@grandfestin.com', slug: 'partenariat' },
-    { value: 'Presse', label: 'Presse', icon: 'newspaper', slug: 'presse' },
-    { value: 'Orienter une personne', label: 'Orienter une personne', icon: 'hand-coins', slug: 'orienter' },
-    { value: 'Devis traiteur, La Table de Cana Marseille', label: 'Devis traiteur', icon: 'soup', slug: 'devis-traiteur' },
-    { value: 'Privatiser Les Beaux Mets', label: 'Privatiser Les Beaux Mets', icon: 'utensils', slug: 'privatisation' },
-    { value: 'Autre', label: 'Autre', icon: 'message-circle' },
+    { value: 'Se former', label: 'Se former', icon: 'graduation-cap', slug: 'se-former', to: E.candidature },
+    { value: 'Orienter une personne', label: 'Orienter une personne', icon: 'compass', slug: 'orienter', to: E.prescription },
+    { value: 'Recruter ou accueillir un stagiaire', label: 'Recruter, accueillir un stagiaire', icon: 'handshake', slug: 'recruter', to: E.recrutement },
+    { value: 'Former mes équipes', label: 'Former mes équipes', icon: 'shield-check', slug: 'former', to: E.formationsPro },
+    { value: 'Devis traiteur, La Table de Cana Marseille', label: 'Devis traiteur', icon: 'soup', slug: 'devis-traiteur', to: E.traiteur },
+    { value: 'Privatiser Les Beaux Mets', label: 'Privatiser Les Beaux Mets', icon: 'utensils', slug: 'privatisation', to: E.privatisation },
+    { value: 'Mécénat ou don', label: 'Mécénat ou don', icon: 'heart-handshake', slug: 'mecenat', to: E.mecenat },
+    { value: 'Partenariat, porter une antenne', label: 'Partenariat, antenne', icon: 'users', slug: 'partenariat', to: E.partenariat },
+    { value: 'Presse', label: 'Presse', icon: 'newspaper', slug: 'presse', to: E.presse },
+    { value: 'Accessibilité et handicap', label: 'Accessibilité, handicap', icon: 'accessibility', slug: 'handicap', to: E.handicap },
+    { value: 'Autre', label: 'Autre', icon: 'message-circle', to: E.general },
   ];
-  // motif présélectionné par l'adresse : #/contact/<slug> (devis-traiteur, privatisation, former, recruter, se-former, partenariat, presse, orienter)
+  // motif présélectionné par l'adresse : #/contact/<slug> (se-former, orienter, recruter, former, devis-traiteur, privatisation, mecenat, partenariat, presse, handicap)
   const slug = (window.location.hash.split('/')[2] || '');
   const iDefaut = Math.max(0, motifs.findIndex((m) => m.slug && m.slug === slug));
   const onSubmit = (e) => {
@@ -95,10 +98,12 @@ function Contact() {
           <h2 className="isec__h" id="contact-t">Nos <em>coordonnées</em></h2>
           <dl className="contact2__dl">
             <div><dt>E-mail</dt><dd><a href={'mailto:' + c.email}>{c.email}</a></dd></div>
-            <div><dt>Mécénat et partenariats</dt><dd><a href="mailto:partenariat@grandfestin.com">partenariat@grandfestin.com</a></dd></div>
-            <div><dt>Presse</dt><dd><a href={'mailto:' + c.email}>{c.email}</a></dd></div>
+            {/* une ligne par usage seulement quand son adresse diffère de l'adresse générale */}
+            {[['Mécénat et partenariats', E.mecenat], ['Presse', E.presse]].filter(([, a]) => a && a !== c.email).map(([l, a]) => (
+              <div key={l}><dt>{l}</dt><dd><a href={'mailto:' + a}>{a}</a></dd></div>
+            ))}
             <div><dt>Adresse</dt><dd>{c.address}</dd></div>
-            <div><dt>Accessibilité et handicap</dt><dd>Lucie Gueydon, responsable handicap et pédagogique : aménagements et coordination des formations</dd></div>
+            <div><dt>Accessibilité et handicap</dt><dd>Lucie Gueydon, responsable handicap et pédagogique : aménagements et coordination des formations. <a href="#/contact/handicap">Lui écrire</a></dd></div>
             <div><dt>Numéros</dt><dd>NDA {c.nda} · SIRET {c.siret}</dd></div>
           </dl>
         </div>
@@ -199,7 +204,7 @@ function Footer() {
                 <ul>
                   {r.links.filter((l) => l.href !== r.href).map((l) => <li key={l.href + l.label}><a href={l.href}>{l.label}</a></li>)}
                   {r.key === 'association' && <>
-                    <li><a href="mailto:partenariat@grandfestin.com">Mécénat et partenariats</a></li>
+                    <li><a href="#/contact/mecenat">Mécénat et partenariats</a></li>
                     <li><a href="/mentions-legales">Mentions légales</a></li>
                   </>}
                 </ul>

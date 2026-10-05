@@ -437,7 +437,50 @@ function ImpactPage() {
           </ol>
         </div>
       </section>
+
+      <SEngager />
     </div>
+  );
+}
+
+// S'ENGAGER AVEC FESTIN — fin de la page Impact, juste après les preuves
+// (RETOURS-AUDIT, question 2 : réponse B). Trois façons d'agir, une action chacune ;
+// la pastille y mène par « Soutenir Festin » (#/impact/soutenir).
+function SEngager() {
+  const D = window.FESTIN_DATA;
+  const facons = [
+    { t: 'Financer', p: "Votre don ou votre mécénat finance des heures de formation et le suivi des personnes, jusqu'à l'emploi.",
+      tags: [['Pour', 'particuliers, entreprises, fondations']],
+      actions: [{ label: 'Faire un don', href: D.donation, ext: true, primary: true }, { label: 'Devenir mécène', href: '#/contact/mecenat' }] },
+    { t: 'Accueillir', p: 'Accueillez une personne en stage ou recrutez un commis formé par nos parcours.',
+      tags: [['Pour', 'restaurants et cuisines']],
+      actions: [{ label: 'Recruter et former vos équipes', href: '#/accompagnement/professionnels' }] },
+    { t: 'Porter une antenne', p: 'Dans chaque ville, une structure locale porte le dispositif Des Étoiles et des Femmes, avec son centre de formation et ses restaurants partenaires.',
+      tags: [['Aujourd\'hui', '13 antennes']],
+      actions: [{ label: 'Nous écrire', href: '#/contact/partenariat' }] },
+  ];
+  return (
+    <section className="g-sec g-sec--cream" id="s-engager" aria-labelledby="s-engager-t">
+      <div className="wrap">
+        <window.GHead id="s-engager-t" title="S'engager" accent="avec Festin." />
+        <ul className="g-engage">
+          {facons.map((f) => (
+            <li className="g-engage__it g-reveal" key={f.t}>
+              <h3 className="g-engage__t">{f.t}</h3>
+              <p>{f.p}</p>
+              <window.ArTags tags={f.tags} />
+              <div className="g-engage__act">
+                {f.actions.map((a) => (
+                  <a key={a.label} className={a.primary ? 'btnb btnb--gold' : 'lnk'} href={a.href} {...(a.ext ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
+                    {a.label} <span className="arrow" aria-hidden="true">{a.ext ? '↗' : '→'}</span>{a.ext && <span className="sr-only"> (nouvel onglet)</span>}
+                  </a>
+                ))}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
   );
 }
 
@@ -616,7 +659,7 @@ function ActualitesPage() {
         <div className="wrap apkit">
           <div>
             <h2 className="isec__h" id="actu-kit">Espace <em>presse</em></h2>
-            <p className="isec__lede">Demandes d'interview, visuels, chiffres : écrivez à <a href="mailto:contact@grandfestin.com">contact@grandfestin.com</a>. Retrouvez nos rapports d'activité sur la <a href="#/impact">page Impact</a>.</p>
+            <p className="isec__lede">Demandes d'interview, visuels, chiffres : écrivez à <a href={'mailto:' + (D.emails || {}).presse}>{(D.emails || {}).presse}</a>. Retrouvez nos rapports d'activité sur la <a href="#/impact">page Impact</a>.</p>
             <div className="apkit__logos">
               <a className="btnb btnb--teal" href="images/logo-festin.png" download>Logo Festin, couleur</a>
               <a className="lnk" href="images/logo-festin-jaune.png" download>Logo Festin, jaune</a>

@@ -71,7 +71,7 @@ function BlocChefs({ p, cfg }) {
           <p className="g-chefs__note">{chefs.length} chefs forment avec le réseau, dont la marraine nationale, Julia Sedefdjian. Faites tourner la sphère pour les voir.</p>
           <div className="g-actions">
             <a className="btnb btnb--gold" href={D.donation} target="_blank" rel="noopener noreferrer">Faire un don <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (nouvel onglet)</span></a>
-            <a className="lnk" href="mailto:partenariat@grandfestin.com">Devenir mécène <span className="arrow" aria-hidden="true">→</span></a>
+            <a className="lnk" href="#/contact/mecenat">Devenir mécène <span className="arrow" aria-hidden="true">→</span></a>
           </div>
         </div>
         <div className="g-chefs__sphere">

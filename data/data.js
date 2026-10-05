@@ -11,7 +11,7 @@ window.FESTIN_DATA = {
   },
   catalogPdf: "https://drive.google.com/file/d/1c8ueQMkTpjb1KmjJPV3nQ9djTLOmN8yC/view?usp=sharing",
   contact: {
-    email: "contact@grandfestin.com",
+    email: "contact@desetoilesetdesfemmes.com", // adresse générale (RETOURS-AUDIT, question 3)
     altEmail: "armand.hurault@associationfestin.com",
     referent: "Armand Hurault",
     referentRole: "Directeur général, relations restaurateurs et engagement",
@@ -1111,7 +1111,7 @@ Object.assign(window.FESTIN_DATA.home, {
     signature: "Le goût d'avancer ensemble",
     ctaPrimary: { k: "Vous cherchez un métier", label: "Apprendre un métier de cuisine", href: "#/accompagnement/insertion" },
     ctaSecondary: { k: "Vous dirigez une cuisine", label: "Former mes équipes", href: "#/accompagnement/professionnels" },
-    soutien: { text: "Vous financez ou soutenez nos actions ?", label: "Devenir partenaire", href: "#/contact" },
+    soutien: { text: "Vous financez ou soutenez nos actions ?", label: "Devenir partenaire", href: "#/impact/soutenir" },
     img: "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-40.jpg",
     imgAlt: "Une promotion du dispositif Des Étoiles et des Femmes en tabliers violets, en plein air",
   },
@@ -1212,7 +1212,7 @@ Object.assign(window.FESTIN_DATA.home, {
       text: "Votre don finance des heures de formation et le suivi, jusqu'à l'emploi. Vous pouvez aussi déjeuner aux Beaux Mets ou faire appel à La Table de Cana.",
       links: [
         { label: "Faire un don", href: "don", primary: true },
-        { label: "Devenir mécène", href: "mailto:partenariat@grandfestin.com" },
+        { label: "Devenir mécène", href: "#/contact/mecenat" },
         { label: "Réserver aux Beaux Mets", href: "https://www.lesbeauxmets-marseille.fr", external: true },
         { label: "Commander à La Table de Cana", href: "https://www.latabledecana-marseille.com", external: true },
       ],
@@ -1531,6 +1531,24 @@ window.FESTIN_DATA.about = {
   ],
 };
 
+// Adresses de contact, une ligne par usage (RETOURS-AUDIT, question 3, 05/10/2026).
+// Une seule adresse fournie pour l'instant ; l'association donnera les autres.
+// Pour en changer une : modifier sa ligne ici, tous les liens du site suivent
+// (formulaire Contact, coordonnées, pied de page, espace presse, « Devenir mécène »).
+window.FESTIN_DATA.emails = {
+  general:       "contact@desetoilesetdesfemmes.com",
+  candidature:   "contact@desetoilesetdesfemmes.com", // se former, vérifier son éligibilité
+  prescription:  "contact@desetoilesetdesfemmes.com", // orienter une personne
+  recrutement:   "contact@desetoilesetdesfemmes.com", // stage, Book de l'emploi, POEI
+  formationsPro: "contact@desetoilesetdesfemmes.com", // formations du programme Restaure
+  traiteur:      "contact@desetoilesetdesfemmes.com", // devis, La Table de Cana Marseille
+  privatisation: "contact@desetoilesetdesfemmes.com", // Les Beaux Mets
+  mecenat:       "contact@desetoilesetdesfemmes.com", // dons, mécénat
+  partenariat:   "contact@desetoilesetdesfemmes.com", // antennes, partenaires opérationnels
+  presse:        "contact@desetoilesetdesfemmes.com",
+  handicap:      "contact@desetoilesetdesfemmes.com", // accessibilité, référente handicap
+};
+
 // Backward-compat alias so anything still referencing the old name keeps working
 window.ACADEMIE_DATA = window.FESTIN_DATA;
 
@@ -1609,6 +1627,6 @@ Object.assign(window.FESTIN_DATA.home, {
 // ============================================================
 window.FESTIN_DATA.orienter = [
   { id: "des-etoiles-et-des-femmes", pour: "Des femmes majeures", quoi: "Une formation diplômante en cuisine, de 4 à 11 mois, avec des stages en restaurant gastronomique, dans 13 villes.", conditions: "Français B1 ou B2 selon la formation. Formation gratuite." },
-  { id: "tournesol", pour: "Des personnes réfugiées ou primo-arrivantes, majeures, autorisées à travailler en France", quoi: "Cinq mois pour le titre de commis de cuisine et le DCL, un diplôme de français, à Marseille.", conditions: "Français A2 minimum. Formation gratuite, rémunérée par France Travail." },
+  { id: "tournesol", img: "images/tournesol:formation/Formation-Tournesol_RefugeeFood_©Aglae-Bory-67.jpg", pour: "Des personnes réfugiées ou primo-arrivantes, majeures, autorisées à travailler en France", quoi: "Cinq mois pour le titre de commis de cuisine et le DCL, un diplôme de français, à Marseille.", conditions: "Français A2 minimum. Formation gratuite, rémunérée par France Travail." },
   { id: "la-table-de-cana", pour: "Des salariés en insertion, à Marseille", quoi: "Un emploi au traiteur, avec une formation en cuisine, puis un poste chez un partenaire.", conditions: null },
 ];

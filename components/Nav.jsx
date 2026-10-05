@@ -158,6 +158,8 @@ function Nav() {
           ))}
         </ul>
         <span className="navpill__sep" aria-hidden="true"></span>
+        {/* « Soutenir Festin » : les trois façons de s'engager, en fin de page Impact (RETOURS-AUDIT, question 2) */}
+        <a className="navpill__soutenir" href="#/impact/soutenir" aria-current={hash === '#/impact/soutenir' ? 'page' : undefined}>Soutenir Festin</a>
         <a className="navpill__don" href={data.donation} target="_blank" rel="noopener noreferrer">
           <i data-lucide="heart" aria-hidden="true" /> Don
         </a>
@@ -196,6 +198,7 @@ function Nav() {
             <a className="optA-don" href={data.donation} target="_blank" rel="noopener noreferrer" onClick={closePanel}>
               <i data-lucide="heart" aria-hidden="true" /> Faire un don à Festin
             </a>
+            <a className="optA-soutenir" href="#/impact/soutenir" onClick={closePanel}>Soutenir Festin autrement <span aria-hidden="true">→</span></a>
             <span className="optA-foot__txt">Association loi 1901, d'intérêt général, agréée ESUS.</span>
           </div>
         </div>

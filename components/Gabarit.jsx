@@ -166,7 +166,7 @@ function Portes({ id = 'portes', title = 'Par où', accent = 'commencer ?', port
               {agir.text && <p>{agir.text}</p>}
               <ul className="ac-agir__links">
                 <li><a className="btnb btnb--gold" href={agir.don || D.donation} target="_blank" rel="noopener noreferrer">Faire un don <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (nouvel onglet)</span></a></li>
-                <li><a className="lnk" href="mailto:partenariat@grandfestin.com">Devenir mécène <span className="arrow" aria-hidden="true">→</span></a></li>
+                <li><a className="lnk" href="#/contact/mecenat">Devenir mécène <span className="arrow" aria-hidden="true">→</span></a></li>
                 {agir.site && <li><a className="lnk" href={agir.site.href} target="_blank" rel="noopener noreferrer">{agir.site.label} <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (nouvel onglet)</span></a></li>}
               </ul>
             </div>

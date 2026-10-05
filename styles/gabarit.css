@@ -435,3 +435,26 @@ main > div > section:last-of-type:has(.g-appel){border-top:0!important}
 .pj-card__acts .pj-card__go{margin-top:0;padding-top:0;text-decoration:none}
 .pj-card__acts .pj-card__site{margin-top:0;padding-left:0;font-size:13px}
 .pj-card__go:hover .arrow{transform:translateX(4px)}
+
+/* Insertion : bloc court pour les prescripteurs (RETOURS-AUDIT, question 1) */
+.ins-presc__in{display:flex;align-items:center;justify-content:space-between;gap:var(--sp-5) var(--sp-7);flex-wrap:wrap}
+.ins-presc__txt{max-width:64ch}
+.ins-presc__t{margin:0 0 var(--sp-2);font-size:var(--fs-h3);font-weight:700;text-transform:uppercase;color:var(--ink)}
+.ins-presc__txt p{margin:0;font-size:var(--fs-body);line-height:1.5;color:var(--ink-mid)}
+.ins-presc__cta{flex:none}
+.ins-presc{padding-block:var(--sp-7)}
+
+/* « Soutenir Festin » : dans la pastille à partir de 1360 px, dans le menu partout (RETOURS-AUDIT, question 2) */
+.navpill__soutenir{display:none;align-items:center;min-height:40px;padding:0 12px;border-radius:999px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--coral-ink);text-decoration:none;white-space:nowrap}
+.navpill__soutenir:hover,.navpill__soutenir[aria-current="page"]{background:var(--teal-tint)}
+.navpill__soutenir:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+@media (min-width:1360px){.navpill__soutenir{display:inline-flex}} /* en dessous, la pastille n'a pas la place : le lien est dans le menu */
+.optA-soutenir{display:inline-flex;align-items:center;gap:6px;min-height:44px;color:var(--gold-light);font-weight:700;text-decoration:underline;text-underline-offset:.2em}
+
+/* Impact : S'engager avec Festin (RETOURS-AUDIT, question 2) */
+.g-engage{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-6)}
+.g-engage__it{display:flex;flex-direction:column;gap:var(--sp-3);padding-top:var(--sp-5);border-top:2px solid var(--teal)}
+.g-engage__t{margin:0;font-size:var(--fs-h3);font-weight:700;text-transform:uppercase;color:var(--ink)}
+.g-engage__it p{margin:0;font-size:var(--fs-body);line-height:1.5;color:var(--ink-mid)}
+.g-engage__act{margin-top:auto;padding-top:var(--sp-3);display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-3) var(--sp-5)}
+@media (max-width:900px){.g-engage{grid-template-columns:1fr}}
