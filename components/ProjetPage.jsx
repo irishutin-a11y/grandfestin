@@ -4,7 +4,7 @@
 // seule, sans connaître Festin. Ordre fixe (AUDIT-DEPLOIEMENT.md §4) :
 // hero · en bref (texte court, 3 preuves, vidéo ou photo) · parcours (frise) ·
 // un bloc propre au projet au plus · témoignages · portes · presse · galerie ·
-// les projets de Festin par mission.
+// (la liste des autres projets en fin de page est retirée le 05/10/2026).
 // Contenus : FESTIN_DATA.projets (faits) + FESTIN_DATA.projetPages (mise en page).
 (function () {
 const { useRef } = React;
@@ -208,9 +208,9 @@ function ProjetPage({ id }) {
 
       <window.Galerie images={galerie} label={'Galerie photo, ' + p.shortTitle} />
 
-      {cfg.bandeProjets
-        ? <window.BandeDefilante label="Les projets de Festin" items={D.bandeProjets.filter((x) => x.href !== '#/projets/' + id)} />
-        : <window.MissionsNav currentId={id} title="Les autres projets" accent="de Festin" compact />}
+      {/* « Les autres projets de Festin » retiré de toutes les pages (retour du 05/10/2026 : trop répétitif) ;
+          Restaure garde la bande or des projets */}
+      {cfg.bandeProjets && <window.BandeDefilante label="Les projets de Festin" items={D.bandeProjets.filter((x) => x.href !== '#/projets/' + id)} />}
     </div>
   );
 }
