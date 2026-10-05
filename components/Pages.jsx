@@ -521,7 +521,7 @@ function AcademiePage() {
           <window.Cartes items={[
             { color: 'var(--gold-ink)', title: 'Des diplômes reconnus', desc: "Des formations diplômantes en cuisine et, pour Tournesol, un diplôme de français (DCL)." },
             { color: 'var(--teal)', title: 'Quatre à onze mois', desc: "Le temps d'apprendre un métier, avec un suivi individuel jusqu'à l'emploi. Les formations courtes pour les équipes en poste sont portées par le programme Restaure." },
-            { color: 'var(--coral-ink)', title: 'Des stages en restaurant', desc: 'De 155 à 490 heures de stage, chez des partenaires comme Les Grandes Tables, Sofitel ou Les Bords de Mer.' },
+            { color: 'var(--coral-ink)', title: 'Des stages en restaurant', desc: 'De 155 à 490 heures de stage, dans des restaurants partenaires.' },
           ]} />
         </div>
       </section>
