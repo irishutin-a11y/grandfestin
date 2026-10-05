@@ -410,3 +410,19 @@
 .ac-porte2{justify-content:space-between}
 @media (max-width:600px){ .ac-portes2{grid-template-columns:1fr} .ac-hero__txt{text-align:left;align-items:flex-start} .ac-portes2{justify-content:stretch;width:100%} }
 @media (prefers-reduced-motion:reduce){ .ac-porte2{transition:none} .ac-porte2:hover{transform:none} }
+
+/* LEURS MOTS (RETOURS-AUDIT §2.12) : des citations, pas des cartes ; fond crème, filet fin */
+.ac-voix{background:var(--off-white);padding:var(--section) 0}
+.ac-voix .ac-h2{margin:0 0 var(--sp-7)}
+.ac-voix__grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--sp-7) var(--sp-8)}
+.ac-voix__it{display:flex;flex-direction:column;gap:var(--sp-3);padding-top:var(--sp-5);border-top:1px solid var(--teal-line)}
+.ac-voix__it figure{margin:0;display:flex;flex-direction:column;gap:var(--sp-4)}
+.ac-voix__it blockquote{margin:0}
+.ac-voix__it blockquote p{margin:0;font-size:var(--fs-lede);line-height:1.45;color:var(--ink);font-style:italic;font-weight:300;text-wrap:pretty;max-width:46ch}
+.ac-voix__it figcaption{display:flex;align-items:center;gap:var(--sp-3)}
+.ac-voix__ph{flex:none;width:52px;height:52px;border-radius:50%;overflow:hidden;background:var(--teal-tint);display:grid;place-items:center}
+.ac-voix__ph img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.ac-voix__who{display:flex;flex-direction:column;gap:2px;font-size:var(--fs-small);line-height:1.35;color:var(--ink-mid)}
+.ac-voix__who b{color:var(--ink);font-size:var(--fs-body)}
+.ac-voix__lnk{align-self:flex-start}
+@media(max-width:760px){.ac-voix__grid{grid-template-columns:1fr;gap:var(--sp-6)}}

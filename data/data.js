@@ -1576,6 +1576,25 @@ Object.assign(window.FESTIN_DATA.home, {
       { year: "2026", title: "L'Académie Festin", desc: "Festin devient organisme de formation en partenariat avec Estello Formation, organisme certifié Qualiopi.", color: "#FEFCF8", dark: true, photo: "images/photo-cuisine-formation.jpg", href: "#/academie" },
     ],
   },
+  // Paroles de personnes accompagnées, mot pour mot, déjà publiées sur les pages
+  // projet (RETOURS-AUDIT §2.1 et §2.12, question 7 : réponse A)
+  voix: {
+    title: "Ils et elles", titleAccent: "racontent.",
+    items: [
+      { name: "Hafida", meta: "Promotion lilloise 2023-2024, Des Étoiles et des Femmes", photo: "images/images-def/portrait-hafida.jpg",
+        quote: "Aujourd’hui, je travaille au restaurant L’Annexe à Lille, où j’ai effectué mes stages grâce au programme. Je suis fière de mon parcours, indépendante et heureuse d’avoir su franchir toutes ces étapes.",
+        href: "#/projets/des-etoiles-et-des-femmes", lien: "Des Étoiles et des Femmes" },
+      { name: "Oumar", meta: "Ancien salarié en insertion, La Table de Cana Marseille",
+        quote: "J’ai passé deux ans à La Table de Cana. Ça m’a vraiment aidé à savoir m’organiser et à avoir confiance en mes compétences. Aujourd’hui, j’ai un CDI chez Compass à la Tour CMA-CGM.",
+        href: "#/projets/la-table-de-cana", lien: "La Table de Cana Marseille" },
+      { name: "Chef Davin", meta: "InterContinental Marseille, a recruté Sami, un commis formé aux Beaux Mets", photo: "images/pros/davin-sami.jpg",
+        quote: "Sami s'est très vite intégré à l'équipe.",
+        href: "#/projets/les-beaux-mets", lien: "Les Beaux Mets" },
+      { name: "Ancien apprenant", meta: "Promotion Tournesol",
+        quote: "Merci de m’avoir donné l’opportunité d’apprendre la langue et de me former pour entrer dans le monde du travail.",
+        href: "#/formations/tournesol", lien: "La formation Tournesol" },
+    ],
+  },
   citationEdito: {
     text: "L'excellence et la solidarité ne sont pas des mondes séparés.",
     auteur: "Jérôme Schatzman, Armand Hurault, Marine Vever",

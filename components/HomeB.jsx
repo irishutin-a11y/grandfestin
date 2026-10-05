@@ -165,6 +165,28 @@ function HomeB() {
         </div>
       </section>
 
+      {/* 3 bis · LEURS MOTS — la mission incarnée : des personnes accompagnées parlent,
+          mot pour mot (RETOURS-AUDIT §2.1, §2.12) */}
+      <section className="ac-voix" id="voix" aria-labelledby="ac-voix-t">
+        <div className="wrap">
+          <h2 className="ac-h2 reveal" id="ac-voix-t">{H.voix.title} <em>{H.voix.titleAccent}</em></h2>
+          <ul className="ac-voix__grid">
+            {H.voix.items.map((v) => (
+              <li key={v.name} className="ac-voix__it reveal">
+                <figure>
+                  <blockquote><p>« {v.quote} »</p></blockquote>
+                  <figcaption>
+                    {v.photo && <span className="ac-voix__ph"><img src={IMG(v.photo)} alt="" loading="lazy" /></span>}
+                    <span className="ac-voix__who"><b>{v.name}</b><span>{v.meta}</span></span>
+                  </figcaption>
+                </figure>
+                <a className="lnk ac-voix__lnk" href={v.href}>{v.lien} <span className="arrow" aria-hidden="true">→</span></a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       {/* 4 · PRÈS DE QUARANTE ANS — la frise des projets, chaque carte mène à sa page */}
       <window.JalonsCouleur id="histoire" jalons={H.jalons.items.map((j) => { const p = D.projets.find((x) => j.href === '#/projets/' + x.id); return { ...j, logo: j.logo || (p && p.logo) || (j.href === '#/academie' ? 'images/logo-academie-festin.png' : null) }; })} title={H.jalons.title} em={H.jalons.titleAccent}
         lede={H.jalons.lede} word="PROJETS" label="Les projets de Festin, de 1993 à 2026" />
