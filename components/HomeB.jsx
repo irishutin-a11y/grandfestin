@@ -298,7 +298,7 @@ function ProjetsIndexPage() {
   const nomMission = (m) => m.title + (m.titleAccent ? ' ' + m.titleAccent : '');
   return (
     <div className="gpage" ref={root} data-screen-label="Nos projets">
-      <window.HeroPage tone="teal" kicker="Cinq projets, trois missions" title="Nos lieux" accent="et projets"
+      <window.HeroPage tone="deep" kicker="Cinq projets, trois missions" title="Nos lieux" accent="et projets"
         proof={H.missions.ledeProjets}
         crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Nos projets' }]}>
         <div className="g-herocta"><window.GLink l={{ to: 'pj-gal' }} className="btnb btnb--gold">Voir les projets <span className="arrow" aria-hidden="true">↓</span></window.GLink><window.GLink l={{ to: 'lieux' }} className="g-herolnk">Nos lieux <span className="arrow" aria-hidden="true">↓</span></window.GLink></div>

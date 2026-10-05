@@ -14,8 +14,9 @@ const COULEUR = {
   'des-etoiles-et-des-femmes': '#E4572E', 'les-beaux-mets': '#A3543D', 'la-table-de-cana': '#7A2E3A',
   'restaure': '#5B6E1E', 'tournesol': '#C1791A',
 };
-// Teinte du hero selon la mission : Former → or, Accompagner → teal, Changer → teal profond
-const TON = { former: 'gold', accompagner: 'teal', changer: 'deep' };
+// Teinte du hero selon le public (RETOURS-AUDIT, question 6) : teal = les personnes,
+// or = les professionnels, teal profond = les lieux
+const TON = { 'des-etoiles-et-des-femmes': 'teal', restaure: 'gold', 'les-beaux-mets': 'deep', 'la-table-de-cana': 'deep' };
 
 function slug(v) { return v.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''); }
 
@@ -119,7 +120,7 @@ function ProjetPage({ id }) {
   if (!p || !cfg) return <window.NotFoundPage />;
   const m = window.missionDe(id);
   const missionLabel = m ? m.title + (m.titleAccent ? ' ' + m.titleAccent : '') : '';
-  const tone = (m && TON[m.key]) || (cfg.programmeDe ? 'gold' : 'teal');
+  const tone = TON[id] || 'deep';
   const byTab = (t) => (p.parcours || []).find((x) => x.tab === t) || {};
   const steps = cfg.frise ? cfg.frise.steps.map((s) => (s.from ? { ...byTab(s.from), ...s } : s)) : [];
   const rail = cfg.frise && cfg.frise.rail ? { ...byTab(cfg.frise.rail.from), tab: cfg.frise.rail.tab } : null;
@@ -137,7 +138,7 @@ function ProjetPage({ id }) {
         img={cfg.heroImg} imgAlt={cfg.heroAlt} logo={p.logo} logoAlt={'Logo ' + p.shortTitle} note={cfg.heroCredit}
         crumb={[{ label: 'Accueil', href: '#/' }, cfg.programmeDe || { label: 'Nos projets', href: '#/projets' }, { label: p.shortTitle }]}>
         <div className="g-herocta">
-          <window.GLink l={cfg.heroCta} className={'btnb ' + (tone === 'gold' ? 'btnb--teal' : 'btnb--gold')}>{cfg.heroCta.label} <span className="arrow" aria-hidden="true">{cfg.heroCta.external ? '↗' : '→'}</span></window.GLink>
+          <window.GLink l={cfg.heroCta} className={'btnb ' + ({ gold: 'btnb--teal', teal: 'btnb--light' }[tone] || 'btnb--gold')}>{cfg.heroCta.label} <span className="arrow" aria-hidden="true">{cfg.heroCta.external ? '↗' : '→'}</span></window.GLink>
           {cfg.heroLien && <window.GLink l={cfg.heroLien} className="g-herolnk">{cfg.heroLien.label} <span className="arrow" aria-hidden="true">{cfg.heroLien.external ? '↗' : '→'}</span></window.GLink>}
         </div>
       </window.HeroPage>

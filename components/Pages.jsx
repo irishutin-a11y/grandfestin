@@ -3,9 +3,9 @@
 
 // En-tête des pages Formations, fiche formation et Académie : rendu par le hero
 // partagé des pages intérieures (Sections.jsx, HeroPage), pour une seule grammaire.
-function PageHeader({ eyebrow, title, accent, subtitle, breadcrumb, image, imageAlt = '', center, children }) {
+function PageHeader({ tone = 'teal', eyebrow, title, accent, subtitle, breadcrumb, image, imageAlt = '', center, children }) {
   return (
-    <window.HeroPage tone="teal" kicker={eyebrow} title={title} accent={accent} proof={subtitle}
+    <window.HeroPage tone={tone} kicker={eyebrow} title={title} accent={accent} proof={subtitle}
       img={image} imgAlt={imageAlt} crumb={breadcrumb || []} center={center}>{children}</window.HeroPage>
   );
 }
@@ -48,7 +48,7 @@ function FormationDetailPage({ id }) {
   if (!f) return <NotFoundPage />;
   return (
     <div data-screen-label={`03 Formation — ${f.title}`}>
-      <PageHeader center
+      <PageHeader center tone={f.cat === 'Professionnels' ? 'gold' : 'teal'}
         eyebrow={(f.cat === 'Professionnels' ? 'Formation pro' : 'Formation diplômante') + (f.porteur ? ' · ' + f.porteur : '')}
         title={f.title.split('—')[0].trim()}
         accent={f.title.includes('—') ? '— ' + f.title.split('—')[1].trim() : null}
@@ -64,8 +64,8 @@ function FormationDetailPage({ id }) {
           const site = { 'des-etoiles-et-des-femmes': 'des-etoiles-et-des-femmes', tournesol: 'tournesol' }[f.id];
           const p = site && window.FESTIN_DATA.projets.find((x) => x.id === site);
           return <div className="g-herocta">{p
-            ? <a className="btnb btnb--gold" href={p.siteUrl} target="_blank" rel="noopener noreferrer">Plus d'informations <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (site du projet, nouvel onglet)</span></a>
-            : <a className="btnb btnb--gold" href="#/contact/former">Plus d'informations <span className="arrow" aria-hidden="true">→</span></a>}</div>;
+            ? <a className="btnb btnb--light" href={p.siteUrl} target="_blank" rel="noopener noreferrer">Plus d'informations <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (site du projet, nouvel onglet)</span></a>
+            : <a className="btnb btnb--teal" href="#/contact/former">Plus d'informations <span className="arrow" aria-hidden="true">→</span></a>}</div>;
         })()}
       </PageHeader>
       <section style={{padding:'var(--s-8) 0',background:'var(--off-white)'}}>
@@ -229,7 +229,7 @@ function InstagramFeed() {
 function ContactPage() {
   return (
     <div data-screen-label="Contact">
-      <window.HeroPage tone="teal" kicker="Contact" title="Parlons de" accent="votre projet."
+      <window.HeroPage tone="deep" kicker="Contact" title="Parlons de" accent="votre projet."
         proof="Recruter, vous former, orienter une personne ou soutenir un projet : nous répondons sous 48 h ouvrées."
         img="images/photo-service-restaurant.jpg" imgAlt="Service en salle dans un restaurant partenaire"
         crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Contact' }]} />
@@ -242,10 +242,10 @@ function ContactPage() {
 function NotFoundPage() {
   return (
     <div data-screen-label="404">
-      <window.HeroPage tone="gold" kicker="Erreur 404" title="Cette page" accent="n'existe pas."
+      <window.HeroPage tone="deep" kicker="Erreur 404" title="Cette page" accent="n'existe pas."
         proof="Elle a peut-être changé d'adresse. Reprenez depuis l'accueil, ou allez directement à ce que vous cherchez.">
         <div className="nf__links">
-          <a className="btnb btnb--teal" href="#/">Retour à l'accueil</a>
+          <a className="btnb btnb--gold" href="#/">Retour à l'accueil</a>
           <a className="nf__lnk" href="#/academie">Nos formations</a>
           <a className="nf__lnk" href="#/accompagnement/professionnels">Former et recruter</a>
           <a className="nf__lnk" href="#/contact">Nous écrire</a>
@@ -346,10 +346,10 @@ function ImpactPage() {
   const couvertures = ['teal-dark', 'teal', 'gold', 'coral'];
   return (
     <div className="pageImpact imp2" ref={rootRef} data-screen-label="Impact">
-      <window.HeroPage tone="gold" kicker={I.hero.kicker} title={I.hero.title} accent={I.hero.titleAccent} proof={I.hero.proof}
+      <window.HeroPage tone="deep" kicker={I.hero.kicker} title={I.hero.title} accent={I.hero.titleAccent} proof={I.hero.proof}
         img={I.hero.img} imgAlt={I.hero.imgAlt}
         crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Notre impact' }]}>
-        <div className="g-herocta"><window.GLink l={{ to: 'rapports' }} className="btnb btnb--teal">Nos rapports d'activité <span className="arrow" aria-hidden="true">↓</span></window.GLink></div>
+        <div className="g-herocta"><window.GLink l={{ to: 'rapports' }} className="btnb btnb--gold">Nos rapports d'activité <span className="arrow" aria-hidden="true">↓</span></window.GLink></div>
       </window.HeroPage>
 
       {/* 1 · Les deux chiffres de l'année, en grand, sur fond sombre */}
@@ -450,13 +450,13 @@ function AcademiePage() {
   const D = window.FESTIN_DATA;
   return (
     <div className="gpage" ref={root} data-screen-label="Académie Festin" style={{ '--pc': 'var(--gold-ink)' }}>
-      <window.HeroPage tone="gold" kicker="Portée par Estello Formation, certifiée Qualiopi"
+      <window.HeroPage tone="teal" kicker="Portée par Estello Formation, certifiée Qualiopi"
         title="L'Académie" accent="Festin"
         proof="Toutes nos formations au même endroit : des parcours d'insertion diplômants pour apprendre un métier et des formations pro pour les équipes de la restauration, portées par le programme Restaure."
         img="images/photo-cuisine-formation.jpg" imgAlt="Séance de formation en cuisine"
         crumb={[{ label: 'Accueil', href: '#/' }, { label: "L'Académie Festin" }]}>
         <div className="g-herocta">
-          <window.GLink l={{ to: 'catalogue' }} className="btnb btnb--teal">Voir le catalogue <span className="arrow" aria-hidden="true">↓</span></window.GLink>
+          <window.GLink l={{ to: 'catalogue' }} className="btnb btnb--light">Voir le catalogue <span className="arrow" aria-hidden="true">↓</span></window.GLink>
           <a className="g-herolnk" href="#/contact">Nous écrire <span className="arrow" aria-hidden="true">→</span></a>
         </div>
       </window.HeroPage>
@@ -574,10 +574,10 @@ function ActualitesPage() {
   const S = D.stats;
   return (
     <div className="pageActu" data-screen-label="Actualités">
-      <window.HeroPage tone="gold" kicker="Actualités" title="Les temps forts" accent="et la presse."
+      <window.HeroPage tone="deep" kicker="Actualités" title="Les temps forts" accent="et la presse."
         proof="Le Grand Festin, les masterclass, les rencontres de Restaure : les moments de l'année en images. Puis les articles, reportages et podcasts sur nos projets."
         crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Actualités' }]}>
-        <div className="g-herocta"><window.GLink l={{ to: 'espace-presse' }} className="btnb btnb--teal">Espace presse <span className="arrow" aria-hidden="true">↓</span></window.GLink></div>
+        <div className="g-herocta"><window.GLink l={{ to: 'espace-presse' }} className="btnb btnb--gold">Espace presse <span className="arrow" aria-hidden="true">↓</span></window.GLink></div>
       </window.HeroPage>
 
       <window.TempsForts items={D.tempsForts || []} />

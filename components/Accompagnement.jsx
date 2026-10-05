@@ -13,7 +13,7 @@ function AccHero({ tone, kicker, title, em, lede, img, imgAlt, crumb, cta, lien 
     <window.HeroPage tone={tone} kicker={kicker} title={title} accent={em} proof={lede} img={img} imgAlt={imgAlt}
       crumb={[{ label: 'Accueil', href: '#/' }, { label: crumb }]}>
       <div className="g-herocta">
-        <window.GLink l={cta} className={'btnb ' + (tone === 'gold' ? 'btnb--teal' : 'btnb--gold')}>{cta.label} <span className="arrow" aria-hidden="true">→</span></window.GLink>
+        <window.GLink l={cta} className={'btnb ' + ({ gold: 'btnb--teal', teal: 'btnb--light' }[tone] || 'btnb--gold')}>{cta.label} <span className="arrow" aria-hidden="true">→</span></window.GLink>
         {lien && <window.GLink l={lien} className="g-herolnk">{lien.label} <span className="arrow" aria-hidden="true">→</span></window.GLink>}
       </div>
     </window.HeroPage>
@@ -53,7 +53,7 @@ function AccompagnementInsertionPage() {
   const D = window.FESTIN_DATA;
   return (
     <div className="gpage acc" ref={root} data-screen-label="Accompagnement — Insertion">
-      <AccHero tone="gold" crumb="Insertion" kicker="Vous cherchez un métier"
+      <AccHero tone="teal" crumb="Insertion" kicker="Vous cherchez un métier"
         title="Apprendre un métier de cuisine," em="gratuitement."
         lede="Vous préparez un diplôme reconnu, vous faites vos stages en restaurant et une personne de l'équipe vous suit jusqu'à l'emploi."
         img="images/photo-tabliers-violets.jpg" imgAlt="Des apprenties du dispositif Des Étoiles et des Femmes en cuisine"
