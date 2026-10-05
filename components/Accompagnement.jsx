@@ -90,8 +90,9 @@ function AccompagnementInsertionPage() {
                   </div>
                   <div className="or-card__b">
                     <h3 className="or-card__t">{p.shortTitle}</h3>
+                    {/* micro-étiquettes (procédé de la page Pros, RETOURS-AUDIT §3.1) */}
+                    <window.ArTags tags={o.tags} className="or-card__tags" />
                     <dl>
-                      <div><dt>Pour qui</dt><dd>{o.pour}</dd></div>
                       <div><dt>Le parcours</dt><dd>{o.quoi}</dd></div>
                       <div><dt>Pour entrer</dt><dd>{o.conditions || (window.FESTIN_SHOW_PLACEHOLDERS ? <span className="is-placeholder or-miss">[À COMPLÉTER : conditions d'entrée]</span> : "Le site du projet donne les conditions d'entrée.")}</dd></div>
                     </dl>
@@ -212,13 +213,7 @@ function AccompagnementProsPage() {
       </section>
 
       {/* 3 · BANDE DÉFILANTE — l'écosystème d'où viennent les personnes */}
-      <window.BandeDefilante label="Les projets de Festin" items={[
-        { label: 'le programme Restaure', href: '#/projets/restaure' },
-        { label: 'Des Étoiles et des Femmes', href: '#/projets/des-etoiles-et-des-femmes' },
-        { label: 'Les Beaux Mets', href: '#/projets/les-beaux-mets' },
-        { label: 'La Table de Cana Marseille', href: '#/projets/la-table-de-cana' },
-        { label: "l'Académie Festin", href: '#/academie' },
-      ]} />
+      <window.BandeDefilante label="Les projets de Festin" items={window.FESTIN_DATA.bandeProjets} />
 
       {/* 4 · LIGNES TYPÉES — options au choix, sans numéros ; la POEI se déplie sous sa ligne */}
       <section className="ar-sec ar-sec--cream" id="pros-recruter" aria-labelledby="pros-rec-t">

@@ -458,3 +458,9 @@ main > div > section:last-of-type:has(.g-appel){border-top:0!important}
 .g-engage__it p{margin:0;font-size:var(--fs-body);line-height:1.5;color:var(--ink-mid)}
 .g-engage__act{margin-top:auto;padding-top:var(--sp-3);display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-3) var(--sp-5)}
 @media (max-width:900px){.g-engage{grid-template-columns:1fr}}
+
+/* Micro-étiquettes hors de la page Pros (RETOURS-AUDIT §3.1) */
+.formation-card__tags{margin:0 0 18px;padding-top:14px;border-top:1px solid var(--line);gap:10px 22px}
+.formation-card__tags li{color:var(--ink)}
+.or-card__tags{gap:10px 22px}
+.or-card__tags li{color:var(--ink)}

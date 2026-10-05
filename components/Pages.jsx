@@ -28,14 +28,14 @@ function FormationCardLink({ f, wide, noPrice }) {
         {f.porteur && <span className="formation-card__porteur">{f.porteur}</span>}
         <h3>{f.title}</h3>
         <p className="formation-card__desc">{f.desc}</p>
-        <div className="formation-card__chips">
-          <span className="chip"><i data-lucide="clock" style={{width:12,height:12}}/> {f.duration}</span>
-          <span className="chip"><i data-lucide="map-pin" style={{width:12,height:12}}/> {f.format.split(',')[0].trim()}</span>
-          {!noPrice && <span className="chip"><i data-lucide="euro" style={{width:12,height:12}}/> {f.price.split(',')[0].trim()}</span>}
-        </div>
+        {/* micro-étiquettes : durée, public, coût (procédé de la page Pros, RETOURS-AUDIT §3.1) */}
+        <window.ArTags className="formation-card__tags" tags={[
+          ['Durée', f.dureeCourte || f.duration.split(',')[0].trim()],
+          ['Pour', f.publicLabel],
+          f.cat === 'Professionnels' ? (!noPrice && ['Tarif', f.price.split('·')[0].trim()]) : ['Coût', 'gratuit'],
+        ].filter(Boolean)} />
         <div className="formation-card__bottom">
           <span className="lnk">Voir le détail <i data-lucide="arrow-right" style={{width:14,height:14}}/></span>
-          <span className="formation-card__public">{f.publicLabel}</span>
         </div>
       </div>
     </a>
@@ -552,6 +552,8 @@ function AcademiePage() {
           pts: ['Management juste, prévention des violences sexistes et sexuelles.', 'Des formations portées par le programme Restaure.'],
           cta: 'Former et recruter', href: '#/accompagnement/professionnels', img: 'images/photo-cuisine-action.jpg' },
       ]} />
+
+      <window.BandeDefilante label="Les projets de Festin" items={D.bandeProjets.filter((x) => x.href !== '#/academie')} />
     </div>
   );
 }
@@ -561,7 +563,9 @@ function AcademiePage() {
 function AcaCatalogue({ id = 'catalogue', title = 'Toutes nos', accent = 'formations.', tone = 'cream', src, lien, seulInsertion = false }) {
   const D = window.FESTIN_DATA;
   // formations pro : marque Restaure, hors Académie (retours du 01/10/2026)
-  const items = seulInsertion ? D.formations.filter((f) => f.cat === 'Insertion') : D.formations;
+  // les formations diplômantes d'abord (la page parle d'abord aux personnes), puis les formations pro
+  const tri = D.formations.filter((f) => f.cat === 'Insertion').concat(D.formations.filter((f) => f.cat !== 'Insertion'));
+  const items = seulInsertion ? tri.filter((f) => f.cat === 'Insertion') : tri;
   const [filtre, setFiltre] = React.useState('all');
   const n = (c) => items.filter((f) => f.cat === c).length;
   const vus = filtre === 'all' ? items : items.filter((f) => f.cat === filtre);

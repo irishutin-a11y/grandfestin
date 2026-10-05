@@ -625,6 +625,7 @@ window.FESTIN_DATA = {
   formations: [
     {
       id: "vss",
+      dureeCourte: "3 h ou 1 jour",
       cat: "Professionnels",
       porteur: "Portée par le programme Restaure",
       audienceKey: "pros",
@@ -651,6 +652,7 @@ window.FESTIN_DATA = {
     },
     {
       id: "management",
+      dureeCourte: "1 jour et 2 demi-journées",
       cat: "Professionnels",
       porteur: "Portée par le programme Restaure",
       audienceKey: "pros",
@@ -679,6 +681,7 @@ window.FESTIN_DATA = {
     // formation diplômante ; les diplômes ne sont nommés que dans le détail.
     {
       id: "des-etoiles-et-des-femmes",
+      dureeCourte: "4 à 11 mois",
       cat: "Insertion",
       audienceKey: "insertion",
       title: "Des Étoiles et des Femmes, formation diplômante",
@@ -707,6 +710,7 @@ window.FESTIN_DATA = {
       cat: "Insertion",
       audienceKey: "insertion",
       title: "Tournesol",
+      dureeCourte: "5 mois",
       projet: "tournesol",
       desc: "Cinq mois pour une formation diplômante en cuisine et un diplôme de français, pour des personnes réfugiées ou primo-arrivantes.",
       img: "images/photo-rouleaux.jpg",
@@ -1282,6 +1286,16 @@ window.FESTIN_DATA.lieux = [
     actions: [{ label: "Voir les antennes", href: "#/projets/des-etoiles-et-des-femmes" }] },
 ];
 
+// Bande or des projets, cliquable (procédé de la page Pros diffusé sur Restaure et
+// l'Académie, RETOURS-AUDIT §3.1 réponse B)
+window.FESTIN_DATA.bandeProjets = [
+  { label: "le programme Restaure", href: "#/projets/restaure" },
+  { label: "Des Étoiles et des Femmes", href: "#/projets/des-etoiles-et-des-femmes" },
+  { label: "Les Beaux Mets", href: "#/projets/les-beaux-mets" },
+  { label: "La Table de Cana Marseille", href: "#/projets/la-table-de-cana" },
+  { label: "l'Académie Festin", href: "#/academie" },
+];
+
 // Rubrique allumée pour une adresse donnée
 window.FESTIN_DATA.rubriqueDe = function (hash) {
   const h = hash || "#/", A = window.FESTIN_DATA.arbo;
@@ -1408,6 +1422,7 @@ window.FESTIN_DATA.projetPages = {
     galerie: ["images/latable de cana/tabledecana_cdutrey_160124-4393.jpg", "images/latable de cana/tabledecana_cdutrey_160124-5010.jpg", "images/latable de cana/TABLECANA_EVENT_cdutrey_230625-5158.jpg", "images/latable de cana/tabledecana_cdutrey_230124-7705.jpg", "images/latable de cana/tabledecana_cdutrey_170124-6293-B-2048x1365.jpg"],
   },
   "restaure": {
+    bandeProjets: true, // fin de page : la bande or des projets, comme sur Pros et l'Académie
     kicker: "Depuis 2024 · programme national",
     heroImg: "images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg", heroAlt: "Soirée de lancement du programme Restaure", heroCredit: "Photo : Caroline Dutrey",
     nature: "programme", heroCta: { label: "Nos formations pro", href: "#/formations" }, heroLien: { label: "Le site du programme", href: "https://www.mouvement-restaure.com", external: true },
@@ -1626,7 +1641,7 @@ Object.assign(window.FESTIN_DATA.home, {
 //  = [À COMPLÉTER] (adresse par projet à fournir par l'association).
 // ============================================================
 window.FESTIN_DATA.orienter = [
-  { id: "des-etoiles-et-des-femmes", pour: "Des femmes majeures", quoi: "Une formation diplômante en cuisine, de 4 à 11 mois, avec des stages en restaurant gastronomique, dans 13 villes.", conditions: "Français B1 ou B2 selon la formation. Formation gratuite." },
-  { id: "tournesol", img: "images/tournesol:formation/Formation-Tournesol_RefugeeFood_©Aglae-Bory-67.jpg", pour: "Des personnes réfugiées ou primo-arrivantes, majeures, autorisées à travailler en France", quoi: "Cinq mois pour le titre de commis de cuisine et le DCL, un diplôme de français, à Marseille.", conditions: "Français A2 minimum. Formation gratuite, rémunérée par France Travail." },
-  { id: "la-table-de-cana", pour: "Des salariés en insertion, à Marseille", quoi: "Un emploi au traiteur, avec une formation en cuisine, puis un poste chez un partenaire.", conditions: null },
+  { id: "des-etoiles-et-des-femmes", tags: [["Pour", "femmes majeures"], ["Durée", "4 à 11 mois"], ["Coût", "gratuit"]], pour: "Des femmes majeures", quoi: "Une formation diplômante en cuisine, de 4 à 11 mois, avec des stages en restaurant gastronomique, dans 13 villes.", conditions: "Être majeure ; parler le français au niveau B1 ou B2 selon le diplôme." },
+  { id: "tournesol", tags: [["Pour", "personnes réfugiées ou primo-arrivantes"], ["Durée", "5 mois"], ["Coût", "gratuit, rémunéré"]], img: "images/tournesol:formation/Formation-Tournesol_RefugeeFood_©Aglae-Bory-67.jpg", pour: "Des personnes réfugiées ou primo-arrivantes, majeures, autorisées à travailler en France", quoi: "Cinq mois pour le titre de commis de cuisine et le DCL, un diplôme de français, à Marseille.", conditions: "Être autorisé à travailler en France ; parler le français au niveau A2 au moins. France Travail rémunère les stagiaires." },
+  { id: "la-table-de-cana", tags: [["Pour", "salariés en insertion"], ["Statut", "emploi salarié"], ["Où", "Marseille"]], pour: "Des salariés en insertion, à Marseille", quoi: "Un emploi au traiteur, avec une formation en cuisine, puis un poste chez un partenaire.", conditions: null },
 ];

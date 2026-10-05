@@ -208,7 +208,9 @@ function ProjetPage({ id }) {
 
       <window.Galerie images={galerie} label={'Galerie photo, ' + p.shortTitle} />
 
-      <window.MissionsNav currentId={id} title="Les autres projets" accent="de Festin" compact />
+      {cfg.bandeProjets
+        ? <window.BandeDefilante label="Les projets de Festin" items={D.bandeProjets.filter((x) => x.href !== '#/projets/' + id)} />
+        : <window.MissionsNav currentId={id} title="Les autres projets" accent="de Festin" compact />}
     </div>
   );
 }
