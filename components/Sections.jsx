@@ -43,6 +43,8 @@ function Contact() {
   const [etat, setEtat] = React.useState('saisie'); // 'saisie' | 'ouvert'
   const [err, setErr] = React.useState({});
   const [dest, setDest] = React.useState(c.email);
+  const [pret, setPret] = React.useState({ sujet: '', corps: '' }); // repli si la messagerie ne s'ouvre pas
+  const [copie, setCopie] = React.useState(false);
   // qui écrit : l'équipe sait tout de suite à qui transmettre (retours du 30/09/2026)
   const profils = ["Je suis prescripteur (conseiller, travailleur social)", 'Je suis un professionnel de la restauration', 'Je suis partenaire ou financeur', 'Je cherche une formation ou un emploi', 'Je suis journaliste', 'Autre'];
   const motifs = [
@@ -80,6 +82,8 @@ function Contact() {
       v('formation') && 'Formation concernée : ' + v('formation'),
     ].filter((x) => x !== false && x !== '').join('\n');
     setDest(to);
+    setPret({ sujet: '[' + m.value + '] ' + v('prenom') + ' ' + v('nom'), corps });
+    setCopie(false);
     window.location.href = 'mailto:' + to + '?subject=' + encodeURIComponent('[' + m.value + '] ' + v('prenom') + ' ' + v('nom')) + '&body=' + encodeURIComponent(corps);
     setEtat('ouvert');
   };
@@ -103,7 +107,16 @@ function Contact() {
           {etat === 'ouvert' ? (
             <div className="contact2__ok" role="status">
               <p><b>Votre messagerie s'est ouverte</b> avec votre message prêt à partir vers {dest}. Il ne vous reste qu'à l'envoyer.</p>
-              <p>Rien ne s'est ouvert ? Écrivez directement à <a href={'mailto:' + dest}>{dest}</a>.</p>
+              <p>Rien ne s'est ouvert ? Copiez votre message et envoyez-le depuis votre messagerie à <a href={'mailto:' + dest}>{dest}</a>.</p>
+              <label className="contact2__copie-l" htmlFor="c-pret">Votre message</label>
+              <textarea id="c-pret" className="contact2__copie" readOnly rows={6} value={'Objet : ' + pret.sujet + '\n\n' + pret.corps} />
+              <button type="button" className="btnb btnb--teal" onClick={() => {
+                const t = 'Objet : ' + pret.sujet + '\n\n' + pret.corps;
+                const ok = () => setCopie(true);
+                if (navigator.clipboard) navigator.clipboard.writeText(t).then(ok, () => { const el = document.getElementById('c-pret'); el.select(); document.execCommand('copy'); ok(); });
+                else { const el = document.getElementById('c-pret'); el.select(); document.execCommand('copy'); ok(); }
+              }}>{copie ? 'Message copié' : 'Copier le message'}</button>
+              <p className="sr-only" aria-live="polite">{copie ? 'Message copié dans le presse-papiers.' : ''}</p>
               <button type="button" className="apmore" onClick={() => setEtat('saisie')}>Revenir au formulaire</button>
             </div>
           ) : (

@@ -179,6 +179,9 @@
 .contact2__submit{width:100%;justify-content:center;margin-top:var(--sp-3)}
 .contact2__ok p{margin:0 0 var(--sp-3);font-size:var(--fs-body);line-height:1.5}
 .contact2__ok a{color:var(--teal);font-weight:700}
+.contact2__copie-l{display:block;font-size:var(--fs-small);font-weight:700;margin:var(--sp-3) 0 var(--sp-1)}
+.contact2__copie{width:100%;font:inherit;font-size:var(--fs-small);line-height:1.5;padding:12px;border:1px solid var(--teal-line);border-radius:12px;background:var(--off-white);color:var(--ink);margin-bottom:var(--sp-3);resize:vertical}
+.contact2__ok .apmore{margin-top:var(--sp-3);display:block}
 @media(max-width:900px){.contact2__grid{grid-template-columns:1fr}}
 /* 404 */
 .nf__links{display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-5)}
@@ -322,7 +325,7 @@
 .imp-rapport--teal{background:var(--teal);color:#fff}
 .imp-rapport--gold{background:var(--gold);color:var(--ink)}
 .imp-rapport--coral{background:var(--coral-ink);color:#fff}
-.imp-rapport__k{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.imp-rapport__k{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
 .imp-rapport__y{font-size:clamp(3rem,2rem + 3vw,5rem);line-height:.9;font-weight:700;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
 .imp-rapport__r{font-size:var(--fs-small);line-height:1.5;opacity:.92}
 .imp-rapport__dl{margin-top:auto;font-size:var(--fs-small);font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:underline;text-underline-offset:5px}

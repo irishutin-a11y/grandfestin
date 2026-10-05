@@ -90,7 +90,8 @@ function JalonsCouleur({ jalons, title, em, lede, word = 'HISTOIRE', label, id }
   }, []);
   return (
     <section className="ab-hist ab-sec--dark on-dark" id={id} ref={root}>
-      <div className="ab-hist__word" ref={wordRef} aria-hidden="true">{word}</div>
+      {/* mot décoratif rendu en CSS : ce n'est pas du texte (contraste volontairement faible) */}
+      <div className="ab-hist__word" ref={wordRef} aria-hidden="true" data-word={word} />
       <div className="container ab-hist__head">
         <Title em={em}>{title}</Title>
         {lede && <p className="ab-hist__lede">{lede}</p>}

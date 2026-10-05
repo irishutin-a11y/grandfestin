@@ -211,14 +211,21 @@ function HomeB() {
               <span className="ac-porte__tag ac-porte__tag--flat">{H.portes.agir.tag}</span>
               <h3 className="ac-agir__t">{H.portes.agir.title} <em>{H.portes.agir.titleAccent}</em></h3>
               <p>{H.portes.agir.text}</p>
+              {/* soutenir d'abord (un seul bouton plein), puis déjeuner ou commander, à part (RETOURS-AUDIT §2.13) */}
               <ul className="ac-agir__links">
-                {H.portes.agir.links.map((l) => (
+                {H.portes.agir.links.filter((l) => !l.external).map((l) => (
                   <li key={l.label}>
                     <a className={l.primary ? 'btnb btnb--gold' : 'lnk'} href={lienDon(l.href)}
                       {...((l.external || l.href === 'don') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
                       {l.label} <span className="arrow" aria-hidden="true">{(l.external || l.href === 'don') ? '↗' : '→'}</span>
                     </a>
                   </li>
+                ))}
+              </ul>
+              <p className="ac-agir__sous">Déjeuner ou recevoir avec nos projets :</p>
+              <ul className="ac-agir__links ac-agir__links--sous">
+                {H.portes.agir.links.filter((l) => l.external).map((l) => (
+                  <li key={l.label}><a className="lnk" href={l.href} target="_blank" rel="noopener noreferrer">{l.label} <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (nouvel onglet)</span></a></li>
                 ))}
               </ul>
             </div>

@@ -199,7 +199,7 @@
 /* ---- Association ---- */
 .ab-lnk{margin-top:var(--sp-5);font-size:13px}
 .about .g-preuves{margin-top:var(--sp-5)}
-.ab-logos__t{margin:0 0 var(--sp-6);font-size:var(--fs-label);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mid);text-align:center}
+.ab-logos__t{margin:0 0 var(--sp-6);font-size:var(--fs-h3);font-weight:700;letter-spacing:.01em;text-transform:uppercase;color:var(--ink);text-align:center}
 .ab-logos__grid{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:var(--sp-5) var(--sp-8)}
 .ab-logos__grid img{display:block;height:44px;width:auto;max-width:150px;object-fit:contain;filter:grayscale(1);opacity:.75;transition:filter var(--dur-2),opacity var(--dur-2)}
 .ab-logos__grid li:hover img{filter:none;opacity:1}
