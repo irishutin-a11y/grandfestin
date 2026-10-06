@@ -19,10 +19,27 @@ function HomePage() {
   );
 }
 
+// « Festin en quelques mots » : le texte de présentation à reprendre, avec un bouton pour le copier
+function PresseResume({ texte }) {
+  const [ok, setOk] = React.useState(false);
+  const copier = () => {
+    const fin = () => { setOk(true); setTimeout(() => setOk(false), 2500); };
+    if (navigator.clipboard) navigator.clipboard.writeText(texte).then(fin, fin); else fin();
+  };
+  return (
+    <div className="apkit__resume">
+      <h3>Festin en quelques mots</h3>
+      <p>{texte}</p>
+      <button type="button" className="lnk apkit__copy" onClick={copier}>{ok ? 'Texte copié' : 'Copier le texte'}</button>
+      <span className="sr-only" aria-live="polite">{ok ? 'Texte copié' : ''}</span>
+    </div>
+  );
+}
+
 function FormationCardLink({ f, wide, noPrice }) {
   return (
     <a className={"formation-card" + (wide ? " wide" : "")} href={`#/formations/${f.id}`}>
-      <div className="formation-card__img"><img src={f.img} alt={f.title} loading="lazy"/></div>
+      <div className="formation-card__img">{f.img ? <img src={f.img} alt={f.title} loading="lazy"/> : <span className="img-vide" aria-hidden="true" />}</div>
       <div className="formation-card__body">
         <span className={"ftag ftag--" + (f.cat === "Professionnels" ? "pro" : "ins")}>{f.cat === "Professionnels" ? "Formation pro" : "Formation diplômante"}</span>
         {f.porteur && <span className="formation-card__porteur">{f.porteur}</span>}
@@ -30,6 +47,7 @@ function FormationCardLink({ f, wide, noPrice }) {
         <p className="formation-card__desc">{f.desc}</p>
         {/* micro-étiquettes : durée, public, coût (procédé de la page Pros, RETOURS-AUDIT §3.1) */}
         <window.ArTags className="formation-card__tags" tags={[
+          f.ou && ['Où', f.ou],
           ['Durée', f.dureeCourte || f.duration.split(',')[0].trim()],
           ['Pour', f.publicLabel],
           f.cat === 'Professionnels' ? (!noPrice && ['Tarif', f.price.split('·')[0].trim()]) : ['Coût', 'gratuit'],
@@ -73,9 +91,11 @@ function FormationDetailPage({ id }) {
         <div className="container">
           <div className="detail-grid">
             <div className="detail-main">
-              <div className="detail-hero">
-                <img src={f.img} alt={f.title}/>
-              </div>
+              {f.img && (
+                <div className="detail-hero">
+                  <img src={f.img} alt={f.title}/>
+                </div>
+              )}
               <div className="detail-section">
                 <span className="eyebrow">Objectifs pédagogiques</span>
                 <h2 className="h3" style={{marginTop:8,marginBottom:18}}>Ce que vous apprendrez</h2>
@@ -623,14 +643,49 @@ function ActualitesPage() {
   const S = D.stats;
   return (
     <div className="pageActu" data-screen-label="Actualités">
-      <window.HeroPage tone="deep" kicker="Actualités" title="Les temps forts" accent="et la presse."
-        proof="Le Grand Festin, les masterclass, les rencontres de Restaure : les moments de l'année en images. Puis les articles, reportages et podcasts sur nos projets."
+      <window.HeroPage tone="deep" kicker="Presse et actualités" title="Festin" accent="dans la presse."
         img="images/restaure : formation pro/toast-affiche-restaure.jpg" imgAlt="L'affiche de la rencontre Toast du programme Restaure, à côté de la bannière Restaure" imgPos="50% 12%"
-        crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Actualités' }]}>
+        crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Presse et actualités' }]}>
         <div className="g-herocta"><window.GLink l={{ to: 'espace-presse' }} className="btnb btnb--gold">Espace presse <span className="arrow" aria-hidden="true">↓</span></window.GLink></div>
       </window.HeroPage>
 
-      <window.TempsForts items={D.tempsForts || []} />
+      {/* temps forts retirés (RETOURS-V3, question 5 : trop de mises à jour) ; l'espace presse passe en tête */}
+
+      {/* Espace presse : famille or pâle (plus d'aplat sombre dans le corps de page) */}
+      <section className="isec isec--gold apkit-sec" id="espace-presse" aria-labelledby="actu-kit">
+        <div className="wrap apkit">
+          <div>
+            <h2 className="isec__h" id="actu-kit">Espace <em>presse</em></h2>
+            {D.presseResume && <PresseResume texte={D.presseResume} />}
+            <p className="isec__lede">Demandes d'interview, visuels, chiffres : écrivez à <a href={'mailto:' + (D.emails || {}).presse}>{(D.emails || {}).presse}</a>. Retrouvez nos rapports d'activité sur la <a href="#/impact">page Impact</a>.</p>
+            <div className="apkit__logos">
+              <a className="btnb btnb--teal" href="images/logo-festin-teal.png" download>Logo Festin, couleur</a>
+              <a className="lnk" href="images/logo-festin-jaune.png" download>Logo Festin, jaune</a>
+            </div>
+            {/* logos des projets (retours V2 §10) ; l'Académie n'a pas de logo validé */}
+            <h3 className="apkit__h">Les logos des projets</h3>
+            <ul className="apkit__projets">
+              {D.projets.filter((p) => p.logo && p.id !== 'tournesol').map((p) => (
+                <li key={p.id}><a href={decodeURI(p.logo)} download>
+                  <span className="apkit__pl"><img src={p.logo} alt="" loading="lazy" /></span>
+                  <span>{p.shortTitle}</span></a></li>
+              ))}
+            </ul>
+            {window.FESTIN_SHOW_PLACEHOLDERS && <p className="is-placeholder apkit__miss">[À COMPLÉTER : versions haute définition des logos (SVG, ou PNG de 2000 px de large sur fond transparent)]</p>}
+          </div>
+          <div className="apkit__facts">
+            <h3>Chiffres à reprendre</h3>
+            <ul>
+              <li><b>{S[0].value}</b> personnes accompagnées en 2025</li>
+              <li><b>{S[1].value}&nbsp;%</b> de sorties en emploi ou en formation en 2025, tous dispositifs</li>
+              <li><b>{S[2].value}</b> territoires d'intervention</li>
+              <li><b>1&nbsp;200</b> femmes accompagnées par Des Étoiles et des Femmes depuis 2015</li>
+              <li><b>1987</b> : création de Festin</li>
+            </ul>
+            <p>Source : rapports d'activité Festin. Merci de citer l'année.</p>
+          </div>
+        </div>
+      </section>
 
       {/* Presse : liste filtrable */}
       <section className="isec isec--white" aria-labelledby="actu-presse">
@@ -661,40 +716,6 @@ function ActualitesPage() {
         </div>
       </section>
 
-      {/* Espace presse : famille or pâle (plus d'aplat sombre dans le corps de page) */}
-      <section className="isec isec--gold apkit-sec" id="espace-presse" aria-labelledby="actu-kit">
-        <div className="wrap apkit">
-          <div>
-            <h2 className="isec__h" id="actu-kit">Espace <em>presse</em></h2>
-            <p className="isec__lede">Demandes d'interview, visuels, chiffres : écrivez à <a href={'mailto:' + (D.emails || {}).presse}>{(D.emails || {}).presse}</a>. Retrouvez nos rapports d'activité sur la <a href="#/impact">page Impact</a>.</p>
-            <div className="apkit__logos">
-              <a className="btnb btnb--teal" href="images/logo-festin.png" download>Logo Festin, couleur</a>
-              <a className="lnk" href="images/logo-festin-jaune.png" download>Logo Festin, jaune</a>
-            </div>
-            {/* logos des projets (retours V2 §10) ; l'Académie n'a pas de logo validé */}
-            <h3 className="apkit__h">Les logos des projets</h3>
-            <ul className="apkit__projets">
-              {D.projets.filter((p) => p.logo && p.id !== 'tournesol').map((p) => (
-                <li key={p.id}><a href={decodeURI(p.logo)} download>
-                  <span className="apkit__pl"><img src={p.logo} alt="" loading="lazy" /></span>
-                  <span>{p.shortTitle}</span></a></li>
-              ))}
-            </ul>
-            {window.FESTIN_SHOW_PLACEHOLDERS && <p className="is-placeholder apkit__miss">[À COMPLÉTER : versions haute définition des logos (SVG, ou PNG de 2000 px de large sur fond transparent)]</p>}
-          </div>
-          <div className="apkit__facts">
-            <h3>Chiffres à reprendre</h3>
-            <ul>
-              <li><b>{S[0].value}</b> personnes accompagnées en 2025</li>
-              <li><b>{S[1].value}&nbsp;%</b> de sorties en emploi ou en formation en 2025, tous dispositifs</li>
-              <li><b>{S[2].value}</b> territoires d'intervention</li>
-              <li><b>1&nbsp;200</b> femmes accompagnées par Des Étoiles et des Femmes depuis 2015</li>
-              <li><b>1987</b> : création de l'association</li>
-            </ul>
-            <p>Source : rapports d'activité Festin. Merci de citer l'année.</p>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

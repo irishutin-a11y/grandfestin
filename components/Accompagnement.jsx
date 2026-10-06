@@ -204,7 +204,7 @@ function AccompagnementProsPage() {
               ].map(({ f, a, tags }) => (
                 <li className="ar-fcard" key={f.id}>
                   <a href={'#/formations/' + f.id}>
-                    <span className="ar-fcard__img"><window.Picture src={f.img} alt="" sizes="(max-width: 720px) 100vw, 28vw" /></span>
+                    <span className="ar-fcard__img">{f.img ? <window.Picture src={f.img} alt="" sizes="(max-width: 720px) 100vw, 28vw" /> : <span className="img-vide" aria-hidden="true" />}</span>
                     <span className="ar-fcard__b">
                       <h3 className="ar-fcard__t">{f.title}</h3>
                       <span className="ar-fcard__p">{a}</span>

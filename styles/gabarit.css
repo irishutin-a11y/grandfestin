@@ -503,3 +503,8 @@ main > div > section:last-of-type:has(.g-appel){border-top:0!important}
 .apkit__pl img{max-height:56px;max-width:100%;object-fit:contain}
 .apkit__miss{margin-top:var(--sp-4);font-size:var(--fs-small);font-style:italic;color:var(--ink-mid)}
 .g-table__infos dd a{color:var(--gold-light);font-weight:700;text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
+.img-vide{display:block;width:100%;height:100%;min-height:160px;background:repeating-linear-gradient(135deg,var(--gold) 0 18px,#ffcf33 18px 36px)}
+.apkit__resume{margin:var(--sp-5) 0 var(--sp-6);padding:var(--sp-5);border-radius:16px;background:var(--off-white);border:1px solid var(--line-strong)}
+.apkit__resume h3{margin:0 0 var(--sp-3);font-size:var(--fs-h3);text-transform:uppercase;color:var(--teal-dark)}
+.apkit__resume p{margin:0;font-size:var(--fs-body);line-height:1.6;color:var(--ink)}
+.apkit__copy{margin-top:var(--sp-4);background:none;border:0;padding:6px 0;cursor:pointer;font:inherit;font-weight:700;color:var(--teal-dark);text-decoration:underline;text-underline-offset:4px}

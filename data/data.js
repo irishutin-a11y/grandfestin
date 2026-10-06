@@ -3,7 +3,7 @@ window.FESTIN_DATA = {
   brand: {
     name: "Festin",
     tagline: "Le goût d'avancer ensemble",
-    logo: "images/logo-festin.png",
+    logo: "images/logo-festin-teal.png", // sans la baseline (RETOURS-V3 §5.1)
     logoWhite: "images/logo-festin-blanc.png",
     logoGold: "images/logo-festin-jaune.png",
     qualiopi: "images/logo-qualiopi.png",
@@ -659,7 +659,7 @@ window.FESTIN_DATA = {
       audienceKey: "pros",
       title: "Management juste & inclusif",
       desc: "Recruter plus largement, garder son équipe et l'encadrer sans violence, avec un cadre de travail clair.",
-      img: "images/photo-cuisine-action.jpg",
+      img: null, // photo retirée (RETOURS-V3 §5.5 : floue) ; remplacement à fournir
       duration: "1 journée (7 h) + 2 demi-journées (2 × 3 h)",
       format: "Présentiel, avec en option 3 h sur les violences sexistes et sexuelles",
       price: "600 € / salarié (2 jours) · 3 000 € / organisation (groupe)",
@@ -683,6 +683,7 @@ window.FESTIN_DATA = {
     {
       id: "des-etoiles-et-des-femmes",
       dureeCourte: "4 à 11 mois",
+      ou: "13 villes en France",
       cat: "Insertion",
       audienceKey: "insertion",
       title: "Des Étoiles et des Femmes, formation diplômante",
@@ -711,6 +712,7 @@ window.FESTIN_DATA = {
     },
     {
       id: "tournesol",
+      ou: "Marseille",
       cat: "Insertion",
       audienceKey: "insertion",
       title: "Tournesol",
@@ -869,6 +871,10 @@ window.FESTIN_DATA.verbatimsViolences = [
   "Les assiettes qui volent au-dessus de nos têtes.",
   "Soit tu te tais, soit tu dégages.",
 ];
+
+// Espace presse : « Festin en quelques mots » (demande du 06/10/2026), repris des textes
+// validés (RETOURS-V3 §2) et des chiffres sourcés du rapport 2025
+window.FESTIN_DATA.presseResume = "Festin utilise le levier de la cuisine comme outil d'insertion sociale et professionnelle. Né à Marseille en 1987, ce groupe associatif à but non lucratif imagine, teste, déploie et essaime des projets qui mobilisent le meilleur de la gastronomie française au service de l'égalité des chances : Des Étoiles et des Femmes, Les Beaux Mets, La Table de Cana Marseille, le programme Restaure et l'Académie Festin. En 2025, Festin a accompagné 441 personnes dans 14 territoires.";
 
 window.FESTIN_DATA.donation = "https://www.helloasso.com/associations/association-festin/formulaires/3";
 
