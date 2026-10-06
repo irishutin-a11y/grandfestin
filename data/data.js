@@ -684,6 +684,9 @@ window.FESTIN_DATA = {
       cat: "Insertion",
       audienceKey: "insertion",
       title: "Des Étoiles et des Femmes, formation diplômante",
+      // fiche : titre sans « formation diplômante » (déjà au-dessus), pastilles des diplômes (retours V2 §9)
+      titreFiche: "Des Étoiles et des Femmes",
+      pastilles: ["CAP", "TFP"],
       desc: "Une formation diplômante en cuisine, de 4 à 11 mois selon le diplôme préparé, gratuite, pour des femmes.",
       img: "images/photo-tabliers-violets.jpg",
       duration: "4 à 11 mois selon le diplôme, dont 155 à 490 h de stage",

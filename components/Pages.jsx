@@ -50,15 +50,16 @@ function FormationDetailPage({ id }) {
     <div data-screen-label={`03 Formation — ${f.title}`}>
       <PageHeader center tone={f.cat === 'Professionnels' ? 'gold' : 'teal'}
         eyebrow={(f.cat === 'Professionnels' ? 'Formation pro' : 'Formation diplômante') + (f.porteur ? ' · ' + f.porteur : '')}
-        title={f.title.split('—')[0].trim()}
+        title={(f.titreFiche || f.title).split('—')[0].trim()}
         accent={f.title.includes('—') ? '— ' + f.title.split('—')[1].trim() : null}
         subtitle={f.desc}
         breadcrumb={[
           {label:'Accueil',href:'#/'},
           f.cat === 'Professionnels' ? {label:'Le programme Restaure',href:'#/projets/restaure'} : {label:"L'Académie Festin",href:'#/academie'},
-          {label:f.title}
+          {label:f.titreFiche || f.title}
         ]}
       >
+        {f.pastilles && <ul className="hp__pastilles" aria-label="Diplômes préparés">{f.pastilles.map((t) => <li key={t}>{t}</li>)}</ul>}
         {(() => {
           // plus d'informations : le site du projet pour les parcours, le contact pour les formations pro
           const site = { 'des-etoiles-et-des-femmes': 'des-etoiles-et-des-femmes', tournesol: 'tournesol' }[f.id];

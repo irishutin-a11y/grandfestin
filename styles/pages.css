@@ -21,6 +21,9 @@
 .hp--gold .hp__t em{color:var(--teal-dark)}
 .hp__proof{margin:var(--sp-6) 0 0;font-size:var(--fs-lede);line-height:1.5;max-width:48ch;color:inherit;opacity:.92}
 .hp__more{margin-top:var(--sp-6)}
+.hp__pastilles{list-style:none;margin:0 0 var(--sp-5);padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.hp--center .hp__pastilles{justify-content:center}
+.hp__pastilles li{padding:5px 14px;border-radius:999px;background:var(--gold);color:var(--ink);font-size:13px;font-weight:700;letter-spacing:.08em}
 .hp__note{margin:var(--sp-5) 0 0;font-size:var(--fs-small);opacity:.8;max-width:56ch}
 .hp__media{margin:0;aspect-ratio:4/5;border-radius:clamp(24px,3vw,40px);overflow:hidden;box-shadow:0 30px 80px rgba(6,33,31,.3)}
 .hp__media img{width:100%;height:100%;object-fit:cover}
