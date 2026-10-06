@@ -50,6 +50,39 @@ function BlocReseau({ p }) {
   );
 }
 
+// Lieux ouverts au public (retours V2, §8) : après « en bref », qui explique le projet,
+// un bloc qui donne envie d'y manger ou de commander, avec les infos pratiques et deux
+// actions bien visibles. Info manquante : [À COMPLÉTER], visible pendant le chantier.
+function BlocTable({ t }) {
+  const ph = window.FESTIN_SHOW_PLACEHOLDERS;
+  const infos = t.infos.filter((i) => i.dd || ph);
+  return (
+    <section className="g-sec g-sec--deep on-dark g-table" id="a-table" aria-labelledby="table-t">
+      <div className="wrap g-table__in">
+        <div className="g-table__mos g-reveal">
+          {t.photos.map((ph2, k) => (
+            <figure key={ph2.src} className={'g-table__ph g-table__ph--' + k}><window.Picture src={ph2.src} alt={ph2.alt} sizes={k === 0 ? '(max-width: 900px) 100vw, 34vw' : '(max-width: 900px) 50vw, 17vw'} /></figure>
+          ))}
+        </div>
+        <div className="g-table__txt">
+          <h2 className="g-h2 g-reveal" id="table-t">{t.title} <em>{t.accent}</em></h2>
+          {t.text.map((x) => <p className="g-lede g-reveal" key={x}>{x}</p>)}
+          <dl className="g-table__infos g-reveal">
+            {infos.map((i) => (
+              <div key={i.dt}><dt>{i.dt}</dt><dd>{i.dd || <span className="is-placeholder">[À COMPLÉTER : {i.manque}]</span>}</dd></div>
+            ))}
+          </dl>
+          <div className="g-table__cta g-reveal">
+            {t.ctas.map((c, k) => (
+              <window.GLink key={c.href} l={c} className={'btnb btnb--lg ' + (k === 0 ? 'btnb--gold' : 'btnb--light')}>{c.label} <span className="arrow" aria-hidden="true">{c.external ? '↗' : '→'}</span>{c.external && <span className="sr-only"> (nouvel onglet)</span>}</window.GLink>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // Des Étoiles et des Femmes : soutenir une promotion, avec la sphère des chefs du réseau
 function BlocChefs({ p, cfg }) {
   const D = window.FESTIN_DATA;
@@ -135,7 +168,7 @@ function ProjetPage({ id }) {
         crumb={[{ label: 'Accueil', href: '#/' }, cfg.programmeDe || { label: 'Nos projets', href: '#/projets' }, { label: p.shortTitle }]}>
         <div className="g-herocta">
           <window.GLink l={cfg.heroCta} className={'btnb ' + ({ gold: 'btnb--teal', teal: 'btnb--light' }[tone] || 'btnb--gold')}>{cfg.heroCta.label} <span className="arrow" aria-hidden="true">{cfg.heroCta.external ? '↗' : '→'}</span></window.GLink>
-          {cfg.heroLien && <window.GLink l={cfg.heroLien} className="g-herolnk">{cfg.heroLien.label} <span className="arrow" aria-hidden="true">{cfg.heroLien.external ? '↗' : '→'}</span></window.GLink>}
+          {cfg.heroLien && <window.GLink l={cfg.heroLien} className={cfg.nature === 'lieu' ? 'btnb btnb--light' : 'g-herolnk'}>{cfg.heroLien.label} <span className="arrow" aria-hidden="true">{cfg.heroLien.external ? '↗' : '→'}</span></window.GLink>}
         </div>
       </window.HeroPage>
 
@@ -161,6 +194,8 @@ function ProjetPage({ id }) {
           <window.Compteurs stats={p.stats || []} source={cfg.source} />
         </div>
       </section>
+
+      {cfg.table && <BlocTable t={cfg.table} />}
 
       {/* VERBATIMS — le texte le plus fort du site, remonté juste après « en bref » (RETOURS-AUDIT §2.12) */}
       {blocs.includes('verbatims') && <BlocVerbatims />}

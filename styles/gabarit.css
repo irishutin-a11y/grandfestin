@@ -476,3 +476,22 @@ main > div > section:last-of-type:has(.g-appel){border-top:0!important}
   .g-cards--3-2 > li:nth-child(n+4){grid-column:span 3}
 }
 .g-antennes__note{margin:var(--sp-4) 0 0;font-size:14px;color:var(--ink-mid);max-width:60ch}
+/* Lieux ouverts au public : venir manger, commander (retours V2 §8) */
+.g-table{background:var(--teal-deep);color:var(--off-white)}
+.g-table :is(h2,h3){color:inherit}
+.g-table .g-h2 em{color:var(--gold-light)}
+.g-table .g-lede{color:var(--ink-on-dark);margin:var(--sp-4) 0 0}
+.g-table__in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);align-items:center}
+.g-table__mos{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:12px}
+.g-table__ph{margin:0;border-radius:20px;overflow:hidden}
+.g-table__ph img{display:block;width:100%;height:100%;object-fit:cover}
+.g-table__ph--0{grid-column:1 / -1;aspect-ratio:16/10}
+.g-table__ph--1,.g-table__ph--2{aspect-ratio:1}
+.g-table__infos{margin:var(--sp-6) 0 0;display:grid;gap:0;border-top:1px solid rgba(255,255,255,.22)}
+.g-table__infos div{display:grid;grid-template-columns:120px 1fr;gap:var(--sp-4);padding:12px 0;border-bottom:1px solid rgba(255,255,255,.22)}
+.g-table__infos dt{font-size:var(--fs-label);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-light)}
+.g-table__infos dd{margin:0;font-size:var(--fs-body)}
+.g-table__infos .is-placeholder{color:var(--gold-light);font-style:italic}
+.g-table__cta{display:flex;flex-wrap:wrap;gap:var(--sp-3);margin-top:var(--sp-7)}
+.btnb--lg{min-height:60px;padding:18px 30px;font-size:15px}
+@media (max-width:900px){.g-table__in{grid-template-columns:1fr}.g-table__cta .btnb{width:100%;justify-content:center}.g-table__infos div{grid-template-columns:100px 1fr}}
