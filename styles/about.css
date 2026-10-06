@@ -345,3 +345,13 @@ a.ab-fr__p:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 @media (max-width:640px){ .ab-fr__img{width:96px} }
 .ab-fr__an{padding-bottom:var(--sp-4)}
 .ab-team__filters{margin-top:var(--sp-5);display:flex;flex-wrap:wrap;gap:8px}
+/* Trois marqueurs (RETOURS-V3) : aplats de couleur, l'audace (innovation) au centre */
+.ab-marq__list{list-style:none;margin:var(--sp-7) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-4)}
+.ab-marq__it{display:flex;flex-direction:column;gap:var(--sp-3);padding:clamp(24px,3vw,40px);border-radius:24px;color:#fff;min-height:260px}
+.ab-marq__it--0{background:var(--teal)}
+.ab-marq__it--1{background:var(--gold);color:var(--ink)}
+.ab-marq__it--2{background:var(--teal-dark)}
+.ab-marq__t{margin:auto 0 0;font-size:clamp(26px,2.4vw,40px);overflow-wrap:anywhere;line-height:1.05;text-transform:uppercase;color:inherit}
+.ab-marq__it p{margin:0;font-size:var(--fs-body);line-height:1.5}
+.ab-marq__tag{align-self:flex-start;padding:4px 12px;border-radius:999px;background:var(--ink);color:var(--gold);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+@media (max-width:900px){.ab-marq__list{grid-template-columns:1fr}.ab-marq__it{min-height:0}}

@@ -33,10 +33,13 @@ function CeQuOnEst() {
     <section className="ab-sec ab-sec--cream">
       <div className="container ab-split">
         <div className="ab-split__txt ab-reveal">
-          <Title em="un métier" after={null}>
-            Des cuisines où l'on apprend
+          {/* récit (RETOURS-V3 §2 et §5.7 : textes validés par la direction) */}
+          <Title em="de l'égalité des chances" after={null}>
+            La cuisine au service
           </Title>
-          <p className="ab-body">L'association naît à Marseille en 1987, sous le nom de Départ ; elle prend le nom de Festin en 2022. Son premier projet, La Table de Cana Marseille, ouvre en 1993 : un traiteur où des salariés en insertion apprennent la cuisine en travaillant. Festin porte aujourd'hui cinq projets, qui servent trois missions : former, accompagner jusqu'à l'emploi, changer les cuisines.</p>
+          <p className="ab-body">Festin utilise le levier de la cuisine comme outil d'insertion sociale et professionnelle. Festin imagine, teste, déploie et essaime des projets qui mobilisent le meilleur de la gastronomie française au service de l'égalité des chances.</p>
+          <p className="ab-body">Notre développement s'est construit dans la durée, à partir d'un ancrage territorial fort, d'une capacité d'innovation reconnue et d'une articulation concrète entre utilité sociale, activité économique et transformation des pratiques.</p>
+          <p className="ab-body">Tout commence à Marseille en 1987, sous le nom de Départ ; le nom de Festin arrive en 2022. Le premier projet, La Table de Cana Marseille, ouvre en 1993 : un traiteur où des salariés en insertion apprennent la cuisine en travaillant. Cet écosystème s'appuie aujourd'hui sur plusieurs projets structurants.</p>
           <window.Preuves lignes={["En 2025, nous avons accompagné <b>441 personnes</b> dans <b>14 territoires</b>."]}
             source="Source : rapport d'activité Festin 2025, tous projets confondus." />
           <a className="lnk ab-lnk" href="#/impact">Tous nos chiffres depuis 2022 <span className="arrow" aria-hidden="true">→</span></a>
@@ -49,6 +52,28 @@ function CeQuOnEst() {
   );
 }
 
+// ---------- 2. TROIS MARQUEURS — exigence, audace, convivialité (RETOURS-V3 §2, texte validé) ----------
+function Marqueurs() {
+  const M = window.FESTIN_DATA.about.marqueurs;
+  return (
+    <section className="g-sec g-sec--white ab-marq" aria-labelledby="marq-t">
+      <div className="wrap">
+        <window.GHead id="marq-t" split title="Trois marqueurs" accent="guident notre action."
+          lede="Notre action repose sur trois marqueurs forts." />
+        <ol className="ab-marq__list">
+          {M.map((m, i) => (
+            <li key={m.title} className={'ab-marq__it ab-marq__it--' + i + ' g-reveal'}>
+              {m.tag && <span className="ab-marq__tag">{m.tag}</span>}
+              <h3 className="ab-marq__t">{m.title}</h3>
+              <p>{m.desc}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+}
+
 // ---------- 2 bis. PROJET SOCIAL — le portage associatif, dit une fois (retours du 01/10/2026) ----------
 function ProjetSocial() {
   return (
@@ -56,12 +81,10 @@ function ProjetSocial() {
       <div className="wrap">
         <window.GHead id="social-t" split title="Un projet social," accent="à but non lucratif."
           lede="Le restaurant, le traiteur, les formations : toutes nos activités sont des supports d'insertion, menées dans l'intérêt général." />
-        {/* Excellence et Collectif rejoignent cette section (retour du 05/10/2026) : trois cartes, puis deux */}
-        <window.Cartes className="g-cards--3-2" items={[
+        <window.Cartes items={[
           { color: 'var(--teal)', title: "Des supports d'insertion", desc: "Chaque activité existe pour former des personnes et les mener jusqu'à l'emploi." },
-          { color: 'var(--gold-ink)', title: 'Portées par une association', desc: "Tout est porté par une association loi 1901, d'intérêt général, agréée ESUS." },
+          { color: 'var(--gold-ink)', title: 'Au service de la mission sociale', desc: "Toutes nos structures sont agréées ESUS. L'association Festin est actionnaire largement majoritaire de chacune d'elles, ce qui garantit que l'activité économique est pleinement au service de la mission sociale." },
           { color: 'var(--coral-ink)', title: "Au service de l'insertion", desc: "Les bénéfices servent à l'insertion des personnes que nous accompagnons." },
-          ...window.FESTIN_DATA.about.valeurs.map((v, i) => ({ color: ['var(--violet-ink)', 'var(--teal-dark)'][i % 2], title: v.title, desc: v.desc })),
         ]} />
       </div>
     </section>
@@ -375,6 +398,7 @@ function AboutPage() {
     <div className="about gpage" ref={root} data-screen-label="04 Qui sommes-nous">
       <AboutHero />
       <CeQuOnEst />
+      <Marqueurs />
       <ProjetSocial />
       <Histoire />
       <Equipe />

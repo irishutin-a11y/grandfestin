@@ -419,3 +419,4 @@
 .ac-voix__who b{color:var(--ink);font-size:var(--fs-body)}
 .ac-voix__lnk{align-self:flex-start}
 @media(max-width:760px){.ac-voix__grid{grid-template-columns:1fr;gap:var(--sp-6)}}
+.ac-hero__nl{margin:var(--sp-3) 0 0;max-width:46ch;font-size:var(--fs-body);line-height:1.5;color:var(--ink-on-dark)}

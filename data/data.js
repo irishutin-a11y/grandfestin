@@ -1112,8 +1112,10 @@ window.FESTIN_DATA.home = {
 // ============================================================
 Object.assign(window.FESTIN_DATA.home, {
   hero: {
-    kicker: "Association d'intérêt général, depuis 1987",
-    title: "Former les personnes,", titleAccent: "faire avancer les cuisines.",
+    kicker: "Depuis 1987, à Marseille et en France",
+    // tagline (RETOURS-V3 §2, option 1) en sous-titre ; non-lucrativité au premier écran (§8, formulation 1b)
+    title: "Mettre la restauration au service", titleAccent: "de l'égalité des chances.",
+    nonLucratif: "Un groupe associatif à but non lucratif : toutes nos activités sont d'intérêt général et servent l'insertion des personnes.",
     signature: "Le goût d'avancer ensemble",
     ctaPrimary: { k: "Vous cherchez un métier", label: "Apprendre un métier de cuisine", href: "#/accompagnement/insertion" },
     ctaSecondary: { k: "Vous dirigez une cuisine", label: "Former mes équipes", href: "#/accompagnement/professionnels" },
@@ -1123,7 +1125,7 @@ Object.assign(window.FESTIN_DATA.home, {
   },
   // Ligne de confiance : les statuts (médias retirés de l'accueil, retours V2)
   confiance: {
-    statuts: ["Association loi 1901", "D'intérêt général, agréée ESUS", "Depuis 1987", "14 territoires", "Social et solidaire"],
+    statuts: ["Groupe associatif à but non lucratif", "D'intérêt général", "Structures agréées ESUS", "Depuis 1987", "14 territoires"],
   },
   missions: {
     title: "Nos cinq projets servent", titleAccent: "trois missions.",
@@ -1554,6 +1556,12 @@ window.FESTIN_DATA.about = {
     { year: "2026", type: "projet", title: "L'Académie Festin", desc: "Festin devient organisme de formation en partenariat avec Estello Formation, organisme certifié Qualiopi.", photo: "images/photo-cuisine-formation.jpg", href: "#/academie" },
   ],
 
+  // Trois marqueurs (RETOURS-V3 §2, texte validé par la direction)
+  marqueurs: [
+    { title: "L'exigence", desc: "Dans la qualité des projets, des parcours et des partenariats que nous construisons." },
+    { title: "L'audace", tag: "Innovation", desc: "Un esprit pionnier qui nous a conduits à ouvrir des voies nouvelles dans la restauration, la formation et l'insertion." },
+    { title: "La convivialité", desc: "Nous considérons l'hospitalité, la qualité de la relation et le collectif comme des dimensions centrales de notre manière d'agir." },
+  ],
   valeurs: [
     { title: "Excellence",      color: "#E4572E", dark: true,  desc: "Des stages chez des chefs, des diplômes reconnus et de vrais services : l'exigence de la cuisine est au cœur de nos parcours." },
     { title: "Collectif",       color: "#9A5BA8", dark: false, desc: "Aucun projet Festin ne se pense ou ne se fait seul. Chefs, restaurateurs, entreprises, fondations et pouvoirs publics avancent avec nous." },

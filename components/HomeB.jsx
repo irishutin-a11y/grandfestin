@@ -93,6 +93,7 @@ function HomeB() {
               <span className="ln"><span><em>ensemble.</em></span></span>
             </h1>
             <p className="ac-hero__sig">{H.hero.title} {H.hero.titleAccent}</p>
+            {H.hero.nonLucratif && <p className="ac-hero__nl">{H.hero.nonLucratif}</p>}
             <div className="ac-hero__cta ac-portes2">
               <a className="ac-porte2 ac-porte2--ins" href={H.hero.ctaPrimary.href}>
                 <span className="ac-porte2__k">{H.hero.ctaPrimary.k}</span>
