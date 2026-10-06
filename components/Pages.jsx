@@ -624,6 +624,7 @@ function ActualitesPage() {
     <div className="pageActu" data-screen-label="Actualités">
       <window.HeroPage tone="deep" kicker="Actualités" title="Les temps forts" accent="et la presse."
         proof="Le Grand Festin, les masterclass, les rencontres de Restaure : les moments de l'année en images. Puis les articles, reportages et podcasts sur nos projets."
+        img="images/restaure : formation pro/toast-affiche-restaure.jpg" imgAlt="L'affiche de la rencontre Toast du programme Restaure, à côté de la bannière Restaure" imgPos="50% 12%"
         crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Actualités' }]}>
         <div className="g-herocta"><window.GLink l={{ to: 'espace-presse' }} className="btnb btnb--gold">Espace presse <span className="arrow" aria-hidden="true">↓</span></window.GLink></div>
       </window.HeroPage>

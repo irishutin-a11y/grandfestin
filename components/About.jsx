@@ -20,11 +20,10 @@ const HERO_IMG = 'images/photo-promo-groupe.jpg';
 function AboutHero() {
   // Même hero que toutes les pages intérieures (Sections.jsx, HeroPage). Sans sous-titre (retour PIT).
   return (
-    <window.HeroPage tone="deep" kicker="Festin" title="Près de 40 ans" accent="d'insertion par la cuisine."
+    <window.HeroPage tone="deep" title="Près de 40 ans" accent="d'insertion par la cuisine."
       img={HERO_IMG} imgAlt="Une promotion du dispositif Des Étoiles et des Femmes réunie en tenue de cuisine"
-      crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Qui sommes-nous' }]}>
-        <div className="g-herocta"><a className="btnb btnb--gold" href="#/contact">Nous écrire <span className="arrow" aria-hidden="true">→</span></a></div>
-      </window.HeroPage>
+      logo="images/logo-festin.png" logoAlt="Festin"
+      crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Qui sommes-nous' }]} />
   );
 }
 

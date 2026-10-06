@@ -1334,7 +1334,7 @@ window.FESTIN_DATA.projetPages = {
   },
   "les-beaux-mets": {
     kicker: "Depuis 2022 · prison des Baumettes, Marseille",
-    heroImg: "images/beauxmets-images/LBM_cdutrey_071122-7264.jpg", heroAlt: "La cuisine des Beaux Mets pendant le service", heroCredit: "Photo : Caroline Dutrey",
+    heroImg: "images/beauxmets-images/LBM_cdutrey_cartehiver23_181223-2616.jpg", heroAlt: "Des convives à table dans la salle des Beaux Mets", heroCredit: "Photo : Caroline Dutrey",
     nature: "lieu", heroCta: { label: "Réserver une table", href: "https://www.lesbeauxmets-marseille.fr", external: true }, heroLien: { label: "Privatiser le restaurant", href: "#/contact/privatisation" },
     bref: { title: "Un restaurant ouvert au public,", accent: "dans la prison.",
       text: "Aux Baumettes, à Marseille, des personnes détenues cuisinent et servent une carte bistronomique, encadrées par un chef, un second et un maître d'hôtel. C'est le premier restaurant en prison ouvert au public en France." },
@@ -1362,7 +1362,7 @@ window.FESTIN_DATA.projetPages = {
     portes: [
       { tag: "Vous voulez déjeuner", title: "Réserver une table aux Beaux Mets",
         pts: ["Une carte bistronomique, cuisinée et servie par la brigade.", "Chaque service fait travailler la brigade devant de vrais convives."],
-        cta: "Réserver", href: "https://www.lesbeauxmets-marseille.fr", external: true, img: "images/beauxmets-images/LBM_cdutrey_cartehiver23_181223-2616.jpg" },
+        cta: "Réserver", href: "https://www.lesbeauxmets-marseille.fr", external: true, img: "images/beauxmets-images/LBM_carte-ete24_caroline_dutrey-3385.jpg" },
       { tag: "Vous dirigez une cuisine", title: "Recruter un commis formé",
         pts: ["Des commis formés en brigade par un chef et un second.", "Un suivi jusqu'à six mois après la sortie de détention."],
         cta: "Recruter avec Festin", href: "#/accompagnement/professionnels", img: "images/beauxmets-images/lbm-gallery-masterclass.jpg" },

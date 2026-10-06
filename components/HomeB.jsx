@@ -306,6 +306,7 @@ function ProjetsIndexPage() {
     <div className="gpage" ref={root} data-screen-label="Nos projets">
       <window.HeroPage tone="deep" kicker="Cinq projets, trois missions" title="Nos lieux" accent="et projets"
         proof={H.missions.ledeProjets}
+        img="images/images-def/grand-festin-2025-brigades.jpg" imgAlt="Les brigades du Grand Festin 2025 sur les marches, près du Vieux-Port"
         crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Nos projets' }]}>
         <div className="g-herocta"><window.GLink l={{ to: 'pj-gal' }} className="btnb btnb--gold">Voir les projets <span className="arrow" aria-hidden="true">↓</span></window.GLink><window.GLink l={{ to: 'lieux' }} className="g-herolnk">Nos lieux <span className="arrow" aria-hidden="true">↓</span></window.GLink></div>
       </window.HeroPage>
