@@ -185,7 +185,7 @@ window.FESTIN_DATA = {
           promo: "Promotion 2023-2024",
           accroche: "Cette formation ouvre plein de portes",
           extrait: "Ce n’est pas un CAP comme les autres, il donne la possibilité d’avoir son propre projet et de faire ce qu’on aime.",
-          photo: "",
+          photo: "images/images-def/portrait-najat.jpg", objPos: "center 30%",
           variant: "violet",
           bw: false,
         },
