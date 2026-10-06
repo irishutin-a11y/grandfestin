@@ -420,8 +420,12 @@ main > div > section:last-of-type:has(.g-appel){border-top:0!important}
 .g-galauto__it{position:absolute;inset:0;opacity:0;transition:opacity 1s var(--ease-out)}
 .g-galauto__it.is-on{opacity:1}
 .g-galauto__it picture,.g-galauto__it img{display:block;width:100%;height:100%;object-fit:cover}
-.g-galauto__p{position:absolute;right:14px;bottom:14px;z-index:2;min-height:36px;padding:6px 14px;border:0;border-radius:999px;background:rgba(255,255,255,.92);color:var(--ink);font:inherit;font-size:13px;font-weight:700;cursor:pointer}
-.g-galauto__dots{position:absolute;left:16px;bottom:24px;z-index:2;display:flex;gap:6px}
+.g-galauto__nav{position:absolute;right:14px;bottom:14px;z-index:2;display:flex;align-items:center;gap:8px}
+.g-galauto__b{width:44px;height:44px;display:grid;place-items:center;border:0;border-radius:50%;background:rgba(255,255,255,.92);color:var(--ink);font:inherit;font-size:18px;font-weight:700;cursor:pointer}
+.g-galauto__b:hover{background:var(--gold)}
+.g-galauto__n{min-width:44px;text-align:center;font-size:13px;font-weight:700;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.g-galauto__p{min-height:44px;padding:6px 14px;border:0;border-radius:999px;background:rgba(255,255,255,.92);color:var(--ink);font:inherit;font-size:13px;font-weight:700;cursor:pointer}
+.g-galauto__dots{position:absolute;left:16px;bottom:32px;z-index:2;display:flex;gap:6px}
 .g-galauto__dots i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.5)}
 .g-galauto__dots i.is-on{background:var(--gold)}
 @media (prefers-reduced-motion:reduce){ .or-card,.g-galauto__it{transition:none} .or-card:hover{transform:none} }

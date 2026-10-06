@@ -34,6 +34,7 @@ function GalerieAuto({ images }) {
     const t = setInterval(() => setI((x) => (x + 1) % images.length), 4000);
     return () => clearInterval(t);
   }, [pause, rm, images.length]);
+  const go = (d) => { setPause(true); setI((x) => (x + d + images.length) % images.length); };
   return (
     <figure className="g-photo g-galauto g-reveal" aria-roledescription="carrousel" aria-label="Photos de nos formations">
       {images.map((im, k) => (
@@ -41,8 +42,13 @@ function GalerieAuto({ images }) {
           <window.Picture src={im.src} alt={im.alt} sizes="(max-width: 900px) 100vw, 44vw" />
         </div>
       ))}
-      {!rm && <button type="button" className="g-galauto__p" onClick={() => setPause(!pause)} aria-pressed={pause}>{pause ? '▶ Lecture' : '❚❚ Pause'}</button>}
-      <span className="g-galauto__dots" aria-hidden="true">{images.map((im, k) => <i key={im.src} className={k === i ? 'is-on' : ''} />)}</span>
+      {/* précédent / suivant (retours V2, §3) : un clic arrête le défilement */}
+      <div className="g-galauto__nav">
+        <button type="button" className="g-galauto__b" aria-label="Photo précédente" onClick={() => go(-1)}><span aria-hidden="true">←</span></button>
+        <span className="g-galauto__n" aria-live={pause || rm ? 'polite' : 'off'}>{i + 1} / {images.length}</span>
+        <button type="button" className="g-galauto__b" aria-label="Photo suivante" onClick={() => go(1)}><span aria-hidden="true">→</span></button>
+        {!rm && <button type="button" className="g-galauto__p" onClick={() => setPause(!pause)} aria-pressed={pause}>{pause ? '▶ Lecture' : '❚❚ Pause'}</button>}
+      </div>
     </figure>
   );
 }
