@@ -402,5 +402,9 @@ window.FESTIN_IMG = {
 ]
 },
 "images-def/grand-festin-2025-brigades.jpg": {"avif": [800, 1600], "w": [800, 1600]},
-"images-def/reunion-information-collective.jpg": {"avif": [800, 1600], "w": [800, 1600]}
+"images-def/reunion-information-collective.jpg": {"avif": [800, 1600], "w": [800, 1600]},
+"images-def/la-france-s-engage-laureats.jpg": {"avif": [800, 1600], "w": [800, 1600]},
+"latable de cana/TABLECANA_EVENT_cdutrey_230625-5011.jpg": {"avif": [800, 1600], "w": [800, 1600]},
+"tournesol:formation/tournesol-cuisine.jpg": {"avif": [800], "w": [800]},
+"tournesol:formation/tournesol-promotion.jpg": {"avif": [800], "w": [800]}
 };

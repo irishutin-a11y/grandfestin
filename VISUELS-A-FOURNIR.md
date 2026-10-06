@@ -17,14 +17,9 @@ Les priorités : **1** bloque la mise en ligne (un cadre vide se verrait), **2**
 | 4 | 1 | Qui sommes-nous | idem | Portrait de Matthieu Donsimoni, communication | Vertical 4:5 | idem |
 | 5 | 1 | Qui sommes-nous | idem | Portrait de Karima Hellou, emploi et inclusion | Vertical 4:5 | idem |
 | 6 | 1 | Qui sommes-nous | idem | Portrait de Lucie Gueydon, Estello Formation | Vertical 4:5 | idem |
-| 7 | 1 | Qui sommes-nous | idem | Portrait de Marc Balthazard, maître d'hôtel des Beaux Mets | Vertical 4:5 | idem |
 | 8 | 1 | Qui sommes-nous | idem | Portrait de Nissa Boudhabhay, conseillère en insertion | Vertical 4:5 | idem |
-| 10 | 1 | Actualités | « Les moments de l'année », carte « L'exposition photo » | L'exposition photo (accrochage, visiteurs) | Paysage 16:10 | Plan large |
 | 11 | 2 | Les Beaux Mets | Bloc « Venir déjeuner » | Deux ou trois plats de la carte actuelle | Carré ou paysage | Vue de dessus ou trois quarts, lumière naturelle |
-| 12 | 2 | La Table de Cana Marseille | Bloc « Le traiteur » | Un buffet ou un cocktail dressé par le traiteur | Paysage 16:10 | Plan large, la table dressée |
 | 13 | 2 | La Table de Cana Marseille | idem | Des pièces traiteur (bouchées, plateaux) | Carré | Gros plan |
-| 14 | 2 | Fiche Tournesol | Haut de fiche et galerie | Une promotion Tournesol à Marseille, en cuisine | Paysage 3:2 | Plan moyen, nette (la photo floue des mains a été écartée) |
-| 15 | 2 | Fiche Tournesol | idem | Un ou une apprenante au poste | Vertical 4:5 | Plan poitrine |
 | 16–28 | 2 | Des Étoiles et des Femmes | Liste des antennes (photo au survol) | Une photo par antenne : Marseille, Montpellier, Nice, Bordeaux, Arles, Strasbourg, Hauts-de-Seine, Paris, Lyon, Lille, Seine-Saint-Denis, Toulouse, Hauts-de-Seine Sud | Paysage 3:2 | Plan large : la cuisine ou la promotion de l'antenne. Nom de fichier : la ville (ex. `lyon.jpg`) |
 | 29 | 3 | Les Beaux Mets, La Table de Cana Marseille | Carrousel des témoignages | Portraits de Jason, Chef Davin, Oumar, Jean Claude, Pierre (aujourd'hui : initiales) | Carré 1:1 | Visage et épaules, avec accord écrit. Si une personne ne souhaite pas apparaître, les initiales restent |
 | 31 | 3 | Des Étoiles et des Femmes | Témoignages | Portrait de Najat (celui de Julia Sedefdjian est reçu ; son témoignage reste à recueillir) | Carré 1:1 | idem |
@@ -77,3 +72,4 @@ Le formulaire Airtable des Beaux Mets ne s'ouvre pas depuis mon environnement (l
 Reçus le 06/10/2026 : les 16 logos de médias manquants (tous les articles de presse ont maintenant leur logo).
 Reçus le 06/10/2026 aussi : portraits d'Armand Hurault et d'Iris Liberty, réunion d'information collective (Des Étoiles et des Femmes), portrait d'Éloi Spinnler (témoignage Restaure), portrait de Julia Sedefdjian (sphère des chefs).
 Reçus le 06/10/2026 aussi : portrait de Valentin Majan (témoignage des Beaux Mets).
+Reçus le 06/10/2026 aussi : portrait de Marc Balthazard, bouchées du traiteur La Table de Cana Marseille, deux photos Tournesol (cuisine, promotion), lauréats de La France s'engage. L'exposition photo est retirée d'Actualités (demande du 06/10).

@@ -426,6 +426,12 @@ function ImpactPage() {
       <section className="isec isec--white" aria-labelledby="imp-prix">
         <div className="wrap">
           <h2 className="isec__h reveal" id="imp-prix">Nos <em>reconnaissances</em></h2>
+          {I.prixPhoto && (
+            <figure className="imp-prix__ph reveal">
+              <window.Picture src={I.prixPhoto.src} alt={I.prixPhoto.alt} sizes="(max-width: 900px) 100vw, 1100px" />
+              <figcaption>{I.prixPhoto.cap}</figcaption>
+            </figure>
+          )}
           <ol className="imp-prix">
             {Object.keys(annees).sort((a, b) => b - a).map((y) => (
               <li className="imp-prix__an reveal" key={y}>
