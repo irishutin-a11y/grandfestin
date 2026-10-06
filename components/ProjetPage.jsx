@@ -69,7 +69,7 @@ function BlocTable({ t }) {
           {t.text.map((x) => <p className="g-lede g-reveal" key={x}>{x}</p>)}
           <dl className="g-table__infos g-reveal">
             {infos.map((i) => (
-              <div key={i.dt}><dt>{i.dt}</dt><dd>{i.dd || <span className="is-placeholder">[À COMPLÉTER : {i.manque}]</span>}</dd></div>
+              <div key={i.dt}><dt>{i.dt}</dt><dd>{i.dd ? <>{i.dd}{i.lien && <a href={i.lien.href}>{i.lien.label}</a>}</> : <span className="is-placeholder">[À COMPLÉTER : {i.manque}]</span>}</dd></div>
             ))}
           </dl>
           <div className="g-table__cta g-reveal">

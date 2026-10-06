@@ -332,7 +332,7 @@ window.FESTIN_DATA = {
       implicationCtaLabel: "Faire un don",
       implicationCtaHref: "https://www.helloasso.com/associations/association-festin/formulaires/3",
       temoignages: [
-        { prenom: "Valentin Majan", role: "Chef de cuisine, Les Beaux Mets", citation: "Ce n’est pas tous les jours évident. On doit apprendre à mélanger les temps de mise en place et d’accompagnement social. Même si ça fait perdre du temps de production, ça rend notre travail plus humain.", placeholder: false },
+        { prenom: "Valentin Majan", role: "Chef de cuisine, Les Beaux Mets", photo: "images/beauxmets-images/valentin-majan.jpg", objPos: "center 25%", citation: "Ce n’est pas tous les jours évident. On doit apprendre à mélanger les temps de mise en place et d’accompagnement social. Même si ça fait perdre du temps de production, ça rend notre travail plus humain.", placeholder: false },
         { prenom: "Jason", role: "Cuisinier, 22 ans, promotion 2025", citation: "Je n’avais jamais travaillé avant. Aux Beaux Mets, j’ai appris à cuisiner, à dresser une assiette, à me tenir en cuisine. Aujourd’hui, j’ai ma première fiche de paie. Ça me donne de la fierté.", placeholder: false },
         { prenom: "Chef Davin", role: "Chef, Intercontinental Marseille", citation: "Sami s’est très vite intégré à l’équipe. Il a été très bien formé aux Beaux Mets et avait également l’attitude qui correspondait à une cuisine.", placeholder: false },
       ],
@@ -1347,11 +1347,14 @@ window.FESTIN_DATA.projetPages = {
         { src: "images/beauxmets-images/lbm-gallery-salle.jpg", alt: "La salle du restaurant Les Beaux Mets" },
       ],
       infos: [
+        // modalités : formulaire de réservation des Beaux Mets (relevé le 06/10/2026)
         { dt: "Où", dd: "Prison des Baumettes, Marseille" },
         { dt: "Quand", manque: "jours et horaires d'ouverture" },
         { dt: "Prix", manque: "prix moyen d'un repas" },
-        { dt: "Pour entrer", manque: "conditions d'accès à la prison pour les convives" },
-        { dt: "Réserver", dd: "En ligne, sur le site du restaurant" },
+        { dt: "Pour entrer", dd: "Chaque convive a besoin d'une autorisation d'accès à la prison. La réservation demande son identité complète, comme sur sa pièce d'identité, pour les contrôles de l'administration pénitentiaire." },
+        { dt: "Délai", manque: "délai à prévoir entre la réservation et le repas" },
+        { dt: "Réserver", dd: "En ligne, par le formulaire du restaurant. Mobilité réduite, allergies : à signaler dans la réservation." },
+        { dt: "Groupes", dd: "Plus de 10 personnes : écrivez à ", lien: { label: "reservation@lesbeauxmets-marseille.fr", href: "mailto:reservation@lesbeauxmets-marseille.fr" } },
       ],
       ctas: [
         { label: "Réserver une table", href: "https://www.lesbeauxmets-marseille.fr", external: true },

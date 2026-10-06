@@ -502,3 +502,4 @@ main > div > section:last-of-type:has(.g-appel){border-top:0!important}
 .apkit__pl{display:grid;place-items:center;height:64px}
 .apkit__pl img{max-height:56px;max-width:100%;object-fit:contain}
 .apkit__miss{margin-top:var(--sp-4);font-size:var(--fs-small);font-style:italic;color:var(--ink-mid)}
+.g-table__infos dd a{color:var(--gold-light);font-weight:700;text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}

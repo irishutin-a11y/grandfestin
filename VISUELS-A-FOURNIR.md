@@ -26,7 +26,7 @@ Les priorités : **1** bloque la mise en ligne (un cadre vide se verrait), **2**
 | 14 | 2 | Fiche Tournesol | Haut de fiche et galerie | Une promotion Tournesol à Marseille, en cuisine | Paysage 3:2 | Plan moyen, nette (la photo floue des mains a été écartée) |
 | 15 | 2 | Fiche Tournesol | idem | Un ou une apprenante au poste | Vertical 4:5 | Plan poitrine |
 | 16–28 | 2 | Des Étoiles et des Femmes | Liste des antennes (photo au survol) | Une photo par antenne : Marseille, Montpellier, Nice, Bordeaux, Arles, Strasbourg, Hauts-de-Seine, Paris, Lyon, Lille, Seine-Saint-Denis, Toulouse, Hauts-de-Seine Sud | Paysage 3:2 | Plan large : la cuisine ou la promotion de l'antenne. Nom de fichier : la ville (ex. `lyon.jpg`) |
-| 29 | 3 | Les Beaux Mets, La Table de Cana Marseille | Carrousel des témoignages | Portraits de Valentin Majan, Jason, Chef Davin, Oumar, Jean Claude, Pierre (aujourd'hui : initiales) | Carré 1:1 | Visage et épaules, avec accord écrit. Si une personne ne souhaite pas apparaître, les initiales restent |
+| 29 | 3 | Les Beaux Mets, La Table de Cana Marseille | Carrousel des témoignages | Portraits de Jason, Chef Davin, Oumar, Jean Claude, Pierre (aujourd'hui : initiales) | Carré 1:1 | Visage et épaules, avec accord écrit. Si une personne ne souhaite pas apparaître, les initiales restent |
 | 31 | 3 | Des Étoiles et des Femmes | Témoignages | Portrait de Najat (celui de Julia Sedefdjian est reçu ; son témoignage reste à recueillir) | Carré 1:1 | idem |
 
 ## 2. La sphère des chefs (Des Étoiles et des Femmes, bloc « Soutenir »)
@@ -68,7 +68,7 @@ Douze photos encore (Julia Sedefdjian reçue), **carrées (1:1), 1200 px au moin
 
 | Page | Bloc | Information |
 |---|---|---|
-| Les Beaux Mets | « Venir déjeuner » | Jours et horaires d'ouverture · prix moyen d'un repas · conditions d'accès à la prison pour les convives (pièce d'identité, délai de réservation…) |
+| Les Beaux Mets | « Venir déjeuner » | Jours et horaires d'ouverture · prix moyen d'un repas · délai à prévoir entre la réservation et le repas (l'accès et les groupes sont renseignés depuis le formulaire) |
 | La Table de Cana Marseille | « Le traiteur » | Types de prestations · nombre de convives possible · délai de commande · zone de livraison |
 
 Le formulaire Airtable des Beaux Mets ne s'ouvre pas depuis mon environnement (le réseau bloque airtable.com). Copiez-collez son contenu dans la conversation, ou exportez-le en CSV.
@@ -76,3 +76,4 @@ Le formulaire Airtable des Beaux Mets ne s'ouvre pas depuis mon environnement (l
 
 Reçus le 06/10/2026 : les 16 logos de médias manquants (tous les articles de presse ont maintenant leur logo).
 Reçus le 06/10/2026 aussi : portraits d'Armand Hurault et d'Iris Liberty, réunion d'information collective (Des Étoiles et des Femmes), portrait d'Éloi Spinnler (témoignage Restaure), portrait de Julia Sedefdjian (sphère des chefs).
+Reçus le 06/10/2026 aussi : portrait de Valentin Majan (témoignage des Beaux Mets).
