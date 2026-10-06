@@ -1481,24 +1481,27 @@ window.FESTIN_DATA.projetPages = {
 // Chiffres : source unique = FESTIN_DATA.stats ci-dessus (Rapport d'activité 2025 : 441 / 83 % / 14 ; création 1987).
 // `photo: null` = portrait à fournir → cadre neutre « [XX] ». `avatar` = médaillon 240 px (petit avatar rond).
 window.FESTIN_DATA.about = {
+  // Équipe par projet (RETOURS-V3 §5.8, réponse B du 06/10/2026) : filtre par projet
   poles: [
-    { key: "direction", label: "Direction et gestion", color: "#1D6B78", members: [
+    { key: "festin", label: "Festin", color: "#1D6B78", members: [
       { name: "Armand Hurault", role: "Directeur général", photo: "images/equipe/armand-hurault.jpg" },
       { name: "Marine Vever",   role: "Directrice adjointe", photo: "images/equipe/marine.jpg" },
       { name: "Marie Plé",      role: "Assistante de gestion", photo: null },
-    ]},
-    { key: "com", label: "Communication et communauté", color: "#9A5BA8", members: [
-      { name: "Iris Liberty",      role: "Chargée d'animation de communauté, programme Restaure", photo: "images/equipe/iris-liberty.jpg" },
       { name: "Iris Hutin",        role: "Chargée de projet Communication", photo: "images/equipe/iris-hutin.jpg" },
       { name: "Matthieu Donsimoni", role: "Chargé de communication en alternance", photo: null },
     ]},
-    { key: "formation", label: "Formation et emploi", color: "#E8A825", members: [
-      { name: "Florence Armitano", role: "Responsable du pôle Formation", photo: "images/equipe/florence.jpg" },
+    { key: "def", label: "Des Étoiles et des Femmes", color: "#C2421C", members: [
       { name: "Mélanie Gambert",   role: "Coordinatrice réseau Des Étoiles et des Femmes", photo: "images/equipe/melanie.jpg" },
       { name: "Karima Hellou",     role: "Responsable Emploi et Inclusion, Des Étoiles et des Femmes", photo: null },
+    ]},
+    { key: "academie", label: "Académie Festin", color: "#9A5B0E", members: [
+      { name: "Florence Armitano", role: "Responsable du pôle Formation", photo: "images/equipe/florence.jpg" },
       { name: "Lucie Gueydon",     role: "Chargée de projet formation, Estello Formation", photo: null },
     ]},
-    { key: "cuisine", label: "Les Beaux Mets", color: "#E4572E", members: [
+    { key: "restaure", label: "Restaure", color: "#4F6019", members: [
+      { name: "Iris Liberty",      role: "Chargée d'animation de communauté, programme Restaure", photo: "images/equipe/iris-liberty.jpg" },
+    ]},
+    { key: "lbm", label: "Les Beaux Mets", color: "#A3543D", members: [
       { name: "Camille Lafon",    role: "Direction du restaurant Les Beaux Mets", photo: null, avatar: "images/equipe/bm-lafon.png" },
       { name: "Marion Binachon",  role: "Chargée de commercialisation et de marketing, Les Beaux Mets", photo: "images/equipe/marion.jpg" },
       { name: "Valentin Majan",   role: "Chef de cuisine", photo: "images/beauxmets-images/valentin-majan.jpg" },
@@ -1506,13 +1509,30 @@ window.FESTIN_DATA.about = {
       { name: "Marc Balthazard",  role: "Maître d'hôtel", photo: "images/equipe/marc-balthazard.jpg" },
       { name: "Nissa Boudhabhay", role: "Conseillère en insertion professionnelle", photo: null },
     ]},
+    // La Table de Cana Marseille : équipe relevée sur latabledecana-marseille.com (06/10/2026),
+    // prénoms seuls comme sur ce site ; direction : Tom Louis Teboul (retour du 06/10/2026)
+    { key: "tdc", label: "La Table de Cana Marseille", color: "#7A2E3A", members: [
+      { name: "Tom Louis Teboul", role: "Directeur", photo: null },
+      { name: "Elodie",   role: "Responsable commerciale événementiel", photo: "images/equipe/tdc/elodie.jpg" },
+      { name: "Orasimi",  role: "Responsable restauration et partenariats", photo: "images/equipe/tdc/orasimi.jpg" },
+      { name: "Pierre",   role: "Responsable RH d'insertion", photo: "images/equipe/tdc/pierre.jpg" },
+      { name: "Marion",   role: "Responsable RSE et compétences", photo: "images/equipe/tdc/marion.jpg" },
+      { name: "Habib",    role: "Responsable logistique", photo: "images/equipe/tdc/habib.jpg" },
+      { name: "Ali",      role: "Responsable magasinier", photo: "images/equipe/tdc/ali-magasinier.jpg" },
+      { name: "Jean-Claude", role: "Maître d'hôtel", photo: "images/equipe/tdc/jean-claude.jpg" },
+      { name: "Souhila",  role: "Commerciale", photo: "images/equipe/tdc/souhila.jpg" },
+      { name: "Bettina",  role: "Commerciale événementielle", photo: "images/equipe/tdc/bettina.jpg" },
+      { name: "Margaux",  role: "Chargée de communication", photo: "images/equipe/tdc/margaux.jpg" },
+      { name: "Marc",     role: "Économe", photo: "images/equipe/tdc/marc.jpg" },
+      { name: "Ali",      role: "Comptable", photo: "images/equipe/tdc/ali-comptable.jpg" },
+    ]},
   ],
   gouvernance: [
     { name: "Jérôme Schatzman", role: "Président du groupe associatif", avatar: "images/equipe/ca-schatzman.png" },
     { name: "Guillaume Hermitte", role: "Trésorier", avatar: "images/equipe/ca-hermitte.png" },
     { name: "Gaëlle de Carmantrand", role: "Secrétaire", avatar: null },
-    // orthographe du nom à confirmer (RETOURS-V3 §5.7)
-    { name: "Hugues Bonentin", role: "Président de La Table de Cana Marseille", avatar: null },
+    // orthographe : celle du site latabledecana-marseille.com
+    { name: "Hugues Bonnetain", role: "Président de La Table de Cana Marseille", avatar: "images/equipe/tdc/hugues-bonnetain.jpg" },
   ],
   // Frise de la page Association, recentrée sur l'association (29/09/2026) ;
   // la frise des projets est sur l'accueil. Distinctions : voir .about distinctions ci-dessous.

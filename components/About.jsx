@@ -170,6 +170,10 @@ function Equipe() {
   const track = useRef(null);
   const drag = useRef({ down: false, x: 0, left: 0, moved: false });
   const [active, setActive] = useState(null);
+  // filtre par projet (RETOURS-V3 §5.8)
+  const [filtre, setFiltre] = useState('all');
+  const vus = filtre === 'all' ? poles : poles.filter((p) => p.key === filtre);
+  const choisir = (k) => { setFiltre(k); setActive(null); if (track.current) track.current.scrollLeft = 0; };
 
   const scrollBy = useCallback((dir) => {
     const t = track.current; if (!t) return;
@@ -199,6 +203,12 @@ function Equipe() {
       <div className="container ab-team__head">
         <div>
           <Title em="Festin">Les visages de</Title>
+          <div className="filters ab-team__filters" role="group" aria-label="Filtrer l'équipe par projet">
+            <button type="button" className={'filter' + (filtre === 'all' ? ' active' : '')} aria-pressed={filtre === 'all'} onClick={() => choisir('all')}>Tous</button>
+            {poles.map((p) => (
+              <button type="button" key={p.key} className={'filter' + (filtre === p.key ? ' active' : '')} aria-pressed={filtre === p.key} onClick={() => choisir(p.key)}>{p.label}</button>
+            ))}
+          </div>
         </div>
         <div className="ab-arrows">
           <button type="button" onClick={() => scrollBy(-1)} aria-label="Équipe : précédent">←</button>
@@ -207,11 +217,11 @@ function Equipe() {
       </div>
       <div className="ab-team__track" ref={track} tabIndex={0} role="region" aria-label="Équipe Festin, défilement horizontal (flèches gauche et droite)"
            onKeyDown={onKey} onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerLeave={onUp} onClickCapture={onClickCapture}>
-        {poles.map(p => (
+        {vus.map(p => (
           <React.Fragment key={p.key}>
             <div className="ab-pole" style={{ '--pc': p.color }}><span>{p.label}</span></div>
-            {p.members.map(m => {
-              const id = p.key + m.name;
+            {p.members.map((m, i) => {
+              const id = p.key + i;
               return (
                 <button type="button" key={id} className={'ab-member' + (active === id ? ' is-open' : '')} style={{ '--pc': p.color }}
                         onClick={() => setActive(a => a === id ? null : id)} aria-pressed={active === id}>
@@ -220,7 +230,7 @@ function Equipe() {
                     : m.avatar ? <span className="ab-member__ph ab-member__ph--avatar"><img src={src(m.avatar)} alt={m.name} loading="lazy" draggable="false" /></span>
                              : window.FESTIN_SHOW_PLACEHOLDERS
                                ? <span className="ab-member__ph is-placeholder">[PHOTO MANQUANTE : portrait de {m.name}, buste, vertical]</span>
-                               : <span className="ab-member__ph ab-member__ph--ini" aria-hidden="true">{m.name.split(' ').map(w => w[0]).slice(0, 2).join('')}</span>}
+                               : <span className="ab-member__ph ab-member__ph--ini" aria-hidden="true">{m.name.split(' ').filter(w => /^[A-ZÀ-Ý]/.test(w)).map(w => w[0]).slice(0, 2).join('')}</span>}
                     <span className="ab-member__role"><span>{p.label}</span>{m.role}</span>
                   </span>
                   <span className="ab-member__name">{m.name}</span>
