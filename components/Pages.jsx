@@ -295,13 +295,8 @@ function ImpSerie({ id, label, items, unit = '', max, tone }) {
           </span>
         ))}
       </div>
-      <details className="imp-serie__table">
-        <summary>Voir les données en tableau</summary>
-        <table>
-          <thead><tr><th scope="col">Année</th><th scope="col">{label}</th><th scope="col">Détail</th></tr></thead>
-          <tbody>{items.map((it) => <tr key={it.label}><th scope="row">{it.label}</th><td>{it.value}{unit}</td><td>{it.detail || '—'}</td></tr>)}</tbody>
-        </table>
-      </details>
+      {/* tableau dépliant retiré (RETOURS-V3, question 3) ; les valeurs restent lisibles par les lecteurs d'écran */}
+      <ul className="sr-only">{items.map((it) => <li key={it.label}>{it.label} : {it.value}{unit}</li>)}</ul>
     </figure>
   );
 }
@@ -359,9 +354,9 @@ function ImpactPage() {
           <h2 className="isec__h reveal" id="imp-serie">Quatre ans <em>d'impact mesuré</em></h2>
           <div className="imp-chiffres__grid">
             <ImpSerie id="imp-s1" tone="gold" label="Personnes accompagnées vers l'emploi" max={500}
-              items={I.annees.map(a => ({ label: a.year, value: a.personnes, detail: "Tous dispositifs Festin, rapport d'activité " + a.year }))} />
+              items={I.annees.map(a => ({ label: a.year, value: a.personnes }))} />
             <ImpSerie id="imp-s2" tone="coral" label="Sorties en emploi ou en formation" unit={' %'} max={100}
-              items={I.annees.map(a => ({ label: a.year, value: a.taux, detail: a.emploi ? nb(a.emploi) + ' personnes sur ' + nb(a.sorties) + ' sorties' : 'Effectifs non publiés dans le rapport 2025' }))} />
+              items={I.annees.map(a => ({ label: a.year, value: a.taux }))} />
           </div>
           <p className="imp-chiffres__note">En 2025 : 14 territoires et 91 % de réussite aux diplômes avec Des Étoiles et des Femmes. {I.serieNote} Source : rapports d'activité Festin 2022 à 2025.</p>
         </div>

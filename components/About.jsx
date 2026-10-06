@@ -20,7 +20,7 @@ const HERO_IMG = 'images/photo-promo-groupe.jpg';
 function AboutHero() {
   // Même hero que toutes les pages intérieures (Sections.jsx, HeroPage). Sans sous-titre (retour PIT).
   return (
-    <window.HeroPage tone="deep" title="Près de 40 ans" accent="d'insertion par la cuisine."
+    <window.HeroPage tone="deep" title="L'insertion par la cuisine" accent="depuis 40 ans."
       img={HERO_IMG} imgAlt="Une promotion du dispositif Des Étoiles et des Femmes réunie en tenue de cuisine"
       logo="images/logo-festin.png" logoAlt="Festin"
       crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Qui sommes-nous' }]} />
@@ -129,7 +129,7 @@ function Histoire() {
     <section className="g-sec g-sec--white ab-fr" aria-labelledby="ab-fr-t">
       <div className="wrap">
         <window.GHead id="ab-fr-t" split title="L'insertion par la cuisine" accent="depuis 1987."
-          lede="Les projets que Festin a créés, et les reconnaissances reçues en chemin." />
+          lede="Les projets que Festin a lancés, et les reconnaissances reçues en chemin." />
         <ul className="ab-fr__leg" aria-hidden="true"><li className="is-p">Création</li><li className="is-r">Reconnaissance</li></ul>
         <ol className="ab-fr__list">
           {ans.map((y) => {
@@ -232,11 +232,11 @@ function Equipe() {
         <span className="ab-team__end" aria-hidden="true" />
       </div>
       <div className="container ab-gov">
-        <h3 className="ab-gov__title">Le bureau de l'association</h3>
+        <h3 className="ab-gov__title">Gouvernance</h3>
         <ul className="ab-gov__list">
           {window.FESTIN_DATA.about.gouvernance.map(g => (
             <li key={g.name} className="ab-gov__item">
-              <span className="ab-gov__avatar">{g.avatar ? <img src={src(g.avatar)} alt={g.name} loading="lazy" /> : <span aria-hidden="true">{g.name.split(' ').map(w => w[0]).slice(0, 2).join('')}</span>}</span>
+              <span className="ab-gov__avatar">{g.avatar ? <img src={src(g.avatar)} alt={g.name} loading="lazy" /> : <span aria-hidden="true">{g.name.split(' ').filter(w => /^[A-ZÀ-Ý]/.test(w)).map(w => w[0]).slice(0, 2).join('')}</span>}</span>
               <span><strong>{g.name}</strong><span>{g.role}</span></span>
             </li>
           ))}

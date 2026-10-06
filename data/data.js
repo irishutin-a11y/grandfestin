@@ -89,15 +89,15 @@ window.FESTIN_DATA = {
       accent: "et des Femmes",
       shortTitle: "Des Étoiles et des Femmes",
       tagline: "Le dispositif national qui forme des femmes aux métiers de la cuisine",
-      subtitle: "Un diplôme de cuisine, des stages dans des restaurants gastronomiques, un accompagnement social complet",
-      short: "Des femmes suivent une formation diplômante en cuisine, font leurs stages dans des restaurants gastronomiques et sont suivies jusqu'à l'emploi. Le dispositif existe depuis 2015 et compte 13 antennes. En 2025, 91 % des candidates ont obtenu leur diplôme.",
+      subtitle: "Un diplôme de cuisine, des stages dans des restaurants partenaires, un accompagnement social complet",
+      short: "Des femmes suivent une formation diplômante en cuisine, font leurs stages dans des restaurants partenaires et sont suivies jusqu'à l'emploi. Le dispositif existe depuis 2015 et compte 13 antennes. En 2025, 91 % des candidates ont obtenu leur diplôme.",
       stats: [
         { value: "13",    label: "antennes partout en France" },
         { value: "336",   label: "femmes accompagnées en 2025" },
         { value: "91 %",  label: "de réussite aux diplômes en 2025" },
         { value: "1 200", unit: "+", label: "femmes accompagnées depuis 2015" },
       ],
-      description: "Des Étoiles et des Femmes ouvre à Marseille en 2015. Le principe : former des femmes à la cuisine avec des chefs et des restaurants gastronomiques, au niveau d’exigence de ces maisons. Le dispositif compte aujourd’hui 13 antennes en France et plus de 1 200 femmes y ont été accompagnées. Chaque promotion suit une formation diplômante, fait ses stages en restaurant et bénéficie d’un suivi social. En 2025, la cheffe Julia Sedefdjian devient marraine nationale. Le 3 octobre, pour les dix ans du dispositif, le Grand Festin réunit 14 brigades, plus de 600 convives et plus de 100 bénévoles sur le Vieux-Port de Marseille.",
+      description: "Des Étoiles et des Femmes ouvre à Marseille en 2015. Le principe : former des femmes à la cuisine avec des chefs et des restaurants partenaires, au niveau d’exigence de ces maisons. Le dispositif compte aujourd’hui 13 antennes en France et plus de 1 200 femmes y ont été accompagnées. Chaque promotion suit une formation diplômante, fait ses stages en restaurant et bénéficie d’un suivi social. En 2025, la cheffe Julia Sedefdjian devient marraine nationale. Le 3 octobre, pour les dix ans du dispositif, le Grand Festin réunit 14 brigades, plus de 600 convives et plus de 100 bénévoles sur le Vieux-Port de Marseille.",
       ctaLabel: "Visiter desetoilesetdesfemmes.org",
       ctaUrl: "https://www.desetoilesetdesfemmes.org",
       quote: {
@@ -227,7 +227,7 @@ window.FESTIN_DATA = {
           stat: "91 %", statL: "de réussite aux diplômes en 2025",
           img: "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg" },
         { tab: "Pratiquer", title: "Apprendre en brigade",
-          text: "Les stages ont lieu dans des restaurants gastronomiques partenaires. Les stagiaires y apprennent le métier en brigade, sur un vrai service.",
+          text: "Les stages ont lieu dans des restaurants partenaires. Les stagiaires y apprennent le métier en brigade, sur un vrai service.",
           stat: "155 à 490 h", statL: "de stage en restaurant",
           img: "images/images-def/HOTELERIE-035.jpg" },
         { tab: "Être accompagnée", title: "Garde d’enfants, logement, transport",
@@ -246,8 +246,8 @@ window.FESTIN_DATA = {
         poster: "images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg",
       },
       candidater: {
-        pitch: "Vous êtes une femme majeure et vous voulez travailler en cuisine ? Le parcours est gratuit, il mène à un diplôme et vous êtes suivie jusqu’à l’emploi.",
-        eligibility: "Le parcours s’adresse aux femmes majeures qui maîtrisent le français au niveau B1 ou B2 selon la formation et souhaitent entrer dans la cuisine.",
+        pitch: "Vous êtes une femme en recherche d’emploi et vous voulez travailler en cuisine ? Le parcours est gratuit, il mène à un diplôme et vous êtes suivie jusqu’à l’emploi.",
+        eligibility: "Le parcours s’adresse aux femmes en recherche d’emploi, de 18 ans ou plus, qui maîtrisent le français au niveau B1 ou B2 selon la formation et souhaitent entrer dans la cuisine.",
         sessions: "Recrutement à partir de septembre. La réunion d’information collective est obligatoire pour candidater. Prochaine session : du 9 novembre 2026 au 13 avril 2027.",
         cost: "Formation entièrement gratuite, financée par les pouvoirs publics et les mécènes. Une indemnisation est possible selon la situation.",
         antennes: "La liste ville par ville et les dates d’information collective sont sur desetoilesetdesfemmes.org.",
@@ -540,7 +540,7 @@ window.FESTIN_DATA = {
       shortTitle: "Tournesol",
       tagline: "Formation diplômante pour personnes réfugiées et primo-arrivantes",
       subtitle: "Un parcours diplômant pour les personnes réfugiées et primo-arrivantes",
-      short: "Tournesol prépare en cinq mois des personnes réfugiées ou primo-arrivantes au titre à finalité professionnelle de commis de cuisine et au DCL, un diplôme de français. La formation est gratuite et rémunérée. Un an après la formation, 86 % de la promotion marseillaise est en insertion.",
+      short: "Tournesol prépare en cinq mois des personnes réfugiées ou primo-arrivantes au titre à finalité professionnelle de commis de cuisine et au DCL, un diplôme de français. La formation est gratuite. Un an après la formation, 86 % de la promotion marseillaise est en insertion.",
       stats: [
         { value: "5",     label: "mois de formation" },
         { value: "600",   label: "heures de formation, stage compris" },
@@ -569,7 +569,7 @@ window.FESTIN_DATA = {
       ],
       projetPhrase: "Cinq mois pour apprendre le métier de commis de cuisine et le français, avec deux diplômes à la clé.",
       projetPoints: [
-        "Une formation gratuite et rémunérée de 5 mois : titre à finalité professionnelle de commis de cuisine et DCL",
+        "Une formation gratuite de 5 mois : titre à finalité professionnelle de commis de cuisine et DCL",
         "Destinée aux personnes réfugiées ou primo-arrivantes autorisées à travailler",
         "Un suivi individuel, de l’entrée en formation jusqu’à l’emploi",
       ],
@@ -694,7 +694,7 @@ window.FESTIN_DATA = {
       duration: "4 à 11 mois selon le diplôme, dont 155 à 490 h de stage",
       format: "Présentiel, avec un centre de formation partenaire dans chaque ville",
       price: "Gratuit",
-      publicLabel: "Femmes majeures, niveau de français B1 ou B2 selon le diplôme",
+      publicLabel: "Femmes en recherche d’emploi, 18 ans ou plus, niveau de français B1 ou B2 selon le diplôme",
       objectives: [
         "Obtenir un diplôme de cuisine : le titre à finalité professionnelle de commis de cuisine, en 4 mois, ou le CAP cuisine, diplôme de l'Éducation nationale, en 11 mois",
         "Acquérir une expérience en restaurant partenaire : 155 à 490 h de stage",
@@ -796,7 +796,7 @@ window.FESTIN_DATA = {
       img: "images/latable de cana/TABLECANA_EVENT_cdutrey_230625-5158.jpg", alt: "Un salarié de La Table de Cana Marseille sert des bouchées lors d'un événement", credit: "Caroline Dutrey",
       href: "#/projets/la-table-de-cana", cta: "La Table de Cana Marseille" },
     { date: "2025", lieu: "Marseille", title: "Tournesol,", accent: "portée par Festin",
-      text: "Cinq mois de formation au métier de commis, gratuits et rémunérés, avec Refugee Food et Estello Formation.",
+      text: "Cinq mois de formation au métier de commis, gratuits, avec Refugee Food et Estello Formation.",
       img: "images/tournesol:formation/tournesol-promotion.jpg", alt: "Une promotion Tournesol en tenue, dans la cuisine de formation",
       href: "#/formations/tournesol", cta: "La formation Tournesol" },
     { date: "2025", lieu: "Marseille, Toulouse, Lille", title: "Les rencontres", accent: "de Restaure",
@@ -923,7 +923,7 @@ window.FESTIN_DATA.meganav = {
 window.FESTIN_DATA.impact = {
   hero: {
     kicker: "Notre impact",
-    title: "Mesurer ce qui change,", titleAccent: "année après année.",
+    title: "Compter", titleAccent: "ce qui compte.",
     proof: "Quatre rapports d'activité publics, de 2022 à 2025. Les chiffres ci-dessous en viennent tous.",
     img: "images/photo-applaudissements.jpg", imgAlt: "Une promotion en tenue de cuisine applaudit, dans la cuisine de formation",
   },
@@ -934,14 +934,14 @@ window.FESTIN_DATA.impact = {
     { year: "2024", personnes: 421, sorties: 203, emploi: 151, taux: 74 },
     { year: "2025", personnes: 441, sorties: null, emploi: null, taux: 83 },
   ],
-  serieNote: "Sorties : personnes sorties dans l'année après au moins trois mois dans un programme. Le rapport 2025 publie le taux sans le détail des effectifs.",
+  serieNote: "Sorties : personnes sorties dans l'année après au moins trois mois dans un programme.",
   // Durée : l'étude Koreis suit les anciennes stagiaires 3 à 5 ans après
   duree: {
     title: "Trois à cinq ans après leur formation,", titleAccent: "elles travaillent.",
-    lede: "En 2023, le cabinet Koreis a retrouvé les anciennes stagiaires du dispositif Des Étoiles et des Femmes, trois à cinq ans après leur formation.",
+    lede: "Étude Koreis, 2023 : le cabinet a retrouvé les anciennes stagiaires du dispositif Des Étoiles et des Femmes, trois à cinq ans après leur formation.",
     faits: [
-      { n: "73 %", t: "sont en emploi en 2023.", d: "Contre 40 % des femmes des quartiers prioritaires, au niveau national." },
-      { n: "60 %", t: "de celles qui travaillent sont en CDI en 2023.", d: "Et 71 % sont à temps complet." },
+      { n: "73 %", t: "sont en emploi.", d: "Contre 40 % des femmes des quartiers prioritaires, au niveau national." },
+      { n: "60 %", t: "de celles qui travaillent sont en CDI.", d: "Et 71 % sont à temps complet." },
       { n: "1 sur 4", t: "est devenue cheffe ou cheffe de partie.", d: "Des postes à responsabilité, en brigade." },
     ],
     source: "Source : mesure d'impact social du dispositif Des Étoiles et des Femmes, cabinet Koreis, décembre 2023.",
@@ -1061,7 +1061,7 @@ window.FESTIN_DATA.home = {
     lede: "Un restaurant en prison, un traiteur d'insertion, deux formations diplômantes et un programme national contre les violences en cuisine.",
     // par projet.id : accroche + chiffre + image de carte (le reste vient de FESTIN_DATA.projets)
     cards: [
-      { id:"des-etoiles-et-des-femmes", blurb:"Un diplôme de cuisine et des stages en restaurants gastronomiques, pour des femmes. 13 antennes en France.", insertion:"Des femmes suivent une formation diplômante en cuisine, avec des stages en restaurant gastronomique.", secteur:"Des commis formées pour les brigades, dans 13 villes.", stat:"91 % de réussite aux diplômes en 2025", img:"images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg" },
+      { id:"des-etoiles-et-des-femmes", blurb:"Un diplôme de cuisine et des stages en restaurant, pour des femmes. 13 antennes en France.", insertion:"Des femmes suivent une formation diplômante en cuisine, avec des stages en restaurant.", secteur:"Des commis formées pour les brigades, dans 13 villes.", stat:"91 % de réussite aux diplômes en 2025", img:"images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg" },
       { id:"les-beaux-mets",           blurb:"Le premier restaurant en prison ouvert au public en France. Aux Baumettes, à Marseille.", insertion:"Des personnes détenues apprennent la cuisine et le service, en brigade, sur un vrai service.", secteur:"Un restaurant bistronomique ouvert au public, aux Baumettes.", stat:"119 personnes employées depuis 2022", img:"images/beauxmets-images/LBM_cdutrey_071122-7264.jpg" },
       { id:"la-table-de-cana",         blurb:"Traiteur et restauration collective en insertion, à Marseille.", insertion:"Des salariés en insertion se forment au traiteur et à la restauration collective.", secteur:"Un traiteur et une cuisine collective pour les entreprises et les collectivités marseillaises.", stat:"89 % de sorties positives en 2025", img:"images/latable de cana/tabledecana_cdutrey_160124-4393.jpg" },
       { id:"restaure",                 blurb:"Un programme national. Il prévient les violences en cuisine et change les pratiques du secteur.", insertion:"Des cuisines plus sûres pour celles et ceux qui y travaillent.", secteur:"Des formations et des outils pour prévenir les violences et former les managers.", stat:"700 signataires du manifeste", img:"images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00032.jpg" },
@@ -1184,7 +1184,7 @@ Object.assign(window.FESTIN_DATA.home, {
     lignes: [
       "En 2025, nous avons accompagné <b>441 personnes</b> dans <b>14 territoires</b>.",
       "<b>83 %</b> sont sorties en emploi ou en formation en 2025.",
-      "Avec Des Étoiles et des Femmes, des femmes apprennent auprès de chefs, dans des restaurants gastronomiques : <b>91 %</b> ont obtenu leur diplôme en 2025.",
+      "Avec Des Étoiles et des Femmes, des femmes apprennent auprès de chefs, dans des restaurants partenaires : <b>91 %</b> ont obtenu leur diplôme en 2025.",
       "Trois à cinq ans après (étude de 2023), <b>73 %</b> des anciennes stagiaires travaillent et <b>une sur quatre</b> est devenue cheffe ou cheffe de partie.",
     ],
     sources: "Sources : rapport d'activité Festin 2025, tous projets confondus (phrases 1 et 2) ; Des Étoiles et des Femmes, 2025 (phrase 3) ; mesure d'impact social, cabinet Koreis, décembre 2023 (phrase 4).",
@@ -1208,7 +1208,7 @@ Object.assign(window.FESTIN_DATA.home, {
         { label: "Faire un don", href: "don", primary: true },
         { label: "Devenir mécène", href: "#/contact/mecenat" },
         { label: "Réserver aux Beaux Mets", href: "https://www.lesbeauxmets-marseille.fr", external: true },
-        { label: "Commander à La Table de Cana Marseille", href: "https://www.latabledecana-marseille.com", external: true },
+        { label: "Demander un devis traiteur", href: "#/contact/devis-traiteur" },
       ],
     },
   },
@@ -1271,7 +1271,7 @@ window.FESTIN_DATA.lieux = [
     img: "images/beauxmets-images/LBM_carte-ete24_caroline_dutrey-3385.jpg",
     actions: [{ label: "Privatiser le restaurant", href: "#/contact/privatisation" }, { label: "Réserver une table", href: "https://www.lesbeauxmets-marseille.fr" }] },
   { key: "sadi-carnot", lieu: "Sadi Carnot", ville: "Marseille, près du Vieux-Port", futur: true, sous: "À venir",
-    text: "Un futur lieu de Festin, en préparation. Nous le présenterons quand le projet sera acquis.",
+    text: "Un futur lieu de Festin, près du Vieux-Port. Le projet est ouvert à vos soutiens dès maintenant.",
     actions: [] },
 ];
 
@@ -1304,7 +1304,7 @@ window.FESTIN_DATA.projetPages = {
     heroImg: "images/images-def/hero-promo-cuisine.jpg", heroAlt: "Une promotion du dispositif Des Étoiles et des Femmes réunie dans une cuisine de formation",
     nature: "formation", heroCta: { label: "Plus d'informations", href: "https://www.desetoilesetdesfemmes.org", external: true }, heroLien: { label: "Accueillir une stagiaire", to: "portes" },
     bref: { title: "Former des femmes", accent: "avec des chefs.",
-      text: "Des Étoiles et des Femmes forme des femmes à la cuisine avec des chefs et des restaurants gastronomiques. Chaque promotion prépare un diplôme, fait ses stages en restaurant et bénéficie d'un suivi social jusqu'à l'emploi." },
+      text: "Des Étoiles et des Femmes forme des femmes à la cuisine avec des chefs et des restaurants partenaires. Chaque promotion prépare un diplôme, fait ses stages en restaurant et bénéficie d'un suivi social jusqu'à l'emploi." },
     video: { drive: "https://drive.google.com/file/d/1X3er9EQUpu61_yXR3KceY1sV4RgfygEK5hNzUFaaHEY/preview", poster: "images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg", credit: "Vidéo réalisée par l'agence Les Fabricants" },
     preuves: [
       "En 2025, <b>336 femmes</b> ont suivi le dispositif, dans <b>13 antennes</b>.",
@@ -1316,7 +1316,7 @@ window.FESTIN_DATA.projetPages = {
       lede: "Chaque antenne suit le même parcours, avec son centre de formation et ses restaurants partenaires.",
       steps: [
         { tab: "Candidater", title: "Une réunion d'information, puis un entretien",
-          text: "Le parcours s'adresse aux femmes majeures. Chaque candidature commence par une réunion d'information collective, suivie d'un entretien.",
+          text: "Le parcours s'adresse aux femmes éloignées de l'emploi, de 18 ans ou plus. Chaque candidature commence par une réunion d'information collective, suivie d'un entretien.",
           stat: "Gratuit", statL: "pour les femmes formées", img: "images/images-def/reunion-information-collective.jpg", alt: "Une réunion d'information collective du dispositif Des Étoiles et des Femmes, dans une salle de restaurant" },
         { from: "Se former" }, { from: "Pratiquer" }, { from: "Travailler" },
       ], },
@@ -1397,7 +1397,7 @@ window.FESTIN_DATA.projetPages = {
   "la-table-de-cana": {
     kicker: "Depuis 1993 · Marseille",
     heroImg: "images/latable de cana/tabledecana_cdutrey_160124-4393.jpg", heroAlt: "En cuisine à La Table de Cana Marseille", heroCredit: "Photo : Caroline Dutrey",
-    nature: "lieu", orientable: true, heroCta: { label: "Commander un repas", href: "https://www.latabledecana-marseille.com", external: true }, heroLien: { label: "Demander un devis traiteur", href: "#/contact/devis-traiteur" },
+    nature: "lieu", orientable: true, heroCta: { label: "Demander un devis traiteur", href: "#/contact/devis-traiteur" },
     table: { title: "Le traiteur", accent: "de vos événements.",
       text: ["La Table de Cana Marseille prépare les repas de vos événements et de vos repas d'entreprise. Chaque commande fait travailler et former des salariés en insertion.",
         "Elle cuisine aussi en restauration collective : plus de 400 000 convives ont mangé sa cuisine."],
@@ -1415,7 +1415,6 @@ window.FESTIN_DATA.projetPages = {
       ],
       ctas: [
         { label: "Demander un devis traiteur", href: "#/contact/devis-traiteur" },
-        { label: "Commander un repas", href: "https://www.latabledecana-marseille.com", external: true },
       ] },
     bref: { title: "Apprendre la cuisine", accent: "en travaillant.",
       text: "Né en 1993, c'est le premier projet de Festin : un traiteur et une cuisine collective où des salariés en insertion apprennent un métier, dans les conditions réelles d'une entreprise de restauration." },
@@ -1436,7 +1435,7 @@ window.FESTIN_DATA.projetPages = {
       ] },
     blocs: [],
     temoignages: { title: "Salariés et encadrants", accent: "racontent." },
-    portesTitre: { title: "Commander", accent: "ou recruter un salarié." },
+    portesTitre: { title: "Faire appel au traiteur", accent: "ou recruter un salarié." },
     portes: [
       { tag: "Vous organisez un événement", title: "Un repas pour votre événement",
         pts: ["Traiteur pour vos événements et vos repas d'entreprise.", "Chaque commande fait travailler et former des salariés en insertion."],
@@ -1509,9 +1508,11 @@ window.FESTIN_DATA.about = {
     ]},
   ],
   gouvernance: [
-    { name: "Jérôme Schatzman", role: "Président", avatar: "images/equipe/ca-schatzman.png" },
+    { name: "Jérôme Schatzman", role: "Président du groupe associatif", avatar: "images/equipe/ca-schatzman.png" },
     { name: "Guillaume Hermitte", role: "Trésorier", avatar: "images/equipe/ca-hermitte.png" },
-    { name: "Virginie Leconte", role: "Secrétaire", avatar: null },
+    { name: "Gaëlle de Carmantrand", role: "Secrétaire", avatar: null },
+    // orthographe du nom à confirmer (RETOURS-V3 §5.7)
+    { name: "Hugues Bonentin", role: "Président de La Table de Cana Marseille", avatar: null },
   ],
   // Frise de la page Association, recentrée sur l'association (29/09/2026) ;
   // la frise des projets est sur l'accueil. Distinctions : voir .about distinctions ci-dessous.
@@ -1669,7 +1670,7 @@ Object.assign(window.FESTIN_DATA.home, {
 //  = [À COMPLÉTER] (adresse par projet à fournir par l'association).
 // ============================================================
 window.FESTIN_DATA.orienter = [
-  { id: "des-etoiles-et-des-femmes", tags: [["Pour", "femmes majeures"], ["Durée", "4 à 11 mois"], ["Coût", "gratuit"]], pour: "Des femmes majeures", quoi: "Une formation diplômante en cuisine, de 4 à 11 mois, avec des stages en restaurant gastronomique, dans 13 villes.", conditions: "Être majeure ; parler le français au niveau B1 ou B2 selon le diplôme." },
-  { id: "tournesol", tags: [["Pour", "personnes réfugiées ou primo-arrivantes"], ["Durée", "5 mois"], ["Coût", "gratuit, rémunéré"]], img: "images/tournesol:formation/Formation-Tournesol_RefugeeFood_©Aglae-Bory-67.jpg", pour: "Des personnes réfugiées ou primo-arrivantes, majeures, autorisées à travailler en France", quoi: "Cinq mois pour le titre de commis de cuisine et le DCL, un diplôme de français, à Marseille.", conditions: "Être autorisé à travailler en France ; parler le français au niveau A2 au moins. France Travail rémunère les stagiaires." },
+  { id: "des-etoiles-et-des-femmes", tags: [["Pour", "femmes en recherche d’emploi"], ["Durée", "4 à 11 mois"], ["Coût", "gratuit"]], pour: "Des femmes en recherche d’emploi, de 18 ans ou plus", quoi: "Une formation diplômante en cuisine, de 4 à 11 mois, avec des stages en restaurant, dans 13 villes.", conditions: "Être majeure ; parler le français au niveau B1 ou B2 selon le diplôme." },
+  { id: "tournesol", tags: [["Pour", "personnes réfugiées ou primo-arrivantes"], ["Durée", "5 mois"], ["Coût", "gratuit"]], img: "images/tournesol:formation/Formation-Tournesol_RefugeeFood_©Aglae-Bory-67.jpg", pour: "Des personnes réfugiées ou primo-arrivantes, majeures, autorisées à travailler en France", quoi: "Cinq mois pour le titre de commis de cuisine et le DCL, un diplôme de français, à Marseille.", conditions: "Être autorisé à travailler en France ; parler le français au niveau A2 au moins. France Travail rémunère les stagiaires." },
   { id: "la-table-de-cana", tags: [["Pour", "salariés en insertion"], ["Statut", "emploi salarié"], ["Où", "Marseille"]], pour: "Des salariés en insertion, à Marseille", quoi: "Un emploi au traiteur, avec une formation en cuisine, puis un poste chez un partenaire.", conditions: null },
 ];

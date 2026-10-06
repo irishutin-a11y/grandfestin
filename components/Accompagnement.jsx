@@ -121,10 +121,10 @@ function AccompagnementInsertionPage() {
       <section className="g-sec g-sec--cream" aria-labelledby="ins-bref-t">
         <div className="wrap g-bref">
           <div className="g-bref__txt">
-            <h2 className="g-h2 g-reveal" id="ins-bref-t">Un diplôme et quelqu'un <em>à vos côtés.</em></h2>
-            <p className="g-lede g-reveal">Chaque parcours prépare un diplôme reconnu et comprend des stages en restaurant. Pendant toute la formation, une personne de l'équipe vous aide pour ce qui peut vous empêcher d'avancer : transport, garde d'enfants, logement, cours de français.</p>
+            <h2 className="g-h2 g-reveal" id="ins-bref-t">Quelqu'un à vos côtés, <em>jusqu'à l'emploi.</em></h2>
+            <p className="g-lede g-reveal">Chaque parcours vous accompagne jusqu'à l'emploi. Certains préparent un diplôme, avec des stages en restaurant. À La Table de Cana Marseille, vous êtes embauché et vous apprenez en travaillant. Pendant tout le parcours, une personne de l'équipe vous aide pour ce qui peut vous empêcher d'avancer : transport, garde d'enfants, logement, cours de français.</p>
             <window.Preuves lignes={[
-              'Tous nos parcours sont <b>gratuits</b>*. Selon votre situation, vous pouvez percevoir une indemnité ou une rémunération.',
+              'Nos formations sont <b>gratuites</b>*. À La Table de Cana Marseille et aux Beaux Mets, vous êtes salarié.',
             ]} source="* La formation est prise en charge par France Travail et nos partenaires publics." />
           </div>
           <GalerieAuto images={[
@@ -140,7 +140,7 @@ function AccompagnementInsertionPage() {
 
       {/* frise du calendrier retirée (RETOURS-AUDIT §2.10) : chaque parcours a ses dates, données par son site */}
       <window.Faq id="faq-ins" title="Vos" accent="questions" items={[
-        { q: "La formation est-elle payante ?", a: "Non. Tous nos parcours sont gratuits. Selon votre situation, vous pouvez percevoir une indemnité ou une rémunération pendant la formation." },
+        { q: "La formation est-elle payante ?", a: "Non. Nos formations sont gratuites. À La Table de Cana Marseille, vous êtes embauché : vous êtes salarié pendant votre parcours." },
         { q: "Quand commencent les prochaines sessions ?", a: "Chaque antenne a son propre calendrier. Le site de chaque projet donne les dates des prochaines sessions." },
         { q: "Quel parcours est fait pour moi ?", a: "Des Étoiles et des Femmes accueille des femmes. Tournesol accueille des personnes réfugiées ou primo-arrivantes. La Table de Cana Marseille emploie des salariés en insertion à Marseille. Écrivez-nous : nous vous orientons." },
         { q: "Qui m'aide pendant la formation ?", a: "Une personne de l'équipe vous suit du premier entretien jusqu'à l'emploi : transport, garde d'enfants, logement, cours de français, recherche de poste." },
