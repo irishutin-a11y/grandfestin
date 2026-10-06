@@ -485,7 +485,7 @@ window.FESTIN_DATA = {
       implicationCtaLabel: "Nous rejoindre",
       implicationCtaHref: "#/contact",
       temoignages: [
-        { prenom: "Éloi Spinnler", role: "Chef, membre du programme Restaure", citation: "Pour réussir à vraiment changer les choses, je suis persuadé qu’il faut avancer collectivement.", placeholder: false },
+        { prenom: "Éloi Spinnler", role: "Chef, membre du programme Restaure", citation: "Pour réussir à vraiment changer les choses, je suis persuadé qu’il faut avancer collectivement.", photo: "images/restaure : formation pro/eloi-spinnler.jpg", objPos: "center 30%", placeholder: false },
       ],
       presseFilter: ["Restaure", "Mouvement Restaure"],
       // --- Repositionnement stratégique Restaure (2026) : mission + 3 axes de transformation ---
@@ -1317,7 +1317,7 @@ window.FESTIN_DATA.projetPages = {
       steps: [
         { tab: "Candidater", title: "Une réunion d'information, puis un entretien",
           text: "Le parcours s'adresse aux femmes majeures qui parlent le français au niveau B1 ou B2 selon la formation. La réunion d'information collective est obligatoire pour candidater.",
-          stat: "Gratuit", statL: "pour les femmes formées", missing: "réunion d'information collective, plan moyen" },
+          stat: "Gratuit", statL: "pour les femmes formées", img: "images/images-def/reunion-information-collective.jpg", alt: "Une réunion d'information collective du dispositif Des Étoiles et des Femmes, dans une salle de restaurant" },
         { from: "Se former" }, { from: "Pratiquer" }, { from: "Travailler" },
       ], },
     blocs: ["reseau", "chefs"],
@@ -1483,12 +1483,12 @@ window.FESTIN_DATA.projetPages = {
 window.FESTIN_DATA.about = {
   poles: [
     { key: "direction", label: "Direction et gestion", color: "#1D6B78", members: [
-      { name: "Armand Hurault", role: "Directeur général", photo: null },
+      { name: "Armand Hurault", role: "Directeur général", photo: "images/equipe/armand-hurault.jpg" },
       { name: "Marine Vever",   role: "Directrice adjointe", photo: "images/equipe/marine.jpg" },
       { name: "Marie Plé",      role: "Assistante de gestion", photo: null },
     ]},
     { key: "com", label: "Communication et communauté", color: "#9A5BA8", members: [
-      { name: "Iris Liberty",      role: "Chargée d'animation de communauté, programme Restaure", photo: null },
+      { name: "Iris Liberty",      role: "Chargée d'animation de communauté, programme Restaure", photo: "images/equipe/iris-liberty.jpg" },
       { name: "Iris Hutin",        role: "Chargée de projet Communication", photo: "images/equipe/iris-hutin.jpg" },
       { name: "Matthieu Donsimoni", role: "Chargé de communication en alternance", photo: null },
     ]},

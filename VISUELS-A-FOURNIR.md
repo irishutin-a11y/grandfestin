@@ -13,15 +13,12 @@ Les priorités : **1** bloque la mise en ligne (un cadre vide se verrait), **2**
 
 | # | Priorité | Page | Endroit | Sujet | Format | Cadrage |
 |---|---|---|---|---|---|---|
-| 1 | 1 | Qui sommes-nous | « Les visages de Festin » | Portrait d'Armand Hurault, directeur général | Vertical 4:5 | Buste, visage au tiers haut, fond neutre ou lieu de travail |
-| 2 | 1 | Qui sommes-nous | idem | Portrait de Marie Plé, assistante de gestion | Vertical 4:5 | idem |
-| 3 | 1 | Qui sommes-nous | idem | Portrait d'Iris Liberty, programme Restaure | Vertical 4:5 | idem |
+| 2 | 1 | Qui sommes-nous | « Les visages de Festin » | Portrait de Marie Plé, assistante de gestion | Vertical 4:5 | Buste, visage au tiers haut, fond neutre ou lieu de travail |
 | 4 | 1 | Qui sommes-nous | idem | Portrait de Matthieu Donsimoni, communication | Vertical 4:5 | idem |
 | 5 | 1 | Qui sommes-nous | idem | Portrait de Karima Hellou, emploi et inclusion | Vertical 4:5 | idem |
 | 6 | 1 | Qui sommes-nous | idem | Portrait de Lucie Gueydon, Estello Formation | Vertical 4:5 | idem |
 | 7 | 1 | Qui sommes-nous | idem | Portrait de Marc Balthazard, maître d'hôtel des Beaux Mets | Vertical 4:5 | idem |
 | 8 | 1 | Qui sommes-nous | idem | Portrait de Nissa Boudhabhay, conseillère en insertion | Vertical 4:5 | idem |
-| 9 | 1 | Des Étoiles et des Femmes | Frise « De la candidature à l'emploi », étape 1 | Une réunion d'information collective | Paysage 4:3 | Plan moyen, l'animatrice et le groupe, visages de dos ou avec accord |
 | 10 | 1 | Actualités | « Les moments de l'année », carte « L'exposition photo » | L'exposition photo (accrochage, visiteurs) | Paysage 16:10 | Plan large |
 | 11 | 2 | Les Beaux Mets | Bloc « Venir déjeuner » | Deux ou trois plats de la carte actuelle | Carré ou paysage | Vue de dessus ou trois quarts, lumière naturelle |
 | 12 | 2 | La Table de Cana Marseille | Bloc « Le traiteur » | Un buffet ou un cocktail dressé par le traiteur | Paysage 16:10 | Plan large, la table dressée |
@@ -30,16 +27,15 @@ Les priorités : **1** bloque la mise en ligne (un cadre vide se verrait), **2**
 | 15 | 2 | Fiche Tournesol | idem | Un ou une apprenante au poste | Vertical 4:5 | Plan poitrine |
 | 16–28 | 2 | Des Étoiles et des Femmes | Liste des antennes (photo au survol) | Une photo par antenne : Marseille, Montpellier, Nice, Bordeaux, Arles, Strasbourg, Hauts-de-Seine, Paris, Lyon, Lille, Seine-Saint-Denis, Toulouse, Hauts-de-Seine Sud | Paysage 3:2 | Plan large : la cuisine ou la promotion de l'antenne. Nom de fichier : la ville (ex. `lyon.jpg`) |
 | 29 | 3 | Les Beaux Mets, La Table de Cana Marseille | Carrousel des témoignages | Portraits de Valentin Majan, Jason, Chef Davin, Oumar, Jean Claude, Pierre (aujourd'hui : initiales) | Carré 1:1 | Visage et épaules, avec accord écrit. Si une personne ne souhaite pas apparaître, les initiales restent |
-| 30 | 3 | Restaure | Témoignage | Portrait d'Éloi Spinnler | Carré 1:1 | idem |
-| 31 | 3 | Des Étoiles et des Femmes | Témoignages | Portraits de Najat et de Julia Sedefdjian | Carré 1:1 | idem |
+| 31 | 3 | Des Étoiles et des Femmes | Témoignages | Portrait de Najat (celui de Julia Sedefdjian est reçu ; son témoignage reste à recueillir) | Carré 1:1 | idem |
 
 ## 2. La sphère des chefs (Des Étoiles et des Femmes, bloc « Soutenir »)
 
-Treize photos, **carrées (1:1), 1200 px au moins, plan poitrine, visage centré, en tenue de cuisine, fond simple**. Nom de fichier : prénom-nom (ex. `julia-sedefdjian.jpg`).
+Douze photos encore (Julia Sedefdjian reçue), **carrées (1:1), 1200 px au moins, plan poitrine, visage centré, en tenue de cuisine, fond simple**. Nom de fichier : prénom-nom (ex. `julia-sedefdjian.jpg`).
 
 | # | Chef | Restaurant ou titre affiché sur le site |
 |---|---|---|
-| 1 | Julia Sedefdjian | Marraine nationale · Baieta, Paris |
+| 1 | Julia Sedefdjian | Marraine nationale · Baieta, Paris (**reçue le 06/10**) |
 | 2 | Martin Simolka | Le Scribe, Paris |
 | 3 | Valentina Giacobbe | Ginko, Lille |
 | 4 | Armand Arnal | La Chassagnette, Arles |
@@ -79,3 +75,4 @@ Le formulaire Airtable des Beaux Mets ne s'ouvre pas depuis mon environnement (l
 
 
 Reçus le 06/10/2026 : les 16 logos de médias manquants (tous les articles de presse ont maintenant leur logo).
+Reçus le 06/10/2026 aussi : portraits d'Armand Hurault et d'Iris Liberty, réunion d'information collective (Des Étoiles et des Femmes), portrait d'Éloi Spinnler (témoignage Restaure), portrait de Julia Sedefdjian (sphère des chefs).

@@ -86,7 +86,7 @@ function BlocTable({ t }) {
 // Des Étoiles et des Femmes : soutenir une promotion, avec la sphère des chefs du réseau
 function BlocChefs({ p, cfg }) {
   const D = window.FESTIN_DATA;
-  const chefs = [{ name: 'Julia Sedefdjian', place: 'Marraine nationale · Baieta, Paris' }, ...D.about.chefs];
+  const chefs = [{ name: 'Julia Sedefdjian', place: 'Marraine nationale · Baieta, Paris', photo: 'images/images-def/julia-sedefdjian.jpg' }, ...D.about.chefs];
   const photos = ['images/images-def/chaudbouillon-045.jpg', 'images/images-def/HOTELERIE-097.jpg',
     'images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00022.jpg', 'images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg',
     'images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-40.jpg', 'images/photo-tabliers-violets.jpg',
