@@ -470,3 +470,4 @@ main > div > section:last-of-type:has(.g-appel){border-top:0!important}
   .g-cards--3-2 > li{grid-column:span 2}
   .g-cards--3-2 > li:nth-child(n+4){grid-column:span 3}
 }
+.g-antennes__note{margin:var(--sp-4) 0 0;font-size:14px;color:var(--ink-mid);max-width:60ch}

@@ -85,7 +85,6 @@ window.FESTIN_DATA = {
       id: "des-etoiles-et-des-femmes",
       icon: "star",
       eyebrow: "Depuis 2015",
-      carteAntennes: "images/images-def/carte-antennes.jpg",
       title: "Des Étoiles",
       accent: "et des Femmes",
       shortTitle: "Des Étoiles et des Femmes",

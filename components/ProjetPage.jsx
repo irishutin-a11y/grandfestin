@@ -27,12 +27,7 @@ function BlocReseau({ p }) {
       <div className="wrap">
         <window.GHead id="reseau-t" split title="Où se former," accent="en France."
           lede="Le dispositif est né à Marseille en 2015. Dans chaque ville, une structure locale le porte, avec son centre de formation et ses restaurants partenaires." />
-        {/* carte du réseau (retours du 02/10/2026) */}
-        {p.carteAntennes && (
-          <figure className="g-carte g-reveal">
-            <window.Picture src={p.carteAntennes} alt={'Carte des antennes du dispositif Des Étoiles et des Femmes : ' + p.antennes.map((a) => a.ville).join(', ')} sizes="(max-width: 900px) 100vw, 60vw" />
-          </figure>
-        )}
+        {/* carte du réseau retirée (retours V2, §7) */}
         {/* Liste à survol dès que les photos d'antenne existent ; sans photo, une grille compacte */}
         {(D.antennesPhotos || []).length > 0 ? (
           <div className="g-reveal">
@@ -49,6 +44,7 @@ function BlocReseau({ p }) {
             ))}
           </ol>
         )}
+        <p className="g-antennes__note">Les structures porteuses citées sont des partenaires du dispositif, et non des entités de Festin.</p>
       </div>
     </section>
   );
