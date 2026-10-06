@@ -350,16 +350,17 @@ function ProjetsIndexPage() {
       {/* NOS LIEUX — la même offre, rangée par lieu (retours du 01/10/2026) */}
       <section className="g-sec g-sec--cream pj-lieux" id="lieux" aria-labelledby="pj-lieux-t">
         <div className="wrap">
-          <window.GHead id="pj-lieux-t" split title="Nos" accent="lieux." lede="De Marseille aux 13 villes du dispositif Des Étoiles et des Femmes." />
+          <window.GHead id="pj-lieux-t" split title="Nos" accent="lieux." lede="Découvrez nos lieux ouverts au public." />
           <ul className="pj-lieux__grid">
             {(D.lieux || []).map((l) => (
               <li key={l.key} className={'pj-lieu g-reveal' + (l.futur ? ' pj-lieu--futur' : '')}>
                 <div className="pj-lieu__img">
-                  {l.img ? <window.Picture src={l.img} alt="" sizes="(max-width: 700px) 100vw, 25vw" /> : <span className="pj-lieu__avenir">À venir</span>}
+                  {l.img ? <window.Picture src={l.img} alt="" sizes="(max-width: 700px) 100vw, 25vw" /> : <span className="pj-lieu__avenir" aria-hidden="true" />}
                 </div>
                 <div className="pj-lieu__b">
                   <span className="pj-lieu__ville">{l.ville}</span>
                   <h3 className="pj-lieu__t">{l.lieu}</h3>
+                  {l.sous && <p className="pj-lieu__sous">{l.sous}</p>}
                   <p>{l.text}</p>
                   {l.actions.length > 0 && (
                     <div className="pj-lieu__act">

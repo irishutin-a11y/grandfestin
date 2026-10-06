@@ -397,7 +397,7 @@ main > div > section:last-of-type:is(.g-sec--cream,.g-sec--gold,.g-sec--tint,.is
 main > div > section:last-of-type:has(.g-appel){border-top:0!important}
 /* Nos lieux et liens vers les sites des projets (retours du 01/10/2026) */
 .pj-card__site{display:inline-flex;gap:6px;margin-top:var(--sp-3);font-size:var(--fs-small);font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--teal-dark);text-decoration:underline;text-underline-offset:4px}
-.pj-lieux__grid{list-style:none;margin:var(--sp-7) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--sp-5)}
+.pj-lieux__grid{list-style:none;margin:var(--sp-7) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-5)}
 .pj-lieu{display:flex;flex-direction:column;border-radius:20px;overflow:hidden;background:var(--off-white)}
 .pj-lieu__img{aspect-ratio:4/3;overflow:hidden;background:var(--teal-tint)}
 .pj-lieu__img img{width:100%;height:100%;object-fit:cover}
@@ -405,9 +405,10 @@ main > div > section:last-of-type:has(.g-appel){border-top:0!important}
 .pj-lieu__b{display:flex;flex-direction:column;gap:var(--sp-2);flex:1;padding:var(--sp-5)}
 .pj-lieu__ville{font-size:var(--fs-label);font-weight:700;letter-spacing:var(--tracking-eyebrow);text-transform:uppercase;color:var(--gold-ink)}
 .pj-lieu__t{margin:0;font-size:var(--fs-h3);line-height:var(--lh-snug);font-weight:700;text-transform:uppercase;color:var(--ink)}
+.pj-lieu__sous{margin:4px 0 0;font-size:var(--fs-label,13px);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-ink)}
 .pj-lieu__b p{margin:0;font-size:var(--fs-small);line-height:1.5;color:var(--ink-mid)}
 .pj-lieu__act{margin-top:auto;padding-top:var(--sp-3);display:flex;flex-direction:column;align-items:flex-start;gap:2px}
-@media (max-width:1100px){ .pj-lieux__grid{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (max-width:860px){ .pj-lieux__grid{grid-template-columns:1fr} }
 @media (max-width:600px){ .pj-lieux__grid{grid-template-columns:1fr} }
 /* Compteurs : le chiffre s'adapte à la largeur de sa carte (retours du 02/10/2026, « 400 000 » débordait) */
 .g-compteur{container-type:inline-size;overflow:hidden;min-width:0}

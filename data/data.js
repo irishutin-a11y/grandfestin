@@ -1234,7 +1234,7 @@ window.FESTIN_DATA.arbo = [
     match: ["#/projets"],
     links: [
       { ic: "layout-grid", c: "#EC8669", label: "Tous les projets", d: "Cinq projets, trois missions", href: "#/projets" },
-      { ic: "map-pin", c: "#EC8669", label: "Nos lieux", d: "Marseille, les Baumettes et 13 villes en France", href: "#/projets/lieux" },
+      { ic: "map-pin", c: "#EC8669", label: "Nos lieux", d: "Les lieux ouverts au public, à Marseille", href: "#/projets/lieux" },
       { ic: "star", c: "#EC8669", label: "Des Étoiles et des Femmes", d: "Former", href: "#/projets/des-etoiles-et-des-femmes" },
       { ic: "utensils", c: "#EC8669", label: "Les Beaux Mets", d: "Accompagner jusqu'à l'emploi", href: "#/projets/les-beaux-mets" },
       { ic: "soup", c: "#EC8669", label: "La Table de Cana Marseille", d: "Accompagner jusqu'à l'emploi", href: "#/projets/la-table-de-cana" },
@@ -1254,7 +1254,8 @@ window.FESTIN_DATA.arbo = [
 window.FESTIN_DATA.presseLogos = ["courrier-international", "france-3-paca", "france-inter", "la-provence", "tf1", "le-progres", "m6", "made-in-marseille", "le-figaro", "nice-matin"];
 
 // Nos lieux (retours du 01/10/2026) : navigation par lieu, sur la page Nos projets (#/projets/lieux).
-// Sadi Carnot n'est pas acquis : toujours au futur, sans action.
+// Lieux ouverts au public seulement (retours V2 §5 : les antennes n'y figurent pas).
+// Sadi Carnot n'est pas acquis : toujours au futur, sans action, en dernier.
 window.FESTIN_DATA.lieux = [
   { key: "mourepiane", lieu: "Mourepiane", ville: "Marseille", projet: "la-table-de-cana",
     text: "La Table de Cana Marseille : traiteur et restauration collective en insertion, depuis 1993.",
@@ -1264,13 +1265,9 @@ window.FESTIN_DATA.lieux = [
     text: "Les Beaux Mets : un restaurant ouvert au public, dans la prison, cuisiné et servi par des personnes détenues.",
     img: "images/beauxmets-images/LBM_carte-ete24_caroline_dutrey-3385.jpg",
     actions: [{ label: "Privatiser le restaurant", href: "#/contact/privatisation" }, { label: "Réserver une table", href: "https://www.lesbeauxmets-marseille.fr" }] },
-  { key: "sadi-carnot", lieu: "Sadi Carnot", ville: "Marseille, près du Vieux-Port", futur: true,
+  { key: "sadi-carnot", lieu: "Sadi Carnot", ville: "Marseille, près du Vieux-Port", futur: true, sous: "À venir",
     text: "Un futur lieu de Festin, en préparation. Nous le présenterons quand le projet sera acquis.",
     actions: [] },
-  { key: "france", lieu: "Le reste de la France", ville: "13 villes", projet: "des-etoiles-et-des-femmes",
-    text: "Des Étoiles et des Femmes forme des femmes avec des chefs, dans 13 antennes.",
-    img: "images/images-def/hero-promo-cuisine.jpg",
-    actions: [{ label: "Voir les antennes", href: "#/projets/des-etoiles-et-des-femmes" }] },
 ];
 
 // Bande or des projets, cliquable (procédé de la page Pros diffusé sur Restaure et
