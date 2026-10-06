@@ -264,3 +264,124 @@ Ma préférence va à **1** : c'est la phrase de la direction, et elle tient seu
 - **Ajouter un chiffre d'accompagnement** à côté de chaque parcours (« suivi jusqu'à 6 mois après », par exemple) : l'accompagnement devient visible, pas seulement la formation.
 - **Ouvrir l'accueil par la phrase du §2** (« Festin utilise le levier de la cuisine comme outil d'insertion sociale et professionnelle… ») avant les portes : l'objectif social est dit d'abord.
 - **Un bloc « Sur tous les fronts »** sur l'accueil, avec les trois fronts de l'option C en trois cartes : il remplace « Deux publics, un même métier » et dit le positionnement d'acteur de référence.
+
+---
+
+# 10. Option C retenue : version aboutie (06/10/2026)
+
+**Ce qui change par rapport au §4.**
+- Je ne fusionne plus que ce qui fait doublon.
+- **Impact reste une page à part**, allégée.
+- Les fiches formation et la page des projets restent.
+
+On gagne surtout en clics et en clarté, grâce aux sous-menus, plutôt qu'en nombre de pages : **17 → 15 pages, aucun contenu perdu.**
+
+## 10.1 Le menu
+
+Quatre entrées, chacune avec un sous-menu. Sur ordinateur, il s'ouvre au survol et au clavier ; sur mobile, en accordéon dans le menu plein écran.
+
+| Entrée | Sous-menu |
+|---|---|
+| **L'insertion** | Nos parcours · Vérifier mon éligibilité · Des Étoiles et des Femmes · Tournesol · Postuler à La Table de Cana Marseille · Vous orientez une personne ? |
+| **Nos tables** | Les Beaux Mets : réserver, privatiser · La Table de Cana Marseille : traiteur, devis |
+| **Pour la restauration** | Recruter un commis formé · Former vos équipes · Le programme Restaure |
+| **Festin** | Qui sommes-nous · L'écosystème : nos projets, Sadi Carnot · Impact · Presse et actualités |
+
+- **Pastille, à droite** : « Presse » et « Soutenir Festin » en liens, puis le bouton Don. Sous 1360 px, les deux liens passent dans le menu, comme aujourd'hui.
+- **Le mot « formation » n'est plus dans aucune entrée.** Il ne reste qu'une fois, dans un sous-menu (« Former vos équipes »), là où il désigne vraiment une formation.
+
+## 10.2 Les pages (15)
+
+| # | Page | Adresse | D'où elle vient |
+|---|---|---|---|
+| 1 | Accueil | `#/` | Réorganisée par fronts (§10.4) |
+| 2 | **L'insertion**, nos parcours | `#/insertion` | Ex-« Se former », + le contenu de l'Académie |
+| 3 | Des Étoiles et des Femmes | `#/projets/des-etoiles-et-des-femmes` | Inchangée |
+| 4 | Le parcours Des Étoiles et des Femmes en détail | `#/parcours/des-etoiles-et-des-femmes` | Ex-fiche formation |
+| 5 | Le parcours Tournesol en détail | `#/parcours/tournesol` | Ex-fiche formation |
+| 6 | La Table de Cana Marseille | `#/projets/la-table-de-cana` | + section « Postuler » |
+| 7 | Les Beaux Mets | `#/projets/les-beaux-mets` | Inchangée |
+| 8 | **Pour la restauration** | `#/restauration` | Ex-« Pros » |
+| 9 | Le programme Restaure | `#/projets/restaure` | Inchangée |
+| 10 | Formation Violences sexistes et sexuelles | `#/formations/vss` | Inchangée |
+| 11 | Formation Management juste et inclusif | `#/formations/management` | Inchangée, photo retirée |
+| 12 | Qui sommes-nous | `#/about` | Récit et valeurs développés, « Gouvernance », équipe filtrable |
+| 13 | **L'écosystème**, nos projets | `#/projets` | Ex-« Nos lieux et projets » : les 5 projets, et Sadi Carnot « en développement » avec l'appel au don |
+| 14 | **Impact**, « Compter ce qui compte » | `#/impact` | Allégée (§10.5) |
+| 15 | Presse et actualités | `#/actualites` | Remontée : espace presse en tête |
+| + | Contact | `#/contact/<motif>` | Inchangée, et c'est elle qui reçoit le formulaire d'éligibilité |
+
+**Ce qui disparaît, et où va son contenu**
+- **Page Académie** (`#/academie`).
+  - Son catalogue fait doublon avec les cartes de parcours.
+  - Son texte (« Académie Festin, portée par Estello Formation, organisme de formation certifié Qualiopi ») devient la section « La formation, un moyen » de L'insertion.
+  - Son bloc « Un secteur qui recrute » passe dans la même page.
+  - `#/academie` et `#/formations` redirigent vers `#/insertion#formation`.
+- **Bloc « Nos lieux »** de la page projets : il devient le sous-menu « Nos tables ». Sadi Carnot reste sur la page L'écosystème, dans « En développement ».
+
+**Les anciennes adresses redirigent toutes** (`#/accompagnement/insertion`, `#/accompagnement/professionnels`, `#/formations/…`, `#/projets/lieux`). Aucun lien partagé ne casse.
+
+## 10.3 Les clics, depuis l'accueil
+
+| Cible | Aujourd'hui | Version C |
+|---|---|---|
+| Personne : vérifier son éligibilité | 2 | **1** (sous-menu, ou formulaire en tête de L'insertion) |
+| Prescripteur : orienter | 2 | **1** (sous-menu « Vous orientez une personne ? ») |
+| Restaurateur : recruter ou former | 2 | **1** |
+| Partenaire opérationnel : porter une antenne | 2 à 3 | **1** (Soutenir Festin, dans la pastille) |
+| Mécène | 2 | **1** |
+| Client des Beaux Mets : réserver | 3 | **1** (sous-menu Nos tables, lien direct de réservation) |
+| Journaliste : kit presse | 2 | **1** (Presse, dans la pastille) |
+
+Sur mobile, il faut ajouter un clic pour ouvrir le menu, partout.
+
+## 10.4 Ce que fait chaque page clé (ordre des sections)
+
+**Accueil**
+1. Hero avec la tagline et la phrase de non-lucrativité (§7, conflit 1).
+2. « Sur tous les fronts » : trois cartes, L'insertion · Nos tables · Pour la restauration.
+3. Chiffres 2025.
+4. Frise des projets.
+5. Témoignages.
+6. Portes (teal = la personne, or = les professionnels).
+
+Le bloc « Deux publics, un même métier » est remplacé par les trois fronts.
+
+**L'insertion**
+1. Ce qu'est un parcours chez Festin : accompagnement jusqu'à l'emploi, avec ou sans diplôme.
+2. **Formulaire d'éligibilité**, en tête de page.
+3. « Vous orientez une personne ? »
+4. Les parcours, en cartes : Des Étoiles et des Femmes, Tournesol, Postuler à La Table de Cana Marseille, et Les Beaux Mets en information (on n'y postule pas).
+5. La formation, un moyen : l'Académie Festin.
+6. Un secteur qui recrute.
+7. Questions fréquentes.
+8. Galerie.
+
+**Pour la restauration**
+
+Inchangée dans sa structure (les archétypes validés le 30/09). Seuls son nom et son adresse changent.
+
+**L'écosystème**
+1. Les cinq projets, par front : insertion, tables, secteur.
+2. En développement : Sadi Carnot, avec l'appel au don.
+
+## 10.5 Impact allégée : « Compter ce qui compte »
+
+| Ordre | Section | Changement |
+|---|---|---|
+| 1 | Chiffres de l'année | Inchangée. La mention « Effectifs non publiés » attend la question 3. |
+| 2 | **Rapports d'activité** | **Remontée en 2ᵉ position** (elle était 5ᵉ) |
+| 3 | L'effet dans la durée : étude Koreis | « en 2023 » retiré des cartes ; la date dite une fois en introduction (« étude Koreis, 2023 ») |
+| 4 | Projet par projet | Allégée : un chiffre par projet au lieu de plusieurs, avec un lien vers la page du projet |
+| 5 | Nos reconnaissances | Inchangée, avec la photo de La France s'engage |
+| 6 | S'engager avec Festin | Inchangée. C'est la cible du lien « Soutenir Festin ». |
+
+## 10.6 Pied de page
+
+Les mêmes quatre colonnes que le menu, dans le même ordre, plus une ligne : Contact · Presse · Mentions légales.
+
+## 10.7 Ce qui attend vos réponses avant le code
+
+- **Question 10 : où arrivent les réponses du formulaire d'éligibilité.**
+- **Conditions d'entrée de La Table de Cana Marseille**, pour le parcours « Postuler » et le formulaire.
+- **Tagline (question 7) et premier écran (conflit 1)**, pour l'accueil.
