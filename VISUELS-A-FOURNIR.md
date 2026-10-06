@@ -67,7 +67,6 @@ Treize photos, **carrées (1:1), 1200 px au moins, plan poitrine, visage centré
 | 6 | 2 | Fiche Tournesol | Haut de fiche | Tournesol, HD (194 px aujourd'hui) | idem |
 | 7 | 3 | Accueil, Académie | Frise, missions | Académie Festin, **une fois validé** (retiré du site le 06/10) | idem |
 | 8–17 | 2 | Qui sommes-nous | Sphère des partenaires | Accor Heartist Solidarity, METRO, L'Oréal Fonds pour les femmes, Randstad, Fondation Masalina, Fondation PSA Peugeot Citroën, Telos Impact, Pink Lady, Ministère du Travail, Banque des Territoires (cités en texte, sans logo) | PNG transparent ou SVG, version couleur |
-| 18–33 | 3 | Actualités | Lignes d'articles de presse (logo du média) | Impact Story, El País, Les Échos, Revue du barreau, Le Monde, Zig Zag Paris, France TV Info, Libération, Télérama, Arles Info, France 2, Sud-Ouest, RCF Radio, L'Hôtellerie Restauration, Neo Restauration, Carenews (sans logo, le nom s'affiche en texte) | PNG transparent, hauteur 200 px au moins |
 
 ## 4. Informations pratiques (pas des visuels, mais bloquantes pour les mêmes blocs)
 
@@ -77,3 +76,6 @@ Treize photos, **carrées (1:1), 1200 px au moins, plan poitrine, visage centré
 | La Table de Cana Marseille | « Le traiteur » | Types de prestations · nombre de convives possible · délai de commande · zone de livraison |
 
 Le formulaire Airtable des Beaux Mets ne s'ouvre pas depuis mon environnement (le réseau bloque airtable.com). Copiez-collez son contenu dans la conversation, ou exportez-le en CSV.
+
+
+Reçus le 06/10/2026 : les 16 logos de médias manquants (tous les articles de presse ont maintenant leur logo).

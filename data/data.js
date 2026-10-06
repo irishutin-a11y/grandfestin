@@ -1254,7 +1254,9 @@ window.FESTIN_DATA.arbo = [
     ] },
 ];
 // Logos de médias disponibles dans images/presse/<slug>.png (vide tant que les fichiers ne sont pas fournis)
-window.FESTIN_DATA.presseLogos = ["courrier-international", "france-3-paca", "france-inter", "la-provence", "tf1", "le-progres", "m6", "made-in-marseille", "le-figaro", "nice-matin"];
+window.FESTIN_DATA.presseLogos = ["courrier-international", "france-3-paca", "france-inter", "la-provence", "tf1", "le-progres", "m6", "made-in-marseille", "le-figaro", "nice-matin",
+  "telerama", "zig-zag-paris", "rcf-radio", "les-echos-weekend", "le-monde", "arles-info", "liberation", "impact-story", "l-hotellerie-restauration",
+  "neo-restauration", "sud-ouest", "france-2", "revue-du-barreau", "carenews", "el-pais", "france-tv-info", "podcast-des-etoiles-et-des-femmes"];
 
 // Nos lieux (retours du 01/10/2026) : navigation par lieu, sur la page Nos projets (#/projets/lieux).
 // Lieux ouverts au public seulement (retours V2 §5 : les antennes n'y figurent pas).
