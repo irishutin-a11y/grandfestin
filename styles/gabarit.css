@@ -552,3 +552,4 @@ main > div > section:last-of-type:has(.g-appel){border-top:0!important}
 .pj-dev__avenir{display:grid;place-items:center;aspect-ratio:4/3;border-radius:24px;background:repeating-linear-gradient(135deg,var(--teal-tint) 0 16px,var(--off-white) 16px 32px)}
 .pj-dev__avenir span{font-size:var(--fs-h2);font-weight:700;font-style:italic;color:var(--teal-dark)}
 @media (max-width:860px){.pj-dev__in{grid-template-columns:1fr}}
+.navpill__soutenir[aria-current="page"]{color:var(--teal-dark)}
