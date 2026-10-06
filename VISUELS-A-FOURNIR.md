@@ -21,7 +21,7 @@ Les priorités : **1** bloque la mise en ligne (un cadre vide se verrait), **2**
 | 11 | 2 | Les Beaux Mets | Bloc « Venir déjeuner » | Deux ou trois plats de la carte actuelle | Carré ou paysage | Vue de dessus ou trois quarts, lumière naturelle |
 | 13 | 2 | La Table de Cana Marseille | idem | Des pièces traiteur (bouchées, plateaux) | Carré | Gros plan |
 | 16–28 | 2 | Des Étoiles et des Femmes | Liste des antennes (photo au survol) | Une photo par antenne : Marseille, Montpellier, Nice, Bordeaux, Arles, Strasbourg, Hauts-de-Seine, Paris, Lyon, Lille, Seine-Saint-Denis, Toulouse, Hauts-de-Seine Sud | Paysage 3:2 | Plan large : la cuisine ou la promotion de l'antenne. Nom de fichier : la ville (ex. `lyon.jpg`) |
-| 29 | 3 | Les Beaux Mets, La Table de Cana Marseille | Carrousel des témoignages | Portraits de Jason, Chef Davin, Oumar, Jean Claude, Pierre (aujourd'hui : initiales) | Carré 1:1 | Visage et épaules, avec accord écrit. Si une personne ne souhaite pas apparaître, les initiales restent |
+| 29 | 3 | Les Beaux Mets, La Table de Cana Marseille | Carrousel des témoignages | Portraits de Jason, Oumar, Jean Claude, Pierre (aujourd'hui : initiales) | Carré 1:1 | Visage et épaules, avec accord écrit. Si une personne ne souhaite pas apparaître, les initiales restent |
 | 31 | 3 | Des Étoiles et des Femmes | Témoignages | Témoignage de Julia Sedefdjian à recueillir (portraits de Najat et de Julia reçus) | Carré 1:1 | idem |
 
 ## 2. La sphère des chefs (Des Étoiles et des Femmes, bloc « Soutenir »)

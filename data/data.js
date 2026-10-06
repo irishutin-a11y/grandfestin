@@ -334,7 +334,7 @@ window.FESTIN_DATA = {
       temoignages: [
         { prenom: "Valentin Majan", role: "Chef de cuisine, Les Beaux Mets", photo: "images/beauxmets-images/valentin-majan.jpg", objPos: "center 25%", citation: "Ce n’est pas tous les jours évident. On doit apprendre à mélanger les temps de mise en place et d’accompagnement social. Même si ça fait perdre du temps de production, ça rend notre travail plus humain.", placeholder: false },
         { prenom: "Jason", role: "Cuisinier, 22 ans, promotion 2025", citation: "Je n’avais jamais travaillé avant. Aux Beaux Mets, j’ai appris à cuisiner, à dresser une assiette, à me tenir en cuisine. Aujourd’hui, j’ai ma première fiche de paie. Ça me donne de la fierté.", placeholder: false },
-        { prenom: "Chef Davin", role: "Chef, Intercontinental Marseille", citation: "Sami s’est très vite intégré à l’équipe. Il a été très bien formé aux Beaux Mets et avait également l’attitude qui correspondait à une cuisine.", placeholder: false },
+        { prenom: "Chef Davin", role: "Chef, Intercontinental Marseille", photo: "images/pros/davin-portrait.jpg", objPos: "center 20%", citation: "Sami s’est très vite intégré à l’équipe. Il a été très bien formé aux Beaux Mets et avait également l’attitude qui correspondait à une cuisine.", placeholder: false },
       ],
       presseFilter: ["Les Beaux Mets", "Beaux Mets", "Baumettes"],
       // --- Champs page projet dédiée (sourcés du dossier de présentation LBM, janv. 2026) ---
