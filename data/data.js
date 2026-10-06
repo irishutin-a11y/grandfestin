@@ -553,7 +553,7 @@ window.FESTIN_DATA = {
       siteUrl: "https://refugee-food.org",
       siteName: "refugee-food.org",
       heroImages: [
-        "images/tournesol%3Aformation/festin_tournesol_cdutrey_0124-3645.jpg",
+        "images/tournesol%3Aformation/tournesol-cuisine.jpg",
         "images/tournesol%3Aformation/Formation-Tournesol_RefugeeFood_%C2%A9Aglae-Bory-67.jpg",
         "images/photo-tabliers-violets.jpg",
         "images/photo-promo-groupe.jpg",
@@ -561,7 +561,7 @@ window.FESTIN_DATA = {
       presentationTitle: "Un parcours diplômant pour les personnes réfugiées et primo-arrivantes",
       mediaType: "carousel",
       carouselImages: [
-        "images/tournesol%3Aformation/festin_tournesol_cdutrey_0124-3645.jpg",
+        "images/tournesol%3Aformation/tournesol-cuisine.jpg",
         "images/tournesol%3Aformation/Formation-Tournesol_RefugeeFood_%C2%A9Aglae-Bory-67.jpg",
         "images/photo-tabliers-violets.jpg",
       ],
@@ -1063,7 +1063,7 @@ window.FESTIN_DATA.home = {
       { id:"les-beaux-mets",           blurb:"Le premier restaurant en prison ouvert au public en France. Aux Baumettes, à Marseille.", insertion:"Des personnes détenues apprennent la cuisine et le service, en brigade, sur un vrai service.", secteur:"Un restaurant bistronomique ouvert au public, aux Baumettes.", stat:"119 personnes employées depuis 2022", img:"images/beauxmets-images/LBM_cdutrey_071122-7264.jpg" },
       { id:"la-table-de-cana",         blurb:"Traiteur et restauration collective en insertion, à Marseille.", insertion:"Des salariés en insertion se forment au traiteur et à la restauration collective.", secteur:"Un traiteur et une cuisine collective pour les entreprises et les collectivités marseillaises.", stat:"89 % de sorties positives en 2025", img:"images/latable de cana/tabledecana_cdutrey_160124-4393.jpg" },
       { id:"restaure",                 blurb:"Un programme national. Il prévient les violences en cuisine et change les pratiques du secteur.", insertion:"Des cuisines plus sûres pour celles et ceux qui y travaillent.", secteur:"Des formations et des outils pour prévenir les violences et former les managers.", stat:"700 signataires du manifeste", img:"images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00032.jpg" },
-      { id:"tournesol",                blurb:"Cinq mois de formation diplômante pour des personnes réfugiées ou primo-arrivantes.", insertion:"Des personnes réfugiées ou primo-arrivantes préparent en cinq mois le titre de commis de cuisine.", secteur:"Des commis formés, avec Refugee Food, pour les restaurants qui recrutent.", stat:"86 % d'insertion un an après", img:"images/tournesol:formation/festin_tournesol_cdutrey_0124-3645.jpg" }
+      { id:"tournesol",                blurb:"Cinq mois de formation diplômante pour des personnes réfugiées ou primo-arrivantes.", insertion:"Des personnes réfugiées ou primo-arrivantes préparent en cinq mois le titre de commis de cuisine.", secteur:"Des commis formés, avec Refugee Food, pour les restaurants qui recrutent.", stat:"86 % d'insertion un an après", img:"images/tournesol:formation/tournesol-cuisine.jpg" }
     ],
     avenir: { title:"Sadi Carnot", eyebrow:"En préparation", text:"Un futur restaurant d'insertion à Marseille. Nous en présenterons le projet quand il sera acquis." },
     explore: { title:"Festin", text:"Créée en 1987. Cinq projets, 14 territoires, 441 personnes accompagnées en 2025.", cta:"Lire notre histoire", href:"#/about" }
@@ -1502,7 +1502,7 @@ window.FESTIN_DATA.about = {
     { key: "cuisine", label: "Les Beaux Mets", color: "#E4572E", members: [
       { name: "Camille Lafon",    role: "Direction du restaurant Les Beaux Mets", photo: null, avatar: "images/equipe/bm-lafon.png" },
       { name: "Marion Binachon",  role: "Chargée de commercialisation et de marketing, Les Beaux Mets", photo: "images/equipe/marion.jpg" },
-      { name: "Valentin Majan",   role: "Chef de cuisine", photo: null, avatar: "images/equipe/bm-majan.png" },
+      { name: "Valentin Majan",   role: "Chef de cuisine", photo: "images/beauxmets-images/valentin-majan.jpg" },
       { name: "Boris Ruel",       role: "Second de cuisine", photo: null, avatar: "images/equipe/bm-ruel.png" },
       { name: "Marc Balthazard",  role: "Maître d'hôtel", photo: "images/equipe/marc-balthazard.jpg" },
       { name: "Nissa Boudhabhay", role: "Conseillère en insertion professionnelle", photo: null },
