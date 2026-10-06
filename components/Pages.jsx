@@ -382,6 +382,25 @@ function ImpactPage() {
         </div>
       </section>
 
+      {/* 2 · Les rapports, en couvertures : remontés (RETOURS-V3 §5.6) */}
+      <section className="isec isec--white" id="rapports" aria-labelledby="imp-rapports">
+        <div className="wrap">
+          <h2 className="isec__h reveal" id="imp-rapports">Tous nos rapports <em>d'activité</em></h2>
+          <ul className="imp-rapports">
+            {I.rapports.map((r, i) => (
+              <li key={r.year} className="reveal">
+                <a className={'imp-rapport imp-rapport--' + couvertures[i % couvertures.length]} href={r.url} target="_blank" rel="noopener noreferrer">
+                  <span className="imp-rapport__k">Rapport d'activité</span>
+                  <span className="imp-rapport__y">{r.year}</span>
+                  <span className="imp-rapport__r">{r.resume}</span>
+                  <span className="imp-rapport__dl">Lire le rapport (PDF)<span className="sr-only">, s'ouvre dans un nouvel onglet</span> <span className="arrow" aria-hidden="true">↗</span></span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       {/* 2 · Dans la durée : anneaux */}
       <section className="isec isec--cream" aria-labelledby="imp-duree">
         <div className="wrap">
@@ -414,25 +433,6 @@ function ImpactPage() {
                 </li>
               );
             })}
-          </ul>
-        </div>
-      </section>
-
-      {/* 4 · Les rapports, en couvertures */}
-      <section className="isec isec--cream" id="rapports" aria-labelledby="imp-rapports">
-        <div className="wrap">
-          <h2 className="isec__h reveal" id="imp-rapports">Tous nos rapports <em>d'activité</em></h2>
-          <ul className="imp-rapports">
-            {I.rapports.map((r, i) => (
-              <li key={r.year} className="reveal">
-                <a className={'imp-rapport imp-rapport--' + couvertures[i % couvertures.length]} href={r.url} target="_blank" rel="noopener noreferrer">
-                  <span className="imp-rapport__k">Rapport d'activité</span>
-                  <span className="imp-rapport__y">{r.year}</span>
-                  <span className="imp-rapport__r">{r.resume}</span>
-                  <span className="imp-rapport__dl">Lire le rapport (PDF)<span className="sr-only">, s'ouvre dans un nouvel onglet</span> <span className="arrow" aria-hidden="true">↗</span></span>
-                </a>
-              </li>
-            ))}
           </ul>
         </div>
       </section>
