@@ -113,10 +113,10 @@ function HomeB() {
       </header>
 
       {/* 2 · CONFIANCE : les statuts (« Ils en ont parlé » retiré, retours V2 §2) */}
-      <section className="ac-conf" aria-label="L'association en bref">
+      <section className="ac-conf" aria-label="Festin en bref">
         {/* statuts en bandeau défilant (retours du 25/09/2026) ; liste fixe en mouvement réduit */}
         <div className="ac-conf__band" data-marquee>
-          <ul className="ac-conf__statuts ac-conf__statuts--defile" aria-label="Statuts de l'association">
+          <ul className="ac-conf__statuts ac-conf__statuts--defile" aria-label="Statuts de Festin">
             {H.confiance.statuts.concat(H.confiance.statuts, H.confiance.statuts, H.confiance.statuts).map((t, i) => (
               <li key={i} aria-hidden={i >= H.confiance.statuts.length ? true : undefined}>{t}</li>
             ))}

@@ -41,6 +41,7 @@ function missionDe(id) {
 // Lien : interne, externe (nouvel onglet signalé) ou défilement dans la page
 function GLink({ l, className = '', children }) {
   if (!l) return null;
+  if (l.onClick) return <button type="button" className={className} onClick={l.onClick}>{children}</button>;
   if (l.to) return <a className={className} href={'#' + l.to} onClick={(e) => { e.preventDefault(); festinScrollTo(l.to); }}>{children}</a>;
   const ext = l.external || /^https?:/.test(l.href || '');
   return (

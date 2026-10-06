@@ -634,8 +634,8 @@ function ActualitesPage() {
             {D.presseResume && <PresseResume texte={D.presseResume} />}
             <p className="isec__lede">Demandes d'interview, visuels, chiffres : écrivez à <a href={'mailto:' + (D.emails || {}).presse}>{(D.emails || {}).presse}</a>. Retrouvez nos rapports d'activité sur la <a href="#/impact">page Impact</a>.</p>
             <div className="apkit__logos">
-              <a className="btnb btnb--teal" href="images/logo-festin-teal.png" download>Logo Festin, couleur</a>
-              <a className="lnk" href="images/logo-festin-jaune.png" download>Logo Festin, jaune</a>
+              <a className="btnb btnb--teal" href="images/logo-festin-teal-sb.png" download>Logo Festin, couleur</a>
+              <a className="lnk" href="images/logo-festin-jaune-sb.png" download>Logo Festin, jaune</a>
             </div>
             {/* logos des projets (retours V2 §10) ; l'Académie n'a pas de logo validé */}
             <h3 className="apkit__h">Les logos des projets</h3>

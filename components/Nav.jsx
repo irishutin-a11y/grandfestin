@@ -164,8 +164,10 @@ function Nav() {
                     onClick={() => setSub((k) => (k === r.key ? null : r.key))}>{r.label} <span aria-hidden="true">▾</span></button>}
               <ul className="navpill__sub" id={'sub-' + r.key} aria-label={r.label}>
                 {r.links.map((l) => (
-                  <li key={l.href + l.label}><a href={l.href} aria-current={hash === l.href ? 'page' : undefined} onClick={() => setSub(null)}>
-                    <b>{l.label}</b>{l.d && <span>{l.d}</span>}</a></li>
+                  <li key={l.label}>{l.avenir
+                    ? <span className="navpill__avenir"><b>{l.label}</b><span>{l.d}</span></span>
+                    : <a href={l.href} aria-current={hash === l.href ? 'page' : undefined} onClick={() => setSub(null)}>
+                      <b>{l.label}</b>{l.d && <span>{l.d}</span>}</a>}</li>
                 ))}
               </ul>
             </li>
@@ -196,7 +198,13 @@ function Nav() {
               <h2 className="optA-h">{g.label}</h2>
               <ul className="optA-links">
                 {g.links.map((l) => (
-                  <li key={l.href + l.label}>
+                  <li key={l.label}>
+                    {l.avenir ? (
+                      <span className="optA-avenir">
+                        {l.ic && <span className="optA-links__ic" style={{ '--c': l.c }} aria-hidden="true"><i data-lucide={l.ic} /></span>}
+                        <span className="optA-links__tx"><span className="optA-links__t">{l.label}</span><span className="optA-links__d">{l.d}</span></span>
+                      </span>
+                    ) : (
                     <a href={l.href} onClick={closePanel} aria-current={hash === l.href ? 'page' : undefined}>
                       {l.ic && <span className="optA-links__ic" style={{ '--c': l.c }} aria-hidden="true"><i data-lucide={l.ic} /></span>}
                       <span className="optA-links__tx">
@@ -204,6 +212,7 @@ function Nav() {
                         {l.d && <span className="optA-links__d">{l.d}</span>}
                       </span>
                     </a>
+                    )}
                   </li>
                 ))}
               </ul>

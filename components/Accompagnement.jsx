@@ -61,7 +61,7 @@ function GalerieAuto({ images }) {
 // 18 ans ou plus, autorisée à travailler en France, français A2 minimum, à
 // Marseille. « Nous contacter » n'apparaît que si un parcours est possible.
 // ---------------------------------------------------------------------------
-function Eligibilite() {
+function Eligibilite({ open, onClose }) {
   const D = window.FESTIN_DATA;
   const def = D.projets.find((p) => p.id === 'des-etoiles-et-des-femmes') || {};
   const villes = (def.antennes || []).map((a) => a.ville).filter((v, i, t) => t.indexOf(v) === i).sort((a, b) => a.localeCompare(b, 'fr'));
@@ -92,11 +92,37 @@ function Eligibilite() {
     { id: 'tournesol', nom: 'Tournesol', href: '#/parcours/tournesol',
       v: verdict([r.age === 'oui', r.statut === 'nsp' ? 'nsp' : r.statut === 'oui', !refugie ? false : (r.travail === 'nsp' ? 'nsp' : r.travail === 'oui'), fr === 'nsp' ? 'nsp' : fr !== 'a1', r.ville === 'Marseille']) },
   ].filter((x) => x.v);
-  return (
-    <section className="g-sec g-sec--white elig" id="eligibilite" aria-labelledby="elig-t">
-      <div className="wrap elig__in">
-        <window.GHead id="elig-t" split title="Suis-je" accent="éligible ?"
-          lede="Quelques questions pour savoir si une de nos formations vous est ouverte. Vos réponses restent sur votre écran : rien n'est envoyé." />
+  const boxRef = React.useRef(null);
+  React.useEffect(() => {
+    if (!open) return;
+    const prev = document.activeElement;
+    if (window.__lenis) window.__lenis.stop();
+    document.documentElement.style.overflow = 'hidden';
+    const t = setTimeout(() => { const f = boxRef.current && boxRef.current.querySelector('input,select,button'); if (f) f.focus(); }, 30);
+    const onKey = (e) => {
+      if (e.key === 'Escape') { onClose(); return; }
+      if (e.key === 'Tab' && boxRef.current) {
+        const f = boxRef.current.querySelectorAll('input,select,button:not([disabled]),a[href]');
+        if (!f.length) return;
+        const first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    };
+    document.addEventListener('keydown', onKey);
+    return () => {
+      clearTimeout(t); document.removeEventListener('keydown', onKey);
+      document.documentElement.style.overflow = ''; if (window.__lenis) window.__lenis.start();
+      if (prev && prev.focus) prev.focus();
+    };
+  }, [open]);
+  if (!open) return null;
+  return ReactDOM.createPortal(
+    <div className="elig-modal" onMouseDown={(e) => { if (e.target === e.currentTarget) onClose(); }}>
+      <div className="elig-modal__box elig" role="dialog" aria-modal="true" aria-labelledby="elig-t" ref={boxRef}>
+        <button type="button" className="elig-modal__close" onClick={onClose} aria-label="Fermer">×</button>
+        <h2 className="elig-modal__t" id="elig-t">Suis-je <em>éligible ?</em></h2>
+        <p className="elig__aide">Quelques questions pour savoir si une de nos formations vous est ouverte. Vos réponses restent sur votre écran : rien n'est envoyé.</p>
         <form className="elig__form" onSubmit={(e) => { e.preventDefault(); setVu(true); }}>
           <Q k="age" q="Avez-vous 18 ans ou plus ?" opts={[['oui', 'Oui'], ['non', 'Non']]} />
           <Q k="femme" q="Êtes-vous une femme ?" aide="Le dispositif Des Étoiles et des Femmes s'adresse aux femmes." opts={[['oui', 'Oui'], ['non', 'Non']]} />
@@ -123,7 +149,7 @@ function Eligibilite() {
                   <li key={x.id}><a href={x.href}><b>{x.nom}</b></a> {x.v === 'check' ? ': à vérifier avec l\'équipe, selon votre situation.' : ': vous remplissez les conditions.'}</li>
                 ))}
               </ul>
-              <a className="btnb btnb--gold" href="#/contact/se-former">Nous contacter <span className="arrow" aria-hidden="true">→</span></a>
+              <a className="btnb btnb--gold" href="#/contact/se-former" onClick={onClose}>Nous contacter <span className="arrow" aria-hidden="true">→</span></a>
             </div>
           ) : (
             <div className="elig__non">
@@ -133,7 +159,8 @@ function Eligibilite() {
           ))}
         </div>
       </div>
-    </section>
+    </div>,
+    document.body
   );
 }
 
@@ -141,14 +168,20 @@ function AccompagnementInsertionPage() {
   const root = useRef(null);
   window.useGReveal(root);
   const D = window.FESTIN_DATA;
+  // éligibilité en fenêtre (retour du 06/10/2026) : bouton flottant, bouton du haut, lien du menu (#/insertion/eligibilite)
+  const hash = window.useRoute();
+  const [elig, setElig] = React.useState(false);
+  React.useEffect(() => { if (/\/eligibilite$/.test(hash || '')) setElig(true); }, [hash]);
+  const ouvrir = () => setElig(true);
   return (
     <div className="gpage acc" ref={root} data-screen-label="Accompagnement — Insertion">
       <AccHero tone="teal" crumb="L'insertion" kicker="Nos parcours"
         title="Un métier en cuisine," em="et quelqu'un à vos côtés."
         img="images/photo-tabliers-violets.jpg" imgAlt="Des apprenties du dispositif Des Étoiles et des Femmes en cuisine"
-        cta={{ label: 'Vérifier mon éligibilité', to: 'eligibilite' }} lien={{ label: 'Quel parcours, pour qui ?', to: 'parcours-choix' }} />
+        cta={{ label: 'Vérifier mon éligibilité', onClick: ouvrir }} />
 
-      <Eligibilite />
+      <Eligibilite open={elig} onClose={() => setElig(false)} />
+      {!elig && <button type="button" className="elig-fab" onClick={ouvrir}>Vérifier mon éligibilité</button>}
 
       {/* PRESCRIPTEURS — un bloc court, puis tout le reste s'adresse à la personne
           (RETOURS-AUDIT, question 1 : réponse A) */}
@@ -238,7 +271,7 @@ function AccompagnementInsertionPage() {
 
       <window.Appel id="ins-appel" title="Vérifier si le parcours" accent="est fait pour vous."
         text="Répondez aux questions : si une formation vous est ouverte, écrivez-nous et nous vous invitons à une réunion d'information."
-        cta={{ label: 'Vérifier mon éligibilité', to: 'eligibilite' }} />
+        cta={{ label: 'Vérifier mon éligibilité', onClick: ouvrir }} />
     </div>
   );
 }
@@ -268,8 +301,8 @@ function AccompagnementProsPage() {
       <header className="ar-hero on-dark">
         <window.Picture className="ar-hero__img" src="images/beauxmets-images/LBM_cdutrey_071122-7264.jpg" alt="" loading="eager" fetchPriority="high" />
         <div className="wrap ar-hero__in">
-          <nav className="hp__crumb ar-hero__crumb" aria-label="Fil d'Ariane"><a href="#/">Accueil</a> <span aria-hidden="true">/</span> <span aria-current="page">Pour la restauration</span></nav>
-          <p className="ar-eyebrow">Pour la restauration</p>
+          <nav className="hp__crumb ar-hero__crumb" aria-label="Fil d'Ariane"><a href="#/">Accueil</a> <span aria-hidden="true">/</span> <span aria-current="page">Pour le secteur</span></nav>
+          <p className="ar-eyebrow">Pour le secteur</p>
           <h1 className="ar-hero__t">Recruter et former, <em>avec Festin.</em></h1>
           <p className="ar-hero__p">Des personnes formées pour votre brigade, des formations pour vos équipes.</p>
           <div className="ar-hero__cta">

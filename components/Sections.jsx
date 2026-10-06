@@ -190,7 +190,7 @@ function Footer() {
             <div className="footer__brand">
               <img className="footer__logo" src={data.brand.logoGold} alt="Festin" loading="lazy" />
               <p className="footer__tagline">{data.brand.tagline}</p>
-              <p>Festin est une association loi 1901, à but non lucratif et d'intérêt général, agréée ESUS. Depuis Marseille, elle forme des personnes aux métiers de la cuisine et aide les restaurants à recruter.</p>
+              <p>Festin, groupe associatif à but non lucratif et d'intérêt général, met la restauration au service de l'égalité des chances. Depuis Marseille, ses projets accompagnent des personnes jusqu'à l'emploi et travaillent avec le secteur.</p>
               <a className="footer__don" href={data.donation} target="_blank" rel="noopener noreferrer">
                 <i data-lucide="heart" style={{ width: 16, height: 16 }} aria-hidden="true" />
                 Faire un don
@@ -200,10 +200,10 @@ function Footer() {
             {/* Même arborescence que la pastille et le menu (FESTIN_DATA.arbo) */}
             {data.arbo.map((r) => (
               <div key={r.key}>
-                <h2 className="footer__h"><a href={r.href}>{r.label}</a></h2>
+                <h2 className="footer__h">{r.href ? <a href={r.href}>{r.label}</a> : r.label}</h2>
                 <ul>
-                  {r.links.filter((l) => l.href !== r.href).map((l) => <li key={l.href + l.label}><a href={l.href}>{l.label}</a></li>)}
-                  {r.key === 'association' && <>
+                  {r.links.filter((l) => l.href !== r.href).map((l) => <li key={l.label}>{l.avenir ? <span className="footer__avenir">{l.label} (à venir)</span> : <a href={l.href}>{l.label}</a>}</li>)}
+                  {r.key === 'festin' && <>
                     <li><a href="#/contact/mecenat">Mécénat et partenariats</a></li>
                     <li><a href="/mentions-legales">Mentions légales</a></li>
                   </>}

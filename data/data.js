@@ -3,9 +3,9 @@ window.FESTIN_DATA = {
   brand: {
     name: "Festin",
     tagline: "Le goût d'avancer ensemble",
-    logo: "images/logo-festin-teal.png", // sans la baseline (RETOURS-V3 §5.1)
-    logoWhite: "images/logo-festin-blanc.png",
-    logoGold: "images/logo-festin-jaune.png",
+    logo: "images/logo-festin-teal-sb.png", // sans la baseline (RETOURS-V3 §5.1)
+    logoWhite: "images/logo-festin-blanc-sb.png",
+    logoGold: "images/logo-festin-jaune-sb.png",
     qualiopi: "images/logo-qualiopi.png",
     site: "https://www.grandfestin.com",
   },
@@ -20,7 +20,7 @@ window.FESTIN_DATA = {
     siret: "379 756 026 00074",
     legalForm: "Association loi 1901",
     rna: "W133012740",
-    legalMention: "Ce site est édité par l’association Festin, association loi 1901 à but non lucratif et d’intérêt général, agréée ESUS. N° RNA : W133012740. SIRET : 379 756 026 00074.",
+    legalMention: "Ce site est édité par Festin, groupe associatif à but non lucratif et d’intérêt général. N° RNA : W133012740. SIRET : 379 756 026 00074.",
   },
   // Stats (About, accueil) — chiffres 2025, source : Rapport d'activité Festin 2025 (version 441 / 83 %)
   stats: [
@@ -1121,7 +1121,6 @@ Object.assign(window.FESTIN_DATA.home, {
     kicker: "Depuis 1987, à Marseille et en France",
     // tagline (RETOURS-V3 §2, option 1) en sous-titre ; non-lucrativité au premier écran (§8, formulation 1b)
     title: "Mettre la restauration au service", titleAccent: "de l'égalité des chances.",
-    nonLucratif: "Un groupe associatif à but non lucratif : toutes nos activités sont d'intérêt général et servent l'insertion des personnes.",
     signature: "Le goût d'avancer ensemble",
     ctaPrimary: { k: "Vous cherchez un métier", label: "Apprendre un métier de cuisine", href: "#/insertion" },
     ctaSecondary: { k: "Vous dirigez une cuisine", label: "Recruter et former vos équipes", href: "#/restauration" },
@@ -1239,19 +1238,20 @@ window.FESTIN_DATA.arbo = [
       { ic: "star", c: "#7FC4CB", label: "Des Étoiles et des Femmes", d: "Un dispositif pour les femmes, dans 13 villes", href: "#/projets/des-etoiles-et-des-femmes" },
       { ic: "sun", c: "#7FC4CB", label: "Tournesol", d: "Pour les personnes réfugiées, à Marseille", href: "#/parcours/tournesol" },
       { ic: "soup", c: "#7FC4CB", label: "Postuler à La Table de Cana Marseille", d: "Un emploi en insertion", href: "#/insertion/parcours-choix" },
-      { ic: "users", c: "#7FC4CB", label: "Vous orientez une personne ?", d: "Prescripteurs, travailleurs sociaux", href: "#/insertion/orienter" },
     ] },
   { key: "tables", label: "Nos tables",
     match: ["#/projets/les-beaux-mets", "#/projets/la-table-de-cana"],
     links: [
       { ic: "utensils", c: "#EC8669", label: "Les Beaux Mets", d: "Réserver une table, privatiser le restaurant", href: "#/projets/les-beaux-mets" },
       { ic: "chef-hat", c: "#EC8669", label: "La Table de Cana Marseille", d: "Le traiteur de vos événements", href: "#/projets/la-table-de-cana" },
+      // Sadi Carnot : non acquis, grisé, sans lien (retour du 06/10/2026)
+      { ic: "clock", c: "#B8B8B8", label: "Sadi Carnot", d: "À venir, près du Vieux-Port", avenir: true },
     ] },
-  { key: "pros", label: "Pour la restauration", href: "#/restauration",
+  { key: "pros", label: "Pour le secteur", href: "#/restauration",
     match: ["#/restauration", "#/accompagnement/professionnels", "#/formations/vss", "#/formations/management", "#/projets/restaure"],
     links: [
       { ic: "briefcase", c: "#FFC100", label: "Recruter un commis formé", d: "Des personnes formées pour votre brigade", href: "#/restauration" },
-      { ic: "graduation-cap", c: "#FFC100", label: "Former vos équipes", d: "Violences en cuisine, management", href: "#/formations/vss" },
+      { ic: "graduation-cap", c: "#FFC100", label: "Former vos équipes", d: "Violences en cuisine, management juste et inclusif", href: "#/restauration/former" },
       { ic: "megaphone", c: "#FFC100", label: "Le programme Restaure", d: "Changer les pratiques du secteur", href: "#/projets/restaure" },
     ] },
   { key: "festin", label: "Festin", href: "#/about",
@@ -1639,20 +1639,21 @@ window.ACADEMIE_DATA = window.FESTIN_DATA;
 Object.assign(window.FESTIN_DATA.home, {
   publics: {
     title: "Deux publics,", titleAccent: "un même métier.",
-    lede: "Depuis près de quarante ans, nous formons des personnes aux métiers de la cuisine et nous accompagnons les restaurants qui recrutent et forment leurs équipes.",
+    // la non-lucrativité, déplacée de l'en-tête vers ce texte (retour du 06/10/2026)
+    lede: "Festin est un groupe associatif à but non lucratif : toutes ses activités sont d'intérêt général. Nous accompagnons des personnes jusqu'à l'emploi en cuisine, et nous travaillons avec les restaurants qui recrutent et font évoluer leurs équipes.",
     cols: [
-      { key: "ins", tag: "Vous cherchez un métier", title: "Un métier,", titleAccent: "un diplôme, un contrat.",
-        text: "Des parcours gratuits pour apprendre un métier de cuisine, avec des stages chez des chefs et un suivi jusqu'au premier contrat.",
+      { key: "ins", tag: "Vous cherchez un emploi", title: "Un métier,", titleAccent: "et quelqu'un à vos côtés.",
+        text: "Des parcours gratuits pour entrer dans la cuisine : une formation ou un premier emploi, avec un suivi jusqu'au contrat.",
         img: "images/photo-tabliers-violets.jpg", imgAlt: "Des stagiaires en cuisine",
         lignes: [
-          { dt: "Se former", dd: "Une formation diplômante en cuisine, avec Des Étoiles et des Femmes (13 antennes) ou la formation Tournesol, à Marseille." },
+          { dt: "Se former", dd: "Une formation diplômante, avec Des Étoiles et des Femmes (13 villes) ou Tournesol (Marseille)." },
           { dt: "Travailler", dd: "Un emploi en insertion à La Table de Cana Marseille, traiteur." },
-          { dt: "Être suivi", dd: "Logement, papiers, garde d'enfants, recherche de poste : un suivi individuel." },
+          { dt: "Être accompagné", dd: "Logement, papiers, garde d'enfants, recherche de poste : une personne vous suit." },
         ],
         preuve: "Des formations <b>gratuites</b>, prises en charge par France Travail et nos partenaires publics.",
-        cta: { label: "Apprendre un métier de cuisine", href: "#/insertion" } },
-      { key: "pro", tag: "Vous dirigez une cuisine ou une équipe", title: "Recruter, former,", titleAccent: "garder ses équipes.",
-        text: "Pour les restaurateurs, les cheffes et chefs, les responsables RH : recruter des personnes formées et former vos équipes, avec des gens de cuisine.",
+        cta: { label: "Découvrir nos parcours", href: "#/insertion" } },
+      { key: "pro", tag: "Vous êtes du secteur", title: "Recruter, former,", titleAccent: "faire évoluer vos équipes.",
+        text: "Restaurateurs, cheffes et chefs, responsables RH : recrutez des personnes formées et formez vos équipes, avec des gens de cuisine.",
         img: "images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg", imgAlt: "Soirée de lancement du programme Restaure",
         lignes: [
           { dt: "Former", dd: "Prévention des violences sexistes et sexuelles, management juste et inclusif." },
@@ -1706,7 +1707,7 @@ Object.assign(window.FESTIN_DATA.home, {
 //  = [À COMPLÉTER] (adresse par projet à fournir par l'association).
 // ============================================================
 window.FESTIN_DATA.orienter = [
-  { id: "des-etoiles-et-des-femmes", tags: [["Pour", "femmes en recherche d’emploi"], ["Durée", "4 à 11 mois"], ["Coût", "gratuit"]], pour: "Des femmes en recherche d’emploi, de 18 ans ou plus", quoi: "Une formation diplômante en cuisine, de 4 à 11 mois, avec des stages en restaurant, dans 13 villes.", conditions: "Être majeure ; parler le français au niveau B1 ou B2 selon le diplôme." },
-  { id: "tournesol", tags: [["Pour", "personnes réfugiées ou primo-arrivantes"], ["Durée", "5 mois"], ["Coût", "gratuit"]], img: "images/tournesol:formation/Formation-Tournesol_RefugeeFood_©Aglae-Bory-67.jpg", pour: "Des personnes réfugiées ou primo-arrivantes, majeures, autorisées à travailler en France", quoi: "Cinq mois pour le titre de commis de cuisine et le DCL, un diplôme de français, à Marseille.", conditions: "Être autorisé à travailler en France ; parler le français au niveau A2 au moins. France Travail rémunère les stagiaires." },
+  { id: "des-etoiles-et-des-femmes", tags: [["Pour", "femmes en recherche d’emploi"], ["Où", "13 villes en France"], ["Durée", "4 à 11 mois"], ["Coût", "gratuit"]], pour: "Des femmes en recherche d’emploi, de 18 ans ou plus", quoi: "Une formation diplômante en cuisine, de 4 à 11 mois, avec des stages en restaurant, dans 13 villes.", conditions: "Être majeure ; parler le français au niveau B1 ou B2 selon le diplôme." },
+  { id: "tournesol", tags: [["Pour", "personnes réfugiées ou primo-arrivantes"], ["Où", "Marseille"], ["Durée", "5 mois"], ["Coût", "gratuit"]], img: "images/tournesol:formation/Formation-Tournesol_RefugeeFood_©Aglae-Bory-67.jpg", pour: "Des personnes réfugiées ou primo-arrivantes, majeures, autorisées à travailler en France", quoi: "Cinq mois pour le titre de commis de cuisine et le DCL, un diplôme de français, à Marseille.", conditions: "Être autorisé à travailler en France ; parler le français au niveau A2 au moins. France Travail rémunère les stagiaires." },
   { id: "la-table-de-cana", tags: [["Pour", "salariés en insertion"], ["Statut", "emploi salarié"], ["Où", "Marseille"]], pour: "Des salariés en insertion, à Marseille", quoi: "Un emploi au traiteur, avec une formation en cuisine, puis un poste chez un partenaire.", conditions: null },
 ];

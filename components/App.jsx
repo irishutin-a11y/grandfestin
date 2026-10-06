@@ -9,7 +9,7 @@ function parseRoute(hash) {
   // Arborescence C (RETOURS-V3, validée le 06/10/2026) : nouvelles adresses, les anciennes restent valides
   const ALIAS = { tfp: 'des-etoiles-et-des-femmes', cap: 'des-etoiles-et-des-femmes' };
   if (parts[0] === 'insertion') return { name: 'accomp-insertion', ancre: parts[1] };
-  if (parts[0] === 'restauration') return { name: 'accomp-pros' };
+  if (parts[0] === 'restauration') return { name: 'accomp-pros', ancre: parts[1] === 'former' ? 'pros-former' : undefined };
   if (parts[0] === 'parcours' && parts[1]) return { name: 'formation', id: ALIAS[parts[1]] || parts[1] };
   if (parts[0] === 'formations' && parts[1]) return { name: 'formation', id: ALIAS[parts[1]] || parts[1] };
   if (parts[0] === 'projets' && parts[1] === 'tournesol') return { name: 'formation', id: 'tournesol' };
@@ -85,7 +85,7 @@ function App() {
       about: 'Qui sommes-nous | ' + base, projets: "L'écosystème Festin | " + base, formation: 'Parcours et formations | ' + base,
       impact: 'Compter ce qui compte : notre impact | ' + base, actualites: 'Presse et actualités | ' + base,
       contact: 'Contact | ' + base, 'accomp-insertion': "L'insertion : nos parcours | " + base,
-      'accomp-pros': 'Pour la restauration : recruter et former | ' + base,
+      'accomp-pros': 'Pour le secteur : recruter et former | ' + base,
     };
     document.title = proj ? proj.shortTitle + ' | ' + base : (titles[route.name] || 'Page introuvable | ' + base);
     const md = document.querySelector('meta[name="description"]');
