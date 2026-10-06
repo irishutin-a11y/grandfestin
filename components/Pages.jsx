@@ -670,6 +670,16 @@ function ActualitesPage() {
               <a className="btnb btnb--teal" href="images/logo-festin.png" download>Logo Festin, couleur</a>
               <a className="lnk" href="images/logo-festin-jaune.png" download>Logo Festin, jaune</a>
             </div>
+            {/* logos des projets (retours V2 §10) ; l'Académie n'a pas de logo validé */}
+            <h3 className="apkit__h">Les logos des projets</h3>
+            <ul className="apkit__projets">
+              {D.projets.filter((p) => p.logo && p.id !== 'tournesol').map((p) => (
+                <li key={p.id}><a href={decodeURI(p.logo)} download>
+                  <span className="apkit__pl"><img src={p.logo} alt="" loading="lazy" /></span>
+                  <span>{p.shortTitle}</span></a></li>
+              ))}
+            </ul>
+            {window.FESTIN_SHOW_PLACEHOLDERS && <p className="is-placeholder apkit__miss">[À COMPLÉTER : versions haute définition des logos (SVG, ou PNG de 2000 px de large sur fond transparent)]</p>}
           </div>
           <div className="apkit__facts">
             <h3>Chiffres à reprendre</h3>

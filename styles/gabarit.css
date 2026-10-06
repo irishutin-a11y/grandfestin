@@ -495,3 +495,10 @@ main > div > section:last-of-type:has(.g-appel){border-top:0!important}
 .g-table__cta{display:flex;flex-wrap:wrap;gap:var(--sp-3);margin-top:var(--sp-7)}
 .btnb--lg{min-height:60px;padding:18px 30px;font-size:15px}
 @media (max-width:900px){.g-table__in{grid-template-columns:1fr}.g-table__cta .btnb{width:100%;justify-content:center}.g-table__infos div{grid-template-columns:100px 1fr}}
+.apkit__h{margin:var(--sp-7) 0 var(--sp-4);font-size:var(--fs-h3);text-transform:uppercase;color:var(--teal-dark)}
+.apkit__projets{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:var(--sp-3)}
+.apkit__projets a{display:flex;flex-direction:column;gap:8px;height:100%;padding:12px;border-radius:14px;background:var(--off-white);border:1px solid var(--line-strong);color:var(--ink) !important;font-size:var(--fs-small);font-weight:700;text-decoration:none}
+.apkit__projets a:hover{border-color:var(--teal)}
+.apkit__pl{display:grid;place-items:center;height:64px}
+.apkit__pl img{max-height:56px;max-width:100%;object-fit:contain}
+.apkit__miss{margin-top:var(--sp-4);font-size:var(--fs-small);font-style:italic;color:var(--ink-mid)}
