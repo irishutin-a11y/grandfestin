@@ -191,3 +191,17 @@
 .ar-carte__media { position: relative; }
 .ar-carte__badge { position: absolute; left: var(--sp-4); bottom: var(--sp-4); display: block; padding: 10px 14px; border-radius: 12px; background: rgba(255, 255, 255, .94); box-shadow: 0 6px 18px rgba(6, 33, 31, .2); }
 .ar-carte__badge img { display: block; height: 40px; width: auto; max-width: 160px; aspect-ratio: auto !important; object-fit: contain; }
+/* Bandes or (retours V2 §4, question 1 réponse A) : pas de bouton Pause visible ;
+   arrêt au survol et quand un lien reçoit le focus ; le bouton Pause reste dans
+   l'ordre de tabulation (WCAG 2.2.2) et n'apparaît qu'au focus clavier.
+   Sur écran tactile ou étroit, la bande ne défile pas : liste fixe. */
+.ar-bande .mpause, .ac-conf__band .mpause { clip-path: inset(50%); width: 1px; height: 1px; min-height: 0; padding: 0; overflow: hidden; white-space: nowrap; border: 0; }
+.ar-bande .mpause:focus-visible, .ac-conf__band .mpause:focus-visible { clip-path: none; width: auto; height: auto; min-height: 36px; padding: 6px 12px; overflow: visible; border: 1px solid var(--ink); outline: 3px solid var(--ink); outline-offset: 2px; }
+.ac-conf__band:focus-within .ac-conf__statuts--defile { animation-play-state: paused; }
+@media (hover: none), (max-width: 720px) {
+  .ar-bande__l { animation: none; width: auto; flex-wrap: wrap; justify-content: center; row-gap: var(--sp-2); padding: var(--sp-5) var(--pad); }
+  .ar-bande__l li[aria-hidden="true"] { display: none; }
+  .ac-conf__statuts--defile { animation: none; width: auto; flex-wrap: wrap; justify-content: center; padding: 14px var(--pad); }
+  .ac-conf__statuts--defile li[aria-hidden="true"] { display: none; }
+  .ar-bande .mpause, .ac-conf__band .mpause { display: none; }
+}

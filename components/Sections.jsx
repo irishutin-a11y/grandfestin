@@ -300,6 +300,19 @@ function TestiCarousel({ items = [], label = 'Témoignages' }) {
   const qRef = React.useRef(null);
   const n = real.length;
   const go = (d) => setI((v) => (v + d + n) % n);
+  // Défilement automatique (retours V2 §1, question 2 réponse A) : suspendu au survol,
+  // au toucher et au focus ; arrêté pour de bon par une flèche ou par Pause ; jamais
+  // en mouvement réduit ; un témoignage seul ne bouge pas.
+  const rm = window.FESTIN_RM && window.FESTIN_RM();
+  const [stop, setStop] = React.useState(false);
+  const [hold, setHold] = React.useState(false);
+  const auto = n > 1 && !rm && !stop;
+  React.useEffect(() => {
+    if (!auto || hold) return;
+    const t = setTimeout(() => go(1), 8000);
+    return () => clearTimeout(t);
+  }, [auto, hold, i, n]);
+  const manual = (d) => { setStop(true); go(d); };
   React.useEffect(() => {
     const g = window.gsap, el = qRef.current;
     if (!g || !el || (window.FESTIN_RM && window.FESTIN_RM())) return;
@@ -312,7 +325,10 @@ function TestiCarousel({ items = [], label = 'Témoignages' }) {
   const ini = (t.name || '?').trim().split(/\s+/).map((w) => w[0]).slice(0, 2).join('');
   return (
     <div className="tq" role={n > 1 ? 'group' : undefined} aria-roledescription={n > 1 ? 'carrousel' : undefined} aria-label={n > 1 ? label : undefined} tabIndex={n > 1 ? 0 : undefined}
-      onKeyDown={(e) => { if (e.key === 'ArrowRight') { e.preventDefault(); go(1); } if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); } }}>
+      onKeyDown={(e) => { if (e.key === 'ArrowRight') { e.preventDefault(); manual(1); } if (e.key === 'ArrowLeft') { e.preventDefault(); manual(-1); } }}
+      onMouseEnter={() => setHold(true)} onMouseLeave={() => setHold(false)}
+      onFocus={() => setHold(true)} onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget)) setHold(false); }}
+      onTouchStart={() => setHold(true)}>
       <div className="tq__body" ref={qRef}>
         <div className="tq__media" aria-hidden="true">
           {t.photo
@@ -333,9 +349,11 @@ function TestiCarousel({ items = [], label = 'Témoignages' }) {
       {n > 1 && (
         <div className="tq__nav">
           <span className="tq__count" aria-hidden="true"><b>{pad(i)}</b> / {pad(n - 1)}</span>
-          <button type="button" className="tq__arrow" onClick={() => go(-1)} aria-label="Témoignage précédent">←</button>
-          <button type="button" className="tq__arrow" onClick={() => go(1)} aria-label="Témoignage suivant">→</button>
-          <span className="sr-only" aria-live="polite">Témoignage {i + 1} sur {n} : {t.name}</span>
+          <button type="button" className="tq__arrow" onClick={() => manual(-1)} aria-label="Témoignage précédent">←</button>
+          <button type="button" className="tq__arrow" onClick={() => manual(1)} aria-label="Témoignage suivant">→</button>
+          {!rm && <button type="button" className="tq__pause" aria-pressed={stop} onClick={() => setStop(!stop)}>
+            <span aria-hidden="true">{stop ? '▶' : '❚❚'}</span><span className="sr-only">{stop ? 'Reprendre le défilement des témoignages' : 'Arrêter le défilement des témoignages'}</span></button>}
+          <span className="sr-only" aria-live={auto && !hold ? 'off' : 'polite'}>Témoignage {i + 1} sur {n} : {t.name}</span>
         </div>
       )}
     </div>
