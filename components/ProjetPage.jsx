@@ -165,7 +165,7 @@ function ProjetPage({ id }) {
 
       <window.HeroPage tone={tone} kicker={cfg.kicker} title={p.title} accent={p.accent} proof={p.projetPhrase}
         img={cfg.heroImg} imgAlt={cfg.heroAlt} logo={p.logo} logoAlt={'Logo ' + p.shortTitle} note={cfg.heroCredit}
-        crumb={[{ label: 'Accueil', href: '#/' }, cfg.programmeDe || { label: 'Nos projets', href: '#/projets' }, { label: p.shortTitle }]}>
+        crumb={[{ label: 'Accueil', href: '#/' }, cfg.programmeDe || { label: "L'écosystème", href: '#/projets' }, { label: p.shortTitle }]}>
         <div className="g-herocta">
           <window.GLink l={cfg.heroCta} className={'btnb ' + ({ gold: 'btnb--teal', teal: 'btnb--light' }[tone] || 'btnb--gold')}>{cfg.heroCta.label} <span className="arrow" aria-hidden="true">{cfg.heroCta.external ? '↗' : '→'}</span></window.GLink>
           {cfg.heroLien && <window.GLink l={cfg.heroLien} className={cfg.nature === 'lieu' ? 'btnb btnb--light' : 'g-herolnk'}>{cfg.heroLien.label} <span className="arrow" aria-hidden="true">{cfg.heroLien.external ? '↗' : '→'}</span></window.GLink>}
