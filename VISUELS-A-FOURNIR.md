@@ -72,3 +72,14 @@ Reçus le 06/10/2026 : les 16 logos de médias manquants (tous les articles de p
 Reçus le 06/10/2026 aussi : portraits d'Armand Hurault et d'Iris Liberty, réunion d'information collective (Des Étoiles et des Femmes), portrait d'Éloi Spinnler (témoignage Restaure), portrait de Julia Sedefdjian (sphère des chefs).
 Reçus le 06/10/2026 aussi : portrait de Valentin Majan (témoignage des Beaux Mets).
 Reçus le 06/10/2026 aussi : portrait de Marc Balthazard, bouchées du traiteur La Table de Cana Marseille, deux photos Tournesol (cuisine, promotion), lauréats de La France s'engage. L'exposition photo est retirée d'Actualités (demande du 06/10).
+
+## Ajouts V3 (06/10/2026)
+
+| Priorité | Page | Endroit | À fournir | Format |
+|---|---|---|---|---|
+| 1 | Qui sommes-nous | Équipe, La Table de Cana Marseille | Portrait de Tom Louis Teboul, directeur | Vertical 3:4, buste |
+| 2 | Formation Management juste et inclusif | Carte et fiche (cadre or en attendant) | Une photo de remplacement, nette, en situation professionnelle | Paysage 4:3 |
+| 2 | Qui sommes-nous | Gouvernance | Portrait de Gaëlle de Carmantrand | Carré 1:1 |
+| 2 | L'insertion | Section « La formation, un moyen » | La nouvelle plaquette formation (PDF) | PDF |
+| 2 | Qui sommes-nous | Sphère des partenaires | La liste des partenaires à jour (l'UMIH en fait-elle partie ?), avec les logos | PNG transparent ou SVG |
+| 3 | Qui sommes-nous | Équipe, La Table de Cana Marseille | Les originaux des portraits : ceux du site sont tirés de captures d'écran, assombris par le voile du site d'origine | Vertical 3:4 |
