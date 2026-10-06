@@ -1347,10 +1347,8 @@ window.FESTIN_DATA.projetPages = {
       infos: [
         // modalités : formulaire de réservation des Beaux Mets (relevé le 06/10/2026)
         { dt: "Où", dd: "Prison des Baumettes, Marseille" },
-        { dt: "Quand", manque: "jours et horaires d'ouverture" },
-        { dt: "Prix", manque: "prix moyen d'un repas" },
+        { dt: "Horaires", dd: "Du lundi au vendredi, de 12 h à 15 h. Fermé le week-end." },
         { dt: "Pour entrer", dd: "Chaque convive a besoin d'une autorisation d'accès à la prison. La réservation demande son identité complète, comme sur sa pièce d'identité, pour les contrôles de l'administration pénitentiaire." },
-        { dt: "Délai", manque: "délai à prévoir entre la réservation et le repas" },
         { dt: "Réserver", dd: "En ligne, par le formulaire du restaurant. Mobilité réduite, allergies : à signaler dans la réservation." },
         { dt: "Groupes", dd: "Plus de 10 personnes : écrivez à ", lien: { label: "reservation@lesbeauxmets-marseille.fr", href: "mailto:reservation@lesbeauxmets-marseille.fr" } },
       ],

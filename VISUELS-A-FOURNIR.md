@@ -63,7 +63,6 @@ Douze photos encore (Julia Sedefdjian reçue), **carrées (1:1), 1200 px au moin
 
 | Page | Bloc | Information |
 |---|---|---|
-| Les Beaux Mets | « Venir déjeuner » | Jours et horaires d'ouverture · prix moyen d'un repas · délai à prévoir entre la réservation et le repas (l'accès et les groupes sont renseignés depuis le formulaire) |
 | La Table de Cana Marseille | « Le traiteur » | Types de prestations · nombre de convives possible · délai de commande · zone de livraison |
 
 Le formulaire Airtable des Beaux Mets ne s'ouvre pas depuis mon environnement (le réseau bloque airtable.com). Copiez-collez son contenu dans la conversation, ou exportez-le en CSV.
