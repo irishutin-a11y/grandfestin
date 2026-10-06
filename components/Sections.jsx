@@ -103,7 +103,7 @@ function Contact() {
               <div key={l}><dt>{l}</dt><dd><a href={'mailto:' + a}>{a}</a></dd></div>
             ))}
             <div><dt>Adresse</dt><dd>{c.address}</dd></div>
-            <div><dt>Accessibilité et handicap</dt><dd>Lucie Gueydon, responsable handicap et pédagogique : aménagements et coordination des formations. <a href="#/contact/handicap">Lui écrire</a></dd></div>
+            <div><dt>Accessibilité et handicap</dt><dd>Une référente handicap coordonne les aménagements des formations. <a href="#/contact/handicap">Lui écrire</a></dd></div>
             <div><dt>Numéros</dt><dd>NDA {c.nda} · SIRET {c.siret}</dd></div>
           </dl>
         </div>

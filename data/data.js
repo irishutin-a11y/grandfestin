@@ -223,7 +223,7 @@ window.FESTIN_DATA = {
       godmother: { name: "Julia Sedefdjian", role: "Marraine nationale, depuis 2025" },
       parcours: [
         { tab: "Se former", title: "Une formation diplômante",
-          text: "Une formation diplômante en cuisine, de 4 à 11 mois selon le diplôme préparé, avec un centre de formation partenaire dans chaque ville. Au programme : techniques de cuisine, remise à niveau et préparation à l’examen.",
+          text: "Une formation en cuisine avec un centre de formation partenaire dans chaque ville : techniques, remise à niveau et préparation à l’examen.",
           stat: "91 %", statL: "de réussite aux diplômes en 2025",
           img: "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg" },
         { tab: "Pratiquer", title: "Apprendre en brigade",
@@ -340,19 +340,19 @@ window.FESTIN_DATA = {
       // --- Champs page projet dédiée (sourcés du dossier de présentation LBM, janv. 2026) ---
       parcours: [
         { tab: "La brigade", title: "Un service ouvert au public",
-          text: "16 personnes détenues composent 2 brigades, encadrées par le chef Valentin Majan et son second Boris Ruel en cuisine et par le maître d’hôtel Marc Balthazard en salle. Elles cuisinent et servent la carte du restaurant, devant des convives.",
+          text: "Des personnes détenues forment la brigade, encadrées par un chef, un second et un maître d’hôtel. Elles cuisinent et servent la carte du restaurant devant des convives.",
           stat: "16", statL: "commis en poste, répartis en 2 brigades" },
         { tab: "L’accompagnement", title: "Un suivi jusqu’à six mois après la sortie",
           text: "Chaque commis est suivi individuellement, du recrutement jusqu’à six mois après la sortie de détention : entretiens, stages, ateliers collectifs, projet professionnel.",
           stat: "6 mois", statL: "de suivi après la détention" },
         { tab: "La sortie", title: "Sortir de prison avec un métier",
-          text: "L’objectif : accompagner 40 personnes par an vers un emploi à la sortie. En France, le taux de récidive atteint 42 % (ministère de la Justice, [À COMPLÉTER : année]). Et la restauration recrute : deux recrutements de cuisiniers sur trois sont jugés difficiles par les employeurs (France Travail, enquête Besoins en main-d’œuvre, [À COMPLÉTER : année]).",
+          text: "Le but : sortir de détention avec un métier en main et un emploi, dans un secteur qui recrute.",
           stat: "40", statL: "personnes par an : l’objectif" },
         { tab: "Hors les murs", title: "Le restaurant sort de la prison",
-          text: "En 2025, les commis montrent leur travail hors les murs, dans des festivals et au Grand Festin. Trois Cafés Emploi réunissent des entreprises en prison. Le restaurant lance aussi des biscuits à emporter, navettes et croquants, fabriqués par la brigade.",
+          text: "Les commis montrent leur travail à l’extérieur, lors d’événements et de stages. Des rencontres pour l’emploi réunissent aussi des entreprises en détention.",
           stat: "16", statL: "stages à l’extérieur en 2025" },
-        { tab: "Les masterclass", title: "Six chefs devant la brigade",
-          text: "Laëtitia Visse, Éloi Spinnler, Elsa Leblanc, Chloé Charles, Justine Audoin et Hyacinthe Lescoët ont chacun animé une masterclass aux Beaux Mets en 2025.",
+        { tab: "Les masterclass", title: "Des chefs devant la brigade",
+          text: "Des chefs invités viennent animer des masterclass en cuisine avec la brigade.",
           stat: "6", statL: "masterclass de chefs en 2025" },
       ],
       video: {
@@ -408,6 +408,8 @@ window.FESTIN_DATA = {
       implicationCtaLabel: "Demander un devis traiteur",
       implicationCtaHref: "#/contact/devis-traiteur",
       temoignages: [
+        // Lassana : son parcours sortait d'une carte du parcours (06/10/2026) ; affiché quand sa citation, mot pour mot, sera fournie
+        { prenom: "Lassana", role: "Ancien salarié en insertion, diplômé en 2021, aujourd'hui en CDI dans un grand hôtel marseillais", citation: "[À COMPLÉTER : témoignage de Lassana, mot pour mot]", placeholder: true },
         { prenom: "Oumar", role: "Ancien salarié en insertion", citation: "J’ai passé deux ans à La Table de Cana. Ça m’a vraiment aidé à savoir m’organiser et à avoir confiance en mes compétences. Aujourd’hui, j’ai un CDI chez Compass à la Tour CMA-CGM.", placeholder: false },
         { prenom: "Jean Claude", role: "Ancien commis de cuisine, La Table de Cana Marseille", citation: "J’ai pu prendre confiance en moi grâce aux différentes tâches.", placeholder: false },
         { prenom: "Pierre", role: "RRH insertion, La Table de Cana Marseille", citation: "Chaque sortie positive, c’est une victoire pour la personne et pour toute l’équipe. Ça montre que notre accompagnement fonctionne !", placeholder: false },
@@ -416,10 +418,10 @@ window.FESTIN_DATA = {
       // --- Champs page projet dédiée (source : latabledecana-marseille.com/insertion-professionnelle) ---
       parcours: [
         { tab: "Se former", title: "Un métier appris en travaillant",
-          text: "Chaque année, La Table de Cana Marseille embauche et forme plus de 40 salariés en insertion. Ils apprennent un métier en cuisine et un suivi social les aide à retrouver une situation stable.",
+          text: "La Table de Cana Marseille embauche et forme des salariés en insertion. Ils apprennent un métier en cuisine, et un suivi social les aide à retrouver une situation stable.",
           stat: "40+", statL: "personnes formées chaque année" },
-        { tab: "Trouver un emploi", title: "Et après ? Un emploi chez un partenaire",
-          text: "Une fois formés, les salariés sont orientés vers des entreprises partenaires de la restauration. Lassana, diplômé en 2021, est aujourd'hui en CDI dans un grand hôtel marseillais.",
+        { tab: "Trouver un emploi", title: "Un emploi chez un partenaire",
+          text: "Une fois formés, les salariés sont orientés vers des entreprises partenaires de la restauration.",
           stat: "89 %", statL: "de sorties positives en 2025" },
         { tab: "Le Club des Talents", title: "Les anciens parrainent les nouveaux",
           text: "Le Club des Talents réunit anciens et actuels salariés. Les anciens parrainent les nouveaux arrivants et les mettent en relation avec les entreprises partenaires.",
@@ -427,8 +429,8 @@ window.FESTIN_DATA = {
         { tab: "Solidarité alimentaire", title: "Des repas pour l’hébergement d’urgence",
           text: "Plus de 15 000 repas d’aide alimentaire pour des personnes hébergées en hôtel d’urgence à Marseille.",
           stat: "15 000+", statL: "repas d’aide alimentaire" },
-        { tab: "Outils d’accompagnement", title: "Les Tutos du Chef et les Vendredis de l’emploi",
-          text: "Des vidéos pédagogiques, les Tutos du Chef, et un coaching hebdomadaire pour préparer la recherche d’emploi.",
+        { tab: "Préparer l’emploi", title: "Des outils pour préparer l’emploi",
+          text: "Des vidéos pédagogiques et un accompagnement régulier pour préparer la recherche d’emploi.",
           stat: "45", statL: "salariés en insertion en 2025" },
       ],
       partenaires: ["Compass", "Sodexo", "Accor", "Newrest", "Le Grand Pin", "École de la 2e Chance", "MediaPerformances", "Culture du Cœur"],
@@ -1314,7 +1316,7 @@ window.FESTIN_DATA.projetPages = {
       lede: "Chaque antenne suit le même parcours, avec son centre de formation et ses restaurants partenaires.",
       steps: [
         { tab: "Candidater", title: "Une réunion d'information, puis un entretien",
-          text: "Le parcours s'adresse aux femmes majeures qui parlent le français au niveau B1 ou B2 selon la formation. La réunion d'information collective est obligatoire pour candidater.",
+          text: "Le parcours s'adresse aux femmes majeures. Chaque candidature commence par une réunion d'information collective, suivie d'un entretien.",
           stat: "Gratuit", statL: "pour les femmes formées", img: "images/images-def/reunion-information-collective.jpg", alt: "Une réunion d'information collective du dispositif Des Étoiles et des Femmes, dans une salle de restaurant" },
         { from: "Se former" }, { from: "Pratiquer" }, { from: "Travailler" },
       ], },
@@ -1428,7 +1430,7 @@ window.FESTIN_DATA.projetPages = {
       lede: "Un emploi salarié, une formation en cuisine, puis un poste chez un partenaire.",
       steps: [
         { from: "Se former", img: "images/latable de cana/tabledecana_cdutrey_230124-7705.jpg" },
-        { from: "Outils d’accompagnement", img: "images/latable de cana/tabledecana_cdutrey_160124-5010.jpg" },
+        { from: "Préparer l’emploi", img: "images/latable de cana/tabledecana_cdutrey_160124-5010.jpg" },
         { from: "Trouver un emploi", img: "images/latable de cana/TABLECANA_EVENT_cdutrey_230625-5158.jpg" },
         { from: "Le Club des Talents" },
       ] },
