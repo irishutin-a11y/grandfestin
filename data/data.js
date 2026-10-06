@@ -343,7 +343,7 @@ window.FESTIN_DATA = {
           text: "16 personnes détenues composent 2 brigades, encadrées par le chef Valentin Majan et son second Boris Ruel en cuisine et par le maître d’hôtel Marc Balthazard en salle. Elles cuisinent et servent la carte du restaurant, devant des convives.",
           stat: "16", statL: "commis en poste, répartis en 2 brigades" },
         { tab: "L’accompagnement", title: "Un suivi jusqu’à six mois après la sortie",
-          text: "Chaque commis est suivi individuellement, du recrutement jusqu’à six mois après la sortie de détention : entretiens, stages, ateliers collectifs, projet professionnel. C’est le travail de Nissa Boudhabhay, conseillère en insertion professionnelle.",
+          text: "Chaque commis est suivi individuellement, du recrutement jusqu’à six mois après la sortie de détention : entretiens, stages, ateliers collectifs, projet professionnel.",
           stat: "6 mois", statL: "de suivi après la détention" },
         { tab: "La sortie", title: "Sortir de prison avec un métier",
           text: "L’objectif : accompagner 40 personnes par an vers un emploi à la sortie. En France, le taux de récidive atteint 42 % (ministère de la Justice, [À COMPLÉTER : année]). Et la restauration recrute : deux recrutements de cuisiniers sur trois sont jugés difficiles par les employeurs (France Travail, enquête Besoins en main-d’œuvre, [À COMPLÉTER : année]).",
