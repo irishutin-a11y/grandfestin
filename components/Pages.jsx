@@ -38,7 +38,7 @@ function PresseResume({ texte }) {
 
 function FormationCardLink({ f, wide, noPrice }) {
   return (
-    <a className={"formation-card" + (wide ? " wide" : "")} href={`#/formations/${f.id}`}>
+    <a className={"formation-card" + (wide ? " wide" : "")} href={(f.cat === 'Professionnels' ? '#/formations/' : '#/parcours/') + f.id}>
       <div className="formation-card__img">{f.img ? <img src={f.img} alt={f.title} loading="lazy"/> : <span className="img-vide" aria-hidden="true" />}</div>
       <div className="formation-card__body">
         <span className={"ftag ftag--" + (f.cat === "Professionnels" ? "pro" : "ins")}>{f.cat === "Professionnels" ? "Formation pro" : "Formation diplômante"}</span>
@@ -73,7 +73,7 @@ function FormationDetailPage({ id }) {
         subtitle={f.desc}
         breadcrumb={[
           {label:'Accueil',href:'#/'},
-          f.cat === 'Professionnels' ? {label:'Le programme Restaure',href:'#/projets/restaure'} : {label:"L'Académie Festin",href:'#/academie'},
+          f.cat === 'Professionnels' ? {label:'Le programme Restaure',href:'#/projets/restaure'} : {label:"L'insertion",href:'#/insertion'},
           {label:f.titreFiche || f.title}
         ]}
       >
@@ -182,7 +182,7 @@ function FormationDetailPage({ id }) {
                 </div>
                 {/* parcours gratuits : « Nous contacter », jamais « devis » (RETOURS-AUDIT §2.8) */}
                 <a href={f.cat === 'Professionnels' ? '#/contact/former' : '#/contact/se-former'} className="btn btn--gold" style={{width:'100%',justifyContent:'center',marginTop:8}}>{f.cat === 'Professionnels' ? 'Demander un devis' : 'Nous contacter'} <i data-lucide="arrow-right" style={{width:16,height:16}}/></a>
-                <a href="#/formations" className="btn btn--ghost" style={{width:'100%',justifyContent:'center',marginTop:10}}>Voir les autres formations</a>
+                <a href="#/insertion" className="btn btn--ghost" style={{width:'100%',justifyContent:'center',marginTop:10}}>Voir tous les parcours</a>
                 {f.audienceKey === 'pros' && (
                   <a href={window.FESTIN_DATA.catalogPdf} target="_blank" rel="noopener" className="btn btn--catalog" style={{width:'100%',justifyContent:'center',marginTop:10}}>
                     <i data-lucide="book-open" style={{width:16,height:16}}/> Consulter le catalogue
@@ -267,8 +267,8 @@ function NotFoundPage() {
         proof="Elle a peut-être changé d'adresse. Reprenez depuis l'accueil, ou allez directement à ce que vous cherchez.">
         <div className="nf__links">
           <a className="btnb btnb--gold" href="#/">Retour à l'accueil</a>
-          <a className="nf__lnk" href="#/academie">Nos formations</a>
-          <a className="nf__lnk" href="#/accompagnement/professionnels">Former et recruter</a>
+          <a className="nf__lnk" href="#/insertion">Nos parcours</a>
+          <a className="nf__lnk" href="#/restauration">Former et recruter</a>
           <a className="nf__lnk" href="#/contact">Nous écrire</a>
         </div>
       </window.HeroPage>
@@ -476,7 +476,7 @@ function SEngager() {
       actions: [{ label: 'Faire un don', href: D.donation, ext: true, primary: true }, { label: 'Devenir mécène', href: '#/contact/mecenat' }] },
     { t: 'Accueillir', p: 'Accueillez une personne en stage ou recrutez un commis formé par nos parcours.',
       tags: [['Pour', 'restaurants et cuisines']],
-      actions: [{ label: 'Recruter et former vos équipes', href: '#/accompagnement/professionnels' }] },
+      actions: [{ label: 'Recruter et former vos équipes', href: '#/restauration' }] },
     { t: 'Porter une antenne', p: 'Dans chaque ville, une structure locale porte le dispositif Des Étoiles et des Femmes, avec son centre de formation et ses restaurants partenaires.',
       tags: [['Aujourd\'hui', '13 antennes']],
       actions: [{ label: 'Nous écrire', href: '#/contact/partenariat' }] },
@@ -507,33 +507,17 @@ function SEngager() {
 }
 
 // ---------- ACADEMIE PAGE ─────────────────────────────────────────────────────
-function AcademiePage() {
-  // Déploiement du 24/09/2026 : même grammaire que l'accueil (Gabarit.jsx).
-  // Mission « Former » ; plus de bandes sombres ni de styles écrits en ligne.
-  const root = React.useRef(null);
-  window.useGReveal(root);
+// La formation, un moyen (arborescence C, RETOURS-V3) : l'ancienne page Académie devient
+// une section de L'insertion ; #/academie et #/formations y mènent (ancre « formation »).
+function AcaFormation() {
   const D = window.FESTIN_DATA;
   return (
-    <div className="gpage" ref={root} data-screen-label="Académie Festin" style={{ '--pc': 'var(--gold-ink)' }}>
-      <window.HeroPage tone="teal" kicker="Portée par Estello Formation, certifiée Qualiopi"
-        title="L'Académie" accent="Festin"
-        proof="Toutes nos formations au même endroit : des parcours d'insertion diplômants pour apprendre un métier et des formations pro pour les équipes de la restauration, portées par le programme Restaure."
-        img="images/photo-dressage-dessert.jpg" imgAlt="Un dressage à l'assiette, en cuisine"
-        crumb={[{ label: 'Accueil', href: '#/' }, { label: "L'Académie Festin" }]}>
-        <div className="g-herocta">
-          <window.GLink l={{ to: 'catalogue' }} className="btnb btnb--light">Voir le catalogue <span className="arrow" aria-hidden="true">↓</span></window.GLink>
-          <a className="g-herolnk" href="#/contact">Nous écrire <span className="arrow" aria-hidden="true">→</span></a>
-        </div>
-      </window.HeroPage>
-
-      {/* formations pro remises au catalogue, rattachées visiblement à Restaure (RETOURS-AUDIT §2.4) */}
-      <AcaCatalogue tone="white" title="Toutes nos" accent="formations." src="L'Académie Festin est portée par Estello Formation, organisme de formation certifié Qualiopi. Les formations pro pour les équipes en poste sont portées par le programme Restaure." />
-
-      <section className="g-sec g-sec--cream" aria-labelledby="aca-bref-t">
+    <>
+      <section className="g-sec g-sec--cream" id="formation" aria-labelledby="aca-bref-t">
         <div className="wrap g-bref">
           <div className="g-bref__txt">
-            <span className="g-tag g-reveal"><span className="g-tag__dot" aria-hidden="true" />Un projet de Festin · Former</span>
-            <h2 className="g-h2 g-reveal" id="aca-bref-t">Former sur le terrain, <em>avec un diplôme.</em></h2>
+            <span className="g-tag g-reveal"><span className="g-tag__dot" aria-hidden="true" />L'Académie Festin</span>
+            <h2 className="g-h2 g-reveal" id="aca-bref-t">La formation, <em>un moyen.</em></h2>
             <p className="g-lede g-reveal">Festin forme sur le terrain depuis 1987. En 2026, elle lance l'Académie Festin, portée par Estello Formation, organisme de formation certifié Qualiopi. Ses parcours tiennent à trois choses : l'exigence de la cuisine, le suivi social des personnes formées, la connaissance du secteur.</p>
             <div className="aca-qualiopi g-reveal">
               <img src={D.brand.qualiopi} alt="Logo Qualiopi" loading="lazy" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
@@ -566,19 +550,10 @@ function AcademiePage() {
         </div>
       </section>
 
-      <window.Portes id="aca-portes" title="À chacun" accent="sa formation." tone="white" portes={[
-        { tag: 'Vous cherchez un métier', title: 'Un parcours diplômant, gratuit',
-          pts: ['Une formation diplômante en cuisine, avec des stages en restaurant.', 'Un suivi individuel jusqu’à l’emploi.'],
-          cta: 'Voir les parcours', href: '#/accompagnement/insertion', img: 'images/photo-tabliers-violets.jpg' },
-        { tag: 'Vous êtes du secteur', title: 'Une formation pour vos équipes',
-          pts: ['Management juste, prévention des violences sexistes et sexuelles.', 'Des formations portées par le programme Restaure.'],
-          cta: 'Former et recruter', href: '#/accompagnement/professionnels', img: 'images/photo-cuisine-action.jpg' },
-      ]} />
-
-      <window.BandeDefilante label="Les projets de Festin" items={D.bandeProjets.filter((x) => x.href !== '#/academie')} />
-    </div>
+    </>
   );
 }
+window.AcaFormation = AcaFormation;
 
 // Catalogue complet de l'Académie (l'ancienne page « Formations » y est fusionnée :
 // une page, un nom). #/formations mène ici, au catalogue.
@@ -606,7 +581,7 @@ function AcaCatalogue({ id = 'catalogue', title = 'Toutes nos', accent = 'format
         <div className="formations__grid">
           {vus.map((f) => <FormationCardLink key={f.id} f={f} />)}
         </div>
-        <p className="g-src">{src || "L'Académie Festin est portée par Estello Formation, organisme de formation certifié Qualiopi. Les formations pro sont proposées par le programme Restaure."}{lien && <> <a href="#/academie">L'Académie Festin <span aria-hidden="true">→</span></a></>}</p>
+        <p className="g-src">{src || "L'Académie Festin est portée par Estello Formation, organisme de formation certifié Qualiopi. Les formations pro sont proposées par le programme Restaure."}{lien && <> <a href="#/insertion/formation">L'Académie Festin <span aria-hidden="true">→</span></a></>}</p>
       </div>
     </section>
   );
@@ -726,5 +701,4 @@ window.ContactPage = ContactPage;
 window.NotFoundPage = NotFoundPage;
 window.FormationCardLink = FormationCardLink;
 window.ImpactPage = ImpactPage;
-window.AcademiePage = AcademiePage;
 window.ActualitesPage = ActualitesPage;

@@ -124,7 +124,7 @@ window.FESTIN_DATA = {
         "Des stages dans des restaurants partenaires, dont des maisons gastronomiques",
       ],
       projetCtaLabel: "Découvrir les formations",
-      projetCtaHref: "#/academie",
+      projetCtaHref: "#/insertion/formation",
       implicationTitle: "Vous êtes restaurateur ?",
       implicationText: "Une stagiaire rejoint votre brigade pour 155 à 490 heures. Un membre de votre équipe la suit en binôme. Vous la voyez travailler sur votre carte avant de recruter.",
       implicationCtaLabel: "Devenir restaurant partenaire",
@@ -258,7 +258,7 @@ window.FESTIN_DATA = {
         title: "Accueillir une stagiaire",
         text: "La stagiaire travaille dans votre brigade, suivie en binôme par un membre de l’équipe. Festin reste votre interlocuteur pendant tout le stage. À la fin, vous connaissez son travail : vous pouvez la recruter.",
         stat: "155 à 490 h", statL: "de stage par promotion",
-        ctaLabel: "Devenir restaurant partenaire", ctaHref: "#/accompagnement/professionnels",
+        ctaLabel: "Devenir restaurant partenaire", ctaHref: "#/restauration",
         img: "images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00032.jpg"
       },
       grandFestin: {
@@ -780,7 +780,7 @@ window.FESTIN_DATA = {
     { date: "Juin 2026", lieu: "Lille, Lyon et Marseille", title: "Refugee Food", accent: "Festival 2026",
       text: "Des cuisinières et des cuisiniers réfugiés en cuisine avec les brigades de restaurants partenaires, à Lille, à Lyon et à Marseille.",
       img: "images/refugee-food-festival/rff-lyon-3.jpg", alt: "Soirée de clôture du Refugee Food Festival 2026 à Lyon", credit: "Agathe Waechter",
-      href: "#/formations/tournesol", cta: "La formation Tournesol" },
+      href: "#/parcours/tournesol", cta: "La formation Tournesol" },
     { date: "Novembre 2025", lieu: "M6", title: "Les Beaux Mets", accent: "à la télévision",
       text: "« Un jour un doc » consacre 45 minutes au restaurant des Baumettes et à sa brigade.",
       img: "images/beauxmets-images/LBM_cdutrey_071122-7922.jpg", alt: "Une cliente sonne à l'entrée du restaurant Les Beaux Mets", credit: "Caroline Dutrey",
@@ -800,7 +800,7 @@ window.FESTIN_DATA = {
     { date: "2025", lieu: "Marseille", title: "Tournesol,", accent: "portée par Festin",
       text: "Cinq mois de formation au métier de commis, gratuits, avec Refugee Food et Estello Formation.",
       img: "images/tournesol:formation/tournesol-promotion.jpg", alt: "Une promotion Tournesol en tenue, dans la cuisine de formation",
-      href: "#/formations/tournesol", cta: "La formation Tournesol" },
+      href: "#/parcours/tournesol", cta: "La formation Tournesol" },
     { date: "2025", lieu: "Marseille, Toulouse, Lille", title: "Les rencontres", accent: "de Restaure",
       text: "Cinq tables rondes enregistrées en podcast et les Toast, où des restaurateurs racontent ce qu'ils ont changé dans leur cuisine.",
       img: "images/restaure : formation pro/FESTIN_TOAST_12 FEVRIER_FEED-25.jpg", alt: "Un Toast du programme Restaure : une salle écoute des restaurateurs sur scène",
@@ -884,7 +884,7 @@ window.FESTIN_DATA.meganav = {
     { label: "Qui sommes-nous", href: "#/about" },
     { label: "Notre impact", href: "#/impact" },
     { label: "Actualités", href: "#/actualites" },
-    { label: "Formations", href: "#/academie" },
+    { label: "Formations", href: "#/insertion/formation" },
     { label: "Nous contacter", href: "#/contact" }
   ],
   views: [
@@ -892,8 +892,8 @@ window.FESTIN_DATA.meganav = {
       key: "theme", label: "Par thématique", icon: "sparkles",
       cards: [
         { t:"Nos tables",  ic:"utensils",       c:"#1D6B78", d:"Un restaurant en prison et un traiteur d'insertion, où l'on peut réserver ou commander.", tags:["Les Beaux Mets","La Table de Cana Marseille","Traiteur"], href:"#/projets/les-beaux-mets" },
-        { t:"Formations",  ic:"graduation-cap", c:"#E8A825", d:"L'Académie Festin : des parcours diplômants et des formations courtes pour les équipes de restaurants.", tags:["Des Étoiles et des Femmes","Tournesol","Formations pros"], href:"#/academie" },
-        { t:"Emploi",      ic:"briefcase",      c:"#E4572E", d:"Un suivi individuel jusqu'à l'emploi et le réseau d'anciens du Club des Talents.", tags:["Parcours insertion","Club des Talents"], href:"#/accompagnement/insertion" },
+        { t:"Formations",  ic:"graduation-cap", c:"#E8A825", d:"L'Académie Festin : des parcours diplômants et des formations courtes pour les équipes de restaurants.", tags:["Des Étoiles et des Femmes","Tournesol","Formations pros"], href:"#/insertion/formation" },
+        { t:"Emploi",      ic:"briefcase",      c:"#E4572E", d:"Un suivi individuel jusqu'à l'emploi et le réseau d'anciens du Club des Talents.", tags:["Parcours insertion","Club des Talents"], href:"#/insertion" },
         { t:"Le secteur",  ic:"megaphone",      c:"#9A5BA8", d:"Le programme Restaure, contre les violences en cuisine et pour un management juste.", tags:["Manifeste","Plaidoyer"], href:"#/projets/restaure" }
       ]
     },
@@ -902,14 +902,14 @@ window.FESTIN_DATA.meganav = {
       cards: [
         { t:"Les Beaux Mets",    ic:"utensils",       c:"#1D6B78", d:"Le restaurant des Baumettes à Marseille, ouvert au public.", tags:["Marseille","Restaurant"], href:"#/projets/les-beaux-mets" },
         { t:"La Table de Cana Marseille",  ic:"chef-hat",       c:"#E8A825", d:"Traiteur événementiel et restauration collective, à Mourepiane.", tags:["Mourepiane","Traiteur"], href:"#/projets/la-table-de-cana" },
-                { t:"L'Académie Festin", ic:"graduation-cap", c:"#E4572E", d:"Portée par Estello Formation, organisme de formation certifié Qualiopi.", tags:["Marseille","Qualiopi"], href:"#/academie" }
+                { t:"L'Académie Festin", ic:"graduation-cap", c:"#E4572E", d:"Portée par Estello Formation, organisme de formation certifié Qualiopi.", tags:["Marseille","Qualiopi"], href:"#/insertion/formation" }
       ]
     },
     {
       key: "projet", label: "Par projet", icon: "layout-grid",
       cards: [
         { t:"Des Étoiles et des Femmes", ic:"star",     c:"#E8A825", d:"Des femmes formées à la cuisine avec des chefs, dans 13 villes.", tags:["Depuis 2015","13 antennes"], href:"#/projets/des-etoiles-et-des-femmes" },
-        { t:"Tournesol",                 ic:"sun",      c:"#E4572E", d:"Le parcours diplômant pour personnes réfugiées et primo-arrivantes.", tags:["Refugee Food","5 mois"], href:"#/formations/tournesol" },
+        { t:"Tournesol",                 ic:"sun",      c:"#E4572E", d:"Le parcours diplômant pour personnes réfugiées et primo-arrivantes.", tags:["Refugee Food","5 mois"], href:"#/parcours/tournesol" },
         { t:"Club des Talents",          ic:"users",    c:"#1D6B78", d:"Les anciens salariés de La Table de Cana Marseille parrainent les nouveaux.", tags:["Réseau","La Table de Cana Marseille"], href:"#/projets/la-table-de-cana" },
         { t:"Le programme Restaure",     ic:"megaphone",c:"#9A5BA8", d:"35 structures contre les violences en cuisine.", tags:["700 signataires","Manifeste"], href:"#/projets/restaure" }
       ]
@@ -990,8 +990,8 @@ window.FESTIN_DATA.antennesPhotos = [];
 window.FESTIN_DATA.fin = {
   title: "Vous avez un projet ?", accent: "Parlons-en.",
   links: [
-    { who: "Vous accompagnez une personne", label: "Orienter", href: "#/accompagnement/insertion" },
-    { who: "Vous dirigez une équipe", label: "Former et recruter", href: "#/accompagnement/professionnels" },
+    { who: "Vous accompagnez une personne", label: "Orienter", href: "#/insertion" },
+    { who: "Vous dirigez une équipe", label: "Former et recruter", href: "#/restauration" },
     { who: "Vous voulez agir avec nous", label: "Nous écrire", href: "#/contact" },
   ],
 };
@@ -1003,8 +1003,8 @@ window.FESTIN_DATA.home = {
     signature: "Le goût d'avancer ensemble",
     proof: "441 personnes accompagnées en 2025. 83 % sont sorties en emploi ou en formation.",
     proofNote: "Tous dispositifs confondus. Source : rapport d'activité Festin 2025.",
-    ctaPrimary: { label: "Découvrir nos formations", href: "#/accompagnement/insertion" },
-    ctaSecondary: { label: "Vous recrutez ? Travaillons ensemble", href: "#/accompagnement/professionnels" },
+    ctaPrimary: { label: "Découvrir nos formations", href: "#/insertion" },
+    ctaSecondary: { label: "Vous recrutez ? Travaillons ensemble", href: "#/restauration" },
     img: "images/photo-chapeau-cuisine.jpg",
     imgAlt: "Trois personnes en brigade versent une sauce au chinois, dans une cuisine professionnelle"
   },
@@ -1049,7 +1049,7 @@ window.FESTIN_DATA.home = {
           "Des stages en restaurant et un suivi jusqu'à l'emploi : logement, garde d'enfants, recherche de poste.",
           "Des parcours pour les femmes (Des Étoiles et des Femmes) et pour les personnes réfugiées ou primo-arrivantes (Tournesol)."
         ],
-        cta: "Voir les parcours", href: "#/accompagnement/insertion",
+        cta: "Voir les parcours", href: "#/insertion",
         img: "images/photo-tabliers-violets.jpg" },
       { tag: "Vous dirigez un établissement", kicker: "Professionnels de la restauration",
         title: "Recruter, former et garder vos équipes",
@@ -1058,7 +1058,7 @@ window.FESTIN_DATA.home = {
           "Des stagiaires en parcours d'insertion, dans votre brigade.",
           "Des candidats présentés par Festin, avec une préparation à l'emploi financée par France Travail."
         ],
-        cta: "Recruter avec Festin", href: "#/accompagnement/professionnels",
+        cta: "Recruter avec Festin", href: "#/restauration",
         img: "images/photo-cuisine-action.jpg" }
     ]
   },
@@ -1123,8 +1123,8 @@ Object.assign(window.FESTIN_DATA.home, {
     title: "Mettre la restauration au service", titleAccent: "de l'égalité des chances.",
     nonLucratif: "Un groupe associatif à but non lucratif : toutes nos activités sont d'intérêt général et servent l'insertion des personnes.",
     signature: "Le goût d'avancer ensemble",
-    ctaPrimary: { k: "Vous cherchez un métier", label: "Apprendre un métier de cuisine", href: "#/accompagnement/insertion" },
-    ctaSecondary: { k: "Vous dirigez une cuisine", label: "Former mes équipes", href: "#/accompagnement/professionnels" },
+    ctaPrimary: { k: "Vous cherchez un métier", label: "Apprendre un métier de cuisine", href: "#/insertion" },
+    ctaSecondary: { k: "Vous dirigez une cuisine", label: "Recruter et former vos équipes", href: "#/restauration" },
     soutien: { text: "Vous financez ou soutenez nos actions ?", label: "Devenir partenaire", href: "#/impact/soutenir" },
     img: "images/beauxmets-images/LBM_masterclass_chloeCharles_cdutrey_030325-7893.jpg",
     imgAlt: "Une brigade en cuisine, de dos, bras dessus bras dessous",
@@ -1143,7 +1143,7 @@ Object.assign(window.FESTIN_DATA.home, {
         fait: { n: "91 %", t: "de réussite aux diplômes en 2025", p: "Des Étoiles et des Femmes" },
         projets: [
           { id: "des-etoiles-et-des-femmes", line: "Des femmes formées avec des chefs, dans 13 villes.", img: "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg" },
-          { id: "academie", href: "#/academie", name: "Académie Festin", line: "Notre organisme de formation, en partenariat avec Estello Formation.", img: "images/photo-cuisine-formation.jpg" },
+          { id: "academie", href: "#/insertion/formation", name: "Académie Festin", line: "Notre organisme de formation, en partenariat avec Estello Formation.", img: "images/photo-cuisine-formation.jpg" },
         ] },
       { key: "accompagner", title: "Accompagner", titleAccent: "jusqu'à l'emploi",
         text: "Un suivi de la première semaine jusqu'au contrat : logement, garde d'enfants, papiers, recherche de poste. Et un premier emploi salarié, en brigade.",
@@ -1184,7 +1184,7 @@ Object.assign(window.FESTIN_DATA.home, {
     ],
     rail: { tab: "Toute l'année", title: "Un suivi individuel",
       text: "Logement, garde d'enfants, papiers, transport, cours de français : une personne de l'équipe vous suit jusqu'à l'emploi." },
-    cta: { label: "Le détail des parcours", href: "#/accompagnement/insertion" },
+    cta: { label: "Le détail des parcours", href: "#/insertion" },
   },
   // Preuves : chaque phrase porte son chiffre ; <b> = chiffre mis en avant
   preuve: {
@@ -1205,9 +1205,9 @@ Object.assign(window.FESTIN_DATA.home, {
     title: "Choisir", titleAccent: "votre entrée.",
     cards: [
       { tag: "Vous cherchez un métier", title: "Apprendre un métier de cuisine",
-        cta: "Voir les formations", href: "#/accompagnement/insertion", img: "images/photo-tabliers-violets.jpg" },
+        cta: "Voir les formations", href: "#/insertion", img: "images/photo-tabliers-violets.jpg" },
       { tag: "Vous dirigez une équipe", title: "Former et recruter",
-        cta: "Travailler avec Festin", href: "#/accompagnement/professionnels", img: "images/photo-cuisine-action.jpg" },
+        cta: "Travailler avec Festin", href: "#/restauration", img: "images/photo-cuisine-action.jpg" },
     ],
     agir: {
       tag: "Vous voulez agir avec nous", title: "Soutenir,", titleAccent: "réserver, commander",
@@ -1228,37 +1228,39 @@ Object.assign(window.FESTIN_DATA.home, {
 //  l'état « page courante ». Une page = un nom, partout.
 //  match : préfixes d'adresse qui allument la rubrique.
 // ============================================================
+// Arborescence C (RETOURS-V3, validée le 06/10/2026, ARBORESCENCES-V3.md §10) : quatre fronts,
+// chacun avec son sous-menu ; partagée par la pastille, le menu et le pied de page.
 window.FESTIN_DATA.arbo = [
-  { key: "insertion", label: "Se former", href: "#/accompagnement/insertion",
-    match: ["#/accompagnement/insertion", "#/academie", "#/formations"],
+  { key: "insertion", label: "L'insertion", href: "#/insertion",
+    match: ["#/insertion", "#/accompagnement/insertion", "#/academie", "#/formations", "#/parcours", "#/formations/des-etoiles-et-des-femmes", "#/formations/tournesol", "#/projets/des-etoiles-et-des-femmes"],
     links: [
-      { ic: "compass", c: "#7FC4CB", label: "Apprendre un métier de cuisine", d: "Les formations gratuites, pour qui, comment entrer", href: "#/accompagnement/insertion" },
-      { ic: "graduation-cap", c: "#7FC4CB", label: "L'Académie Festin", d: "Nos formations diplômantes", href: "#/academie" },
+      { ic: "compass", c: "#7FC4CB", label: "Nos parcours", d: "Un accompagnement jusqu'à l'emploi", href: "#/insertion" },
+      { ic: "list-checks", c: "#7FC4CB", label: "Vérifier mon éligibilité", d: "Trois minutes, quelques questions", href: "#/insertion/eligibilite" },
+      { ic: "star", c: "#7FC4CB", label: "Des Étoiles et des Femmes", d: "Un dispositif pour les femmes, dans 13 villes", href: "#/projets/des-etoiles-et-des-femmes" },
+      { ic: "sun", c: "#7FC4CB", label: "Tournesol", d: "Pour les personnes réfugiées, à Marseille", href: "#/parcours/tournesol" },
+      { ic: "soup", c: "#7FC4CB", label: "Postuler à La Table de Cana Marseille", d: "Un emploi en insertion", href: "#/insertion/parcours-choix" },
+      { ic: "users", c: "#7FC4CB", label: "Vous orientez une personne ?", d: "Prescripteurs, travailleurs sociaux", href: "#/insertion/orienter" },
     ] },
-  { key: "pros", label: "Recruter et former vos équipes", href: "#/accompagnement/professionnels",
-    match: ["#/accompagnement/professionnels", "#/formations/vss", "#/formations/management"],
+  { key: "tables", label: "Nos tables",
+    match: ["#/projets/les-beaux-mets", "#/projets/la-table-de-cana"],
     links: [
-      { ic: "briefcase", c: "#FFC100", label: "Former et recruter", d: "Tout ce que Festin fait avec les restaurants", href: "#/accompagnement/professionnels" },
-      { ic: "megaphone", c: "#FFC100", label: "Le programme Restaure", d: "Ses formations pour vos équipes", href: "#/projets/restaure" },
+      { ic: "utensils", c: "#EC8669", label: "Les Beaux Mets", d: "Réserver une table, privatiser le restaurant", href: "#/projets/les-beaux-mets" },
+      { ic: "chef-hat", c: "#EC8669", label: "La Table de Cana Marseille", d: "Le traiteur de vos événements", href: "#/projets/la-table-de-cana" },
     ] },
-  { key: "projets", label: "Nos lieux et projets", href: "#/projets",
-    match: ["#/projets"],
+  { key: "pros", label: "Pour la restauration", href: "#/restauration",
+    match: ["#/restauration", "#/accompagnement/professionnels", "#/formations/vss", "#/formations/management", "#/projets/restaure"],
     links: [
-      { ic: "layout-grid", c: "#EC8669", label: "Tous les projets", d: "Cinq projets, trois missions", href: "#/projets" },
-      { ic: "map-pin", c: "#EC8669", label: "Nos lieux", d: "Les lieux ouverts au public, à Marseille", href: "#/projets/lieux" },
-      { ic: "star", c: "#EC8669", label: "Des Étoiles et des Femmes", d: "Former", href: "#/projets/des-etoiles-et-des-femmes" },
-      { ic: "utensils", c: "#EC8669", label: "Les Beaux Mets", d: "Accompagner jusqu'à l'emploi", href: "#/projets/les-beaux-mets" },
-      { ic: "soup", c: "#EC8669", label: "La Table de Cana Marseille", d: "Accompagner jusqu'à l'emploi", href: "#/projets/la-table-de-cana" },
-      { ic: "megaphone", c: "#EC8669", label: "Le programme Restaure", d: "Changer les cuisines", href: "#/projets/restaure" },
-      { ic: "graduation-cap", c: "#EC8669", label: "L'Académie Festin", d: "Former", href: "#/academie" },
+      { ic: "briefcase", c: "#FFC100", label: "Recruter un commis formé", d: "Des personnes formées pour votre brigade", href: "#/restauration" },
+      { ic: "graduation-cap", c: "#FFC100", label: "Former vos équipes", d: "Violences en cuisine, management", href: "#/formations/vss" },
+      { ic: "megaphone", c: "#FFC100", label: "Le programme Restaure", d: "Changer les pratiques du secteur", href: "#/projets/restaure" },
     ] },
-  { key: "association", label: "Qui sommes-nous", href: "#/about",
-    match: ["#/about", "#/impact", "#/actualites", "#/contact"],
+  { key: "festin", label: "Festin", href: "#/about",
+    match: ["#/about", "#/projets", "#/impact", "#/actualites", "#/presse", "#/contact"],
     links: [
-      { ic: "heart-handshake", c: "#C099C9", label: "Qui sommes-nous", href: "#/about" },
-      { ic: "chart-column", c: "#C099C9", label: "Notre impact", href: "#/impact" },
-      { ic: "newspaper", c: "#C099C9", label: "Actualités et presse", href: "#/actualites" },
-      { ic: "mail", c: "#C099C9", label: "Nous écrire", href: "#/contact" },
+      { ic: "heart-handshake", c: "#C099C9", label: "Qui sommes-nous", d: "Récit, valeurs, gouvernance, équipe", href: "#/about" },
+      { ic: "layout-grid", c: "#C099C9", label: "L'écosystème", d: "Nos projets, Sadi Carnot", href: "#/projets" },
+      { ic: "chart-column", c: "#C099C9", label: "Impact", d: "Compter ce qui compte", href: "#/impact" },
+      { ic: "newspaper", c: "#C099C9", label: "Presse et actualités", d: "Kit presse, articles", href: "#/actualites" },
     ] },
 ];
 // Logos de médias disponibles dans images/presse/<slug>.png (vide tant que les fichiers ne sont pas fournis)
@@ -1266,7 +1268,7 @@ window.FESTIN_DATA.presseLogos = ["courrier-international", "france-3-paca", "fr
   "telerama", "zig-zag-paris", "rcf-radio", "les-echos-weekend", "le-monde", "arles-info", "liberation", "impact-story", "l-hotellerie-restauration",
   "neo-restauration", "sud-ouest", "france-2", "revue-du-barreau", "carenews", "el-pais", "france-tv-info", "podcast-des-etoiles-et-des-femmes"];
 
-// Nos lieux (retours du 01/10/2026) : navigation par lieu, sur la page Nos projets (#/projets/lieux).
+// Nos lieux (retours du 01/10/2026) : navigation par lieu, sur la page Nos projets (#/projets).
 // Lieux ouverts au public seulement (retours V2 §5 : les antennes n'y figurent pas).
 // Sadi Carnot n'est pas acquis : toujours au futur, sans action, en dernier.
 window.FESTIN_DATA.lieux = [
@@ -1290,7 +1292,7 @@ window.FESTIN_DATA.bandeProjets = [
   { label: "Des Étoiles et des Femmes", href: "#/projets/des-etoiles-et-des-femmes" },
   { label: "Les Beaux Mets", href: "#/projets/les-beaux-mets" },
   { label: "La Table de Cana Marseille", href: "#/projets/la-table-de-cana" },
-  { label: "l'Académie Festin", href: "#/academie" },
+  { label: "l'Académie Festin", href: "#/insertion/formation" },
 ];
 
 // Rubrique allumée pour une adresse donnée
@@ -1335,7 +1337,7 @@ window.FESTIN_DATA.projetPages = {
       { tag: "Vous cherchez un métier", title: "Rejoindre une promotion",
         cta: "Plus d'informations", href: "https://www.desetoilesetdesfemmes.org", external: true, img: "images/photo-tabliers-violets.jpg" },
       { tag: "Vous dirigez une cuisine", title: "Accueillir une stagiaire",
-        cta: "Devenir restaurant partenaire", href: "#/accompagnement/professionnels", img: "images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00032.jpg" },
+        cta: "Devenir restaurant partenaire", href: "#/restauration", img: "images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00032.jpg" },
     ],
     soutien: { title: "Soutenir", accent: "une promotion",
       text: "Le parcours est gratuit pour les femmes qui le suivent : les pouvoirs publics et des mécènes financent chaque promotion. Votre don paie des heures de formation, des stages et le suivi social, jusqu'à l'emploi.",
@@ -1395,7 +1397,7 @@ window.FESTIN_DATA.projetPages = {
         cta: "Réserver", href: "https://www.lesbeauxmets-marseille.fr", external: true, img: "images/beauxmets-images/LBM_carte-ete24_caroline_dutrey-3385.jpg" },
       { tag: "Vous dirigez une cuisine", title: "Recruter un commis formé",
         pts: ["Des commis formés en brigade par un chef et un second.", "Un suivi jusqu'à six mois après la sortie de détention."],
-        cta: "Recruter avec Festin", href: "#/accompagnement/professionnels", img: "images/beauxmets-images/lbm-gallery-masterclass.jpg" },
+        cta: "Recruter avec Festin", href: "#/restauration", img: "images/beauxmets-images/lbm-gallery-masterclass.jpg" },
     ],
     soutien: { title: "Soutenir", accent: "Les Beaux Mets",
       text: "Un don finance le suivi des commis, pendant la détention et après la sortie.",
@@ -1450,7 +1452,7 @@ window.FESTIN_DATA.projetPages = {
         cta: "Demander un devis traiteur", href: "#/contact/devis-traiteur", img: "images/latable de cana/tabledecana_cdutrey_170124-6293-B-2048x1365.jpg" },
       { tag: "Vous dirigez une cuisine", title: "Recruter un salarié formé",
         pts: ["Des salariés formés au traiteur et à la restauration collective.", "Une fois formés, ils sont orientés vers des entreprises partenaires de la restauration."],
-        cta: "Recruter avec Festin", href: "#/accompagnement/professionnels", img: "images/latable de cana/TABLECANA_EVENT_cdutrey_230625-5158.jpg" },
+        cta: "Recruter avec Festin", href: "#/restauration", img: "images/latable de cana/TABLECANA_EVENT_cdutrey_230625-5158.jpg" },
     ],
     soutien: { title: "Soutenir", accent: "La Table de Cana Marseille",
       text: "Votre don finance l'encadrement et le suivi des salariés en insertion." },
@@ -1460,7 +1462,7 @@ window.FESTIN_DATA.projetPages = {
     bandeProjets: true, // fin de page : la bande or des projets, comme sur Pros et l'Académie
     kicker: "Depuis 2024 · programme national",
     heroImg: "images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg", heroAlt: "Soirée de lancement du programme Restaure", heroCredit: "Photo : Caroline Dutrey",
-    nature: "programme", heroCta: { label: "Nos formations pro", href: "#/formations" }, heroLien: { label: "Le site du programme", href: "https://www.mouvement-restaure.com", external: true },
+    nature: "programme", heroCta: { label: "Nos formations pro", href: "#/insertion/formation" }, heroLien: { label: "Le site du programme", href: "https://www.mouvement-restaure.com", external: true },
     bref: { title: "Des cuisines où l'on travaille", accent: "en sécurité.",
       text: "Un programme national né en 2024. Restaurateurs, chefs et associations y travaillent ensemble pour prévenir les violences en cuisine et changer les pratiques de management. Il porte aussi les formations pro de Festin, pour les équipes de la restauration." },
     video: { link: "https://www.instagram.com/reel/DJ9kq6iIb5j/", linkLabel: "Voir la vidéo sur Instagram", poster: "images/restaure : formation pro/FESTIN_TOAST_12 FEVRIER_FEED-25.jpg" },
@@ -1475,7 +1477,7 @@ window.FESTIN_DATA.projetPages = {
     portesTitre: { title: "Agir", accent: "avec le programme." },
     portes: [
       { tag: "Vous dirigez une cuisine", title: "Former vos équipes",
-        cta: "Voir les formations", href: "#/formations", img: "images/restaure : formation pro/IMG_2950.JPG" },
+        cta: "Voir les formations", href: "#/insertion/formation", img: "images/restaure : formation pro/IMG_2950.JPG" },
       { tag: "Vous voulez en savoir plus", title: "Le programme Restaure",
         cta: "Le site du programme", href: "https://www.mouvement-restaure.com", external: true, img: "images/restaure : formation pro/FESTIN_TOAST_12 FEVRIER_FEED-25.jpg" },
     ],
@@ -1559,7 +1561,7 @@ window.FESTIN_DATA.about = {
     { year: "2024", type: "projet", title: "Le programme Restaure", desc: "Un programme national contre les violences en cuisine.", photo: "images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg", href: "#/projets/restaure" },
     { year: "2025", type: "projet", label: "Temps fort", title: "Dix ans du dispositif Des Étoiles et des Femmes", desc: "Plus de 600 convives au Grand Festin, sur le Vieux-Port.", photo: "images/images-def/grand-festin-2025-brigades.jpg" },
     { year: "2025", type: "reco", title: "Label LUCIE Progress", desc: "848 sur 1 000 pour La Table de Cana Marseille." },
-    { year: "2026", type: "projet", title: "L'Académie Festin", desc: "Festin devient organisme de formation en partenariat avec Estello Formation, organisme certifié Qualiopi.", photo: "images/photo-cuisine-formation.jpg", href: "#/academie" },
+    { year: "2026", type: "projet", title: "L'Académie Festin", desc: "Festin devient organisme de formation en partenariat avec Estello Formation, organisme certifié Qualiopi.", photo: "images/photo-cuisine-formation.jpg", href: "#/insertion/formation" },
   ],
 
   // Trois marqueurs (RETOURS-V3 §2, texte validé par la direction)
@@ -1648,7 +1650,7 @@ Object.assign(window.FESTIN_DATA.home, {
           { dt: "Être suivi", dd: "Logement, papiers, garde d'enfants, recherche de poste : un suivi individuel." },
         ],
         preuve: "Des formations <b>gratuites</b>, prises en charge par France Travail et nos partenaires publics.",
-        cta: { label: "Apprendre un métier de cuisine", href: "#/accompagnement/insertion" } },
+        cta: { label: "Apprendre un métier de cuisine", href: "#/insertion" } },
       { key: "pro", tag: "Vous dirigez une cuisine ou une équipe", title: "Recruter, former,", titleAccent: "garder ses équipes.",
         text: "Pour les restaurateurs, les cheffes et chefs, les responsables RH : recruter des personnes formées et former vos équipes, avec des gens de cuisine.",
         img: "images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg", imgAlt: "Soirée de lancement du programme Restaure",
@@ -1657,7 +1659,7 @@ Object.assign(window.FESTIN_DATA.home, {
           { dt: "Recruter", dd: "Stagiaires, Book de l'emploi, préparation à l'emploi financée par France Travail (POEI)." },
         ],
         preuve: "Des formations proposées par le programme Restaure.",
-        cta: { label: "Travailler avec Festin", href: "#/accompagnement/professionnels" } },
+        cta: { label: "Travailler avec Festin", href: "#/restauration" } },
     ],
   },
   // Frise des projets : cartes cliquables vers chaque page
@@ -1669,7 +1671,7 @@ Object.assign(window.FESTIN_DATA.home, {
       { year: "2015", title: "Des Étoiles et des Femmes", desc: "Des femmes se forment à la cuisine avec des chefs. Le dispositif compte aujourd'hui 13 antennes.", color: "#C2421C", dark: false, photo: "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg", href: "#/projets/des-etoiles-et-des-femmes" },
       { year: "2022", title: "Les Beaux Mets", desc: "Un restaurant ouvert au public dans la prison des Baumettes, à Marseille.", color: "#217078", dark: false, photo: "images/beauxmets-images/LBM_cdutrey_071122-7264.jpg", href: "#/projets/les-beaux-mets" },
       { year: "2024", title: "Le programme Restaure", desc: "Contre les violences en cuisine et pour former les équipes de la restauration.", color: "#7E4590", dark: false, photo: "images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg", href: "#/projets/restaure" },
-      { year: "2026", title: "L'Académie Festin", desc: "Festin devient organisme de formation en partenariat avec Estello Formation, organisme certifié Qualiopi.", color: "#FEFCF8", dark: true, photo: "images/photo-cuisine-formation.jpg", href: "#/academie" },
+      { year: "2026", title: "L'Académie Festin", desc: "Festin devient organisme de formation en partenariat avec Estello Formation, organisme certifié Qualiopi.", color: "#FEFCF8", dark: true, photo: "images/photo-cuisine-formation.jpg", href: "#/insertion/formation" },
     ],
   },
   // Paroles de personnes accompagnées, mot pour mot, déjà publiées sur les pages
@@ -1688,7 +1690,7 @@ Object.assign(window.FESTIN_DATA.home, {
         href: "#/projets/les-beaux-mets", lien: "Les Beaux Mets" },
       { name: "Ancien apprenant", meta: "Promotion Tournesol",
         quote: "Merci de m’avoir donné l’opportunité d’apprendre la langue et de me former pour entrer dans le monde du travail.",
-        href: "#/formations/tournesol", lien: "La formation Tournesol" },
+        href: "#/parcours/tournesol", lien: "La formation Tournesol" },
     ],
   },
   citationEdito: {

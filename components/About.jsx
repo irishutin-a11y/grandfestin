@@ -355,9 +355,9 @@ function MotDirecteur() {
 // ---------- 7. S'ENGAGER — photo plein cadre, 3 entrées par profil ----------
 function Engager() {
   const cards = [
-    { profile: "Vous êtes restaurateur", title: "Recruter et former vos équipes", cta: "Voir ce que nous proposons", href: "#/accompagnement/professionnels" },
+    { profile: "Vous êtes restaurateur", title: "Recruter et former vos équipes", cta: "Voir ce que nous proposons", href: "#/restauration" },
     { profile: "Vous êtes partenaire ou mécène", title: "Financer une promotion ou un projet", cta: "Nous écrire", href: "#/contact" },
-    { profile: "Vous cherchez un métier", title: "Rejoindre une promotion", cta: "Voir les formations gratuites", href: "#/accompagnement/insertion" },
+    { profile: "Vous cherchez un métier", title: "Rejoindre une promotion", cta: "Voir les formations gratuites", href: "#/insertion" },
   ];
   return (
     <section className="ab-engage">

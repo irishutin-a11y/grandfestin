@@ -181,7 +181,7 @@ function ProjetPage({ id }) {
             <p className="g-lede g-reveal">{cfg.bref.text}</p>
             <a className="lnk g-bref__site g-reveal" href={p.siteUrl} target="_blank" rel="noopener noreferrer">Le site du projet : {p.siteName} <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (nouvel onglet)</span></a>
             <window.PresseLigne filtres={p.presseFilter || []} />
-            {cfg.orientable && <p className="g-src">Vous accompagnez une personne vers l'emploi ? Les conditions d'entrée sont sur la <a href="#/accompagnement/insertion">page Insertion</a>.</p>}
+            {cfg.orientable && <p className="g-src">Vous accompagnez une personne vers l'emploi ? Les conditions d'entrée sont sur la <a href="#/insertion">page Insertion</a>.</p>}
           </div>
           <div className="g-bref__media g-reveal">
             {cfg.video ? <window.GVideo v={cfg.video} label={p.shortTitle} />

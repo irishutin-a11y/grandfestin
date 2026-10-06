@@ -508,3 +508,47 @@ main > div > section:last-of-type:has(.g-appel){border-top:0!important}
 .apkit__resume h3{margin:0 0 var(--sp-3);font-size:var(--fs-h3);text-transform:uppercase;color:var(--teal-dark)}
 .apkit__resume p{margin:0;font-size:var(--fs-body);line-height:1.6;color:var(--ink)}
 .apkit__copy{margin-top:var(--sp-4);background:none;border:0;padding:6px 0;cursor:pointer;font:inherit;font-weight:700;color:var(--teal-dark);text-decoration:underline;text-underline-offset:4px}
+/* Arborescence C : sous-menus de la pastille (survol, focus clavier, clic sur « Nos tables ») */
+.navpill__it{position:relative}
+.navpill__links button{display:inline-flex;align-items:center;gap:4px;min-height:40px;padding:0 13px;border:0;border-radius:999px;background:none;cursor:pointer;font:inherit;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
+.navpill__links button:hover,.navpill__links button.is-here,.navpill__links button[aria-expanded="true"]{background:var(--teal-tint);color:var(--teal-dark)}
+.navpill__links button span{font-size:10px}
+.navpill__sub{position:absolute;top:calc(100% + 10px);left:0;z-index:60;min-width:300px;list-style:none;margin:0;padding:10px;border-radius:18px;background:var(--off-white);box-shadow:0 18px 50px rgba(6,33,31,.22);display:none}
+.navpill__sub::before{content:'';position:absolute;left:0;right:0;top:-12px;height:12px}
+.navpill__it:hover .navpill__sub,.navpill__it:focus-within .navpill__sub,.navpill__it.is-open .navpill__sub{display:block}
+.navpill__sub a{display:flex !important;flex-direction:column;align-items:flex-start !important;gap:2px;min-height:0 !important;padding:10px 12px !important;border-radius:12px !important;text-transform:none !important;letter-spacing:0 !important;white-space:normal}
+.navpill__sub a b{font-size:14px;font-weight:700;color:var(--ink)}
+.navpill__sub a span{font-size:13px;font-weight:400;color:var(--ink-mid)}
+.navpill__sub a:hover,.navpill__sub a:focus-visible,.navpill__sub a[aria-current="page"]{background:var(--teal-tint) !important}
+@media (prefers-reduced-motion:no-preference){ .navpill__it:hover .navpill__sub,.navpill__it:focus-within .navpill__sub{animation:subIn .18s var(--ease-out)} }
+@keyframes subIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+/* Éligibilité (RETOURS-V3 §4) */
+.elig__in{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--sp-6)}
+.elig__form{display:grid;gap:var(--sp-5);max-width:760px}
+.elig__q{margin:0;padding:0;border:0;display:grid;gap:10px}
+.elig__q legend,.elig__lbl{padding:0;margin-bottom:6px;font-size:var(--fs-h3);font-weight:700;color:var(--ink)}
+.elig__aide{margin:0;font-size:var(--fs-small);color:var(--ink-mid)}
+.elig__opts{display:flex;flex-wrap:wrap;gap:8px}
+.elig__opt{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:8px 16px;border:1.5px solid var(--line-strong);border-radius:999px;background:var(--off-white);cursor:pointer;font-size:15px}
+.elig__opt:hover{border-color:var(--teal)}
+.elig__opt.is-on{border-color:var(--teal);background:var(--teal-tint);color:var(--teal-dark);font-weight:700}
+.elig__opt input{accent-color:var(--teal);width:18px;height:18px;margin:0}
+.elig__opt:focus-within{outline:3px solid var(--teal);outline-offset:2px}
+.elig__select{min-height:48px;max-width:420px;padding:10px 14px;border:1.5px solid var(--line-strong);border-radius:12px;background:var(--off-white);font:inherit;font-size:16px;color:var(--ink)}
+.elig__form button[disabled]{opacity:.45;cursor:not-allowed}
+.elig__ok,.elig__non{max-width:760px;padding:var(--sp-6);border-radius:20px}
+.elig__ok{background:var(--teal-tint)}
+.elig__non{background:var(--cream)}
+.elig__ok h3,.elig__non h3{margin:0 0 var(--sp-3);font-size:var(--fs-h3);text-transform:uppercase;color:var(--teal-dark)}
+.elig__ok ul{margin:0 0 var(--sp-5);padding-left:1.2em}
+.elig__ok li{margin:4px 0}
+.elig__ok a b{color:var(--teal-dark)}
+.elig__non p{margin:0}
+.elig__form > .btnb{justify-self:start}
+/* L'écosystème : projets en développement (Sadi Carnot) */
+.pj-dev__in{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:var(--sp-7);align-items:center}
+.pj-dev__t{margin:var(--sp-5) 0 var(--sp-3);font-size:var(--fs-h3);text-transform:uppercase;color:var(--ink)}
+.pj-dev__t span{display:block;margin-top:4px;font-size:var(--fs-label);letter-spacing:.08em;color:var(--gold-ink)}
+.pj-dev__avenir{display:grid;place-items:center;aspect-ratio:4/3;border-radius:24px;background:repeating-linear-gradient(135deg,var(--teal-tint) 0 16px,var(--off-white) 16px 32px)}
+.pj-dev__avenir span{font-size:var(--fs-h2);font-weight:700;font-style:italic;color:var(--teal-dark)}
+@media (max-width:860px){.pj-dev__in{grid-template-columns:1fr}}

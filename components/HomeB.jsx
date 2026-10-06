@@ -304,12 +304,12 @@ function ProjetsIndexPage() {
   const vus = filtre === 'all' ? cartes : cartes.filter((c) => c.mission.key === filtre);
   const nomMission = (m) => m.title + (m.titleAccent ? ' ' + m.titleAccent : '');
   return (
-    <div className="gpage" ref={root} data-screen-label="Nos projets">
-      <window.HeroPage tone="deep" kicker="Cinq projets, trois missions" title="Nos lieux" accent="et projets"
+    <div className="gpage" ref={root} data-screen-label="L'écosystème">
+      <window.HeroPage tone="deep" kicker="Cinq projets, trois missions" title="L'écosystème" accent="Festin"
         proof={H.missions.ledeProjets}
         img="images/images-def/grand-festin-2025-brigades.jpg" imgAlt="Les brigades du Grand Festin 2025 sur les marches, près du Vieux-Port"
-        crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Nos projets' }]}>
-        <div className="g-herocta"><window.GLink l={{ to: 'pj-gal' }} className="btnb btnb--gold">Voir les projets <span className="arrow" aria-hidden="true">↓</span></window.GLink><window.GLink l={{ to: 'lieux' }} className="g-herolnk">Nos lieux <span className="arrow" aria-hidden="true">↓</span></window.GLink></div>
+        crumb={[{ label: 'Accueil', href: '#/' }, { label: "L'écosystème" }]}>
+        <div className="g-herocta"><window.GLink l={{ to: 'pj-gal' }} className="btnb btnb--gold">Voir les projets <span className="arrow" aria-hidden="true">↓</span></window.GLink><window.GLink l={{ to: 'developpement' }} className="g-herolnk">En développement <span className="arrow" aria-hidden="true">↓</span></window.GLink></div>
       </window.HeroPage>
       <section className="g-sec g-sec--white pj-gal" id="pj-gal" aria-labelledby="pj-gal-t">
         <div className="wrap">
@@ -349,35 +349,28 @@ function ProjetsIndexPage() {
           </ul>
         </div>
       </section>
-      {/* NOS LIEUX — la même offre, rangée par lieu (retours du 01/10/2026) */}
-      <section className="g-sec g-sec--cream pj-lieux" id="lieux" aria-labelledby="pj-lieux-t">
-        <div className="wrap">
-          <window.GHead id="pj-lieux-t" split title="Nos" accent="lieux." lede="Découvrez nos lieux ouverts au public." />
-          <ul className="pj-lieux__grid">
-            {(D.lieux || []).map((l) => (
-              <li key={l.key} className={'pj-lieu g-reveal' + (l.futur ? ' pj-lieu--futur' : '')}>
-                <div className="pj-lieu__img">
-                  {l.img ? <window.Picture src={l.img} alt="" sizes="(max-width: 700px) 100vw, 25vw" /> : <span className="pj-lieu__avenir" aria-hidden="true" />}
+      {/* EN DÉVELOPPEMENT (RETOURS-V3 §5.4) : Sadi Carnot, au futur, avec l'appel au don ;
+          les lieux ouverts au public passent dans le sous-menu « Nos tables » */}
+      {(() => {
+        const sc = (D.lieux || []).find((l) => l.key === 'sadi-carnot');
+        if (!sc) return null;
+        return (
+          <section className="g-sec g-sec--cream pj-dev" id="developpement" aria-labelledby="pj-dev-t">
+            <div className="wrap pj-dev__in">
+              <div>
+                <window.GHead id="pj-dev-t" title="En" accent="développement." />
+                <h3 className="pj-dev__t">{sc.lieu} <span>{sc.ville}</span></h3>
+                <p className="g-lede">{sc.text}</p>
+                <div className="g-actions">
+                  <a className="btnb btnb--gold" href={D.donation} target="_blank" rel="noopener noreferrer">Faire un don <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (nouvel onglet)</span></a>
+                  <a className="lnk" href="#/contact/mecenat">Devenir mécène <span className="arrow" aria-hidden="true">→</span></a>
                 </div>
-                <div className="pj-lieu__b">
-                  <span className="pj-lieu__ville">{l.ville}</span>
-                  <h3 className="pj-lieu__t">{l.lieu}</h3>
-                  {l.sous && <p className="pj-lieu__sous">{l.sous}</p>}
-                  <p>{l.text}</p>
-                  {l.actions.length > 0 && (
-                    <div className="pj-lieu__act">
-                      {l.actions.map((a) => {
-                        const ext = /^https?:/.test(a.href);
-                        return <a key={a.href} className="lnk" href={a.href} {...(ext ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{a.label} <span className="arrow" aria-hidden="true">{ext ? '↗' : '→'}</span>{ext && <span className="sr-only"> (nouvel onglet)</span>}</a>;
-                      })}
-                    </div>
-                  )}
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+              </div>
+              <div className="pj-dev__avenir" aria-hidden="true"><span>À venir</span></div>
+            </div>
+          </section>
+        );
+      })()}
     </div>
   );
 }

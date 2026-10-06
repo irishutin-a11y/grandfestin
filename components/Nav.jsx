@@ -89,6 +89,7 @@ function Nav() {
   const rubrique = data.rubriqueDe(hash);
   const [solid, setSolid] = useState(false);
   const [open, setOpen] = useState(false);
+  const [sub, setSub] = useState(null);
   const panelRef = useRef(null);
   const triggerRef = useRef(null);
   const lastFocus = useRef(null);
@@ -101,7 +102,7 @@ function Nav() {
   }, []);
 
   // fermer le panneau à chaque changement de route
-  useEffect(() => { setOpen(false); }, [hash]);
+  useEffect(() => { setOpen(false); setSub(null); }, [hash]);
 
   useEffect(() => { if (window.lucide) window.lucide.createIcons(); });
 
@@ -152,13 +153,27 @@ function Nav() {
         <a href="#/" className="navpill__brand" aria-label="Festin — accueil">
           <img src={data.brand.logo} alt="Festin" />
         </a>
-        <ul className="navpill__links">
+        {/* Arborescence C : chaque entrée ouvre son sous-menu au survol et au clavier (focus) ;
+            « Nos tables » n'a pas de page propre, c'est un bouton qui ouvre le sien */}
+        <ul className="navpill__links" onKeyDown={(e) => { if (e.key === 'Escape') { setSub(null); if (document.activeElement) document.activeElement.blur(); } }}>
           {data.arbo.map((r) => (
-            <li key={r.key}><a href={r.href} aria-current={hash === r.href ? 'page' : (rubrique === r.key ? 'location' : undefined)}>{r.label}</a></li>
+            <li key={r.key} className={'navpill__it' + (sub === r.key ? ' is-open' : '')} onMouseLeave={() => setSub((k) => (k === r.key ? null : k))}>
+              {r.href
+                ? <a href={r.href} aria-current={hash === r.href ? 'page' : (rubrique === r.key ? 'location' : undefined)}>{r.label}</a>
+                : <button type="button" className={rubrique === r.key ? 'is-here' : undefined} aria-expanded={sub === r.key} aria-controls={'sub-' + r.key}
+                    onClick={() => setSub((k) => (k === r.key ? null : r.key))}>{r.label} <span aria-hidden="true">▾</span></button>}
+              <ul className="navpill__sub" id={'sub-' + r.key} aria-label={r.label}>
+                {r.links.map((l) => (
+                  <li key={l.href + l.label}><a href={l.href} aria-current={hash === l.href ? 'page' : undefined} onClick={() => setSub(null)}>
+                    <b>{l.label}</b>{l.d && <span>{l.d}</span>}</a></li>
+                ))}
+              </ul>
+            </li>
           ))}
         </ul>
         <span className="navpill__sep" aria-hidden="true"></span>
         {/* « Soutenir Festin » : les trois façons de s'engager, en fin de page Impact (RETOURS-AUDIT, question 2) */}
+        <a className="navpill__soutenir navpill__presse" href="#/actualites" aria-current={hash === '#/actualites' ? 'page' : undefined}>Presse</a>
         <a className="navpill__soutenir" href="#/impact/soutenir" aria-current={hash === '#/impact/soutenir' ? 'page' : undefined}>Soutenir Festin</a>
         <a className="navpill__don" href={data.donation} target="_blank" rel="noopener noreferrer">
           <i data-lucide="heart" aria-hidden="true" /> Don

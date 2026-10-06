@@ -175,7 +175,7 @@ function Footer() {
   // empilés ne s'accordaient pas). Absent là où la page a son propre appel final.
   const hash = useRoute();
   // pages qui finissent déjà par leurs propres portes : accueil, projets, accompagnement, contact
-  const sansFin = ['#/', '#/contact', '#/academie', '#/formations', '#/accompagnement/insertion', '#/accompagnement/professionnels'].includes(hash) || hash.indexOf('#/projets/') === 0;
+  const sansFin = ['#/', '#/contact', '#/insertion/formation', '#/insertion/formation', '#/insertion', '#/restauration'].includes(hash) || hash.indexOf('#/projets/') === 0;
   return (
     <div className="footer-outer">
       <footer className="footer">
@@ -240,8 +240,8 @@ function FloatingCTA() {
   const actions = [
     { t: "Faire un don", d: "Soutenir Festin — HelloAsso", ic: "heart", c: "var(--coral, #E4572E)", href: data.donation, external: true },
     { t: "Réserver une table", d: "Les Beaux Mets — Baumettes", ic: "calendar-check", c: "var(--teal)", href: lesBeauxMets.ctaUrl, external: true },
-    { t: "Se former / candidater", d: "Rejoindre une promotion", ic: "graduation-cap", c: "var(--gold-ink)", href: "#/academie" },
-    { t: "Recruter via Festin", d: "Recruter et manager autrement", ic: "briefcase", c: "var(--teal-secondary)", href: "#/accompagnement/professionnels" },
+    { t: "Se former / candidater", d: "Rejoindre une promotion", ic: "graduation-cap", c: "var(--gold-ink)", href: "#/insertion/formation" },
+    { t: "Recruter via Festin", d: "Recruter et manager autrement", ic: "briefcase", c: "var(--teal-secondary)", href: "#/restauration" },
     { t: "Devenir partenaire", d: "Mécénat & soutien", ic: "handshake", c: "var(--violet, #9A5BA8)", href: "#/contact" },
   ];
   // Le bouton s'efface dès que le footer entre à l'écran : il ne recouvre plus

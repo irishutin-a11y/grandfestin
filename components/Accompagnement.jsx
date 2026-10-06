@@ -1,5 +1,5 @@
-// Accompagnement.jsx — pages « Apprendre un métier » (#/accompagnement/insertion)
-// et « Acteurs du secteur » (#/accompagnement/professionnels).
+// Accompagnement.jsx — pages « Apprendre un métier » (#/insertion)
+// et « Acteurs du secteur » (#/restauration).
 // Déploiement du 24/09/2026 (AUDIT-DEPLOIEMENT.md) : même grammaire que
 // l'accueil et les pages projet (Gabarit.jsx). Une page par public ; les
 // projets y sont rangés par mission ; les suites d'étapes passent par la
@@ -53,21 +53,106 @@ function GalerieAuto({ images }) {
   );
 }
 
+// ---------------------------------------------------------------------------
+// Éligibilité (RETOURS-V3 §4, réponse du 06/10/2026) : tout se passe dans le
+// navigateur, rien n'est envoyé. Critères repris du site (fiches et cartes) :
+// Des Étoiles et des Femmes : femme, 18 ans ou plus, français B1 ou B2, près
+// d'une des 13 antennes ; Tournesol : personne réfugiée ou primo-arrivante,
+// 18 ans ou plus, autorisée à travailler en France, français A2 minimum, à
+// Marseille. « Nous contacter » n'apparaît que si un parcours est possible.
+// ---------------------------------------------------------------------------
+function Eligibilite() {
+  const D = window.FESTIN_DATA;
+  const def = D.projets.find((p) => p.id === 'des-etoiles-et-des-femmes') || {};
+  const villes = (def.antennes || []).map((a) => a.ville).filter((v, i, t) => t.indexOf(v) === i).sort((a, b) => a.localeCompare(b, 'fr'));
+  const [r, setR] = React.useState({});
+  const [vu, setVu] = React.useState(false);
+  const set = (k) => (e) => { setR((x) => ({ ...x, [k]: e.target.value })); setVu(false); };
+  const Q = ({ k, q, opts, aide }) => (
+    <fieldset className="elig__q">
+      <legend>{q}</legend>
+      {aide && <p className="elig__aide">{aide}</p>}
+      <div className="elig__opts">
+        {opts.map(([v, l]) => (
+          <label key={v} className={'elig__opt' + (r[k] === v ? ' is-on' : '')}>
+            <input type="radio" name={'elig-' + k} value={v} checked={r[k] === v} onChange={set(k)} /> {l}
+          </label>
+        ))}
+      </div>
+    </fieldset>
+  );
+  const refugie = r.statut === 'oui' || r.statut === 'nsp';
+  const complet = r.age && r.femme && r.statut && (!refugie || r.travail) && r.francais && r.ville;
+  // 'ok' : éligible ; 'check' : à vérifier avec l'équipe ; null : non
+  const verdict = (conds) => (conds.some((c) => c === false) ? null : conds.some((c) => c === 'nsp') ? 'check' : 'ok');
+  const fr = r.francais;
+  const res = !complet ? [] : [
+    { id: 'des-etoiles-et-des-femmes', nom: 'Des Étoiles et des Femmes', href: '#/projets/des-etoiles-et-des-femmes',
+      v: verdict([r.age === 'oui', r.femme === 'oui', fr === 'nsp' ? 'nsp' : (fr === 'b1' || fr === 'b2'), r.ville !== 'autre']) },
+    { id: 'tournesol', nom: 'Tournesol', href: '#/parcours/tournesol',
+      v: verdict([r.age === 'oui', r.statut === 'nsp' ? 'nsp' : r.statut === 'oui', !refugie ? false : (r.travail === 'nsp' ? 'nsp' : r.travail === 'oui'), fr === 'nsp' ? 'nsp' : fr !== 'a1', r.ville === 'Marseille']) },
+  ].filter((x) => x.v);
+  return (
+    <section className="g-sec g-sec--white elig" id="eligibilite" aria-labelledby="elig-t">
+      <div className="wrap elig__in">
+        <window.GHead id="elig-t" split title="Suis-je" accent="éligible ?"
+          lede="Quelques questions pour savoir si une de nos formations vous est ouverte. Vos réponses restent sur votre écran : rien n'est envoyé." />
+        <form className="elig__form" onSubmit={(e) => { e.preventDefault(); setVu(true); }}>
+          <Q k="age" q="Avez-vous 18 ans ou plus ?" opts={[['oui', 'Oui'], ['non', 'Non']]} />
+          <Q k="femme" q="Êtes-vous une femme ?" aide="Le dispositif Des Étoiles et des Femmes s'adresse aux femmes." opts={[['oui', 'Oui'], ['non', 'Non']]} />
+          <Q k="statut" q="Avez-vous le statut de réfugié, ou êtes-vous arrivé en France récemment ?" aide="La formation Tournesol s'adresse aux personnes réfugiées ou primo-arrivantes." opts={[['oui', 'Oui'], ['non', 'Non'], ['nsp', 'Je ne sais pas']]} />
+          {refugie && <Q k="travail" q="Avez-vous le droit de travailler en France ?" opts={[['oui', 'Oui'], ['non', 'Non'], ['nsp', 'Je ne sais pas']]} />}
+          <Q k="francais" q="Quel est votre niveau de français ?" opts={[['a1', 'Je débute'], ['a2', 'Je comprends et je parle avec des phrases simples'], ['b1', 'Je me débrouille dans la plupart des situations'], ['b2', "Je parle avec aisance"], ['nsp', 'Je ne sais pas']]} />
+          <div className="elig__q">
+            <label className="elig__lbl" htmlFor="elig-ville">Où habitez-vous ?</label>
+            <select id="elig-ville" className="elig__select" value={r.ville || ''} onChange={set('ville')}>
+              <option value="" disabled>Choisir une ville ou un département</option>
+              {villes.map((v) => <option key={v} value={v}>{v}</option>)}
+              <option value="autre">Une autre ville</option>
+            </select>
+          </div>
+          <button type="submit" className="btnb btnb--teal" disabled={!complet}>Voir le résultat <span className="arrow" aria-hidden="true">→</span></button>
+          {!complet && <p className="elig__aide">Répondez à toutes les questions pour voir le résultat.</p>}
+        </form>
+        <div className="elig__res" aria-live="polite">
+          {vu && complet && (res.length ? (
+            <div className="elig__ok">
+              <h3>{res.some((x) => x.v === 'ok') ? 'Une formation vous est ouverte.' : 'Une formation peut vous être ouverte.'}</h3>
+              <ul>
+                {res.map((x) => (
+                  <li key={x.id}><a href={x.href}><b>{x.nom}</b></a> {x.v === 'check' ? ': à vérifier avec l\'équipe, selon votre situation.' : ': vous remplissez les conditions.'}</li>
+                ))}
+              </ul>
+              <a className="btnb btnb--gold" href="#/contact/se-former">Nous contacter <span className="arrow" aria-hidden="true">→</span></a>
+            </div>
+          ) : (
+            <div className="elig__non">
+              <h3>Nos formations ne correspondent pas à votre situation pour le moment.</h3>
+              <p>Votre conseiller France Travail ou votre mission locale peut vous orienter.</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function AccompagnementInsertionPage() {
   const root = useRef(null);
   window.useGReveal(root);
   const D = window.FESTIN_DATA;
   return (
     <div className="gpage acc" ref={root} data-screen-label="Accompagnement — Insertion">
-      <AccHero tone="teal" crumb="Insertion" kicker="Vous cherchez un métier"
-        title="Apprendre un métier de cuisine," em="gratuitement."
-        lede="Vous préparez un diplôme reconnu, vous faites vos stages en restaurant et une personne de l'équipe vous suit jusqu'à l'emploi."
+      <AccHero tone="teal" crumb="L'insertion" kicker="Nos parcours"
+        title="Un métier en cuisine," em="et quelqu'un à vos côtés."
         img="images/photo-tabliers-violets.jpg" imgAlt="Des apprenties du dispositif Des Étoiles et des Femmes en cuisine"
-        cta={{ label: 'Vérifier mon éligibilité', href: '#/contact/se-former' }} lien={{ label: 'Quel parcours, pour qui ?', to: 'parcours-choix' }} />
+        cta={{ label: 'Vérifier mon éligibilité', to: 'eligibilite' }} lien={{ label: 'Quel parcours, pour qui ?', to: 'parcours-choix' }} />
+
+      <Eligibilite />
 
       {/* PRESCRIPTEURS — un bloc court, puis tout le reste s'adresse à la personne
           (RETOURS-AUDIT, question 1 : réponse A) */}
-      <section className="g-sec g-sec--cream g-sec--tight ins-presc" aria-labelledby="ins-presc-t">
+      <section className="g-sec g-sec--cream g-sec--tight ins-presc" id="orienter" aria-labelledby="ins-presc-t">
         <div className="wrap ins-presc__in">
           <div className="ins-presc__txt">
             <h2 className="ins-presc__t" id="ins-presc-t">Vous orientez une personne&nbsp;?</h2>
@@ -103,10 +188,12 @@ function AccompagnementInsertionPage() {
                       <div><dt>Pour entrer</dt><dd>{o.conditions || (window.FESTIN_SHOW_PLACEHOLDERS ? <span className="is-placeholder or-miss">[À COMPLÉTER : conditions d'entrée]</span> : "Le site du projet donne les conditions d'entrée.")}</dd></div>
                     </dl>
                     <div className="or-card__cta">
+                      {/* La Table de Cana Marseille : on y postule (emploi en insertion, sans diplôme) */}
+                      {o.id === 'la-table-de-cana' && <a className="btnb btnb--gold" href="#/contact/se-former">Postuler <span className="arrow" aria-hidden="true">→</span></a>}
                       {p.siteUrl && <a className="btnb btnb--teal" href={p.siteUrl} target="_blank" rel="noopener noreferrer">Plus d'informations <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (site du projet, nouvel onglet)</span></a>}
                       {/* Tournesol est une formation : sa fiche, pas une page projet (RETOURS-AUDIT, question 4) */}
                       {o.id === 'tournesol'
-                        ? <a className="lnk" href="#/formations/tournesol">La fiche de la formation <span className="arrow" aria-hidden="true">→</span></a>
+                        ? <a className="lnk" href="#/parcours/tournesol">La fiche de la formation <span className="arrow" aria-hidden="true">→</span></a>
                         : <a className="lnk" href={'#/projets/' + o.id}>La page du projet <span className="arrow" aria-hidden="true">→</span></a>}
                     </div>
                   </div>
@@ -147,9 +234,11 @@ function AccompagnementInsertionPage() {
         { q: "Et après la formation ?", a: "Nous préparons avec vous la recherche de poste et nous vous mettons en relation avec des restaurants qui recrutent." },
       ]} />
 
+      <window.AcaFormation />
+
       <window.Appel id="ins-appel" title="Vérifier si le parcours" accent="est fait pour vous."
-        text="Écrivez-nous : nous vérifions ensemble votre éligibilité, puis nous vous invitons à une réunion d'information."
-        cta={{ label: 'Vérifier mon éligibilité', href: '#/contact/se-former' }} />
+        text="Répondez aux questions : si une formation vous est ouverte, écrivez-nous et nous vous invitons à une réunion d'information."
+        cta={{ label: 'Vérifier mon éligibilité', to: 'eligibilite' }} />
     </div>
   );
 }
@@ -179,10 +268,10 @@ function AccompagnementProsPage() {
       <header className="ar-hero on-dark">
         <window.Picture className="ar-hero__img" src="images/beauxmets-images/LBM_cdutrey_071122-7264.jpg" alt="" loading="eager" fetchPriority="high" />
         <div className="wrap ar-hero__in">
-          <nav className="hp__crumb ar-hero__crumb" aria-label="Fil d'Ariane"><a href="#/">Accueil</a> <span aria-hidden="true">/</span> <span aria-current="page">Professionnels</span></nav>
-          <p className="ar-eyebrow">Professionnels de la restauration</p>
-          <h1 className="ar-hero__t">Former et recruter, <em>avec Festin.</em></h1>
-          <p className="ar-hero__p">Des formations pour vos équipes, des personnes formées pour votre brigade.</p>
+          <nav className="hp__crumb ar-hero__crumb" aria-label="Fil d'Ariane"><a href="#/">Accueil</a> <span aria-hidden="true">/</span> <span aria-current="page">Pour la restauration</span></nav>
+          <p className="ar-eyebrow">Pour la restauration</p>
+          <h1 className="ar-hero__t">Recruter et former, <em>avec Festin.</em></h1>
+          <p className="ar-hero__p">Des personnes formées pour votre brigade, des formations pour vos équipes.</p>
           <div className="ar-hero__cta">
             <a className="btnb btnb--gold" href="#pros-former" onClick={go('pros-former')}>Former vos équipes <span className="arrow" aria-hidden="true">↓</span></a>
             <a className="btnb btnb--light" href="#pros-recruter" onClick={go('pros-recruter')}>Recruter <span className="arrow" aria-hidden="true">↓</span></a>

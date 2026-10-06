@@ -6,20 +6,23 @@ function parseRoute(hash) {
   const parts = h.split('/');
   // anciennes adresses (RETOURS-AUDIT, questions 4 et 5) : une seule fiche pour le dispositif
   // Des Étoiles et des Femmes ; Tournesol est une formation, plus une page projet
+  // Arborescence C (RETOURS-V3, validée le 06/10/2026) : nouvelles adresses, les anciennes restent valides
   const ALIAS = { tfp: 'des-etoiles-et-des-femmes', cap: 'des-etoiles-et-des-femmes' };
+  if (parts[0] === 'insertion') return { name: 'accomp-insertion', ancre: parts[1] };
+  if (parts[0] === 'restauration') return { name: 'accomp-pros' };
+  if (parts[0] === 'parcours' && parts[1]) return { name: 'formation', id: ALIAS[parts[1]] || parts[1] };
   if (parts[0] === 'formations' && parts[1]) return { name: 'formation', id: ALIAS[parts[1]] || parts[1] };
   if (parts[0] === 'projets' && parts[1] === 'tournesol') return { name: 'formation', id: 'tournesol' };
-  // le catalogue vit dans la page Académie (une page, un nom) : #/formations y mène, au bon endroit
-  if (parts[0] === 'formations') return { name: 'academie', ancre: 'catalogue' };
-  if (parts[0] === 'projets' && parts[1] === 'lieux') return { name: 'projets', ancre: 'lieux' };
+  // l'Académie est une section de L'insertion : ses anciennes adresses y mènent
+  if (parts[0] === 'formations' || parts[0] === 'academie') return { name: 'accomp-insertion', ancre: 'formation' };
+  if (parts[0] === 'projets' && parts[1] === 'lieux') return { name: 'projets' };
   if (parts[0] === 'projets' && parts[1]) return { name: 'projet', id: parts[1] };
   if (parts[0] === 'projets') return { name: 'projets' };
   // Sadi Carnot : pas de page tant que le projet n'est pas acquis (arbitrage 8B) ; l'ancienne adresse mène à l'accueil
   if (parts[0] === 'restaurants') return { name: 'home' };
   if (parts[0] === 'accompagnement' && parts[1] === 'insertion') return { name: 'accomp-insertion' };
   if (parts[0] === 'accompagnement' && parts[1] === 'professionnels') return { name: 'accomp-pros' };
-  if (parts[0] === 'academie') return { name: 'academie' };
-  if (parts[0] === 'actualites') return { name: 'actualites' };
+  if (parts[0] === 'actualites' || parts[0] === 'presse') return { name: 'actualites' };
   if (parts[0] === 'impact') return { name: 'impact', ancre: parts[1] === 'soutenir' ? 's-engager' : undefined };
   if (parts[0] === 'about') return { name: 'about' };
   if (parts[0] === 'contact') return { name: 'contact' };
@@ -78,17 +81,17 @@ function App() {
     const D = window.FESTIN_DATA, base = 'Festin';
     const proj = route.name === 'projet' ? D.projets.find(x => x.id === route.id) : null;
     const titles = {
-      home: 'Festin : former les personnes, faire avancer les cuisines',
-      about: 'Qui sommes-nous | ' + base, projets: 'Nos projets | ' + base, formation: 'Formation | ' + base,
-      academie: "L'Académie Festin | " + base, impact: 'Notre impact | ' + base, actualites: 'Actualités et presse | ' + base,
-      contact: 'Contact | ' + base, 'accomp-insertion': 'Insertion : apprendre un métier de cuisine | ' + base,
-      'accomp-pros': 'Professionnels : former et recruter | ' + base,
+      home: "Festin : mettre la restauration au service de l'égalité des chances",
+      about: 'Qui sommes-nous | ' + base, projets: "L'écosystème Festin | " + base, formation: 'Parcours et formations | ' + base,
+      impact: 'Compter ce qui compte : notre impact | ' + base, actualites: 'Presse et actualités | ' + base,
+      contact: 'Contact | ' + base, 'accomp-insertion': "L'insertion : nos parcours | " + base,
+      'accomp-pros': 'Pour la restauration : recruter et former | ' + base,
     };
     document.title = proj ? proj.shortTitle + ' | ' + base : (titles[route.name] || 'Page introuvable | ' + base);
     const md = document.querySelector('meta[name="description"]');
     if (md) md.setAttribute('content', proj ? proj.short : route.name === 'home'
-      ? "Festin, association à but non lucratif et d'intérêt général basée à Marseille : formation aux métiers de la cuisine, accompagnement des restaurants et programme Restaure."
-      : (document.title.split(' | ')[0] + ' : ' + base + ', association à but non lucratif et d\'intérêt général, forme aux métiers de la cuisine et accompagne les restaurants.'));
+      ? "Festin, groupe associatif à but non lucratif né à Marseille en 1987, met la restauration au service de l'égalité des chances : parcours d'insertion, accompagnement jusqu'à l'emploi, restaurants et traiteur en insertion, programme Restaure."
+      : (document.title.split(' | ')[0] + ' : ' + base + ", groupe associatif à but non lucratif, met la restauration au service de l'égalité des chances."));
     return () => clearTimeout(t);
   }, [hash]);
 
@@ -100,7 +103,6 @@ function App() {
     case 'projet':            page = <ProjetPage id={route.id} />; break;
     case 'accomp-insertion':  page = <AccompagnementInsertionPage />; break;
     case 'accomp-pros':       page = <AccompagnementProsPage />; break;
-    case 'academie':          page = <AcademiePage />; break;
     case 'actualites':         page = <ActualitesPage />; break;
     case 'impact':            page = <ImpactPage />; break;
     case 'about':             page = <AboutPage />; break;
