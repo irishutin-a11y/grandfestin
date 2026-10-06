@@ -11,7 +11,7 @@ window.FESTIN_DATA = {
   },
   catalogPdf: "https://drive.google.com/file/d/1c8ueQMkTpjb1KmjJPV3nQ9djTLOmN8yC/view?usp=sharing",
   contact: {
-    email: "contact@desetoilesetdesfemmes.com", // adresse générale (RETOURS-AUDIT, question 3)
+    email: "contact@grandfestin.com", // adresse générale (retour du 06/10/2026)
     altEmail: "armand.hurault@associationfestin.com",
     referent: "Armand Hurault",
     referentRole: "Directeur général, relations restaurateurs et engagement",
@@ -1576,17 +1576,17 @@ window.FESTIN_DATA.about = {
 // Pour en changer une : modifier sa ligne ici, tous les liens du site suivent
 // (formulaire Contact, coordonnées, pied de page, espace presse, « Devenir mécène »).
 window.FESTIN_DATA.emails = {
-  general:       "contact@desetoilesetdesfemmes.com",
-  candidature:   "contact@desetoilesetdesfemmes.com", // se former, vérifier son éligibilité
-  prescription:  "contact@desetoilesetdesfemmes.com", // orienter une personne
-  recrutement:   "contact@desetoilesetdesfemmes.com", // stage, Book de l'emploi, POEI
-  formationsPro: "contact@desetoilesetdesfemmes.com", // formations du programme Restaure
-  traiteur:      "contact@desetoilesetdesfemmes.com", // devis, La Table de Cana Marseille
-  privatisation: "contact@desetoilesetdesfemmes.com", // Les Beaux Mets
-  mecenat:       "contact@desetoilesetdesfemmes.com", // dons, mécénat
-  partenariat:   "contact@desetoilesetdesfemmes.com", // antennes, partenaires opérationnels
-  presse:        "contact@desetoilesetdesfemmes.com",
-  handicap:      "contact@desetoilesetdesfemmes.com", // accessibilité, référente handicap
+  general:       "contact@grandfestin.com",
+  candidature:   "contact@grandfestin.com", // se former, vérifier son éligibilité
+  prescription:  "contact@grandfestin.com", // orienter une personne
+  recrutement:   "contact@grandfestin.com", // stage, Book de l'emploi, POEI
+  formationsPro: "contact@grandfestin.com", // formations du programme Restaure
+  traiteur:      "contact@grandfestin.com", // devis, La Table de Cana Marseille
+  privatisation: "contact@grandfestin.com", // Les Beaux Mets
+  mecenat:       "partenariat@grandfestin.com", // dons, mécénat
+  partenariat:   "partenariat@grandfestin.com", // antennes, partenaires opérationnels
+  presse:        "contact@grandfestin.com",
+  handicap:      "contact@grandfestin.com", // accessibilité, référente handicap
 };
 
 // Backward-compat alias so anything still referencing the old name keeps working
