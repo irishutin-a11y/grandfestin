@@ -50,12 +50,13 @@ function Accordeon({ id, items = [] }) {
 
 // Bloc encarté (fond teal, marges visibles) : titre, chapeau et étiquettes
 // à gauche, contenu dense (accordéon) à droite.
-function BlocEncarte({ id, title, accent, lede, tags, tone = 'teal', children }) {
+function BlocEncarte({ id, title, accent, lede, tags, action, tone = 'teal', children }) {
   return (
     <div className={'ar-bloc ar-bloc--' + tone + ' on-dark g-reveal'}>
       <div className="ar-bloc__head">
         <h2 className="ar-h2" id={id}>{title} {accent && <em>{accent}</em>}</h2>
         {lede && <p className="ar-bloc__p">{lede}</p>}
+        {action}
         <Tags tags={tags} className="ar-tags--row" />
       </div>
       <div className="ar-bloc__body">{children}</div>

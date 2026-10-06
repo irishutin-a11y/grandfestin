@@ -195,6 +195,7 @@ function AccompagnementProsPage() {
         <div className="wrap">
           <window.BlocEncarte id="pros-former-t" title="Former" accent="vos équipes."
             lede="Deux formations courtes, en présentiel, dans vos murs ou avec d'autres établissements."
+            action={<a className="btnb btnb--gold ar-bloc__cta" href="#/contact/former">Demander une formation <span className="arrow" aria-hidden="true">→</span></a>}
             tags={[['Proposées par', 'le programme Restaure'], ['Format', 'Inter ou intra']]}>
             <ul className="ar-fcards">
               {[
@@ -214,7 +215,6 @@ function AccompagnementProsPage() {
                 </li>
               ))}
             </ul>
-            <a className="btnb btnb--gold ar-bloc__cta" href="#/contact/former">Demander une formation <span className="arrow" aria-hidden="true">→</span></a>
           </window.BlocEncarte>
         </div>
       </section>
