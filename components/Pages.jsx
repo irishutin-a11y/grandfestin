@@ -667,7 +667,6 @@ function ActualitesPage() {
             <div className="apkit__logos">
               <a className="btnb btnb--teal" href="images/logo-festin.png" download>Logo Festin, couleur</a>
               <a className="lnk" href="images/logo-festin-jaune.png" download>Logo Festin, jaune</a>
-              <a className="lnk" href="images/logo-academie-festin.png" download>Logo Académie Festin</a>
             </div>
           </div>
           <div className="apkit__facts">

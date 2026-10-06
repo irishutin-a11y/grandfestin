@@ -4,7 +4,7 @@ window.FESTIN_DATA = {
     name: "Festin",
     tagline: "Le goût d'avancer ensemble",
     logo: "images/logo-festin.png",
-    logoWhite: "images/logo-academie-festin-blanc.png",
+    logoWhite: "images/logo-festin-blanc.png",
     logoGold: "images/logo-festin-jaune.png",
     qualiopi: "images/logo-qualiopi.png",
     site: "https://www.grandfestin.com",
@@ -1145,7 +1145,7 @@ Object.assign(window.FESTIN_DATA.home, {
         fait: { n: "91 %", t: "de réussite aux diplômes en 2025", p: "Des Étoiles et des Femmes" },
         projets: [
           { id: "des-etoiles-et-des-femmes", line: "Des femmes formées avec des chefs, dans 13 villes.", img: "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg" },
-          { id: "academie", href: "#/academie", name: "Académie Festin", logo: "images/logo-academie-festin.png", line: "Notre organisme de formation, en partenariat avec Estello Formation.", img: "images/photo-cuisine-formation.jpg" },
+          { id: "academie", href: "#/academie", name: "Académie Festin", line: "Notre organisme de formation, en partenariat avec Estello Formation.", img: "images/photo-cuisine-formation.jpg" },
         ] },
       { key: "accompagner", title: "Accompagner", titleAccent: "jusqu'à l'emploi",
         text: "Un suivi de la première semaine jusqu'au contrat : logement, garde d'enfants, papiers, recherche de poste. Et un premier emploi salarié, en brigade.",

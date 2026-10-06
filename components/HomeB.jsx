@@ -188,7 +188,7 @@ function HomeB() {
       </section>
 
       {/* 4 · PRÈS DE QUARANTE ANS — la frise des projets, chaque carte mène à sa page */}
-      <window.JalonsCouleur id="histoire" jalons={H.jalons.items.map((j) => { const p = D.projets.find((x) => j.href === '#/projets/' + x.id); return { ...j, logo: j.logo || (p && p.logo) || (j.href === '#/academie' ? 'images/logo-academie-festin.png' : null) }; })} title={H.jalons.title} em={H.jalons.titleAccent}
+      <window.JalonsCouleur id="histoire" jalons={H.jalons.items.map((j) => { const p = D.projets.find((x) => j.href === '#/projets/' + x.id); return { ...j, logo: j.logo || (p && p.logo) || null }; })} title={H.jalons.title} em={H.jalons.titleAccent}
         lede={H.jalons.lede} word="PROJETS" label="Les projets de Festin, de 1993 à 2026" />
 
       {/* 5 · Le catalogue complet est sur l'Académie et la page Pros (RETOURS-AUDIT §2.10) :
