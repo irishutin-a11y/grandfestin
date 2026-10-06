@@ -75,16 +75,9 @@
 
 /* ============ 2 · CONFIANCE ============ */
 .ac-conf{background:var(--cream);padding:clamp(26px,3.4vw,40px) 0;border-bottom:1px solid var(--line)}
-.ac-conf__row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--sp-4) var(--sp-7)}
 .ac-conf__statuts{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 0;
   font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-mid)}
 .ac-conf__statuts li+li::before{content:'·';margin:0 10px;color:var(--gold-ink)}
-.ac-conf__presse{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px var(--sp-5)}
-.ac-conf__label{font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-ink)}
-.ac-conf__media{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px clamp(14px,1.8vw,26px)}
-.ac-conf__media li{font-size:clamp(17px,.9rem+.5vw,22px);font-weight:700;letter-spacing:-.01em;color:var(--ink)}
-.ac-conf__media a{color:inherit;display:inline-block;padding:6px 0;transition:color var(--dur-2) var(--ease-quart)}
-.ac-conf__media a:hover{color:var(--teal);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px}
 
 /* ============ 3 · TROIS MISSIONS, SIX PROJETS ============ */
 .ac-mis{background:var(--off-white);padding:var(--section) 0}

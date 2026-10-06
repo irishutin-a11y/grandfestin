@@ -282,7 +282,7 @@
 .g-mnav--compact a{min-height:48px}
 /* Petites étiquettes : casse de phrase, 14 px semi-gras (revue du 25/09/2026).
    Les capitales espacées restent réservées à l'étiquette du hero. */
-.optA-h,.frise__tab,.frise__railk,.frise__stat span,.ac-porte__tag,.g-news__src,.g-tag,.ac-conf__label,.ac-pv__chefsT,.g-ppm__t,.g-ppm__pour,.ab-member__role span{
+.optA-h,.frise__tab,.frise__railk,.frise__stat span,.ac-porte__tag,.g-news__src,.g-tag,.ac-pv__chefsT,.g-ppm__t,.g-ppm__pour,.ab-member__role span{
   text-transform:none!important;letter-spacing:0!important;font-size:14px!important;font-weight:600!important}
 /* Page « Nos projets » : le mot de la direction en ouverture */
 .pj-intro__fig{margin:0;max-width:980px;display:grid;gap:var(--sp-5)}

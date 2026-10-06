@@ -1118,21 +1118,9 @@ Object.assign(window.FESTIN_DATA.home, {
     img: "images/beauxmets-images/LBM_masterclass_chloeCharles_cdutrey_030325-7893.jpg",
     imgAlt: "Une brigade en cuisine, de dos, bras dessus bras dessous",
   },
-  // Ligne de confiance : statuts, puis les médias nationaux (liens vers les articles de .presse)
+  // Ligne de confiance : les statuts (médias retirés de l'accueil, retours V2)
   confiance: {
     statuts: ["Association loi 1901", "D'intérêt général, agréée ESUS", "Depuis 1987", "14 territoires", "Social et solidaire"],
-    presseLabel: "Ils en ont parlé",
-    // source telle qu'écrite dans FESTIN_DATA.presse → nom affiché
-    medias: [
-      { source: "TF1 : JT 20h", nom: "TF1" },
-      { source: "France 2 : 13h15 le dimanche", nom: "France 2" },
-      { source: "M6 : Un jour, un doc", nom: "M6" },
-      { source: "France Inter : On va déguster", nom: "France Inter" },
-      { source: "Le Monde", nom: "Le Monde" },
-      { source: "Libération", nom: "Libération" },
-      { source: "Les Échos Weekend", nom: "Les Échos" },
-      { source: "El País", nom: "El País" },
-    ],
   },
   missions: {
     title: "Nos cinq projets servent", titleAccent: "trois missions.",

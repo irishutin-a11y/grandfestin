@@ -43,10 +43,6 @@ function HomeB() {
         .from('.ac-hero__media img', { scale: 1.12, duration: 1.8 }, 0.1);
       gsap.to('.ac-hero__media img', { yPercent: 6, ease: 'none', scrollTrigger: { trigger: '.ac-hero', start: 'top top', end: 'bottom top', scrub: true } });
 
-      // CONFIANCE : les médias arrivent l'un après l'autre
-      gsap.from('.ac-conf__media li', { y: 16, autoAlpha: 0, stagger: 0.06, duration: M.dur.reveal,
-        scrollTrigger: { trigger: '.ac-conf', start: 'top 88%', once: true } });
-
       // MISSIONS : le fil se trace de 01 à 03 ; chaque mission s'allume quand il l'atteint
       const fil = root.querySelector('.ac-mis__fil path');
       if (fil) {
@@ -79,7 +75,6 @@ function HomeB() {
   const D = window.FESTIN_DATA;
   const H = D.home;
   const byId = (id) => D.projets.find((p) => p.id === id) || {};
-  const presseHref = (source) => { const a = (D.presse || []).find((x) => x.source === source); return a ? a.href : null; };
   const lienDon = (href) => (href === 'don' ? D.donation : href);
 
   return (
@@ -116,7 +111,7 @@ function HomeB() {
         </figure>
       </header>
 
-      {/* 2 · CONFIANCE — statuts, puis les médias qui ont parlé de Festin */}
+      {/* 2 · CONFIANCE : les statuts (« Ils en ont parlé » retiré, retours V2 §2) */}
       <section className="ac-conf" aria-label="L'association en bref">
         {/* statuts en bandeau défilant (retours du 25/09/2026) ; liste fixe en mouvement réduit */}
         <div className="ac-conf__band" data-marquee>
@@ -126,17 +121,6 @@ function HomeB() {
             ))}
           </ul>
           <window.MarqueePause label="des statuts" />
-        </div>
-        <div className="wrap ac-conf__row">
-          <div className="ac-conf__presse">
-            <span className="ac-conf__label">{H.confiance.presseLabel}</span>
-            <ul className="ac-conf__media">
-              {H.confiance.medias.map((m) => {
-                const href = presseHref(m.source);
-                return <li key={m.nom}>{href ? <a href={href} target="_blank" rel="noopener noreferrer">{m.nom}</a> : m.nom}</li>;
-              })}
-            </ul>
-          </div>
         </div>
       </section>
 
