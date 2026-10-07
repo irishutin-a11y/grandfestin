@@ -66,38 +66,37 @@ function FormationDetailPage({ id }) {
   if (!f) return <NotFoundPage />;
   return (
     <div data-screen-label={`03 Formation — ${f.title}`}>
-      <PageHeader center tone={f.cat === 'Professionnels' ? 'gold' : 'teal'}
-        eyebrow={(f.cat === 'Professionnels' ? 'Formation pro' : 'Formation diplômante') + (f.porteur ? ' · ' + f.porteur : '')}
+      {/* en-tête « photo nue et cartouche » (HEADERS.md, proposition 3) : la photo de la formation,
+          le titre et quatre faits dans un cartouche or (pro) ou teal (insertion) */}
+      <window.HeroPage famille="formation" tone={f.cat === 'Professionnels' ? 'gold' : 'teal'}
+        img={f.img} imgAlt={f.imgAlt || ''}
         title={(f.titreFiche || f.title).split('—')[0].trim()}
-        accent={f.title.includes('—') ? '— ' + f.title.split('—')[1].trim() : null}
-        subtitle={f.desc}
-        breadcrumb={[
+        accent={f.title.includes('—') ? f.title.split('—')[1].trim() : null}
+        pastilles={f.pastilles}
+        faits={f.cat === 'Professionnels'
+          ? [['Durée', f.dureeCourte], ['Format', 'Dans vos murs ou en inter'], ['Public', f.publicLabel], ['Proposée par', 'le programme Restaure']]
+          : [['Durée', f.dureeCourte], ['Où', f.ou], ['Pour qui', f.publicLabel], ['Coût', 'Gratuit']]}
+        crumb={[
           {label:'Accueil',href:'#/'},
           f.cat === 'Professionnels' ? {label:'Le programme Restaure',href:'#/projets/restaure'}
             : (window.FESTIN_DATA.projetPages || {})[f.id] ? {label:f.titreFiche || f.title,href:'#/projets/' + f.id} : {label:"L'insertion",href:'#/insertion'},
           {label:(window.FESTIN_DATA.projetPages || {})[f.id] ? 'La formation' : (f.titreFiche || f.title)}
         ]}
       >
-        {/* pastilles CAP et TFP remises (retour du 07/10/2026) : seule exception à l'en-tête allégé */}
-        {f.pastilles && <ul className="hp__pastilles" aria-label="Diplômes préparés">{f.pastilles.map((t) => <li key={t}>{t}</li>)}</ul>}
         {(() => {
           // plus d'informations : le site du projet pour les parcours, le contact pour les formations pro
           const site = { 'des-etoiles-et-des-femmes': 'des-etoiles-et-des-femmes', tournesol: 'tournesol' }[f.id];
           const p = site && window.FESTIN_DATA.projets.find((x) => x.id === site);
-          return <div className="g-herocta">{p
+          return p
             ? <a className="btnb btnb--light" href={p.siteUrl} target="_blank" rel="noopener noreferrer">Plus d'informations <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (site du projet, nouvel onglet)</span></a>
-            : <a className="btnb btnb--teal" href="#/contact/former">Plus d'informations <span className="arrow" aria-hidden="true">→</span></a>}</div>;
+            : <a className="btnb btnb--teal" href="#/contact/former">Plus d'informations <span className="arrow" aria-hidden="true">→</span></a>;
         })()}
-      </PageHeader>
+      </window.HeroPage>
       <section style={{padding:'var(--s-8) 0',background:'var(--off-white)'}}>
         <div className="container">
           <div className="detail-grid">
             <div className="detail-main">
-              {f.img && (
-                <div className="detail-hero">
-                  <img src={f.img} alt={f.title}/>
-                </div>
-              )}
+              {/* la photo de la formation est dans l'en-tête (proposition 3) */}
               <div className="detail-section">
                 <span className="eyebrow">Objectifs pédagogiques</span>
                 <h2 className="h3" style={{marginTop:8,marginBottom:18}}>Ce que vous apprendrez</h2>

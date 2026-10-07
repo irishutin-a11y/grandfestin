@@ -147,7 +147,12 @@ Document : `PROPOSITIONS-V4.md` (réponses de l'utilisatrice). Remplace la barre
 - **S'engager avec Festin** (Impact) : Financer et Accueillir en deux colonnes ; « Porter une antenne » à part, en bloc sombre (« Un engagement dans la durée », ce qu'il faut réunir, « Parlons de votre projet d'antenne »).
 - **Une seule liste de reconnaissances, sur Impact.** Qui sommes-nous n'a plus de frise (`about.jalons` ne sert plus que de données).
 
-## Points ouverts
+## En-têtes « photo nue et cartouche » (07/10/2026), tranché
+Proposition 3 de `HEADERS.md` (branche de comparaison `headers-propositions`, route `#/headers`), « à améliorer par la suite ».
+- `HeroPage` (Sections.jsx, classes `hc-*` dans gabarit.css) : photo sans voile, pleine largeur, à hauteur fixe (`--hc-h`), puis un **cartouche** de la couleur du public (teal = personnes, or = professionnels, teal profond = le reste) qui chevauche le bas de la photo (`--hc-o`). Fil d'Ariane, titre, un bouton. Sans photo : le cartouche seul.
+- Trois familles : **accueil** (HomeB.jsx, cartouche teal profond + les deux portes empilées), **section** (toutes les pages intérieures, dont Pour le secteur), **formation** (`famille="formation"` : photo de la formation, faits dans le cartouche : durée, où ou format, public, coût ou porteur ; pastilles CAP/TFP). La photo n'est plus répétée dans le corps des fiches.
+- Méga menu : **aucune formation listée une à une** (elles se multiplieront) ; « Toutes les formations d'insertion » → `#/catalogue/insertion`, « Toutes les formations pro » → `#/catalogue/pro`. Plus de phrase de statut en pied de menu.
+
 Voir `copywriting/06-journal-des-changements.md`, section « Encore en `[XX]` » : portraits de l'équipe, témoignages entreprise et financeur, crédits photo, intitulés de Marion Binachon et Fanny Bouvier.
 
 ## Matière disponible dans le Drive

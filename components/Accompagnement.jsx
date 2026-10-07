@@ -298,16 +298,12 @@ function AccompagnementProsPage() {
     <div className="gpage ar-page" ref={root} data-screen-label="Professionnels">
 
       {/* 1 · PLEIN CADRE — photo pleine largeur, texte en surimpression (fond sombre) */}
-      <header className="ar-hero on-dark">
-        <window.Picture className="ar-hero__img" src="images/beauxmets-images/LBM_cdutrey_071122-7264.jpg" alt="" loading="eager" fetchPriority="high" />
-        <div className="wrap ar-hero__in">
-          <nav className="hp__crumb ar-hero__crumb" aria-label="Fil d'Ariane"><a href="#/">Accueil</a> <span aria-hidden="true">/</span> <span aria-current="page">Pour le secteur</span></nav>
-          <h1 className="ar-hero__t">Recruter et former, <em>avec Festin.</em></h1>
-          <div className="ar-hero__cta">
-            <a className="btnb btnb--gold" href="#pros-former" onClick={go('pros-former')}>Former vos équipes <span className="arrow" aria-hidden="true">↓</span></a>
-          </div>
-        </div>
-      </header>
+      {/* en-tête « photo nue et cartouche » (HEADERS.md, proposition 3) : cartouche or = professionnels */}
+      <window.HeroPage tone="gold" title="Recruter et former," accent="avec Festin."
+        img="images/beauxmets-images/LBM_cdutrey_071122-7264.jpg" imgAlt="Un commis des Beaux Mets en cuisine"
+        crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Pour le secteur' }]}>
+        <a className="btnb btnb--teal" href="#pros-former" onClick={go('pros-former')}>Former vos équipes <span className="arrow" aria-hidden="true">↓</span></a>
+      </window.HeroPage>
 
       {/* 2 · BLOC ENCARTÉ À ACCORDÉON */}
       <section className="ar-sec ar-sec--white" id="pros-former" aria-labelledby="pros-former-t">
