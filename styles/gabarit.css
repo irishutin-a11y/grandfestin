@@ -780,3 +780,9 @@ img[src*="photo-micro-temoignage"]{object-position:55% 18%}
 .or-card__img{aspect-ratio:4/3}
 .or-card__img img{object-position:50% 18%}
 .pj-card__img img{object-position:50% 22%}
+.sc__ambition{margin:var(--sp-5) 0 0;font-size:var(--fs-h3);font-weight:300;font-style:italic;line-height:1.25;color:var(--gold-light);max-width:30ch}
+.sc__reunira{position:relative;z-index:1}
+.sc__lbl{margin:0 0 var(--sp-3);font-size:var(--fs-label);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-light)}
+.sc__liste{list-style:none;margin:0;padding:0;border-top:1px solid rgba(255,255,255,.22)}
+.sc__liste li{display:flex;gap:12px;align-items:baseline;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.22);font-size:var(--fs-body);line-height:1.45;color:#fff}
+.sc__liste li::before{content:'';flex:none;width:10px;height:10px;border-radius:50%;background:var(--gold);transform:translateY(-1px)}

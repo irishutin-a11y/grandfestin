@@ -260,7 +260,7 @@ function MissionsListe() {
 // Page « Nos projets » (#/projets) : galerie de cartes filtrable par mission
 // (retours du 25/09/2026 : ne pas reprendre la liste à fil de l'accueil)
 // Sadi Carnot, en développement (07/10/2026) : une seule brique pour Nos tables et le catalogue.
-// Au futur (projet non acquis). Textes déjà validés : FESTIN_DATA.lieux et la note de repositionnement de Restaure.
+// Au futur (projet non acquis). Teaser tiré de la présentation « Totem » (07/10/2026) : ni chiffres, ni tarifs, ni financeurs.
 function SadiCarnot({ id, titre, accent, tone = 'cream' }) {
   const D = window.FESTIN_DATA;
   const sc = (D.lieux || []).find((l) => l.key === 'sadi-carnot');
@@ -275,15 +275,16 @@ function SadiCarnot({ id, titre, accent, tone = 'cream' }) {
             <h3 className="sc__t">{sc.lieu}</h3>
             <p className="sc__lieu">{sc.ville}</p>
             <p className="sc__p">{sc.text}</p>
+            <p className="sc__ambition">{sc.ambition}</p>
             <div className="sc__act">
               <a className="btnb btnb--gold" href={D.donation} target="_blank" rel="noopener noreferrer">Faire un don <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (nouvel onglet)</span></a>
               <a className="sc__lnk" href="#/contact/mecenat">Devenir mécène <span className="arrow" aria-hidden="true">→</span></a>
             </div>
           </div>
-          <dl className="sc__faits">
-            <div><dt>Ce qu'il portera</dt><dd>Un futur lieu de Festin, qui donnera aussi un lieu au programme Restaure</dd></div>
-            <div><dt>Aujourd'hui</dt><dd>En développement, ouvert à vos soutiens</dd></div>
-          </dl>
+          <div className="sc__reunira">
+            <p className="sc__lbl">Ce que le lieu réunira</p>
+            <ul className="sc__liste">{(sc.reunira || []).map((r) => <li key={r}>{r}</li>)}</ul>
+          </div>
         </div>
       </div>
     </section>

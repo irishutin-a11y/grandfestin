@@ -1294,8 +1294,16 @@ window.FESTIN_DATA.lieux = [
     text: "Les Beaux Mets : un restaurant ouvert au public, dans la prison, cuisiné et servi par des personnes détenues.",
     img: "images/beauxmets-images/LBM_carte-ete24_caroline_dutrey-3385.jpg",
     actions: [{ label: "Privatiser le restaurant", href: "#/contact/privatisation" }, { label: "Réserver une table", href: "https://www.lesbeauxmets-marseille.fr" }] },
-  { key: "sadi-carnot", lieu: "Sadi Carnot", ville: "Marseille, près du Vieux-Port", futur: true, sous: "À venir",
-    text: "Un futur lieu de Festin, près du Vieux-Port. Le projet est ouvert à vos soutiens dès maintenant.",
+  // Teaser (présentation « Totem », 07/10/2026) : au futur, sans chiffres, tarifs ni financeurs
+  { key: "sadi-carnot", lieu: "Sadi Carnot", ville: "Marseille, à la croisée de Belsunce, du Vieux-Port, du Panier et de la Joliette", futur: true, sous: "À venir",
+    text: "Festin veut réinventer un lieu emblématique du centre-ville en moteur d'insertion, de formation et d'alimentation durable. Le projet est ouvert à vos soutiens dès maintenant.",
+    ambition: "Nourrir la ville. Former les talents. Réinventer la restauration populaire.",
+    reunira: [
+      "Un restaurant de cuisine populaire, de saison et méditerranéenne",
+      "Un restaurant-école pour former en cuisine et en salle",
+      "Un pôle de travail partagé autour de l'alimentation durable",
+      "Une cuisine pour l'aide alimentaire en centre-ville",
+    ],
     actions: [] },
 ];
 
@@ -1329,8 +1337,8 @@ window.FESTIN_DATA.catalogue = [
   { id: "management", types: ["formation"], public: "pro", titre: "Management juste et inclusif", ou: "Dans vos murs ou en inter",
     ligne: "Recruter plus largement, garder son équipe, l'encadrer sans violence. Proposée par le programme Restaure.",
     href: "#/formations/management", img: "images/beauxmets-images/lbm-maitre-hotel-commis.jpg" },
-  { id: "sadi-carnot", types: ["tables"], public: "insertion", titre: "Sadi Carnot", ou: "Marseille, près du Vieux-Port", avenir: true,
-    ligne: "Un futur lieu de Festin, près du Vieux-Port. Le projet est ouvert à vos soutiens dès maintenant.", href: "#/catalogue/tables", ancre: "developpement", img: null },
+  { id: "sadi-carnot", types: ["tables"], public: "insertion", titre: "Sadi Carnot", ou: "Marseille, centre-ville", avenir: true,
+    ligne: "Un futur lieu de Festin au cœur de Marseille : un restaurant, de la formation et l'alimentation durable. Ouvert à vos soutiens.", href: "#/catalogue/tables", ancre: "developpement", img: null },
 ];
 
 // Bande or des projets, cliquable (procédé de la page Pros diffusé sur Restaure et
