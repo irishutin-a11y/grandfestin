@@ -24,6 +24,8 @@
   var M=["photo-cuisine-action.jpg", "photo-patisserie.jpg", "photo-apprenante-plats.jpg", "photo-groupe-portrait.jpg", "photo-tabliers-violets.jpg", "photo-applaudissements.jpg", "photo-service-restaurant.jpg", "photo-promo-groupe.jpg", "photo-chapeau-cuisine.jpg", "tournesol:formation/festin_tournesol_cdutrey_0124-3645.jpg", "images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-40.jpg", "images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg", "images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg", "images-def/chaudbouillon-045.jpg", "images-def/chaudbouillon-046.jpg", "images-def/HOTELERIE-097.jpg", "images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00022.jpg", "images-def/HOTELERIE-035.jpg", "images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00032.jpg", "beauxmets-images/LBM_carte printemps25_cdutrey_080425-1661.jpg", "beauxmets-images/LBM_cdutrey_071122-7922.jpg", "beauxmets-images/LBM_cdutrey_071122-7264.jpg", "beauxmets-images/Copie de LBM_masterclass_chloeCharles_cdutrey_030325-7735.jpg", "latable de cana/TABLECANA_EVENT_cdutrey_230625-5158.jpg", "latable de cana/tabledecana_cdutrey_160124-4393.jpg", "latable de cana/tabledecana_cdutrey_160124-5010.jpg", "latable de cana/tabledecana_cdutrey_230124-7705.jpg", "restaure : formation pro/IMG_2950.JPG", "restaure : formation pro/FESTIN_TOAST_12 FEVRIER_FEED-25.jpg", "restaure : formation pro/TASTING_RFF_CLOSING-FEED-34 (1).JPG"], S={}; M.forEach(function(p){S[p]=1});
   function fix(img){ try{
     var s=img.getAttribute('src'); if(!s||img.dataset.fx===s) return;
+    // React réutilise la même balise d'une page à l'autre : retirer le srcset de l'image précédente
+    if(img.dataset.fx){ img.removeAttribute('srcset'); delete img.dataset.fx; }
     var rel=decodeURI(s).replace(/^\.?\//,''); if(rel.indexOf('images/')!==0) return; rel=rel.slice(7);
     if(!S[rel]) return; img.dataset.fx=s;
     var e=function(w){return encodeURI('images/web/'+w+'/'+rel)};
@@ -35,13 +37,13 @@
 })();
 </script>
 
-<link rel="stylesheet" href="styles/styles.css?v=1794470000" />
-<link rel="stylesheet" href="styles/home-b.css?v=1794470000" />
-<link rel="stylesheet" href="styles/pages.css?v=1794470000" />
-<link rel="stylesheet" href="styles/about.css?v=1794470000" />
-<link rel="stylesheet" href="styles/accueil.css?v=1794470000" />
-<link rel="stylesheet" href="styles/gabarit.css?v=1794470000" />
-<link rel="stylesheet" href="styles/archetypes.css?v=1794470000" />
+<link rel="stylesheet" href="styles/styles.css?v=1794480000" />
+<link rel="stylesheet" href="styles/home-b.css?v=1794480000" />
+<link rel="stylesheet" href="styles/pages.css?v=1794480000" />
+<link rel="stylesheet" href="styles/about.css?v=1794480000" />
+<link rel="stylesheet" href="styles/accueil.css?v=1794480000" />
+<link rel="stylesheet" href="styles/gabarit.css?v=1794480000" />
+<link rel="stylesheet" href="styles/archetypes.css?v=1794480000" />
 <script src="vendor/lucide/lucide.min.js?v=1.47.0"></script>
 <script src="vendor/gsap/gsap.min.js?v=3.15.0"></script>
 <script src="vendor/gsap/ScrollTrigger.min.js?v=3.15.0"></script>
@@ -62,22 +64,22 @@ if (window.gsap) { window.gsap.registerPlugin(window.ScrollTrigger); window.gsap
 </script>
 <link rel="preload" href="typos/KoHo-Bold.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="typos/KoHo-Regular.woff2" as="font" type="font/woff2" crossorigin />
-<script src="data/images-manifest.js?v=1794470000"></script>
-<script src="data/data.js?v=1794470000"></script>
+<script src="data/images-manifest.js?v=1794480000"></script>
+<script src="data/data.js?v=1794480000"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Aller au contenu</a>
 <div id="root"></div>
-<script src="build/Nav.js?v=1794470000"></script>
-<script src="build/Sections.js?v=1794470000"></script>
-<script src="build/Interactifs.js?v=1794470000"></script>
-<script src="build/Gabarit.js?v=1794470000"></script>
-<script src="build/Archetypes.js?v=1794470000"></script>
-<script src="build/HomeB.js?v=1794470000"></script>
-<script src="build/About.js?v=1794470000"></script>
-<script src="build/ProjetPage.js?v=1794470000"></script>
-<script src="build/Pages.js?v=1794470000"></script>
-<script src="build/Accompagnement.js?v=1794470000"></script>
-<script src="build/App.js?v=1794470000"></script>
+<script src="build/Nav.js?v=1794480000"></script>
+<script src="build/Sections.js?v=1794480000"></script>
+<script src="build/Interactifs.js?v=1794480000"></script>
+<script src="build/Gabarit.js?v=1794480000"></script>
+<script src="build/Archetypes.js?v=1794480000"></script>
+<script src="build/HomeB.js?v=1794480000"></script>
+<script src="build/About.js?v=1794480000"></script>
+<script src="build/ProjetPage.js?v=1794480000"></script>
+<script src="build/Pages.js?v=1794480000"></script>
+<script src="build/Accompagnement.js?v=1794480000"></script>
+<script src="build/App.js?v=1794480000"></script>
 </body>
 </html>

@@ -101,8 +101,8 @@ function App() {
   switch (route.name) {
     case 'home':              page = <HomePage />; break;
     case 'catalogue':         page = <CataloguePage key={hash} filtre={route.filtre} />; break;
-    case 'formation':         page = <FormationDetailPage id={route.id} />; break;
-    case 'projet':            page = <ProjetPage id={route.id} />; break;
+    case 'formation':         page = <FormationDetailPage key={route.id} id={route.id} />; break;
+    case 'projet':            page = <ProjetPage key={route.id} id={route.id} />; break;
     case 'accomp-insertion':  page = <AccompagnementInsertionPage />; break;
     case 'accomp-pros':       page = <AccompagnementProsPage />; break;
     case 'actualites':         page = <ActualitesPage />; break;
