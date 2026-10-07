@@ -659,7 +659,7 @@ window.FESTIN_DATA = {
       audienceKey: "pros",
       title: "Management juste & inclusif",
       desc: "Recruter plus largement, garder son équipe et l'encadrer sans violence, avec un cadre de travail clair.",
-      img: null, // photo retirée (RETOURS-V3 §5.5 : floue) ; remplacement à fournir
+      img: "images/beauxmets-images/lbm-maitre-hotel-commis.jpg", // proposition A validée le 07/10/2026
       duration: "1 journée (7 h) + 2 demi-journées (2 × 3 h)",
       format: "Présentiel, avec en option 3 h sur les violences sexistes et sexuelles",
       price: "600 € / salarié (2 jours) · 3 000 € / organisation (groupe)",
@@ -1323,7 +1323,7 @@ window.FESTIN_DATA.catalogue = [
     href: "#/formations/vss", img: "images/photo-service-restaurant.jpg" },
   { id: "management", types: ["formation"], public: "pro", titre: "Management juste et inclusif", ou: "Dans vos murs ou en inter",
     ligne: "Recruter plus largement, garder son équipe, l'encadrer sans violence. Proposée par le programme Restaure.",
-    href: "#/formations/management", img: null },
+    href: "#/formations/management", img: "images/beauxmets-images/lbm-maitre-hotel-commis.jpg" },
   { id: "sadi-carnot", types: ["tables"], public: "insertion", titre: "Sadi Carnot", ou: "Marseille, près du Vieux-Port", avenir: true,
     ligne: "Un futur lieu de Festin, près du Vieux-Port. Le projet est ouvert à vos soutiens dès maintenant.", href: "#/catalogue/tables", ancre: "developpement", img: null },
 ];

@@ -648,7 +648,6 @@ function ActualitesPage() {
                   <span>{p.shortTitle}</span></a></li>
               ))}
             </ul>
-            {window.FESTIN_SHOW_PLACEHOLDERS && <p className="is-placeholder apkit__miss">[À COMPLÉTER : versions haute définition des logos (SVG, ou PNG de 2000 px de large sur fond transparent)]</p>}
           </div>
           <div className="apkit__facts">
             <h3>Chiffres à reprendre</h3>

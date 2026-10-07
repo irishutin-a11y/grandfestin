@@ -78,7 +78,6 @@ Reçus le 06/10/2026 aussi : portrait de Marc Balthazard, bouchées du traiteur 
 | Priorité | Page | Endroit | À fournir | Format |
 |---|---|---|---|---|
 | 1 | Qui sommes-nous | Équipe, La Table de Cana Marseille | Portrait de Tom Louis Teboul, directeur | Vertical 3:4, buste |
-| 2 | Formation Management juste et inclusif | Carte et fiche (cadre or en attendant) | Une photo de remplacement, nette, en situation professionnelle | Paysage 4:3 |
 | 2 | Qui sommes-nous | Gouvernance | Portrait de Gaëlle de Carmantrand | Carré 1:1 |
 | 2 | L'insertion | Section « La formation, un moyen » | La nouvelle plaquette formation (PDF) | PDF |
 | 2 | Qui sommes-nous | Sphère des partenaires | La liste des partenaires à jour (l'UMIH en fait-elle partie ?), avec les logos | PNG transparent ou SVG |
