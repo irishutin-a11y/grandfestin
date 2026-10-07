@@ -355,3 +355,6 @@ a.ab-fr__p:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 .ab-marq__it p{margin:0;font-size:var(--fs-body);line-height:1.5}
 .ab-marq__tag{align-self:flex-start;padding:4px 12px;border-radius:999px;background:var(--ink);color:var(--gold);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
 @media (max-width:900px){.ab-marq__list{grid-template-columns:1fr}.ab-marq__it{min-height:0}}
+/* Marqueurs : pas de mot coupé au milieu (retour du 07/10/2026) */
+.ab-marq__t{overflow-wrap:normal;word-break:normal;hyphens:none;font-size:clamp(24px,2.1vw,34px)}
+.ab-marq__t em{display:block;font-style:italic;font-weight:300;text-transform:uppercase}

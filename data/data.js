@@ -1610,7 +1610,7 @@ window.FESTIN_DATA.about = {
   // Trois marqueurs (RETOURS-V3 §2, texte validé par la direction)
   marqueurs: [
     { title: "L'exigence", desc: "Dans la qualité des projets, des parcours et des partenariats que nous construisons." },
-    { title: "L'audace", tag: "Innovation", desc: "Un esprit pionnier qui nous a conduits à ouvrir des voies nouvelles dans la restauration, la formation et l'insertion." },
+    { title: "L'audace", accent: "et l'innovation", desc: "Un esprit pionnier qui nous a conduits à ouvrir des voies nouvelles dans la restauration, la formation et l'insertion." },
     { title: "La convivialité", desc: "Nous considérons l'hospitalité, la qualité de la relation et le collectif comme des dimensions centrales de notre manière d'agir." },
   ],
   valeurs: [

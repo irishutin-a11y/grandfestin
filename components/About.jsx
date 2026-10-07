@@ -63,8 +63,8 @@ function Marqueurs() {
         <ol className="ab-marq__list">
           {M.map((m, i) => (
             <li key={m.title} className={'ab-marq__it ab-marq__it--' + i + ' g-reveal'}>
-              {m.tag && <span className="ab-marq__tag">{m.tag}</span>}
-              <h3 className="ab-marq__t">{m.title}</h3>
+              {/* « Innovation » n'est plus une étiquette isolée : elle complète le titre (retour du 07/10/2026) */}
+              <h3 className="ab-marq__t">{m.title}{m.accent && <> <em>{m.accent}</em></>}</h3>
               <p>{m.desc}</p>
             </li>
           ))}
