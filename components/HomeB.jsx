@@ -290,6 +290,49 @@ function MissionsListe() {
 
 // Page « Nos projets » (#/projets) : galerie de cartes filtrable par mission
 // (retours du 25/09/2026 : ne pas reprendre la liste à fil de l'accueil)
+// Nos tables (#/tables, navigation option C, 07/10/2026) : les lieux ouverts au public,
+// avec le bloc de chaque page projet (BlocTable), puis Sadi Carnot à venir.
+function TablesPage() {
+  const root = useRef(null);
+  window.useGReveal(root);
+  const D = window.FESTIN_DATA;
+  // le restaurant ouvert au public d'abord, puis le traiteur
+  const lieux = (D.lieux || []).filter((l) => !l.futur && (D.projetPages[l.projet] || {}).table)
+    .sort((a, b) => (a.projet === 'les-beaux-mets' ? -1 : b.projet === 'les-beaux-mets' ? 1 : 0));
+  const sc = (D.lieux || []).find((l) => l.futur);
+  const nom = (id) => ((D.projets || []).find((p) => p.id === id) || {}).shortTitle || id;
+  return (
+    <div className="gpage" ref={root} data-screen-label="Nos tables">
+      <window.HeroPage tone="deep" title="Nos" accent="tables."
+        img="images/beauxmets-images/lbm-gallery-salle.jpg" imgAlt="La salle du restaurant Les Beaux Mets"
+        crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Nos tables' }]}>
+        <div className="g-herocta"><window.GLink l={{ to: 'table-' + (lieux[0] || {}).key }} className="btnb btnb--gold">Découvrir nos tables <span className="arrow" aria-hidden="true">↓</span></window.GLink></div>
+      </window.HeroPage>
+      {lieux.map((l, k) => (
+        <window.BlocTable key={l.key} variante={k % 2 ? 'teal' : undefined} id={'table-' + l.key} t={D.projetPages[l.projet].table}
+          head={{ nom: nom(l.projet), lieu: l.lieu + ', ' + l.ville }} projet={l.projet} />
+      ))}
+      {sc && (
+        <section className="g-sec g-sec--cream pj-dev" id="developpement" aria-labelledby="tab-dev-t">
+          <div className="wrap pj-dev__in">
+            <div>
+              <window.GHead id="tab-dev-t" title="À" accent="venir." />
+              <h3 className="pj-dev__t">{sc.lieu} <span>{sc.ville}</span></h3>
+              <p className="g-lede">{sc.text}</p>
+              <div className="g-actions">
+                <a className="btnb btnb--gold" href={D.donation} target="_blank" rel="noopener noreferrer">Faire un don <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (nouvel onglet)</span></a>
+                <a className="lnk" href="#/contact/mecenat">Devenir mécène <span className="arrow" aria-hidden="true">→</span></a>
+              </div>
+            </div>
+            <div className="pj-dev__avenir" aria-hidden="true"><span>À venir</span></div>
+          </div>
+        </section>
+      )}
+    </div>
+  );
+}
+window.TablesPage = TablesPage;
+
 // Catalogue « Projets et formations » (#/catalogue, PROPOSITIONS-V4 validées le 06/10/2026) :
 // remplace L'écosystème. Une carte par élément (FESTIN_DATA.catalogue), filtres par type et par public.
 // Sous « Tous », une formation rattachée à un projet déjà présent (« dans ») est masquée : pas de doublon.

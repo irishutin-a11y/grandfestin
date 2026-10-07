@@ -1248,9 +1248,10 @@ window.FESTIN_DATA.arbo = [
       { ic: "megaphone", c: "#FFC100", label: "Le programme Restaure", d: "Changer les pratiques du secteur", href: "#/projets/restaure" },
     ] },
   { key: "catalogue", label: "Projets et formations", href: "#/catalogue",
-    match: ["#/catalogue", "#/projets", "#/academie", "#/formations", "#/projets/les-beaux-mets", "#/projets/la-table-de-cana"],
+    match: ["#/catalogue", "#/tables", "#/projets", "#/academie", "#/formations", "#/projets/les-beaux-mets", "#/projets/la-table-de-cana"],
     links: [
-      { ic: "layout-grid", c: "#EC8669", label: "Tout le catalogue", d: "Projets, formations, tables", href: "#/catalogue" },
+      { ic: "layout-grid", c: "#EC8669", label: "Tout le catalogue", d: "Projets et formations, avec filtres", href: "#/catalogue" },
+      { ic: "map-pin", c: "#EC8669", label: "Nos tables", d: "Déjeuner, commander un traiteur", href: "#/tables" },
       { ic: "utensils", c: "#EC8669", label: "Les Beaux Mets", d: "Réserver une table, privatiser", href: "#/projets/les-beaux-mets" },
       { ic: "chef-hat", c: "#EC8669", label: "La Table de Cana Marseille", d: "Le traiteur de vos événements", href: "#/projets/la-table-de-cana" },
       // Sadi Carnot : non acquis, grisé, sans lien (retour du 06/10/2026)
@@ -1267,10 +1268,13 @@ window.FESTIN_DATA.arbo = [
     ] },
 ];
 // Barre (retour du 06/10/2026) : logo · Nos tables · Nos formations · [Menu] · Nos projets · Don
+// Option C (07/10/2026) : un bouton par public, plus le catalogue ; chaque bouton mène à une page différente.
+// c : code couleur (teal = insertion, or = secteur, corail = tables).
 window.FESTIN_DATA.barre = [
-  { label: "Nos tables", href: "#/catalogue/tables" },
-  { label: "Nos formations", href: "#/catalogue/formations" },
-  { label: "Nos projets", href: "#/catalogue/projets" },
+  { label: "L'insertion", href: "#/insertion", c: "var(--teal)" },
+  { label: "Pour le secteur", href: "#/restauration", c: "var(--gold)" },
+  { label: "Nos tables", href: "#/tables", c: "var(--coral-ink)" },
+  { label: "Projets et formations", href: "#/catalogue", c: "var(--teal-deep)" },
 ];
 // Logos de médias disponibles dans images/presse/<slug>.png (vide tant que les fichiers ne sont pas fournis)
 window.FESTIN_DATA.presseLogos = ["courrier-international", "france-3-paca", "france-inter", "la-provence", "tf1", "le-progres", "m6", "made-in-marseille", "le-figaro", "nice-matin",

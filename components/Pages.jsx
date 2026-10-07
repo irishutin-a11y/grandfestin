@@ -479,9 +479,6 @@ function SEngager() {
     { t: 'Accueillir', p: 'Accueillez une personne en stage ou recrutez un commis formé par nos parcours.',
       tags: [['Pour', 'restaurants et cuisines']],
       actions: [{ label: 'Recruter et former vos équipes', href: '#/restauration' }] },
-    { t: 'Porter une antenne', p: 'Dans chaque ville, une structure locale porte le dispositif Des Étoiles et des Femmes, avec son centre de formation et ses restaurants partenaires.',
-      tags: [['Aujourd\'hui', '13 antennes']],
-      actions: [{ label: 'Nous écrire', href: '#/contact/partenariat' }] },
   ];
   return (
     <section className="g-sec g-sec--cream" id="s-engager" aria-labelledby="s-engager-t">
@@ -503,6 +500,25 @@ function SEngager() {
             </li>
           ))}
         </ul>
+        {/* Porter une antenne : un engagement d'une autre ampleur (retour du 07/10/2026),
+            sorti de la rangée et traité à part, sur fond sombre */}
+        <div className="g-antenne on-dark g-reveal">
+          <div className="g-antenne__txt">
+            <span className="g-antenne__k">Un engagement dans la durée</span>
+            <h3 className="g-antenne__t">Porter une <em>antenne.</em></h3>
+            <p>Porter une antenne, c'est faire vivre le dispositif Des Étoiles et des Femmes dans votre ville. Une structure locale le porte, avec un centre de formation partenaire et des restaurants qui accueillent les stagiaires.</p>
+            <window.ArTags tags={[['Aujourd\'hui', '13 antennes en France']]} />
+          </div>
+          <div className="g-antenne__side">
+            <p className="g-antenne__lbl">Ce qu'il faut réunir</p>
+            <ul className="g-antenne__list">
+              <li>Une structure locale qui porte le dispositif</li>
+              <li>Un centre de formation partenaire</li>
+              <li>Des restaurants qui accueillent les stagiaires</li>
+            </ul>
+            <a className="btnb btnb--gold" href="#/contact/partenariat">Parlons de votre projet d'antenne <span className="arrow" aria-hidden="true">→</span></a>
+          </div>
+        </div>
       </div>
     </section>
   );

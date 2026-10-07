@@ -148,7 +148,7 @@ function Nav() {
   return (
     <nav className={"mnav" + (solid ? " solid" : "")}>
       <div className="navpill">
-        {/* Barre V4 (07/10/2026) : logo · Nos tables · Nos formations · Nos projets · Menu · Don.
+        {/* Barre, option C (07/10/2026) : logo · L'insertion · Pour le secteur · Nos tables · Projets et formations · Menu · Don.
             Les trois raccourcis mènent au catalogue filtré ; le méga menu porte seul l'arborescence.
             Le bouton Menu, à côté du Don, est rendu plus visible (taille, aplat teal, icône). */}
         <a href="#/" className="navpill__brand" aria-label="Festin, accueil">
@@ -156,7 +156,9 @@ function Nav() {
         </a>
         <span className="navpill__cote">
           {data.barre.map((b) => (
-            <a key={b.href} className="navpill__lien" href={b.href} aria-current={hash === b.href ? 'page' : undefined}>{b.label}</a>
+            <a key={b.href} className="navpill__lien" href={b.href}
+              aria-current={hash === b.href ? 'page' : (hash.indexOf(b.href + '/') === 0 ? 'location' : undefined)}>
+              <span className="navpill__pt" style={{ background: b.c }} aria-hidden="true" />{b.label}</a>
           ))}
         </span>
         <button type="button" className="navpill__menu" ref={triggerRef} aria-haspopup="true"

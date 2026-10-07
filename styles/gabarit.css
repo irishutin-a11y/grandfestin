@@ -619,3 +619,32 @@ main > div > section:last-of-type:has(.g-appel){border-top:0!important}
 /* au-delà de 1800 px, le zoom global agrandit 100vh : on le compense (--zoom, accueil.css) */
 .elig-modal{--em:clamp(16px,5vh,56px);padding:calc(var(--em) / var(--zoom,1)) clamp(16px,4vw,48px)}
 .elig-modal__box{max-height:calc(100vh / var(--zoom,1) - 2 * var(--em) / var(--zoom,1));max-height:calc(100dvh / var(--zoom,1) - 2 * var(--em) / var(--zoom,1))}
+/* S'engager avec Festin : deux façons simples, puis « Porter une antenne » à part (retour du 07/10/2026) */
+#s-engager .g-engage{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g-antenne{margin-top:var(--sp-8);display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);padding:clamp(28px,4vw,56px);border-radius:28px;background:var(--teal-deep);color:var(--off-white)}
+.g-antenne__k{display:inline-block;margin-bottom:var(--sp-3);padding:5px 14px;border-radius:999px;background:var(--gold);color:var(--ink);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.g-antenne__t{margin:0 0 var(--sp-4);font-size:var(--fs-h2);text-transform:uppercase;line-height:1.05;color:#fff}
+.g-antenne__t em{font-style:italic;font-weight:300;color:var(--gold)}
+.g-antenne__txt p{margin:0 0 var(--sp-5);font-size:var(--fs-lede);line-height:1.5;color:var(--ink-on-dark);max-width:52ch}
+.g-antenne__side{display:flex;flex-direction:column;justify-content:center;gap:var(--sp-4);padding-left:clamp(0px,3vw,48px);border-left:1px solid rgba(255,255,255,.18)}
+.g-antenne__lbl{margin:0;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+.g-antenne__list{margin:0;padding:0;list-style:none;counter-reset:ant;display:grid;gap:12px}
+.g-antenne__list li{display:flex;gap:14px;align-items:center;font-size:var(--fs-body);color:#fff}
+.g-antenne__list li::before{content:'';flex:none;width:10px;height:10px;border-radius:50%;background:var(--gold);transform:translateY(-1px)}
+.g-antenne__side .btnb{align-self:flex-start;margin-top:var(--sp-2)}
+@media (max-width:900px){#s-engager .g-engage{grid-template-columns:1fr}.g-antenne{grid-template-columns:1fr}.g-antenne__side{padding-left:0;border-left:0;padding-top:var(--sp-5);border-top:1px solid rgba(255,255,255,.18)}}
+/* Barre, option C (07/10/2026) : quatre boutons, chacun vers une page différente, avec sa pastille de couleur */
+.navpill__lien{gap:8px;padding:0 12px;letter-spacing:.06em}
+.navpill__pt{width:8px;height:8px;border-radius:50%;flex:none}
+.navpill__lien[aria-current="location"]{background:var(--teal-tint);color:var(--teal-dark)}
+.navpill__cote{display:none}
+@media (min-width:1180px){ .navpill__cote{display:flex} .navpill{min-width:min(1160px,100%)} .navpill .navpill__menu{margin-left:0} }
+@media (min-width:1180px) and (max-width:1359px){ .navpill__lien{padding:0 9px;font-size:12px} }
+.g-table__head{margin:0 0 var(--sp-3);font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold)}
+.g-table__head b{color:#fff}
+.g-table__projet{display:inline-block;margin-top:var(--sp-5)}
+@media (max-width:1179px){ .navpill{min-width:0} .navpill .navpill__menu{margin-left:auto} }
+.g-table--teal{background:var(--teal)}
+.g-table .g-table__projet{color:#fff;text-decoration:underline;text-underline-offset:4px}
+.g-table--teal{background:var(--teal-dark)}
+.cata-card--avenir{--mc:#5F6564}

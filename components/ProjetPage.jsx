@@ -53,11 +53,12 @@ function BlocReseau({ p }) {
 // Lieux ouverts au public (retours V2, §8) : après « en bref », qui explique le projet,
 // un bloc qui donne envie d'y manger ou de commander, avec les infos pratiques et deux
 // actions bien visibles. Info manquante : [À COMPLÉTER], visible pendant le chantier.
-function BlocTable({ t }) {
+// Partagé avec la page Nos tables (#/tables) : id, en-tête (nom et lieu) et lien vers la page du projet
+function BlocTable({ t, id = 'a-table', head, projet, variante }) {
   const ph = window.FESTIN_SHOW_PLACEHOLDERS;
   const infos = t.infos.filter((i) => i.dd || ph);
   return (
-    <section className="g-sec g-sec--deep on-dark g-table" id="a-table" aria-labelledby="table-t">
+    <section className={'g-sec g-sec--deep on-dark g-table' + (variante ? ' g-table--' + variante : '')} id={id} aria-labelledby={id + '-t'}>
       <div className="wrap g-table__in">
         <div className="g-table__mos g-reveal">
           {t.photos.map((ph2, k) => (
@@ -65,7 +66,8 @@ function BlocTable({ t }) {
           ))}
         </div>
         <div className="g-table__txt">
-          <h2 className="g-h2 g-reveal" id="table-t">{t.title} <em>{t.accent}</em></h2>
+          {head && <p className="g-table__head g-reveal"><b>{head.nom}</b> · {head.lieu}</p>}
+          <h2 className="g-h2 g-reveal" id={id + '-t'}>{t.title} <em>{t.accent}</em></h2>
           {t.text.map((x) => <p className="g-lede g-reveal" key={x}>{x}</p>)}
           <dl className="g-table__infos g-reveal">
             {infos.map((i) => (
@@ -77,11 +79,13 @@ function BlocTable({ t }) {
               <window.GLink key={c.href} l={c} className={'btnb btnb--lg ' + (k === 0 ? 'btnb--gold' : 'btnb--light')}>{c.label} <span className="arrow" aria-hidden="true">{c.external ? '↗' : '→'}</span>{c.external && <span className="sr-only"> (nouvel onglet)</span>}</window.GLink>
             ))}
           </div>
+          {projet && <a className="lnk g-table__projet g-reveal" href={'#/projets/' + projet}>Le projet, son parcours, ses témoignages <span className="arrow" aria-hidden="true">→</span></a>}
         </div>
       </div>
     </section>
   );
 }
+window.BlocTable = BlocTable;
 
 // Des Étoiles et des Femmes : soutenir une promotion, avec la sphère des chefs du réseau
 function BlocChefs({ p, cfg }) {

@@ -17,7 +17,7 @@ function parseRoute(hash) {
   // Catalogue « Projets et formations » (V4, 06/10/2026) : remplace L'écosystème ; l'Académie y est une section
   if (parts[0] === 'catalogue') return { name: 'catalogue', filtre: parts[1] || 'tous' };
   if (parts[0] === 'formations' || parts[0] === 'academie') return { name: 'catalogue', filtre: 'formations', ancre: 'formation' };
-  if (parts[0] === 'projets' && parts[1] === 'lieux') return { name: 'catalogue', filtre: 'tables' };
+  if (parts[0] === 'tables' || (parts[0] === 'projets' && parts[1] === 'lieux')) return { name: 'tables' };
   if (parts[0] === 'projets' && parts[1]) return { name: 'projet', id: parts[1] };
   if (parts[0] === 'projets') return { name: 'catalogue', filtre: 'projets' };
   // Sadi Carnot : pas de page tant que le projet n'est pas acquis (arbitrage 8B) ; l'ancienne adresse mène à l'accueil
@@ -84,7 +84,7 @@ function App() {
     const proj = route.name === 'projet' ? D.projets.find(x => x.id === route.id) : null;
     const titles = {
       home: "Festin : mettre la restauration au service de l'égalité des chances",
-      about: 'Qui sommes-nous | ' + base, catalogue: 'Projets et formations | ' + base, formation: 'Parcours et formations | ' + base,
+      about: 'Qui sommes-nous | ' + base, catalogue: 'Projets et formations | ' + base, tables: 'Nos tables : Les Beaux Mets, La Table de Cana Marseille | ' + base, formation: 'Parcours et formations | ' + base,
       impact: 'Compter ce qui compte : notre impact | ' + base, actualites: 'Presse et actualités | ' + base,
       contact: 'Contact | ' + base, 'accomp-insertion': "L'insertion : nos parcours | " + base,
       'accomp-pros': 'Pour le secteur : recruter et former | ' + base,
@@ -100,6 +100,7 @@ function App() {
   let page;
   switch (route.name) {
     case 'home':              page = <HomePage />; break;
+    case 'tables':            page = <TablesPage />; break;
     case 'catalogue':         page = <CataloguePage key={hash} filtre={route.filtre} />; break;
     case 'formation':         page = <FormationDetailPage key={route.id} id={route.id} />; break;
     case 'projet':            page = <ProjetPage key={route.id} id={route.id} />; break;
