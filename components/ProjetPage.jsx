@@ -58,7 +58,7 @@ function BlocTable({ t, id = 'a-table', head, projet, variante }) {
   const ph = window.FESTIN_SHOW_PLACEHOLDERS;
   const infos = t.infos.filter((i) => i.dd || ph);
   return (
-    <section className={'g-sec g-sec--deep on-dark g-table' + (variante ? ' g-table--' + variante : '')} id={id} aria-labelledby={id + '-t'}>
+    <section className={'g-sec g-table' + (variante === 'clair' ? ' g-table--clair' : ' g-sec--deep on-dark') + (variante && variante !== 'clair' ? ' g-table--' + variante : '')} id={id} aria-labelledby={id + '-t'}>
       <div className="wrap g-table__in">
         <div className="g-table__mos g-reveal">
           {t.photos.map((ph2, k) => (
@@ -76,7 +76,7 @@ function BlocTable({ t, id = 'a-table', head, projet, variante }) {
           </dl>
           <div className="g-table__cta g-reveal">
             {t.ctas.map((c, k) => (
-              <window.GLink key={c.href} l={c} className={'btnb btnb--lg ' + (k === 0 ? 'btnb--gold' : 'btnb--light')}>{c.label} <span className="arrow" aria-hidden="true">{c.external ? '↗' : '→'}</span>{c.external && <span className="sr-only"> (nouvel onglet)</span>}</window.GLink>
+              <window.GLink key={c.href} l={c} className={'btnb btnb--lg ' + (k === 0 ? 'btnb--gold' : variante === 'clair' ? 'btnb--teal' : 'btnb--light')}>{c.label} <span className="arrow" aria-hidden="true">{c.external ? '↗' : '→'}</span>{c.external && <span className="sr-only"> (nouvel onglet)</span>}</window.GLink>
             ))}
           </div>
           {projet && <a className="lnk g-table__projet g-reveal" href={'#/projets/' + projet}>Le projet, son parcours, ses témoignages <span className="arrow" aria-hidden="true">→</span></a>}

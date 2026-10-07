@@ -304,12 +304,12 @@ function TablesPage() {
   return (
     <div className="gpage" ref={root} data-screen-label="Nos tables">
       <window.HeroPage tone="deep" title="Nos" accent="tables."
-        img="images/beauxmets-images/lbm-gallery-salle.jpg" imgAlt="La salle du restaurant Les Beaux Mets"
+        img="images/photo-service-restaurant.jpg" imgAlt="Service en salle, une commande prise à table"
         crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Nos tables' }]}>
         <div className="g-herocta"><window.GLink l={{ to: 'table-' + (lieux[0] || {}).key }} className="btnb btnb--gold">Découvrir nos tables <span className="arrow" aria-hidden="true">↓</span></window.GLink></div>
       </window.HeroPage>
       {lieux.map((l, k) => (
-        <window.BlocTable key={l.key} variante={k % 2 ? 'teal' : undefined} id={'table-' + l.key} t={D.projetPages[l.projet].table}
+        <window.BlocTable key={l.key} variante={k % 2 ? 'clair' : undefined} id={'table-' + l.key} t={D.projetPages[l.projet].table}
           head={{ nom: nom(l.projet), lieu: l.lieu + ', ' + l.ville }} projet={l.projet} />
       ))}
       {sc && (
