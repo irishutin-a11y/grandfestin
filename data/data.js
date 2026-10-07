@@ -121,7 +121,7 @@ window.FESTIN_DATA = {
       projetPoints: [
         "Une formation diplômante en cuisine, de 4 à 11 mois",
         "Accompagnement social global tout au long du parcours",
-        "Des stages dans des restaurants partenaires, dont des maisons gastronomiques",
+        "Des stages dans des restaurants partenaires",
       ],
       projetCtaLabel: "Découvrir les formations",
       projetCtaHref: "#/academie",
@@ -706,7 +706,7 @@ window.FESTIN_DATA = {
       programme: [
         "Bases techniques de la cuisine : taillage, cuissons, sauces",
         "Remise à niveau et compétences transverses",
-        "Stages en restaurant partenaire, souvent gastronomique",
+        "Stages en restaurant partenaire",
         "Coaching emploi, préparation aux entretiens et suivi après la formation",
       ],
       tariff: "Formation gratuite, prise en charge par France Travail et nos partenaires publics. Indemnisation pendant le parcours selon votre situation.",
@@ -1239,19 +1239,19 @@ window.FESTIN_DATA.arbo = [
       { ic: "list-checks", c: "#7FC4CB", label: "Vérifier mon éligibilité", d: "Quelques questions, rien n'est envoyé", href: "#/insertion/eligibilite" },
       { ic: "star", c: "#7FC4CB", label: "Des Étoiles et des Femmes", d: "Pour les femmes, dans 13 villes", href: "#/projets/des-etoiles-et-des-femmes" },
       // les formations ne sont pas listées une à une (retour du 07/10/2026) : un lien vers le catalogue filtré
-      { ic: "graduation-cap", c: "#7FC4CB", label: "Toutes les formations d'insertion", d: "Le catalogue, filtré pour vous", href: "#/catalogue/insertion" },
+      { ic: "graduation-cap", c: "#7FC4CB", label: "Toutes les formations d'insertion", d: "Dans le catalogue", href: "#/catalogue/insertion" },
     ] },
   { key: "pros", label: "Pour le secteur", href: "#/restauration",
     match: ["#/restauration", "#/accompagnement/professionnels", "#/formations/vss", "#/formations/management", "#/projets/restaure"],
     links: [
       { ic: "briefcase", c: "#FFC100", label: "Recruter et former", d: "Des personnes formées, des formations pour vos équipes", href: "#/restauration" },
-      { ic: "graduation-cap", c: "#FFC100", label: "Toutes les formations pro", d: "Le catalogue, filtré pour vous", href: "#/catalogue/pro" },
+      { ic: "graduation-cap", c: "#FFC100", label: "Toutes les formations pro", d: "Dans le catalogue", href: "#/catalogue/pro" },
       { ic: "megaphone", c: "#FFC100", label: "Le programme Restaure", d: "Changer les pratiques du secteur", href: "#/projets/restaure" },
     ] },
   { key: "catalogue", label: "Projets et formations", href: "#/catalogue",
     match: ["#/catalogue", "#/tables", "#/projets", "#/academie", "#/formations", "#/projets/les-beaux-mets", "#/projets/la-table-de-cana"],
     links: [
-      { ic: "layout-grid", c: "#EC8669", label: "Tout le catalogue", d: "Projets et formations, avec filtres", href: "#/catalogue" },
+      { ic: "layout-grid", c: "#EC8669", label: "Tout le catalogue", d: "Projets et formations", href: "#/catalogue" },
       { ic: "map-pin", c: "#EC8669", label: "Nos tables", d: "Déjeuner, commander un traiteur", href: "#/tables" },
       { ic: "utensils", c: "#EC8669", label: "Les Beaux Mets", d: "Réserver une table, privatiser", href: "#/projets/les-beaux-mets" },
       { ic: "chef-hat", c: "#EC8669", label: "La Table de Cana Marseille", d: "Le traiteur de vos événements", href: "#/projets/la-table-de-cana" },

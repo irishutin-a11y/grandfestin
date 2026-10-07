@@ -750,3 +750,8 @@ img[src*="photo-micro-temoignage"]{object-position:55% 18%}
 /* Logo du menu plus grand (carte Trello du 07/10/2026) */
 .navpill .navpill__brand img{height:34px}
 @media (max-width:600px){ .navpill .navpill__brand img{height:28px} }
+/* Accueil (retour du 07/10/2026) : marges du cartouche harmonisées (même écart entre le sous-titre et les portes
+   qu'entre le titre et le sous-titre) ; plus d'espace entre le bandeau or et la frise */
+.hc__portes.ac-portes2{margin-top:var(--sp-6) !important}
+.ac-conf{padding:0 !important;border-bottom:0}
+.ac-conf__band{margin-bottom:0}
