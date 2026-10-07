@@ -30,6 +30,7 @@ Le design system Claude Design (zip) contient d'anciennes versions des composant
 - Aucun investisseur, aucun montage capitalistique, aucun vocabulaire lucratif sur une page grand public. Page restaurateurs : partenariat et insertion, jamais « offre », « prestation », « client », « solution ». « Devis » est autorisé (traiteur, formations), décision du 30/09/2026 (confirmée le même jour) ; seule la page Professionnels s'en passe, ainsi que des tarifs (maquette du 30/09).
 - Pas de point médian. Pas de superlatif. Chiffres sourcés et datés.
 - Restaure s'écrit « le programme Restaure » (restructuration en cours).
+- **Festin pilote seul le programme Restaure** (repositionnement stratégique, 07/10/2026) : ne plus citer Yes We Camp, Les Petites Cantines ni La Communauté Ecotable comme pilotes. Restaure vise à transformer durablement les pratiques du secteur (conditions humaines et impact écologique) par la sensibilisation et la formation des professionnels.
 - Projets non acquis jamais au présent : « CAP vers l'Emploi », futur lieu près du Vieux-Port, Sadi Carnot.
 
 ## Chantier copywriting (dossier `copywriting/`)
@@ -154,6 +155,7 @@ Proposition A du 2e tour de `HEADERS.md` (comparaison sur la branche `headers-pr
 - Fiches formation : un **titre court** dans l'en-tête quand le titre est long (`formations[i].titreCourt`, ex. Violences) ; le titre complet et la description ouvrent le corps (`.detail-intro`).
 - Accueil sur mobile : les deux portes sortent du cartouche et passent sous la photo (`.hc__portes-mob`), pour que la photo reste visible.
 - Cadrage : le sujet doit rester visible à droite du cartouche ; régler `imgPos` page par page. Le programme Restaure : photo du Toast en en-tête (07/10, accord de l'utilisatrice), l'affiche du lancement sert de vignette à la vidéo.
+- **Accueil** (maquette du 07/10/2026) : en-tête, bandeau des statuts, frise des projets « Près de quarante ans dans les cuisines », chiffres 2025, « Deux publics, un même métier », « Ils et elles racontent ». Plus de « Choisir votre entrée ». Logo du menu agrandi (34 px).
 - Méga menu : **aucune formation listée une à une** (elles se multiplieront) ; « Toutes les formations d'insertion » → `#/catalogue/insertion`, « Toutes les formations pro » → `#/catalogue/pro`. Plus de phrase de statut en pied de menu.
 
 Voir `copywriting/06-journal-des-changements.md`, section « Encore en `[XX]` » : portraits de l'équipe, témoignages entreprise et financeur, crédits photo, intitulés de Marion Binachon et Fanny Bouvier.

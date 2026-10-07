@@ -74,7 +74,6 @@ function HomeB() {
   const D = window.FESTIN_DATA;
   const H = D.home;
   const byId = (id) => D.projets.find((p) => p.id === id) || {};
-  const lienDon = (href) => (href === 'don' ? D.donation : href);
 
   return (
     <div className="pageAccueil" ref={rootRef}>
@@ -133,7 +132,30 @@ function HomeB() {
         </div>
       </section>
 
-      {/* 3 · DEUX PUBLICS — chaque visiteur se reconnaît avant de lire l'histoire */}
+      {/* 3 · LA FRISE DES PROJETS en premier (carte Trello du 07/10/2026) ; chaque carte mène à sa page */}
+      <window.JalonsCouleur id="histoire" jalons={H.jalons.items.map((j) => { const p = D.projets.find((x) => j.href === '#/projets/' + x.id); return { ...j, logo: j.logo || (p && p.logo) || null }; })} title={H.jalons.title} em={H.jalons.titleAccent}
+        lede={H.jalons.lede} word="PROJETS" label="Les projets de Festin, de 1993 à 2026" />
+
+      {/* 4 · CE QUE 2025 A DONNÉ (juste après la frise, maquette du 07/10/2026) — les quatre chiffres clés, en couleur, sur fond sombre */}
+      <section className="ac-chiffres on-dark" id="chiffres" aria-labelledby="ac-chiffres-t">
+        <div className="wrap">
+          <h2 className="ac-h2 reveal" id="ac-chiffres-t">{H.impact.title} <em>{H.impact.titleAccent}</em></h2>
+          <ul className="ac-chiffres__grid">
+            {D.stats.map((s, i) => {
+              const suffix = s.unit === '%' ? '\u00a0%' : (s.unit || '');
+              return (
+                <li className="ac-chiffre reveal" key={i}>
+                  <span className="ac-chiffre__n" data-count={String(s.value).replace(/[^\d]/g, '')} data-suffix={suffix}>{s.value}{suffix}</span>
+                  <span className="ac-chiffre__l">{s.label}</span>
+                </li>
+              );
+            })}
+          </ul>
+          <p className="ac-chiffres__src">{H.impact.source} <a href="#/impact">Voir tous nos rapports d'activité <span aria-hidden="true">→</span></a></p>
+        </div>
+      </section>
+
+      {/* 5 · DEUX PUBLICS, puis 6 · ILS ET ELLES RACONTENT (ordre de la maquette du 07/10/2026) */}
       <section className="ac-pub" id="publics" aria-labelledby="ac-pub-t">
         <div className="wrap">
           <div className="ac-pub__head reveal">
@@ -180,73 +202,11 @@ function HomeB() {
         </div>
       </section>
 
-      {/* 4 · PRÈS DE QUARANTE ANS — la frise des projets, chaque carte mène à sa page */}
-      <window.JalonsCouleur id="histoire" jalons={H.jalons.items.map((j) => { const p = D.projets.find((x) => j.href === '#/projets/' + x.id); return { ...j, logo: j.logo || (p && p.logo) || null }; })} title={H.jalons.title} em={H.jalons.titleAccent}
-        lede={H.jalons.lede} word="PROJETS" label="Les projets de Festin, de 1993 à 2026" />
-
       {/* 5 · Le catalogue complet est sur l'Académie et la page Pros (RETOURS-AUDIT §2.10) :
           l'accueil ne le double plus, ni ses tarifs (§2.1). */}
 
-      {/* 6 · CE QUE 2025 A DONNÉ — les quatre chiffres clés, en couleur, sur fond sombre */}
-      <section className="ac-chiffres on-dark" id="chiffres" aria-labelledby="ac-chiffres-t">
-        <div className="wrap">
-          <h2 className="ac-h2 reveal" id="ac-chiffres-t">{H.impact.title} <em>{H.impact.titleAccent}</em></h2>
-          <ul className="ac-chiffres__grid">
-            {D.stats.map((s, i) => {
-              const suffix = s.unit === '%' ? '\u00a0%' : (s.unit || '');
-              return (
-                <li className="ac-chiffre reveal" key={i}>
-                  <span className="ac-chiffre__n" data-count={String(s.value).replace(/[^\d]/g, '')} data-suffix={suffix}>{s.value}{suffix}</span>
-                  <span className="ac-chiffre__l">{s.label}</span>
-                </li>
-              );
-            })}
-          </ul>
-          <p className="ac-chiffres__src">{H.impact.source} <a href="#/impact">Voir tous nos rapports d'activité <span aria-hidden="true">→</span></a></p>
-        </div>
-      </section>
 
-      {/* 8 · CHOISIR SON ENTRÉE — les parcours se séparent après les chiffres */}
-      <section className="ac-portes" id="portes" aria-labelledby="ac-portes-t">
-        <div className="wrap">
-          <h2 className="ac-h2 reveal" id="ac-portes-t">{H.portes.title} <em>{H.portes.titleAccent}</em></h2>
-          <div className="ac-portes__grid">
-            {H.portes.cards.map((c) => (
-              <a key={c.href} href={c.href} className="ac-porte reveal">
-                <span className="ac-porte__img">
-                  <window.Picture src={c.img} alt="" sizes="(max-width: 820px) 100vw, 38vw" />
-                  <span className="ac-porte__tag">{c.tag}</span>
-                </span>
-                <span className="ac-porte__t">{c.title}</span>
-                {c.pts && <ul className="ac-porte__pts">{c.pts.map((pt) => <li key={pt}>{pt}</li>)}</ul>}
-                <span className="lnk ac-porte__go">{c.cta} <span className="arrow" aria-hidden="true">→</span></span>
-              </a>
-            ))}
-            <div className="ac-agir reveal">
-              <span className="ac-porte__tag ac-porte__tag--flat">{H.portes.agir.tag}</span>
-              <h3 className="ac-agir__t">{H.portes.agir.title} <em>{H.portes.agir.titleAccent}</em></h3>
-              <p>{H.portes.agir.text}</p>
-              {/* soutenir d'abord (un seul bouton plein), puis déjeuner ou commander, à part (RETOURS-AUDIT §2.13) */}
-              <ul className="ac-agir__links">
-                {H.portes.agir.links.filter((l) => !l.external).map((l) => (
-                  <li key={l.label}>
-                    <a className={l.primary ? 'btnb btnb--gold' : 'lnk'} href={lienDon(l.href)}
-                      {...((l.external || l.href === 'don') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
-                      {l.label} <span className="arrow" aria-hidden="true">{(l.external || l.href === 'don') ? '↗' : '→'}</span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-              <p className="ac-agir__sous">Déjeuner ou recevoir avec nos projets :</p>
-              <ul className="ac-agir__links ac-agir__links--sous">
-                {H.portes.agir.links.filter((l) => l.external).map((l) => (
-                  <li key={l.label}><a className="lnk" href={l.href} target="_blank" rel="noopener noreferrer">{l.label} <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (nouvel onglet)</span></a></li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* « Choisir votre entrée » supprimée (carte Trello du 07/10/2026) */}
 
     </div>
   );

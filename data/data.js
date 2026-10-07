@@ -454,7 +454,7 @@ window.FESTIN_DATA = {
         { value: "2 M", unit: "+", label: "de vues des vidéos de prévention en 2025" },
         { value: "5",   label: "groupes de travail" },
       ],
-      description: "Restaure est un programme national né en 2024. Il réunit des restaurateurs, des chefs et des associations pour changer les pratiques du secteur : prévenir les violences en cuisine et former au management. Quatre structures le pilotent : Yes We Camp, Les Petites Cantines, La Communauté Ecotable et Festin. En 2025, cinq groupes de travail démarrent, cinq tables rondes ont lieu à Marseille, Toulouse et Lille et la formation « Management juste » est lancée. Les vidéos de prévention des violences en cuisine dépassent deux millions de vues.",
+      description: "Restaure est un programme national né en 2024. Il réunit des restaurateurs, des chefs et des associations pour changer les pratiques du secteur : prévenir les violences en cuisine et former au management. Festin le pilote. En 2025, cinq groupes de travail démarrent, cinq tables rondes ont lieu à Marseille, Toulouse et Lille et la formation « Management juste » est lancée. Les vidéos de prévention des violences en cuisine dépassent deux millions de vues.",
       ctaLabel: "Visiter mouvement-restaure.com",
       ctaUrl: "https://www.mouvement-restaure.com",
       quote: {
@@ -523,7 +523,7 @@ window.FESTIN_DATA = {
         { title: "Plaidoyer", pilote: "La Communauté Ecotable, Les Bouillonantes" },
         { title: "Formations", pilote: "Des Étoiles et des Femmes, Refugee Food" },
       ],
-      gouvernance: ["Yes We Camp", "Les Petites Cantines", "La Communauté Ecotable", "Festin"],
+      gouvernance: ["Festin"], // seul pilote depuis le repositionnement stratégique (07/10/2026)
       toast: "Les Toast : des apéros entre restaurateurs, organisés par Restaure avec La Communauté Ecotable. Chacun y raconte ce qu’il a changé dans son établissement et ce qui a marché.",
       perspectives: [
         "Donner un lieu au programme : le futur lieu Sadi Carnot",
@@ -1517,7 +1517,7 @@ window.FESTIN_DATA.projetPages = {
     preuves: [
       "<b>35 structures</b> de la restauration sont engagées et le manifeste compte <b>700 signataires</b>.",
       "En 2025, les vidéos de prévention des violences en cuisine ont dépassé <b>2 millions</b> de vues.",
-      "<b>5 groupes de travail</b> ont démarré, chacun piloté par une structure membre.",
+      "En 2025, <b>5 groupes de travail</b> ont démarré avec les structures membres.",
     ],
     source: "Source : rapport d'activité Festin 2025.",
     blocs: ["verbatims"],
@@ -1529,8 +1529,8 @@ window.FESTIN_DATA.projetPages = {
       { tag: "Vous voulez en savoir plus", title: "Le programme Restaure",
         cta: "Le site du programme", href: "https://www.mouvement-restaure.com", external: true, img: "images/restaure : formation pro/TASTING_RFF_CLOSING-FEED-34 (1).JPG" },
     ],
-    soutien: { title: "Ils pilotent", accent: "Restaure",
-      text: "Quatre structures pilotent le programme : Yes We Camp, Les Petites Cantines, La Communauté Ecotable et Festin. Votre don finance ses actions de prévention." },
+    soutien: { title: "Soutenir", accent: "Restaure",
+      text: "Festin pilote le programme. Votre don finance la sensibilisation et la formation des professionnels de la restauration." }, // 07/10/2026 : Festin seul pilote (repositionnement stratégique de Restaure)
     galerie: ["images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg", "images/restaure : formation pro/FESTIN_TOAST_12 FEVRIER_FEED-25.jpg", "images/restaure : formation pro/IMG_2950.JPG", "images/restaure : formation pro/TASTING_RFF_CLOSING-FEED-34 (1).JPG", "images/restaure : formation pro/WhatsApp Image 2025-12-09 at 08.53.58.jpg", "images/restaure : formation pro/toast-affiche-restaure.jpg", "images/restaure : formation pro/toast-regie.jpg"],
   },
 };

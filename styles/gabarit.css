@@ -747,3 +747,6 @@ img[src*="photo-micro-temoignage"]{object-position:55% 18%}
   .hc__faits dd{font-size:15px}
   .hc__cart--faits{gap:var(--sp-4)}
 }
+/* Logo du menu plus grand (carte Trello du 07/10/2026) */
+.navpill .navpill__brand img{height:34px}
+@media (max-width:600px){ .navpill .navpill__brand img{height:28px} }
