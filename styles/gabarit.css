@@ -612,3 +612,10 @@ main > div > section:last-of-type:has(.g-appel){border-top:0!important}
 .elig-modal .elig__select{width:100%}
 .elig-modal .elig__res{margin-top:24px}
 .elig-modal .elig__ok,.elig-modal .elig__non{padding:20px clamp(18px,2.4vw,28px)}
+/* Fenêtre d'éligibilité : marge visible tout autour de l'écran (retour du 07/10/2026) */
+.elig-modal{padding:clamp(16px,6vh,72px) clamp(16px,4vw,48px)}
+.elig-modal__box{max-height:calc(100vh - 2 * clamp(16px,6vh,72px));max-height:calc(100dvh - 2 * clamp(16px,6vh,72px));width:min(720px,100%);border-radius:24px;box-shadow:0 30px 80px rgba(6,33,31,.45)}
+.elig-modal__head{border-radius:24px 24px 0 0}
+/* au-delà de 1800 px, le zoom global agrandit 100vh : on le compense (--zoom, accueil.css) */
+.elig-modal{--em:clamp(16px,5vh,56px);padding:calc(var(--em) / var(--zoom,1)) clamp(16px,4vw,48px)}
+.elig-modal__box{max-height:calc(100vh / var(--zoom,1) - 2 * var(--em) / var(--zoom,1));max-height:calc(100dvh / var(--zoom,1) - 2 * var(--em) / var(--zoom,1))}
