@@ -127,8 +127,9 @@ function App() {
 // espace insécable avant : ; ? ! % » et après «, pour qu'aucun signe ne tombe seul en début de ligne.
 (function () {
   const RX = / ([:;?!%»])/g, RX2 = /« /g;
-  // petits mots attachés au mot suivant : jamais seuls en fin de ligne (retours du 02/10/2026)
-  const PETITS = /(^|[\s\u00a0(«'’])(à|a|au|aux|de|du|des|d’un|d'un|le|la|les|l’|un|une|en|et|ou|dans|par|pour|sur|avec|sans|son|sa|ses|nos|vos|notre|votre|ce|cet|cette|ces|qui|que|où|y|ne|se|il|elle|on|nous|vous|chez|vers|entre|depuis|plus|très|jusqu’à|jusqu'à|près|N°|n°) (?=\S)/gi;
+  // petits mots attachés au mot suivant : jamais seuls en fin de ligne (retours du 02/10/2026).
+  // Pas après une apostrophe : « quelqu'un à vos côtés » devenait un seul bloc insécable (07/10/2026).
+  const PETITS = /(^|[\s\u00a0(«])(à|a|au|aux|de|du|des|d’un|d'un|le|la|les|l’|un|une|en|et|ou|dans|par|pour|sur|avec|sans|son|sa|ses|nos|vos|notre|votre|ce|cet|cette|ces|qui|que|où|y|ne|se|il|elle|on|nous|vous|chez|vers|entre|depuis|plus|très|jusqu’à|jusqu'à|près|N°|n°) (?=\S)/gi;
   // nombres : « 13 antennes », « 600 convives », « 4 mois »
   const NOMBRE = /(\d) (?=[A-Za-zÀ-ÿ€%])/g;
   const fix = (n) => {

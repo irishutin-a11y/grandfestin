@@ -381,3 +381,5 @@
 .hp--banner .hp__logo{padding:0;border-radius:0;background:none;box-shadow:none}
 .hp--banner .hp__logo img{height:clamp(56px,6vw,88px);max-width:280px;filter:drop-shadow(0 2px 12px rgba(6,33,31,.35))}
 .g-bref__fiche{margin:var(--sp-5) 0 var(--sp-3);justify-self:start;align-self:flex-start}
+/* Fiches (aplat) : titres longs sans toucher les bords sous 400 px (07/10/2026) */
+@media (max-width:400px){ .hp:not(.hp--banner) .hp__t{font-size:2rem} }
