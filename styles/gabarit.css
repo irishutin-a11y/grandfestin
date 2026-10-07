@@ -648,3 +648,5 @@ main > div > section:last-of-type:has(.g-appel){border-top:0!important}
 .g-table .g-table__projet{color:#fff;text-decoration:underline;text-underline-offset:4px}
 .g-table--teal{background:var(--teal-dark)}
 .cata-card--avenir{--mc:#5F6564}
+/* Photo de la formation Prévention des violences : cadrage sur le visage et le micro (07/10/2026), partout où elle apparaît */
+img[src*="photo-micro-temoignage"]{object-position:55% 18%}
