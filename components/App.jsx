@@ -87,7 +87,7 @@ function App() {
       about: 'Qui sommes-nous | ' + base, catalogue: 'Projets et formations | ' + base, tables: 'Nos tables : Les Beaux Mets, La Table de Cana Marseille | ' + base, formation: 'Parcours et formations | ' + base,
       impact: 'Compter ce qui compte : notre impact | ' + base, actualites: 'Presse et actualités | ' + base,
       contact: 'Contact | ' + base, 'accomp-insertion': "L'insertion : nos parcours | " + base,
-      'accomp-pros': 'Pour le secteur : recruter et former | ' + base,
+      'accomp-pros': 'Employeur : recruter et former | ' + base,
     };
     document.title = proj ? proj.shortTitle + ' | ' + base : (titles[route.name] || 'Page introuvable | ' + base);
     const md = document.querySelector('meta[name="description"]');

@@ -177,7 +177,7 @@ function Footer() {
   // pages qui finissent déjà par leurs propres portes : accueil, projets, accompagnement, contact
   const sansFin = ['#/', '#/contact', '#/insertion', '#/restauration'].includes(hash) || hash.indexOf('#/projets/') === 0 || hash.indexOf('#/catalogue') === 0;
   return (
-    <div className="footer-outer">
+    <div className={'footer-outer' + (hash.indexOf('#/restauration') === 0 ? ' footer-outer--deep' : '')}>
       <footer className="footer">
         <div className="footer__bg">
           <img src="images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg" alt="" loading="lazy" />

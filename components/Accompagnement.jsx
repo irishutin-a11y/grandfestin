@@ -301,59 +301,62 @@ function AccompagnementProsPage() {
       {/* en-tête « photo nue et cartouche » (HEADERS.md, proposition 3) : cartouche or = professionnels */}
       <window.HeroPage tone="gold" title="Recruter et former," accent="avec Festin."
         img="images/beauxmets-images/LBM_cdutrey_071122-7264.jpg" imgAlt="Un commis des Beaux Mets en cuisine"
-        crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Pour le secteur' }]}>
+        crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Employeur' }]}>
         <a className="btnb btnb--teal" href="#pros-former" onClick={go('pros-former')}>Former vos équipes <span className="arrow" aria-hidden="true">↓</span></a>
       </window.HeroPage>
 
-      {/* 2 · BLOC ENCARTÉ À ACCORDÉON */}
-      <section className="ar-sec ar-sec--white" id="pros-former" aria-labelledby="pros-former-t">
-        <div className="wrap">
-          <window.BlocEncarte id="pros-former-t" title="Former" accent="vos équipes."
-            lede="Deux formations courtes, en présentiel, dans vos murs ou avec d'autres établissements."
-            action={<a className="btnb btnb--gold ar-bloc__cta" href="#/contact/former">Demander une formation <span className="arrow" aria-hidden="true">→</span></a>}
-            tags={[['Proposées par', 'le programme Restaure'], ['Format', 'Inter ou intra']]}>
-            <ul className="ar-fcards">
-              {[
-                { f: F('vss'), a: 'Reconnaître les violences en cuisine et en salle, les prévenir, réagir à un signalement.', tags: [['Durée', '3 h ou 1 jour'], ['Pour', "Toute l'équipe"]] },
-                { f: F('management'), a: "Recruter plus largement, garder son équipe, l'encadrer sans violence.", tags: [['Durée', '1 jour et 2 demi-journées'], ['Pour', 'Chefs, managers, RH']] },
-              ].map(({ f, a, tags }) => (
-                <li className="ar-fcard" key={f.id}>
-                  <a href={'#/formations/' + f.id}>
-                    <span className="ar-fcard__img">{f.img ? <window.Picture src={f.img} alt="" sizes="(max-width: 720px) 100vw, 28vw" /> : <span className="img-vide" aria-hidden="true" />}</span>
-                    <span className="ar-fcard__b">
-                      <h3 className="ar-fcard__t">{f.title}</h3>
-                      <span className="ar-fcard__p">{a}</span>
-                      <window.ArTags tags={tags} />
-                      <span className="ar-fcard__lnk">Voir le programme <span className="arrow" aria-hidden="true">→</span></span>
-                    </span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </window.BlocEncarte>
+      {/* Page harmonisée (07/10/2026, proposition #/lab-pros validée) : une seule grille (titre à gauche, contenu
+          à droite), une seule matière de carte (blanc sur crème, crème sur blanc), la couleur réservée au code
+          (or = secteur) et aux boutons ; plus de bande or au milieu. S'engager (photo + cartouche or) répond à
+          l'en-tête ; le témoignage, sur teal profond, enchaîne sur le pied de page de la même couleur. */}
+
+      {/* 1 · FORMER */}
+      <section className="ar-sec ar-sec--cream pl-sec" id="pros-former" aria-labelledby="pros-former-t">
+        <div className="wrap ar-split">
+          <div className="ar-split__head">
+            <h2 className="ar-h2" id="pros-former-t">Former <em>vos équipes.</em></h2>
+            <p className="ar-split__p">Deux formations courtes, en présentiel, dans vos murs ou avec d'autres établissements.</p>
+            <window.ArTags tags={[['Proposées par', 'le programme Restaure'], ['Format', 'Inter ou intra']]} />
+            <a className="btnb btnb--gold pl-cta" href="#/contact/former">Demander une formation <span className="arrow" aria-hidden="true">→</span></a>
+          </div>
+          <ul className="ar-fcards">
+            {[
+              { f: F('vss'), a: 'Reconnaître les violences en cuisine et en salle, les prévenir, réagir à un signalement.', tags: [['Durée', '3 h ou 1 jour'], ['Pour', "Toute l'équipe"]] },
+              { f: F('management'), a: "Recruter plus largement, garder son équipe, l'encadrer sans violence.", tags: [['Durée', '1 jour et 2 demi-journées'], ['Pour', 'Chefs, managers, RH']] },
+            ].map(({ f, a, tags }) => (
+              <li className="ar-fcard" key={f.id}>
+                <a href={'#/formations/' + f.id}>
+                  <span className="ar-fcard__img">{f.img ? <window.Picture src={f.img} alt="" sizes="(max-width: 720px) 100vw, 28vw" /> : <span className="img-vide" aria-hidden="true" />}</span>
+                  <span className="ar-fcard__b">
+                    <h3 className="ar-fcard__t">{f.title}</h3>
+                    <span className="ar-fcard__p">{a}</span>
+                    <window.ArTags tags={tags} />
+                    <span className="ar-fcard__lnk">Voir le programme <span className="arrow" aria-hidden="true">→</span></span>
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
-      {/* 3 · BANDE DÉFILANTE — l'écosystème d'où viennent les personnes */}
-      <window.BandeDefilante label="Les projets de Festin" items={window.FESTIN_DATA.bandeProjets} />
-
-      {/* 4 · LIGNES TYPÉES — options au choix, sans numéros ; la POEI se déplie sous sa ligne */}
-      <section className="ar-sec ar-sec--cream" id="pros-recruter" aria-labelledby="pros-rec-t">
+      {/* 2 · RECRUTER : trois lignes crème, sans teintes (le corail est celui de Nos tables) */}
+      <section className="ar-sec ar-sec--white pl-sec" id="pros-recruter" aria-labelledby="pros-rec-t">
         <div className="wrap ar-split">
           <div className="ar-split__head">
             <h2 className="ar-h2" id="pros-rec-t">Recruter <em>une personne formée.</em></h2>
             <p className="ar-split__p">Trois possibilités.</p>
           </div>
           <window.LignesTypees id="pros-rec" items={[
-            { tone: 'teal', title: 'Accueillir un stagiaire',
+            { tone: 'neutre', title: 'Accueillir un stagiaire',
               text: "Une personne formée par Des Étoiles et des Femmes ou Tournesol rejoint votre brigade, suivie en binôme par un membre de votre équipe.",
               tags: [['Moment', 'Pendant sa formation'], ['Festin', 'En appui tout le stage']],
               link: { label: 'Proposer un stage', href: '#/contact/recruter' } },
-            { tone: 'gold', title: "Le Book de l'emploi",
+            { tone: 'neutre', title: "Le Book de l'emploi",
               text: 'Des commis diplômés de nos parcours, prêts à prendre leur poste.',
               tags: [['Envoi', 'Sous 48 h ouvrées']],
               link: { label: 'Recevoir le Book', href: '#/contact/recruter' } },
-            { tone: 'coral', title: "La préparation opérationnelle à l'emploi (POEI)",
+            { tone: 'neutre', title: "La préparation opérationnelle à l'emploi (POEI)",
               text: 'La personne se forme dans votre cuisine avant son embauche. Festin vous accompagne pour finaliser les démarches administratives.',
               tags: [['Financement', 'France Travail'], ['Contrat', 'CDD de 4 mois minimum']],
               etapes: [
@@ -366,39 +369,33 @@ function AccompagnementProsPage() {
         </div>
       </section>
 
-      {/* 5 · CARTE FLOTTANTE — un témoignage sur fond sombre */}
-      <window.CarteFlottante label="Témoignage d'un chef"
-        media={<window.Picture src="images/pros/davin-sami.jpg" alt="Le chef Davin et Sami en cuisine, à l'Intercontinental Marseille" sizes="(max-width: 720px) 100vw, 420px" />}
-        quote="Sami s'est très vite intégré à l'équipe."
-        who="Chef Davin, Intercontinental Marseille, a recruté un commis formé aux Beaux Mets."
-        logo={{ src: "images/partners/intercontinental.png", alt: "InterContinental Marseille" }}
-        cta={{ label: 'Découvrir Les Beaux Mets', href: '#/projets/les-beaux-mets' }} />
-
-      {/* 6 · S'ENGAGER (07/10/2026, proposition B de #/lab-engager) : trois façons, chacune avec son repère et une action.
-          Plus de mot géant (procédé unique, il doublait le titre). Contenu déjà publié. */}
-      <section className="g-sec g-sec--cream eng" id="pros-engager" aria-labelledby="pros-eng-t">
-        <div className="wrap">
-          <window.GHead id="pros-eng-t" title="S'engager" accent="avec Festin." />
-          <ul className="eng__grid">
-            {[
-              { tone: 'teal', t: 'Rejoindre Restaure', p: 'Signez le manifeste, rejoignez un groupe de travail ou venez à un Toast.',
-                tags: [['Déjà', '35 structures membres']], l: { label: 'Le site du programme', href: 'https://www.mouvement-restaure.com', ext: true } },
-              { tone: 'gold', t: 'Le Grand Festin', p: 'Participer au prochain Grand Festin, à Marseille.',
-                tags: [['En 2025', 'plus de 600 convives, 14 brigades']], l: { label: 'Participer', href: '#/contact/partenariat' } },
-              { tone: 'coral', t: 'Devenir mécène', p: 'Soutenir un projet de Festin comme mécène.',
-                tags: [['Contact', 'partenariat@grandfestin.com']], l: { label: 'Devenir mécène', href: '#/contact/mecenat' } },
-            ].map((f) => (
-              <li key={f.t} className={'eng__it eng__it--' + f.tone}>
-                <h3 className="eng__t">{f.t}</h3>
-                <p>{f.p}</p>
-                <window.ArTags tags={f.tags} />
-                <a className="lnk eng__l" href={f.l.href} {...(f.l.ext ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
-                  {f.l.label} <span className="arrow" aria-hidden="true">{f.l.ext ? '↗' : '→'}</span>{f.l.ext && <span className="sr-only"> (nouvel onglet)</span>}
-                </a>
-              </li>
-            ))}
-          </ul>
+      {/* 3 · S'ENGAGER : la photo du Grand Festin et un cartouche or, en écho à l'en-tête */}
+      <section className="eng-c" id="pros-engager" aria-labelledby="pros-eng-t">
+        <window.Picture className="eng-c__photo" src="images/images-def/grand-festin-2025-brigades.jpg" alt="Les brigades du Grand Festin 2025 sur les marches, près du Vieux-Port" sizes="100vw" />
+        <div className="eng-c__cart">
+          <h2 className="eng-c__t" id="pros-eng-t">S'engager <em>avec Festin.</em></h2>
+          <p>Soutenir un projet comme mécène, ou participer au prochain Grand Festin : en 2025, plus de 600 convives, 14 brigades et plus de 100 bénévoles.</p>
+          <div className="eng-c__act">
+            <a className="btnb btnb--teal" href="#/contact/partenariat">Devenir partenaire Festin <span className="arrow" aria-hidden="true">→</span></a>
+            <a className="lnk" href="#/contact/mecenat">Devenir mécène <span className="arrow" aria-hidden="true">→</span></a>
+            <a className="lnk" href="https://www.mouvement-restaure.com" target="_blank" rel="noopener noreferrer">Rejoindre Restaure <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (nouvel onglet)</span></a>
+          </div>
         </div>
+      </section>
+
+      {/* 4 · TÉMOIGNAGE : teal profond, même grille, enchaîné au pied de page */}
+      <section className="ar-sec ar-sec--deep on-dark pl-temoin" aria-label="Témoignage d'un chef">
+        <figure className="wrap pl-temoin__in">
+          <div className="pl-temoin__media">
+            <window.Picture src="images/pros/davin-sami.jpg" alt="Le chef Davin et Sami en cuisine, à l'Intercontinental Marseille" sizes="(max-width: 720px) 100vw, 420px" />
+            <span className="ar-carte__badge"><img src="images/partners/intercontinental.png" alt="InterContinental Marseille" loading="lazy" /></span>
+          </div>
+          <div className="pl-temoin__txt">
+            <blockquote className="pl-temoin__q"><p>« Sami s'est très vite intégré à l'équipe. »</p></blockquote>
+            <figcaption>Chef Davin, Intercontinental Marseille, a recruté un commis formé aux Beaux Mets.</figcaption>
+            <a className="btnb btnb--gold" href="#/projets/les-beaux-mets">Découvrir Les Beaux Mets <span className="arrow" aria-hidden="true">→</span></a>
+          </div>
+        </figure>
       </section>
     </div>
   );

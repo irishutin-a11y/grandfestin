@@ -824,3 +824,38 @@ img[src*="photo-micro-temoignage"]{object-position:55% 18%}
 .eng__it .lnk{display:inline}
 .eng__it .lnk .arrow{display:inline-block;margin-left:6px}
 @media (max-width:600px){ .g-antenne__k{font-size:11px;letter-spacing:.06em;padding:5px 12px} }
+
+/* Pour le secteur harmonisé (07/10/2026, proposition #/lab-pros validée) : une grille, une matière de carte ;
+   S'engager en photo + cartouche or (en écho à l'en-tête), puis le témoignage sur teal profond, enchaîné au pied de page */
+.eng-c{position:relative;isolation:isolate;min-height:min(80vh,680px);display:flex;align-items:flex-end;padding:var(--sp-8) var(--gutter) clamp(24px,4vw,56px);overflow:hidden}
+.eng-c__photo{position:absolute;inset:0;z-index:-1}
+.eng-c__photo img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.eng-c__cart{max-width:620px;padding:clamp(24px,3.4vw,48px);border-radius:28px;background:var(--gold);color:var(--ink);box-shadow:0 30px 60px -30px rgba(6,33,31,.5)}
+.eng-c__t{margin:0 0 var(--sp-4);font-size:clamp(2rem,1.3rem + 2.6vw,3.75rem);line-height:1;text-transform:uppercase;color:var(--ink)}
+.eng-c__t em{display:block;font-style:italic;font-weight:300}
+.eng-c__cart p{margin:0;font-size:var(--fs-lede);line-height:1.45}
+.eng-c__act{display:flex;flex-wrap:wrap;gap:var(--sp-4);align-items:center;margin-top:var(--sp-5)}
+.eng-c__act .lnk{color:var(--ink)}
+@media (max-width:760px){.eng-c{padding:200px 16px 16px;min-height:0}.eng-c__cart{padding:22px 20px;border-radius:20px}}
+
+#pros-engager.eng-c{padding-inline:max(var(--gutter),calc((100% - var(--container)) / 2 + var(--gutter)));min-height:min(86vh,760px)}
+@media (max-width:760px){ #pros-engager.eng-c{padding:220px 16px 16px;min-height:0} }
+.ar-page .pl-sec{padding-block:var(--section)}
+.ar-page .ar-split__head .ar-tags{margin-top:var(--sp-5)}
+.ar-page .pl-cta{margin-top:var(--sp-5)}
+.ar-page .ar-sec--cream .ar-fcard a{background:#fff;box-shadow:0 1px 0 rgba(13,43,48,.06),0 16px 36px -22px rgba(6,33,31,.35)}
+.ar-page .ar-sec--cream .ar-fcard a:hover{box-shadow:0 1px 0 rgba(13,43,48,.06),0 22px 44px -22px rgba(6,33,31,.45)}
+.ar-page .pl-sec .ar-fcard a,.ar-page .pl-sec .ar-ligne,.pl-temoin__media{border-radius:24px}
+.ar-ligne--neutre{--ar-c:var(--teal-dark);background:var(--cream)}
+.ar-ligne--neutre .ar-lnk{color:var(--teal-dark)}
+.pl-temoin__in{margin-block:0;display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:var(--sp-7);align-items:center}
+.pl-temoin__media{position:relative;overflow:hidden}
+.pl-temoin__media picture,.pl-temoin__media img{display:block;width:100%}
+.pl-temoin__media img{aspect-ratio:4/5;object-fit:cover;object-position:50% 30%}
+.pl-temoin__txt{display:flex;flex-direction:column;align-items:flex-start;gap:var(--sp-5)}
+.pl-temoin__q{margin:0}
+.pl-temoin__q p{margin:0;max-width:22ch;font-size:var(--fs-h2);line-height:1.1;font-style:italic;font-weight:300;color:#fff;text-wrap:balance}
+.pl-temoin figcaption{font-size:var(--fs-body);color:var(--ink-on-dark);max-width:48ch}
+@media (max-width:900px){ .pl-temoin__in{grid-template-columns:1fr;gap:var(--sp-5)} .pl-temoin__media img{aspect-ratio:4/3} }
+/* pied de page de la même couleur que le témoignage, sur cette page seulement */
+.footer-outer.footer-outer--deep{background:var(--teal-deep)!important;padding-top:0}

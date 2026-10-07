@@ -1241,7 +1241,7 @@ window.FESTIN_DATA.arbo = [
       // les formations ne sont pas listées une à une (retour du 07/10/2026) : un lien vers le catalogue filtré
       { ic: "graduation-cap", c: "#7FC4CB", label: "Toutes les formations d'insertion", href: "#/catalogue/insertion" },
     ] },
-  { key: "pros", label: "Pour le secteur", href: "#/restauration",
+  { key: "pros", label: "Employeur", href: "#/restauration",
     match: ["#/restauration", "#/accompagnement/professionnels", "#/formations/vss", "#/formations/management", "#/projets/restaure"],
     links: [
       { ic: "briefcase", c: "#FFC100", label: "Recruter et former", d: "Des personnes formées, des formations pour vos équipes", href: "#/restauration" },
@@ -1273,7 +1273,7 @@ window.FESTIN_DATA.arbo = [
 // c : code couleur (teal = insertion, or = secteur, corail = tables).
 window.FESTIN_DATA.barre = [
   { label: "L'insertion", href: "#/insertion", c: "var(--teal)" },
-  { label: "Pour le secteur", href: "#/restauration", c: "var(--gold)" },
+  { label: "Employeur", href: "#/restauration", c: "var(--gold)" },
   { label: "Nos tables", href: "#/tables", c: "var(--coral-ink)" },
   { label: "Projets et formations", href: "#/catalogue", c: "var(--teal-deep)" },
 ];
