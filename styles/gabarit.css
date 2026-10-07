@@ -666,26 +666,28 @@ img[src*="photo-micro-temoignage"]{object-position:55% 18%}
 @media (max-width:900px){.g-table--clair .g-table__mos{order:0}}
 
 /* =====================================================================
-   EN-TÊTES « photo nue et cartouche » (HEADERS.md, proposition 3, 07/10/2026)
-   La photo sans voile, pleine largeur, à hauteur fixe ; le titre dans un cartouche
-   de la couleur du public (teal, or, teal profond) qui chevauche le bas de la photo.
-   Trois familles : accueil (la plus ample), section, formation (avec ses faits).
+   EN-TÊTES « grande photo, cartouche en coin » (HEADERS.md, 2e tour, proposition A, 07/10/2026)
+   La photo en plein cadre et en grande hauteur, sans voile ; un cartouche arrondi de la couleur
+   du public (teal = personnes, or = professionnels, teal profond = le reste) posé en bas à gauche.
+   Le texte est toujours sur l'aplat du cartouche, jamais sur l'image.
+   Hauteurs : accueil min(92vh, 900px) · section min(80vh, 760px) · formation min(76vh, 720px).
    ===================================================================== */
-.hc{--hc-h:340px;--hc-o:120px;position:relative;background:var(--off-white);padding-bottom:var(--sp-7)}
-.hc--accueil{--hc-h:480px;--hc-o:190px}
-.hc--formation{--hc-h:320px;--hc-o:110px}
-.hc__photo{position:relative;margin:0;height:var(--hc-h);overflow:hidden;background:var(--teal-tint)}
-.hc__photo picture{display:block;width:100%;height:100%}
-.hc__photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 35%}
+.hc{--hc-h:min(80vh,760px);--hc-in:max(var(--gutter),calc((100% - var(--container)) / 2 + var(--gutter)));
+  position:relative;isolation:isolate;min-height:var(--hc-h);display:flex;align-items:flex-end;
+  padding:120px var(--hc-in) clamp(24px,4vw,56px);overflow:hidden;background:var(--teal-deep)}
+.hc--accueil{--hc-h:min(92vh,900px)}
+.hc--formation{--hc-h:min(76vh,720px)}
+.hc--sans-photo{min-height:0;background:var(--off-white)}
+.hc__photo{position:absolute;inset:0;z-index:-1;margin:0}
+.hc__photo picture,.hc__photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 35%}
 .hc__credit{position:absolute;right:12px;bottom:12px;padding:4px 10px;border-radius:999px;background:var(--off-white);color:var(--ink);font-size:12px}
-.hc__pose{position:relative;z-index:1;margin-top:calc(-1 * var(--hc-o))}
-.hc--sans-photo{padding-top:120px}
-.hc--sans-photo .hc__pose{margin-top:0}
-.hc__cart{max-width:980px;padding:clamp(24px,3.6vw,52px);border-radius:0 28px 28px 28px;box-shadow:0 30px 60px -36px rgba(6,33,31,.45)}
+.hc__pose{display:contents}
+.hc__pose.wrap{max-width:none;padding:0;margin:0}
+.hc__cart{position:relative;max-width:640px;padding:clamp(24px,3.4vw,48px);border-radius:28px;box-shadow:0 30px 60px -30px rgba(6,33,31,.5)}
+.hc--accueil .hc__cart{max-width:760px}
 .hc__cart--teal{background:var(--teal);color:#fff}
 .hc__cart--deep{background:var(--teal-deep);color:#fff}
 .hc__cart--gold{background:var(--gold);color:var(--ink)}
-.hc__cart--faits{max-width:none;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:end}
 .hc__crumb{margin-bottom:var(--sp-3);font-size:var(--fs-small);opacity:.92}
 .hc__crumb a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 .hc__crumb a:focus-visible{outline:3px solid currentColor;outline-offset:2px}
@@ -704,53 +706,27 @@ img[src*="photo-micro-temoignage"]{object-position:55% 18%}
 .hc__pastilles{list-style:none;margin:var(--sp-4) 0 0;padding:0;display:flex;gap:8px}
 .hc__pastilles li{padding:5px 14px;border-radius:999px;background:var(--gold);color:var(--ink);font-size:13px;font-weight:700;letter-spacing:.08em}
 .hc__cart--gold .hc__pastilles li{background:var(--ink);color:var(--gold)}
-.hc__faits{margin:0;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid currentColor;border-top-color:rgba(255,255,255,.3)}
+/* formation : les faits sous le titre, dans le cartouche */
+.hc__cart--faits{display:grid;gap:var(--sp-5)}
+.hc__faits{margin:0;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(255,255,255,.3)}
 .hc__cart--gold .hc__faits{border-top-color:rgba(13,43,48,.3)}
 .hc__faits div{padding:12px 16px 12px 0}
 .hc__faits dt{font-size:var(--fs-label);font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
 .hc__faits dd{margin:4px 0 0;font-size:var(--fs-body);font-weight:600;line-height:1.35}
-/* accueil : le cartouche et les deux portes côte à côte */
-.hc--accueil .hc__pose{display:grid;grid-template-columns:minmax(0,820px) minmax(260px,360px);gap:16px;align-items:end}
-.hc--accueil .hc__cart{max-width:none}
-.hc__portes{display:grid;gap:12px}
+/* accueil : les deux portes dans le cartouche */
+.hc__portes{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:var(--sp-5)}
+.hc__portes.ac-portes2{display:grid;grid-template-columns:1fr 1fr}
 .hc__portes .ac-porte2{max-width:none}
-@media (max-width:900px){
-  .hc{--hc-h:240px;--hc-o:56px;padding-bottom:var(--sp-6)}
-  .hc--accueil{--hc-h:280px;--hc-o:64px}
-  .hc--formation{--hc-h:170px;--hc-o:40px}
+@media (max-width:760px){
+  .hc{--hc-h:78svh;padding:110px 16px 16px}
+  .hc--accueil{--hc-h:90svh}
+  .hc--formation{min-height:0;padding-top:300px}
   .hc--sans-photo{padding-top:100px}
-  .hc__cart{padding:24px 20px;border-radius:0 20px 20px 20px}
-  .hc__cart--faits{grid-template-columns:1fr}
-  .hc--accueil .hc__pose{grid-template-columns:1fr;gap:8px}
-}
-/* réglages après relecture (07/10/2026) : assez de photo visible sous la barre et au-dessus du cartouche */
-.hc{--hc-h:420px}
-.hc--accueil{--hc-h:560px}
-.hc--formation{--hc-h:360px}
-.hc__portes.ac-portes2{display:grid;grid-template-columns:1fr;gap:12px}
-@media (max-width:900px){
-  .hc{--hc-h:300px;--hc-o:56px}
-  .hc--accueil{--hc-h:340px;--hc-o:64px}
-  .hc--formation{--hc-h:240px;--hc-o:40px}
+  .hc__cart{padding:22px 20px;border-radius:20px}
+  .hc__portes,.hc__portes.ac-portes2{grid-template-columns:1fr}
   .hc .hc__more .btnb{padding-inline:18px;letter-spacing:.06em}
-  .hc--formation .hc__crumb span[aria-current]{display:none}
-  .hc--formation .hc__crumb > span[aria-hidden]:last-of-type{display:none}
 }
-@media (min-width:901px){ .hc{--hc-h:380px} .hc--accueil{--hc-h:520px} .hc--formation{--hc-h:320px} }
-/* Photos plus visibles (retour du 07/10/2026) : photo plus haute, cartouche plus étroit qui chevauche
-   moins ; à droite du cartouche, la photo se voit sur toute sa hauteur. */
-@media (min-width:901px){
-  .hc{--hc-h:480px;--hc-o:96px}
-  .hc--accueil{--hc-h:620px;--hc-o:150px}
-  .hc--formation{--hc-h:420px;--hc-o:90px}
-  .hc__cart{max-width:720px}
-  .hc--accueil .hc__pose{grid-template-columns:minmax(0,680px) minmax(260px,340px)}
-  .hc .hc__t{font-size:clamp(2rem,1.2rem + 2.4vw,3.5rem)}
-  .hc .hc__t--xl{font-size:clamp(2.75rem,1.4rem + 3.6vw,5rem)}
-  .hc--formation .hc__cart--faits{max-width:1040px}
-}
-@media (max-width:900px){
-  .hc{--hc-h:360px;--hc-o:40px}
-  .hc--accueil{--hc-h:400px;--hc-o:48px}
-  .hc--formation{--hc-h:300px;--hc-o:32px}
+@media (max-width:760px){
+  /* fiches : le dernier élément du fil d'Ariane répète le titre juste dessous ; masqué sur mobile */
+  .hc--formation .hc__crumb span[aria-current],.hc--formation .hc__crumb > span[aria-hidden]:last-of-type{display:none}
 }

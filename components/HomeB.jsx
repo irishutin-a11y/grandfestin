@@ -80,8 +80,8 @@ function HomeB() {
     <div className="pageAccueil" ref={rootRef}>
 
       {/* 1 · HERO — qui, quoi, pour qui ; la seule teinte pleine de la page avec le pied */}
-      {/* en-tête « photo nue et cartouche » (HEADERS.md, proposition 3, 07/10/2026) : la photo sans voile,
-          la signature dans un cartouche teal profond, les deux portes (teal = insertion, or = secteur) */}
+      {/* en-tête « grande photo, cartouche en coin » (HEADERS.md, 2e tour, A) : la photo en plein cadre,
+          la signature et les deux portes (teal = insertion, or = secteur) dans un cartouche teal profond */}
       <header className="hc hc--accueil" id="hero">
         <figure className="hc__photo">
           <window.Picture src={H.hero.img} alt={H.hero.imgAlt} sizes="100vw" loading="eager" fetchPriority="high" />
@@ -93,8 +93,7 @@ function HomeB() {
               <span className="ln"><span><em>ensemble.</em></span></span>
             </h1>
             <p className="hc__tag">{H.hero.title} {H.hero.titleAccent}</p>
-          </div>
-          <div className="hc__portes ac-portes2">
+            <div className="hc__portes ac-portes2">
             <a className="ac-porte2 ac-porte2--ins" href={H.hero.ctaPrimary.href}>
               <span className="ac-porte2__k">{H.hero.ctaPrimary.k}</span>
               <span className="ac-porte2__l">{H.hero.ctaPrimary.label}{'\u00a0'}<span className="arrow" aria-hidden="true">→</span></span>
@@ -103,6 +102,7 @@ function HomeB() {
               <span className="ac-porte2__k">{H.hero.ctaSecondary.k}</span>
               <span className="ac-porte2__l">{H.hero.ctaSecondary.label}{'\u00a0'}<span className="arrow" aria-hidden="true">→</span></span>
             </a>
+            </div>
           </div>
         </div>
       </header>

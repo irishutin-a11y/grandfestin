@@ -428,10 +428,9 @@ window.FinDePage = FinDePage;
 // (la seule de la page), un titre-phrase, une preuve, une photo facultative.
 // tone : 'teal' | 'deep' | 'gold'
 // ---------------------------------------------------------------------------
-// HeroPage — proposition 3 retenue le 07/10/2026 (HEADERS.md) : la photo nue et le cartouche.
-// La photo s'affiche sans voile, en pleine largeur et à hauteur fixe ; le titre est posé dans un
-// cartouche de la couleur du public (teal = personnes, or = professionnels, teal profond = le reste)
-// qui chevauche le bas de la photo. Fil d'Ariane, titre, un bouton. Les fiches formation
+// HeroPage — proposition A du 2e tour retenue le 07/10/2026 (HEADERS.md) : grande photo, cartouche en coin.
+// La photo en plein cadre et en grande hauteur, sans voile ; le titre dans un cartouche arrondi de la
+// couleur du public (teal = personnes, or = professionnels, teal profond = le reste) posé en bas à gauche. Fil d'Ariane, titre, un bouton. Les fiches formation
 // (famille « formation ») portent leurs faits dans le cartouche. Sans photo : le cartouche seul.
 function HeroPage({ tone = 'teal', title, accent, note, img, imgAlt = '', imgPos, crumb = [], logo, logoAlt = '', faits, pastilles, famille = 'section', children }) {
   const ref = React.useRef(null);
