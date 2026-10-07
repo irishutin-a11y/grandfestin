@@ -374,8 +374,8 @@ function AccompagnementProsPage() {
         logo={{ src: "images/partners/intercontinental.png", alt: "InterContinental Marseille" }}
         cta={{ label: 'Découvrir Les Beaux Mets', href: '#/projets/les-beaux-mets' }} />
 
-      {/* 6 · TITRE EN CHEVAUCHEMENT — fin de page */}
-      <window.TitreChevauche id="pros-eng-t" mot="S'engager" title="S'engager avec Festin"
+      {/* 6 · S'ENGAGER — le mot géant est retiré (07/10/2026) : utilisé une seule fois, il doublait le titre */}
+      <window.TitreChevauche id="pros-eng-t" title="S'engager avec Festin"
         text="Soutenir un projet comme mécène, ou participer au prochain Grand Festin."
         link={{ label: 'Devenir partenaire Festin', href: '#/contact/partenariat' }} />
     </div>

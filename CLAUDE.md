@@ -30,6 +30,7 @@ Le design system Claude Design (zip) contient d'anciennes versions des composant
 - Aucun investisseur, aucun montage capitalistique, aucun vocabulaire lucratif sur une page grand public. Page restaurateurs : partenariat et insertion, jamais « offre », « prestation », « client », « solution ». « Devis » est autorisé (traiteur, formations), décision du 30/09/2026 (confirmée le même jour) ; seule la page Professionnels s'en passe, ainsi que des tarifs (maquette du 30/09).
 - Pas de point médian. Pas de superlatif. Chiffres sourcés et datés.
 - Restaure s'écrit « le programme Restaure » (restructuration en cours).
+- **Festin pilote seul le programme Restaure** (repositionnement stratégique, 07/10/2026) : ne plus citer Yes We Camp, Les Petites Cantines ni La Communauté Ecotable comme pilotes. Restaure vise à transformer durablement les pratiques du secteur (conditions humaines et impact écologique) par la sensibilisation et la formation des professionnels. Présentation réécrite dans ce sens le 07/10 (en bref, cartes, frise) ; les exemples d'indicateurs de la note (70 %, turnover) ne sont pas publiés.
 - Projets non acquis jamais au présent : « CAP vers l'Emploi », futur lieu près du Vieux-Port, Sadi Carnot.
 
 ## Chantier copywriting (dossier `copywriting/`)
@@ -147,10 +148,15 @@ Document : `PROPOSITIONS-V4.md` (réponses de l'utilisatrice). Remplace la barre
 - **S'engager avec Festin** (Impact) : Financer et Accueillir en deux colonnes ; « Porter une antenne » à part, en bloc sombre (« Un engagement dans la durée », ce qu'il faut réunir, « Parlons de votre projet d'antenne »).
 - **Une seule liste de reconnaissances, sur Impact.** Qui sommes-nous n'a plus de frise (`about.jalons` ne sert plus que de données).
 
-## En-têtes « photo nue et cartouche » (07/10/2026), tranché
-Proposition 3 de `HEADERS.md` (branche de comparaison `headers-propositions`, route `#/headers`), « à améliorer par la suite ».
-- `HeroPage` (Sections.jsx, classes `hc-*` dans gabarit.css) : photo sans voile, pleine largeur, à hauteur fixe (`--hc-h` : 480 px section, 620 accueil, 420 formation ; 360, 400, 300 sur mobile), puis un **cartouche** de la couleur du public (teal = personnes, or = professionnels, teal profond = le reste) qui chevauche le bas de la photo (`--hc-o`). Fil d'Ariane, titre, un bouton. Sans photo : le cartouche seul.
-- Trois familles : **accueil** (HomeB.jsx, cartouche teal profond + les deux portes empilées), **section** (toutes les pages intérieures, dont Pour le secteur), **formation** (`famille="formation"` : photo de la formation, faits dans le cartouche : durée, où ou format, public, coût ou porteur ; pastilles CAP/TFP). La photo n'est plus répétée dans le corps des fiches.
+## En-têtes « grande photo, cartouche en coin » (07/10/2026), tranché
+Proposition A du 2e tour de `HEADERS.md` (comparaison sur la branche `headers-propositions`, route `#/headers`). Remplace la proposition 3 (photo nue au-dessus, cartouche en dessous), jugée pas assez impactante.
+- `HeroPage` (Sections.jsx, classes `hc-*` dans gabarit.css) : photo en plein cadre et en grande hauteur, sans voile (accueil min(92vh, 900px), section min(80vh, 760px), formation min(76vh, 720px)) ; un **cartouche arrondi** de la couleur du public (teal = personnes, or = professionnels, teal profond = le reste) posé **en bas à gauche, sur la photo**. Le texte est toujours sur le cartouche. Fil d'Ariane, titre, un bouton. Sans photo : le cartouche seul. Cadrage par page avec `imgPos`.
+- Trois familles : **accueil** (HomeB.jsx, cartouche teal profond avec la signature et les deux portes), **section** (toutes les pages intérieures, dont Pour le secteur), **formation** (`famille="formation"` : photo de la formation, faits dans le cartouche : durée, où ou format, public, coût ou porteur ; pastilles CAP/TFP). La photo n'est plus répétée dans le corps des fiches.
+- Fiches formation : un **titre court** dans l'en-tête quand le titre est long (`formations[i].titreCourt`, ex. Violences) ; le titre complet et la description ouvrent le corps (`.detail-intro`).
+- Accueil sur mobile : les deux portes sortent du cartouche et passent sous la photo (`.hc__portes-mob`), pour que la photo reste visible.
+- Cadrage : le sujet doit rester visible à droite du cartouche ; régler `imgPos` page par page. Le programme Restaure : photo du Toast en en-tête (07/10, accord de l'utilisatrice), l'affiche du lancement sert de vignette à la vidéo.
+- **Accueil** (maquette du 07/10/2026) : en-tête, bandeau des statuts, frise des projets « Près de quarante ans dans les cuisines », chiffres 2025, « Deux publics, un même métier », « Ils et elles racontent ». Plus de « Choisir votre entrée ». Logo du menu agrandi (34 px).
+- Pour le secteur : plus de mot géant « S'engager » en fin de page (procédé unique, doublait le titre) ; ne pas le reproduire ailleurs.
 - Méga menu : **aucune formation listée une à une** (elles se multiplieront) ; « Toutes les formations d'insertion » → `#/catalogue/insertion`, « Toutes les formations pro » → `#/catalogue/pro`. Plus de phrase de statut en pied de menu.
 
 Voir `copywriting/06-journal-des-changements.md`, section « Encore en `[XX]` » : portraits de l'équipe, témoignages entreprise et financeur, crédits photo, intitulés de Marion Binachon et Fanny Bouvier.

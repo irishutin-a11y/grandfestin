@@ -151,7 +151,7 @@ function CarteFlottante({ media, quote, who, logo, cta, label }) {
 function TitreChevauche({ id, mot, title, text, link }) {
   return (
     <section className="ar-eng" aria-labelledby={id}>
-      <p className="ar-eng__mot" aria-hidden="true">{mot}</p>
+      {mot && <p className="ar-eng__mot" aria-hidden="true">{mot}</p>}
       <div className="wrap ar-eng__in">
         <h2 className="ar-eng__t" id={id}>{title}</h2>
         {text && <p>{text}</p>}

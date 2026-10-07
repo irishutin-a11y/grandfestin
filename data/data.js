@@ -53,7 +53,7 @@ window.FESTIN_DATA = {
     {
       icon: "megaphone",
       title: "Transformation",
-      desc: "Le programme Restaure réunit 35 structures pour prévenir les violences en cuisine et changer les pratiques du secteur.",
+      desc: "Un programme national, piloté par Festin, pour transformer les pratiques de la restauration : conditions de travail, inclusion et impact écologique.",
     },
   ],
   // Two clearly distinct audiences (preserved)
@@ -447,14 +447,14 @@ window.FESTIN_DATA = {
       shortTitle: "Le programme Restaure",
       tagline: "Un programme national pour transformer le secteur",
       subtitle: "Un programme national pour transformer le secteur de la restauration",
-      short: "Restaure réunit 35 structures de la restauration pour prévenir les violences en cuisine et former les managers. Son manifeste compte 700 signataires.",
+      short: "Le programme Restaure, piloté par Festin, sensibilise et forme les professionnels de la restauration pour améliorer les conditions de travail et réduire l'impact écologique du secteur. Son manifeste compte 700 signataires.",
       stats: [
         { value: "35",  label: "structures engagées" },
         { value: "700", label: "signataires du manifeste" },
         { value: "2 M", unit: "+", label: "de vues des vidéos de prévention en 2025" },
         { value: "5",   label: "groupes de travail" },
       ],
-      description: "Restaure est un programme national né en 2024. Il réunit des restaurateurs, des chefs et des associations pour changer les pratiques du secteur : prévenir les violences en cuisine et former au management. Quatre structures le pilotent : Yes We Camp, Les Petites Cantines, La Communauté Ecotable et Festin. En 2025, cinq groupes de travail démarrent, cinq tables rondes ont lieu à Marseille, Toulouse et Lille et la formation « Management juste » est lancée. Les vidéos de prévention des violences en cuisine dépassent deux millions de vues.",
+      description: "Restaure est un programme national né en 2024 et piloté par Festin. Il vise à transformer durablement les pratiques de la restauration, en améliorant à la fois les conditions humaines et l'impact écologique, par la sensibilisation et la formation des professionnels.",
       ctaLabel: "Visiter mouvement-restaure.com",
       ctaUrl: "https://www.mouvement-restaure.com",
       quote: {
@@ -523,7 +523,7 @@ window.FESTIN_DATA = {
         { title: "Plaidoyer", pilote: "La Communauté Ecotable, Les Bouillonantes" },
         { title: "Formations", pilote: "Des Étoiles et des Femmes, Refugee Food" },
       ],
-      gouvernance: ["Yes We Camp", "Les Petites Cantines", "La Communauté Ecotable", "Festin"],
+      gouvernance: ["Festin"], // seul pilote depuis le repositionnement stratégique (07/10/2026)
       toast: "Les Toast : des apéros entre restaurateurs, organisés par Restaure avec La Communauté Ecotable. Chacun y raconte ce qu’il a changé dans son établissement et ce qui a marché.",
       perspectives: [
         "Donner un lieu au programme : le futur lieu Sadi Carnot",
@@ -631,6 +631,7 @@ window.FESTIN_DATA = {
       porteur: "Portée par le programme Restaure",
       audienceKey: "pros",
       title: "Prévention des violences sexistes et sexuelles en restauration",
+      titreCourt: ["Prévention des violences", "en restauration"], // en-tête (07/10/2026) : titre complet repris en tête de fiche
       desc: "Reconnaître les violences sexistes et sexuelles en cuisine et en salle, les prévenir et savoir réagir à un signalement.",
       img: "images/photo-micro-temoignage.jpg", // photo demandée le 07/10/2026 (moins de photos des Beaux Mets)
       duration: "Inter (3 h) ou Intra (3 h ou 1 jour / 7 h)",
@@ -1033,7 +1034,7 @@ window.FESTIN_DATA.home = {
         text: "Nos formations diplômantes en cuisine comprennent des stages en brigade. Pour les équipes déjà en poste, le programme Restaure propose des formations courtes.",
         img: "images/photo-patisserie.jpg", variant: "b" },
       { tab: "Le secteur", kicker: "03 · Secteur", title: "Changer les cuisines",
-        text: "Le programme Restaure réunit 35 structures et 700 signataires de son manifeste pour prévenir les violences en cuisine et former les managers.",
+        text: "Le programme Restaure, piloté par Festin, sensibilise et forme les professionnels pour améliorer les conditions de travail et réduire l'impact écologique du secteur. Son manifeste compte 700 signataires.",
         img: "images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00022.jpg", variant: "c" }
     ]
   },
@@ -1070,7 +1071,7 @@ window.FESTIN_DATA.home = {
       { id:"des-etoiles-et-des-femmes", blurb:"Un diplôme de cuisine et des stages en restaurant, pour des femmes. 13 antennes en France.", insertion:"Des femmes suivent une formation diplômante en cuisine, avec des stages en restaurant.", secteur:"Des commis formées pour les brigades, dans 13 villes.", stat:"91 % de réussite aux diplômes en 2025", img:"images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg" },
       { id:"les-beaux-mets",           blurb:"Le premier restaurant en prison ouvert au public en France. Aux Baumettes, à Marseille.", insertion:"Des personnes détenues apprennent la cuisine et le service, en brigade, sur un vrai service.", secteur:"Un restaurant bistronomique ouvert au public, aux Baumettes.", stat:"119 personnes employées depuis 2022", img:"images/beauxmets-images/LBM_cdutrey_071122-7264.jpg" },
       { id:"la-table-de-cana",         blurb:"Traiteur et restauration collective en insertion, à Marseille.", insertion:"Des salariés en insertion se forment au traiteur et à la restauration collective.", secteur:"Un traiteur et une cuisine collective pour les entreprises et les collectivités marseillaises.", stat:"89 % de sorties positives en 2025", img:"images/latable de cana/tabledecana_cdutrey_160124-4393.jpg" },
-      { id:"restaure",                 blurb:"Un programme national. Il prévient les violences en cuisine et change les pratiques du secteur.", insertion:"Des cuisines plus sûres pour celles et ceux qui y travaillent.", secteur:"Des formations et des outils pour prévenir les violences et former les managers.", stat:"700 signataires du manifeste", img:"images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00032.jpg" },
+      { id:"restaure",                 blurb:"Un programme national, piloté par Festin, pour transformer les pratiques de la restauration : conditions de travail, inclusion et impact écologique.", insertion:"Des cuisines plus sûres pour celles et ceux qui y travaillent.", secteur:"Des formations et des outils pour prévenir les violences et former les managers.", stat:"700 signataires du manifeste", img:"images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00032.jpg" },
       { id:"tournesol",                blurb:"Cinq mois de formation diplômante pour des personnes réfugiées ou primo-arrivantes.", insertion:"Des personnes réfugiées ou primo-arrivantes préparent en cinq mois le titre de commis de cuisine.", secteur:"Des commis formés, avec Refugee Food, pour les restaurants qui recrutent.", stat:"86 % d'insertion un an après", img:"images/tournesol:formation/tournesol-cuisine.jpg" }
     ],
     avenir: { title:"Sadi Carnot", eyebrow:"En préparation", text:"Un futur restaurant d'insertion à Marseille. Nous en présenterons le projet quand il sera acquis." },
@@ -1155,7 +1156,7 @@ Object.assign(window.FESTIN_DATA.home, {
         text: "Prévenir les violences en cuisine et changer les pratiques de management, avec les restaurateurs, les chefs et les associations du secteur.",
         fait: { n: "700", t: "signataires du manifeste, 35 structures engagées", p: "le programme Restaure" },
         projets: [
-          { id: "restaure", line: "Un programme national contre les violences en cuisine : un manifeste, des groupes de travail, des formations pour les managers.", img: "images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg" },
+          { id: "restaure", line: "Un programme national, piloté par Festin, pour transformer les pratiques de la restauration : conditions de travail, inclusion et impact écologique.", img: "images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg" },
         ] },
     ],
   },
@@ -1312,7 +1313,7 @@ window.FESTIN_DATA.catalogue = [
     ligne: "Un traiteur en insertion depuis 1993 : faire appel au traiteur, ou y postuler pour un emploi en insertion.",
     href: "#/projets/la-table-de-cana", img: "images/latable de cana/TABLECANA_EVENT_cdutrey_230625-5011.jpg" },
   { id: "restaure", types: ["projet"], public: "pro", titre: "Le programme Restaure", ou: "En France",
-    ligne: "Un programme national contre les violences en cuisine, avec ses formations pour les équipes.",
+    ligne: "Un programme national, piloté par Festin, pour transformer les pratiques de la restauration : conditions de travail, inclusion et impact écologique.",
     href: "#/projets/restaure", img: "images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg" },
   { id: "academie", types: ["projet"], public: "insertion", titre: "Académie Festin", ou: "Marseille",
     ligne: "Académie Festin, portée par Estello Formation, organisme de formation certifié Qualiopi.",
@@ -1508,15 +1509,15 @@ window.FESTIN_DATA.projetPages = {
   "restaure": {
     bandeProjets: true, // fin de page : la bande or des projets, comme sur Pros et l'Académie
     kicker: "Depuis 2024 · programme national",
-    heroImg: "images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg", heroAlt: "Soirée de lancement du programme Restaure", heroCredit: "Photo : Caroline Dutrey",
+    heroImg: "images/restaure : formation pro/FESTIN_TOAST_12 FEVRIER_FEED-25.jpg", heroAlt: "Un Toast du programme Restaure : une salle écoute des restaurateurs sur scène", // photo changée le 07/10/2026 (l'affiche était cachée par le cartouche)
     nature: "programme", heroCta: { label: "Nos formations pro", href: "#/restauration/former" }, heroLien: { label: "Le site du programme", href: "https://www.mouvement-restaure.com", external: true },
-    bref: { title: "Des cuisines où l'on travaille", accent: "en sécurité.",
-      text: "Un programme national né en 2024. Restaurateurs, chefs et associations y travaillent ensemble pour prévenir les violences en cuisine et changer les pratiques de management. Il porte aussi les formations pro de Festin, pour les équipes de la restauration." },
-    video: { link: "https://www.instagram.com/reel/DJ9kq6iIb5j/", linkLabel: "Voir la vidéo sur Instagram", poster: "images/restaure : formation pro/FESTIN_TOAST_12 FEVRIER_FEED-25.jpg" },
+    bref: { title: "Transformer les pratiques", accent: "du secteur.",
+      text: "Un programme national né en 2024 et piloté par Festin. Il sensibilise et forme les professionnels de la restauration pour transformer durablement les pratiques du secteur : prendre soin des équipes, prévenir les violences sexistes et sexuelles, ouvrir les cuisines aux femmes, aux personnes réfugiées et aux personnes en insertion, réduire l'impact écologique des restaurants avec la Communauté Ecotable. Il porte aussi les formations pro de Festin." }, // repositionnement stratégique (07/10/2026)
+    video: { link: "https://www.instagram.com/reel/DJ9kq6iIb5j/", linkLabel: "Voir la vidéo sur Instagram", poster: "images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg" },
     preuves: [
       "<b>35 structures</b> de la restauration sont engagées et le manifeste compte <b>700 signataires</b>.",
       "En 2025, les vidéos de prévention des violences en cuisine ont dépassé <b>2 millions</b> de vues.",
-      "<b>5 groupes de travail</b> ont démarré, chacun piloté par une structure membre.",
+      "En 2025, <b>5 groupes de travail</b> ont démarré avec les structures membres.",
     ],
     source: "Source : rapport d'activité Festin 2025.",
     blocs: ["verbatims"],
@@ -1526,10 +1527,10 @@ window.FESTIN_DATA.projetPages = {
       { tag: "Vous dirigez une cuisine", title: "Former vos équipes",
         cta: "Voir les formations", href: "#/restauration/former", img: "images/restaure : formation pro/IMG_2950.JPG" },
       { tag: "Vous voulez en savoir plus", title: "Le programme Restaure",
-        cta: "Le site du programme", href: "https://www.mouvement-restaure.com", external: true, img: "images/restaure : formation pro/FESTIN_TOAST_12 FEVRIER_FEED-25.jpg" },
+        cta: "Le site du programme", href: "https://www.mouvement-restaure.com", external: true, img: "images/restaure : formation pro/TASTING_RFF_CLOSING-FEED-34 (1).JPG" },
     ],
-    soutien: { title: "Ils pilotent", accent: "Restaure",
-      text: "Quatre structures pilotent le programme : Yes We Camp, Les Petites Cantines, La Communauté Ecotable et Festin. Votre don finance ses actions de prévention." },
+    soutien: { title: "Soutenir", accent: "Restaure",
+      text: "Festin pilote le programme. Votre don finance la sensibilisation et la formation des professionnels de la restauration." }, // 07/10/2026 : Festin seul pilote (repositionnement stratégique de Restaure)
     galerie: ["images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg", "images/restaure : formation pro/FESTIN_TOAST_12 FEVRIER_FEED-25.jpg", "images/restaure : formation pro/IMG_2950.JPG", "images/restaure : formation pro/TASTING_RFF_CLOSING-FEED-34 (1).JPG", "images/restaure : formation pro/WhatsApp Image 2025-12-09 at 08.53.58.jpg", "images/restaure : formation pro/toast-affiche-restaure.jpg", "images/restaure : formation pro/toast-regie.jpg"],
   },
 };
@@ -1605,7 +1606,7 @@ window.FESTIN_DATA.about = {
     { year: "2022", type: "reco", title: "Fondation des Femmes", desc: "Distinction pour l'accompagnement des femmes vers l'autonomie." },
     { year: "2023", type: "reco", title: "Acteurs clés de changement", desc: "Lauréat, Fondation de France." },
     { year: "2023", type: "reco", title: "Prix Futur(e)s Food", desc: "Les Beaux Mets, au Sirha." },
-    { year: "2024", type: "projet", title: "Le programme Restaure", desc: "Un programme national contre les violences en cuisine.", photo: "images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg", href: "#/projets/restaure" },
+    { year: "2024", type: "projet", title: "Le programme Restaure", desc: "Un programme national, piloté par Festin, pour transformer les pratiques de la restauration : conditions de travail, inclusion et impact écologique.", photo: "images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg", href: "#/projets/restaure" },
     { year: "2025", type: "projet", label: "Temps fort", title: "Dix ans du dispositif Des Étoiles et des Femmes", desc: "Plus de 600 convives au Grand Festin, sur le Vieux-Port.", photo: "images/images-def/grand-festin-2025-brigades.jpg" },
     { year: "2025", type: "reco", title: "Label LUCIE Progress", desc: "848 sur 1 000 pour La Table de Cana Marseille." },
     { year: "2026", type: "projet", title: "L'Académie Festin", desc: "Festin devient organisme de formation en partenariat avec Estello Formation, organisme certifié Qualiopi.", photo: "images/photo-cuisine-formation.jpg", href: "#/academie" },
@@ -1718,7 +1719,7 @@ Object.assign(window.FESTIN_DATA.home, {
       { year: "1993", title: "La Table de Cana Marseille", desc: "Le premier projet : un traiteur où des salariés en insertion apprennent la cuisine en travaillant.", color: "#E8A825", dark: true, photo: "images/latable de cana/tabledecana_cdutrey_160124-4393.jpg", href: "#/projets/la-table-de-cana" },
       { year: "2015", title: "Des Étoiles et des Femmes", desc: "Des femmes se forment à la cuisine avec des chefs. Le dispositif compte aujourd'hui 13 antennes.", color: "#C2421C", dark: false, photo: "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg", href: "#/projets/des-etoiles-et-des-femmes" },
       { year: "2022", title: "Les Beaux Mets", desc: "Un restaurant ouvert au public dans la prison des Baumettes, à Marseille.", color: "#217078", dark: false, photo: "images/beauxmets-images/LBM_cdutrey_071122-7264.jpg", href: "#/projets/les-beaux-mets" },
-      { year: "2024", title: "Le programme Restaure", desc: "Contre les violences en cuisine et pour former les équipes de la restauration.", color: "#7E4590", dark: false, photo: "images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg", href: "#/projets/restaure" },
+      { year: "2024", title: "Le programme Restaure", desc: "Transformer les pratiques de la restauration : conditions de travail, inclusion, impact écologique.", color: "#7E4590", dark: false, photo: "images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg", href: "#/projets/restaure" },
       { year: "2026", title: "L'Académie Festin", desc: "Festin devient organisme de formation en partenariat avec Estello Formation, organisme certifié Qualiopi.", color: "#FEFCF8", dark: true, photo: "images/photo-cuisine-formation.jpg", href: "#/academie" },
     ],
   },

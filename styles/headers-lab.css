@@ -261,3 +261,21 @@
   .hy--b .hy__photo{position:relative;inset:auto;z-index:0;order:2;height:clamp(260px,42svh,380px)}
   .hy .btnb{padding-inline:18px;letter-spacing:.06em}
 }
+
+/* ---------- #/lab-engager : trois fins de page pour Pour le secteur ---------- */
+.eng-b__grid{list-style:none;margin:var(--sp-6) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-5)}
+.eng-b__it{display:flex;flex-direction:column;gap:var(--sp-3);padding:var(--sp-6);border-radius:24px;background:var(--off-white);border-top:6px solid var(--c)}
+.eng-b__it--teal{--c:var(--teal)}.eng-b__it--gold{--c:var(--gold)}.eng-b__it--coral{--c:var(--coral-ink)}
+.eng-b__t{margin:0;font-size:var(--fs-h3);text-transform:uppercase;color:var(--ink)}
+.eng-b__it p{margin:0;color:var(--ink-mid);line-height:1.5}
+.eng-b__l{margin-top:auto;padding-top:var(--sp-3)}
+.eng-c{position:relative;isolation:isolate;min-height:min(80vh,680px);display:flex;align-items:flex-end;padding:var(--sp-8) var(--gutter) clamp(24px,4vw,56px);overflow:hidden}
+.eng-c__photo{position:absolute;inset:0;z-index:-1}
+.eng-c__photo img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.eng-c__cart{max-width:620px;padding:clamp(24px,3.4vw,48px);border-radius:28px;background:var(--gold);color:var(--ink);box-shadow:0 30px 60px -30px rgba(6,33,31,.5)}
+.eng-c__t{margin:0 0 var(--sp-4);font-size:clamp(2rem,1.3rem + 2.6vw,3.75rem);line-height:1;text-transform:uppercase;color:var(--ink)}
+.eng-c__t em{display:block;font-style:italic;font-weight:300}
+.eng-c__cart p{margin:0;font-size:var(--fs-lede);line-height:1.45}
+.eng-c__act{display:flex;flex-wrap:wrap;gap:var(--sp-4);align-items:center;margin-top:var(--sp-5)}
+.eng-c__act .lnk{color:var(--ink)}
+@media (max-width:760px){.eng-b__grid{grid-template-columns:1fr}.eng-c{padding:200px 16px 16px;min-height:0}.eng-c__cart{padding:22px 20px;border-radius:20px}}
