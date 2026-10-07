@@ -377,3 +377,7 @@
 @media (max-width:720px){.imp-prix__ph img{aspect-ratio:4/3}}
 /* En-têtes allégés (retour du 06/10/2026) : la grande image, le fil d'Ariane et un seul bouton */
 .hp__credit{position:absolute;right:clamp(12px,2vw,24px);bottom:10px;margin:0;z-index:2;font-size:var(--fs-label);color:var(--ink-on-dark);opacity:.85;max-width:60ch;text-align:right}
+/* Logos des en-têtes sans cadre (retour du 07/10/2026) : le logo blanc posé sur l'image */
+.hp--banner .hp__logo{padding:0;border-radius:0;background:none;box-shadow:none}
+.hp--banner .hp__logo img{height:clamp(56px,6vw,88px);max-width:280px;filter:drop-shadow(0 2px 12px rgba(6,33,31,.35))}
+.g-bref__fiche{margin:var(--sp-5) 0 var(--sp-3);justify-self:start;align-self:flex-start}

@@ -178,6 +178,9 @@ function ProjetPage({ id }) {
             <span className="g-tag g-reveal"><span className="g-tag__dot" aria-hidden="true" />{cfg.programmeDe ? 'Un programme de ' + cfg.programmeDe.label.replace(/^L'/, "l'") : 'Un projet de Festin · ' + missionLabel}</span>
             <h2 className="g-h2 g-reveal" id="bref-t">{cfg.bref.title} <em>{cfg.bref.accent}</em></h2>
             <p className="g-lede g-reveal">{cfg.bref.text}</p>
+            {/* la page projet mène au détail de la formation (retour du 07/10/2026) */}
+            {cfg.nature === 'formation' && (D.formations || []).some((f) => f.id === id) &&
+              <a className="btnb btnb--teal g-bref__fiche g-reveal" href={'#/parcours/' + id}>Le détail de la formation <span className="arrow" aria-hidden="true">→</span></a>}
             <a className="lnk g-bref__site g-reveal" href={p.siteUrl} target="_blank" rel="noopener noreferrer">Le site du projet : {p.siteName} <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (nouvel onglet)</span></a>
             <window.PresseLigne filtres={p.presseFilter || []} />
             {cfg.orientable && <p className="g-src">Vous accompagnez une personne vers l'emploi ? Les conditions d'entrée sont sur la <a href="#/insertion">page Insertion</a>.</p>}

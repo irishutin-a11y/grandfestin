@@ -1236,7 +1236,7 @@ window.FESTIN_DATA.arbo = [
     links: [
       { ic: "compass", c: "#7FC4CB", label: "Nos parcours", d: "Un accompagnement jusqu'à l'emploi", href: "#/insertion" },
       { ic: "list-checks", c: "#7FC4CB", label: "Vérifier mon éligibilité", d: "Quelques questions, rien n'est envoyé", href: "#/insertion/eligibilite" },
-      { ic: "star", c: "#7FC4CB", label: "Des Étoiles et des Femmes", d: "Pour les femmes, dans 13 villes", href: "#/parcours/des-etoiles-et-des-femmes" },
+      { ic: "star", c: "#7FC4CB", label: "Des Étoiles et des Femmes", d: "Pour les femmes, dans 13 villes", href: "#/projets/des-etoiles-et-des-femmes" },
       { ic: "sun", c: "#7FC4CB", label: "Tournesol", d: "Pour les personnes réfugiées, à Marseille", href: "#/parcours/tournesol" },
     ] },
   { key: "pros", label: "Pour le secteur", href: "#/restauration",

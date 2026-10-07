@@ -73,8 +73,9 @@ function FormationDetailPage({ id }) {
         subtitle={f.desc}
         breadcrumb={[
           {label:'Accueil',href:'#/'},
-          f.cat === 'Professionnels' ? {label:'Le programme Restaure',href:'#/projets/restaure'} : {label:"L'insertion",href:'#/insertion'},
-          {label:f.titreFiche || f.title}
+          f.cat === 'Professionnels' ? {label:'Le programme Restaure',href:'#/projets/restaure'}
+            : (window.FESTIN_DATA.projetPages || {})[f.id] ? {label:f.titreFiche || f.title,href:'#/projets/' + f.id} : {label:"L'insertion",href:'#/insertion'},
+          {label:(window.FESTIN_DATA.projetPages || {})[f.id] ? 'La formation' : (f.titreFiche || f.title)}
         ]}
       >
         {/* pastilles CAP et TFP remises (retour du 07/10/2026) : seule exception à l'en-tête allégé */}

@@ -22,7 +22,7 @@ function AboutHero() {
   return (
     <window.HeroPage tone="deep" title="L'insertion par la cuisine" accent="depuis 40 ans."
       img={HERO_IMG} imgAlt="Une promotion du dispositif Des Étoiles et des Femmes réunie en tenue de cuisine"
-      logo="images/logo-festin-teal-sb.png" logoAlt="Festin"
+      logo="images/logo-festin-blanc-sb.png" logoAlt="Festin"
       crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Qui sommes-nous' }]} />
   );
 }
