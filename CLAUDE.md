@@ -136,6 +136,15 @@ Document d'autorité : `RETOURS-V3.md` (RETOURS-AUDIT et RETOURS-V2 restent vala
 - **Qui sommes-nous** : titre « L'insertion par la cuisine depuis 40 ans » ; récit et trois marqueurs (exigence, audace/innovation, convivialité), textes validés ; « Gouvernance » (Jérôme Schatzman, président du groupe associatif ; Gaëlle de Carmantrand, secrétaire ; Hugues Bonnetain, président de La Table de Cana Marseille) ; équipe filtrable par projet, dont l'équipe de La Table de Cana Marseille (direction : Tom Louis Teboul).
 - **Impact** : « Compter ce qui compte » ; rapports en 2ᵉ position ; Koreis daté une fois ; plus de tableaux dépliants. **Presse et actualités** : plus de temps forts ; espace presse en tête avec « Festin en quelques mots ». **L'écosystème** : Sadi Carnot « en développement », ouvert aux soutiens. Logo sans baseline (`images/logo-festin-teal.png`).
 
+## Retours V4 (06/10/2026, soir) : tranché
+Document : `PROPOSITIONS-V4.md` (réponses de l'utilisatrice). Remplace la barre et l'arborescence de V3.
+- **En-têtes** : la grande image, le fil d'Ariane et **un seul bouton**. Plus d'étiquette (kicker), de pastille logo (sauf Qui sommes-nous, sans bouton), de pastilles CAP/TFP, de paragraphe ni de second lien. Le crédit photo passe en légende discrète (`.hp__credit`).
+- **Accueil** : entrées option C, petite ligne en titre : « Insertion » · **Être accompagné jusqu'à l'emploi** (teal) ; « Pour le secteur » · **Recruter, former, s'engager** (or). Plus de « apprendre », plus d'étiquette ni de ligne « Vous financez… » dans l'en-tête.
+- **Barre** : logo · Nos tables · Nos formations · **[Menu]** centré et plus gros · Nos projets · Don (`FESTIN_DATA.barre`, raccourcis vers le catalogue filtré ; masqués sous 960 px). Plus de sous-menus, ni Presse ni Soutenir dans la barre.
+- **Méga menu** = seul porteur de l'arborescence (`FESTIN_DATA.arbo`) : L'insertion · Pour le secteur · Projets et formations · Festin ; aucun lien n'y mène deux fois à la même page. Sadi Carnot grisé « à venir ». Le pied de page suit `arbo`.
+- **Catalogue « Projets et formations »** (`#/catalogue[/projets|formations|tables|insertion|pro]`, `CataloguePage` dans HomeB.jsx, données `FESTIN_DATA.catalogue`) remplace L'écosystème : une carte par élément, filtres Tous / Nos projets / Nos formations / Nos tables / Insertion / Professionnels ; sous « Tous », une formation rattachée à un projet (`dans`) est masquée. L'Académie (« La formation, un moyen », `id="formation"`) et Sadi Carnot (`#developpement`) y sont ; elles quittent L'insertion. Redirections : `#/projets`, `#/projets/lieux`, `#/academie`, `#/formations`, `#/insertion/formation`.
+- **Une seule liste de reconnaissances, sur Impact.** Qui sommes-nous n'a plus de frise (`about.jalons` ne sert plus que de données).
+
 ## Points ouverts
 Voir `copywriting/06-journal-des-changements.md`, section « Encore en `[XX]` » : portraits de l'équipe, témoignages entreprise et financeur, crédits photo, intitulés de Marion Binachon et Fanny Bouvier.
 

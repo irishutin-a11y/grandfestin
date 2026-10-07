@@ -400,7 +400,7 @@ function AboutPage() {
       <CeQuOnEst />
       <Marqueurs />
       <ProjetSocial />
-      <Histoire />
+      {/* frise retirée (PROPOSITIONS-V4, question 4, réponse A) : une seule liste de reconnaissances, sur Impact */}
       <Equipe />
       <EditoPartenaires />
     </div>
