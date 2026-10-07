@@ -1398,7 +1398,7 @@ window.FESTIN_DATA.projetPages = {
     soutien: { title: "Soutenir", accent: "une promotion",
       text: "Le parcours est gratuit pour les femmes qui le suivent : les pouvoirs publics et des mécènes financent chaque promotion. Votre don paie des heures de formation, des stages et le suivi social, jusqu'à l'emploi.",
       sphere: true },
-    galerie: ["images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg", "images/images-def/chaudbouillon-045.jpg", "images/images-def/chaudbouillon-046.jpg", "images/images-def/HOTELERIE-097.jpg", "images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00022.jpg", "images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00032.jpg", "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-40.jpg"],
+    galerie: ["images/images-def/def-remise-cap.jpg", "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg", "images/images-def/chaudbouillon-045.jpg", "images/images-def/chaudbouillon-046.jpg", "images/images-def/HOTELERIE-097.jpg", "images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00022.jpg", "images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00032.jpg", "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-40.jpg"],
   },
   "les-beaux-mets": {
     kicker: "Depuis 2022 · prison des Baumettes, Marseille",
@@ -1408,9 +1408,9 @@ window.FESTIN_DATA.projetPages = {
       text: ["Le restaurant est ouvert au public. La brigade cuisine et sert une carte bistronomique, encadrée par un chef, un second et un maître d'hôtel.",
         "Plus de 12 000 convives y ont déjà déjeuné. Le restaurant se privatise aussi : écrivez-nous pour en parler."],
       photos: [
+        { src: "images/beauxmets-images/lbm-bar-salle.jpg", alt: "Le comptoir des Beaux Mets, avec la cuisine ouverte en arrière-plan" },
         { src: "images/beauxmets-images/LBM_carte printemps25_cdutrey_080425-1661.jpg", alt: "Des assiettes de la carte des Beaux Mets, vues de dessus" },
         { src: "images/beauxmets-images/lbm-gallery-plat.jpg", alt: "Une assiette dressée aux Beaux Mets" },
-        { src: "images/beauxmets-images/lbm-gallery-salle.jpg", alt: "La salle du restaurant Les Beaux Mets" },
       ],
       infos: [
         // modalités : formulaire de réservation des Beaux Mets (relevé le 06/10/2026)
@@ -1710,7 +1710,7 @@ Object.assign(window.FESTIN_DATA.home, {
         cta: { label: "Découvrir nos parcours", href: "#/insertion" } },
       { key: "pro", tag: "Vous êtes du secteur", title: "Recruter, former,", titleAccent: "faire évoluer vos équipes.",
         text: "Restaurateurs, cheffes et chefs, responsables RH : recrutez des personnes formées et formez vos équipes, avec des gens de cuisine.",
-        img: "images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg", imgAlt: "Soirée de lancement du programme Restaure",
+        img: "images/beauxmets-images/lbm-jobdating-pain.jpg", imgAlt: "Valentin Majan, des Beaux Mets, montre la découpe du pain à des candidats lors d'un job dating",
         lignes: [
           { dt: "Former", dd: "Prévention des violences sexistes et sexuelles, management juste et inclusif." },
           { dt: "Recruter", dd: "Stagiaires, Book de l'emploi, préparation à l'emploi financée par France Travail (POEI)." },
