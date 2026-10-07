@@ -771,3 +771,12 @@ img[src*="photo-micro-temoignage"]{object-position:55% 18%}
 .sc__faits dt{font-size:var(--fs-label);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-light)}
 .sc__faits dd{margin:4px 0 0;font-size:var(--fs-body);line-height:1.45;color:#fff}
 @media (max-width:860px){.sc__carte{grid-template-columns:1fr;padding:28px 22px;border-radius:22px}}
+/* Visages jamais coupés (carte Trello du 07/10/2026) : cartes à photo plus hautes, cadrage calé sur le haut
+   de l'image, où se trouvent les visages. */
+.ab-jalon__img{height:58%;min-height:200px}
+.ab-jalon__img img{object-position:50% 18%}
+.ac-side__img{aspect-ratio:16/10}
+.ac-side__img img{object-position:50% 20%}
+.or-card__img{aspect-ratio:4/3}
+.or-card__img img{object-position:50% 18%}
+.pj-card__img img{object-position:50% 22%}
