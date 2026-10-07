@@ -176,3 +176,88 @@
   .hx3--formation .hx3__photo{height:150px}
   .hx3--formation .hx3__pose{margin-top:-40px}
 }
+
+/* =====================================================================
+   DEUXIÈME TOUR (07/10/2026) : la grande photo et le cartouche dessus (préfixe hy-)
+   Photo en plein cadre, sans voile ; le texte toujours sur un aplat de couleur.
+   Hauteurs : accueil min(92vh, 900px) · section min(80vh, 760px) · formation min(72vh, 680px).
+   ===================================================================== */
+.hy{--hy-h:min(80vh,760px);--hy-in:max(var(--gutter),calc((100% - var(--container)) / 2 + var(--gutter)));position:relative;isolation:isolate;min-height:var(--hy-h);overflow:hidden;color:var(--ink)}
+.hy--accueil{--hy-h:min(92vh,900px)}
+.hy--formation{--hy-h:min(72vh,680px)}
+.hy__photo{position:absolute;inset:0;z-index:-1;margin:0}
+.hy__photo picture,.hy__photo img{display:block;width:100%;height:100%;object-fit:cover}
+.hy__cart--teal{background:var(--teal);color:#fff}
+.hy__cart--deep{background:var(--teal-deep);color:#fff}
+.hy__cart--gold{background:var(--gold);color:var(--ink)}
+.hy__crumb{margin-bottom:var(--sp-3);font-size:var(--fs-small);opacity:.92}
+.hy__crumb a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.hy__t{margin:0;font-size:clamp(2.25rem,1.4rem + 3vw,4.25rem);font-weight:700;line-height:1.02;letter-spacing:-.01em;text-transform:uppercase;color:inherit;text-wrap:balance}
+.hy__t em{display:block;font-style:italic;font-weight:300;color:var(--gold-light)}
+.hy__cart--gold .hy__t em{color:var(--ink)}
+.hy__t--xl{font-size:var(--fs-display);line-height:.95}
+.hy--formation .hy__t{font-size:clamp(1.75rem,1.2rem + 2.2vw,3.25rem)}
+.hy__tag{margin:var(--sp-4) 0 0;max-width:40ch;font-size:var(--fs-lede);color:var(--ink-on-dark)}
+.hy__cta{margin-top:var(--sp-5)}
+.hy__portes{display:grid;gap:12px}
+.hy__faits{margin:0;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(13,43,48,.3)}
+.hy__cart.on-dark .hy__faits{border-top-color:rgba(255,255,255,.3)}
+.hy__faits div{padding:12px 16px 12px 0}
+.hy__faits dt{font-size:var(--fs-label);font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+.hy__faits dd{margin:4px 0 0;font-size:var(--fs-body);font-weight:600;line-height:1.35}
+
+/* ---------- A · le cartouche en coin ---------- */
+.hy--a{display:flex;align-items:flex-end;padding:120px var(--hy-in) clamp(24px,4vw,56px)}
+.hy--a .hy__cart{max-width:640px;padding:clamp(24px,3.4vw,48px);border-radius:28px;box-shadow:0 30px 60px -30px rgba(6,33,31,.5)}
+.hy--a.hy--accueil .hy__cart{max-width:760px}
+.hy--a.hy--accueil .hy__portes{grid-template-columns:1fr 1fr;margin-top:var(--sp-5)}
+.hy--a.hy--formation .hy__cart{max-width:1000px}
+.hy--a.hy--formation .hy__in{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:end}
+
+/* ---------- B · le panneau ---------- */
+.hy--b{display:grid;grid-template-columns:minmax(340px,42%) 1fr}
+.hy--b .hy__photo img{object-position:72% 30% !important}
+.hy--b .hy__cart{display:flex;align-items:flex-end;padding:120px clamp(28px,4vw,64px) clamp(32px,4vw,64px) var(--gutter)}
+.hy--b .hy__in{display:grid;gap:var(--sp-5);width:100%}
+.hy--b .hy__portes{margin-top:var(--sp-2)}
+
+/* ---------- C · le bandeau ---------- */
+.hy--c{display:flex;flex-direction:column;justify-content:flex-end;padding-top:120px}
+.hy--c .hy__cart{padding:clamp(24px,3vw,40px) var(--hy-in)}
+.hy--c .hy__in{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(24px,4vw,72px);align-items:end}
+.hy--c .hy__t{font-size:clamp(2.25rem,1.3rem + 3.4vw,4.75rem)}
+.hy--c .hy__t em{display:inline}
+.hy--c.hy--accueil .hy__t em{display:block}
+.hy--c .hy__portes{grid-template-columns:1fr 1fr;min-width:min(520px,40vw)}
+.hy--c.hy--formation .hy__in{grid-template-columns:minmax(0,1fr) minmax(0,.9fr)}
+
+@media (max-width:760px){
+  .hy{--hy-h:78svh}
+  .hy--accueil{--hy-h:90svh}
+  .hy--formation{--hy-h:auto}
+  .hy--a{padding:110px 16px 16px}
+  .hy--a .hy__cart{padding:22px 20px;border-radius:20px}
+  .hy--a.hy--accueil .hy__portes,.hy--a.hy--formation .hy__in{grid-template-columns:1fr}
+  .hy--formation{min-height:0;padding-top:300px}
+  .hy--b{display:flex;flex-direction:column;justify-content:flex-end}
+  .hy--b .hy__photo img{object-position:50% 30% !important}
+  .hy--b .hy__cart{min-height:56%;padding:28px 20px 28px}
+  .hy--b.hy--formation{padding-top:260px}
+  .hy--c .hy__cart{padding:22px 20px}
+  .hy--c .hy__in,.hy--c.hy--formation .hy__in{grid-template-columns:1fr}
+  .hy--c .hy__portes{grid-template-columns:1fr;min-width:0}
+  .hy--c.hy--formation{padding-top:300px}
+}
+/* réglages : A formation plus étroit (le visage reste visible) ; C formation, bandeau plus bas */
+.hy--a.hy--formation .hy__cart{max-width:640px}
+.hy--a.hy--formation .hy__in{grid-template-columns:1fr;gap:var(--sp-5)}
+.hy--c.hy--formation{--hy-h:min(86vh,800px)}
+.hy--c.hy--formation .hy__t{font-size:clamp(1.75rem,1.1rem + 2.2vw,3rem)}
+.hy--c.hy--formation .hy__t em{display:inline}
+@media (max-width:760px){
+  /* B sur mobile : le panneau en haut (sous la barre), la photo dessous ; distinct de C (bandeau en bas) */
+  .hy--b,.hy--b.hy--formation{display:flex;flex-direction:column;min-height:0;padding-top:0}
+  .hy--b .hy__cart{min-height:0;padding:104px 20px 28px}
+  .hy--b .hy__photo{position:relative;inset:auto;z-index:0;order:2;height:clamp(260px,42svh,380px)}
+  .hy .btnb{padding-inline:18px;letter-spacing:.06em}
+}

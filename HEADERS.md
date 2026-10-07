@@ -113,3 +113,34 @@ Branche `headers-propositions`, route `#/headers`. Les neuf headers sont affich�
 **La proposition 1.** C'est la seule qui règle d'un coup le texte sur photo et le « on ne sait pas où on est » sans rien demander aux photos actuelles. L'aplat de couleur suffit à identifier la page, et chaque photo est montrée entière.
 
 Son point faible est la hauteur sur mobile. Je propose de le régler à la mise en place, en ramenant les titres des sections d'un cran.
+
+---
+
+# Deuxième tour (07/10/2026) : la grande photo et le cartouche dessus
+
+Retour reçu : les headers ne sont plus impactants. Il faut une grande photo, haute, avec le cartouche posé dessus.
+
+La route `#/headers` montre trois nouvelles propositions. Captures : `captures/headers2-{a,b,c}-{accueil,section,formation}-{1440,360}.png`.
+
+Règles communes aux trois :
+- La photo est en plein cadre, sans voile.
+- Le texte est toujours sur un aplat de couleur, jamais sur l'image.
+- Le code couleur reste le même : teal pour l'insertion, or pour les professionnels, teal profond pour l'accueil.
+
+**Hauteurs à 1440 px** (avec un écran de 900 px de haut) :
+- accueil : 92 % de l'écran (828 px) ;
+- section : 80 % (720 px) ;
+- formation : 72 % (environ 650 à 840 px, selon le contenu).
+
+| | Principe | À 360 px | Hauteur à 360 px (accueil / section / formation) |
+|---|---|---|---|
+| **A · Le cartouche en coin** | Un cartouche arrondi, compact, posé en bas à gauche, comme une étiquette sur la photo. La photo se voit tout autour. | Le cartouche flotte au-dessus du bas de la photo, avec une marge de 16 px. | 810 / 702 / 846 px |
+| **B · Le panneau** | Un panneau de couleur, sur toute la hauteur, couvre la partie gauche (42 %). La photo respire sur la partie droite. Le rendu est le plus éditorial. | Le panneau passe en haut, sous la barre, et la photo s'affiche dessous. | 889 / 769 / 946 px |
+| **C · Le bandeau** | Un bandeau de couleur traverse le bas de l'image, de bord à bord. Le titre est à gauche ; l'action, les faits ou les portes sont à droite. La photo reste entière au-dessus. | Le bandeau reste en bas, pleine largeur. | 810 / 702 / 780 px |
+
+**Ce que chacune exige en photos**
+- **A** : un sujet au centre ou à droite, puisque le cartouche couvre le bas à gauche.
+- **B** : un sujet dans les deux tiers droits.
+- **C** : un sujet dans la moitié haute.
+
+Les photos actuelles conviennent dans les trois cas, à condition de régler leur cadrage page par page avec `imgPos`.
