@@ -730,3 +730,20 @@ img[src*="photo-micro-temoignage"]{object-position:55% 18%}
   /* fiches : le dernier élément du fil d'Ariane répète le titre juste dessous ; masqué sur mobile */
   .hc--formation .hc__crumb span[aria-current],.hc--formation .hc__crumb > span[aria-hidden]:last-of-type{display:none}
 }
+/* accueil sur mobile : les portes sous la photo, la photo reste visible au-dessus du cartouche */
+.hc__portes-mob{display:none}
+@media (max-width:760px){
+  .hc--accueil{--hc-h:76svh}
+  .hc__portes--ordi{display:none !important}
+  .hc__portes-mob{display:block;padding-block:16px 8px;background:var(--off-white)}
+  .hc__portes-mob .hc__portes{margin-top:0}
+}
+/* fiche : le titre complet et la description ouvrent le corps (l'en-tête porte un titre court) */
+.detail-intro{margin:0 0 var(--sp-6);max-width:62ch;font-size:var(--fs-lede);line-height:1.5;color:var(--ink-mid)}
+.detail-intro b{color:var(--ink)}
+@media (max-width:760px){
+  .hc--formation{padding-top:210px}
+  .hc__faits div{padding:8px 12px 8px 0}
+  .hc__faits dd{font-size:15px}
+  .hc__cart--faits{gap:var(--sp-4)}
+}

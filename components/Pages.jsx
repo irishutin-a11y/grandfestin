@@ -70,8 +70,8 @@ function FormationDetailPage({ id }) {
           le titre et quatre faits dans un cartouche or (pro) ou teal (insertion) */}
       <window.HeroPage famille="formation" tone={f.cat === 'Professionnels' ? 'gold' : 'teal'}
         img={f.img} imgAlt={f.imgAlt || ''}
-        title={(f.titreFiche || f.title).split('—')[0].trim()}
-        accent={f.title.includes('—') ? f.title.split('—')[1].trim() : null}
+        title={f.titreCourt ? f.titreCourt[0] : (f.titreFiche || f.title).split('—')[0].trim()}
+        accent={f.titreCourt ? f.titreCourt[1] : (f.title.includes('—') ? f.title.split('—')[1].trim() : null)}
         pastilles={f.pastilles}
         faits={f.cat === 'Professionnels'
           ? [['Durée', f.dureeCourte], ['Format', 'Dans vos murs ou en inter'], ['Public', f.publicLabel], ['Proposée par', 'le programme Restaure']]
@@ -80,7 +80,7 @@ function FormationDetailPage({ id }) {
           {label:'Accueil',href:'#/'},
           f.cat === 'Professionnels' ? {label:'Le programme Restaure',href:'#/projets/restaure'}
             : (window.FESTIN_DATA.projetPages || {})[f.id] ? {label:f.titreFiche || f.title,href:'#/projets/' + f.id} : {label:"L'insertion",href:'#/insertion'},
-          {label:(window.FESTIN_DATA.projetPages || {})[f.id] ? 'La formation' : (f.titreFiche || f.title)}
+          {label:(window.FESTIN_DATA.projetPages || {})[f.id] ? 'La formation' : (f.titreCourt ? f.titreCourt.join(' ') : (f.titreFiche || f.title))}
         ]}
       >
         {(() => {
@@ -96,7 +96,8 @@ function FormationDetailPage({ id }) {
         <div className="container">
           <div className="detail-grid">
             <div className="detail-main">
-              {/* la photo de la formation est dans l'en-tête (proposition 3) */}
+              {/* l'en-tête porte un titre court : le titre complet et la description ouvrent la fiche */}
+              <p className="detail-intro"><b>{f.title.replace(' — ', ' ')}</b>{f.desc && <> {f.desc}</>}</p>
               <div className="detail-section">
                 <span className="eyebrow">Objectifs pédagogiques</span>
                 <h2 className="h3" style={{marginTop:8,marginBottom:18}}>Ce que vous apprendrez</h2>

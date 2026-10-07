@@ -631,6 +631,7 @@ window.FESTIN_DATA = {
       porteur: "Portée par le programme Restaure",
       audienceKey: "pros",
       title: "Prévention des violences sexistes et sexuelles en restauration",
+      titreCourt: ["Prévention des violences", "en restauration"], // en-tête (07/10/2026) : titre complet repris en tête de fiche
       desc: "Reconnaître les violences sexistes et sexuelles en cuisine et en salle, les prévenir et savoir réagir à un signalement.",
       img: "images/photo-micro-temoignage.jpg", // photo demandée le 07/10/2026 (moins de photos des Beaux Mets)
       duration: "Inter (3 h) ou Intra (3 h ou 1 jour / 7 h)",

@@ -93,7 +93,7 @@ function HomeB() {
               <span className="ln"><span><em>ensemble.</em></span></span>
             </h1>
             <p className="hc__tag">{H.hero.title} {H.hero.titleAccent}</p>
-            <div className="hc__portes ac-portes2">
+            <div className="hc__portes hc__portes--ordi ac-portes2">
             <a className="ac-porte2 ac-porte2--ins" href={H.hero.ctaPrimary.href}>
               <span className="ac-porte2__k">{H.hero.ctaPrimary.k}</span>
               <span className="ac-porte2__l">{H.hero.ctaPrimary.label}{'\u00a0'}<span className="arrow" aria-hidden="true">→</span></span>
@@ -106,6 +106,19 @@ function HomeB() {
           </div>
         </div>
       </header>
+      {/* accueil sur mobile : les deux portes sous la photo, hors du cartouche (07/10/2026) */}
+      <div className="wrap hc__portes-mob">
+      <div className="hc__portes hc__portes--mobile ac-portes2">
+      <a className="ac-porte2 ac-porte2--ins" href={H.hero.ctaPrimary.href}>
+        <span className="ac-porte2__k">{H.hero.ctaPrimary.k}</span>
+        <span className="ac-porte2__l">{H.hero.ctaPrimary.label}{'\u00a0'}<span className="arrow" aria-hidden="true">→</span></span>
+      </a>
+      <a className="ac-porte2 ac-porte2--pro" href={H.hero.ctaSecondary.href}>
+        <span className="ac-porte2__k">{H.hero.ctaSecondary.k}</span>
+        <span className="ac-porte2__l">{H.hero.ctaSecondary.label}{'\u00a0'}<span className="arrow" aria-hidden="true">→</span></span>
+      </a>
+      </div>
+      </div>
 
       {/* 2 · CONFIANCE : les statuts (« Ils en ont parlé » retiré, retours V2 §2) */}
       <section className="ac-conf" aria-label="Festin en bref">
@@ -300,7 +313,7 @@ function TablesPage() {
   return (
     <div className="gpage" ref={root} data-screen-label="Nos tables">
       <window.HeroPage tone="deep" title="Nos" accent="tables."
-        img="images/photo-service-restaurant.jpg" imgAlt="Service en salle, une commande prise à table"
+        img="images/beauxmets-images/LBM_carte-ete24_caroline_dutrey-3385.jpg" imgAlt="Une table dressée aux Beaux Mets"
         crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Nos tables' }]}>
         <div className="g-herocta"><window.GLink l={{ to: 'table-' + (lieux[0] || {}).key }} className="btnb btnb--gold">Découvrir nos tables <span className="arrow" aria-hidden="true">↓</span></window.GLink></div>
       </window.HeroPage>
