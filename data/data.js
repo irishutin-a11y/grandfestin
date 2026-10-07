@@ -1509,11 +1509,11 @@ window.FESTIN_DATA.projetPages = {
   "restaure": {
     bandeProjets: true, // fin de page : la bande or des projets, comme sur Pros et l'Académie
     kicker: "Depuis 2024 · programme national",
-    heroImg: "images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg", heroAlt: "Soirée de lancement du programme Restaure", heroCredit: "Photo : Caroline Dutrey",
+    heroImg: "images/restaure : formation pro/FESTIN_TOAST_12 FEVRIER_FEED-25.jpg", heroAlt: "Un Toast du programme Restaure : une salle écoute des restaurateurs sur scène", // photo changée le 07/10/2026 (l'affiche était cachée par le cartouche)
     nature: "programme", heroCta: { label: "Nos formations pro", href: "#/restauration/former" }, heroLien: { label: "Le site du programme", href: "https://www.mouvement-restaure.com", external: true },
     bref: { title: "Des cuisines où l'on travaille", accent: "en sécurité.",
       text: "Un programme national né en 2024. Restaurateurs, chefs et associations y travaillent ensemble pour prévenir les violences en cuisine et changer les pratiques de management. Il porte aussi les formations pro de Festin, pour les équipes de la restauration." },
-    video: { link: "https://www.instagram.com/reel/DJ9kq6iIb5j/", linkLabel: "Voir la vidéo sur Instagram", poster: "images/restaure : formation pro/FESTIN_TOAST_12 FEVRIER_FEED-25.jpg" },
+    video: { link: "https://www.instagram.com/reel/DJ9kq6iIb5j/", linkLabel: "Voir la vidéo sur Instagram", poster: "images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg" },
     preuves: [
       "<b>35 structures</b> de la restauration sont engagées et le manifeste compte <b>700 signataires</b>.",
       "En 2025, les vidéos de prévention des violences en cuisine ont dépassé <b>2 millions</b> de vues.",
@@ -1527,7 +1527,7 @@ window.FESTIN_DATA.projetPages = {
       { tag: "Vous dirigez une cuisine", title: "Former vos équipes",
         cta: "Voir les formations", href: "#/restauration/former", img: "images/restaure : formation pro/IMG_2950.JPG" },
       { tag: "Vous voulez en savoir plus", title: "Le programme Restaure",
-        cta: "Le site du programme", href: "https://www.mouvement-restaure.com", external: true, img: "images/restaure : formation pro/FESTIN_TOAST_12 FEVRIER_FEED-25.jpg" },
+        cta: "Le site du programme", href: "https://www.mouvement-restaure.com", external: true, img: "images/restaure : formation pro/TASTING_RFF_CLOSING-FEED-34 (1).JPG" },
     ],
     soutien: { title: "Ils pilotent", accent: "Restaure",
       text: "Quatre structures pilotent le programme : Yes We Camp, Les Petites Cantines, La Communauté Ecotable et Festin. Votre don finance ses actions de prévention." },

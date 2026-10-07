@@ -153,7 +153,7 @@ Proposition A du 2e tour de `HEADERS.md` (comparaison sur la branche `headers-pr
 - Trois familles : **accueil** (HomeB.jsx, cartouche teal profond avec la signature et les deux portes), **section** (toutes les pages intérieures, dont Pour le secteur), **formation** (`famille="formation"` : photo de la formation, faits dans le cartouche : durée, où ou format, public, coût ou porteur ; pastilles CAP/TFP). La photo n'est plus répétée dans le corps des fiches.
 - Fiches formation : un **titre court** dans l'en-tête quand le titre est long (`formations[i].titreCourt`, ex. Violences) ; le titre complet et la description ouvrent le corps (`.detail-intro`).
 - Accueil sur mobile : les deux portes sortent du cartouche et passent sous la photo (`.hc__portes-mob`), pour que la photo reste visible.
-- Cadrage : le sujet doit rester visible à droite du cartouche ; régler `imgPos` page par page. À revoir : Le programme Restaure (l'affiche est à gauche, sous le cartouche).
+- Cadrage : le sujet doit rester visible à droite du cartouche ; régler `imgPos` page par page. Le programme Restaure : photo du Toast en en-tête (07/10, accord de l'utilisatrice), l'affiche du lancement sert de vignette à la vidéo.
 - Méga menu : **aucune formation listée une à une** (elles se multiplieront) ; « Toutes les formations d'insertion » → `#/catalogue/insertion`, « Toutes les formations pro » → `#/catalogue/pro`. Plus de phrase de statut en pied de menu.
 
 Voir `copywriting/06-journal-des-changements.md`, section « Encore en `[XX]` » : portraits de l'équipe, témoignages entreprise et financeur, crédits photo, intitulés de Marion Binachon et Fanny Bouvier.
