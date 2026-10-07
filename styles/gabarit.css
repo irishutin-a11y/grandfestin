@@ -794,3 +794,16 @@ img[src*="photo-micro-temoignage"]{object-position:55% 18%}
 .eng__it p{margin:0;color:var(--ink-mid);line-height:1.5}
 .eng__l{margin-top:auto;padding-top:var(--sp-3);align-self:flex-start}
 @media (max-width:900px){.eng__grid{grid-template-columns:1fr}}
+.eng__grid--2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.eng__it .g-engage__act{margin-top:auto;padding-top:var(--sp-3)}
+@media (max-width:900px){.eng__grid--2{grid-template-columns:1fr}}
+/* S'engager, mobile : pastille à sa taille, flèche collée au libellé, bouton de l'antenne sur deux lignes au plus */
+.g-antenne__k{width:fit-content}
+.eng__it .lnk{justify-content:flex-start;gap:8px;text-align:left}
+@media (max-width:600px){
+  .g-antenne__side .btnb{padding-inline:18px;letter-spacing:.04em;font-size:13px}
+  .g-antenne__t{font-size:clamp(1.75rem,1.2rem + 3vw,2.5rem)}
+}
+.eng__it .lnk{display:inline}
+.eng__it .lnk .arrow{display:inline-block;margin-left:6px}
+@media (max-width:600px){ .g-antenne__k{font-size:11px;letter-spacing:.06em;padding:5px 12px} }
