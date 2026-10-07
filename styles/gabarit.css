@@ -713,17 +713,12 @@ img[src*="photo-micro-temoignage"]{object-position:55% 18%}
 .hc__faits div{padding:12px 16px 12px 0}
 .hc__faits dt{font-size:var(--fs-label);font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
 .hc__faits dd{margin:4px 0 0;font-size:var(--fs-body);font-weight:600;line-height:1.35}
-/* accueil : les deux portes dans le cartouche */
-.hc__portes{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:var(--sp-5)}
-.hc__portes.ac-portes2{display:grid;grid-template-columns:1fr 1fr}
-.hc__portes .ac-porte2{max-width:none}
 @media (max-width:760px){
   .hc{--hc-h:78svh;padding:110px 16px 16px}
   .hc--accueil{--hc-h:90svh}
   .hc--formation{min-height:0;padding-top:300px}
   .hc--sans-photo{padding-top:100px}
   .hc__cart{padding:22px 20px;border-radius:20px}
-  .hc__portes,.hc__portes.ac-portes2{grid-template-columns:1fr}
   .hc .hc__more .btnb{padding-inline:18px;letter-spacing:.06em}
 }
 @media (max-width:760px){
@@ -735,8 +730,30 @@ img[src*="photo-micro-temoignage"]{object-position:55% 18%}
 @media (max-width:760px){
   .hc--accueil{--hc-h:76svh}
   .hc__portes--ordi{display:none !important}
-  .hc__portes-mob{display:block;padding-block:16px 8px;background:var(--off-white)}
-  .hc__portes-mob .hc__portes{margin-top:0}
+  .hc__portes-mob{display:block}
+}
+/* Accueil, option B (07/10/2026) : cartouche à deux étages. La signature sur le teal profond ; les deux portes
+   forment le pied du cartouche, bord à bord : une seule marge intérieure, plus d'écart à régler autour des boutons. */
+.hc__bloc{width:min(760px,100%);border-radius:28px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(6,33,31,.5)}
+.hc__bloc .hc__cart{max-width:none;border-radius:0;box-shadow:none;padding:clamp(24px,3.4vw,48px) clamp(24px,3.4vw,48px) clamp(24px,2.8vw,40px)}
+.hc__pied{display:grid;grid-template-columns:1fr 1fr}
+.hc__pied .ac-porte2{margin:0;max-width:none;width:auto;min-height:0;border-radius:0;box-shadow:none;padding:22px clamp(24px,3.4vw,48px) 26px;
+  transition:background-color var(--dur-2) var(--ease-quart)}
+.hc__pied .ac-porte2--pro{padding-left:clamp(24px,2.4vw,32px)}
+.hc__pied .ac-porte2:hover{transform:none;box-shadow:none}
+.hc__pied .ac-porte2--ins:hover{background:#2A8590}
+.hc__pied .ac-porte2--pro:hover{background:#FFCB2E}
+.hc__pied .ac-porte2 .arrow{display:inline-block;transition:transform var(--dur-2) var(--ease-quart)}
+.hc__pied .ac-porte2:hover .arrow{transform:translateX(5px)}
+.hc__pied .ac-porte2:focus-visible{outline:3px solid #fff;outline-offset:-7px}
+.hc__pied .ac-porte2--pro:focus-visible{outline-color:var(--ink)}
+@media (prefers-reduced-motion:reduce){ .hc__pied .ac-porte2 .arrow{transition:none} .hc__pied .ac-porte2:hover .arrow{transform:none} }
+@media (max-width:760px){
+  .hc__bloc{border-radius:20px}
+  .hc__bloc .hc__cart{padding:22px 20px}
+  /* sur mobile, le pied passe sous la photo, pleine largeur, le texte aligné sur celui du cartouche */
+  .hc__portes-mob .hc__pied{grid-template-columns:1fr}
+  .hc__portes-mob .ac-porte2,.hc__portes-mob .ac-porte2--pro{padding:20px 36px}
 }
 /* fiche : le titre complet et la description ouvrent le corps (l'en-tête porte un titre court) */
 .detail-intro{margin:0 0 var(--sp-6);max-width:62ch;font-size:var(--fs-lede);line-height:1.5;color:var(--ink-mid)}
@@ -750,9 +767,7 @@ img[src*="photo-micro-temoignage"]{object-position:55% 18%}
 /* Logo du menu plus grand (carte Trello du 07/10/2026) */
 .navpill .navpill__brand img{height:34px}
 @media (max-width:600px){ .navpill .navpill__brand img{height:28px} }
-/* Accueil (retour du 07/10/2026) : marges du cartouche harmonisées (même écart entre le sous-titre et les portes
-   qu'entre le titre et le sous-titre) ; plus d'espace entre le bandeau or et la frise */
-.hc__portes.ac-portes2{margin-top:var(--sp-6) !important}
+/* Accueil (retour du 07/10/2026) : pas d'espace entre le bandeau or et la frise */
 .ac-conf{padding:0 !important;border-bottom:0}
 .ac-conf__band{margin-bottom:0}
 /* Sadi Carnot, en développement (07/10/2026) : une carte sombre, au lieu d'un cadre rayé « À venir » */
@@ -771,6 +786,8 @@ img[src*="photo-micro-temoignage"]{object-position:55% 18%}
 .sc__faits dt{font-size:var(--fs-label);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-light)}
 .sc__faits dd{margin:4px 0 0;font-size:var(--fs-body);line-height:1.45;color:#fff}
 @media (max-width:860px){.sc__carte{grid-template-columns:1fr;padding:28px 22px;border-radius:22px}}
+/* frise : de l'air entre « Découvrir » et la photo (retour du 07/10/2026) */
+.ab-jalon__body{padding-bottom:var(--sp-5)}
 /* Visages jamais coupés (carte Trello du 07/10/2026) : cartes à photo plus hautes, cadrage calé sur le haut
    de l'image, où se trouvent les visages. */
 .ab-jalon__img{height:58%;min-height:200px}

@@ -37,7 +37,7 @@ function HomeB() {
     const ctx = gsap.context(() => {
       // HERO : le titre monte ligne par ligne, la photo s'ouvre, le reste suit
       gsap.timeline({ defaults: { ease: M.ease, duration: M.dur.title } })
-        .from('#hero .hc__cart', { y: 32, autoAlpha: 0 }, 0.05)
+        .from('#hero .hc__bloc', { y: 32, autoAlpha: 0 }, 0.05)
         .from('#hero .hc__t .ln > span', { yPercent: 105, stagger: 0.12 }, 0.2)
         .from('#hero .hc__tag, #hero .ac-porte2', { y: M.y, autoAlpha: 0, stagger: M.stagger }, 0.45)
         .from('#hero .hc__photo img', { scale: 1.08, duration: 1.8 }, 0);
@@ -79,20 +79,23 @@ function HomeB() {
     <div className="pageAccueil" ref={rootRef}>
 
       {/* 1 · HERO — qui, quoi, pour qui ; la seule teinte pleine de la page avec le pied */}
-      {/* en-tête « grande photo, cartouche en coin » (HEADERS.md, 2e tour, A) : la photo en plein cadre,
-          la signature et les deux portes (teal = insertion, or = secteur) dans un cartouche teal profond */}
+      {/* en-tête « grande photo, cartouche en coin » (HEADERS.md, 2e tour, A) : la photo en plein cadre ;
+          cartouche à deux étages (option B du 07/10/2026) : la signature sur le teal profond, puis les deux portes
+          (teal = insertion, or = secteur) en pied du cartouche, bord à bord */}
       <header className="hc hc--accueil" id="hero">
         <figure className="hc__photo">
           <window.Picture src={H.hero.img} alt={H.hero.imgAlt} sizes="100vw" loading="eager" fetchPriority="high" />
         </figure>
         <div className="wrap hc__pose">
-          <div className="hc__cart hc__cart--deep on-dark">
-            <h1 className="hc__t hc__t--xl">
-              <span className="ln"><span>Le goût d'avancer</span></span>
-              <span className="ln"><span><em>ensemble.</em></span></span>
-            </h1>
-            <p className="hc__tag">{H.hero.title} {H.hero.titleAccent}</p>
-            <div className="hc__portes hc__portes--ordi ac-portes2">
+          <div className="hc__bloc">
+            <div className="hc__cart hc__cart--deep on-dark">
+              <h1 className="hc__t hc__t--xl">
+                <span className="ln"><span>Le goût d'avancer</span></span>
+                <span className="ln"><span><em>ensemble.</em></span></span>
+              </h1>
+              <p className="hc__tag">{H.hero.title} {H.hero.titleAccent}</p>
+            </div>
+            <div className="hc__pied hc__portes--ordi">
             <a className="ac-porte2 ac-porte2--ins" href={H.hero.ctaPrimary.href}>
               <span className="ac-porte2__k">{H.hero.ctaPrimary.k}</span>
               <span className="ac-porte2__l">{H.hero.ctaPrimary.label}{'\u00a0'}<span className="arrow" aria-hidden="true">→</span></span>
@@ -105,18 +108,18 @@ function HomeB() {
           </div>
         </div>
       </header>
-      {/* accueil sur mobile : les deux portes sous la photo, hors du cartouche (07/10/2026) */}
-      <div className="wrap hc__portes-mob">
-      <div className="hc__portes hc__portes--mobile ac-portes2">
-      <a className="ac-porte2 ac-porte2--ins" href={H.hero.ctaPrimary.href}>
-        <span className="ac-porte2__k">{H.hero.ctaPrimary.k}</span>
-        <span className="ac-porte2__l">{H.hero.ctaPrimary.label}{'\u00a0'}<span className="arrow" aria-hidden="true">→</span></span>
-      </a>
-      <a className="ac-porte2 ac-porte2--pro" href={H.hero.ctaSecondary.href}>
-        <span className="ac-porte2__k">{H.hero.ctaSecondary.k}</span>
-        <span className="ac-porte2__l">{H.hero.ctaSecondary.label}{'\u00a0'}<span className="arrow" aria-hidden="true">→</span></span>
-      </a>
-      </div>
+      {/* accueil sur mobile : les deux portes sous la photo, bord à bord (07/10/2026) */}
+      <div className="hc__portes-mob">
+        <div className="hc__pied">
+            <a className="ac-porte2 ac-porte2--ins" href={H.hero.ctaPrimary.href}>
+              <span className="ac-porte2__k">{H.hero.ctaPrimary.k}</span>
+              <span className="ac-porte2__l">{H.hero.ctaPrimary.label}{'\u00a0'}<span className="arrow" aria-hidden="true">→</span></span>
+            </a>
+            <a className="ac-porte2 ac-porte2--pro" href={H.hero.ctaSecondary.href}>
+              <span className="ac-porte2__k">{H.hero.ctaSecondary.k}</span>
+              <span className="ac-porte2__l">{H.hero.ctaSecondary.label}{'\u00a0'}<span className="arrow" aria-hidden="true">→</span></span>
+            </a>
+        </div>
       </div>
 
       {/* 2 · CONFIANCE : les statuts (« Ils en ont parlé » retiré, retours V2 §2) */}
