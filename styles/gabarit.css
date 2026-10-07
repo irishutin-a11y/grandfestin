@@ -859,3 +859,7 @@ img[src*="photo-micro-temoignage"]{object-position:55% 18%}
 @media (max-width:900px){ .pl-temoin__in{grid-template-columns:1fr;gap:var(--sp-5)} .pl-temoin__media img{aspect-ratio:4/3} }
 /* pied de page de la même couleur que le témoignage, sur cette page seulement */
 .footer-outer.footer-outer--deep{background:var(--teal-deep)!important;padding-top:0}
+/* Accueil (07/10/2026) : l'étage teal profond du cartouche laisse voir la photo ; opacité au plus bas qui garde
+   le texte lisible sur les vestes blanches (pas de flou : « pas de verre flouté ») */
+.hc--accueil .hc__bloc{box-shadow:none}
+.hc--accueil .hc__bloc .hc__cart--deep{background:rgba(10,45,51,.72)}
