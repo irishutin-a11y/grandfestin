@@ -175,7 +175,7 @@ function Footer() {
   // empilés ne s'accordaient pas). Absent là où la page a son propre appel final.
   const hash = useRoute();
   // pages qui finissent déjà par leurs propres portes : accueil, projets, accompagnement, contact
-  const sansFin = ['#/', '#/contact', '#/insertion/formation', '#/insertion/formation', '#/insertion', '#/restauration'].includes(hash) || hash.indexOf('#/projets/') === 0;
+  const sansFin = ['#/', '#/contact', '#/insertion', '#/restauration'].includes(hash) || hash.indexOf('#/projets/') === 0 || hash.indexOf('#/catalogue') === 0;
   return (
     <div className="footer-outer">
       <footer className="footer">
@@ -240,7 +240,7 @@ function FloatingCTA() {
   const actions = [
     { t: "Faire un don", d: "Soutenir Festin — HelloAsso", ic: "heart", c: "var(--coral, #E4572E)", href: data.donation, external: true },
     { t: "Réserver une table", d: "Les Beaux Mets — Baumettes", ic: "calendar-check", c: "var(--teal)", href: lesBeauxMets.ctaUrl, external: true },
-    { t: "Se former / candidater", d: "Rejoindre une promotion", ic: "graduation-cap", c: "var(--gold-ink)", href: "#/insertion/formation" },
+    { t: "Se former / candidater", d: "Rejoindre une promotion", ic: "graduation-cap", c: "var(--gold-ink)", href: "#/academie" },
     { t: "Recruter via Festin", d: "Recruter et manager autrement", ic: "briefcase", c: "var(--teal-secondary)", href: "#/restauration" },
     { t: "Devenir partenaire", d: "Mécénat & soutien", ic: "handshake", c: "var(--violet, #9A5BA8)", href: "#/contact" },
   ];
@@ -444,6 +444,8 @@ function HeroPage({ tone = 'teal', kicker, title, accent, proof, note, img, imgA
   // Avec une photo : bannière pleine image, sur le modèle de la page Pros (retours V2, §1).
   // La teinte du voile et de l'étiquette garde le code couleur (teal, or, teal profond).
   // Sans photo (fiches de formation, 404) : l'aplat de couleur.
+  // En-tête allégé (retours du 06/10, soir) : fil d'Ariane, titre, un seul bouton. Plus d'étiquette ;
+  // le logo ne reste que sans bouton (Qui sommes-nous) ; le crédit photo passe en légende discrète.
   const crumbs = crumb.length > 0 && (
     <nav className="hp__crumb" aria-label="Fil d'Ariane">
       {crumb.map((c, i) => (
@@ -456,12 +458,11 @@ function HeroPage({ tone = 'teal', kicker, title, accent, proof, note, img, imgA
       <window.Picture className="hp__bg" src={img} alt={imgAlt} sizes="100vw" loading="eager" fetchPriority="high" style={imgPos ? { objectPosition: imgPos } : undefined} />
       <div className="wrap hp__in">
         {crumbs}
-        {logo && <span className="hp__logo"><img src={URI(logo)} alt={logoAlt} /></span>}
-        {kicker && <span className="kicker hp__kicker">{kicker}</span>}
+        {logo && !children && <span className="hp__logo"><img src={URI(logo)} alt={logoAlt} /></span>}
         <h1 className="hp__t">{title} {accent && <em>{accent}</em>}</h1>
         {children && <div className="hp__more">{children}</div>}
-        {note && <p className="hp__note">{note}</p>}
       </div>
+      {note && <p className="hp__credit">{note}</p>}
     </header>
   );
   return (
@@ -470,8 +471,7 @@ function HeroPage({ tone = 'teal', kicker, title, accent, proof, note, img, imgA
       <div className="wrap hp__grid">
         <div className="hp__txt">
           {crumbs}
-          {logo && <span className="hp__logo"><img src={URI(logo)} alt={logoAlt} /></span>}
-          {kicker && <span className="kicker hp__kicker">{kicker}</span>}
+          {logo && !children && <span className="hp__logo"><img src={URI(logo)} alt={logoAlt} /></span>}
           <h1 className="hp__t">{title} {accent && <em>{accent}</em>}</h1>
           {/* pas de sous-titre dans les heros (retours du 30/09/2026) : un titre, un bouton */}
           {children && <div className="hp__more">{children}</div>}

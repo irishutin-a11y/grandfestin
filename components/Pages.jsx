@@ -77,7 +77,6 @@ function FormationDetailPage({ id }) {
           {label:f.titreFiche || f.title}
         ]}
       >
-        {f.pastilles && <ul className="hp__pastilles" aria-label="Diplômes préparés">{f.pastilles.map((t) => <li key={t}>{t}</li>)}</ul>}
         {(() => {
           // plus d'informations : le site du projet pour les parcours, le contact pour les formations pro
           const site = { 'des-etoiles-et-des-femmes': 'des-etoiles-et-des-femmes', tournesol: 'tournesol' }[f.id];
@@ -581,7 +580,7 @@ function AcaCatalogue({ id = 'catalogue', title = 'Toutes nos', accent = 'format
         <div className="formations__grid">
           {vus.map((f) => <FormationCardLink key={f.id} f={f} />)}
         </div>
-        <p className="g-src">{src || "L'Académie Festin est portée par Estello Formation, organisme de formation certifié Qualiopi. Les formations pro sont proposées par le programme Restaure."}{lien && <> <a href="#/insertion/formation">L'Académie Festin <span aria-hidden="true">→</span></a></>}</p>
+        <p className="g-src">{src || "L'Académie Festin est portée par Estello Formation, organisme de formation certifié Qualiopi. Les formations pro sont proposées par le programme Restaure."}{lien && <> <a href="#/academie">L'Académie Festin <span aria-hidden="true">→</span></a></>}</p>
       </div>
     </section>
   );

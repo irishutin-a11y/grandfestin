@@ -85,7 +85,6 @@ function HomeB() {
         <window.Trait className="ac-hero__trait" width={150} delay={0.2} />
         <div className="wrap ac-hero__grid">
           <div className="ac-hero__txt">
-            <span className="kicker ac-hero__kicker">{H.hero.kicker}</span>
             {/* retours du 02/10/2026 : la signature en grand, la mission en sous-titre,
                 deux portes d'entrée colorées (teal = insertion, or = professionnels) */}
             <h1 className="ac-hero__t">
@@ -245,7 +244,6 @@ function HomeB() {
 }
 
 // « Le site des Beaux Mets », « Le site de Restaure » (retours du 02/10/2026)
-const siteDe = (n) => ({ 'Les Beaux Mets': 'Le site des Beaux Mets', 'Le programme Restaure': 'Le site de Restaure', 'Des Étoiles et des Femmes': 'Le site du dispositif Des Étoiles et des Femmes', 'Académie Festin': "Le site de l'Académie Festin" })[n] || 'Le site de ' + n;
 // Trois missions, six projets : la liste partagée par l'accueil et la page « Nos projets »
 function MissionsListe() {
   const D = window.FESTIN_DATA;
@@ -292,55 +290,68 @@ function MissionsListe() {
 
 // Page « Nos projets » (#/projets) : galerie de cartes filtrable par mission
 // (retours du 25/09/2026 : ne pas reprendre la liste à fil de l'accueil)
-function ProjetsIndexPage() {
+// Catalogue « Projets et formations » (#/catalogue, PROPOSITIONS-V4 validées le 06/10/2026) :
+// remplace L'écosystème. Une carte par élément (FESTIN_DATA.catalogue), filtres par type et par public.
+// Sous « Tous », une formation rattachée à un projet déjà présent (« dans ») est masquée : pas de doublon.
+// L'Académie (« La formation, un moyen ») et Sadi Carnot (en développement) suivent la grille.
+const CATA_FILTRES = [
+  { key: 'tous', label: 'Tous' },
+  { key: 'projets', label: 'Nos projets', test: (c) => c.types.includes('projet') },
+  { key: 'formations', label: 'Nos formations', test: (c) => c.types.includes('formation') },
+  { key: 'tables', label: 'Nos tables', test: (c) => c.types.includes('tables') },
+  { key: 'insertion', label: 'Insertion', test: (c) => c.public === 'insertion' && !c.dans },
+  { key: 'pro', label: 'Professionnels', test: (c) => c.public === 'pro' },
+];
+const cataType = (c) => c.avenir ? 'À venir' : c.types.includes('formation') ? (c.public === 'pro' ? 'Formation pro' : "Parcours d'insertion")
+  : c.types.includes('tables') ? 'Projet · Nos tables' : 'Projet';
+function CataloguePage({ filtre: initial }) {
   const root = useRef(null);
   window.useGReveal(root);
   const D = window.FESTIN_DATA;
-  const H = D.home;
-  const byId = (id) => D.projets.find((p) => p.id === id) || {};
-  const missions = H.missions.items;
-  const cartes = missions.flatMap((m) => m.projets.map((pr) => ({ ...pr, mission: m })));
-  const [filtre, setFiltre] = React.useState('all');
-  const vus = filtre === 'all' ? cartes : cartes.filter((c) => c.mission.key === filtre);
-  const nomMission = (m) => m.title + (m.titleAccent ? ' ' + m.titleAccent : '');
+  const cartes = D.catalogue || [];
+  const [filtre, setFiltre] = React.useState(CATA_FILTRES.some((f) => f.key === initial) ? initial : 'tous');
+  const F = CATA_FILTRES.find((f) => f.key === filtre);
+  const vus = F.test ? cartes.filter(F.test) : cartes.filter((c) => !c.dans);
+  const choisir = (k) => {
+    setFiltre(k);
+    // l'adresse suit le filtre, sans relancer la transition de page
+    try { window.history.replaceState(null, '', k === 'tous' ? '#/catalogue' : '#/catalogue/' + k); } catch (e) {}
+  };
   return (
-    <div className="gpage" ref={root} data-screen-label="L'écosystème">
-      <window.HeroPage tone="deep" kicker="Cinq projets, trois missions" title="L'écosystème" accent="Festin"
-        proof={H.missions.ledeProjets}
+    <div className="gpage" ref={root} data-screen-label="Projets et formations">
+      <window.HeroPage tone="deep" title="Projets et" accent="formations."
         img="images/images-def/grand-festin-2025-brigades.jpg" imgAlt="Les brigades du Grand Festin 2025 sur les marches, près du Vieux-Port"
-        crumb={[{ label: 'Accueil', href: '#/' }, { label: "L'écosystème" }]}>
-        <div className="g-herocta"><window.GLink l={{ to: 'pj-gal' }} className="btnb btnb--gold">Voir les projets <span className="arrow" aria-hidden="true">↓</span></window.GLink><window.GLink l={{ to: 'developpement' }} className="g-herolnk">En développement <span className="arrow" aria-hidden="true">↓</span></window.GLink></div>
+        crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Projets et formations' }]}>
+        <div className="g-herocta"><window.GLink l={{ to: 'catalogue' }} className="btnb btnb--gold">Voir le catalogue <span className="arrow" aria-hidden="true">↓</span></window.GLink></div>
       </window.HeroPage>
-      <section className="g-sec g-sec--white pj-gal" id="pj-gal" aria-labelledby="pj-gal-t">
+      <section className="g-sec g-sec--white pj-gal" id="catalogue" aria-labelledby="cata-t">
         <div className="wrap">
-          <h2 className="sr-only" id="pj-gal-t">Les projets</h2>
-          <div className="filters" role="group" aria-label="Filtrer par mission">
-            <button type="button" className={'filter' + (filtre === 'all' ? ' active' : '')} aria-pressed={filtre === 'all'} onClick={() => setFiltre('all')}>Tous ({cartes.length})</button>
-            {missions.map((m) => (
-              <button type="button" key={m.key} className={'filter' + (filtre === m.key ? ' active' : '')} aria-pressed={filtre === m.key} onClick={() => setFiltre(m.key)}>
-                {nomMission(m)} ({m.projets.length})
-              </button>
-            ))}
+          <h2 className="sr-only" id="cata-t">Le catalogue</h2>
+          <div className="filters" role="group" aria-label="Filtrer le catalogue">
+            {CATA_FILTRES.map((f) => {
+              const n = f.test ? cartes.filter(f.test).length : cartes.filter((c) => !c.dans).length;
+              return <button type="button" key={f.key} className={'filter' + (filtre === f.key ? ' active' : '')} aria-pressed={filtre === f.key} onClick={() => choisir(f.key)}>{f.label} ({n})</button>;
+            })}
           </div>
+          <p className="sr-only" aria-live="polite">{vus.length} résultats</p>
           <ul className="pj-gal__grid">
             {vus.map((c) => {
-              const p = byId(c.id);
-              const logo = c.logo || p.logo;
+              const lien = c.ancre && c.href.indexOf('#/catalogue') === 0 ? { to: c.ancre } : { href: c.href };
               return (
                 <li key={c.id}>
-                  <div className={'pj-card pj-card--' + c.mission.key}>
+                  <div className={'pj-card cata-card cata-card--' + (c.avenir ? 'avenir' : c.public)}>
                     <span className="pj-card__img">
-                      <window.Picture src={c.img} alt="" sizes="(max-width: 700px) 100vw, 30vw" />
-                      {logo && <span className="pj-card__logo"><img src={IMG(logo)} alt="" loading="lazy" /></span>}
+                      {c.img ? <window.Picture src={c.img} alt="" sizes="(max-width: 700px) 100vw, 30vw" />
+                        : <span className="cata-card__vide" aria-hidden="true">{c.avenir ? 'À venir' : 'Festin'}</span>}
                     </span>
                     <span className="pj-card__body">
-                      <span className="pj-card__mis">{nomMission(c.mission)}</span>
-                      <span className="pj-card__t">{c.name || p.shortTitle}</span>
-                      <span className="pj-card__d">{c.line}</span>
-                      <span className="pj-card__acts">
-                        <a className="pj-card__go" href={c.href || ('#/projets/' + c.id)}>Découvrir <span className="arrow" aria-hidden="true">→</span><span className="sr-only"> : {c.name || p.shortTitle}</span></a>
-                        {p.siteUrl && <a className="pj-card__site" href={p.siteUrl} target="_blank" rel="noopener noreferrer">{siteDe(c.name || p.shortTitle)} <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (nouvel onglet)</span></a>}
-                      </span>
+                      <span className="pj-card__mis">{cataType(c)}</span>
+                      <span className="pj-card__t">{c.titre}</span>
+                      {c.ou && <span className="cata-card__ou"><i data-lucide="map-pin" aria-hidden="true" /> {c.ou}</span>}
+                      <span className="pj-card__d">{c.ligne}</span>
+                      {!c.avenir
+                        ? <window.GLink l={lien} className="pj-card__go">Découvrir <span className="arrow" aria-hidden="true">→</span><span className="sr-only"> : {c.titre}</span></window.GLink>
+                        : <window.GLink l={{ to: 'developpement' }} className="pj-card__go">Soutenir le projet <span className="arrow" aria-hidden="true">↓</span><span className="sr-only"> : {c.titre}</span></window.GLink>}
                     </span>
                   </div>
                 </li>
@@ -349,13 +360,13 @@ function ProjetsIndexPage() {
           </ul>
         </div>
       </section>
-      {/* EN DÉVELOPPEMENT (RETOURS-V3 §5.4) : Sadi Carnot, au futur, avec l'appel au don ;
-          les lieux ouverts au public passent dans le sous-menu « Nos tables » */}
+      <window.AcaFormation />
+      {/* EN DÉVELOPPEMENT (RETOURS-V3 §5.4) : Sadi Carnot, au futur, avec l'appel au don */}
       {(() => {
         const sc = (D.lieux || []).find((l) => l.key === 'sadi-carnot');
         if (!sc) return null;
         return (
-          <section className="g-sec g-sec--cream pj-dev" id="developpement" aria-labelledby="pj-dev-t">
+          <section className="g-sec g-sec--white pj-dev" id="developpement" aria-labelledby="pj-dev-t">
             <div className="wrap pj-dev__in">
               <div>
                 <window.GHead id="pj-dev-t" title="En" accent="développement." />
@@ -376,5 +387,5 @@ function ProjetsIndexPage() {
 }
 
 window.MissionsListe = MissionsListe;
-window.ProjetsIndexPage = ProjetsIndexPage;
+window.CataloguePage = CataloguePage;
 window.HomeB = HomeB;

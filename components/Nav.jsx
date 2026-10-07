@@ -89,7 +89,6 @@ function Nav() {
   const rubrique = data.rubriqueDe(hash);
   const [solid, setSolid] = useState(false);
   const [open, setOpen] = useState(false);
-  const [sub, setSub] = useState(null);
   const panelRef = useRef(null);
   const triggerRef = useRef(null);
   const lastFocus = useRef(null);
@@ -102,7 +101,7 @@ function Nav() {
   }, []);
 
   // fermer le panneau à chaque changement de route
-  useEffect(() => { setOpen(false); setSub(null); }, [hash]);
+  useEffect(() => { setOpen(false); }, [hash]);
 
   useEffect(() => { if (window.lucide) window.lucide.createIcons(); });
 
@@ -149,44 +148,36 @@ function Nav() {
   return (
     <nav className={"mnav" + (solid ? " solid" : "")}>
       <div className="navpill">
-        {/* TODO — remplacer par le logo Festin SVG blanc inline dès réception */}
-        <a href="#/" className="navpill__brand" aria-label="Festin — accueil">
-          <img src={data.brand.logo} alt="Festin" />
-        </a>
-        {/* Arborescence C : chaque entrée ouvre son sous-menu au survol et au clavier (focus) ;
-            « Nos tables » n'a pas de page propre, c'est un bouton qui ouvre le sien */}
-        <ul className="navpill__links" onKeyDown={(e) => { if (e.key === 'Escape') { setSub(null); if (document.activeElement) document.activeElement.blur(); } }}>
-          {data.arbo.map((r) => (
-            <li key={r.key} className={'navpill__it' + (sub === r.key ? ' is-open' : '')} onMouseLeave={() => setSub((k) => (k === r.key ? null : k))}>
-              {r.href
-                ? <a href={r.href} aria-current={hash === r.href ? 'page' : (rubrique === r.key ? 'location' : undefined)}>{r.label}</a>
-                : <button type="button" className={rubrique === r.key ? 'is-here' : undefined} aria-expanded={sub === r.key} aria-controls={'sub-' + r.key}
-                    onClick={() => setSub((k) => (k === r.key ? null : r.key))}>{r.label} <span aria-hidden="true">▾</span></button>}
-              <ul className="navpill__sub" id={'sub-' + r.key} aria-label={r.label}>
-                {r.links.map((l) => (
-                  <li key={l.label}>{l.avenir
-                    ? <span className="navpill__avenir"><b>{l.label}</b><span>{l.d}</span></span>
-                    : <a href={l.href} aria-current={hash === l.href ? 'page' : undefined} onClick={() => setSub(null)}>
-                      <b>{l.label}</b>{l.d && <span>{l.d}</span>}</a>}</li>
-                ))}
-              </ul>
-            </li>
-          ))}
-        </ul>
-        <span className="navpill__sep" aria-hidden="true"></span>
-        {/* « Soutenir Festin » : les trois façons de s'engager, en fin de page Impact (RETOURS-AUDIT, question 2) */}
-        <a className="navpill__soutenir navpill__presse" href="#/actualites" aria-current={hash === '#/actualites' ? 'page' : undefined}>Presse</a>
-        <a className="navpill__soutenir" href="#/impact/soutenir" aria-current={hash === '#/impact/soutenir' ? 'page' : undefined}>Soutenir Festin</a>
-        <a className="navpill__don" href={data.donation} target="_blank" rel="noopener noreferrer">
-          <i data-lucide="heart" aria-hidden="true" /> Don
-        </a>
-        <button type="button" className="navpill__menu" ref={triggerRef} aria-haspopup="true"
-                aria-expanded={open} aria-controls="megaPanel" onClick={toggle}>
-          Menu
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
-            <line x1="4" y1="8" x2="20" y2="8" /><line x1="4" y1="16" x2="20" y2="16" />
-          </svg>
-        </button>
+        {/* Barre V4 (06/10/2026) : trois zones symétriques, le bouton Menu au centre exact.
+            Les trois raccourcis mènent au catalogue filtré ; le méga menu porte seul l'arborescence. */}
+        {(() => {
+          const lien = (b) => (
+            <a key={b.href} className="navpill__lien" href={b.href} aria-current={hash === b.href ? 'page' : undefined}>{b.label}</a>
+          );
+          return (
+            <>
+              <span className="navpill__zone navpill__zone--g">
+                <a href="#/" className="navpill__brand" aria-label="Festin, accueil">
+                  <img src={data.brand.logo} alt="Festin" />
+                </a>
+                <span className="navpill__cote">{data.barre.slice(0, 2).map(lien)}</span>
+              </span>
+              <button type="button" className="navpill__menu" ref={triggerRef} aria-haspopup="true"
+                      aria-expanded={open} aria-controls="megaPanel" onClick={toggle}>
+                Menu
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" aria-hidden="true">
+                  <line x1="4" y1="8" x2="20" y2="8" /><line x1="4" y1="16" x2="20" y2="16" />
+                </svg>
+              </button>
+              <span className="navpill__zone navpill__zone--d">
+                <span className="navpill__cote">{data.barre.slice(2).map(lien)}</span>
+                <a className="navpill__don" href={data.donation} target="_blank" rel="noopener noreferrer">
+                  <i data-lucide="heart" aria-hidden="true" /> Don<span className="sr-only"> (nouvel onglet)</span>
+                </a>
+              </span>
+            </>
+          );
+        })()}
       </div>
 
       <div className={"optA-scrim" + (open ? " open" : "")} onClick={closePanel} aria-hidden="true"></div>
@@ -222,7 +213,7 @@ function Nav() {
             <a className="optA-don" href={data.donation} target="_blank" rel="noopener noreferrer" onClick={closePanel}>
               <i data-lucide="heart" aria-hidden="true" /> Faire un don à Festin
             </a>
-            <span className="optA-foot__txt">Association loi 1901, d'intérêt général, agréée ESUS.</span>
+            <span className="optA-foot__txt">Groupe associatif à but non lucratif, d'intérêt général, agréé ESUS.</span>
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-// Accompagnement.jsx — pages « Apprendre un métier » (#/insertion)
+// Accompagnement.jsx — page « L'insertion » (#/insertion)
 // et « Acteurs du secteur » (#/restauration).
 // Déploiement du 24/09/2026 (AUDIT-DEPLOIEMENT.md) : même grammaire que
 // l'accueil et les pages projet (Gabarit.jsx). Une page par public ; les
@@ -14,7 +14,6 @@ function AccHero({ tone, kicker, title, em, lede, img, imgAlt, crumb, cta, lien 
       crumb={[{ label: 'Accueil', href: '#/' }, { label: crumb }]}>
       <div className="g-herocta">
         <window.GLink l={cta} className={'btnb ' + ({ gold: 'btnb--teal', teal: 'btnb--light' }[tone] || 'btnb--gold')}>{cta.label} <span className="arrow" aria-hidden="true">→</span></window.GLink>
-        {lien && <window.GLink l={lien} className="g-herolnk">{lien.label} <span className="arrow" aria-hidden="true">→</span></window.GLink>}
       </div>
     </window.HeroPage>
   );
@@ -267,8 +266,6 @@ function AccompagnementInsertionPage() {
         { q: "Et après la formation ?", a: "Nous préparons avec vous la recherche de poste et nous vous mettons en relation avec des restaurants qui recrutent." },
       ]} />
 
-      <window.AcaFormation />
-
       <window.Appel id="ins-appel" title="Vérifier si le parcours" accent="est fait pour vous."
         text="Répondez aux questions : si une formation vous est ouverte, écrivez-nous et nous vous invitons à une réunion d'information."
         cta={{ label: 'Vérifier mon éligibilité', onClick: ouvrir }} />
@@ -302,12 +299,9 @@ function AccompagnementProsPage() {
         <window.Picture className="ar-hero__img" src="images/beauxmets-images/LBM_cdutrey_071122-7264.jpg" alt="" loading="eager" fetchPriority="high" />
         <div className="wrap ar-hero__in">
           <nav className="hp__crumb ar-hero__crumb" aria-label="Fil d'Ariane"><a href="#/">Accueil</a> <span aria-hidden="true">/</span> <span aria-current="page">Pour le secteur</span></nav>
-          <p className="ar-eyebrow">Pour le secteur</p>
           <h1 className="ar-hero__t">Recruter et former, <em>avec Festin.</em></h1>
-          <p className="ar-hero__p">Des personnes formées pour votre brigade, des formations pour vos équipes.</p>
           <div className="ar-hero__cta">
             <a className="btnb btnb--gold" href="#pros-former" onClick={go('pros-former')}>Former vos équipes <span className="arrow" aria-hidden="true">↓</span></a>
-            <a className="btnb btnb--light" href="#pros-recruter" onClick={go('pros-recruter')}>Recruter <span className="arrow" aria-hidden="true">↓</span></a>
           </div>
         </div>
       </header>

@@ -8,16 +8,18 @@ function parseRoute(hash) {
   // Des Étoiles et des Femmes ; Tournesol est une formation, plus une page projet
   // Arborescence C (RETOURS-V3, validée le 06/10/2026) : nouvelles adresses, les anciennes restent valides
   const ALIAS = { tfp: 'des-etoiles-et-des-femmes', cap: 'des-etoiles-et-des-femmes' };
+  if (parts[0] === 'insertion' && parts[1] === 'formation') return { name: 'catalogue', filtre: 'formations', ancre: 'formation' };
   if (parts[0] === 'insertion') return { name: 'accomp-insertion', ancre: parts[1] };
   if (parts[0] === 'restauration') return { name: 'accomp-pros', ancre: parts[1] === 'former' ? 'pros-former' : undefined };
   if (parts[0] === 'parcours' && parts[1]) return { name: 'formation', id: ALIAS[parts[1]] || parts[1] };
   if (parts[0] === 'formations' && parts[1]) return { name: 'formation', id: ALIAS[parts[1]] || parts[1] };
   if (parts[0] === 'projets' && parts[1] === 'tournesol') return { name: 'formation', id: 'tournesol' };
-  // l'Académie est une section de L'insertion : ses anciennes adresses y mènent
-  if (parts[0] === 'formations' || parts[0] === 'academie') return { name: 'accomp-insertion', ancre: 'formation' };
-  if (parts[0] === 'projets' && parts[1] === 'lieux') return { name: 'projets' };
+  // Catalogue « Projets et formations » (V4, 06/10/2026) : remplace L'écosystème ; l'Académie y est une section
+  if (parts[0] === 'catalogue') return { name: 'catalogue', filtre: parts[1] || 'tous' };
+  if (parts[0] === 'formations' || parts[0] === 'academie') return { name: 'catalogue', filtre: 'formations', ancre: 'formation' };
+  if (parts[0] === 'projets' && parts[1] === 'lieux') return { name: 'catalogue', filtre: 'tables' };
   if (parts[0] === 'projets' && parts[1]) return { name: 'projet', id: parts[1] };
-  if (parts[0] === 'projets') return { name: 'projets' };
+  if (parts[0] === 'projets') return { name: 'catalogue', filtre: 'projets' };
   // Sadi Carnot : pas de page tant que le projet n'est pas acquis (arbitrage 8B) ; l'ancienne adresse mène à l'accueil
   if (parts[0] === 'restaurants') return { name: 'home' };
   if (parts[0] === 'accompagnement' && parts[1] === 'insertion') return { name: 'accomp-insertion' };
@@ -82,7 +84,7 @@ function App() {
     const proj = route.name === 'projet' ? D.projets.find(x => x.id === route.id) : null;
     const titles = {
       home: "Festin : mettre la restauration au service de l'égalité des chances",
-      about: 'Qui sommes-nous | ' + base, projets: "L'écosystème Festin | " + base, formation: 'Parcours et formations | ' + base,
+      about: 'Qui sommes-nous | ' + base, catalogue: 'Projets et formations | ' + base, formation: 'Parcours et formations | ' + base,
       impact: 'Compter ce qui compte : notre impact | ' + base, actualites: 'Presse et actualités | ' + base,
       contact: 'Contact | ' + base, 'accomp-insertion': "L'insertion : nos parcours | " + base,
       'accomp-pros': 'Pour le secteur : recruter et former | ' + base,
@@ -98,7 +100,7 @@ function App() {
   let page;
   switch (route.name) {
     case 'home':              page = <HomePage />; break;
-    case 'projets':           page = <ProjetsIndexPage />; break;
+    case 'catalogue':         page = <CataloguePage key={hash} filtre={route.filtre} />; break;
     case 'formation':         page = <FormationDetailPage id={route.id} />; break;
     case 'projet':            page = <ProjetPage id={route.id} />; break;
     case 'accomp-insertion':  page = <AccompagnementInsertionPage />; break;

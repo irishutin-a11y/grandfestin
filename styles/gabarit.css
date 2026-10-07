@@ -555,7 +555,8 @@ main > div > section:last-of-type:has(.g-appel){border-top:0!important}
 .navpill__soutenir[aria-current="page"]{color:var(--teal-dark)}
 .navpill__avenir{display:flex;flex-direction:column;gap:2px;padding:10px 12px;border-radius:12px;opacity:.55;cursor:default}
 .navpill__avenir b{font-size:14px;color:var(--ink)}.navpill__avenir span{font-size:13px;color:var(--ink-mid)}
-.optA-avenir{display:flex;align-items:center;gap:12px;padding:10px 12px;opacity:.55;cursor:default}
+.optA-avenir{display:flex;align-items:center;gap:12px;padding:10px 0;cursor:default}
+.optA-avenir .optA-links__t{color:rgba(255,255,255,.72)}.optA-avenir .optA-links__d{color:rgba(255,255,255,.72)}.optA-avenir .optA-links__ic{opacity:.6}
 .footer__avenir{opacity:.6}
 /* Éligibilité en fenêtre + bouton flottant (retour du 06/10/2026) */
 .elig-fab{position:fixed;right:clamp(16px,2.5vw,32px);bottom:clamp(16px,2.5vw,32px);z-index:80;min-height:52px;padding:14px 22px;border:0;border-radius:999px;background:var(--teal);color:#fff;font:inherit;font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;box-shadow:0 14px 36px rgba(6,33,31,.3)}
@@ -569,3 +570,17 @@ main > div > section:last-of-type:has(.g-appel){border-top:0!important}
 .elig-modal .elig__form{margin-top:var(--sp-5)}
 .elig-modal .elig__res{margin-top:var(--sp-5)}
 @media (max-width:600px){.elig-fab{left:16px;right:16px;text-align:center}}
+/* Barre V4 (06/10/2026) : logo · Nos tables · Nos formations · [Menu] · Nos projets · Don.
+   Le bouton Menu, plus gros, au centre ; les trois raccourcis mènent au catalogue filtré. */
+.navpill.navpill{display:grid;grid-template-columns:1fr auto 1fr;width:min(1120px,100%);gap:8px}
+.navpill__zone{display:flex;align-items:center;gap:4px;min-width:0}
+.navpill__zone--g .navpill__cote{margin-left:auto}
+.navpill__zone--d .navpill__don{margin-left:auto}
+.navpill__cote{display:none;align-items:center;gap:2px}
+.navpill__lien{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:999px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);text-decoration:none;white-space:nowrap}
+.navpill__lien:hover,.navpill__lien[aria-current="page"]{background:var(--teal-tint);color:var(--teal-dark)}
+.navpill__lien:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.navpill .navpill__menu{padding:12px 26px;font-size:14px;gap:10px;min-height:48px}
+.navpill .navpill__menu svg{width:16px;height:16px}
+@media (min-width:960px){ .navpill__cote{display:flex} }
+@media (max-width:600px){ .navpill .navpill__menu{padding:10px 18px;font-size:13px} }

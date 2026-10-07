@@ -376,7 +376,4 @@
 .imp-prix__ph figcaption{margin-top:var(--sp-3);font-size:var(--fs-small);color:var(--ink-mid)}
 @media (max-width:720px){.imp-prix__ph img{aspect-ratio:4/3}}
 /* En-têtes allégés (retour du 06/10/2026) : la grande image, le fil d'Ariane et un seul bouton */
-.hp--banner .hp__kicker{display:none}
-.hp--banner .g-herocta > :not(:first-child){display:none}
-.ar-hero .ar-eyebrow{display:none}
-.ar-hero__cta > :not(:first-child){display:none}
+.hp__credit{position:absolute;right:clamp(12px,2vw,24px);bottom:10px;margin:0;z-index:2;font-size:var(--fs-label);color:var(--ink-on-dark);opacity:.85;max-width:60ch;text-align:right}
