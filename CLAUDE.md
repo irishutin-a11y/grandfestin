@@ -149,7 +149,7 @@ Document : `PROPOSITIONS-V4.md` (réponses de l'utilisatrice). Remplace la barre
 
 ## En-têtes « photo nue et cartouche » (07/10/2026), tranché
 Proposition 3 de `HEADERS.md` (branche de comparaison `headers-propositions`, route `#/headers`), « à améliorer par la suite ».
-- `HeroPage` (Sections.jsx, classes `hc-*` dans gabarit.css) : photo sans voile, pleine largeur, à hauteur fixe (`--hc-h`), puis un **cartouche** de la couleur du public (teal = personnes, or = professionnels, teal profond = le reste) qui chevauche le bas de la photo (`--hc-o`). Fil d'Ariane, titre, un bouton. Sans photo : le cartouche seul.
+- `HeroPage` (Sections.jsx, classes `hc-*` dans gabarit.css) : photo sans voile, pleine largeur, à hauteur fixe (`--hc-h` : 480 px section, 620 accueil, 420 formation ; 360, 400, 300 sur mobile), puis un **cartouche** de la couleur du public (teal = personnes, or = professionnels, teal profond = le reste) qui chevauche le bas de la photo (`--hc-o`). Fil d'Ariane, titre, un bouton. Sans photo : le cartouche seul.
 - Trois familles : **accueil** (HomeB.jsx, cartouche teal profond + les deux portes empilées), **section** (toutes les pages intérieures, dont Pour le secteur), **formation** (`famille="formation"` : photo de la formation, faits dans le cartouche : durée, où ou format, public, coût ou porteur ; pastilles CAP/TFP). La photo n'est plus répétée dans le corps des fiches.
 - Méga menu : **aucune formation listée une à une** (elles se multiplieront) ; « Toutes les formations d'insertion » → `#/catalogue/insertion`, « Toutes les formations pro » → `#/catalogue/pro`. Plus de phrase de statut en pied de menu.
 

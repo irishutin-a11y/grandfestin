@@ -737,3 +737,20 @@ img[src*="photo-micro-temoignage"]{object-position:55% 18%}
   .hc--formation .hc__crumb > span[aria-hidden]:last-of-type{display:none}
 }
 @media (min-width:901px){ .hc{--hc-h:380px} .hc--accueil{--hc-h:520px} .hc--formation{--hc-h:320px} }
+/* Photos plus visibles (retour du 07/10/2026) : photo plus haute, cartouche plus étroit qui chevauche
+   moins ; à droite du cartouche, la photo se voit sur toute sa hauteur. */
+@media (min-width:901px){
+  .hc{--hc-h:480px;--hc-o:96px}
+  .hc--accueil{--hc-h:620px;--hc-o:150px}
+  .hc--formation{--hc-h:420px;--hc-o:90px}
+  .hc__cart{max-width:720px}
+  .hc--accueil .hc__pose{grid-template-columns:minmax(0,680px) minmax(260px,340px)}
+  .hc .hc__t{font-size:clamp(2rem,1.2rem + 2.4vw,3.5rem)}
+  .hc .hc__t--xl{font-size:clamp(2.75rem,1.4rem + 3.6vw,5rem)}
+  .hc--formation .hc__cart--faits{max-width:1040px}
+}
+@media (max-width:900px){
+  .hc{--hc-h:360px;--hc-o:40px}
+  .hc--accueil{--hc-h:400px;--hc-o:48px}
+  .hc--formation{--hc-h:300px;--hc-o:32px}
+}
