@@ -119,9 +119,12 @@ function Eligibilite({ open, onClose }) {
   return ReactDOM.createPortal(
     <div className="elig-modal" onMouseDown={(e) => { if (e.target === e.currentTarget) onClose(); }}>
       <div className="elig-modal__box elig" role="dialog" aria-modal="true" aria-labelledby="elig-t" ref={boxRef}>
-        <button type="button" className="elig-modal__close" onClick={onClose} aria-label="Fermer">×</button>
-        <h2 className="elig-modal__t" id="elig-t">Suis-je <em>éligible ?</em></h2>
-        <p className="elig__aide">Quelques questions pour savoir si une de nos formations vous est ouverte. Vos réponses restent sur votre écran : rien n'est envoyé.</p>
+        {/* en-tête collant : le titre et la croix restent visibles au défilement */}
+        <div className="elig-modal__head">
+          <h2 className="elig-modal__t" id="elig-t">Suis-je <em>éligible ?</em></h2>
+          <button type="button" className="elig-modal__close" onClick={onClose} aria-label="Fermer">×</button>
+        </div>
+        <p className="elig-modal__intro">Quelques questions pour savoir si une de nos formations vous est ouverte. Vos réponses restent sur votre écran : rien n'est envoyé.</p>
         <form className="elig__form" onSubmit={(e) => { e.preventDefault(); setVu(true); }}>
           <Q k="age" q="Avez-vous 18 ans ou plus ?" opts={[['oui', 'Oui'], ['non', 'Non']]} />
           <Q k="femme" q="Êtes-vous une femme ?" aide="Le dispositif Des Étoiles et des Femmes s'adresse aux femmes." opts={[['oui', 'Oui'], ['non', 'Non']]} />

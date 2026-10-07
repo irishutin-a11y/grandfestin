@@ -77,6 +77,8 @@ function FormationDetailPage({ id }) {
           {label:f.titreFiche || f.title}
         ]}
       >
+        {/* pastilles CAP et TFP remises (retour du 07/10/2026) : seule exception à l'en-tête allégé */}
+        {f.pastilles && <ul className="hp__pastilles" aria-label="Diplômes préparés">{f.pastilles.map((t) => <li key={t}>{t}</li>)}</ul>}
         {(() => {
           // plus d'informations : le site du projet pour les parcours, le contact pour les formations pro
           const site = { 'des-etoiles-et-des-femmes': 'des-etoiles-et-des-femmes', tournesol: 'tournesol' }[f.id];

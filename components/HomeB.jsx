@@ -304,6 +304,13 @@ const CATA_FILTRES = [
 ];
 const cataType = (c) => c.avenir ? 'À venir' : c.types.includes('formation') ? (c.public === 'pro' ? 'Formation pro' : "Parcours d'insertion")
   : c.types.includes('tables') ? 'Projet · Nos tables' : 'Projet';
+// Code couleur (07/10/2026) : teal = insertion, or = professionnels (code du site), corail = nos tables.
+const cataFamille = (c) => c.avenir ? 'avenir' : c.types.includes('tables') ? 'tables' : c.public;
+const CATA_LEGENDE = [
+  { k: 'insertion', label: "Insertion : parcours et projets" },
+  { k: 'pro', label: 'Pour le secteur : formations pro et Restaure' },
+  { k: 'tables', label: 'Nos tables : restaurant et traiteur' },
+];
 function CataloguePage({ filtre: initial }) {
   const root = useRef(null);
   window.useGReveal(root);
@@ -333,13 +340,16 @@ function CataloguePage({ filtre: initial }) {
               return <button type="button" key={f.key} className={'filter' + (filtre === f.key ? ' active' : '')} aria-pressed={filtre === f.key} onClick={() => choisir(f.key)}>{f.label} ({n})</button>;
             })}
           </div>
+          <ul className="cata-leg" aria-label="Code couleur">
+            {CATA_LEGENDE.map((l) => <li key={l.k} className={'cata-leg__it cata-card--' + l.k}><span className="cata-leg__pt" aria-hidden="true" />{l.label}</li>)}
+          </ul>
           <p className="sr-only" aria-live="polite">{vus.length} résultats</p>
           <ul className="pj-gal__grid">
             {vus.map((c) => {
               const lien = c.ancre && c.href.indexOf('#/catalogue') === 0 ? { to: c.ancre } : { href: c.href };
               return (
                 <li key={c.id}>
-                  <div className={'pj-card cata-card cata-card--' + (c.avenir ? 'avenir' : c.public)}>
+                  <div className={'pj-card cata-card cata-card--' + cataFamille(c)}>
                     <span className="pj-card__img">
                       {c.img ? <window.Picture src={c.img} alt="" sizes="(max-width: 700px) 100vw, 30vw" />
                         : <span className="cata-card__vide" aria-hidden="true">{c.avenir ? 'À venir' : 'Festin'}</span>}

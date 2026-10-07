@@ -148,36 +148,27 @@ function Nav() {
   return (
     <nav className={"mnav" + (solid ? " solid" : "")}>
       <div className="navpill">
-        {/* Barre V4 (06/10/2026) : trois zones symétriques, le bouton Menu au centre exact.
-            Les trois raccourcis mènent au catalogue filtré ; le méga menu porte seul l'arborescence. */}
-        {(() => {
-          const lien = (b) => (
+        {/* Barre V4 (07/10/2026) : logo · Nos tables · Nos formations · Nos projets · Menu · Don.
+            Les trois raccourcis mènent au catalogue filtré ; le méga menu porte seul l'arborescence.
+            Le bouton Menu, à côté du Don, est rendu plus visible (taille, aplat teal, icône). */}
+        <a href="#/" className="navpill__brand" aria-label="Festin, accueil">
+          <img src={data.brand.logo} alt="Festin" />
+        </a>
+        <span className="navpill__cote">
+          {data.barre.map((b) => (
             <a key={b.href} className="navpill__lien" href={b.href} aria-current={hash === b.href ? 'page' : undefined}>{b.label}</a>
-          );
-          return (
-            <>
-              <span className="navpill__zone navpill__zone--g">
-                <a href="#/" className="navpill__brand" aria-label="Festin, accueil">
-                  <img src={data.brand.logo} alt="Festin" />
-                </a>
-                <span className="navpill__cote">{data.barre.slice(0, 2).map(lien)}</span>
-              </span>
-              <button type="button" className="navpill__menu" ref={triggerRef} aria-haspopup="true"
-                      aria-expanded={open} aria-controls="megaPanel" onClick={toggle}>
-                Menu
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" aria-hidden="true">
-                  <line x1="4" y1="8" x2="20" y2="8" /><line x1="4" y1="16" x2="20" y2="16" />
-                </svg>
-              </button>
-              <span className="navpill__zone navpill__zone--d">
-                <span className="navpill__cote">{data.barre.slice(2).map(lien)}</span>
-                <a className="navpill__don" href={data.donation} target="_blank" rel="noopener noreferrer">
-                  <i data-lucide="heart" aria-hidden="true" /> Don<span className="sr-only"> (nouvel onglet)</span>
-                </a>
-              </span>
-            </>
-          );
-        })()}
+          ))}
+        </span>
+        <button type="button" className="navpill__menu" ref={triggerRef} aria-haspopup="true"
+                aria-expanded={open} aria-controls="megaPanel" onClick={toggle}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" aria-hidden="true">
+            <line x1="4" y1="7" x2="20" y2="7" /><line x1="4" y1="12" x2="20" y2="12" /><line x1="4" y1="17" x2="20" y2="17" />
+          </svg>
+          Menu
+        </button>
+        <a className="navpill__don" href={data.donation} target="_blank" rel="noopener noreferrer">
+          <i data-lucide="heart" aria-hidden="true" /> Don<span className="sr-only"> (nouvel onglet)</span>
+        </a>
       </div>
 
       <div className={"optA-scrim" + (open ? " open" : "")} onClick={closePanel} aria-hidden="true"></div>
