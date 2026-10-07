@@ -632,7 +632,7 @@ window.FESTIN_DATA = {
       audienceKey: "pros",
       title: "Prévention des violences sexistes et sexuelles en restauration",
       desc: "Reconnaître les violences sexistes et sexuelles en cuisine et en salle, les prévenir et savoir réagir à un signalement.",
-      img: "images/photo-service-restaurant.jpg",
+      img: "images/photo-micro-temoignage.jpg", // photo demandée le 07/10/2026 (moins de photos des Beaux Mets)
       duration: "Inter (3 h) ou Intra (3 h ou 1 jour / 7 h)",
       format: "Présentiel, inter-restaurants ou intra-entreprise",
       price: "Inter 180 € HT/pers · Intra 800 € (3 h) ou 1 500 € (1 jour)",
@@ -1324,7 +1324,7 @@ window.FESTIN_DATA.catalogue = [
     href: "#/parcours/tournesol", img: "images/tournesol:formation/tournesol-cuisine.jpg" },
   { id: "vss", types: ["formation"], public: "pro", titre: "Prévention des violences sexistes et sexuelles", ou: "Dans vos murs ou en inter",
     ligne: "Reconnaître les violences en cuisine et en salle, les prévenir, réagir à un signalement. Proposée par le programme Restaure.",
-    href: "#/formations/vss", img: "images/photo-service-restaurant.jpg" },
+    href: "#/formations/vss", img: "images/photo-micro-temoignage.jpg" },
   { id: "management", types: ["formation"], public: "pro", titre: "Management juste et inclusif", ou: "Dans vos murs ou en inter",
     ligne: "Recruter plus largement, garder son équipe, l'encadrer sans violence. Proposée par le programme Restaure.",
     href: "#/formations/management", img: "images/beauxmets-images/lbm-maitre-hotel-commis.jpg" },
