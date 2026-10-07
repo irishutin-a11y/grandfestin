@@ -157,6 +157,7 @@ Proposition A du 2e tour de `HEADERS.md` (comparaison sur la branche `headers-pr
 - Cadrage : le sujet doit rester visible à droite du cartouche ; régler `imgPos` page par page. Le programme Restaure : photo du Toast en en-tête (07/10, accord de l'utilisatrice), l'affiche du lancement sert de vignette à la vidéo.
 - **Accueil** (maquette du 07/10/2026) : en-tête, bandeau des statuts, frise des projets « Près de quarante ans dans les cuisines », chiffres 2025, « Deux publics, un même métier », « Ils et elles racontent ». Plus de « Choisir votre entrée ». Logo du menu agrandi (34 px).
 - Pour le secteur : plus de mot géant « S'engager » en fin de page (procédé unique, doublait le titre) ; ne pas le reproduire ailleurs.
+- **Sadi Carnot** (Nos tables, catalogue) : brique unique `SadiCarnot` (HomeB.jsx), carte sombre au futur, sans cadre rayé « À venir ». **Impact, « Projet par projet »** : quatre colonnes (quatre projets). Photo `photo-cuisine-action.jpg` (floue) retirée du site.
 - Méga menu : **aucune formation listée une à une** (elles se multiplieront) ; « Toutes les formations d'insertion » → `#/catalogue/insertion`, « Toutes les formations pro » → `#/catalogue/pro`. Plus de phrase de statut en pied de menu.
 
 Voir `copywriting/06-journal-des-changements.md`, section « Encore en `[XX]` » : portraits de l'équipe, témoignages entreprise et financeur, crédits photo, intitulés de Marion Binachon et Fanny Bouvier.

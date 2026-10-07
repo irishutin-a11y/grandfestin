@@ -1060,7 +1060,7 @@ window.FESTIN_DATA.home = {
           "Des candidats présentés par Festin, avec une préparation à l'emploi financée par France Travail."
         ],
         cta: "Recruter avec Festin", href: "#/restauration",
-        img: "images/photo-cuisine-action.jpg" }
+        img: "images/beauxmets-images/lbm-masterclass-brigade-plating.jpg" }
     ]
   },
   eco: {
@@ -1207,7 +1207,7 @@ Object.assign(window.FESTIN_DATA.home, {
       { tag: "Insertion", title: "Être accompagné jusqu'à l'emploi",
         cta: "Voir nos parcours", href: "#/insertion", img: "images/photo-tabliers-violets.jpg" },
       { tag: "Pour le secteur", title: "Recruter, former, s'engager",
-        cta: "Travailler avec Festin", href: "#/restauration", img: "images/photo-cuisine-action.jpg" },
+        cta: "Travailler avec Festin", href: "#/restauration", img: "images/beauxmets-images/lbm-masterclass-brigade-plating.jpg" },
     ],
     agir: {
       tag: "Vous voulez agir avec nous", title: "Soutenir,", titleAccent: "réserver, commander",

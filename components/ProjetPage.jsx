@@ -94,7 +94,7 @@ function BlocChefs({ p, cfg }) {
   const photos = ['images/images-def/chaudbouillon-045.jpg', 'images/images-def/HOTELERIE-097.jpg',
     'images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00022.jpg', 'images/images-def/DEF_LEGRANDFESTIN_namarante_13102024_000034.jpg',
     'images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-40.jpg', 'images/photo-tabliers-violets.jpg',
-    'images/photo-cuisine-action.jpg', 'images/photo-applaudissements.jpg'];
+    'images/images-def/HOTELERIE-035.jpg', 'images/photo-applaudissements.jpg']; // photo floue retirée (07/10/2026)
   return (
     <section className="g-sec g-sec--gold" aria-labelledby="chefs-t">
       <div className="wrap g-chefs">
