@@ -374,10 +374,32 @@ function AccompagnementProsPage() {
         logo={{ src: "images/partners/intercontinental.png", alt: "InterContinental Marseille" }}
         cta={{ label: 'Découvrir Les Beaux Mets', href: '#/projets/les-beaux-mets' }} />
 
-      {/* 6 · S'ENGAGER — le mot géant est retiré (07/10/2026) : utilisé une seule fois, il doublait le titre */}
-      <window.TitreChevauche id="pros-eng-t" title="S'engager avec Festin"
-        text="Soutenir un projet comme mécène, ou participer au prochain Grand Festin."
-        link={{ label: 'Devenir partenaire Festin', href: '#/contact/partenariat' }} />
+      {/* 6 · S'ENGAGER (07/10/2026, proposition B de #/lab-engager) : trois façons, chacune avec son repère et une action.
+          Plus de mot géant (procédé unique, il doublait le titre). Contenu déjà publié. */}
+      <section className="g-sec g-sec--cream eng" id="pros-engager" aria-labelledby="pros-eng-t">
+        <div className="wrap">
+          <window.GHead id="pros-eng-t" title="S'engager" accent="avec Festin." />
+          <ul className="eng__grid">
+            {[
+              { tone: 'teal', t: 'Rejoindre Restaure', p: 'Signez le manifeste, rejoignez un groupe de travail ou venez à un Toast.',
+                tags: [['Déjà', '35 structures membres']], l: { label: 'Le site du programme', href: 'https://www.mouvement-restaure.com', ext: true } },
+              { tone: 'gold', t: 'Le Grand Festin', p: 'Participer au prochain Grand Festin, à Marseille.',
+                tags: [['En 2025', 'plus de 600 convives, 14 brigades']], l: { label: 'Participer', href: '#/contact/partenariat' } },
+              { tone: 'coral', t: 'Devenir mécène', p: 'Soutenir un projet de Festin comme mécène.',
+                tags: [['Contact', 'partenariat@grandfestin.com']], l: { label: 'Devenir mécène', href: '#/contact/mecenat' } },
+            ].map((f) => (
+              <li key={f.t} className={'eng__it eng__it--' + f.tone}>
+                <h3 className="eng__t">{f.t}</h3>
+                <p>{f.p}</p>
+                <window.ArTags tags={f.tags} />
+                <a className="lnk eng__l" href={f.l.href} {...(f.l.ext ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
+                  {f.l.label} <span className="arrow" aria-hidden="true">{f.l.ext ? '↗' : '→'}</span>{f.l.ext && <span className="sr-only"> (nouvel onglet)</span>}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
     </div>
   );
 }

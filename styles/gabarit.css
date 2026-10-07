@@ -786,3 +786,11 @@ img[src*="photo-micro-temoignage"]{object-position:55% 18%}
 .sc__liste{list-style:none;margin:0;padding:0;border-top:1px solid rgba(255,255,255,.22)}
 .sc__liste li{display:flex;gap:12px;align-items:baseline;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.22);font-size:var(--fs-body);line-height:1.45;color:#fff}
 .sc__liste li::before{content:'';flex:none;width:10px;height:10px;border-radius:50%;background:var(--gold);transform:translateY(-1px)}
+/* Pour le secteur, « S'engager avec Festin » (07/10/2026) : trois façons côte à côte, filet de couleur en haut */
+.eng__grid{list-style:none;margin:var(--sp-6) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-5)}
+.eng__it{--c:var(--teal);display:flex;flex-direction:column;gap:var(--sp-3);padding:var(--sp-6);border-radius:24px;background:var(--off-white);border-top:6px solid var(--c);box-shadow:var(--sh-sm)}
+.eng__it--gold{--c:var(--gold)}.eng__it--coral{--c:var(--coral-ink)}
+.eng__t{margin:0;font-size:var(--fs-h3);font-weight:700;text-transform:uppercase;color:var(--ink)}
+.eng__it p{margin:0;color:var(--ink-mid);line-height:1.5}
+.eng__l{margin-top:auto;padding-top:var(--sp-3);align-self:flex-start}
+@media (max-width:900px){.eng__grid{grid-template-columns:1fr}}
