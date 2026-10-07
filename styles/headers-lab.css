@@ -279,3 +279,43 @@
 .eng-c__act{display:flex;flex-wrap:wrap;gap:var(--sp-4);align-items:center;margin-top:var(--sp-5)}
 .eng-c__act .lnk{color:var(--ink)}
 @media (max-width:760px){.eng-b__grid{grid-template-columns:1fr}.eng-c{padding:200px 16px 16px;min-height:0}.eng-c__cart{padding:22px 20px;border-radius:20px}}
+
+/* ---------- #/lab-accueil : trois cartouches pour l'accueil ---------- */
+.hl .hc__cart{max-width:760px}
+.hl .ac-porte2{margin:0;max-width:none;width:auto}
+/* A : marges égales, rythme 16 / 32, coins accordés (28 − 16 = 12) */
+.hl--a .hc__cart{padding:48px}
+.hl--a .hc__tag{margin-top:16px}
+.hl__portes{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
+.hl--a .ac-porte2{border-radius:12px;padding:16px 20px;min-height:0}
+/* B : deux étages, le pied est fait des deux portes, bord à bord */
+.hl__bloc{width:min(760px,100%);border-radius:28px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(6,33,31,.5)}
+.hl--b .hc__cart{max-width:none;border-radius:0;box-shadow:none;padding:48px 48px 40px}
+.hl__pied{display:grid;grid-template-columns:1fr 1fr}
+.hl__pied .ac-porte2{border-radius:0;padding:22px 48px 26px 48px;min-height:0}
+.hl__pied .ac-porte2--pro{padding-left:32px}
+/* C : cartouche + deux portes à droite, alignées en bas */
+.hl__ligne{display:grid;grid-template-columns:minmax(0,640px) minmax(240px,320px);gap:16px;align-items:end;width:100%}
+.hl--c .hc__cart{padding:48px}
+.hl__cote{display:grid;gap:16px}
+.hl__cote .ac-porte2{border-radius:20px;padding:22px 24px;min-height:120px;justify-content:space-between;box-shadow:0 20px 40px -24px rgba(6,33,31,.5)}
+@media (max-width:760px){
+  .hl--a .hc__cart,.hl--c .hc__cart{padding:24px 20px}
+  .hl__portes{grid-template-columns:1fr;gap:12px;margin-top:24px}
+  .hl--b .hc__cart{padding:24px 20px}
+  .hl__pied{grid-template-columns:1fr}
+  .hl__pied .ac-porte2,.hl__pied .ac-porte2--pro{padding:18px 20px}
+  .hl__ligne{grid-template-columns:1fr;gap:12px}
+  .hl__cote .ac-porte2{min-height:0}
+  .hl .hl__portes,.hl .hl__pied,.hl .hl__cote{display:none}
+  .hl--b .hl__bloc{border-radius:20px}
+}
+.hl__mob{display:none}
+@media (max-width:760px){
+  .hl__mob{display:grid;gap:12px;padding:16px;background:var(--off-white)}
+  .hl__mob .ac-porte2{margin:0;max-width:none;width:auto;min-height:0;padding:16px 20px}
+  .hl__mob--a .ac-porte2{border-radius:12px}
+  .hl__mob--c .ac-porte2{border-radius:20px}
+  .hl__mob--b{gap:0;padding:0}
+  .hl__mob--b .ac-porte2{border-radius:0;padding:20px}
+}

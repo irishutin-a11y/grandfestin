@@ -259,6 +259,39 @@ function MissionsListe() {
 
 // Page « Nos projets » (#/projets) : galerie de cartes filtrable par mission
 // (retours du 25/09/2026 : ne pas reprendre la liste à fil de l'accueil)
+// Sadi Carnot, en développement (07/10/2026) : une seule brique pour Nos tables et le catalogue.
+// Au futur (projet non acquis). Teaser tiré de la présentation « Totem » (07/10/2026) : ni chiffres, ni tarifs, ni financeurs.
+function SadiCarnot({ id, titre, accent, tone = 'cream' }) {
+  const D = window.FESTIN_DATA;
+  const sc = (D.lieux || []).find((l) => l.key === 'sadi-carnot');
+  if (!sc) return null;
+  return (
+    <section className={'g-sec g-sec--' + tone + ' sc'} id="developpement" aria-labelledby={id}>
+      <div className="wrap">
+        <window.GHead id={id} title={titre} accent={accent} />
+        <div className="sc__carte on-dark">
+          <div className="sc__txt">
+            <span className="sc__pill">À venir</span>
+            <h3 className="sc__t">{sc.lieu}</h3>
+            <p className="sc__lieu">{sc.ville}</p>
+            <p className="sc__p">{sc.text}</p>
+            <p className="sc__ambition">{sc.ambition}</p>
+            <div className="sc__act">
+              <a className="btnb btnb--gold" href={D.donation} target="_blank" rel="noopener noreferrer">Faire un don <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (nouvel onglet)</span></a>
+              <a className="sc__lnk" href="#/contact/mecenat">Devenir mécène <span className="arrow" aria-hidden="true">→</span></a>
+            </div>
+          </div>
+          <div className="sc__reunira">
+            <p className="sc__lbl">Ce que le lieu réunira</p>
+            <ul className="sc__liste">{(sc.reunira || []).map((r) => <li key={r}>{r}</li>)}</ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+window.SadiCarnot = SadiCarnot;
+
 // Nos tables (#/tables, navigation option C, 07/10/2026) : les lieux ouverts au public,
 // avec le bloc de chaque page projet (BlocTable), puis Sadi Carnot à venir.
 function TablesPage() {
@@ -281,22 +314,7 @@ function TablesPage() {
         <window.BlocTable key={l.key} variante={k % 2 ? 'clair' : undefined} id={'table-' + l.key} t={D.projetPages[l.projet].table}
           head={{ nom: nom(l.projet), lieu: l.lieu + ', ' + l.ville }} projet={l.projet} />
       ))}
-      {sc && (
-        <section className="g-sec g-sec--cream pj-dev" id="developpement" aria-labelledby="tab-dev-t">
-          <div className="wrap pj-dev__in">
-            <div>
-              <window.GHead id="tab-dev-t" title="À" accent="venir." />
-              <h3 className="pj-dev__t">{sc.lieu} <span>{sc.ville}</span></h3>
-              <p className="g-lede">{sc.text}</p>
-              <div className="g-actions">
-                <a className="btnb btnb--gold" href={D.donation} target="_blank" rel="noopener noreferrer">Faire un don <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (nouvel onglet)</span></a>
-                <a className="lnk" href="#/contact/mecenat">Devenir mécène <span className="arrow" aria-hidden="true">→</span></a>
-              </div>
-            </div>
-            <div className="pj-dev__avenir" aria-hidden="true"><span>À venir</span></div>
-          </div>
-        </section>
-      )}
+      {sc && <SadiCarnot id="tab-dev-t" titre="À" accent="venir." tone="white" />}
     </div>
   );
 }
@@ -384,26 +402,7 @@ function CataloguePage({ filtre: initial }) {
       </section>
       <window.AcaFormation />
       {/* EN DÉVELOPPEMENT (RETOURS-V3 §5.4) : Sadi Carnot, au futur, avec l'appel au don */}
-      {(() => {
-        const sc = (D.lieux || []).find((l) => l.key === 'sadi-carnot');
-        if (!sc) return null;
-        return (
-          <section className="g-sec g-sec--white pj-dev" id="developpement" aria-labelledby="pj-dev-t">
-            <div className="wrap pj-dev__in">
-              <div>
-                <window.GHead id="pj-dev-t" title="En" accent="développement." />
-                <h3 className="pj-dev__t">{sc.lieu} <span>{sc.ville}</span></h3>
-                <p className="g-lede">{sc.text}</p>
-                <div className="g-actions">
-                  <a className="btnb btnb--gold" href={D.donation} target="_blank" rel="noopener noreferrer">Faire un don <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (nouvel onglet)</span></a>
-                  <a className="lnk" href="#/contact/mecenat">Devenir mécène <span className="arrow" aria-hidden="true">→</span></a>
-                </div>
-              </div>
-              <div className="pj-dev__avenir" aria-hidden="true"><span>À venir</span></div>
-            </div>
-          </section>
-        );
-      })()}
+      <SadiCarnot id="pj-dev-t" titre="En" accent="développement." />
     </div>
   );
 }

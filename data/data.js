@@ -121,7 +121,7 @@ window.FESTIN_DATA = {
       projetPoints: [
         "Une formation diplômante en cuisine, de 4 à 11 mois",
         "Accompagnement social global tout au long du parcours",
-        "Des stages dans des restaurants partenaires, dont des maisons gastronomiques",
+        "Des stages dans des restaurants partenaires",
       ],
       projetCtaLabel: "Découvrir les formations",
       projetCtaHref: "#/academie",
@@ -706,7 +706,7 @@ window.FESTIN_DATA = {
       programme: [
         "Bases techniques de la cuisine : taillage, cuissons, sauces",
         "Remise à niveau et compétences transverses",
-        "Stages en restaurant partenaire, souvent gastronomique",
+        "Stages en restaurant partenaire",
         "Coaching emploi, préparation aux entretiens et suivi après la formation",
       ],
       tariff: "Formation gratuite, prise en charge par France Travail et nos partenaires publics. Indemnisation pendant le parcours selon votre situation.",
@@ -1060,7 +1060,7 @@ window.FESTIN_DATA.home = {
           "Des candidats présentés par Festin, avec une préparation à l'emploi financée par France Travail."
         ],
         cta: "Recruter avec Festin", href: "#/restauration",
-        img: "images/photo-cuisine-action.jpg" }
+        img: "images/beauxmets-images/lbm-masterclass-brigade-plating.jpg" }
     ]
   },
   eco: {
@@ -1207,7 +1207,7 @@ Object.assign(window.FESTIN_DATA.home, {
       { tag: "Insertion", title: "Être accompagné jusqu'à l'emploi",
         cta: "Voir nos parcours", href: "#/insertion", img: "images/photo-tabliers-violets.jpg" },
       { tag: "Pour le secteur", title: "Recruter, former, s'engager",
-        cta: "Travailler avec Festin", href: "#/restauration", img: "images/photo-cuisine-action.jpg" },
+        cta: "Travailler avec Festin", href: "#/restauration", img: "images/beauxmets-images/lbm-masterclass-brigade-plating.jpg" },
     ],
     agir: {
       tag: "Vous voulez agir avec nous", title: "Soutenir,", titleAccent: "réserver, commander",
@@ -1239,19 +1239,19 @@ window.FESTIN_DATA.arbo = [
       { ic: "list-checks", c: "#7FC4CB", label: "Vérifier mon éligibilité", d: "Quelques questions, rien n'est envoyé", href: "#/insertion/eligibilite" },
       { ic: "star", c: "#7FC4CB", label: "Des Étoiles et des Femmes", d: "Pour les femmes, dans 13 villes", href: "#/projets/des-etoiles-et-des-femmes" },
       // les formations ne sont pas listées une à une (retour du 07/10/2026) : un lien vers le catalogue filtré
-      { ic: "graduation-cap", c: "#7FC4CB", label: "Toutes les formations d'insertion", d: "Le catalogue, filtré pour vous", href: "#/catalogue/insertion" },
+      { ic: "graduation-cap", c: "#7FC4CB", label: "Toutes les formations d'insertion", d: "Dans le catalogue", href: "#/catalogue/insertion" },
     ] },
   { key: "pros", label: "Pour le secteur", href: "#/restauration",
     match: ["#/restauration", "#/accompagnement/professionnels", "#/formations/vss", "#/formations/management", "#/projets/restaure"],
     links: [
       { ic: "briefcase", c: "#FFC100", label: "Recruter et former", d: "Des personnes formées, des formations pour vos équipes", href: "#/restauration" },
-      { ic: "graduation-cap", c: "#FFC100", label: "Toutes les formations pro", d: "Le catalogue, filtré pour vous", href: "#/catalogue/pro" },
+      { ic: "graduation-cap", c: "#FFC100", label: "Toutes les formations pro", d: "Dans le catalogue", href: "#/catalogue/pro" },
       { ic: "megaphone", c: "#FFC100", label: "Le programme Restaure", d: "Changer les pratiques du secteur", href: "#/projets/restaure" },
     ] },
   { key: "catalogue", label: "Projets et formations", href: "#/catalogue",
     match: ["#/catalogue", "#/tables", "#/projets", "#/academie", "#/formations", "#/projets/les-beaux-mets", "#/projets/la-table-de-cana"],
     links: [
-      { ic: "layout-grid", c: "#EC8669", label: "Tout le catalogue", d: "Projets et formations, avec filtres", href: "#/catalogue" },
+      { ic: "layout-grid", c: "#EC8669", label: "Tout le catalogue", d: "Projets et formations", href: "#/catalogue" },
       { ic: "map-pin", c: "#EC8669", label: "Nos tables", d: "Déjeuner, commander un traiteur", href: "#/tables" },
       { ic: "utensils", c: "#EC8669", label: "Les Beaux Mets", d: "Réserver une table, privatiser", href: "#/projets/les-beaux-mets" },
       { ic: "chef-hat", c: "#EC8669", label: "La Table de Cana Marseille", d: "Le traiteur de vos événements", href: "#/projets/la-table-de-cana" },
@@ -1294,8 +1294,16 @@ window.FESTIN_DATA.lieux = [
     text: "Les Beaux Mets : un restaurant ouvert au public, dans la prison, cuisiné et servi par des personnes détenues.",
     img: "images/beauxmets-images/LBM_carte-ete24_caroline_dutrey-3385.jpg",
     actions: [{ label: "Privatiser le restaurant", href: "#/contact/privatisation" }, { label: "Réserver une table", href: "https://www.lesbeauxmets-marseille.fr" }] },
-  { key: "sadi-carnot", lieu: "Sadi Carnot", ville: "Marseille, près du Vieux-Port", futur: true, sous: "À venir",
-    text: "Un futur lieu de Festin, près du Vieux-Port. Le projet est ouvert à vos soutiens dès maintenant.",
+  // Teaser (présentation « Totem », 07/10/2026) : au futur, sans chiffres, tarifs ni financeurs
+  { key: "sadi-carnot", lieu: "Sadi Carnot", ville: "Marseille, à la croisée de Belsunce, du Vieux-Port, du Panier et de la Joliette", futur: true, sous: "À venir",
+    text: "Festin veut réinventer un lieu emblématique du centre-ville en moteur d'insertion, de formation et d'alimentation durable. Le projet est ouvert à vos soutiens dès maintenant.",
+    ambition: "Nourrir la ville. Former les talents. Réinventer la restauration populaire.",
+    reunira: [
+      "Un restaurant de cuisine populaire, de saison et méditerranéenne",
+      "Un restaurant-école pour former en cuisine et en salle",
+      "Un pôle de travail partagé autour de l'alimentation durable",
+      "Une cuisine pour l'aide alimentaire en centre-ville",
+    ],
     actions: [] },
 ];
 
@@ -1329,8 +1337,8 @@ window.FESTIN_DATA.catalogue = [
   { id: "management", types: ["formation"], public: "pro", titre: "Management juste et inclusif", ou: "Dans vos murs ou en inter",
     ligne: "Recruter plus largement, garder son équipe, l'encadrer sans violence. Proposée par le programme Restaure.",
     href: "#/formations/management", img: "images/beauxmets-images/lbm-maitre-hotel-commis.jpg" },
-  { id: "sadi-carnot", types: ["tables"], public: "insertion", titre: "Sadi Carnot", ou: "Marseille, près du Vieux-Port", avenir: true,
-    ligne: "Un futur lieu de Festin, près du Vieux-Port. Le projet est ouvert à vos soutiens dès maintenant.", href: "#/catalogue/tables", ancre: "developpement", img: null },
+  { id: "sadi-carnot", types: ["tables"], public: "insertion", titre: "Sadi Carnot", ou: "Marseille, centre-ville", avenir: true,
+    ligne: "Un futur lieu de Festin au cœur de Marseille : un restaurant, de la formation et l'alimentation durable. Ouvert à vos soutiens.", href: "#/catalogue/tables", ancre: "developpement", img: null },
 ];
 
 // Bande or des projets, cliquable (procédé de la page Pros diffusé sur Restaure et
@@ -1390,7 +1398,7 @@ window.FESTIN_DATA.projetPages = {
     soutien: { title: "Soutenir", accent: "une promotion",
       text: "Le parcours est gratuit pour les femmes qui le suivent : les pouvoirs publics et des mécènes financent chaque promotion. Votre don paie des heures de formation, des stages et le suivi social, jusqu'à l'emploi.",
       sphere: true },
-    galerie: ["images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg", "images/images-def/chaudbouillon-045.jpg", "images/images-def/chaudbouillon-046.jpg", "images/images-def/HOTELERIE-097.jpg", "images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00022.jpg", "images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00032.jpg", "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-40.jpg"],
+    galerie: ["images/images-def/def-remise-cap.jpg", "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg", "images/images-def/chaudbouillon-045.jpg", "images/images-def/chaudbouillon-046.jpg", "images/images-def/HOTELERIE-097.jpg", "images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00022.jpg", "images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00032.jpg", "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-40.jpg"],
   },
   "les-beaux-mets": {
     kicker: "Depuis 2022 · prison des Baumettes, Marseille",
@@ -1400,9 +1408,9 @@ window.FESTIN_DATA.projetPages = {
       text: ["Le restaurant est ouvert au public. La brigade cuisine et sert une carte bistronomique, encadrée par un chef, un second et un maître d'hôtel.",
         "Plus de 12 000 convives y ont déjà déjeuné. Le restaurant se privatise aussi : écrivez-nous pour en parler."],
       photos: [
+        { src: "images/beauxmets-images/lbm-bar-salle.jpg", alt: "Le comptoir des Beaux Mets, avec la cuisine ouverte en arrière-plan" },
         { src: "images/beauxmets-images/LBM_carte printemps25_cdutrey_080425-1661.jpg", alt: "Des assiettes de la carte des Beaux Mets, vues de dessus" },
         { src: "images/beauxmets-images/lbm-gallery-plat.jpg", alt: "Une assiette dressée aux Beaux Mets" },
-        { src: "images/beauxmets-images/lbm-gallery-salle.jpg", alt: "La salle du restaurant Les Beaux Mets" },
       ],
       infos: [
         // modalités : formulaire de réservation des Beaux Mets (relevé le 06/10/2026)
@@ -1702,7 +1710,7 @@ Object.assign(window.FESTIN_DATA.home, {
         cta: { label: "Découvrir nos parcours", href: "#/insertion" } },
       { key: "pro", tag: "Vous êtes du secteur", title: "Recruter, former,", titleAccent: "faire évoluer vos équipes.",
         text: "Restaurateurs, cheffes et chefs, responsables RH : recrutez des personnes formées et formez vos équipes, avec des gens de cuisine.",
-        img: "images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg", imgAlt: "Soirée de lancement du programme Restaure",
+        img: "images/beauxmets-images/lbm-jobdating-pain.jpg", imgAlt: "Valentin Majan, des Beaux Mets, montre la découpe du pain à des candidats lors d'un job dating",
         lignes: [
           { dt: "Former", dd: "Prévention des violences sexistes et sexuelles, management juste et inclusif." },
           { dt: "Recruter", dd: "Stagiaires, Book de l'emploi, préparation à l'emploi financée par France Travail (POEI)." },

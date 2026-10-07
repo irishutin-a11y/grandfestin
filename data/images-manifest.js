@@ -406,5 +406,35 @@ window.FESTIN_IMG = {
 "images-def/la-france-s-engage-laureats.jpg": {"avif": [800, 1600], "w": [800, 1600]},
 "latable de cana/TABLECANA_EVENT_cdutrey_230625-5011.jpg": {"avif": [800, 1600], "w": [800, 1600]},
 "tournesol:formation/tournesol-cuisine.jpg": {"avif": [800], "w": [800]},
-"tournesol:formation/tournesol-promotion.jpg": {"avif": [800], "w": [800]}
+"tournesol:formation/tournesol-promotion.jpg": {"avif": [800], "w": [800]},
+"beauxmets-images/lbm-bar-salle.jpg": {
+"avif": [
+800,
+1600
+],
+"w": [
+800,
+1600
+]
+},
+"beauxmets-images/lbm-jobdating-pain.jpg": {
+"avif": [
+800,
+1600
+],
+"w": [
+800,
+1600
+]
+},
+"images-def/def-remise-cap.jpg": {
+"avif": [
+800,
+1333
+],
+"w": [
+800,
+1333
+]
+}
 };

@@ -383,3 +383,7 @@
 .g-bref__fiche{margin:var(--sp-5) 0 var(--sp-3);justify-self:start;align-self:flex-start}
 /* Fiches (aplat) : titres longs sans toucher les bords sous 400 px (07/10/2026) */
 @media (max-width:400px){ .hp:not(.hp--banner) .hp__t{font-size:2rem} }
+/* Impact, « Projet par projet » : quatre projets, quatre colonnes (Tournesol n'y est plus, 07/10/2026) */
+.imp-projets{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:1199px){.imp-projets{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.imp-projets{grid-template-columns:1fr}}

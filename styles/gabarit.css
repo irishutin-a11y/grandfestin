@@ -750,3 +750,60 @@ img[src*="photo-micro-temoignage"]{object-position:55% 18%}
 /* Logo du menu plus grand (carte Trello du 07/10/2026) */
 .navpill .navpill__brand img{height:34px}
 @media (max-width:600px){ .navpill .navpill__brand img{height:28px} }
+/* Accueil (retour du 07/10/2026) : marges du cartouche harmonisées (même écart entre le sous-titre et les portes
+   qu'entre le titre et le sous-titre) ; plus d'espace entre le bandeau or et la frise */
+.hc__portes.ac-portes2{margin-top:var(--sp-6) !important}
+.ac-conf{padding:0 !important;border-bottom:0}
+.ac-conf__band{margin-bottom:0}
+/* Sadi Carnot, en développement (07/10/2026) : une carte sombre, au lieu d'un cadre rayé « À venir » */
+.sc__carte{margin-top:var(--sp-6);display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(28px,4vw,72px);align-items:end;
+  padding:clamp(28px,4vw,56px);border-radius:28px;background:var(--teal-deep);color:#fff;overflow:hidden;position:relative}
+.sc__carte::after{content:'';position:absolute;right:-90px;top:-90px;width:280px;height:280px;border-radius:50%;border:40px solid rgba(255,193,0,.14);pointer-events:none}
+.sc__pill{display:inline-block;padding:6px 14px;border-radius:999px;background:var(--gold);color:var(--ink);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.sc__t{margin:var(--sp-4) 0 0;font-size:clamp(2.5rem,1.4rem + 4vw,5rem);font-weight:700;line-height:.95;text-transform:uppercase;color:#fff}
+.sc__lieu{margin:var(--sp-2) 0 0;font-size:var(--fs-lede);font-style:italic;font-weight:300;color:var(--gold-light)}
+.sc__p{margin:var(--sp-5) 0 0;max-width:46ch;font-size:var(--fs-lede);line-height:1.5;color:var(--ink-on-dark)}
+.sc__act{display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-4) var(--sp-6);margin-top:var(--sp-6)}
+.sc__lnk{color:#fff;font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:14px;text-decoration:underline;text-underline-offset:5px}
+.sc__lnk:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.sc__faits{position:relative;z-index:1;margin:0;display:grid;gap:0;border-top:1px solid rgba(255,255,255,.22)}
+.sc__faits div{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.22)}
+.sc__faits dt{font-size:var(--fs-label);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-light)}
+.sc__faits dd{margin:4px 0 0;font-size:var(--fs-body);line-height:1.45;color:#fff}
+@media (max-width:860px){.sc__carte{grid-template-columns:1fr;padding:28px 22px;border-radius:22px}}
+/* Visages jamais coupés (carte Trello du 07/10/2026) : cartes à photo plus hautes, cadrage calé sur le haut
+   de l'image, où se trouvent les visages. */
+.ab-jalon__img{height:58%;min-height:200px}
+.ab-jalon__img img{object-position:50% 18%}
+.ac-side__img{aspect-ratio:16/10}
+.ac-side__img img{object-position:50% 20%}
+.or-card__img{aspect-ratio:4/3}
+.or-card__img img{object-position:50% 18%}
+.pj-card__img img{object-position:50% 22%}
+.sc__ambition{margin:var(--sp-5) 0 0;font-size:var(--fs-h3);font-weight:300;font-style:italic;line-height:1.25;color:var(--gold-light);max-width:30ch}
+.sc__reunira{position:relative;z-index:1}
+.sc__lbl{margin:0 0 var(--sp-3);font-size:var(--fs-label);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-light)}
+.sc__liste{list-style:none;margin:0;padding:0;border-top:1px solid rgba(255,255,255,.22)}
+.sc__liste li{display:flex;gap:12px;align-items:baseline;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.22);font-size:var(--fs-body);line-height:1.45;color:#fff}
+.sc__liste li::before{content:'';flex:none;width:10px;height:10px;border-radius:50%;background:var(--gold);transform:translateY(-1px)}
+/* Pour le secteur, « S'engager avec Festin » (07/10/2026) : trois façons côte à côte, filet de couleur en haut */
+.eng__grid{list-style:none;margin:var(--sp-6) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-5)}
+.eng__it{--c:var(--teal);display:flex;flex-direction:column;gap:var(--sp-3);padding:var(--sp-6);border-radius:24px;background:var(--off-white);border-top:6px solid var(--c);box-shadow:var(--sh-sm)}
+.eng__it--gold{--c:var(--gold)}.eng__it--coral{--c:var(--coral-ink)}
+.eng__t{margin:0;font-size:var(--fs-h3);font-weight:700;text-transform:uppercase;color:var(--ink)}
+.eng__it p{margin:0;color:var(--ink-mid);line-height:1.5}
+.eng__l{margin-top:auto;padding-top:var(--sp-3);align-self:flex-start}
+@media (max-width:900px){.eng__grid{grid-template-columns:1fr}}
+.eng__grid--2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.eng__it .g-engage__act{margin-top:auto;padding-top:var(--sp-3)}
+@media (max-width:900px){.eng__grid--2{grid-template-columns:1fr}}
+/* S'engager, mobile : pastille à sa taille, flèche collée au libellé, bouton de l'antenne sur deux lignes au plus */
+.g-antenne__k{width:fit-content}
+.eng__it .lnk{justify-content:flex-start;gap:8px;text-align:left}
+@media (max-width:600px){
+  .g-antenne__side .btnb{padding-inline:18px;letter-spacing:.04em;font-size:13px}
+  .g-antenne__t{font-size:clamp(1.75rem,1.2rem + 3vw,2.5rem)}
+}
+.eng__it .lnk{display:inline}
+.eng__it .lnk .arrow{display:inline-block;margin-left:6px}
+@media (max-width:600px){ .g-antenne__k{font-size:11px;letter-spacing:.06em;padding:5px 12px} }

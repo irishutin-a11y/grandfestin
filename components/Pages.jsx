@@ -473,10 +473,10 @@ function ImpactPage() {
 function SEngager() {
   const D = window.FESTIN_DATA;
   const facons = [
-    { t: 'Financer', p: "Votre don ou votre mécénat finance des heures de formation et le suivi des personnes, jusqu'à l'emploi.",
+    { tone: 'coral', t: 'Financer', p: "Votre don ou votre mécénat finance des heures de formation et le suivi des personnes, jusqu'à l'emploi.",
       tags: [['Pour', 'particuliers, entreprises, fondations']],
       actions: [{ label: 'Faire un don', href: D.donation, ext: true, primary: true }, { label: 'Devenir mécène', href: '#/contact/mecenat' }] },
-    { t: 'Accueillir', p: 'Accueillez une personne en stage ou recrutez un commis formé par nos parcours.',
+    { tone: 'gold', t: 'Accueillir', p: 'Accueillez une personne en stage ou recrutez un commis formé par nos parcours.',
       tags: [['Pour', 'restaurants et cuisines']],
       actions: [{ label: 'Recruter et former vos équipes', href: '#/restauration' }] },
   ];
@@ -484,10 +484,11 @@ function SEngager() {
     <section className="g-sec g-sec--cream" id="s-engager" aria-labelledby="s-engager-t">
       <div className="wrap">
         <window.GHead id="s-engager-t" title="S'engager" accent="avec Festin." />
-        <ul className="g-engage">
+        {/* même mise en page que sur Pour le secteur (07/10/2026) : cartes à filet de couleur, un repère, des actions */}
+        <ul className="eng__grid eng__grid--2">
           {facons.map((f) => (
-            <li className="g-engage__it g-reveal" key={f.t}>
-              <h3 className="g-engage__t">{f.t}</h3>
+            <li className={'eng__it eng__it--' + f.tone + ' g-reveal'} key={f.t}>
+              <h3 className="eng__t">{f.t}</h3>
               <p>{f.p}</p>
               <window.ArTags tags={f.tags} />
               <div className="g-engage__act">

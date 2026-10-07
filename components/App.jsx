@@ -18,6 +18,7 @@ function parseRoute(hash) {
   // comparaison des headers (branche headers-propositions) : n'existe que sur cette branche
   if (parts[0] === 'headers') return { name: 'headers' };
   if (parts[0] === 'lab-engager') return { name: 'lab-engager' };
+  if (parts[0] === 'lab-accueil') return { name: 'lab-accueil' };
   if (parts[0] === 'catalogue') return { name: 'catalogue', filtre: parts[1] || 'tous' };
   if (parts[0] === 'formations' || parts[0] === 'academie') return { name: 'catalogue', filtre: 'formations', ancre: 'formation' };
   if (parts[0] === 'tables' || (parts[0] === 'projets' && parts[1] === 'lieux')) return { name: 'tables' };
@@ -105,6 +106,7 @@ function App() {
     case 'home':              page = <HomePage />; break;
     case 'headers':           page = <HeadersLab />; break;
     case 'lab-engager':       page = <EngagerLab />; break;
+    case 'lab-accueil':       page = <HomeHeroLab />; break;
     case 'tables':            page = <TablesPage />; break;
     case 'catalogue':         page = <CataloguePage key={hash} filtre={route.filtre} />; break;
     case 'formation':         page = <FormationDetailPage key={route.id} id={route.id} />; break;
