@@ -428,54 +428,55 @@ window.FinDePage = FinDePage;
 // (la seule de la page), un titre-phrase, une preuve, une photo facultative.
 // tone : 'teal' | 'deep' | 'gold'
 // ---------------------------------------------------------------------------
-function HeroPage({ tone = 'teal', kicker, title, accent, proof, note, img, imgAlt = '', imgPos, crumb = [], logo, logoAlt = '', center = false, children }) {
+// HeroPage — proposition 3 retenue le 07/10/2026 (HEADERS.md) : la photo nue et le cartouche.
+// La photo s'affiche sans voile, en pleine largeur et à hauteur fixe ; le titre est posé dans un
+// cartouche de la couleur du public (teal = personnes, or = professionnels, teal profond = le reste)
+// qui chevauche le bas de la photo. Fil d'Ariane, titre, un bouton. Les fiches formation
+// (famille « formation ») portent leurs faits dans le cartouche. Sans photo : le cartouche seul.
+function HeroPage({ tone = 'teal', title, accent, note, img, imgAlt = '', imgPos, crumb = [], logo, logoAlt = '', faits, pastilles, famille = 'section', children }) {
   const ref = React.useRef(null);
   React.useEffect(() => {
     const g = window.gsap, el = ref.current;
     if (!g || !el || (window.FESTIN_RM && window.FESTIN_RM())) return;
     const M = window.FESTIN_MOTION;
+    // le cartouche se pose sur la photo, puis son contenu suit : il relie le texte à l'image
     const tl = g.timeline({ defaults: { ease: M.ease, duration: M.dur.title } })
-      .from(el.querySelector('.hp__t'), { yPercent: 16, autoAlpha: 0 }, 0.1)
-      .from(el.querySelectorAll('.hp__logo, .hp__kicker, .hp__proof, .hp__more, .hp__note'), { y: M.y, autoAlpha: 0, stagger: M.stagger }, 0.3);
-    const bg = el.querySelector('.hp__bg');
-    if (bg) tl.from(bg, { scale: 1.08, duration: 1.6 }, 0);
+      .from(el.querySelector('.hc__cart'), { y: 32, autoAlpha: 0 }, 0.1)
+      .from(el.querySelectorAll('.hc__cart > *'), { y: M.y, autoAlpha: 0, stagger: M.stagger }, 0.25);
+    const ph = el.querySelector('.hc__photo img');
+    if (ph) tl.from(ph, { scale: 1.06, duration: 1.6 }, 0);
     return () => tl.kill();
   }, []);
-  // Avec une photo : bannière pleine image, sur le modèle de la page Pros (retours V2, §1).
-  // La teinte du voile et de l'étiquette garde le code couleur (teal, or, teal profond).
-  // Sans photo (fiches de formation, 404) : l'aplat de couleur.
-  // En-tête allégé (retours du 06/10, soir) : fil d'Ariane, titre, un seul bouton. Plus d'étiquette ;
-  // le logo ne reste que sans bouton (Qui sommes-nous) ; le crédit photo passe en légende discrète.
   const crumbs = crumb.length > 0 && (
-    <nav className="hp__crumb" aria-label="Fil d'Ariane">
+    <nav className="hc__crumb" aria-label="Fil d'Ariane">
       {crumb.map((c, i) => (
         <React.Fragment key={i}>{i > 0 && <span aria-hidden="true"> / </span>}{c.href ? <a href={c.href}>{c.label}</a> : <span aria-current="page">{c.label}</span>}</React.Fragment>
       ))}
     </nav>
   );
-  if (img) return (
-    <header className={'hp hp--banner hp--' + tone + (center ? ' hp--center' : '') + ' on-dark'} ref={ref}>
-      <window.Picture className="hp__bg" src={img} alt={imgAlt} sizes="100vw" loading="eager" fetchPriority="high" style={imgPos ? { objectPosition: imgPos } : undefined} />
-      <div className="wrap hp__in">
-        {crumbs}
-        {logo && !children && <span className="hp__logo"><img src={URI(logo)} alt={logoAlt} /></span>}
-        <h1 className="hp__t">{title} {accent && <em>{accent}</em>}</h1>
-        {children && <div className="hp__more">{children}</div>}
-      </div>
-      {note && <p className="hp__credit">{note}</p>}
-    </header>
-  );
+  const sombre = tone !== 'gold';
   return (
-    <header className={'hp hp--' + tone + (center ? ' hp--center' : '') + (tone === 'gold' ? '' : ' on-dark')} ref={ref}>
-      <window.Trait className="hp__trait" width={160} />
-      <div className="wrap hp__grid">
-        <div className="hp__txt">
-          {crumbs}
-          {logo && !children && <span className="hp__logo"><img src={URI(logo)} alt={logoAlt} /></span>}
-          <h1 className="hp__t">{title} {accent && <em>{accent}</em>}</h1>
-          {/* pas de sous-titre dans les heros (retours du 30/09/2026) : un titre, un bouton */}
-          {children && <div className="hp__more">{children}</div>}
-          {note && <p className="hp__note">{note}</p>}
+    <header className={'hc hc--' + famille + (img ? '' : ' hc--sans-photo')} ref={ref}>
+      {img && (
+        <figure className="hc__photo">
+          <window.Picture src={img} alt={imgAlt} sizes="100vw" loading="eager" fetchPriority="high" style={imgPos ? { objectPosition: imgPos } : undefined} />
+          {note && <figcaption className="hc__credit">{note}</figcaption>}
+        </figure>
+      )}
+      <div className="wrap hc__pose">
+        <div className={'hc__cart hc__cart--' + tone + (sombre ? ' on-dark' : '') + (faits ? ' hc__cart--faits' : '')}>
+          <div className="hc__txt">
+            {crumbs}
+            {logo && !children && <span className="hc__logo"><img src={URI(logo)} alt={logoAlt} /></span>}
+            <h1 className="hp__t hc__t">{title} {accent && <em>{accent}</em>}</h1>
+            {pastilles && <ul className="hc__pastilles" aria-label="Diplômes préparés">{pastilles.map((t) => <li key={t}>{t}</li>)}</ul>}
+            {children && <div className="hc__more">{children}</div>}
+          </div>
+          {faits && (
+            <dl className="hc__faits">
+              {faits.filter((f) => f[1]).map(([k, v]) => <div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}
+            </dl>
+          )}
         </div>
       </div>
     </header>

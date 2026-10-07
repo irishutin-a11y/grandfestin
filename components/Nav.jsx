@@ -206,7 +206,6 @@ function Nav() {
             <a className="optA-don" href={data.donation} target="_blank" rel="noopener noreferrer" onClick={closePanel}>
               <i data-lucide="heart" aria-hidden="true" /> Faire un don à Festin
             </a>
-            <span className="optA-foot__txt">Groupe associatif à but non lucratif, d'intérêt général, agréé ESUS.</span>
           </div>
         </div>
       </div>

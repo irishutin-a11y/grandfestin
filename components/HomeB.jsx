@@ -37,11 +37,10 @@ function HomeB() {
     const ctx = gsap.context(() => {
       // HERO : le titre monte ligne par ligne, la photo s'ouvre, le reste suit
       gsap.timeline({ defaults: { ease: M.ease, duration: M.dur.title } })
-        .from('.ac-hero__t .ln > span', { yPercent: 105, stagger: 0.12 }, 0.15)
-        .from('.ac-hero__kicker, .ac-hero__sig, .ac-hero__lede, .ac-hero__cta', { y: M.y, autoAlpha: 0, stagger: M.stagger }, 0.45)
-        .from('.ac-hero__media', { autoAlpha: 0, duration: 1.2 }, 0.05)
-        .from('.ac-hero__media img', { scale: 1.12, duration: 1.8 }, 0.1);
-      gsap.to('.ac-hero__media img', { yPercent: 6, ease: 'none', scrollTrigger: { trigger: '.ac-hero', start: 'top top', end: 'bottom top', scrub: true } });
+        .from('#hero .hc__cart', { y: 32, autoAlpha: 0 }, 0.05)
+        .from('#hero .hc__t .ln > span', { yPercent: 105, stagger: 0.12 }, 0.2)
+        .from('#hero .hc__tag, #hero .ac-porte2', { y: M.y, autoAlpha: 0, stagger: M.stagger }, 0.45)
+        .from('#hero .hc__photo img', { scale: 1.08, duration: 1.8 }, 0);
 
       // MISSIONS : le fil se trace de 01 à 03 ; chaque mission s'allume quand il l'atteint
       const fil = root.querySelector('.ac-mis__fil path');
@@ -81,34 +80,31 @@ function HomeB() {
     <div className="pageAccueil" ref={rootRef}>
 
       {/* 1 · HERO — qui, quoi, pour qui ; la seule teinte pleine de la page avec le pied */}
-      <header className="ac-hero on-dark" id="hero">
-        <window.Trait className="ac-hero__trait" width={150} delay={0.2} />
-        <div className="wrap ac-hero__grid">
-          <div className="ac-hero__txt">
-            {/* retours du 02/10/2026 : la signature en grand, la mission en sous-titre,
-                deux portes d'entrée colorées (teal = insertion, or = professionnels) */}
-            <h1 className="ac-hero__t">
+      {/* en-tête « photo nue et cartouche » (HEADERS.md, proposition 3, 07/10/2026) : la photo sans voile,
+          la signature dans un cartouche teal profond, les deux portes (teal = insertion, or = secteur) */}
+      <header className="hc hc--accueil" id="hero">
+        <figure className="hc__photo">
+          <window.Picture src={H.hero.img} alt={H.hero.imgAlt} sizes="100vw" loading="eager" fetchPriority="high" />
+        </figure>
+        <div className="wrap hc__pose">
+          <div className="hc__cart hc__cart--deep on-dark">
+            <h1 className="hc__t hc__t--xl">
               <span className="ln"><span>Le goût d'avancer</span></span>
               <span className="ln"><span><em>ensemble.</em></span></span>
             </h1>
-            <p className="ac-hero__sig">{H.hero.title} {H.hero.titleAccent}</p>
-            {H.hero.nonLucratif && <p className="ac-hero__nl">{H.hero.nonLucratif}</p>}
-            <div className="ac-hero__cta ac-portes2">
-              <a className="ac-porte2 ac-porte2--ins" href={H.hero.ctaPrimary.href}>
-                <span className="ac-porte2__k">{H.hero.ctaPrimary.k}</span>
-                <span className="ac-porte2__l">{H.hero.ctaPrimary.label} <span className="arrow" aria-hidden="true">→</span></span>
-              </a>
-              <a className="ac-porte2 ac-porte2--pro" href={H.hero.ctaSecondary.href}>
-                <span className="ac-porte2__k">{H.hero.ctaSecondary.k}</span>
-                <span className="ac-porte2__l">{H.hero.ctaSecondary.label} <span className="arrow" aria-hidden="true">→</span></span>
-              </a>
-            </div>
-            {H.hero.soutien && <p className="ac-hero__soutien">{H.hero.soutien.text} <a href={H.hero.soutien.href}>{H.hero.soutien.label} <span className="arrow" aria-hidden="true">→</span></a></p>}
+            <p className="hc__tag">{H.hero.title} {H.hero.titleAccent}</p>
+          </div>
+          <div className="hc__portes ac-portes2">
+            <a className="ac-porte2 ac-porte2--ins" href={H.hero.ctaPrimary.href}>
+              <span className="ac-porte2__k">{H.hero.ctaPrimary.k}</span>
+              <span className="ac-porte2__l">{H.hero.ctaPrimary.label}{'\u00a0'}<span className="arrow" aria-hidden="true">→</span></span>
+            </a>
+            <a className="ac-porte2 ac-porte2--pro" href={H.hero.ctaSecondary.href}>
+              <span className="ac-porte2__k">{H.hero.ctaSecondary.k}</span>
+              <span className="ac-porte2__l">{H.hero.ctaSecondary.label}{'\u00a0'}<span className="arrow" aria-hidden="true">→</span></span>
+            </a>
           </div>
         </div>
-        <figure className="ac-hero__media">
-          <window.Picture src={H.hero.img} alt={H.hero.imgAlt} sizes="(max-width: 900px) 100vw, 44vw" loading="eager" fetchPriority="high" />
-        </figure>
       </header>
 
       {/* 2 · CONFIANCE : les statuts (« Ils en ont parlé » retiré, retours V2 §2) */}
