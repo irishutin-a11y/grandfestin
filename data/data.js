@@ -1643,6 +1643,16 @@ window.FESTIN_DATA.about = {
     { src: "images/partners/france-travail.png",      alt: "France Travail" },
     { src: "images/partners/yes-we-camp.png",         alt: "Yes We Camp" },
     { src: "images/partners/intercontinental.png",    alt: "InterContinental Marseille" },
+    // planche de logos partenaires fournie le 08/10/2026, découpée en neuf fichiers
+    { src: "images/partners/accor-heartist-solidarity.png", alt: "Accor Heartist Solidarity" },
+    { src: "images/partners/fondation-de-france.png",       alt: "Fondation de France" },
+    { src: "images/partners/metro-fonds-de-dotation.png",   alt: "Fonds de dotation METRO" },
+    { src: "images/partners/fondation-carrefour.png",       alt: "Fondation Carrefour" },
+    { src: "images/partners/fonds-dotation-peugeot.png",    alt: "Fonds de dotation familial Peugeot" },
+    { src: "images/partners/bruneau.png",                   alt: "Bruneau" },
+    { src: "images/partners/fondation-m6.png",              alt: "Fondation Groupe M6" },
+    { src: "images/partners/fondation-carasso.png",         alt: "Fondation Daniel et Nina Carasso" },
+    { src: "images/partners/ville-de-marseille.png",        alt: "Ville de Marseille" },
   ],
   // Partenaires du réseau Des Étoiles et des Femmes (dossier Drive « Partenaires », 30/09/2026).
   // Affichés dans la sphère seulement quand le logo est dans images/partners/ ; Randstad et L'Oréal retirés (08/10/2026).

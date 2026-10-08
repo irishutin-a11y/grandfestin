@@ -45,10 +45,11 @@ Reçus le 08/10 : Camille Lafon, Lucie Gueydon, Gaëlle de Carmantrand (gouverna
 
 Reçus et intégrés le 08/10 : À Table Citoyens, Égalitère, Forum Jorge François, Les Jardins de la Montagne Verte, Weavers ; logo générique La Table de Cana (tiré du logo de Marseille, sans le mot « Marseille » : 147 px de large, une version haute définition serait mieux). **Reste : Petit à Petit (Arles).**
 
-### Partenaires sans logo (retirés de la sphère en attendant)
-- Réseau Des Étoiles et des Femmes (logos dans le Drive « 2. DEF Réseau », à déposer dans la conversation ; Randstad et L'Oréal écartés le 08/10) : Accor Heartist Solidarity, METRO, Fondation Masalina, Fondation PSA Peugeot Citroën, Telos Impact, Pink Lady, Ministère du Travail, Banque des Territoires.
-- La Table de Cana Marseille : Compass, Sodexo, Accor, Newrest, Le Grand Pin, École de la 2e Chance, MediaPerformances, Culture du Cœur.
-- Tournesol : AFC Groupe, Compass Group, AKTO, Ville de Marseille, Préfecture des Bouches-du-Rhône, Fondation RAJA-Danièle Marcovici.
+### Partenaires sans logo (hors de la sphère en attendant)
+Reçus le 08/10 (planche) et affichés : Accor Heartist Solidarity, Fondation de France, Fonds de dotation METRO, Fondation Carrefour, Fonds de dotation familial Peugeot, Bruneau, Fondation Groupe M6, Fondation Daniel et Nina Carasso, Ville de Marseille. Randstad et L'Oréal écartés.
+- Réseau Des Étoiles et des Femmes (logos dans le Drive « 2. DEF Réseau », à déposer dans la conversation) : Fondation Masalina, Fondation PSA Peugeot Citroën (est-ce le même partenaire que le Fonds de dotation familial Peugeot ?), Telos Impact, Pink Lady, Ministère du Travail, Banque des Territoires.
+- La Table de Cana Marseille : Compass, Sodexo, Newrest, Le Grand Pin, École de la 2e Chance, MediaPerformances, Culture du Cœur (Accor : logo Heartist Solidarity déjà affiché).
+- Tournesol : AFC Groupe, Compass Group, AKTO, Préfecture des Bouches-du-Rhône, Fondation RAJA-Danièle Marcovici.
 
 ### Plus tard
 Logos HD des projets pour l'espace presse (en attente, décision du 08/10). Logo de l'Académie Festin : non validé.
