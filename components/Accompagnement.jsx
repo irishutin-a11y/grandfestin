@@ -358,7 +358,7 @@ function AccompagnementProsPage() {
               link: { label: 'Proposer un stage', href: '#/contact/recruter' } },
             { tone: 'neutre', title: "Le Book de l'emploi",
               text: 'Des commis diplômés de nos parcours, prêts à prendre leur poste.',
-              tags: [['Envoi', 'Sur demande']],
+              // plus de délai d'envoi annoncé (08/10/2026) : aucun temps de réponse promis sur le site
               link: { label: 'Recevoir le Book', href: '#/contact/recruter' } },
             { tone: 'neutre', title: "La préparation opérationnelle à l'emploi (POEI)",
               text: 'La personne se forme dans votre cuisine avant son embauche. Festin vous accompagne pour finaliser les démarches administratives.',
