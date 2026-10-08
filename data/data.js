@@ -216,7 +216,7 @@ window.FESTIN_DATA = {
         { tab: "Se former", title: "Une formation diplômante",
           text: "Une formation en cuisine avec un centre de formation partenaire dans chaque ville : techniques, remise à niveau et préparation à l’examen.",
           stat: "91 %", statL: "de réussite aux diplômes en 2025",
-          img: "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg" },
+          img: "images/images-def/def-remise-cap.jpg" },
         { tab: "Pratiquer", title: "Apprendre en brigade",
           text: "Les stages ont lieu dans des restaurants partenaires. Les stagiaires y apprennent le métier en brigade, sur un vrai service.",
           stat: "155 à 490 h", statL: "de stage en restaurant",
@@ -1017,8 +1017,8 @@ window.FESTIN_DATA.home = {
   promesse: {
     title: "Apprendre en brigade,", titleAccent: "jusqu'au contrat.",
     text: "Une stagiaire du dispositif Des Étoiles et des Femmes passe 155 à 490 heures en restaurant, en brigade, avant son examen. Le restaurant qui l'accueille recrute une personne qu'il a vue travailler. Pendant tout le parcours, une équipe l'aide aussi pour le logement, la garde des enfants, les papiers et la recherche de poste.",
-    img: "images/photo-cuisine-formation.jpg",
-    imgAlt: "Des apprenties en tenue de cuisine préparent leurs légumes sur un plan de travail"
+    img: "images/images-def/HOTELERIE-035.jpg",
+    imgAlt: "En cuisine avec une promotion du dispositif Des Étoiles et des Femmes"
   },
   marquee: [
     "CAP Cuisine", "Titre à finalité professionnelle de commis de cuisine", "DCL, diplôme de compétence en langue",
@@ -1146,7 +1146,7 @@ Object.assign(window.FESTIN_DATA.home, {
         fait: { n: "91 %", t: "de réussite aux diplômes en 2025", p: "Des Étoiles et des Femmes" },
         projets: [
           { id: "des-etoiles-et-des-femmes", line: "Des femmes formées avec des chefs, dans 13 villes.", img: "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg" },
-          { id: "academie", href: "#/academie", name: "Académie Festin", line: "Notre organisme de formation, en partenariat avec Estello Formation.", img: "images/photo-cuisine-formation.jpg" },
+          { id: "academie", href: "#/academie", name: "Académie Festin", line: "Notre organisme de formation, en partenariat avec Estello Formation.", img: "images/photo-dressage-dessert.jpg" },
         ] },
       { key: "accompagner", title: "Accompagner", titleAccent: "jusqu'à l'emploi",
         text: "Un suivi de la première semaine jusqu'au contrat : logement, garde d'enfants, papiers, recherche de poste. Et un premier emploi salarié, en brigade.",
@@ -1328,7 +1328,7 @@ window.FESTIN_DATA.catalogue = [
     href: "#/projets/restaure", img: "images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg" },
   { id: "academie", types: ["projet"], public: "insertion", titre: "Académie Festin", ou: "Marseille",
     ligne: "Académie Festin, portée par Estello Formation, organisme de formation certifié Qualiopi.",
-    href: "#/catalogue/formations", ancre: "formation", img: "images/photo-cuisine-formation.jpg" },
+    href: "#/catalogue/formations", ancre: "formation", img: "images/photo-dressage-dessert.jpg" },
   { id: "f-des-etoiles-et-des-femmes", dans: "des-etoiles-et-des-femmes", types: ["formation"], public: "insertion", titre: "Des Étoiles et des Femmes", ou: "13 villes en France",
     ligne: "Une formation diplômante en cuisine, de 4 à 11 mois, gratuite.", href: "#/parcours/des-etoiles-et-des-femmes", img: "images/photo-tabliers-violets.jpg" },
   { id: "tournesol", types: ["formation"], public: "insertion", titre: "Tournesol", ou: "Marseille",
@@ -1402,7 +1402,7 @@ window.FESTIN_DATA.projetPages = {
     soutien: { title: "Soutenir", accent: "une promotion",
       text: "Le parcours est gratuit pour les femmes qui le suivent : les pouvoirs publics et des mécènes financent chaque promotion. Votre don paie des heures de formation, des stages et le suivi social, jusqu'à l'emploi.",
       sphere: true },
-    galerie: ["images/images-def/def-remise-cap.jpg", "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg", "images/images-def/chaudbouillon-045.jpg", "images/images-def/chaudbouillon-046.jpg", "images/images-def/HOTELERIE-097.jpg", "images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00022.jpg", "images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00032.jpg", "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-40.jpg"],
+    galerie: ["images/images-def/def-remise-cap.jpg", "images/images-def/def-prise-de-parole.jpg", "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg", "images/images-def/chaudbouillon-045.jpg", "images/images-def/chaudbouillon-046.jpg", "images/images-def/HOTELERIE-097.jpg", "images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00022.jpg", "images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00032.jpg", "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-40.jpg"],
   },
   "les-beaux-mets": {
     kicker: "Depuis 2022 · prison des Baumettes, Marseille",
@@ -1622,7 +1622,7 @@ window.FESTIN_DATA.about = {
     { year: "2024", type: "projet", title: "Le programme Restaure", desc: "Un programme national, piloté par Festin, pour transformer les pratiques de la restauration : conditions de travail, inclusion et impact écologique.", photo: "images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg", href: "#/projets/restaure" },
     { year: "2025", type: "projet", label: "Temps fort", title: "Dix ans du dispositif Des Étoiles et des Femmes", desc: "Plus de 600 convives au Grand Festin, sur le Vieux-Port.", photo: "images/images-def/grand-festin-2025-brigades.jpg" },
     { year: "2025", type: "reco", title: "Label LUCIE Progress", desc: "848 sur 1 000 pour La Table de Cana Marseille." },
-    { year: "2026", type: "projet", title: "L'Académie Festin", desc: "Festin devient organisme de formation en partenariat avec Estello Formation, organisme certifié Qualiopi.", photo: "images/photo-cuisine-formation.jpg", href: "#/academie" },
+    { year: "2026", type: "projet", title: "L'Académie Festin", desc: "Festin devient organisme de formation en partenariat avec Estello Formation, organisme certifié Qualiopi.", photo: "images/photo-dressage-dessert.jpg", href: "#/academie" },
   ],
 
   // Trois marqueurs (RETOURS-V3 §2, texte validé par la direction)
@@ -1759,7 +1759,7 @@ Object.assign(window.FESTIN_DATA.home, {
       { year: "2015", title: "Des Étoiles et des Femmes", desc: "Des femmes se forment à la cuisine avec des chefs. Le dispositif compte aujourd'hui 13 antennes.", color: "#C2421C", dark: false, photo: "images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00032.jpg", href: "#/projets/des-etoiles-et-des-femmes" },
       { year: "2022", title: "Les Beaux Mets", desc: "Un restaurant ouvert au public dans la prison des Baumettes, à Marseille.", color: "#217078", dark: false, photo: "images/beauxmets-images/LBM_cdutrey_071122-7264.jpg", href: "#/projets/les-beaux-mets" },
       { year: "2024", title: "Le programme Restaure", desc: "Transformer les pratiques de la restauration : conditions de travail, inclusion, impact écologique.", color: "#7E4590", dark: false, photo: "images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg", href: "#/projets/restaure" },
-      { year: "2026", title: "L'Académie Festin", desc: "Festin devient organisme de formation en partenariat avec Estello Formation, organisme certifié Qualiopi.", color: "#FEFCF8", dark: true, photo: "images/photo-cuisine-formation.jpg", href: "#/academie" },
+      { year: "2026", title: "L'Académie Festin", desc: "Festin devient organisme de formation en partenariat avec Estello Formation, organisme certifié Qualiopi.", color: "#FEFCF8", dark: true, photo: "images/photo-dressage-dessert.jpg", href: "#/academie" },
     ],
   },
   // Paroles de personnes accompagnées, mot pour mot, déjà publiées sur les pages

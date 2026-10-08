@@ -256,7 +256,6 @@ function AccompagnementInsertionPage() {
           <GalerieAuto images={[
             { src: 'images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-40.jpg', alt: 'Une promotion du dispositif Des Étoiles et des Femmes en tabliers violets, en plein air' },
             { src: 'images/photo-apprenante-plats.jpg', alt: 'Une apprentie présente ses assiettes en fin de service' },
-            { src: 'images/photo-cuisine-formation.jpg', alt: 'Séance de formation en cuisine' },
             { src: 'images/photo-applaudissements.jpg', alt: 'Une promotion applaudit en fin de formation' },
             { src: 'images/photo-tabliers-violets.jpg', alt: 'Des apprenties du dispositif Des Étoiles et des Femmes en tablier' },
             { src: 'images/photo-patisserie.jpg', alt: 'Atelier pâtisserie pendant la formation' },

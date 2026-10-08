@@ -211,16 +211,6 @@ window.FESTIN_IMG = {
 1600
 ]
 },
-"photo-cuisine-formation.jpg": {
-"avif": [
-800,
-1600
-],
-"w": [
-800,
-1600
-]
-},
 "photo-groupe-portrait.jpg": {
 "avif": [
 800,
@@ -445,6 +435,14 @@ window.FESTIN_IMG = {
 "w": [
 800,
 1600
+]
+},
+"images-def/def-prise-de-parole.jpg": {
+"avif": [
+800
+],
+"w": [
+800
 ]
 }
 };

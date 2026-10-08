@@ -18,11 +18,10 @@ function Title({ children, em, after, level = 2, className = '' }) {
 const HERO_IMG = 'images/photo-promo-groupe.jpg';
 
 function AboutHero() {
-  // Même hero que toutes les pages intérieures (Sections.jsx, HeroPage). Sans sous-titre (retour PIT).
+  // Même hero que toutes les pages intérieures (Sections.jsx, HeroPage). Sans sous-titre (retour PIT) ; sans logo (08/10/2026).
   return (
     <window.HeroPage tone="deep" title="L'insertion par la cuisine" accent="depuis 40 ans."
       img={HERO_IMG} imgAlt="Une promotion du dispositif Des Étoiles et des Femmes réunie en tenue de cuisine"
-      logo="images/logo-festin-blanc-sb.png" logoAlt="Festin"
       crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Qui sommes-nous' }]} />
   );
 }
