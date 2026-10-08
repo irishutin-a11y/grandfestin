@@ -863,3 +863,16 @@ img[src*="photo-micro-temoignage"]{object-position:55% 18%}
    le texte lisible sur les vestes blanches (pas de flou : « pas de verre flouté ») */
 .hc--accueil .hc__bloc{box-shadow:none}
 .hc--accueil .hc__bloc .hc__cart--deep{background:rgba(10,45,51,.72)}
+/* Antennes (08/10/2026) : le logo de la structure porteuse devant chaque ville, sur un carré blanc */
+.g-antennes li{grid-template-columns:64px 48px 1fr;align-items:center}
+.g-antennes__logo{grid-row:1 / span 2;width:64px;height:64px;border-radius:14px;background:#fff;box-shadow:inset 0 0 0 1px var(--line-strong);display:grid;place-items:center;overflow:hidden}
+.g-antennes__logo img{max-width:52px;max-height:52px;width:auto;height:auto;object-fit:contain}
+.g-antennes__logo.is-vide{background:transparent;color:var(--teal)}
+.g-antennes__logo.is-vide svg{width:22px;height:22px}
+.g-antennes li > .g-antennes__y{grid-column:2;grid-row:1 / span 2;align-self:center;padding-top:0}
+.g-antennes li > b{grid-column:3;grid-row:1;align-self:end}
+.g-antennes li > span:last-child{grid-column:3;grid-row:2;align-self:start}
+.g-antennes{grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
+.g-antennes li{grid-template-columns:72px 44px 1fr}
+.g-antennes__logo{width:72px;height:72px}
+.g-antennes__logo img{max-width:62px;max-height:60px}

@@ -167,7 +167,7 @@ Proposition A du 2e tour de `HEADERS.md` (comparaison sur la branche `headers-pr
 - Sphère des partenaires (Qui sommes-nous) : **logos seulement** ; les noms sans logo restent dans les données, hors affichage.
 - Mentions légales : adresse de l'hébergeur (à confirmer, source tierce) et paragraphe « Données personnelles » (ni cookie ni mesure d'audience, aucun service tiers au chargement ; vérifié le 08/10). Directeur de la publication : à valider par la direction.
 - Formulaire de contact : on garde l'ouverture de la messagerie. **Envois sur main groupés** (limite Vercel de 100 déploiements par jour) : seulement quand l'utilisatrice écrit « main ».
-- Antennes : des **logos des structures porteuses** remplaceront les photos dans la liste au survol (à fournir).
+- Antennes : le **logo de la structure porteuse** devant chaque ville (`FESTIN_DATA.porteursLogos`, fichiers `images/antennes/logos/`), sur un carré blanc ; un logo **générique** pour les Tables de Cana (sans « Marseille ») ; sans logo, un repère neutre (Petit à Petit, Arles, à fournir).
 
 Voir `copywriting/06-journal-des-changements.md`, section « Encore en `[XX]` » : portraits de l'équipe, témoignages entreprise et financeur, crédits photo, intitulés de Marion Binachon et Fanny Bouvier.
 

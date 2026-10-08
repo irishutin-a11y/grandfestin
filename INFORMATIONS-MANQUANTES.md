@@ -43,7 +43,7 @@ Reçus le 08/10 : Camille Lafon, Lucie Gueydon, Gaëlle de Carmantrand (gouverna
 | Toulouse | 2022 | Égalitère et Sororitère | à fournir |
 | Hauts-de-Seine Sud | 2023 | La Table de Cana | à fournir |
 
-Six antennes sont portées par une Table de Cana : un seul logo commun, ou un logo par ville ?
+Reçus et intégrés le 08/10 : À Table Citoyens, Égalitère, Forum Jorge François, Les Jardins de la Montagne Verte, Weavers ; logo générique La Table de Cana (tiré du logo de Marseille, sans le mot « Marseille » : 147 px de large, une version haute définition serait mieux). **Reste : Petit à Petit (Arles).**
 
 ### Partenaires sans logo (retirés de la sphère en attendant)
 - Réseau Des Étoiles et des Femmes : Accor Heartist Solidarity, METRO, L'Oréal Fonds pour les femmes, Randstad, Fondation Masalina, Fondation PSA Peugeot Citroën, Telos Impact, Pink Lady, Ministère du Travail, Banque des Territoires.

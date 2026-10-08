@@ -976,6 +976,19 @@ window.FESTIN_DATA.impact = {
 // sans accent, tirets). Vide tant que le formulaire Drive n'a rien fourni.
 window.FESTIN_DATA.antennesPhotos = [];
 
+// Logos des structures qui portent les antennes de Des Étoiles et des Femmes (08/10/2026),
+// par nom de porteur tel qu'écrit dans projets[].antennes. Un logo générique pour les Tables de Cana
+// (jamais « Marseille » : ce ne sont pas des projets de Festin). Sans logo : un repère neutre.
+window.FESTIN_DATA.porteursLogos = {
+  "Festin": "images/logo-festin-teal-sb.png",
+  "La Table de Cana": "images/antennes/logos/la-table-de-cana.png",
+  "Forum Jorge François": "images/antennes/logos/forum-jorge-francois.jpg",
+  "Les Jardins de la Montagne Verte": "images/antennes/logos/jardins-montagne-verte.jpg",
+  "Weavers": "images/antennes/logos/weavers.png",
+  "À Table Citoyens": "images/antennes/logos/a-table-citoyens.png",
+  "Égalitère et Sororitère": "images/antennes/logos/egalitere.png",
+};
+
 // Bloc de clôture commun à toutes les pages (Sections.jsx, FinDePage)
 window.FESTIN_DATA.fin = {
   title: "Vous avez un projet ?", accent: "Parlons-en.",

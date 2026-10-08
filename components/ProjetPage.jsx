@@ -22,6 +22,7 @@ function slug(v) { return v.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '
 
 function BlocReseau({ p }) {
   const D = window.FESTIN_DATA;
+  const L = D.porteursLogos || {};
   return (
     <section className="g-sec g-sec--cream" aria-labelledby="reseau-t">
       <div className="wrap">
@@ -40,7 +41,13 @@ function BlocReseau({ p }) {
         ) : (
           <ol className="g-antennes" aria-label="Les antennes du réseau, par année d'ouverture">
             {p.antennes.map((a) => (
-              <li key={a.ville} className="g-reveal"><span className="g-antennes__y">{a.annee}</span><b>{a.ville}</b><span>{a.porteur}</span></li>
+              <li key={a.ville} className="g-reveal">
+                {/* logo de la structure porteuse (08/10/2026) ; sans logo, un repère neutre */}
+                <span className={'g-antennes__logo' + (L[a.porteur] ? '' : ' is-vide')}>
+                  {L[a.porteur] ? <img src={encodeURI(L[a.porteur])} alt="" loading="lazy" /> : <i data-lucide="map-pin" aria-hidden="true" />}
+                </span>
+                <span className="g-antennes__y">{a.annee}</span><b>{a.ville}</b><span>{a.porteur}</span>
+              </li>
             ))}
           </ol>
         )}
