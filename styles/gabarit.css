@@ -84,6 +84,15 @@
 .g-chefs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--sp-8);align-items:center}
 .g-chefs__note{margin:var(--sp-5) 0 0;font-size:15px;line-height:1.55;color:var(--ink-mid);max-width:44ch}
 .g-chefs__sphere{display:grid;place-items:center}
+.g-marraine{display:flex;align-items:center;gap:var(--sp-4);margin-top:var(--sp-6)}
+.g-marraine__ph{flex:0 0 auto;width:76px;height:76px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 4px var(--gold),0 8px 18px rgba(10,45,51,.18)}
+.g-marraine p{margin:0;display:flex;flex-direction:column;gap:2px}
+.g-marraine strong{font-size:var(--fs-h4,20px);font-weight:700;text-transform:uppercase;letter-spacing:.02em;color:var(--ink)}
+.g-marraine span{font-size:15px;color:var(--ink-mid)}
+/* Sphère des chefs : la marraine nationale (vignette plus grande, cerclée d'or, bandeau « Marraine ») */
+.isph__node--vedette{width:calc(var(--isph-tile) * 1.4);box-shadow:0 0 0 4px var(--gold),0 12px 28px rgba(10,45,51,.32)}
+.isph__badge{position:absolute;left:0;right:0;bottom:0;padding:4px 0 calc(var(--isph-tile) * .13);background:var(--gold);color:var(--ink);font-size:max(11px,calc(var(--isph-tile) * .11));font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-align:center;line-height:1}
+.isph__node.is-back .isph__badge{visibility:hidden}
 @media (max-width:899px){ .g-chefs{grid-template-columns:1fr} }
 
 /* ---- Verbatims (programme Restaure) ---- */

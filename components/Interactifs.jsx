@@ -200,13 +200,15 @@ function ImgSphere({ images = [], size: maxSize = 520, radius, autoSpeed = 0.18,
           </span>
         ))}
         {!logos && images.map((im, i) => (
-          <button key={i} type="button" className="isph__node"
+          <button key={i} type="button" className={'isph__node' + (im.badge ? ' isph__node--vedette' : '')}
             ref={(el) => (nodes.current[i] = el)}
-            aria-label={'Agrandir : ' + (im.title || im.alt || 'image ' + (i + 1))}
+            aria-label={'Agrandir : ' + (im.title || im.alt || 'image ' + (i + 1)) + (im.badge ? ', ' + im.badge : '')}
             onClick={() => { if (stageRef.current.dataset.moved !== '1') setOpen(im); }}>
             {im.src
               ? <img src={URIx(im.src)} alt="" loading="lazy" draggable="false" />
               : <span className="isph__name"><b>{initials(im.name || im.title)}</b><span>{im.name || im.title}</span></span>}
+            {/* vignette mise en avant (marraine nationale) : plus grande, cerclée d'or, bandeau */}
+            {im.badge && <span className="isph__badge" aria-hidden="true">{im.badge}</span>}
           </button>
         ))}
       </div>

@@ -26,23 +26,23 @@ Les priorités : **1** bloque la mise en ligne (un cadre vide se verrait), **2**
 
 ## 2. La sphère des chefs (Des Étoiles et des Femmes, bloc « Soutenir »)
 
-Douze photos encore (Julia Sedefdjian reçue), **carrées (1:1), 1200 px au moins, plan poitrine, visage centré, en tenue de cuisine, fond simple**. Nom de fichier : prénom-nom (ex. `julia-sedefdjian.jpg`).
+Fait le 08/10 : les 13 chefs ont un portrait (Julia Sedefdjian reçue le 06/10 ; les 12 autres recadrés depuis la planche du réseau, `images/chefs/`). Martin Simolka et Quentin Testart, absents de la planche, sont retirés du site. Mieux, plus tard : les photos d'origine, **carrées (1:1), 800 px au moins, plan poitrine, visage centré, en tenue de cuisine**. Nom de fichier : prénom-nom.
 
 | # | Chef | Restaurant ou titre affiché sur le site |
 |---|---|---|
-| 1 | Julia Sedefdjian | Marraine nationale · Baieta, Paris (**reçue le 06/10**) |
-| 2 | Martin Simolka | Le Scribe, Paris |
-| 3 | Valentina Giacobbe | Ginko, Lille |
-| 4 | Armand Arnal | La Chassagnette, Arles |
-| 5 | Jean-François Rouquette | Park Hyatt, Paris |
-| 6 | Andrée Rosier | Les Rosiers, Biarritz |
+| 1 | Julia Sedefdjian | Marraine nationale · Baieta, Paris |
+| 2 | Diego Delbecq | Le Rozo, Lille |
+| 3 | Andrée Rosier | Les Rosiers, Biarritz |
+| 4 | Frédéric Jaunault | Meilleur ouvrier de France primeur |
+| 5 | Richard Juste | Le Mahé, Montpellier |
+| 6 | Valentina Giacobbe | Ginko, Lille |
 | 7 | Thomas Morel | Pavillon des Boulevards, Bordeaux |
-| 8 | Laëtitia Visse | La Femme du Boucher, Marseille |
-| 9 | Jérémy Galvan | Lyon |
-| 10 | Frédéric Jaunault | Meilleur ouvrier de France primeur |
-| 11 | Richard Juste | Le Mahé, Montpellier |
-| 12 | Sylvain Ruffenach | Le Cerf, Strasbourg |
-| 13 | Quentin Testart | Shangri-La, Paris |
+| 8 | Sylvain Ruffenach | Le Cerf, Strasbourg |
+| 9 | Nicolas Garbay | Hôtel du Palais, La Rotonde, Biarritz |
+| 10 | Armand Arnal | La Chassagnette, Arles |
+| 11 | Laëtitia Visse | La Femme du Boucher, Marseille |
+| 12 | Jean-François Rouquette | Park Hyatt, Paris |
+| 13 | Jérémy Galvan | Lyon |
 
 À vérifier en même temps : Andrée Rosier est à Biarritz, et l'antenne du Pays Basque a fermé. Le site la cite toujours parmi les chefs du réseau.
 

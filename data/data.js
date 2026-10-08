@@ -1684,8 +1684,7 @@ window.FESTIN_DATA.about = {
   },
   // Réseau de chefs (deck financeurs) — accord confirmé par l'association
   chefs: [
-    // Portraits tirés de la planche des chefs du réseau (08/10/2026). Martin Simolka et Quentin Testart
-    // n'y figurent pas : pas de photo (la sphère affiche leurs initiales), à confirmer.
+    // Chefs de la planche du réseau (08/10/2026) ; Martin Simolka et Quentin Testart retirés le même jour.
     { name: "Diego Delbecq",        place: "Le Rozo, Lille",                    photo: "images/chefs/diego-delbecq.jpg" },
     { name: "Andrée Rosier",        place: "Les Rosiers, Biarritz",             photo: "images/chefs/andree-rosier.jpg" },
     { name: "Frédéric Jaunault",    place: "Meilleur ouvrier de France primeur", photo: "images/chefs/frederic-jaunault.jpg" },
@@ -1698,8 +1697,6 @@ window.FESTIN_DATA.about = {
     { name: "Laëtitia Visse",       place: "La Femme du Boucher, Marseille",    photo: "images/chefs/laetitia-visse.jpg" },
     { name: "Jean-François Rouquette", place: "Park Hyatt, Paris",              photo: "images/chefs/jean-francois-rouquette.jpg" },
     { name: "Jérémy Galvan",        place: "Lyon",                              photo: "images/chefs/jeremy-galvan.jpg" },
-    { name: "Martin Simolka",       place: "Le Scribe, Paris" },
-    { name: "Quentin Testart",      place: "Shangri-La, Paris" },
   ],
 };
 

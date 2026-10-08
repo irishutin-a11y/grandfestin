@@ -97,7 +97,12 @@ window.BlocTable = BlocTable;
 // Des Étoiles et des Femmes : soutenir une promotion, avec la sphère des chefs du réseau
 function BlocChefs({ p, cfg }) {
   const D = window.FESTIN_DATA;
-  const chefs = [{ name: 'Julia Sedefdjian', place: 'Marraine nationale · Baieta, Paris', photo: 'images/images-def/julia-sedefdjian.jpg' }, ...D.about.chefs];
+  const julia = { name: 'Julia Sedefdjian', place: 'Marraine nationale · Baieta, Paris', photo: 'images/images-def/julia-sedefdjian.jpg', badge: 'Marraine' };
+  // La marraine au milieu de la liste : sur l'équateur de la sphère, elle passe au premier plan à chaque tour
+  // (en tête de liste, elle restait au pôle, à demi effacée).
+  const autres = D.about.chefs;
+  const mi = Math.floor(autres.length / 2);
+  const chefs = [...autres.slice(0, mi), julia, ...autres.slice(mi)];
   // Sphère : les chefs seulement (08/10/2026, plus de photos de promotion mêlées aux portraits)
   return (
     <section className="g-sec g-sec--gold" aria-labelledby="chefs-t">
@@ -105,14 +110,18 @@ function BlocChefs({ p, cfg }) {
         <div className="g-chefs__txt g-reveal">
           <h2 className="g-h2" id="chefs-t">{cfg.soutien.title} <em>{cfg.soutien.accent}</em></h2>
           <p className="g-lede">{cfg.soutien.text}</p>
-          <p className="g-chefs__note">{chefs.length} chefs forment avec le réseau, dont la marraine nationale, Julia Sedefdjian. Faites tourner la sphère pour les voir.</p>
+          <div className="g-marraine">
+            <img className="g-marraine__ph" src={julia.photo} alt="" loading="lazy" />
+            <p><strong>Julia Sedefdjian</strong><span>Marraine nationale du réseau · Baieta, Paris</span></p>
+          </div>
+          <p className="g-chefs__note">Avec elle, {autres.length} chefs forment avec le réseau. Faites tourner la sphère pour les voir.</p>
           <div className="g-actions">
             <a className="btnb btnb--gold" href={D.donation} target="_blank" rel="noopener noreferrer">Faire un don <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (nouvel onglet)</span></a>
             <a className="lnk" href="#/contact/mecenat">Devenir mécène <span className="arrow" aria-hidden="true">→</span></a>
           </div>
         </div>
         <div className="g-chefs__sphere">
-          <window.ImgSphere size={500} label="Les chefs du réseau" images={chefs.map((c) => ({ src: c.photo, name: c.name, title: c.name, text: c.place }))} />
+          <window.ImgSphere size={500} label="Les chefs du réseau" images={chefs.map((c) => ({ src: c.photo, name: c.name, title: c.name, text: c.place, badge: c.badge }))} />
         </div>
       </div>
     </section>
