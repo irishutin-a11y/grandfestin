@@ -1541,7 +1541,7 @@ window.FESTIN_DATA.about = {
   poles: [
     { key: "festin", label: "Festin", color: "#1D6B78", members: [
       { name: "Armand Hurault", role: "Directeur général", photo: "images/equipe/armand-hurault.jpg" },
-      { name: "Marine Vever",   role: "Directrice adjointe", photo: "images/equipe/marine.jpg" },
+      { name: "Marine Vever",   role: "Directrice adjointe", photo: "images/equipe/marine-vever.jpg" },
       { name: "Marie Plé",      role: "Assistante de gestion", photo: null },
       { name: "Iris Hutin",        role: "Chargée de projet Communication", photo: "images/equipe/iris-hutin.jpg" },
       { name: "Matthieu Donsimoni", role: "Chargé de communication en alternance", photo: null },
@@ -1552,17 +1552,17 @@ window.FESTIN_DATA.about = {
     ]},
     { key: "academie", label: "Académie Festin", color: "#9A5B0E", members: [
       { name: "Florence Armitano", role: "Responsable du pôle Formation", photo: "images/equipe/florence.jpg" },
-      { name: "Lucie Gueydon",     role: "Chargée de projet formation, Estello Formation", photo: null },
+      { name: "Lucie Gueydon",     role: "Chargée de projet formation, Estello Formation", photo: "images/equipe/lucie-gueydon.jpg" },
     ]},
     { key: "restaure", label: "Restaure", color: "#4F6019", members: [
       { name: "Iris Liberty",      role: "Chargée d'animation de communauté, programme Restaure", photo: "images/equipe/iris-liberty.jpg" },
     ]},
     { key: "lbm", label: "Les Beaux Mets", color: "#A3543D", members: [
-      { name: "Camille Lafon",    role: "Direction du restaurant Les Beaux Mets", photo: null },
+      { name: "Camille Lafon",    role: "Direction du restaurant Les Beaux Mets", photo: "images/equipe/camille-lafon.jpg" },
       { name: "Marion Binachon",  role: "Chargée de commercialisation et de marketing, Les Beaux Mets", photo: "images/equipe/marion.jpg" },
       { name: "Valentin Majan",   role: "Chef de cuisine", photo: "images/beauxmets-images/valentin-majan.jpg" },
       { name: "Boris Ruel",       role: "Second de cuisine", photo: null },
-      { name: "Marc Balthazard",  role: "Maître d'hôtel", photo: "images/equipe/marc-balthazard.jpg" },
+      { name: "Marc Balthazard",  role: "Maître d'hôtel", photo: "images/equipe/marc-balthazard-portrait.jpg" },
       { name: "Laura Sacher",     role: "Conseillère en insertion professionnelle", photo: null },
     ]},
     // La Table de Cana Marseille : équipe relevée sur latabledecana-marseille.com (06/10/2026),
@@ -1586,7 +1586,7 @@ window.FESTIN_DATA.about = {
   gouvernance: [
     { name: "Jérôme Schatzman", role: "Président du groupe associatif", avatar: "images/equipe/ca-schatzman.png" },
     { name: "Guillaume Hermitte", role: "Trésorier", avatar: "images/equipe/ca-hermitte.png" },
-    { name: "Gaëlle de Carmantrand", role: "Secrétaire", avatar: null },
+    { name: "Gaëlle de Carmantrand", role: "Secrétaire", avatar: "images/equipe/ca-carmantrand.jpg" },
     // orthographe : celle du site latabledecana-marseille.com
     { name: "Hugues Bonnetain", role: "Président de La Table de Cana Marseille", avatar: "images/equipe/tdc/hugues-bonnetain.jpg" },
   ],

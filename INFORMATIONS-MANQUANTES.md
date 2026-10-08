@@ -17,12 +17,13 @@ Premier relevé le 08/10/2026 au matin, mis à jour avec les réponses de l'util
 | Projets et formations, « La formation, un moyen » | « Un secteur qui recrute » | L'année de l'enquête France Travail et la date du relevé « 500+ offres » |
 | La Table de Cana Marseille, Nos tables | « Le traiteur » | Types de prestations, nombre de convives, délai de commande, zone de livraison (le site latabledecana-marseille.com n'est pas joignable depuis l'environnement de travail) |
 | L'insertion | Bloc prescripteurs, carte La Table de Cana Marseille | Les conditions d'entrée |
-| Qui sommes-nous | Gouvernance | Photo de Gaëlle de Carmantrand : reçue parmi cinq photos le 08/10, à identifier |
 | Mentions légales | Directeur de la publication | Validation par la direction (en principe le président) |
 | Mentions légales | Hébergeur | Confirmer l'adresse de Vercel Inc. (340 S Lemon Ave #4133, Walnut, CA 91789, relevée sur des sources tierces) |
 
 ## 2. Portraits de l'équipe (cadres vides pour l'instant)
-Marie Plé, Matthieu Donsimoni (Festin) · Bénédicte Solera (Des Étoiles et des Femmes) · Lucie Gueydon (Académie Festin) · Camille Lafon, Boris Ruel, Laura Sacher (Les Beaux Mets) · Tom Louis Teboul (La Table de Cana Marseille).
+Marie Plé, Matthieu Donsimoni (Festin) · Bénédicte Solera (Des Étoiles et des Femmes) · Boris Ruel, Laura Sacher (Les Beaux Mets) · Tom Louis Teboul (La Table de Cana Marseille).
+
+Reçus le 08/10 : Camille Lafon, Lucie Gueydon, Gaëlle de Carmantrand (gouvernance), nouveaux portraits de Marine Vever et de Marc Balthazard.
 
 ## 3. Logos à fournir
 ### Structures porteuses des antennes (liste au survol, Des Étoiles et des Femmes)
