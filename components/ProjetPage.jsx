@@ -94,7 +94,7 @@ function BlocTable({ t, id = 'a-table', head, projet, variante }) {
 }
 window.BlocTable = BlocTable;
 
-// Des Étoiles et des Femmes : soutenir une promotion, avec la sphère des chefs du réseau
+// Des Étoiles et des Femmes : « Devenir partenaire » (titre du 08/10/2026), avec la sphère des chefs du réseau
 function BlocChefs({ p, cfg }) {
   const D = window.FESTIN_DATA;
   const julia = { name: 'Julia Sedefdjian', place: 'Marraine nationale · Baieta, Paris', photo: 'images/images-def/julia-sedefdjian.jpg', badge: 'Marraine' };
@@ -115,7 +115,7 @@ function BlocChefs({ p, cfg }) {
             <p><strong>Julia Sedefdjian</strong><span>Marraine nationale du réseau · Baieta, Paris</span></p>
           </div>
           {/* Pas de compte des chefs : chaque antenne a ses chefs partenaires, la sphère n'en montre qu'une partie (08/10/2026) */}
-          <p className="g-chefs__note">Chaque antenne travaille avec ses propres chefs partenaires. La sphère en présente quelques-uns : faites-la tourner.</p>
+          <p className="g-chefs__note">Chaque antenne travaille avec ses propres chefs partenaires.</p>
           <div className="g-actions">
             <a className="btnb btnb--gold" href={D.donation} target="_blank" rel="noopener noreferrer">Faire un don <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (nouvel onglet)</span></a>
             <a className="lnk" href="#/contact/mecenat">Devenir mécène <span className="arrow" aria-hidden="true">→</span></a>

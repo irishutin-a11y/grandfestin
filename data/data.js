@@ -1399,7 +1399,7 @@ window.FESTIN_DATA.projetPages = {
       { tag: "Vous dirigez une cuisine", title: "Accueillir une stagiaire",
         cta: "Devenir restaurant partenaire", href: "#/restauration", img: "images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00032.jpg" },
     ],
-    soutien: { title: "Soutenir", accent: "une promotion",
+    soutien: { title: "Devenir", accent: "partenaire",
       text: "Le parcours est gratuit pour les femmes qui le suivent : les pouvoirs publics et des mécènes financent chaque promotion. Votre don paie des heures de formation, des stages et le suivi social, jusqu'à l'emploi.",
       sphere: true },
     galerie: ["images/images-def/def-remise-cap.jpg", "images/images-def/def-prise-de-parole.jpg", "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg", "images/images-def/chaudbouillon-045.jpg", "images/images-def/chaudbouillon-046.jpg", "images/images-def/HOTELERIE-097.jpg", "images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00022.jpg", "images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00032.jpg", "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-40.jpg"],
