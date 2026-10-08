@@ -112,6 +112,24 @@ function JalonsCouleur({ jalons, title, em, lede, word = 'HISTOIRE', label, id }
     });
     return () => mm.revert();
   }, []);
+  // Cartes côte à côte (≥ 900 px) : l'en-tête et le texte prennent la même hauteur d'une carte à l'autre,
+  // pour que les photos, en bas, aient toutes la même hauteur (retour du 08/10/2026)
+  useEffect(() => {
+    const t = track.current; if (!t) return;
+    const egaliser = () => {
+      ['.ab-jalon__top', '.ab-jalon__body'].forEach((sel) => {
+        const els = [...t.querySelectorAll(sel)];
+        els.forEach((e) => { e.style.minHeight = ''; });
+        if (window.innerWidth < 900) return;
+        const max = Math.max(0, ...els.map((e) => e.offsetHeight));
+        els.forEach((e) => { e.style.minHeight = max + 'px'; });
+      });
+    };
+    egaliser();
+    window.addEventListener('resize', egaliser);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(egaliser);
+    return () => window.removeEventListener('resize', egaliser);
+  }, [jalons]);
   return (
     <section className="ab-hist ab-sec--dark on-dark" id={id} ref={root}>
       {/* mot décoratif rendu en CSS : ce n'est pas du texte (contraste volontairement faible) */}

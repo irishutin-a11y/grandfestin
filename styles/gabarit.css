@@ -876,3 +876,9 @@ img[src*="photo-micro-temoignage"]{object-position:55% 18%}
 .g-antennes li{grid-template-columns:72px 44px 1fr}
 .g-antennes__logo{width:72px;height:72px}
 .g-antennes__logo img{max-width:62px;max-height:60px}
+/* Frise (08/10/2026) : en-têtes et textes égalisés par About.jsx ; la photo prend tout le reste de la carte,
+   donc la même hauteur sur toutes les cartes */
+.ab-hist.is-pinned .ab-jalon__img{flex:1 1 0;height:auto;min-height:0}
+.ab-hist.is-pinned:not(.acc-frise) .ab-jalon{height:min(66vh,540px)}
+/* au-delà de 1800 px, le zoom global agrandit tout : on garde la carte dans l'écran */
+@media (min-width:1800px){ .ab-hist.is-pinned:not(.acc-frise) .ab-jalon{height:min(60vh,500px)} }
