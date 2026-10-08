@@ -251,16 +251,6 @@ window.FESTIN_IMG = {
 1600
 ]
 },
-"photo-rouleaux.jpg": {
-"avif": [
-800,
-1600
-],
-"w": [
-800,
-1600
-]
-},
 "photo-service-restaurant.jpg": {
 "avif": [
 800,

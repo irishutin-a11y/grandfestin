@@ -185,12 +185,11 @@ function Footer() {
         <div className="footer__scrim" aria-hidden="true"></div>
         <window.Trait className="footer__trait" width={120} draw={false} />
         <div className="wrap">
-          {!sansFin && <FinDePage />}
+          {/* plus de bloc « Vous avez un projet ? » : il alourdissait le pied de page (08/10/2026) */}
           <div className="footer__grid">
             <div className="footer__brand">
               <img className="footer__logo" src={data.brand.logoGold} alt="Festin" loading="lazy" />
               <p className="footer__tagline">{data.brand.tagline}</p>
-              <p>Festin, groupe associatif à but non lucratif et d'intérêt général, met la restauration au service de l'égalité des chances. Depuis Marseille, ses projets accompagnent des personnes jusqu'à l'emploi et travaillent avec le secteur.</p>
               <a className="footer__don" href={data.donation} target="_blank" rel="noopener noreferrer">
                 <i data-lucide="heart" style={{ width: 16, height: 16 }} aria-hidden="true" />
                 Faire un don
@@ -205,7 +204,6 @@ function Footer() {
                   {r.links.filter((l) => l.href !== r.href).map((l) => <li key={l.label}>{l.avenir ? <span className="footer__avenir">{l.label} (à venir)</span> : <a href={l.href}>{l.label}</a>}</li>)}
                   {r.key === 'festin' && <>
                     <li><a href="#/contact/mecenat">Mécénat et partenariats</a></li>
-                    <li><a href="/mentions-legales">Mentions légales</a></li>
                   </>}
                 </ul>
               </div>
@@ -221,8 +219,7 @@ function Footer() {
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
               </a>
             </div>
-            <span>{data.contact.legalMention}</span>
-            <span>NDA {data.contact.nda} · Académie Festin, portée par Estello Formation, organisme de formation certifié Qualiopi</span>
+            <span><a href="/mentions-legales">Mentions légales</a></span>
           </div>
         </div>
       </footer>

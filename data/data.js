@@ -1603,7 +1603,7 @@ window.FESTIN_DATA.about = {
     { name: "Guillaume Hermitte", role: "Trésorier", avatar: "images/equipe/ca-hermitte.png" },
     { name: "Gaëlle de Carmantrand", role: "Secrétaire", avatar: "images/equipe/ca-carmantrand.jpg" },
     // orthographe : celle du site latabledecana-marseille.com
-    { name: "Hugues Bonnetain", role: "Président de La Table de Cana Marseille", avatar: "images/equipe/tdc/hugues-bonnetain.jpg" },
+    { name: "Hugues Bonnetain", role: "Président de La Table de Cana Marseille", avatar: "images/equipe/tdc/hugues-bonnetain-portrait.jpg" },
   ],
   // Frise de la page Association, recentrée sur l'association (29/09/2026) ;
   // la frise des projets est sur l'accueil. Distinctions : voir .about distinctions ci-dessous.

@@ -15,13 +15,14 @@ function Title({ children, em, after, level = 2, className = '' }) {
 // ---------- 0. HERO — titre monumental sur une photo plein cadre ----------
 // Une seule photo en fond (retour PIT 23/09/2026). Entrée : léger dézoom ;
 // au défilement, la photo glisse plus lentement que le texte.
-const HERO_IMG = 'images/photo-promo-groupe.jpg';
+// en-tête : une photo propre à cette page (08/10/2026 ; la photo de groupe va à Des Étoiles et des Femmes)
+const HERO_IMG = 'images/tournesol:formation/festin_tournesol_cdutrey_0124-3645.jpg';
 
 function AboutHero() {
   // Même hero que toutes les pages intérieures (Sections.jsx, HeroPage). Sans sous-titre (retour PIT) ; sans logo (08/10/2026).
   return (
     <window.HeroPage tone="deep" title="L'insertion par la cuisine" accent="depuis 40 ans."
-      img={HERO_IMG} imgAlt="Une promotion du dispositif Des Étoiles et des Femmes réunie en tenue de cuisine"
+      img={HERO_IMG} imgAlt="En cuisine pendant une formation Tournesol, à Marseille" imgPos="60% 40%"
       crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Qui sommes-nous' }]} />
   );
 }

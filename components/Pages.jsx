@@ -380,7 +380,6 @@ function ImpactPage() {
             <ImpSerie id="imp-s2" tone="coral" label="Sorties en emploi ou en formation" unit={' %'} max={100}
               items={I.annees.map(a => ({ label: a.year, value: a.taux }))} />
           </div>
-          <p className="imp-chiffres__note">En 2025 : 14 territoires et 91 % de réussite aux diplômes avec Des Étoiles et des Femmes. {I.serieNote} Source : rapports d'activité Festin 2022 à 2025.</p>
         </div>
       </section>
 
