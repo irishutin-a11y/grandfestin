@@ -191,7 +191,7 @@ function AccompagnementInsertionPage() {
         <div className="wrap ins-presc__in">
           <div className="ins-presc__txt">
             <h2 className="ins-presc__t" id="ins-presc-t">Vous orientez une personne&nbsp;?</h2>
-            <p>Les critères d'entrée de chaque formation sont ci-dessous, dans « Pour qui » et « Pour entrer ». Pour une prescription, écrivez-nous : nous répondons sous 48&nbsp;h ouvrées.</p>
+            <p>Les critères d'entrée de chaque formation sont ci-dessous, dans « Pour qui » et « Pour entrer ».</p>
           </div>
           <a className="btnb btnb--teal ins-presc__cta" href="#/contact/orienter">Orienter une personne <span className="arrow" aria-hidden="true">→</span></a>
         </div>
@@ -220,11 +220,13 @@ function AccompagnementInsertionPage() {
                     <window.ArTags tags={o.tags} className="or-card__tags" />
                     <dl>
                       <div><dt>Le parcours</dt><dd>{o.quoi}</dd></div>
-                      <div><dt>Pour entrer</dt><dd>{o.conditions || (window.FESTIN_SHOW_PLACEHOLDERS ? <span className="is-placeholder or-miss">[À COMPLÉTER : conditions d'entrée]</span> : "Le site du projet donne les conditions d'entrée.")}</dd></div>
+                      {/* sans conditions connues (La Table de Cana Marseille, à demander à La Table de Cana) : pas de ligne (08/10/2026) */}
+                      {o.conditions && <div><dt>Pour entrer</dt><dd>{o.conditions}</dd></div>}
                     </dl>
                     <div className="or-card__cta">
                       {/* La Table de Cana Marseille : on y postule (emploi en insertion, sans diplôme) */}
                       {o.id === 'la-table-de-cana' && <a className="btnb btnb--gold" href="#/contact/se-former">Postuler <span className="arrow" aria-hidden="true">→</span></a>}
+                      {o.id === 'la-table-de-cana' && p.siteUrl && <span className="or-card__ou">ou</span>}
                       {p.siteUrl && <a className="btnb btnb--teal" href={p.siteUrl} target="_blank" rel="noopener noreferrer">Plus d'informations <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (site du projet, nouvel onglet)</span></a>}
                       {/* Tournesol est une formation : sa fiche, pas une page projet (RETOURS-AUDIT, question 4) */}
                       {o.id === 'tournesol'
@@ -354,7 +356,7 @@ function AccompagnementProsPage() {
               link: { label: 'Proposer un stage', href: '#/contact/recruter' } },
             { tone: 'neutre', title: "Le Book de l'emploi",
               text: 'Des commis diplômés de nos parcours, prêts à prendre leur poste.',
-              tags: [['Envoi', 'Sous 48 h ouvrées']],
+              tags: [['Envoi', 'Sur demande']],
               link: { label: 'Recevoir le Book', href: '#/contact/recruter' } },
             { tone: 'neutre', title: "La préparation opérationnelle à l'emploi (POEI)",
               text: 'La personne se forme dans votre cuisine avant son embauche. Festin vous accompagne pour finaliser les démarches administratives.',

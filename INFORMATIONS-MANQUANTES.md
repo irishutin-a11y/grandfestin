@@ -16,7 +16,7 @@ Premier relevé le 08/10/2026 au matin, mis à jour avec les réponses de l'util
 | Fiche Tournesol | Chiffres et bilan | L'année de la promotion du taux « 86 % d'insertion un an après » |
 | Projets et formations, « La formation, un moyen » | « Un secteur qui recrute » | L'année de l'enquête France Travail et la date du relevé « 500+ offres » |
 | La Table de Cana Marseille, Nos tables | « Le traiteur » | Types de prestations, nombre de convives, délai de commande, zone de livraison (le site latabledecana-marseille.com n'est pas joignable depuis l'environnement de travail) |
-| L'insertion | Bloc prescripteurs, carte La Table de Cana Marseille | Les conditions d'entrée |
+| L'insertion | Bloc prescripteurs, carte La Table de Cana Marseille | Les conditions d'entrée, **à demander à La Table de Cana** (ligne masquée en attendant) |
 | Mentions légales | Directeur de la publication | Validation par la direction (en principe le président) |
 | Mentions légales | Hébergeur | Confirmer l'adresse de Vercel Inc. (340 S Lemon Ave #4133, Walnut, CA 91789, relevée sur des sources tierces) |
 
@@ -56,7 +56,7 @@ Logos HD des projets pour l'espace presse (en attente, décision du 08/10). Logo
 Carrées, 1200 px au moins, plan poitrine, en tenue de cuisine. Martin Simolka (Le Scribe, Paris) · Valentina Giacobbe (Ginko, Lille) · Armand Arnal (La Chassagnette, Arles) · Jean-François Rouquette (Park Hyatt, Paris) · Andrée Rosier (Les Rosiers, Biarritz) · Thomas Morel (Pavillon des Boulevards, Bordeaux) · Laëtitia Visse (La Femme du Boucher, Marseille) · Jérémy Galvan (Lyon) · Frédéric Jaunault (Meilleur ouvrier de France primeur) · Richard Juste (Le Mahé, Montpellier) · Sylvain Ruffenach (Le Cerf, Strasbourg) · Quentin Testart (Shangri-La, Paris). Julia Sedefdjian : reçue.
 
 ## 5. Complément
-- Portraits de Jason, Oumar et Jean Claude pour les témoignages, avec accord écrit (Pierre : fait).
+- Portraits de Jason et Jean Claude pour les témoignages, avec accord écrit (Pierre et Oumar : faits).
 - Droits à l'image : accords des personnes photographiées, en particulier aux Beaux Mets. Crédits photo.
 
 ## 6. Décisions encore ouvertes

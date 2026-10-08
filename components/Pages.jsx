@@ -253,7 +253,7 @@ function ContactPage() {
   return (
     <div data-screen-label="Contact">
       <window.HeroPage tone="deep" kicker="Contact" title="Parlons de" accent="votre projet."
-        proof="Recruter, vous former, orienter une personne ou soutenir un projet : nous répondons sous 48 h ouvrées."
+        proof="Recruter, vous former, orienter une personne ou soutenir un projet : écrivez-nous."
         img="images/photo-service-restaurant.jpg" imgAlt="Service en salle dans un restaurant partenaire"
         crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Contact' }]} />
       <Contact />
@@ -537,7 +537,7 @@ function AcaFormation() {
           <div className="g-bref__txt">
             <span className="g-tag g-reveal"><span className="g-tag__dot" aria-hidden="true" />L'Académie Festin</span>
             <h2 className="g-h2 g-reveal" id="aca-bref-t">La formation, <em>un moyen.</em></h2>
-            <p className="g-lede g-reveal">Festin forme sur le terrain depuis 1987. En 2026, elle lance l'Académie Festin, portée par Estello Formation, organisme de formation certifié Qualiopi. Ses parcours tiennent à trois choses : l'exigence de la cuisine, le suivi social des personnes formées, la connaissance du secteur.</p>
+            <p className="g-lede g-reveal">Festin agit sur le terrain, pour l'insertion par la cuisine, depuis 1987. Elle forme depuis 2026, avec l'Académie Festin, portée par Estello Formation, organisme de formation certifié Qualiopi. Ses parcours tiennent à trois choses : l'exigence de la cuisine, le suivi social des personnes formées, la connaissance du secteur.</p>
             <div className="aca-qualiopi g-reveal">
               <img src={D.brand.qualiopi} alt="Logo Qualiopi" loading="lazy" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
               <span>Certifiée Qualiopi<br /><b>au titre des actions de formation</b></span>

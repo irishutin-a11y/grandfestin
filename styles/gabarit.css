@@ -882,3 +882,12 @@ img[src*="photo-micro-temoignage"]{object-position:55% 18%}
 .ab-hist.is-pinned:not(.acc-frise) .ab-jalon{height:min(66vh,540px)}
 /* au-delà de 1800 px, le zoom global agrandit tout : on garde la carte dans l'écran */
 @media (min-width:1800px){ .ab-hist.is-pinned:not(.acc-frise) .ab-jalon{height:min(60vh,500px)} }
+/* Insertion, carte La Table de Cana Marseille : « ou » entre Postuler et Plus d'informations (08/10/2026) */
+.or-card__ou{font-size:var(--fs-small);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-mid)}
+/* Nos tables et lieux ouverts au public (08/10/2026) : les photos prennent la hauteur du texte */
+@media (min-width:901px){
+  .g-table__in{align-items:stretch}
+  .g-table__mos{grid-template-rows:minmax(0,3fr) minmax(0,2fr);min-height:100%}
+  .g-table__ph--0,.g-table__ph--1,.g-table__ph--2{aspect-ratio:auto;min-height:180px}
+  .g-table__txt{align-self:center}
+}

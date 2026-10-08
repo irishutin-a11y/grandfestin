@@ -167,6 +167,10 @@ Proposition A du 2e tour de `HEADERS.md` (comparaison sur la branche `headers-pr
 - Sphère des partenaires (Qui sommes-nous) : **logos seulement** ; les noms sans logo restent dans les données, hors affichage. 32 logos le 08/10 (planches des partenaires de Festin découpées en un fichier par logo dans `images/partners/`, plus Sodexo et l'UMIH). Randstad et L'Oréal écartés. Le Fonds de dotation familial Peugeot = la Fondation PSA Peugeot Citroën.
 - Mentions légales : adresse de l'hébergeur (à confirmer, source tierce) et paragraphe « Données personnelles » (ni cookie ni mesure d'audience, aucun service tiers au chargement ; vérifié le 08/10). Directeur de la publication : à valider par la direction.
 - Formulaire de contact : on garde l'ouverture de la messagerie. **Envois sur main groupés** (limite Vercel de 100 déploiements par jour) : seulement quand l'utilisatrice écrit « main ».
+- **Aucun délai de réponse promis** (« sous 48 h ouvrées » retiré partout, 08/10/2026) : on ne promet pas de réponse rapide.
+- **Festin agit sur le terrain depuis 1987 ; il forme depuis 2026**, avec l'Académie Festin. Ne jamais écrire « Festin forme depuis 1987 ».
+- **À demander à La Table de Cana Marseille** : ses conditions d'entrée (la ligne « Pour entrer » de sa carte, page L'insertion, est masquée en attendant) et les infos du traiteur (prestations, capacité, délai, livraison). Carte : « Postuler » ou « Plus d'informations ».
+- Nos tables et lieux ouverts au public : sur ordinateur, les photos prennent la hauteur du texte. Catalogue : photo HOTELERIE-035 pour Des Étoiles et des Femmes. Témoignage d'Oumar avec photo.
 - Antennes : le **logo de la structure porteuse** devant chaque ville (`FESTIN_DATA.porteursLogos`, fichiers `images/antennes/logos/`), sur un carré blanc ; un logo **générique** pour les Tables de Cana (sans « Marseille ») ; les 13 antennes ont leur logo (Petit à Petit reçu le 08/10) ; sans logo, un repère neutre.
 
 Voir `copywriting/06-journal-des-changements.md`, section « Encore en `[XX]` » : portraits de l'équipe, témoignages entreprise et financeur, crédits photo, intitulés de Marion Binachon et Fanny Bouvier.

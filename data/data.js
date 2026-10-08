@@ -399,7 +399,7 @@ window.FESTIN_DATA = {
       implicationCtaLabel: "Demander un devis traiteur",
       implicationCtaHref: "#/contact/devis-traiteur",
       temoignages: [
-        { prenom: "Oumar", role: "Ancien salarié en insertion", citation: "J’ai passé deux ans à La Table de Cana. Ça m’a vraiment aidé à savoir m’organiser et à avoir confiance en mes compétences. Aujourd’hui, j’ai un CDI chez Compass à la Tour CMA-CGM.", placeholder: false },
+        { prenom: "Oumar", role: "Ancien salarié en insertion", photo: "images/latable de cana/temoignage-oumar.jpg", objPos: "center 40%", citation: "J’ai passé deux ans à La Table de Cana. Ça m’a vraiment aidé à savoir m’organiser et à avoir confiance en mes compétences. Aujourd’hui, j’ai un CDI chez Compass à la Tour CMA-CGM.", placeholder: false },
         { prenom: "Jean Claude", role: "Ancien commis de cuisine, La Table de Cana Marseille", citation: "J’ai pu prendre confiance en moi grâce aux différentes tâches.", placeholder: false },
         { prenom: "Pierre", role: "RRH insertion, La Table de Cana Marseille", photo: "images/equipe/tdc/pierre.jpg", objPos: "center 25%", citation: "Chaque sortie positive, c’est une victoire pour la personne et pour toute l’équipe. Ça montre que notre accompagnement fonctionne !", placeholder: false },
       ],
@@ -1316,7 +1316,7 @@ window.FESTIN_DATA.lieux = [
 window.FESTIN_DATA.catalogue = [
   { id: "des-etoiles-et-des-femmes", types: ["projet"], public: "insertion", titre: "Des Étoiles et des Femmes", ou: "13 villes en France",
     ligne: "Un dispositif pour les femmes en recherche d'emploi : une formation diplômante, des stages, un suivi jusqu'à l'emploi.",
-    href: "#/projets/des-etoiles-et-des-femmes", img: "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg" },
+    href: "#/projets/des-etoiles-et-des-femmes", img: "images/images-def/HOTELERIE-035.jpg" },
   { id: "les-beaux-mets", types: ["projet", "tables"], public: "insertion", titre: "Les Beaux Mets", ou: "Prison des Baumettes, Marseille",
     ligne: "Un restaurant ouvert au public, dans la prison : réserver une table, privatiser, recruter un ancien commis.",
     href: "#/projets/les-beaux-mets", img: "images/beauxmets-images/LBM_cdutrey_cartehiver23_181223-2616.jpg" },
