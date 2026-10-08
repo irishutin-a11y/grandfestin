@@ -189,15 +189,6 @@ window.FESTIN_DATA = {
           variant: "violet",
           bw: false,
         },
-        // Slot en attente — portrait et témoignage à recueillir
-        {
-          prenom: "Julia Sedefdjian",
-          role: "Marraine nationale, Des Étoiles et des Femmes",
-          citation: "[AJOUTER TÉMOIGNAGE]",
-          photo: "",
-          variant: "deep",
-          placeholder: true,
-        },
       ],
       temoignagesCredit: "Portraits : Des Étoiles et des Femmes",
       presseFilter: ["Des Étoiles et des Femmes", "Etoiles et des Femmes"],
@@ -362,11 +353,11 @@ window.FESTIN_DATA = {
     {
       id: "la-table-de-cana",
       icon: "chef-hat",
-      eyebrow: "Depuis 1993",
+      eyebrow: "Depuis 1992",
       title: "La Table de Cana",
       accent: "Marseille",
       shortTitle: "La Table de Cana Marseille",
-      tagline: "Traiteur et restauration collective en insertion, depuis 1993",
+      tagline: "Traiteur et restauration collective en insertion, depuis 1992",
       subtitle: "Traiteur et restauration collective en insertion à Marseille",
       short: "La Table de Cana Marseille est un traiteur et une cuisine collective. Ses salariés en insertion y apprennent un métier en travaillant. En 2025 : 45 salariés en insertion et 89 % de sorties positives.",
       stats: [
@@ -375,7 +366,7 @@ window.FESTIN_DATA = {
         { value: "400 000", unit: "+", label: "convives servis" },
         { value: "15 000", unit: "+", label: "repas d’aide alimentaire en 2025" },
       ],
-      description: "La Table de Cana Marseille est le premier projet de Festin. Elle naît en 1993. Ce traiteur et cette cuisine collective forment des salariés en insertion à un métier, dans les conditions réelles d’une entreprise de restauration. En 2025, elle obtient le label LUCIE Progress (848 sur 1 000) et renouvelle le label Empl’itude. Elle organise la deuxième édition du Club des Talents, qui réunit ses anciens salariés en insertion. Elle lance le collectif EPICES, un espace de coopération entre acteurs de l’insertion par la cuisine. Elle sert aussi plus de 15 000 repas d’aide alimentaire à des personnes hébergées en hôtel d’urgence à Marseille.",
+      description: "La Table de Cana Marseille est le premier projet de Festin. Elle naît en 1992. Ce traiteur et cette cuisine collective forment des salariés en insertion à un métier, dans les conditions réelles d’une entreprise de restauration. En 2025, elle obtient le label LUCIE Progress (848 sur 1 000) et renouvelle le label Empl’itude. Elle organise la deuxième édition du Club des Talents, qui réunit ses anciens salariés en insertion. Elle lance le collectif EPICES, un espace de coopération entre acteurs de l’insertion par la cuisine. Elle sert aussi plus de 15 000 repas d’aide alimentaire à des personnes hébergées en hôtel d’urgence à Marseille.",
       ctaLabel: "Visiter latabledecana-marseille.com",
       ctaUrl: "https://www.latabledecana-marseille.com",
       quote: {
@@ -392,10 +383,10 @@ window.FESTIN_DATA = {
         "images/latable%20de%20cana/TABLECANA_EVENT_cdutrey_230625-5158.jpg",
         "images/latable%20de%20cana/tabledecana_cdutrey_230124-7705.jpg",
       ],
-      presentationTitle: "Traiteur et restauration collective en insertion, depuis 1993",
+      presentationTitle: "Traiteur et restauration collective en insertion, depuis 1992",
       mediaType: "youtube",
       mediaId: "RUpAD7u0Khs",
-      projetPhrase: "Le premier projet de Festin, depuis 1993. Un traiteur marseillais où des salariés en insertion apprennent la cuisine en travaillant.",
+      projetPhrase: "Le premier projet de Festin, depuis 1992. Un traiteur marseillais où des salariés en insertion apprennent la cuisine en travaillant.",
       projetPoints: [
         "Traiteur professionnel et restauration collective avec des salariés en insertion",
         "Un suivi individuel pour chaque salarié en insertion : formation, coaching emploi, mise en relation avec des employeurs",
@@ -408,11 +399,9 @@ window.FESTIN_DATA = {
       implicationCtaLabel: "Demander un devis traiteur",
       implicationCtaHref: "#/contact/devis-traiteur",
       temoignages: [
-        // Lassana : son parcours sortait d'une carte du parcours (06/10/2026) ; affiché quand sa citation, mot pour mot, sera fournie
-        { prenom: "Lassana", role: "Ancien salarié en insertion, diplômé en 2021, aujourd'hui en CDI dans un grand hôtel marseillais", citation: "[À COMPLÉTER : témoignage de Lassana, mot pour mot]", placeholder: true },
         { prenom: "Oumar", role: "Ancien salarié en insertion", citation: "J’ai passé deux ans à La Table de Cana. Ça m’a vraiment aidé à savoir m’organiser et à avoir confiance en mes compétences. Aujourd’hui, j’ai un CDI chez Compass à la Tour CMA-CGM.", placeholder: false },
         { prenom: "Jean Claude", role: "Ancien commis de cuisine, La Table de Cana Marseille", citation: "J’ai pu prendre confiance en moi grâce aux différentes tâches.", placeholder: false },
-        { prenom: "Pierre", role: "RRH insertion, La Table de Cana Marseille", citation: "Chaque sortie positive, c’est une victoire pour la personne et pour toute l’équipe. Ça montre que notre accompagnement fonctionne !", placeholder: false },
+        { prenom: "Pierre", role: "RRH insertion, La Table de Cana Marseille", photo: "images/equipe/tdc/pierre.jpg", objPos: "center 25%", citation: "Chaque sortie positive, c’est une victoire pour la personne et pour toute l’équipe. Ça montre que notre accompagnement fonctionne !", placeholder: false },
       ],
       presseFilter: ["La Table de Cana", "Table de Cana"],
       // --- Champs page projet dédiée (source : latabledecana-marseille.com/insertion-professionnelle) ---
@@ -956,7 +945,7 @@ window.FESTIN_DATA.impact = {
   projets: [
     { id: "des-etoiles-et-des-femmes", n: "1 200", t: "femmes accompagnées depuis 2015", d: "13 antennes en France. 91 % de réussite aux diplômes en 2025." },
     { id: "les-beaux-mets", n: "119", t: "personnes détenues ont travaillé en brigade depuis 2022", d: "82 % de sorties positives en 2023, à la sortie de détention." },
-    { id: "la-table-de-cana", n: "84 %", t: "de sorties positives en 2024", d: "Traiteur et restauration collective en insertion, premier projet de Festin, créé en 1993." },
+    { id: "la-table-de-cana", n: "84 %", t: "de sorties positives en 2024", d: "Traiteur et restauration collective en insertion, premier projet de Festin, créé en 1992." },
     { id: "restaure", n: "700", t: "signataires du manifeste", d: "35 structures engagées contre les violences en cuisine." },
   ],
   annee2025: {
@@ -1010,7 +999,7 @@ window.FESTIN_DATA.home = {
     imgAlt: "Trois personnes en brigade versent une sauce au chinois, dans une cuisine professionnelle"
   },
   // Ligne de confiance sous le hero : la solidité par les statuts et l'ancienneté
-  trust: ["Association loi 1901", "D'intérêt général, agréée ESUS", "Depuis 1987", "14 territoires", "Cinq projets"],
+  trust: ["Association loi 1901", "D'intérêt général", "Depuis 1987", "14 territoires", "Cinq projets"],
   promesse: {
     title: "Apprendre en brigade,", titleAccent: "jusqu'au contrat.",
     text: "Une stagiaire du dispositif Des Étoiles et des Femmes passe 155 à 490 heures en restaurant, en brigade, avant son examen. Le restaurant qui l'accueille recrute une personne qu'il a vue travailler. Pendant tout le parcours, une équipe l'aide aussi pour le logement, la garde des enfants, les papiers et la recherche de poste.",
@@ -1131,7 +1120,7 @@ Object.assign(window.FESTIN_DATA.home, {
   },
   // Ligne de confiance : les statuts (médias retirés de l'accueil, retours V2)
   confiance: {
-    statuts: ["Groupe associatif à but non lucratif", "D'intérêt général", "Structures agréées ESUS", "Depuis 1987", "14 territoires"],
+    statuts: ["Groupe associatif à but non lucratif", "D'intérêt général", "Depuis 1987", "14 territoires"],
   },
   missions: {
     title: "Nos cinq projets servent", titleAccent: "trois missions.",
@@ -1150,7 +1139,7 @@ Object.assign(window.FESTIN_DATA.home, {
         fait: { n: "83 %", t: "de sorties en emploi ou en formation en 2025", p: "tous projets confondus" },
         projets: [
           { id: "les-beaux-mets", line: "Un restaurant ouvert au public, dans la prison des Baumettes.", img: "images/beauxmets-images/LBM_cdutrey_071122-7264.jpg" },
-          { id: "la-table-de-cana", line: "Traiteur et restauration collective en insertion, depuis 1993.", img: "images/latable de cana/tabledecana_cdutrey_160124-4393.jpg" },
+          { id: "la-table-de-cana", line: "Traiteur et restauration collective en insertion, depuis 1992.", img: "images/latable de cana/tabledecana_cdutrey_160124-4393.jpg" },
         ] },
       { key: "changer", title: "Changer", titleAccent: "les cuisines",
         text: "Prévenir les violences en cuisine et changer les pratiques de management, avec les restaurateurs, les chefs et les associations du secteur.",
@@ -1287,7 +1276,7 @@ window.FESTIN_DATA.presseLogos = ["courrier-international", "france-3-paca", "fr
 // Sadi Carnot n'est pas acquis : toujours au futur, sans action, en dernier.
 window.FESTIN_DATA.lieux = [
   { key: "mourepiane", lieu: "Mourepiane", ville: "Marseille", projet: "la-table-de-cana",
-    text: "La Table de Cana Marseille : traiteur et restauration collective en insertion, depuis 1993.",
+    text: "La Table de Cana Marseille : traiteur et restauration collective en insertion, depuis 1992.",
     img: "images/latable de cana/TABLECANA_EVENT_cdutrey_230625-5158.jpg",
     actions: [{ label: "Demander un devis traiteur", href: "#/contact/devis-traiteur" }, { label: "La page du projet", href: "#/projets/la-table-de-cana" }] },
   { key: "baumettes", lieu: "Prison des Baumettes", ville: "Marseille", projet: "les-beaux-mets",
@@ -1318,7 +1307,7 @@ window.FESTIN_DATA.catalogue = [
     ligne: "Un restaurant ouvert au public, dans la prison : réserver une table, privatiser, recruter un ancien commis.",
     href: "#/projets/les-beaux-mets", img: "images/beauxmets-images/LBM_cdutrey_cartehiver23_181223-2616.jpg" },
   { id: "la-table-de-cana", types: ["projet", "tables"], public: "insertion", titre: "La Table de Cana Marseille", ou: "Mourepiane, Marseille",
-    ligne: "Un traiteur en insertion depuis 1993 : faire appel au traiteur, ou y postuler pour un emploi en insertion.",
+    ligne: "Un traiteur en insertion depuis 1992 : faire appel au traiteur, ou y postuler pour un emploi en insertion.",
     href: "#/projets/la-table-de-cana", img: "images/latable de cana/TABLECANA_EVENT_cdutrey_230625-5011.jpg" },
   { id: "restaure", types: ["projet"], public: "pro", titre: "Le programme Restaure", ou: "En France",
     ligne: "Un programme national, piloté par Festin, pour transformer les pratiques de la restauration : conditions de travail, inclusion et impact écologique.",
@@ -1461,7 +1450,7 @@ window.FESTIN_DATA.projetPages = {
     galerie: ["images/beauxmets-images/lbm-gallery-convives.jpg", "images/beauxmets-images/lbm-gallery-salle.jpg", "images/beauxmets-images/lbm-gallery-service.jpg", "images/beauxmets-images/lbm-gallery-masterclass.jpg", "images/beauxmets-images/lbm-gallery-plat.jpg", "images/beauxmets-images/lbm-gallery-cocktail.jpg", "images/beauxmets-images/lbm-gallery-accueil-ap.jpg"],
   },
   "la-table-de-cana": {
-    kicker: "Depuis 1993 · Marseille",
+    kicker: "Depuis 1992 · Marseille",
     heroImg: "images/latable de cana/tabledecana_cdutrey_160124-4393.jpg", heroAlt: "En cuisine à La Table de Cana Marseille", heroCredit: "Photo : Caroline Dutrey",
     nature: "lieu", orientable: true, heroCta: { label: "Demander un devis traiteur", href: "#/contact/devis-traiteur" },
     table: { title: "Le traiteur", accent: "de vos événements.",
@@ -1483,14 +1472,15 @@ window.FESTIN_DATA.projetPages = {
         { label: "Demander un devis traiteur", href: "#/contact/devis-traiteur" },
       ] },
     bref: { title: "Apprendre la cuisine", accent: "en travaillant.",
-      text: "Né en 1993, c'est le premier projet de Festin : un traiteur et une cuisine collective où des salariés en insertion apprennent un métier, dans les conditions réelles d'une entreprise de restauration." },
+      text: "Né en 1992, c'est le premier projet de Festin : un traiteur et une cuisine collective où des salariés en insertion apprennent un métier, dans les conditions réelles d'une entreprise de restauration. Depuis 2020, elle a aussi distribué plus de 80 000 repas d'aide alimentaire avec les associations marseillaises." },
     video: { youtube: "RUpAD7u0Khs", poster: "images/latable de cana/tabledecana_cdutrey_170124-6293-B-2048x1365.jpg" },
     preuves: [
       "En 2025, La Table de Cana Marseille a employé <b>45 salariés</b> en insertion, avec <b>89 %</b> de sorties positives en 2025.",
       "Elle a servi plus de <b>15 000 repas</b> d'aide alimentaire à des personnes hébergées en hôtel d'urgence.",
       "Au total, plus de <b>400 000 convives</b> ont mangé sa cuisine.",
     ],
-    source: "Source : rapport d'activité Festin 2025.",
+    // 80 000 repas : présentation « Totem » (avril 2026), retenu par l'utilisatrice le 08/10/2026
+    source: "Sources : rapport d'activité Festin 2025 ; Festin, avril 2026 (aide alimentaire depuis 2020).",
     frise: { title: "Le parcours", accent: "d'un salarié.",
       lede: "Un emploi salarié, une formation en cuisine, puis un poste chez un partenaire.",
       steps: [
@@ -1558,7 +1548,7 @@ window.FESTIN_DATA.about = {
     ]},
     { key: "def", label: "Des Étoiles et des Femmes", color: "#C2421C", members: [
       { name: "Mélanie Gambert",   role: "Coordinatrice réseau Des Étoiles et des Femmes", photo: "images/equipe/melanie.jpg" },
-      { name: "Karima Hellou",     role: "Responsable Emploi et Inclusion, Des Étoiles et des Femmes", photo: null },
+      { name: "Bénédicte Solera", role: "Responsable Emploi et Inclusion, Des Étoiles et des Femmes", photo: null },
     ]},
     { key: "academie", label: "Académie Festin", color: "#9A5B0E", members: [
       { name: "Florence Armitano", role: "Responsable du pôle Formation", photo: "images/equipe/florence.jpg" },
@@ -1568,12 +1558,12 @@ window.FESTIN_DATA.about = {
       { name: "Iris Liberty",      role: "Chargée d'animation de communauté, programme Restaure", photo: "images/equipe/iris-liberty.jpg" },
     ]},
     { key: "lbm", label: "Les Beaux Mets", color: "#A3543D", members: [
-      { name: "Camille Lafon",    role: "Direction du restaurant Les Beaux Mets", photo: null, avatar: "images/equipe/bm-lafon.png" },
+      { name: "Camille Lafon",    role: "Direction du restaurant Les Beaux Mets", photo: null },
       { name: "Marion Binachon",  role: "Chargée de commercialisation et de marketing, Les Beaux Mets", photo: "images/equipe/marion.jpg" },
       { name: "Valentin Majan",   role: "Chef de cuisine", photo: "images/beauxmets-images/valentin-majan.jpg" },
-      { name: "Boris Ruel",       role: "Second de cuisine", photo: null, avatar: "images/equipe/bm-ruel.png" },
+      { name: "Boris Ruel",       role: "Second de cuisine", photo: null },
       { name: "Marc Balthazard",  role: "Maître d'hôtel", photo: "images/equipe/marc-balthazard.jpg" },
-      { name: "Nissa Boudhabhay", role: "Conseillère en insertion professionnelle", photo: null },
+      { name: "Laura Sacher",     role: "Conseillère en insertion professionnelle", photo: null },
     ]},
     // La Table de Cana Marseille : équipe relevée sur latabledecana-marseille.com (06/10/2026),
     // prénoms seuls comme sur ce site ; direction : Tom Louis Teboul (retour du 06/10/2026)
@@ -1606,7 +1596,7 @@ window.FESTIN_DATA.about = {
   // les créations de projet (type "projet") et les reconnaissances (type "reco").
   jalons: [
     { year: "1987", type: "projet", title: "Naissance de Festin", desc: "À Marseille, pour l'insertion par la cuisine.", photo: null },
-    { year: "1993", type: "projet", title: "La Table de Cana Marseille", desc: "Le premier projet : un traiteur où des salariés en insertion apprennent le métier.", photo: "images/latable de cana/tabledecana_cdutrey_160124-4393.jpg", href: "#/projets/la-table-de-cana" },
+    { year: "1992", type: "projet", title: "La Table de Cana Marseille", desc: "Le premier projet : un traiteur où des salariés en insertion apprennent le métier.", photo: "images/latable de cana/tabledecana_cdutrey_160124-4393.jpg", href: "#/projets/la-table-de-cana" },
     { year: "2015", type: "projet", title: "Des Étoiles et des Femmes", desc: "Des femmes formées avec des chefs, aujourd'hui dans 13 antennes.", photo: "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg", href: "#/projets/des-etoiles-et-des-femmes" },
     { year: "2019", type: "reco", title: "La France s'engage", desc: "Lauréat, pour le dispositif Des Étoiles et des Femmes." },
     { year: "2020", type: "reco", title: "Plan d'investissement dans les compétences", desc: "Sélection au PIC, ministère du Travail." },
@@ -1724,7 +1714,7 @@ Object.assign(window.FESTIN_DATA.home, {
     title: "Près de quarante ans", titleAccent: "dans les cuisines.",
     lede: "Festin est né dans une cuisine, en 1987. Depuis, chaque projet est né d'un besoin rencontré sur le terrain, aux côtés des chefs et des restaurants.",
     items: [
-      { year: "1993", title: "La Table de Cana Marseille", desc: "Le premier projet : un traiteur où des salariés en insertion apprennent la cuisine en travaillant.", color: "#E8A825", dark: true, photo: "images/latable de cana/tabledecana_cdutrey_160124-4393.jpg", href: "#/projets/la-table-de-cana" },
+      { year: "1992", title: "La Table de Cana Marseille", desc: "Le premier projet : un traiteur où des salariés en insertion apprennent la cuisine en travaillant.", color: "#E8A825", dark: true, photo: "images/latable de cana/tabledecana_cdutrey_160124-4393.jpg", href: "#/projets/la-table-de-cana" },
       { year: "2015", title: "Des Étoiles et des Femmes", desc: "Des femmes se forment à la cuisine avec des chefs. Le dispositif compte aujourd'hui 13 antennes.", color: "#C2421C", dark: false, photo: "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg", href: "#/projets/des-etoiles-et-des-femmes" },
       { year: "2022", title: "Les Beaux Mets", desc: "Un restaurant ouvert au public dans la prison des Baumettes, à Marseille.", color: "#217078", dark: false, photo: "images/beauxmets-images/LBM_cdutrey_071122-7264.jpg", href: "#/projets/les-beaux-mets" },
       { year: "2024", title: "Le programme Restaure", desc: "Transformer les pratiques de la restauration : conditions de travail, inclusion, impact écologique.", color: "#7E4590", dark: false, photo: "images/restaure : formation pro/Lancement_Restaure_Photo.CarolineDutrey (1).jpg", href: "#/projets/restaure" },

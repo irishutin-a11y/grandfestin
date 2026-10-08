@@ -39,7 +39,7 @@ function CeQuOnEst() {
           </Title>
           <p className="ab-body">Festin utilise le levier de la cuisine comme outil d'insertion sociale et professionnelle. Festin imagine, teste, déploie et essaime des projets qui mobilisent le meilleur de la gastronomie française au service de l'égalité des chances.</p>
           <p className="ab-body">Notre développement s'est construit dans la durée, à partir d'un ancrage territorial fort, d'une capacité d'innovation reconnue et d'une articulation concrète entre utilité sociale, activité économique et transformation des pratiques.</p>
-          <p className="ab-body">Tout commence à Marseille en 1987, sous le nom de Départ ; le nom de Festin arrive en 2022. Le premier projet, La Table de Cana Marseille, ouvre en 1993 : un traiteur où des salariés en insertion apprennent la cuisine en travaillant. Cet écosystème s'appuie aujourd'hui sur plusieurs projets structurants.</p>
+          <p className="ab-body">Tout commence à Marseille en 1987, sous le nom de Départ ; le nom de Festin arrive en 2022. Le premier projet, La Table de Cana Marseille, ouvre en 1992 : un traiteur où des salariés en insertion apprennent la cuisine en travaillant. Cet écosystème s'appuie aujourd'hui sur plusieurs projets structurants.</p>
           <window.Preuves lignes={["En 2025, nous avons accompagné <b>441 personnes</b> dans <b>14 territoires</b>."]}
             source="Source : rapport d'activité Festin 2025, tous projets confondus." />
           <a className="lnk ab-lnk" href="#/impact">Tous nos chiffres depuis 2022 <span className="arrow" aria-hidden="true">→</span></a>
@@ -83,7 +83,7 @@ function ProjetSocial() {
           lede="Le restaurant, le traiteur, les formations : toutes nos activités sont des supports d'insertion, menées dans l'intérêt général." />
         <window.Cartes items={[
           { color: 'var(--teal)', title: "Des supports d'insertion", desc: "Chaque activité existe pour former des personnes et les mener jusqu'à l'emploi." },
-          { color: 'var(--gold-ink)', title: 'Au service de la mission sociale', desc: "Toutes nos structures sont agréées ESUS. L'association Festin est actionnaire largement majoritaire de chacune d'elles, ce qui garantit que l'activité économique est pleinement au service de la mission sociale." },
+          { color: 'var(--gold-ink)', title: 'Au service de la mission sociale', desc: "L'association Festin est actionnaire largement majoritaire de chacune d'elles, ce qui garantit que l'activité économique est pleinement au service de la mission sociale." },
           { color: 'var(--coral-ink)', title: "Au service de l'insertion", desc: "Les bénéfices servent à l'insertion des personnes que nous accompagnons." },
         ]} />
       </div>
@@ -283,24 +283,9 @@ function Equipe() {
 
 // ---------- 6. PARTENAIRES — une grille fixe : 7 logos n'ont pas besoin de défiler ----------
 const ABOUT_LOGOS = window.FESTIN_DATA.about.partenaires;
-// Sphère des partenaires : les logos fournis, puis les partenaires cités sur les pages projet (nom seul, sans doublon).
-const SPHERE_PARTENAIRES = (() => {
-  const vus = new Set(ABOUT_LOGOS.map((l) => l.alt.toLowerCase()));
-  const noms = [];
-  const def = window.FESTIN_DATA.about.partenairesDEF || [];
-  [def].concat(window.FESTIN_DATA.projets.map((p) => p.partenaires || [])).forEach((liste) => liste.forEach((n) => {
-    const k = n.toLowerCase().replace(/ group$/, '');
-    if ([...vus].some((v) => v === k || v.startsWith(k + ' ') || k.startsWith(v + ' '))) return;
-    vus.add(k); noms.push({ name: n });
-  }));
-  // logos et noms alternés, pour que les logos se répartissent sur toute la sphère
-  const logos = ABOUT_LOGOS.map((l) => ({ src: src(l.src), alt: l.alt }));
-  const out = [], n = logos.length + noms.length;
-  for (let i = 0, a = 0, b = 0; i < n; i++) {
-    if (a < logos.length && (b >= noms.length || a / logos.length <= b / noms.length)) out.push(logos[a++]); else out.push(noms[b++]);
-  }
-  return out;
-})();
+// Sphère des partenaires : les logos fournis seulement (08/10/2026). Les partenaires sans logo
+// (about.partenairesDEF, projets[].partenaires) restent dans les données, hors affichage, jusqu'à réception des fichiers.
+const SPHERE_PARTENAIRES = ABOUT_LOGOS.map((l) => ({ src: src(l.src), alt: l.alt }));
 // L'édito à gauche, les partenaires à droite (retours du 30/09/2026)
 function EditoPartenaires() {
   return (

@@ -1,57 +1,65 @@
-# Informations manquantes pour la version finale (08/10/2026)
+# Informations manquantes pour la version finale (mis à jour le 08/10/2026)
 
-Relevé fait dans le code (repères `[À COMPLÉTER]`, cadres vides, données à `null`), dans `VISUELS-A-FOURNIR.md`, dans le journal `copywriting/06-journal-des-changements.md` et dans les échanges du 07/10. Formats des visuels : voir `VISUELS-A-FOURNIR.md`.
+Premier relevé le 08/10/2026 au matin, mis à jour avec les réponses de l'utilisatrice le même jour. Formats des visuels : voir `VISUELS-A-FOURNIR.md`.
 
-## 1. Bloquant : un trou se verrait sur le site
+## Fait le 08/10/2026
+- Témoignages de Lassana et de Julia Sedefdjian retirés ; photo de Pierre sur son témoignage (La Table de Cana Marseille).
+- Bénédicte Solera remplace Karima Hellou, Laura Sacher remplace Nissa Boudhabhay ; médaillons des Beaux Mets retirés (cadres uniformes).
+- La Table de Cana Marseille : 1992 partout ; « plus de 80 000 repas d'aide alimentaire depuis 2020 » dans « en bref ».
+- ESUS retiré du site (bandeau de l'accueil, Qui sommes-nous, mentions légales, données structurées).
+- Sphère des partenaires : logos seulement.
+- Mentions légales : adresse de l'hébergeur (à confirmer) et paragraphe « Données personnelles ».
 
-### Textes et chiffres
+## 1. Encore bloquant
 | Page | Endroit | Il manque |
 |---|---|---|
-| Fiche Tournesol | Chiffres et bilan (2 endroits) | L'année de la promotion du taux « 86 % d'insertion un an après » |
-| Projets et formations, « La formation, un moyen » | Bloc « Un secteur qui recrute » | L'année de l'enquête Besoins en main-d'œuvre (France Travail) et la date du relevé « 500+ offres actives à Marseille » |
-| La Table de Cana Marseille, Nos tables | Bloc « Le traiteur » | Types de prestations, nombre de convives possible, délai de commande, zone de livraison |
+| Fiche Tournesol | Chiffres et bilan | L'année de la promotion du taux « 86 % d'insertion un an après » |
+| Projets et formations, « La formation, un moyen » | « Un secteur qui recrute » | L'année de l'enquête France Travail et la date du relevé « 500+ offres » |
+| La Table de Cana Marseille, Nos tables | « Le traiteur » | Types de prestations, nombre de convives, délai de commande, zone de livraison (le site latabledecana-marseille.com n'est pas joignable depuis l'environnement de travail) |
 | L'insertion | Bloc prescripteurs, carte La Table de Cana Marseille | Les conditions d'entrée |
-| La Table de Cana Marseille | Témoignages | La citation de Lassana, mot pour mot (sinon la carte est retirée) |
-| Des Étoiles et des Femmes | Témoignages | La citation de Julia Sedefdjian (sinon la carte est retirée) |
+| Qui sommes-nous | Gouvernance | Photo de Gaëlle de Carmantrand : reçue parmi cinq photos le 08/10, à identifier |
+| Mentions légales | Directeur de la publication | Validation par la direction (en principe le président) |
+| Mentions légales | Hébergeur | Confirmer l'adresse de Vercel Inc. (340 S Lemon Ave #4133, Walnut, CA 91789, relevée sur des sources tierces) |
 
-### Portraits de l'équipe (Qui sommes-nous)
-- Cadre vide : Marie Plé, Matthieu Donsimoni, Karima Hellou, Lucie Gueydon, Nissa Boudhabhay, Tom Louis Teboul.
-- Petit médaillon seulement : Camille Lafon, Boris Ruel. Gouvernance sans photo : Gaëlle de Carmantrand.
+## 2. Portraits de l'équipe (cadres vides pour l'instant)
+Marie Plé, Matthieu Donsimoni (Festin) · Bénédicte Solera (Des Étoiles et des Femmes) · Lucie Gueydon (Académie Festin) · Camille Lafon, Boris Ruel, Laura Sacher (Les Beaux Mets) · Tom Louis Teboul (La Table de Cana Marseille).
 
-### Logos en haute définition (espace presse, à télécharger)
-Festin (couleur, blanc, jaune), Des Étoiles et des Femmes, Les Beaux Mets, La Table de Cana Marseille, le programme Restaure. Les fichiers actuels font environ 150 px.
+## 3. Logos à fournir
+### Structures porteuses des antennes (liste au survol, Des Étoiles et des Femmes)
+| Antenne | Ouverture | Structure porteuse | Logo |
+|---|---|---|---|
+| Marseille | 2015 | Festin | déjà sur le site |
+| Montpellier | 2016 | La Table de Cana | à fournir |
+| Nice | 2017 | Forum Jorge François | à fournir |
+| Bordeaux | 2017 | La Table de Cana | à fournir |
+| Arles | 2018 | Petit à Petit | à fournir |
+| Strasbourg | 2018 | Les Jardins de la Montagne Verte | à fournir |
+| Hauts-de-Seine | 2018 | La Table de Cana | à fournir |
+| Paris | 2019 | La Table de Cana | à fournir |
+| Lyon | 2021 | Weavers | à fournir |
+| Lille | 2021 | À Table Citoyens | à fournir |
+| Seine-Saint-Denis | 2021 | La Table de Cana | à fournir |
+| Toulouse | 2022 | Égalitère et Sororitère | à fournir |
+| Hauts-de-Seine Sud | 2023 | La Table de Cana | à fournir |
 
-### Mentions légales
-- Directeur ou directrice de la publication : le site indique Iris Hutin. Pour une association, c'est en principe le représentant légal (le président). À faire valider par la direction.
-- Adresse postale complète de l'hébergeur (Vercel Inc.).
-- Crédits photo : le nom du ou de la photographe pour chaque photo (seules quelques photos de Caroline Dutrey et du Refugee Food Festival sont créditées).
-- Droits à l'image : accords des personnes photographiées, en particulier les personnes détenues (Les Beaux Mets) et les personnes accompagnées.
-- Données personnelles : une courte mention (le formulaire ouvre la messagerie, le questionnaire d'éligibilité n'envoie rien, pas de mesure d'audience).
+Six antennes sont portées par une Table de Cana : un seul logo commun, ou un logo par ville ?
 
-## 2. À valider : faits contradictoires ou incertains
-- Présentation « Totem » (Sadi Carnot) contre le site : 80 000 repas (La Table de Cana Marseille), « 35 ans » contre 1987, création de La Table de Cana en 1992 contre 1993, « 500 personnes formées » contre 441 personnes accompagnées en 2025, Restaure « mouvement » contre « programme ».
-- Statut ESUS : quelles structures sont agréées (l'association seule, ou aussi les filiales) ?
-- Andrée Rosier (Les Rosiers, Biarritz) figure parmi les chefs alors que l'antenne du Pays Basque a fermé.
-- Accord des 13 chefs pour l'affichage de leur nom et de leur photo.
-- Partenaires de la sphère (Qui sommes-nous) : liste à jour (l'UMIH en fait-elle partie ?) et autorisation d'afficher les logos.
-- Logo de l'Académie Festin : validé ou non.
+### Partenaires sans logo (retirés de la sphère en attendant)
+- Réseau Des Étoiles et des Femmes : Accor Heartist Solidarity, METRO, L'Oréal Fonds pour les femmes, Randstad, Fondation Masalina, Fondation PSA Peugeot Citroën, Telos Impact, Pink Lady, Ministère du Travail, Banque des Territoires.
+- La Table de Cana Marseille : Compass, Sodexo, Accor, Newrest, Le Grand Pin, École de la 2e Chance, MediaPerformances, Culture du Cœur.
+- Tournesol : AFC Groupe, Compass Group, AKTO, Ville de Marseille, Préfecture des Bouches-du-Rhône, Fondation RAJA-Danièle Marcovici.
 
-## 3. Améliore nettement une page
-- Une photo par antenne de Des Étoiles et des Femmes (13), pour la liste au survol : aujourd'hui aucune.
-- Douze photos de chefs pour la sphère (Julia Sedefdjian reçue).
-- Photos Drive annoncées, pas encore reçues : Des Étoiles et des Femmes Marseille, remise de diplômes à Lille, Des Étoiles et des Femmes × Refugee Food Festival Lille, Refugee Food Festival Lille, Julia Sedefdjian (2), Grand Festin des 10 ans de Des Étoiles et des Femmes (3).
-- Plats de la carte actuelle des Beaux Mets ; pièces traiteur de La Table de Cana Marseille.
-- Logos des dix partenaires cités en texte.
-- La nouvelle plaquette formation (PDF).
-- Les originaux des portraits de l'équipe de La Table de Cana Marseille (ceux du site sont tirés de captures d'écran).
-- Le contenu du formulaire de réservation des Beaux Mets (Airtable, bloqué par le réseau) : à copier-coller.
+### Plus tard
+Logos HD des projets pour l'espace presse (en attente, décision du 08/10). Logo de l'Académie Festin : non validé.
 
-## 4. Complément
-- Portraits de Jason, Oumar, Jean Claude et Pierre pour les témoignages, avec accord écrit (sinon les initiales restent).
+## 4. Sphère des chefs (Des Étoiles et des Femmes) : 12 photos
+Carrées, 1200 px au moins, plan poitrine, en tenue de cuisine. Martin Simolka (Le Scribe, Paris) · Valentina Giacobbe (Ginko, Lille) · Armand Arnal (La Chassagnette, Arles) · Jean-François Rouquette (Park Hyatt, Paris) · Andrée Rosier (Les Rosiers, Biarritz) · Thomas Morel (Pavillon des Boulevards, Bordeaux) · Laëtitia Visse (La Femme du Boucher, Marseille) · Jérémy Galvan (Lyon) · Frédéric Jaunault (Meilleur ouvrier de France primeur) · Richard Juste (Le Mahé, Montpellier) · Sylvain Ruffenach (Le Cerf, Strasbourg) · Quentin Testart (Shangri-La, Paris). Julia Sedefdjian : reçue.
 
-## 5. Décisions à prendre avant la mise en ligne
-- **Le site est déjà public** sur www.grandfestin.com et ouvert aux moteurs de recherche, avec les repères `[À COMPLÉTER]` visibles. Soit on bloque l'indexation jusqu'au lancement, soit on masque les repères (`FESTIN_SHOW_PLACEHOLDERS = false`).
-- **Référencement** : les pages ont des adresses en `#/…`, que Google traite comme une seule page (le plan du site n'en déclare que deux). Passer à de vraies adresses (`/insertion`, `/restauration`…) est un chantier technique à décider.
-- **Formulaire de contact** : il ouvre la messagerie de la personne, le site n'envoie rien. Le garder, ou brancher un service d'envoi ?
-- **Adresses** : tout arrive sur contact@ sauf mécénat et partenariats. Faut-il des adresses dédiées (traiteur, privatisation, presse, accessibilité et handicap) ?
-- **Hébergement** : l'offre gratuite de Vercel plafonne à 100 déploiements par jour (atteint le 07/10). Offre payante ou envois regroupés.
+## 5. Complément
+- Portraits de Jason, Oumar et Jean Claude pour les témoignages, avec accord écrit (Pierre : fait).
+- Droits à l'image : accords des personnes photographiées, en particulier aux Beaux Mets. Crédits photo.
+
+## 6. Décisions encore ouvertes
+- Site public et indexé avec des repères `[À COMPLÉTER]` visibles : bloquer l'indexation ou masquer les repères.
+- Adresses en `#/` : vraies adresses pour le référencement, ou non.
+- Adresses mail dédiées : proposition du 08/10 (orientation@, recrutement@, formations@, presse@, accessibilite@).

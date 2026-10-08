@@ -137,7 +137,7 @@ function HomeB() {
 
       {/* 3 · LA FRISE DES PROJETS en premier (carte Trello du 07/10/2026) ; chaque carte mène à sa page */}
       <window.JalonsCouleur id="histoire" jalons={H.jalons.items.map((j) => { const p = D.projets.find((x) => j.href === '#/projets/' + x.id); return { ...j, logo: j.logo || (p && p.logo) || null }; })} title={H.jalons.title} em={H.jalons.titleAccent}
-        lede={H.jalons.lede} word="PROJETS" label="Les projets de Festin, de 1993 à 2026" />
+        lede={H.jalons.lede} word="PROJETS" label="Les projets de Festin, de 1992 à 2026" />
 
       {/* 4 · CE QUE 2025 A DONNÉ (juste après la frise, maquette du 07/10/2026) — les quatre chiffres clés, en couleur, sur fond sombre */}
       <section className="ac-chiffres on-dark" id="chiffres" aria-labelledby="ac-chiffres-t">
