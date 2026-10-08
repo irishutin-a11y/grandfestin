@@ -1645,8 +1645,8 @@ window.FESTIN_DATA.about = {
     { src: "images/partners/intercontinental.png",    alt: "InterContinental Marseille" },
   ],
   // Partenaires du réseau Des Étoiles et des Femmes (dossier Drive « Partenaires », 30/09/2026).
-  // Affichés dans la sphère des partenaires de l'Association ; sans logo tant que les fichiers ne sont pas dans images/partners/.
-  partenairesDEF: ["Accor Heartist Solidarity", "METRO", "L'Oréal Fonds pour les femmes", "Randstad", "Fondation Masalina", "Fondation PSA Peugeot Citroën", "Telos Impact", "Pink Lady", "Ministère du Travail", "Banque des Territoires"],
+  // Affichés dans la sphère seulement quand le logo est dans images/partners/ ; Randstad et L'Oréal retirés (08/10/2026).
+  partenairesDEF: ["Accor Heartist Solidarity", "METRO", "Fondation Masalina", "Fondation PSA Peugeot Citroën", "Telos Impact", "Pink Lady", "Ministère du Travail", "Banque des Territoires"],
   // Logos partenaires disponibles, par nom tel qu'écrit dans projets[].partenaires.
   // Sans logo : carte au nom du partenaire (logo à fournir).
   logosPartenaires: {

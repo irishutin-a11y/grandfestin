@@ -46,7 +46,7 @@ Reçus le 08/10 : Camille Lafon, Lucie Gueydon, Gaëlle de Carmantrand (gouverna
 Reçus et intégrés le 08/10 : À Table Citoyens, Égalitère, Forum Jorge François, Les Jardins de la Montagne Verte, Weavers ; logo générique La Table de Cana (tiré du logo de Marseille, sans le mot « Marseille » : 147 px de large, une version haute définition serait mieux). **Reste : Petit à Petit (Arles).**
 
 ### Partenaires sans logo (retirés de la sphère en attendant)
-- Réseau Des Étoiles et des Femmes : Accor Heartist Solidarity, METRO, L'Oréal Fonds pour les femmes, Randstad, Fondation Masalina, Fondation PSA Peugeot Citroën, Telos Impact, Pink Lady, Ministère du Travail, Banque des Territoires.
+- Réseau Des Étoiles et des Femmes (logos dans le Drive « 2. DEF Réseau », à déposer dans la conversation ; Randstad et L'Oréal écartés le 08/10) : Accor Heartist Solidarity, METRO, Fondation Masalina, Fondation PSA Peugeot Citroën, Telos Impact, Pink Lady, Ministère du Travail, Banque des Territoires.
 - La Table de Cana Marseille : Compass, Sodexo, Accor, Newrest, Le Grand Pin, École de la 2e Chance, MediaPerformances, Culture du Cœur.
 - Tournesol : AFC Groupe, Compass Group, AKTO, Ville de Marseille, Préfecture des Bouches-du-Rhône, Fondation RAJA-Danièle Marcovici.
 
