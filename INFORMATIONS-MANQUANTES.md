@@ -21,7 +21,9 @@ Premier relevé le 08/10/2026 au matin, mis à jour avec les réponses de l'util
 | Mentions légales | Hébergeur | Confirmer l'adresse de Vercel Inc. (340 S Lemon Ave #4133, Walnut, CA 91789, relevée sur des sources tierces) |
 
 ## 2. Portraits de l'équipe (cadres vides pour l'instant)
-Marie Plé, Matthieu Donsimoni (Festin) · Bénédicte Solera (Des Étoiles et des Femmes) · Boris Ruel, Laura Sacher (Les Beaux Mets) · Tom Louis Teboul (La Table de Cana Marseille).
+Marie Plé, Matthieu Donsimoni (Festin) · Bénédicte Solera (Des Étoiles et des Femmes) · Tom Louis Teboul (La Table de Cana Marseille).
+
+Les Beaux Mets : équipe complète depuis la séance photo au restaurant (08/10) : Camille Lafon, Marion Binachon, Boris Ruel, Marc Balthazard, Laura Sacher (`images/equipe/lbm/`).
 
 Reçus le 08/10 : Camille Lafon, Lucie Gueydon, Gaëlle de Carmantrand (gouvernance), nouveaux portraits de Marine Vever et de Marc Balthazard.
 

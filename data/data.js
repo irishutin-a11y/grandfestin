@@ -1572,13 +1572,14 @@ window.FESTIN_DATA.about = {
     { key: "restaure", label: "Restaure", color: "#4F6019", members: [
       { name: "Iris Liberty",      role: "Chargée d'animation de communauté, programme Restaure", photo: "images/equipe/iris-liberty.jpg" },
     ]},
+    // Les Beaux Mets : séance photo de l'équipe au restaurant (08/10/2026), portraits recadrés en 3:4
     { key: "lbm", label: "Les Beaux Mets", color: "#A3543D", members: [
-      { name: "Camille Lafon",    role: "Direction du restaurant Les Beaux Mets", photo: "images/equipe/camille-lafon.jpg" },
-      { name: "Marion Binachon",  role: "Chargée de commercialisation et de marketing, Les Beaux Mets", photo: "images/equipe/marion.jpg" },
+      { name: "Camille Lafon",    role: "Direction du restaurant Les Beaux Mets", photo: "images/equipe/lbm/camille-lafon.jpg" },
+      { name: "Marion Binachon",  role: "Chargée de commercialisation et de marketing, Les Beaux Mets", photo: "images/equipe/lbm/marion-binachon.jpg" },
       { name: "Valentin Majan",   role: "Chef de cuisine", photo: "images/beauxmets-images/valentin-majan.jpg" },
-      { name: "Boris Ruel",       role: "Second de cuisine", photo: null },
-      { name: "Marc Balthazard",  role: "Maître d'hôtel", photo: "images/equipe/marc-balthazard-portrait.jpg" },
-      { name: "Laura Sacher",     role: "Conseillère en insertion professionnelle", photo: null },
+      { name: "Boris Ruel",       role: "Second de cuisine", photo: "images/equipe/lbm/boris-ruel.jpg" },
+      { name: "Marc Balthazard",  role: "Maître d'hôtel", photo: "images/equipe/lbm/marc-balthazard.jpg" },
+      { name: "Laura Sacher",     role: "Conseillère en insertion professionnelle", photo: "images/equipe/lbm/laura-sacher.jpg" },
     ]},
     // La Table de Cana Marseille : équipe relevée sur latabledecana-marseille.com (06/10/2026),
     // prénoms seuls comme sur ce site ; direction : Tom Louis Teboul (retour du 06/10/2026)
