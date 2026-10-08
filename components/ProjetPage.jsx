@@ -175,7 +175,7 @@ function ProjetPage({ id }) {
     <div className={'gpage gprojet gprojet--' + id} ref={root} style={{ '--pc': COULEUR[id] || 'var(--teal)' }} data-screen-label={'Projet — ' + p.shortTitle}>
 
       <window.HeroPage tone={tone} kicker={cfg.kicker} title={p.title} accent={p.accent} proof={p.projetPhrase}
-        img={cfg.heroImg} imgAlt={cfg.heroAlt} logo={p.logo} logoAlt={'Logo ' + p.shortTitle} note={cfg.heroCredit}
+        img={cfg.heroImg} imgAlt={cfg.heroAlt} imgPos={cfg.heroImgPos} logo={p.logo} logoAlt={'Logo ' + p.shortTitle} note={cfg.heroCredit}
         crumb={[{ label: 'Accueil', href: '#/' }, cfg.programmeDe || { label: 'Projets et formations', href: '#/catalogue' }, { label: p.shortTitle }]}>
         <div className="g-herocta">
           <window.GLink l={cfg.heroCta} className={'btnb ' + ({ gold: 'btnb--teal', teal: 'btnb--light' }[tone] || 'btnb--gold')}>{cfg.heroCta.label} <span className="arrow" aria-hidden="true">{cfg.heroCta.external ? '↗' : '→'}</span></window.GLink>
@@ -193,7 +193,7 @@ function ProjetPage({ id }) {
             {cfg.nature === 'formation' && (D.formations || []).some((f) => f.id === id) &&
               <a className="btnb btnb--teal g-bref__fiche g-reveal" href={'#/parcours/' + id}>Le détail de la formation <span className="arrow" aria-hidden="true">→</span></a>}
             <a className="lnk g-bref__site g-reveal" href={p.siteUrl} target="_blank" rel="noopener noreferrer">Le site du projet : {p.siteName} <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (nouvel onglet)</span></a>
-            <window.PresseLigne filtres={p.presseFilter || []} />
+            {/* « Vu dans … Toute la presse » retiré des pages projet (08/10/2026) */}
             {cfg.orientable && <p className="g-src">Vous accompagnez une personne vers l'emploi ? Les conditions d'entrée sont sur la <a href="#/insertion">page Insertion</a>.</p>}
           </div>
           <div className="g-bref__media g-reveal">

@@ -208,6 +208,7 @@ function AccompagnementInsertionPage() {
             {D.orienter.map((o) => {
               const p = D.projets.find((x) => x.id === o.id) || {};
               const c = (D.home.missions.items.flatMap((m) => m.projets).find((x) => x.id === o.id)) || {};
+              const ou = (o.tags || []).find((t) => t[0] === 'Où');
               return (
                 <li className="or-card g-reveal" key={o.id}>
                   <div className="or-card__img">
@@ -217,16 +218,17 @@ function AccompagnementInsertionPage() {
                   <div className="or-card__b">
                     <h3 className="or-card__t">{p.shortTitle}</h3>
                     {/* micro-étiquettes (procédé de la page Pros, RETOURS-AUDIT §3.1) */}
-                    <window.ArTags tags={o.tags} className="or-card__tags" />
+                    <window.ArTags tags={(o.tags || []).filter((t) => t[0] !== 'Où')} className="or-card__tags" />
                     <dl>
                       <div><dt>Le parcours</dt><dd>{o.quoi}</dd></div>
                       {/* sans conditions connues (La Table de Cana Marseille, à demander à La Table de Cana) : pas de ligne (08/10/2026) */}
                       {o.conditions && <div><dt>Pour entrer</dt><dd>{o.conditions}</dd></div>}
+                      {/* le lieu, sorti des micro-étiquettes : une ligne après « Pour entrer » (08/10/2026) */}
+                      {ou && <div><dt>Où</dt><dd>{ou[1]}</dd></div>}
                     </dl>
                     <div className="or-card__cta">
                       {/* La Table de Cana Marseille : on y postule (emploi en insertion, sans diplôme) */}
                       {o.id === 'la-table-de-cana' && <a className="btnb btnb--gold" href="#/contact/se-former">Postuler <span className="arrow" aria-hidden="true">→</span></a>}
-                      {o.id === 'la-table-de-cana' && p.siteUrl && <span className="or-card__ou">ou</span>}
                       {p.siteUrl && <a className="btnb btnb--teal" href={p.siteUrl} target="_blank" rel="noopener noreferrer">Plus d'informations <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (site du projet, nouvel onglet)</span></a>}
                       {/* Tournesol est une formation : sa fiche, pas une page projet (RETOURS-AUDIT, question 4) */}
                       {o.id === 'tournesol'

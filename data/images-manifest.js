@@ -436,5 +436,15 @@ window.FESTIN_IMG = {
 800,
 1333
 ]
+},
+"images-def/def-promotion-groupe.jpg": {
+"avif": [
+800,
+1600
+],
+"w": [
+800,
+1600
+]
 }
 };

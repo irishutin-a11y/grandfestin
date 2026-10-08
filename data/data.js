@@ -220,7 +220,7 @@ window.FESTIN_DATA = {
         { tab: "Pratiquer", title: "Apprendre en brigade",
           text: "Les stages ont lieu dans des restaurants partenaires. Les stagiaires y apprennent le métier en brigade, sur un vrai service.",
           stat: "155 à 490 h", statL: "de stage en restaurant",
-          img: "images/images-def/HOTELERIE-035.jpg" },
+          img: "images/images-def/hero-promo-cuisine.jpg" },
         { tab: "Être accompagnée", title: "Garde d’enfants, logement, transport",
           text: "Ce qui empêche de suivre une formation est traité pendant le parcours : garde d’enfants, logement, transport, cours de français.",
           stat: "1 200+", statL: "femmes accompagnées depuis 2015",
@@ -228,7 +228,7 @@ window.FESTIN_DATA = {
         { tab: "Travailler", title: "Jusqu’à l’emploi",
           text: "Préparation aux entretiens, mise en relation avec les restaurants partenaires et suivi après la formation.",
           stat: "73 %", statL: "de sorties positives en 2025",
-          img: "images/images-def/HOTELERIE-097.jpg" }
+          img: "images/images-def/HOTELERIE-035.jpg" }
       ],
       // Vidéo de présentation du dispositif — bande pleine largeur (poster + lecture au clic)
       video: {
@@ -1370,7 +1370,8 @@ window.FESTIN_DATA.rubriqueDe = function (hash) {
 window.FESTIN_DATA.projetPages = {
   "des-etoiles-et-des-femmes": {
     kicker: "Depuis 2015 · 13 antennes en France",
-    heroImg: "images/images-def/hero-promo-cuisine.jpg", heroAlt: "Une promotion du dispositif Des Étoiles et des Femmes réunie dans une cuisine de formation",
+    // en-tête : photo de groupe d'une promotion (08/10/2026), cadrée en bas pour que le cartouche ne cache pas les visages
+    heroImg: "images/images-def/def-promotion-groupe.jpg", heroImgPos: "50% 100%", heroAlt: "Une promotion du dispositif Des Étoiles et des Femmes, en vestes de cuisine",
     nature: "formation", heroCta: { label: "Plus d'informations", href: "https://www.desetoilesetdesfemmes.org", external: true }, heroLien: { label: "Accueillir une stagiaire", to: "portes" },
     bref: { title: "Former des femmes", accent: "avec des chefs.",
       text: "Des Étoiles et des Femmes forme des femmes à la cuisine avec des chefs et des restaurants partenaires. Chaque promotion prépare un diplôme, fait ses stages en restaurant et bénéficie d'un suivi social jusqu'à l'emploi." },
