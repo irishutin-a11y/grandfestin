@@ -1397,10 +1397,13 @@ window.FESTIN_DATA.projetPages = {
       { tag: "Vous cherchez un métier", title: "Rejoindre une promotion",
         cta: "Plus d'informations", href: "https://www.desetoilesetdesfemmes.org", external: true, img: "images/photo-tabliers-violets.jpg" },
       { tag: "Vous dirigez une cuisine", title: "Accueillir une stagiaire",
-        cta: "Devenir restaurant partenaire", href: "#/restauration", img: "images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00032.jpg" },
+        cta: "Devenir restaurant partenaire", href: "#/contact/recruter", img: "images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00032.jpg" },
     ],
-    soutien: { title: "Devenir", accent: "partenaire",
-      text: "Le parcours est gratuit pour les femmes qui le suivent : les pouvoirs publics et des mécènes financent chaque promotion. Votre don paie des heures de formation, des stages et le suivi social, jusqu'à l'emploi.",
+    // Bloc des chefs (08/10/2026) : le réseau qui rend le dispositif possible ; un seul appel « restaurant partenaire »
+    // sur la page (même libellé et même adresse que la porte « Accueillir une stagiaire »)
+    soutien: { title: "Un réseau de", accent: "restaurants partenaires",
+      text: "Le dispositif repose sur un réseau : dans les 13 antennes, des chefs et des restaurants partenaires forment les femmes et les accueillent en stage. Les pouvoirs publics et des mécènes financent le parcours, gratuit pour celles qui le suivent.",
+      cta: "Devenir restaurant partenaire", href: "#/contact/recruter",
       sphere: true },
     galerie: ["images/images-def/def-remise-cap.jpg", "images/images-def/def-prise-de-parole.jpg", "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg", "images/images-def/chaudbouillon-045.jpg", "images/images-def/chaudbouillon-046.jpg", "images/images-def/HOTELERIE-097.jpg", "images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00022.jpg", "images/images-def/FESTIN-DEF-RPARTENAIRS_namarante_02072024_00032.jpg", "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-40.jpg"],
   },
