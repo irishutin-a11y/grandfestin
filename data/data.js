@@ -987,6 +987,7 @@ window.FESTIN_DATA.porteursLogos = {
   "Weavers": "images/antennes/logos/weavers.png",
   "À Table Citoyens": "images/antennes/logos/a-table-citoyens.png",
   "Égalitère et Sororitère": "images/antennes/logos/egalitere.png",
+  "Petit à Petit": "images/antennes/logos/petit-a-petit.png",
 };
 
 // Bloc de clôture commun à toutes les pages (Sections.jsx, FinDePage)
@@ -1653,10 +1654,26 @@ window.FESTIN_DATA.about = {
     { src: "images/partners/fondation-m6.png",              alt: "Fondation Groupe M6" },
     { src: "images/partners/fondation-carasso.png",         alt: "Fondation Daniel et Nina Carasso" },
     { src: "images/partners/ville-de-marseille.png",        alt: "Ville de Marseille" },
+    // planches de logos partenaires de Festin (08/10/2026), sans L'Oréal ni Randstad
+    { src: "images/partners/metropole-aix-marseille-provence.png", alt: "La Métropole Aix-Marseille-Provence" },
+    { src: "images/partners/departement-bouches-du-rhone.png",     alt: "Département des Bouches-du-Rhône" },
+    { src: "images/partners/prefet-region-paca.png",               alt: "Préfet de la région Provence-Alpes-Côte d'Azur" },
+    { src: "images/partners/ministere-de-la-justice.png",          alt: "Ministère de la Justice" },
+    { src: "images/partners/cipdr.png",                            alt: "Comité interministériel de prévention de la délinquance" },
+    { src: "images/partners/sodexo.png",                           alt: "Sodexo" },
+    { src: "images/partners/umih.png",                             alt: "UMIH, Union des métiers de l'hôtellerie restauration" },
+    { src: "images/partners/media-performances.png",               alt: "Média Performances" },
+    { src: "images/partners/compagnie-fruitiere-foundation.png",   alt: "Compagnie Fruitière Foundation" },
+    { src: "images/partners/fondation-roi-baudouin.png",           alt: "Fondation Roi Baudouin" },
+    { src: "images/partners/fonds-dotation-brichaux-tardy.png",    alt: "Fonds de dotation Brichaux-Tardy" },
+    { src: "images/partners/credit-agricole-alpes-provence.png",   alt: "Crédit Agricole Alpes Provence Capital & Innovation" },
+    { src: "images/partners/groupe-bertrand.png",                  alt: "Groupe Bertrand" },
+    { src: "images/partners/telos-impact.png",                     alt: "Telos Impact" },
+    { src: "images/partners/mieux-manger-pour-tous.png",           alt: "Mieux Manger pour Tous" },
   ],
   // Partenaires du réseau Des Étoiles et des Femmes (dossier Drive « Partenaires », 30/09/2026).
   // Affichés dans la sphère seulement quand le logo est dans images/partners/ ; Randstad et L'Oréal retirés (08/10/2026).
-  partenairesDEF: ["Accor Heartist Solidarity", "METRO", "Fondation Masalina", "Fondation PSA Peugeot Citroën", "Telos Impact", "Pink Lady", "Ministère du Travail", "Banque des Territoires"],
+  partenairesDEF: ["Accor Heartist Solidarity", "METRO", "Fondation Masalina", "Pink Lady", "Ministère du Travail", "Banque des Territoires"],
   // Logos partenaires disponibles, par nom tel qu'écrit dans projets[].partenaires.
   // Sans logo : carte au nom du partenaire (logo à fournir).
   logosPartenaires: {

@@ -43,13 +43,11 @@ Reçus le 08/10 : Camille Lafon, Lucie Gueydon, Gaëlle de Carmantrand (gouverna
 | Toulouse | 2022 | Égalitère et Sororitère | à fournir |
 | Hauts-de-Seine Sud | 2023 | La Table de Cana | à fournir |
 
-Reçus et intégrés le 08/10 : À Table Citoyens, Égalitère, Forum Jorge François, Les Jardins de la Montagne Verte, Weavers ; logo générique La Table de Cana (tiré du logo de Marseille, sans le mot « Marseille » : 147 px de large, une version haute définition serait mieux). **Reste : Petit à Petit (Arles).**
+Reçus et intégrés le 08/10 : À Table Citoyens, Égalitère, Forum Jorge François, Les Jardins de la Montagne Verte, Weavers ; logo générique La Table de Cana (tiré du logo de Marseille, sans le mot « Marseille » : 147 px de large, une version haute définition serait mieux). Petit à Petit (Arles) reçu le 08/10 : les 13 antennes ont leur logo.
 
-### Partenaires sans logo (hors de la sphère en attendant)
-Reçus le 08/10 (planche) et affichés : Accor Heartist Solidarity, Fondation de France, Fonds de dotation METRO, Fondation Carrefour, Fonds de dotation familial Peugeot, Bruneau, Fondation Groupe M6, Fondation Daniel et Nina Carasso, Ville de Marseille. Randstad et L'Oréal écartés.
-- Réseau Des Étoiles et des Femmes (logos dans le Drive « 2. DEF Réseau », à déposer dans la conversation) : Fondation Masalina, Fondation PSA Peugeot Citroën (est-ce le même partenaire que le Fonds de dotation familial Peugeot ?), Telos Impact, Pink Lady, Ministère du Travail, Banque des Territoires.
-- La Table de Cana Marseille : Compass, Sodexo, Newrest, Le Grand Pin, École de la 2e Chance, MediaPerformances, Culture du Cœur (Accor : logo Heartist Solidarity déjà affiché).
-- Tournesol : AFC Groupe, Compass Group, AKTO, Préfecture des Bouches-du-Rhône, Fondation RAJA-Danièle Marcovici.
+### Partenaires
+Sphère de Qui sommes-nous : 32 logos le 08/10 (planches de logos partenaires de Festin, Sodexo, UMIH ; L'Oréal et Randstad écartés). Le Fonds de dotation familial Peugeot est la Fondation PSA Peugeot Citroën.
+Encore sans logo : Fondation Masalina, Pink Lady, Ministère du Travail, Banque des Territoires (réseau Des Étoiles et des Femmes) ; Compass, Newrest, Le Grand Pin, École de la 2e Chance, Culture du Cœur (La Table de Cana Marseille) ; AFC Groupe, AKTO, Fondation RAJA-Danièle Marcovici (Tournesol). À afficher seulement si ce sont encore des partenaires.
 
 ### Plus tard
 Logos HD des projets pour l'espace presse (en attente, décision du 08/10). Logo de l'Académie Festin : non validé.

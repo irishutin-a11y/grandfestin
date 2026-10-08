@@ -296,7 +296,7 @@ function EditoPartenaires() {
         </div>
         <div className="ab-edp__logos">
           <h2 className="ab-logos__t" id="partenaires-t">Ils travaillent avec nous</h2>
-          <window.ImgSphere logos size={480} tileRatio={0.155} radiusRatio={0.42} autoSpeed={0.22} label="Nos partenaires" images={SPHERE_PARTENAIRES} />
+          <window.ImgSphere logos size={480} tileRatio={0.128} radiusRatio={0.43} autoSpeed={0.22} label="Nos partenaires" images={SPHERE_PARTENAIRES} />
         </div>
       </div>
     </section>
