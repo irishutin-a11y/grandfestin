@@ -114,7 +114,8 @@ function BlocChefs({ p, cfg }) {
             <img className="g-marraine__ph" src={julia.photo} alt="" loading="lazy" />
             <p><strong>Julia Sedefdjian</strong><span>Marraine nationale du réseau · Baieta, Paris</span></p>
           </div>
-          <p className="g-chefs__note">Avec elle, {autres.length} chefs forment avec le réseau. Faites tourner la sphère pour les voir.</p>
+          {/* Pas de compte des chefs : chaque antenne a ses chefs partenaires, la sphère n'en montre qu'une partie (08/10/2026) */}
+          <p className="g-chefs__note">Chaque antenne travaille avec ses propres chefs partenaires. La sphère en présente quelques-uns : faites-la tourner.</p>
           <div className="g-actions">
             <a className="btnb btnb--gold" href={D.donation} target="_blank" rel="noopener noreferrer">Faire un don <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (nouvel onglet)</span></a>
             <a className="lnk" href="#/contact/mecenat">Devenir mécène <span className="arrow" aria-hidden="true">→</span></a>

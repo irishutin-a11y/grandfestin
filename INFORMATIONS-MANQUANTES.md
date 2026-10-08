@@ -56,7 +56,7 @@ Logos HD des projets pour l'espace presse (en attente, décision du 08/10). Logo
 
 ## 4. Sphère des chefs (Des Étoiles et des Femmes)
 Fait le 08/10 : 12 portraits tirés de la planche des chefs du réseau (`images/chefs/`), dont deux chefs ajoutés, Diego Delbecq (Le Rozo, Lille) et Nicolas Garbay (Hôtel du Palais, La Rotonde, Biarritz). Ce sont des recadrages d'une capture d'écran : nets dans la sphère, mous en grand. Des originaux (carrés, 800 px au moins) seraient mieux.
-Martin Simolka et Quentin Testart, absents de la planche, retirés du site (08/10). La sphère compte 13 chefs, tous avec un portrait.
+Martin Simolka et Quentin Testart, absents de la planche, retirés du site (08/10). La sphère montre 13 chefs, tous avec un portrait : une partie seulement des chefs du réseau (chaque antenne a les siens), donc aucun chiffre affiché.
 
 ## 5. Complément
 - Portraits de Jason et Jean Claude pour les témoignages, avec accord écrit (Pierre et Oumar : faits).
