@@ -52,8 +52,9 @@ Encore sans logo : Fondation Masalina, Pink Lady, Ministère du Travail, Banque 
 ### Plus tard
 Logos HD des projets pour l'espace presse (en attente, décision du 08/10). Logo de l'Académie Festin : non validé.
 
-## 4. Sphère des chefs (Des Étoiles et des Femmes) : 12 photos
-Carrées, 1200 px au moins, plan poitrine, en tenue de cuisine. Martin Simolka (Le Scribe, Paris) · Valentina Giacobbe (Ginko, Lille) · Armand Arnal (La Chassagnette, Arles) · Jean-François Rouquette (Park Hyatt, Paris) · Andrée Rosier (Les Rosiers, Biarritz) · Thomas Morel (Pavillon des Boulevards, Bordeaux) · Laëtitia Visse (La Femme du Boucher, Marseille) · Jérémy Galvan (Lyon) · Frédéric Jaunault (Meilleur ouvrier de France primeur) · Richard Juste (Le Mahé, Montpellier) · Sylvain Ruffenach (Le Cerf, Strasbourg) · Quentin Testart (Shangri-La, Paris). Julia Sedefdjian : reçue.
+## 4. Sphère des chefs (Des Étoiles et des Femmes)
+Fait le 08/10 : 12 portraits tirés de la planche des chefs du réseau (`images/chefs/`), dont deux chefs ajoutés, Diego Delbecq (Le Rozo, Lille) et Nicolas Garbay (Hôtel du Palais, La Rotonde, Biarritz). Ce sont des recadrages d'une capture d'écran : nets dans la sphère, mous en grand. Des originaux (carrés, 800 px au moins) seraient mieux.
+À trancher : Martin Simolka (Le Scribe, Paris) et Quentin Testart (Shangri-La, Paris) ne sont pas sur la planche. Ils restent dans la sphère avec leurs initiales ; s'ils ne font plus partie du réseau, les retirer (le compteur passe de 15 à 13 chefs).
 
 ## 5. Complément
 - Portraits de Jason et Jean Claude pour les témoignages, avec accord écrit (Pierre et Oumar : faits).

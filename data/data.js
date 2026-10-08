@@ -1683,17 +1683,21 @@ window.FESTIN_DATA.about = {
   },
   // Réseau de chefs (deck financeurs) — accord confirmé par l'association
   chefs: [
+    // Portraits tirés de la planche des chefs du réseau (08/10/2026). Martin Simolka et Quentin Testart
+    // n'y figurent pas : pas de photo (la sphère affiche leurs initiales), à confirmer.
+    { name: "Diego Delbecq",        place: "Le Rozo, Lille",                    photo: "images/chefs/diego-delbecq.jpg" },
+    { name: "Andrée Rosier",        place: "Les Rosiers, Biarritz",             photo: "images/chefs/andree-rosier.jpg" },
+    { name: "Frédéric Jaunault",    place: "Meilleur ouvrier de France primeur", photo: "images/chefs/frederic-jaunault.jpg" },
+    { name: "Richard Juste",        place: "Le Mahé, Montpellier",              photo: "images/chefs/richard-juste.jpg" },
+    { name: "Valentina Giacobbe",   place: "Ginko, Lille",                      photo: "images/chefs/valentina-giacobbe.jpg" },
+    { name: "Thomas Morel",         place: "Pavillon des Boulevards, Bordeaux", photo: "images/chefs/thomas-morel.jpg" },
+    { name: "Sylvain Ruffenach",    place: "Le Cerf, Strasbourg",               photo: "images/chefs/sylvain-ruffenach.jpg" },
+    { name: "Nicolas Garbay",       place: "Hôtel du Palais, La Rotonde, Biarritz", photo: "images/chefs/nicolas-garbay.jpg" },
+    { name: "Armand Arnal",         place: "La Chassagnette, Arles",            photo: "images/chefs/armand-arnal.jpg" },
+    { name: "Laëtitia Visse",       place: "La Femme du Boucher, Marseille",    photo: "images/chefs/laetitia-visse.jpg" },
+    { name: "Jean-François Rouquette", place: "Park Hyatt, Paris",              photo: "images/chefs/jean-francois-rouquette.jpg" },
+    { name: "Jérémy Galvan",        place: "Lyon",                              photo: "images/chefs/jeremy-galvan.jpg" },
     { name: "Martin Simolka",       place: "Le Scribe, Paris" },
-    { name: "Valentina Giacobbe",   place: "Ginko, Lille" },
-    { name: "Armand Arnal",         place: "La Chassagnette, Arles" },
-    { name: "Jean-François Rouquette", place: "Park Hyatt, Paris" },
-    { name: "Andrée Rosier",        place: "Les Rosiers, Biarritz" },
-    { name: "Thomas Morel",         place: "Pavillon des Boulevards, Bordeaux" },
-    { name: "Laëtitia Visse",       place: "La Femme du Boucher, Marseille" },
-    { name: "Jérémy Galvan",        place: "Lyon" },
-    { name: "Frédéric Jaunault",    place: "Meilleur ouvrier de France primeur" },
-    { name: "Richard Juste",        place: "Le Mahé, Montpellier" },
-    { name: "Sylvain Ruffenach",    place: "Le Cerf, Strasbourg" },
     { name: "Quentin Testart",      place: "Shangri-La, Paris" },
   ],
 };
