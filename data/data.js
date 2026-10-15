@@ -949,7 +949,7 @@ window.FESTIN_DATA.espacePresse = {
     { f: "tdc", src: "images/latable de cana/TABLECANA_EVENT_cdutrey_230625-5158.jpg", l: "Service traiteur lors d'un événement", c: "Caroline Dutrey" },
     { f: "form", src: "images/restaure : formation pro/FESTIN_TOAST_12 FEVRIER_FEED-25.jpg", l: "Un Toast de Restaure", c: "© BUREAU APO" },
     { f: "form", src: "images/restaure : formation pro/toast-affiche-restaure.jpg", l: "Un Toast de Restaure" },
-    { f: "form", src: "images/restaure : formation pro/IMG_2950.JPG", l: "Une rencontre de Restaure" },
+    { f: "form", src: "images/restaure : formation pro/IMG_2950.JPG", l: "Formation « Management juste & inclusif », Restaure" }, // légende corrigée par Festin le 15/10/2026
     { f: "form", src: "images/tournesol:formation/festin_tournesol_cdutrey_0124-3645.jpg", l: "Formation Tournesol, Marseille", c: "Caroline Dutrey" },
   ],
   // Lien Drive des photos en haute définition : à renseigner (le bouton reste désactivé tant qu'il est vide)
