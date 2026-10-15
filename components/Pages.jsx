@@ -19,23 +19,6 @@ function HomePage() {
   );
 }
 
-// « Festin en quelques mots » : le texte de présentation à reprendre, avec un bouton pour le copier
-function PresseResume({ texte }) {
-  const [ok, setOk] = React.useState(false);
-  const copier = () => {
-    const fin = () => { setOk(true); setTimeout(() => setOk(false), 2500); };
-    if (navigator.clipboard) navigator.clipboard.writeText(texte).then(fin, fin); else fin();
-  };
-  return (
-    <div className="apkit__resume">
-      <h3>Festin en quelques mots</h3>
-      <p>{texte}</p>
-      <button type="button" className="lnk apkit__copy" onClick={copier}>{ok ? 'Texte copié' : 'Copier le texte'}</button>
-      <span className="sr-only" aria-live="polite">{ok ? 'Texte copié' : ''}</span>
-    </div>
-  );
-}
-
 function FormationCardLink({ f, wide, noPrice }) {
   return (
     <a className={"formation-card" + (wide ? " wide" : "")} href={(f.cat === 'Professionnels' ? '#/formations/' : '#/parcours/') + f.id}>
@@ -619,7 +602,10 @@ function fmtDatePresse(iso) {
 function ActualitesPage() {
   const D = window.FESTIN_DATA;
   const allPresse = (D.presse || []).slice().sort((a, b) => new Date(b.date) - new Date(a.date));
-  const dispositifs = ['Tous', ...Array.from(new Set(allPresse.map(a => a.dispositif).filter(Boolean)))];
+  // filtre « Festin » en premier (15/10/2026), puis les projets
+  const ORDRE = ['Festin', 'Des Étoiles et des Femmes', 'Les Beaux Mets', 'La Table de Cana Marseille', 'Restaure'];
+  const dispositifs = ['Tous', ...Array.from(new Set(allPresse.map(a => a.dispositif).filter(Boolean)))
+    .sort((x, y) => (ORDRE.indexOf(x) + 1 || 99) - (ORDRE.indexOf(y) + 1 || 99))];
   const [filtre, setFiltre] = React.useState('Tous');
   const filtered = filtre === 'Tous' ? allPresse : allPresse.filter(a => a.dispositif === filtre);
   const PAS = 8;
@@ -639,48 +625,22 @@ function ActualitesPage() {
       <window.HeroPage tone="deep" kicker="Presse et actualités" title="Festin" accent="dans la presse."
         img="images/restaure : formation pro/toast-affiche-restaure.jpg" imgAlt="L'affiche de la rencontre Toast du programme Restaure, à côté de la bannière Restaure" imgPos="50% 12%"
         crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Presse et actualités' }]}>
-        <div className="g-herocta"><window.GLink l={{ to: 'espace-presse' }} className="btnb btnb--gold">Espace presse <span className="arrow" aria-hidden="true">↓</span></window.GLink></div>
+        <div className="g-herocta"><window.GLink l={{ to: 'actu-articles' }} className="btnb btnb--gold">Lire les articles <span className="arrow" aria-hidden="true">↓</span></window.GLink></div>
       </window.HeroPage>
 
-      {/* temps forts retirés (RETOURS-V3, question 5 : trop de mises à jour) ; l'espace presse passe en tête */}
-
-      {/* Espace presse : famille or pâle (plus d'aplat sombre dans le corps de page) */}
-      <section className="isec isec--gold apkit-sec" id="espace-presse" aria-labelledby="actu-kit">
-        <div className="wrap apkit">
+      {/* Renvoi vers l'espace presse (15/10/2026) : le kit (textes, chiffres, photos, vidéos, logos) a sa page */}
+      <section className="isec isec--gold aprenvoi" aria-labelledby="actu-renvoi">
+        <div className="wrap aprenvoi__in">
           <div>
-            <h2 className="isec__h" id="actu-kit">Espace <em>presse</em></h2>
-            {D.presseResume && <PresseResume texte={D.presseResume} />}
-            <p className="isec__lede">Demandes d'interview, visuels, chiffres : écrivez à <a href={'mailto:' + (D.emails || {}).presse}>{(D.emails || {}).presse}</a>. Retrouvez nos rapports d'activité sur la <a href="#/impact">page Impact</a>.</p>
-            <div className="apkit__logos">
-              <a className="btnb btnb--teal" href="images/logo-festin-teal-sb.png" download>Logo Festin, couleur</a>
-              <a className="lnk" href="images/logo-festin-jaune-sb.png" download>Logo Festin, jaune</a>
-            </div>
-            {/* logos des projets (retours V2 §10) ; l'Académie n'a pas de logo validé */}
-            <h3 className="apkit__h">Les logos des projets</h3>
-            <ul className="apkit__projets">
-              {D.projets.filter((p) => p.logo && p.id !== 'tournesol').map((p) => (
-                <li key={p.id}><a href={decodeURI(p.logo)} download>
-                  <span className="apkit__pl"><img src={p.logo} alt="" loading="lazy" /></span>
-                  <span>{p.shortTitle}</span></a></li>
-              ))}
-            </ul>
+            <h2 className="isec__h" id="actu-renvoi">Journaliste, partenaire, <em>équipe com ?</em></h2>
+            <p className="isec__lede">Textes, chiffres, photos, vidéos et logos de Festin, prêts à reprendre.</p>
           </div>
-          <div className="apkit__facts">
-            <h3>Chiffres à reprendre</h3>
-            <ul>
-              <li><b>{S[0].value}</b> personnes accompagnées en 2025</li>
-              <li><b>{S[1].value}&nbsp;%</b> de sorties en emploi ou en formation en 2025, tous dispositifs</li>
-              <li><b>{S[2].value}</b> territoires d'intervention</li>
-              <li><b>1&nbsp;200</b> femmes accompagnées par Des Étoiles et des Femmes depuis 2015</li>
-              <li><b>1987</b> : création de Festin</li>
-            </ul>
-            <p>Source : rapports d'activité Festin. Merci de citer l'année.</p>
-          </div>
+          <a className="btnb btnb--teal" href="#/espace-presse">Accéder à l'espace presse <span className="arrow" aria-hidden="true">→</span></a>
         </div>
       </section>
 
       {/* Presse : liste filtrable */}
-      <section className="isec isec--white" aria-labelledby="actu-presse">
+      <section className="isec isec--white" id="actu-articles" aria-labelledby="actu-presse">
         <div className="wrap">
           <h2 className="isec__h" id="actu-presse">Dans <em>la presse</em></h2>
           <div className="apfilters" role="group" aria-label="Filtrer par projet">
@@ -705,6 +665,7 @@ function ActualitesPage() {
               Afficher {Math.min(PAS, filtered.length - vus)} articles de plus <span className="apmore__n">({filtered.length - vus} restants)</span>
             </button>
           )}
+          <p className="aprenvoi__rappel">Textes, chiffres, photos, vidéos et logos : <a href="#/espace-presse">l'espace presse et communication</a>.</p>
         </div>
       </section>
 

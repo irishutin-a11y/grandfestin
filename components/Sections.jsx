@@ -203,6 +203,7 @@ function Footer() {
                 <ul>
                   {r.links.filter((l) => l.href !== r.href).map((l) => <li key={l.label}>{l.avenir ? <span className="footer__avenir">{l.label} (à venir)</span> : <a href={l.href}>{l.label}</a>}</li>)}
                   {r.key === 'festin' && <>
+                    <li><a href="#/espace-presse">Espace presse et communication</a></li>
                     <li><a href="#/contact/mecenat">Mécénat et partenariats</a></li>
                   </>}
                 </ul>

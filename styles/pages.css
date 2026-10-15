@@ -387,3 +387,11 @@
 .imp-projets{grid-template-columns:repeat(4,minmax(0,1fr))}
 @media(max-width:1199px){.imp-projets{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){.imp-projets{grid-template-columns:1fr}}
+
+/* Actualités : renvoi vers l'espace presse (15/10/2026) */
+.aprenvoi{padding:var(--sp-8) 0}
+.aprenvoi__in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--sp-5) var(--sp-8)}
+.aprenvoi .isec__h{max-width:none}
+.aprenvoi .isec__lede{margin-top:var(--sp-3)}
+.aprenvoi__rappel{margin:var(--sp-7) 0 0;font-size:var(--fs-small);color:var(--ink-mid)}
+.aprenvoi__rappel a{color:var(--teal-dark);font-weight:700;text-decoration:underline;text-underline-offset:3px}

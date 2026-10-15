@@ -434,5 +434,45 @@ window.FESTIN_IMG = {
 "w": [
 800
 ]
+},
+"images-def/def-julia-sedefdjian-atelier.jpg": {
+"avif": [
+800,
+1600
+],
+"w": [
+800,
+1600
+]
+},
+"images-def/def-lille-portrait.jpg": {
+"avif": [
+800,
+1600
+],
+"w": [
+800,
+1600
+]
+},
+"images-def/def-lille-transmission-chef.jpg": {
+"avif": [
+800,
+1600
+],
+"w": [
+800,
+1600
+]
+},
+"images-def/grand-festin-2025-nuit-vieux-port.jpg": {
+"avif": [
+800,
+1600
+],
+"w": [
+800,
+1600
+]
 }
 };

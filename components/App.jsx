@@ -25,6 +25,7 @@ function parseRoute(hash) {
   if (parts[0] === 'accompagnement' && parts[1] === 'insertion') return { name: 'accomp-insertion' };
   if (parts[0] === 'accompagnement' && parts[1] === 'professionnels') return { name: 'accomp-pros' };
   if (parts[0] === 'actualites' || parts[0] === 'presse') return { name: 'actualites' };
+  if (parts[0] === 'espace-presse') return { name: 'espace-presse' };
   if (parts[0] === 'impact') return { name: 'impact', ancre: parts[1] === 'soutenir' ? 's-engager' : undefined };
   if (parts[0] === 'about') return { name: 'about' };
   if (parts[0] === 'contact') return { name: 'contact' };
@@ -86,6 +87,7 @@ function App() {
       home: "Festin : mettre la restauration au service de l'égalité des chances",
       about: 'Qui sommes-nous | ' + base, catalogue: 'Projets et formations | ' + base, tables: 'Nos tables : Les Beaux Mets, La Table de Cana Marseille | ' + base, formation: 'Parcours et formations | ' + base,
       impact: 'Compter ce qui compte : notre impact | ' + base, actualites: 'Presse et actualités | ' + base,
+      'espace-presse': 'Espace presse et communication | ' + base,
       contact: 'Contact | ' + base, 'accomp-insertion': "L'insertion : nos parcours | " + base,
       'accomp-pros': 'Employeur : recruter et former | ' + base,
     };
@@ -107,6 +109,7 @@ function App() {
     case 'accomp-insertion':  page = <AccompagnementInsertionPage />; break;
     case 'accomp-pros':       page = <AccompagnementProsPage />; break;
     case 'actualites':         page = <ActualitesPage />; break;
+    case 'espace-presse':     page = <EspacePressePage />; break;
     case 'impact':            page = <ImpactPage />; break;
     case 'about':             page = <AboutPage />; break;
     case 'contact':           page = <ContactPage key={hash} />; break;

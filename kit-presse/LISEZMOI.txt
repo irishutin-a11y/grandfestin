@@ -1,14 +1,16 @@
 KIT PRESSE FESTIN (relevé du 15 octobre 2026)
 
-photos/       12 photos, copies exactes des fichiers disponibles, sans recompression.
+photos/       Retiré du dépôt le 15/10/2026 (stockage Vercel) : les 12 photos sont dans
+              le zip envoyé le 15/10 ; la photothèque est en ligne sur la page
+              « Espace presse et communication » (#/espace-presse).
 credits.csv   Fichier, projet, légende, photographe, droits connus, note
               (séparateur « ; », s'ouvre dans Excel ou Google Sheets).
 logos/        Logos Festin disponibles en haute définition.
 videos.md     Vidéos citées sur le site, avec leur état.
 
 AVANT DIFFUSION
-- Droits à l'image : non confirmés pour l'ensemble des photos. Les crédits
-  manquants sont laissés vides dans credits.csv.
+- Crédits confirmés par Festin le 15/10/2026 (voir credits.csv). Les crédits
+  inconnus restent vides.
 - Quatre photos ne sont que des versions recompressées pour le site :
   def-promotion-groupe, grand-festin-2025-brigades et les deux photos des
   Beaux Mets. Les originaux des Beaux Mets sont sur le Drive ; ceux des deux

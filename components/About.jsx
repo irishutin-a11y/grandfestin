@@ -37,7 +37,10 @@ function CeQuOnEst() {
           <Title em="de l'égalité des chances" after={null}>
             La cuisine au service
           </Title>
-          <p className="ab-body">Festin utilise le levier de la cuisine comme outil d'insertion sociale et professionnelle. Festin imagine, teste, déploie et essaime des projets qui mobilisent le meilleur de la gastronomie française au service de l'égalité des chances.</p>
+          {/* texte de présentation validé (espace presse, 15/10/2026) */}
+          <p className="ab-body"><b>Notre mission :</b> mettre la restauration au service de l'insertion sociale et professionnelle des personnes éloignées de l'emploi.</p>
+          <p className="ab-body">Festin construit et anime des alliances d'acteurs publics et privés afin de créer des parcours d'insertion sur mesure dans la gastronomie. L'association construit des solutions innovantes, gère leur déploiement opérationnel sur le territoire marseillais, puis organise leur essaimage à travers la France.</p>
+          <p className="ab-body"><b>Notre conviction :</b> le goût d'avancer ensemble. Fierté, exigence, créativité : la cuisine est un formidable support pour une insertion efficace et un épanouissement personnel.</p>
           <p className="ab-body">Notre développement s'est construit dans la durée, à partir d'un ancrage territorial fort, d'une capacité d'innovation reconnue et d'une articulation concrète entre utilité sociale, activité économique et transformation des pratiques.</p>
           <p className="ab-body">Tout commence à Marseille en 1987, sous le nom de Départ ; le nom de Festin arrive en 2022. Le premier projet, La Table de Cana Marseille, ouvre en 1992 : un traiteur où des salariés en insertion apprennent la cuisine en travaillant. Cet écosystème s'appuie aujourd'hui sur plusieurs projets structurants.</p>
           <window.Preuves lignes={["En 2025, nous avons accompagné <b>441 personnes</b> dans <b>14 territoires</b>."]}
