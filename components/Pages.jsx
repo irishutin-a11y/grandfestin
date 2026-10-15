@@ -599,6 +599,19 @@ function fmtDatePresse(iso) {
   return d.toLocaleDateString('fr-FR', { month: 'short', year: 'numeric' });
 }
 
+// Une ligne d'article : Presse et actualités, espace presse (15/10/2026)
+function ArticlePresse({ a }) {
+  const D = window.FESTIN_DATA;
+  return (
+    <a className="apitem" href={a.href} target="_blank" rel="noopener noreferrer">
+      <span className="apitem__meta"><span className="apitem__logo">{(() => { const m = a.source.split(' : ')[0]; const sl = m.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''); return (D.presseLogos || []).includes(sl) ? <img src={'images/presse/' + sl + '.png'} alt={m} loading="lazy" /> : <b>{m}</b>; })()}</span>{a.source.includes(' : ') && <span className="apitem__src">{a.source.split(' : ')[1]}</span>}{a.date && <span>{fmtDatePresse(a.date)}</span>}{a.type && <span>{a.type}</span>}</span>
+      <span className="apitem__t">{a.title}<span className="sr-only"> (s'ouvre dans un nouvel onglet)</span></span>
+      <span className="apitem__proj">{a.dispositif} <span className="arrow" aria-hidden="true">↗</span></span>
+    </a>
+  );
+}
+window.ArticlePresse = ArticlePresse;
+
 function ActualitesPage() {
   const D = window.FESTIN_DATA;
   const allPresse = (D.presse || []).slice().sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -642,7 +655,8 @@ function ActualitesPage() {
       {/* Presse : liste filtrable */}
       <section className="isec isec--white" id="actu-articles" aria-labelledby="actu-presse">
         <div className="wrap">
-          <h2 className="isec__h" id="actu-presse">Dans <em>la presse</em></h2>
+          <h2 className="isec__h" id="actu-presse">Articles <em>et reportages</em></h2>
+          <p className="isec__lede">{allPresse.length} articles et reportages sur Festin et ses projets, du plus récent au plus ancien.</p>
           <div className="apfilters" role="group" aria-label="Filtrer par projet">
             {dispositifs.map(d => (
               <button key={d} type="button" className={'apfilter' + (filtre === d ? ' is-on' : '')} aria-pressed={filtre === d} onClick={() => setFiltre(d)}>{d}</button>
@@ -651,13 +665,7 @@ function ActualitesPage() {
           <p className="sr-only" aria-live="polite">{filtered.length} article{filtered.length > 1 ? 's' : ''}</p>
           <ul className="aplist" ref={listRef}>
             {filtered.slice(0, vus).map((a, i) => (
-              <li key={a.href || i}>
-                <a className="apitem" href={a.href} target="_blank" rel="noopener noreferrer">
-                  <span className="apitem__meta"><span className="apitem__logo">{(() => { const m = a.source.split(' : ')[0]; const sl = m.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''); return (D.presseLogos || []).includes(sl) ? <img src={'images/presse/' + sl + '.png'} alt={m} loading="lazy" /> : <b>{m}</b>; })()}</span>{a.source.includes(' : ') && <span className="apitem__src">{a.source.split(' : ')[1]}</span>}{a.date && <span>{fmtDatePresse(a.date)}</span>}{a.type && <span>{a.type}</span>}</span>
-                  <span className="apitem__t">{a.title}<span className="sr-only"> (s'ouvre dans un nouvel onglet)</span></span>
-                  <span className="apitem__proj">{a.dispositif} <span className="arrow" aria-hidden="true">↗</span></span>
-                </a>
-              </li>
+              <li key={a.href || i}><ArticlePresse a={a} /></li>
             ))}
           </ul>
           {filtered.length > vus && (

@@ -1359,7 +1359,7 @@ window.FESTIN_DATA.arbo = [
       { ic: "clock", c: "#B8B8B8", label: "Sadi Carnot", d: "À venir, près du Vieux-Port", avenir: true },
     ] },
   { key: "festin", label: "Festin", href: "#/about",
-    match: ["#/about", "#/impact", "#/actualites", "#/presse", "#/contact"],
+    match: ["#/about", "#/impact", "#/actualites", "#/presse", "#/espace-presse", "#/contact"],
     links: [
       { ic: "heart-handshake", c: "#C099C9", label: "Qui sommes-nous", d: "Récit, gouvernance, équipe", href: "#/about" },
       { ic: "chart-column", c: "#C099C9", label: "Impact", d: "Compter ce qui compte", href: "#/impact" },

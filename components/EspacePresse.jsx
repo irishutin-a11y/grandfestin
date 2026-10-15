@@ -15,9 +15,17 @@ function versionWeb(src) {
 
 function Copier({ texte }) {
   const [ok, setOk] = React.useState(false);
+  const repli = () => {
+    const t = document.createElement('textarea');
+    t.value = texte; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
+    document.body.appendChild(t); t.select();
+    try { document.execCommand('copy'); } catch (e) { /* rien : le texte reste sélectionnable à l'écran */ }
+    t.remove();
+  };
   const copier = () => {
     const fin = () => { setOk(true); setTimeout(() => setOk(false), 2200); };
-    if (navigator.clipboard) navigator.clipboard.writeText(texte).then(fin, fin); else fin();
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(texte).then(fin, () => { repli(); fin(); });
+    else { repli(); fin(); }
   };
   return (
     <>
@@ -38,15 +46,40 @@ function Titre({ id, t, em, children }) {
 
 function EspacePressePage() {
   const D = window.FESTIN_DATA, E = D.espacePresse, mail = (D.emails || {}).presse || 'contact@grandfestin.com';
+  // trois articles récents, un par projet (le plus récent de chacun)
+  const derniers = (D.presse || []).slice().sort((x, y) => new Date(y.date) - new Date(x.date))
+    .filter((a, i, l) => l.findIndex(b => b.dispositif === a.dispositif) === i).slice(0, 3);
   const [filtre, setFiltre] = React.useState('tous');
-  const [zoom, setZoom] = React.useState(null);
+  const [zi, setZi] = React.useState(-1);
+  const photos = E.photos.filter((p) => filtre === 'tous' || p.f === filtre);
+  const zoom = zi >= 0 ? photos[zi] : null;
+  const declencheur = React.useRef(null);
+  const fermerRef = React.useRef(null);
+  const ouvrir = (i, e) => { declencheur.current = e.currentTarget; setZi(i); };
+  const fermer = () => { setZi(-1); const d = declencheur.current; if (d) setTimeout(() => d.focus(), 0); };
+  const pas = (d) => setZi((i) => (i + d + photos.length) % photos.length);
   React.useEffect(() => {
     if (!zoom) return;
-    const k = (e) => { if (e.key === 'Escape') setZoom(null); };
+    if (fermerRef.current) fermerRef.current.focus();
+    const k = (e) => {
+      if (e.key === 'Escape') fermer();
+      else if (e.key === 'ArrowRight') pas(1);
+      else if (e.key === 'ArrowLeft') pas(-1);
+      else if (e.key === 'Tab') {
+        // le focus reste dans la fenêtre
+        const f = [...document.querySelectorAll('.ep-lb button, .ep-lb a')];
+        if (!f.length) return;
+        const i = f.indexOf(document.activeElement);
+        if (e.shiftKey && i <= 0) { e.preventDefault(); f[f.length - 1].focus(); }
+        else if (!e.shiftKey && i === f.length - 1) { e.preventDefault(); f[0].focus(); }
+      }
+    };
     window.addEventListener('keydown', k);
-    return () => window.removeEventListener('keydown', k);
-  }, [zoom]);
-  const photos = E.photos.filter((p) => filtre === 'tous' || p.f === filtre);
+    if (window.__lenis) window.__lenis.stop();
+    return () => { window.removeEventListener('keydown', k); if (window.__lenis) window.__lenis.start(); };
+  }, [zi, filtre]);
+  React.useEffect(() => setZi(-1), [filtre]);
+  const credit = (c) => (c.startsWith('©') ? c : 'Photo : ' + c);
   const projet = (id) => D.projets.find((x) => x.id === id) || {};
   const texteBref = E.bref.map(([b, t]) => (b ? b + ' ' : '') + t).join('\n\n');
   const logosProjets = ['des-etoiles-et-des-femmes', 'les-beaux-mets', 'la-table-de-cana', 'restaure', 'tournesol']
@@ -57,7 +90,7 @@ function EspacePressePage() {
       <window.HeroPage tone="deep" title="Espace presse" accent="et communication"
         img={E.hero.img} imgAlt={E.hero.alt} imgPos="50% 35%" note={E.hero.credit}
         crumb={[{ label: 'Accueil', href: '#/' }, { label: 'Espace presse et communication' }]}>
-        <div className="g-herocta"><window.GLink l={{ to: 'ep-logos' }} className="btnb btnb--gold">Logos et photos à télécharger <span className="arrow" aria-hidden="true">↓</span></window.GLink></div>
+        <div className="g-herocta"><window.GLink l={{ to: 'ep-photos' }} className="btnb btnb--gold">Photos et logos à télécharger <span className="arrow" aria-hidden="true">↓</span></window.GLink></div>
       </window.HeroPage>
 
       {/* Festin en bref : texte validé, à copier */}
@@ -101,7 +134,7 @@ function EspacePressePage() {
                     <span className="ep-projet__tag">{p.tag}</span>
                     <h3>{p.titre}</h3>
                     <p>{p.texte}</p>
-                    <dl className="ep-kpis">{p.kpis.map(([n, l]) => <div key={l}><dt>{n}</dt><dd>{l}</dd></div>)}</dl>
+                    <dl className="ep-kpis">{p.kpis.map(([n, l]) => <div key={l}><dt>{String(n).replace(/(\d) (?=\d)/g, '$1\u00a0')}</dt><dd>{l}</dd></div>)}</dl>
                     {pr.siteUrl && p.id !== 'academie' && (
                       <a className="lnk" href={pr.siteUrl} target="_blank" rel="noopener noreferrer">{pr.siteUrl.replace(/^https?:\/\/(www\.)?/, '')} <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (nouvel onglet)</span></a>
                     )}
@@ -168,14 +201,14 @@ function EspacePressePage() {
           </div>
           <p className="sr-only" aria-live="polite">{photos.length} photos</p>
           <ul className="ep-galerie">
-            {photos.map((p) => (
+            {photos.map((p, i) => (
               <li key={p.src} className="ep-photo">
-                <button type="button" className="ep-photo__zoom" onClick={() => setZoom(p)} aria-label={'Agrandir : ' + p.l}>
-                  <window.Picture src={p.src} alt={p.l} sizes="(max-width: 899px) 100vw, 33vw" />
+                <button type="button" className="ep-photo__zoom" onClick={(e) => ouvrir(i, e)} aria-label={'Agrandir : ' + p.l}>
+                  <window.Picture src={p.src} alt="" sizes="(max-width: 899px) 100vw, 33vw" />
                 </button>
                 <div className="ep-photo__cap">
-                  <p>{p.l}{p.c && <small>{p.c.startsWith('©') ? p.c : 'Photo : ' + p.c}</small>}</p>
-                  <a href={U(versionWeb(p.src))} download={nom(versionWeb(p.src))}>Télécharger</a>
+                  <p>{p.l}{p.c && <small>{credit(p.c)}</small>}</p>
+                  <a href={U(versionWeb(p.src))} download={nom(versionWeb(p.src))} aria-label={'Télécharger : ' + p.l}>Télécharger</a>
                 </div>
               </li>
             ))}
@@ -189,11 +222,19 @@ function EspacePressePage() {
           </div>
         </div>
         {zoom && (
-          <div className="ep-lb" role="dialog" aria-modal="true" aria-label={zoom.l} onClick={() => setZoom(null)}>
+          <div className="ep-lb" role="dialog" aria-modal="true" aria-label={zoom.l} onClick={fermer}>
             <figure onClick={(e) => e.stopPropagation()}>
-              <button type="button" className="ep-lb__close" onClick={() => setZoom(null)} aria-label="Fermer">✕</button>
+              <button type="button" ref={fermerRef} className="ep-lb__close" onClick={fermer} aria-label="Fermer">✕</button>
               <img src={U(versionWeb(zoom.src))} alt={zoom.l} />
-              <figcaption>{zoom.l}{zoom.c && ' · ' + (zoom.c.startsWith('©') ? zoom.c : 'Photo : ' + zoom.c)}</figcaption>
+              <figcaption>
+                <span>{zoom.l}{zoom.c && ' · ' + credit(zoom.c)}</span>
+                <span className="ep-lb__nav">
+                  <button type="button" onClick={() => pas(-1)} aria-label="Photo précédente">←</button>
+                  <span aria-live="polite">{zi + 1} / {photos.length}</span>
+                  <button type="button" onClick={() => pas(1)} aria-label="Photo suivante">→</button>
+                  <a href={U(versionWeb(zoom.src))} download={nom(versionWeb(zoom.src))}>Télécharger</a>
+                </span>
+              </figcaption>
             </figure>
           </div>
         )}
@@ -207,7 +248,7 @@ function EspacePressePage() {
             {E.logos.map((l) => (
               <li key={l.src} className="ep-logo">
                 <span className="ep-logo__fd" style={{ background: l.fond }}><img src={l.src} alt={'Logo ' + l.t} loading="lazy" /></span>
-                <span className="ep-logo__pied"><span><b>{l.t}</b>{l.d}</span><a href={l.src} download={nom(l.src)}>Télécharger</a></span>
+                <span className="ep-logo__pied"><span><b>{l.t}</b>{l.d}</span><a href={l.src} download={nom(l.src)} aria-label={'Télécharger le logo ' + l.t + ', ' + l.d}>Télécharger</a></span>
               </li>
             ))}
           </ul>
@@ -224,11 +265,18 @@ function EspacePressePage() {
         </div>
       </section>
 
-      {/* Presse : la liste complète est sur Presse et actualités */}
+      {/* Presse : les trois derniers articles ; la liste complète est sur Presse et actualités */}
       <section className="g-sec g-sec--cream ep-presse" aria-labelledby="ep-presse-t">
-        <div className="wrap ep-presse__in">
-          <h2 className="g-h2" id="ep-presse-t">Dans <em>la presse</em></h2>
-          <a className="btnb btnb--teal" href="#/actualites">Voir tous les articles <span className="arrow" aria-hidden="true">→</span></a>
+        <div className="wrap">
+          <div className="ep-presse__in">
+            <h2 className="g-h2" id="ep-presse-t">Dans <em>la presse</em></h2>
+            <a className="btnb btnb--teal" href="#/actualites">Voir tous les articles <span className="arrow" aria-hidden="true">→</span></a>
+          </div>
+          {window.ArticlePresse && (
+            <ul className="aplist ep-presse__liste">
+              {derniers.map((a, i) => <li key={a.href || i}><window.ArticlePresse a={a} /></li>)}
+            </ul>
+          )}
         </div>
       </section>
 

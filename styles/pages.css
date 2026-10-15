@@ -123,17 +123,6 @@
 .apitem:hover .apitem__t{color:var(--teal)}
 @media(max-width:900px){.apitem{grid-template-columns:1fr;gap:var(--sp-2)}.apitem__proj{justify-self:start;text-align:left}}
 
-/* ---------- ACTUALITÉS : espace presse ---------- */
-.apkit{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(32px,6vw,96px);align-items:start}
-.apkit a:not(.btnb){color:var(--gold-light);font-weight:700}
-.apkit__logos{display:flex;flex-wrap:wrap;gap:var(--sp-3);margin-top:var(--sp-6)}
-.apkit__facts{padding:var(--sp-6);border-radius:24px;background:var(--teal-dark)}
-.apkit__facts h3{margin:0 0 var(--sp-4);font-size:var(--fs-h3);font-weight:700;text-transform:uppercase;color:var(--off-white)}
-.apkit__facts ul{list-style:none;margin:0;padding:0;display:grid;gap:var(--sp-3)}
-.apkit__facts li{font-size:var(--fs-body);line-height:1.45;color:var(--off-white)}
-.apkit__facts b{color:var(--gold-light);font-variant-numeric:tabular-nums}
-.apkit__facts p{margin:var(--sp-5) 0 0;font-size:var(--fs-small);color:rgba(254,252,248,.78)}
-@media(max-width:900px){.apkit{grid-template-columns:1fr}}
 .apmore{margin-top:var(--sp-6);font:inherit;font-weight:700;font-size:var(--fs-body);padding:14px 24px;border-radius:999px;border:1.5px solid var(--teal);background:transparent;color:var(--teal);cursor:pointer;transition:background var(--dur-2) var(--ease-quart),color var(--dur-2)}
 .apmore:hover{background:var(--teal);color:var(--off-white)}
 .apmore__n{font-weight:400;opacity:.8}
@@ -389,9 +378,11 @@
 @media(max-width:700px){.imp-projets{grid-template-columns:1fr}}
 
 /* Actualités : renvoi vers l'espace presse (15/10/2026) */
-.aprenvoi{padding:var(--sp-8) 0}
+.aprenvoi{padding:var(--sp-6) 0}
 .aprenvoi__in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--sp-5) var(--sp-8)}
-.aprenvoi .isec__h{max-width:none}
-.aprenvoi .isec__lede{margin-top:var(--sp-3)}
+.aprenvoi .isec__h{max-width:none;font-size:var(--fs-h3)}
+.aprenvoi .isec__lede{margin-top:var(--sp-2);font-size:var(--fs-body)}
+.aprenvoi + .isec{padding-top:var(--sp-8)}
+@media (max-width:719px){.apfilter{padding:8px 14px}}
 .aprenvoi__rappel{margin:var(--sp-7) 0 0;font-size:var(--fs-small);color:var(--ink-mid)}
 .aprenvoi__rappel a{color:var(--teal-dark);font-weight:700;text-decoration:underline;text-underline-offset:3px}

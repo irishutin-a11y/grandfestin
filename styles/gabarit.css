@@ -225,14 +225,6 @@
   font-size:13px;line-height:1.4;color:var(--ink-mid)}
 .aca-qualiopi img{height:44px;width:auto}
 .aca-qualiopi b{color:var(--ink)}
-/* Actualités : espace presse sur or pâle */
-.apkit-sec .apkit a:not(.btnb){color:var(--teal-dark)}
-.apkit-sec .apkit__facts{background:var(--off-white);border:1px solid var(--line-strong)}
-.apkit-sec .apkit__facts h3{color:var(--teal-dark)}
-.apkit-sec .apkit__facts li{color:var(--ink)}
-.apkit-sec .apkit__facts b{color:var(--teal-dark)}
-.apkit-sec .apkit__facts p{color:var(--ink-mid)}
-.apkit-sec .apkit__logos{align-items:center;gap:var(--sp-4) var(--sp-6)}
 
 /* ---- Accessibilité (audit axe-core du 24/09/2026) ---- */
 /* Boutons de don : le corail de la charte ne porte pas un texte blanc à 12 px (3,6:1) */
@@ -503,19 +495,8 @@ main > div > section:last-of-type:has(.g-appel){border-top:0!important}
 .g-table__cta{display:flex;flex-wrap:wrap;gap:var(--sp-3);margin-top:var(--sp-7)}
 .btnb--lg{min-height:60px;padding:18px 30px;font-size:15px}
 @media (max-width:900px){.g-table__in{grid-template-columns:1fr}.g-table__cta .btnb{width:100%;justify-content:center}.g-table__infos div{grid-template-columns:100px 1fr}}
-.apkit__h{margin:var(--sp-7) 0 var(--sp-4);font-size:var(--fs-h3);text-transform:uppercase;color:var(--teal-dark)}
-.apkit__projets{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:var(--sp-3)}
-.apkit__projets a{display:flex;flex-direction:column;gap:8px;height:100%;padding:12px;border-radius:14px;background:var(--off-white);border:1px solid var(--line-strong);color:var(--ink) !important;font-size:var(--fs-small);font-weight:700;text-decoration:none}
-.apkit__projets a:hover{border-color:var(--teal)}
-.apkit__pl{display:grid;place-items:center;height:64px}
-.apkit__pl img{max-height:56px;max-width:100%;object-fit:contain}
-.apkit__miss{margin-top:var(--sp-4);font-size:var(--fs-small);font-style:italic;color:var(--ink-mid)}
 .g-table__infos dd a{color:var(--gold-light);font-weight:700;text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
 .img-vide{display:block;width:100%;height:100%;min-height:160px;background:repeating-linear-gradient(135deg,var(--gold) 0 18px,#ffcf33 18px 36px)}
-.apkit__resume{margin:var(--sp-5) 0 var(--sp-6);padding:var(--sp-5);border-radius:16px;background:var(--off-white);border:1px solid var(--line-strong)}
-.apkit__resume h3{margin:0 0 var(--sp-3);font-size:var(--fs-h3);text-transform:uppercase;color:var(--teal-dark)}
-.apkit__resume p{margin:0;font-size:var(--fs-body);line-height:1.6;color:var(--ink)}
-.apkit__copy{margin-top:var(--sp-4);background:none;border:0;padding:6px 0;cursor:pointer;font:inherit;font-weight:700;color:var(--teal-dark);text-decoration:underline;text-underline-offset:4px}
 /* Arborescence C : sous-menus de la pastille (survol, focus clavier, clic sur « Nos tables ») */
 .navpill__it{position:relative}
 .navpill__links button{display:inline-flex;align-items:center;gap:4px;min-height:40px;padding:0 13px;border:0;border-radius:999px;background:none;cursor:pointer;font:inherit;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
