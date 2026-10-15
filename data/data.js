@@ -936,7 +936,7 @@ window.FESTIN_DATA.espacePresse = {
     { f: "def", src: "images/photo-applaudissements.jpg", l: "Une promotion applaudit en cuisine", c: "Iris Hutin" },
     { f: "def", src: "images/images-def/def-julia-sedefdjian-atelier.jpg", l: "En cuisine avec la cheffe Julia Sedefdjian, marraine du réseau", c: "Flavien Lhomme" },
     { f: "def", src: "images/images-def/def-lille-transmission-chef.jpg", l: "Transmission en cuisine, Lille", c: "MonsieurHuman" },
-    { f: "def", src: "images/images-def/def-lille-portrait.jpg", l: "Des Étoiles et des Femmes, Lille" },
+    { f: "def", src: "images/images-def/def-lille-portrait.jpg", l: "Des Étoiles et des Femmes, Lille", c: "MonsieurHuman" }, // crédit donné par Festin le 15/10/2026
     { f: "def", src: "images/images-def/def-promotion-groupe.jpg", l: "Une promotion Des Étoiles et des Femmes" },
     { f: "def", src: "images/images-def/_DEF_ATELIERPATISSERIEF_namarante_04122024_00000-24.jpg", l: "Atelier pâtisserie, Des Étoiles et des Femmes", c: "Natalia Amarante" },
     { f: "lbm", src: "images/beauxmets-images/LBM_cdutrey_cartehiver23_181223-2616.jpg", l: "Des convives à table aux Beaux Mets", c: "Caroline Dutrey" },
