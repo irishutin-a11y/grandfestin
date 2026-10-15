@@ -93,8 +93,6 @@
 .ep-photo__cap a,.ep-logo__pied a{flex-shrink:0;font-size:13px;font-weight:700;text-decoration:none;color:var(--teal-dark);border:1.5px solid var(--teal);border-radius:999px;padding:6px 12px;min-height:32px;display:inline-flex;align-items:center}
 .ep-photo__cap a:hover,.ep-logo__pied a:hover{background:var(--teal);color:var(--off-white)}
 .ep-hd{display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-3) var(--sp-5);margin-top:var(--sp-6)}
-.ep-hd .btnb[disabled]{opacity:.55;cursor:not-allowed}
-.ep-hd__note{font-size:14px;color:var(--ink-mid)}
 .ep-hd__credit{flex-basis:100%;margin:0;font-size:14px;color:var(--ink-mid)}
 .ep-lb{position:fixed;inset:0;z-index:400;display:grid;place-items:center;padding:24px;background:rgba(10,45,51,.94);cursor:zoom-out}
 .ep-lb figure{position:relative;margin:0;max-width:min(1200px,94vw);cursor:default}

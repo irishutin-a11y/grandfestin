@@ -214,10 +214,8 @@ function EspacePressePage() {
             ))}
           </ul>
           <div className="ep-hd">
-            {E.hdLien
-              ? <a className="btnb btnb--teal" href={E.hdLien} target="_blank" rel="noopener noreferrer">Toutes les photos en haute définition <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (nouvel onglet)</span></a>
-              : <button type="button" className="btnb btnb--teal" disabled aria-describedby="ep-hd-note">Toutes les photos en haute définition</button>}
-            {!E.hdLien && <span id="ep-hd-note" className="ep-hd__note">Lien bientôt disponible.</span>}
+            {/* bouton HD retiré le 15/10/2026 : il ne revient que si espacePresse.hdLien est renseigné */}
+            {E.hdLien && <a className="btnb btnb--teal" href={E.hdLien} target="_blank" rel="noopener noreferrer">Toutes les photos en haute définition <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (nouvel onglet)</span></a>}
             <p className="ep-hd__credit">Merci de citer le crédit photo quand il est indiqué.</p>
           </div>
         </div>

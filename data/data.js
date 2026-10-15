@@ -879,12 +879,12 @@ window.FESTIN_DATA.espacePresse = {
   piliers: [["Former", "Des formations diplômantes en cuisine."], ["Insérer", "Un accompagnement social et professionnel."], ["Employer", "Un parcours jusqu'à l'emploi durable."], ["Transformer", "Les pratiques du secteur de la restauration."]],
   frise: [
     { an: "1987", t: "Naissance de Festin" }, { an: "1992", t: "La Table de Cana Marseille" }, { an: "2015", t: "Des Étoiles et des Femmes" },
-    { an: "2022", t: "Les Beaux Mets" }, { an: "2024", t: "Restaure" }, { an: "2026", t: "Académie Festin" },
+    { an: "2022", t: "Les Beaux Mets" }, { an: "2024", t: "Le programme Restaure" }, { an: "2026", t: "Académie Festin" },
     { an: "2027", t: "Sadi Carnot", note: "prochainement", avenir: true },
   ],
   projets: [
     { id: "des-etoiles-et-des-femmes", an: "2015", tag: "Un projet de Festin · La formation en cuisine", titre: "Des Étoiles et des Femmes", large: true,
-      texte: "Le programme national de formation diplômante pour les femmes éloignées de l'emploi : un CAP cuisine, un accompagnement social renforcé et des stages dans des restaurants gastronomiques et étoilés. Treize antennes partout en France.",
+      texte: "Le programme national de formation diplômante pour les femmes éloignées de l'emploi : un diplôme de cuisine, un accompagnement social renforcé et des stages dans des restaurants partenaires. Treize antennes partout en France.",
       kpis: [["1 100+", "femmes accompagnées depuis 2015"], ["91 %", "de réussite aux diplômes en 2025"]],
       img: "images/images-def/def-promotion-groupe.jpg", alt: "Une promotion Des Étoiles et des Femmes, en vestes de cuisine" },
     { id: "les-beaux-mets", an: "2022", tag: "Un projet de Festin · Le restaurant d'insertion", titre: "Les Beaux Mets",
@@ -895,8 +895,8 @@ window.FESTIN_DATA.espacePresse = {
       texte: "Le premier projet de Festin. À travers la restauration collective et le traiteur, elle accompagne des personnes éloignées de l'emploi vers une montée en compétences progressive, dans un cadre structurant et exigeant.",
       kpis: [["45", "salariés en insertion en 2025"], ["400 000+", "convives régalés"]],
       img: "images/latable de cana/tabledecana_cdutrey_160124-4393.jpg", alt: "En cuisine à La Table de Cana Marseille", pos: "50% 30%" },
-    { id: "restaure", an: "2024", tag: "Un projet de Festin · Le mouvement", titre: "Restaure",
-      texte: "Un mouvement national qui fédère des acteurs de la restauration pour faire évoluer les pratiques du secteur, prévenir les violences en cuisine et promouvoir un management plus juste. Il forme les professionnels de la restauration.",
+    { id: "restaure", an: "2024", tag: "Un projet de Festin · Changer les cuisines", titre: "Le programme Restaure",
+      texte: "Il fédère à l'échelle nationale des acteurs de la restauration pour faire évoluer les pratiques du secteur, prévenir les violences en cuisine et promouvoir un management plus juste. Il forme les professionnels de la restauration.",
       kpis: [["700", "signataires du manifeste"], ["35", "structures engagées"]],
       img: "images/restaure : formation pro/FESTIN_TOAST_12 FEVRIER_FEED-25.jpg", alt: "Un Toast du programme Restaure : une salle écoute des restaurateurs" },
     { id: "academie", an: "2026", tag: "Un projet de Festin · L'école", titre: "L'Académie Festin",
@@ -924,7 +924,7 @@ window.FESTIN_DATA.espacePresse = {
     { t: "Des Étoiles et des Femmes", d: "Film de présentation, agence Les Fabricants", href: "https://drive.google.com/file/d/1X3er9EQUpu61_yXR3KceY1sV4RgfygEK5hNzUFaaHEY/view", img: "images/images-def/grand-festin-2025-brigades.jpg" },
     { t: "Les Beaux Mets", d: "Reportage M6 Info", href: "https://www.youtube.com/watch?v=PxuhWFzpmII", img: "images/beauxmets-images/LBM_masterclass_chloeCharles_cdutrey_030325-7893.jpg" },
     { t: "La Table de Cana Marseille", d: "Film de présentation", href: "https://www.youtube.com/watch?v=RUpAD7u0Khs", img: "images/latable de cana/TABLECANA_EVENT_cdutrey_230625-5158.jpg" },
-    { t: "Restaure", d: "Vidéo sur Instagram", href: "https://www.instagram.com/reel/DJ9kq6iIb5j/", img: "images/restaure : formation pro/FESTIN_TOAST_12 FEVRIER_FEED-25.jpg" },
+    { t: "Le programme Restaure", d: "Vidéo sur Instagram", href: "https://www.instagram.com/reel/DJ9kq6iIb5j/", img: "images/restaure : formation pro/FESTIN_TOAST_12 FEVRIER_FEED-25.jpg" },
   ],
   // Photothèque : légendes et crédits de CONTENU-VALIDE.md ; pas de crédit affiché quand il n'y en a pas.
   // Pas la photo de remise des diplômes de Lille.
