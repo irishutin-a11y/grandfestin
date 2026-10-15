@@ -157,3 +157,5 @@
 .ep-lb__nav button:hover{background:rgba(255,255,255,.12)}
 .ep-lb__nav a{color:var(--gold-light);font-weight:700;text-decoration:underline;text-underline-offset:3px;margin-left:6px}
 .ep-photo__zoom:focus-visible{outline:3px solid var(--teal);outline-offset:-3px}
+/* en-tête : « et communication » est insécable ; sur petit téléphone, le titre se réduit pour tenir dans le cartouche */
+@media (max-width:409px){ .ep .hc .hc__t{font-size:min(2.25rem,8.6vw)} }

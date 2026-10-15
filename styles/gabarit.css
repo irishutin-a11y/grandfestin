@@ -672,7 +672,7 @@ img[src*="photo-micro-temoignage"]{object-position:55% 18%}
 .hc__credit{position:absolute;right:12px;bottom:12px;padding:4px 10px;border-radius:999px;background:var(--off-white);color:var(--ink);font-size:12px}
 .hc__pose{display:contents}
 .hc__pose.wrap{max-width:none;padding:0;margin:0}
-.hc__cart{position:relative;max-width:640px;padding:clamp(24px,3.4vw,48px);border-radius:28px;box-shadow:0 30px 60px -30px rgba(6,33,31,.5)}
+.hc__cart{position:relative;max-width:640px;min-width:min-content;padding:clamp(24px,3.4vw,48px);border-radius:28px;box-shadow:0 30px 60px -30px rgba(6,33,31,.5)}
 .hc--accueil .hc__cart{max-width:760px}
 .hc__cart--teal{background:var(--teal);color:#fff}
 .hc__cart--deep{background:var(--teal-deep);color:#fff}
@@ -681,6 +681,8 @@ img[src*="photo-micro-temoignage"]{object-position:55% 18%}
 .hc__crumb a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 .hc__crumb a:focus-visible{outline:3px solid currentColor;outline-offset:2px}
 .hc .hc__t{margin:0;font-size:clamp(2.25rem,1.4rem + 3vw,4.25rem);font-weight:700;line-height:1.02;letter-spacing:-.01em;text-transform:uppercase;color:inherit;text-wrap:balance;overflow-wrap:normal}
+/* l'ancien plafond .hp__t{max-width:14ch} ne doit pas couper une ligne insécable (« et communication ») : le titre tient au moins sa ligne la plus longue (15/10/2026) */
+.hc .hc__t{min-width:min-content}
 .hc .hc__t em{display:block;font-style:italic;font-weight:300;color:var(--gold-light)}
 .hc__cart--gold .hc__t em{color:var(--ink)}
 .hc .hc__t--xl{font-size:var(--fs-display);line-height:.95}
