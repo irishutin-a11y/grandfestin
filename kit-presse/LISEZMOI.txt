@@ -1,0 +1,28 @@
+KIT PRESSE FESTIN (relevé du 15 octobre 2026)
+
+photos/       12 photos, copies exactes des fichiers disponibles, sans recompression.
+credits.csv   Fichier, projet, légende, photographe, droits connus, note
+              (séparateur « ; », s'ouvre dans Excel ou Google Sheets).
+logos/        Logos Festin disponibles en haute définition.
+videos.md     Vidéos citées sur le site, avec leur état.
+
+AVANT DIFFUSION
+- Droits à l'image : non confirmés pour l'ensemble des photos. Les crédits
+  manquants sont laissés vides dans credits.csv.
+- Quatre photos ne sont que des versions recompressées pour le site :
+  def-promotion-groupe, grand-festin-2025-brigades et les deux photos des
+  Beaux Mets. Les originaux des Beaux Mets sont sur le Drive ; ceux des deux
+  autres sont à fournir. Deux photos (Toast, Tournesol) ne dépassent pas
+  1500 px de large.
+- Logos des projets (Des Étoiles et des Femmes, Les Beaux Mets, La Table de
+  Cana Marseille, programme Restaure, Tournesol) : aucune version haute
+  définition disponible, ils ne figurent pas dans le kit. Logo de l'Académie
+  Festin : non validé, exclu.
+
+LOGOS
+- logo-festin-signature-cmjn.jpg : logo avec la signature « Le goût d'avancer
+  ensemble », fichier d'origine en CMJN (pour l'impression), 1387 × 1066 px.
+- logo-festin-jaune.png : logo jaune, fond transparent, 1388 × 702 px.
+- logo-festin-teal-sb.png, logo-festin-blanc-sb.png, logo-festin-jaune-sb.png :
+  logo sans signature, fond transparent, 960 × 492 px. Versions reconstruites
+  pour le site, à faire valider avant diffusion.
