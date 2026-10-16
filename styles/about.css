@@ -16,6 +16,8 @@
 .ab-title--hero{font-size:var(--fs-display);line-height:.94;margin-bottom:28px;color:var(--off-white)}
 .ab-title--hero em{color:var(--gold-light)}
 .ab-body{font-size:17px;line-height:1.7;color:var(--ink-mid);margin:0;max-width:52ch}
+.ab-split__txt .ab-body + .ab-body{margin-top:var(--sp-4)}
+.ab-body--mission{font-size:var(--fs-lede);line-height:1.5;color:var(--ink)}
 .ab-lede{font-size:var(--fs-lede);line-height:1.65;color:rgba(255,255,255,.82);max-width:56ch;margin:0 auto}
 
 .ab-sec{padding:var(--s-9) 0;position:relative}

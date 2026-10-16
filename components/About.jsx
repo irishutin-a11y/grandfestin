@@ -37,12 +37,12 @@ function CeQuOnEst() {
           <Title em="de l'égalité des chances" after={null}>
             La cuisine au service
           </Title>
-          {/* texte de présentation validé (espace presse, 15/10/2026) */}
-          <p className="ab-body"><b>Notre mission :</b> mettre la restauration au service de l'insertion sociale et professionnelle des personnes éloignées de l'emploi.</p>
-          <p className="ab-body">Festin construit et anime des alliances d'acteurs publics et privés afin de créer des parcours d'insertion sur mesure dans la gastronomie. L'association construit des solutions innovantes, gère leur déploiement opérationnel sur le territoire marseillais, puis organise leur essaimage à travers la France.</p>
-          <p className="ab-body"><b>Notre conviction :</b> le goût d'avancer ensemble. Fierté, exigence, créativité : la cuisine est un formidable support pour une insertion efficace et un épanouissement personnel.</p>
-          <p className="ab-body">Notre développement s'est construit dans la durée, à partir d'un ancrage territorial fort, d'une capacité d'innovation reconnue et d'une articulation concrète entre utilité sociale, activité économique et transformation des pratiques.</p>
-          <p className="ab-body">Tout commence à Marseille en 1987, sous le nom de Départ ; le nom de Festin arrive en 2022. Le premier projet, La Table de Cana Marseille, ouvre en 1992 : un traiteur où des salariés en insertion apprennent la cuisine en travaillant. Cet écosystème s'appuie aujourd'hui sur plusieurs projets structurants.</p>
+          {/* version courte pour le web (16/10/2026, « beaucoup trop long, pas optimisé web ») ;
+              le texte de présentation validé complet reste dans l'espace presse, avec le bouton Copier */}
+          <p className="ab-body ab-body--mission"><b>Notre mission :</b> mettre la restauration au service de l'insertion sociale et professionnelle des personnes éloignées de l'emploi.</p>
+          <p className="ab-body">Avec des acteurs publics et privés, Festin crée des parcours d'insertion sur mesure : il les lance à Marseille, puis les essaime en France.</p>
+          <p className="ab-body"><b>Notre conviction :</b> la cuisine est un support d'insertion efficace et d'épanouissement personnel.</p>
+          <p className="ab-body">Tout commence à Marseille en 1987, sous le nom de Départ, devenu Festin en 2022. Premier projet : La Table de Cana Marseille, en 1992.</p>
           <window.Preuves lignes={["En 2025, nous avons accompagné <b>441 personnes</b> dans <b>14 territoires</b>."]}
             source="Source : rapport d'activité Festin 2025, tous projets confondus." />
           <a className="lnk ab-lnk" href="#/impact">Tous nos chiffres depuis 2022 <span className="arrow" aria-hidden="true">→</span></a>
