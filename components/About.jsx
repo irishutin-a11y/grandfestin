@@ -40,8 +40,10 @@ function CeQuOnEst() {
           {/* version courte pour le web (16/10/2026, « beaucoup trop long, pas optimisé web ») ;
               le texte de présentation validé complet reste dans l'espace presse, avec le bouton Copier */}
           <p className="ab-body ab-body--mission"><b>Notre mission :</b> mettre la restauration au service de l'insertion sociale et professionnelle des personnes éloignées de l'emploi.</p>
-          <p className="ab-body">Avec des acteurs publics et privés, Festin crée des parcours d'insertion sur mesure : il les lance à Marseille, puis les essaime en France.</p>
+          <p className="ab-body">Avec des acteurs publics et privés, Festin crée des parcours d'insertion sur mesure et construit des solutions innovantes : il les lance à Marseille, puis les essaime en France.</p>
           <p className="ab-body"><b>Notre conviction :</b> la cuisine est un support d'insertion efficace et d'épanouissement personnel.</p>
+          {/* phrase validée par la direction (16/10/2026) : ne pas la retirer ni la réécrire */}
+          <p className="ab-body">Notre développement s'est construit dans la durée, à partir d'un ancrage territorial fort, d'une capacité d'innovation reconnue et d'une articulation concrète entre utilité sociale, activité économique et transformation des pratiques.</p>
           <p className="ab-body">Tout commence à Marseille en 1987, sous le nom de Départ, devenu Festin en 2022. Premier projet : La Table de Cana Marseille, en 1992.</p>
           <window.Preuves lignes={["En 2025, nous avons accompagné <b>441 personnes</b> dans <b>14 territoires</b>."]}
             source="Source : rapport d'activité Festin 2025, tous projets confondus." />
