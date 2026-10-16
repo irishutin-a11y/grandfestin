@@ -44,7 +44,7 @@ function CeQuOnEst() {
           <p className="ab-body"><b>Notre conviction :</b> la cuisine est un support d'insertion efficace et d'épanouissement personnel.</p>
           {/* phrase validée par la direction (16/10/2026) : ne pas la retirer ni la réécrire */}
           <p className="ab-body">Notre développement s'est construit dans la durée, à partir d'un ancrage territorial fort, d'une capacité d'innovation reconnue et d'une articulation concrète entre utilité sociale, activité économique et transformation des pratiques.</p>
-          <p className="ab-body">Tout commence à Marseille en 1987, sous le nom de Départ, devenu Festin en 2022. Premier projet : La Table de Cana Marseille, en 1992.</p>
+          <p className="ab-body">Tout commence à Marseille en 1987, sous le nom de Départ, devenu Festin en 2022.</p>
           <window.Preuves lignes={["En 2025, nous avons accompagné <b>441 personnes</b> dans <b>14 territoires</b>."]}
             source="Source : rapport d'activité Festin 2025, tous projets confondus." />
           <a className="lnk ab-lnk" href="#/impact">Tous nos chiffres depuis 2022 <span className="arrow" aria-hidden="true">→</span></a>
