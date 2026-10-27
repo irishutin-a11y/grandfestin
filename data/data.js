@@ -1404,6 +1404,8 @@ window.FESTIN_DATA.lieux = [
       "Un pôle de travail partagé autour de l'alimentation durable",
       "Une cuisine pour l'aide alimentaire en centre-ville",
     ],
+    // Page de soutien de la campagne (27/10/2026) : lien externe, ouvert dans un nouvel onglet
+    page: "https://claude.ai/artifact/TQ3EFSfJ8j5bTofMGmLANu",
     actions: [] },
 ];
 
