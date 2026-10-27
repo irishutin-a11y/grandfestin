@@ -198,3 +198,7 @@ Relevé complet dans `RESSOURCES-DRIVE.md` (23/09/2026) : récits, témoignages,
 ## Méthode de travail
 - Vérifier la branche et `git log` avant de committer : plusieurs sessions ont travaillé en parallèle sur ce dépôt.
 - Commits par phase autorisés (branche courante, avec la ligne Co-Authored-By) ; pas de push sans demande.
+
+## Page de campagne Sadi Carnot (27/10/2026)
+- `sadi-carnot.html`, page **autonome** (hors React), servie à `/sadi-carnot` (`vercel.json`), images dans `images/sadi-carnot/`, polices `typos/*.woff2`. Exportée de la maquette Claude Design « Soutenir Sadi Carnot » ; interactions en JS natif (plan cliquable, montants du don, questions). Le bouton « Découvrir le projet » de la brique `SadiCarnot` y mène (`lieux[sadi-carnot].page`).
+- Exception décidée par l'utilisatrice : cette page de campagne porte les chiffres du projet et l'appel à investir (Lita), interdits ailleurs sur le site. **Avant `main`** : mentions réglementaires et avantage fiscal Lita, lien du bouton Lita, statut ESUS de Maison Festin, réduction d'impôt du don, validation de la partie investissement par la direction et Lita ; puis retirer la balise `noindex`.

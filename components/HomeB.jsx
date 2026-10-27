@@ -280,7 +280,7 @@ function SadiCarnot({ id, titre, accent, tone = 'cream' }) {
             <p className="sc__p">{sc.text}</p>
             <p className="sc__ambition">{sc.ambition}</p>
             <div className="sc__act">
-              {sc.page && <a className="btnb btnb--gold" href={sc.page} target="_blank" rel="noopener noreferrer">Découvrir le projet <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (nouvel onglet)</span></a>}
+              {sc.page && <a className="btnb btnb--gold" href={sc.page}>Découvrir le projet <span className="arrow" aria-hidden="true">→</span></a>}
               <a className={sc.page ? 'sc__lnk' : 'btnb btnb--gold'} href={D.donation} target="_blank" rel="noopener noreferrer">Faire un don <span className="arrow" aria-hidden="true">↗</span><span className="sr-only"> (nouvel onglet)</span></a>
               <a className="sc__lnk" href="#/contact/mecenat">Devenir mécène <span className="arrow" aria-hidden="true">→</span></a>
             </div>
